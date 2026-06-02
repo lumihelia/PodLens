@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lumihelia.github.io/PodLens/sitemap.xml
