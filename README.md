@@ -129,4 +129,8 @@ You should get a Markdown report with all the layers, in order.
 - Audio-file transcription and podcast RSS as input adapters.
 - A thin web UI that calls the same `interpret()` core.
 - Append accepted concepts to a growing personal knowledge file.
+
+## License
+
+[MIT](LICENSE) — free to use, modify, and distribute.
 ```
