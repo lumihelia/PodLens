@@ -98,6 +98,13 @@ def main(argv: list[str] | None = None) -> int:
         help="Publication date (YYYY-MM-DD) for the published episode. "
              "Defaults to today.",
     )
+    parser.add_argument(
+        "--source-url",
+        help="Original episode URL (e.g. the YouTube link). When it's a "
+             "YouTube video, timestamps in the published page become clickable "
+             "deep links into the video. Auto-detected if the input is a "
+             "YouTube URL.",
+    )
     args = parser.parse_args(argv)
 
     config = load_config()
@@ -118,7 +125,8 @@ def main(argv: list[str] | None = None) -> int:
         except OSError as exc:
             _eprint(f"Error reading report: {exc}")
             return 1
-        entry = publish_report(report_md, args.title, load_site_config(), date=args.date)
+        entry = publish_report(report_md, args.title, load_site_config(),
+                               date=args.date, source_url=args.source_url)
         _eprint(f"Published public layers -> docs/episodes/{entry['slug']}.html")
         return 0
 
@@ -166,7 +174,11 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.publish:
         from .publish import load_site_config, publish_report
-        entry = publish_report(report, args.title, load_site_config(), date=args.date)
+        source_url = args.source_url
+        if not source_url and is_youtube_url(args.source):
+            source_url = args.source
+        entry = publish_report(report, args.title, load_site_config(),
+                               date=args.date, source_url=source_url)
         _eprint(f"Published public layers -> docs/episodes/{entry['slug']}.html")
 
     return 0

@@ -22,10 +22,21 @@ from pathlib import Path
 
 import markdown as md
 
+from .youtube import extract_video_id
+
+# A bracketed timestamp like [12:34] or [1:23:45] or a range [00:00-01:04].
+# Captures the START time so it can deep-link into the source video.
+_TS_RE = re.compile(
+    r"\[(\d{1,2}:\d{2}(?::\d{2})?)(?:\s*[-–~]\s*\d{1,2}:\d{2}(?::\d{2})?)?\]"
+)
+
 # Site output dir (GitHub Pages can serve from /docs on the main branch).
 SITE_DIR = Path("docs")
 EPISODES_DIR = SITE_DIR / "episodes"
-MANIFEST = SITE_DIR / "episodes.json"
+# Internal source-of-truth manifest (full entries, incl. slug/source_url).
+MANIFEST = SITE_DIR / "manifest.json"
+# Public JSON Feed (jsonfeed.org), generated from the manifest.
+JSONFEED = SITE_DIR / "episodes.json"
 
 DEFAULT_PRIVATE_CUTOFF = "## 证据锚定洞察"
 
@@ -88,8 +99,14 @@ def _load_manifest() -> list[dict]:
     return []
 
 
-def _save_manifest(items: list[dict], site: SiteConfig) -> None:
-    # episodes.json doubles as a JSON Feed (jsonfeed.org) for machine consumers.
+def _write_manifest(items: list[dict]) -> None:
+    MANIFEST.write_text(
+        json.dumps({"items": items}, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+
+
+def _write_jsonfeed(items: list[dict], site: SiteConfig) -> None:
+    # episodes.json is a JSON Feed (jsonfeed.org) for machine consumers.
     feed = {
         "version": "https://jsonfeed.org/version/1.1",
         "title": site.title,
@@ -104,11 +121,12 @@ def _save_manifest(items: list[dict], site: SiteConfig) -> None:
                 "title": it["title"],
                 "date_published": it["date"],
                 "summary": it.get("summary", ""),
+                **({"external_url": it["source_url"]} if it.get("source_url") else {}),
             }
             for it in items
         ],
     }
-    MANIFEST.write_text(json.dumps(feed, ensure_ascii=False, indent=2), encoding="utf-8")
+    JSONFEED.write_text(json.dumps(feed, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
 # --- Slug / summary helpers ---------------------------------------------------
@@ -121,6 +139,36 @@ def slugify(title: str, date: str) -> str:
         return ascii_part[:60]
     digest = hashlib.sha1(title.encode("utf-8")).hexdigest()[:8]
     return f"{date}-{digest}"
+
+
+def _ts_to_seconds(ts: str) -> int:
+    parts = [int(p) for p in ts.split(":")]
+    while len(parts) < 3:
+        parts.insert(0, 0)
+    h, m, s = parts
+    return h * 3600 + m * 60 + s
+
+
+def _linkify_timestamps(content_html: str, source_url: str) -> str:
+    """Turn bracketed timestamps into deep links into the source video.
+
+    Only applied when the source is a YouTube video. Each [mm:ss] becomes a
+    link to youtube.com/watch?v=ID&t=Ns, so readers can jump to the exact
+    moment the claim is made in the original.
+    """
+    vid = extract_video_id(source_url) if source_url else None
+    if not vid:
+        return content_html
+
+    def repl(m: re.Match) -> str:
+        secs = _ts_to_seconds(m.group(1))
+        url = f"https://www.youtube.com/watch?v={vid}&t={secs}s"
+        return (
+            f'<a href="{url}" target="_blank" rel="noopener" '
+            f'class="ts">{html.escape(m.group(0))}</a>'
+        )
+
+    return _TS_RE.sub(repl, content_html)
 
 
 def _first_sentences(public_md: str, limit: int = 200) -> str:
@@ -173,11 +221,21 @@ li { margin: 6px 0; }
 .episode-list .summary { color: #5a5566; }
 .foot { margin-top: 96px; color: var(--muted); font-size: 0.85rem; }
 .back { display: inline-block; margin-bottom: 48px; color: var(--muted); }
+a.ts { color: var(--primary); font-variant-numeric: tabular-nums; white-space: nowrap; text-decoration: none; border-bottom: 1px dotted var(--border); }
+a.ts:hover { border-bottom-style: solid; }
+.source { color: var(--muted); font-size: 0.95rem; margin: 0 0 48px; }
 """
 
 
 def _page(title: str, body: str, site: SiteConfig, *, description: str,
-          canonical: str, is_episode: bool) -> str:
+          canonical: str, is_episode: bool, json_ld: dict | None = None) -> str:
+    ld = ""
+    if json_ld:
+        ld = (
+            '<script type="application/ld+json">'
+            + json.dumps(json_ld, ensure_ascii=False)
+            + "</script>"
+        )
     feed_link = (
         f'<link rel="alternate" type="application/rss+xml" '
         f'title="{html.escape(site.title)}" href="{site.clean_base}/feed.xml">'
@@ -198,6 +256,7 @@ def _page(title: str, body: str, site: SiteConfig, *, description: str,
 <meta property="og:description" content="{html.escape(description)}">
 <meta property="og:url" content="{canonical}">
 {feed_link}
+{ld}
 {_FONTS}
 <style>{_CSS}</style>
 </head>
@@ -212,17 +271,43 @@ def _page(title: str, body: str, site: SiteConfig, *, description: str,
 
 def render_episode_page(entry: dict, public_md: str, site: SiteConfig) -> str:
     content_html = md.markdown(public_md, extensions=["extra", "sane_lists"])
+    source_url = entry.get("source_url", "")
+    content_html = _linkify_timestamps(content_html, source_url)
     canonical = site.clean_base + f"/episodes/{entry['slug']}.html"
+
+    source_line = ""
+    if source_url:
+        source_line = (
+            f'<p class="source">原节目:'
+            f'<a href="{html.escape(source_url)}" target="_blank" rel="noopener">'
+            f'{html.escape(source_url)}</a>　·　时间戳可点击,直接跳到原视频对应位置</p>'
+        )
+
+    json_ld = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": entry["title"],
+        "datePublished": entry["date"],
+        "inLanguage": "zh",
+        "url": canonical,
+        "description": entry.get("summary", ""),
+        "author": {"@type": "Person", "name": site.author},
+        "publisher": {"@type": "Person", "name": site.author},
+    }
+    if source_url:
+        json_ld["isBasedOn"] = source_url
+
     body = f"""<a class="back" href="{site.clean_base}/">← {html.escape(site.title)}</a>
 <h1>{html.escape(entry['title'])}</h1>
 <p class="meta">{entry['date']} · 由 PodLens 生成的忠实解读</p>
+{source_line}
 {content_html}
 <p class="foot">本页为对节目内容的忠实解读与大白话重述,由 <a href="https://github.com/lumihelia/PodLens">PodLens</a> 生成。</p>
 """
     return _page(
         f"{entry['title']} · {site.title}", body, site,
         description=entry.get("summary", site.description),
-        canonical=canonical, is_episode=True,
+        canonical=canonical, is_episode=True, json_ld=json_ld,
     )
 
 
@@ -307,6 +392,7 @@ def publish_report(
     site: SiteConfig,
     date: str | None = None,
     slug: str | None = None,
+    source_url: str | None = None,
 ) -> dict:
     """Add one report's PUBLIC layers to the site and rebuild feeds/index.
 
@@ -325,7 +411,8 @@ def publish_report(
     date = date or datetime.now().strftime("%Y-%m-%d")
     slug = slug or slugify(title, date)
     entry = {"slug": slug, "title": title, "date": date,
-             "summary": _first_sentences(public_md)}
+             "summary": _first_sentences(public_md),
+             "source_url": source_url or ""}
 
     (EPISODES_DIR / f"{slug}.html").write_text(
         render_episode_page(entry, public_md, site), encoding="utf-8"
@@ -341,7 +428,8 @@ def publish_report(
 
 def _rebuild_site(items: list[dict], site: SiteConfig) -> None:
     SITE_DIR.mkdir(parents=True, exist_ok=True)
-    _save_manifest(items, site)
+    _write_manifest(items)
+    _write_jsonfeed(items, site)
     (SITE_DIR / "index.html").write_text(render_index(items, site), encoding="utf-8")
     (SITE_DIR / "feed.xml").write_text(build_rss(items, site), encoding="utf-8")
     (SITE_DIR / "sitemap.xml").write_text(build_sitemap(items, site), encoding="utf-8")
