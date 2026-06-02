@@ -1,0 +1,170 @@
+"""Core interpretation pipeline.
+
+This module is deliberately decoupled from the CLI: it takes plain inputs and
+returns a structured result, so a future web app or API can call `interpret()`
+directly without touching any terminal code.
+
+The pipeline runs three Gemini calls in order. Each later call is grounded in
+the verified output of the earlier ones -- this is how PodLens enforces
+"faithfulness before insight" at the architecture level, not just in prompt text.
+"""
+
+from dataclasses import dataclass
+from datetime import datetime
+from typing import Callable
+
+from google import genai
+from google.genai import types
+
+from .config import Config
+from .prompts import (
+    build_mapping_prompt,
+    build_plain_language_prompt,
+    build_reconstruction_prompt,
+)
+from .transcript import has_timestamps
+
+# Temperatures rise with each stage: fidelity stays tight, mapping gets room.
+_TEMP_RECONSTRUCTION = 0.2
+_TEMP_PLAIN_LANGUAGE = 0.5
+_TEMP_MAPPING = 0.6
+
+
+@dataclass
+class InterpretationResult:
+    reconstruction: str
+    plain_language: str
+    mapping: str
+    model: str
+    had_timestamps: bool
+    had_profile: bool
+
+    def to_markdown(self, title: str = "PodLens 解读") -> str:
+        """Assemble the three stages into one ordered Markdown report."""
+        stamp = datetime.now().strftime("%Y-%m-%d %H:%M")
+        notes = []
+        if not self.had_timestamps:
+            notes.append("transcript 无时间戳,证据锚点改用原文短引用")
+        if not self.had_profile:
+            notes.append("未提供个人档案(profile.md),已跳过个人映射层")
+        note_line = f"\n> 说明:{' ; '.join(notes)}\n" if notes else ""
+        return (
+            f"# {title}\n\n"
+            f"> 由 PodLens 生成 · 模型 {self.model} · {stamp}\n"
+            f"{note_line}\n"
+            f"{self.reconstruction.strip()}\n\n"
+            f"{self.plain_language.strip()}\n\n"
+            f"{self.mapping.strip()}\n"
+        )
+
+
+def _make_client(config: Config) -> genai.Client:
+    if not config.has_api_key:
+        raise RuntimeError(
+            "GEMINI_API_KEY is not set. Copy .env.example to .env and add your "
+            "key, or get one free at https://aistudio.google.com/apikey"
+        )
+    return genai.Client(api_key=config.api_key)
+
+
+def _strip_preamble(text: str) -> str:
+    """Drop any conversational preamble before the first Markdown heading.
+
+    Models sometimes open a stage with chatter like "好的,我来..." before the
+    first '## ' section. We assemble stages by concatenation, so that chatter
+    would leak between sections. Keep only from the first heading onward.
+    """
+    idx = text.find("## ")
+    if idx == -1:
+        return text.strip()
+    return text[idx:].strip()
+
+
+def _generate(client: genai.Client, model: str, prompt: str, temperature: float) -> str:
+    response = client.models.generate_content(
+        model=model,
+        contents=prompt,
+        config=types.GenerateContentConfig(temperature=temperature),
+    )
+    text = (response.text or "").strip()
+    if not text:
+        raise RuntimeError(
+            f"Model {model} returned an empty response. The transcript may be "
+            "too short, or the request may have been blocked."
+        )
+    return _strip_preamble(text)
+
+
+def build_prompts(
+    transcript: str, profile: str | None, output_lang: str
+) -> dict[str, str]:
+    """Build all three stage prompts without calling the API (for --dry-run).
+
+    Stage 2 and 3 prompts use placeholders for the not-yet-generated upstream
+    outputs, so this shows prompt structure rather than the live chain.
+    """
+    recon = build_reconstruction_prompt(transcript, output_lang)
+    plain = build_plain_language_prompt(
+        transcript, "<STAGE 1 OUTPUT INSERTED AT RUNTIME>", output_lang
+    )
+    mapping = build_mapping_prompt(
+        "<STAGE 1 OUTPUT INSERTED AT RUNTIME>",
+        "<STAGE 2 OUTPUT INSERTED AT RUNTIME>",
+        profile,
+        output_lang,
+    )
+    return {"reconstruction": recon, "plain_language": plain, "mapping": mapping}
+
+
+def interpret(
+    transcript: str,
+    profile: str | None,
+    config: Config,
+    on_stage: Callable[[str], None] | None = None,
+) -> InterpretationResult:
+    """Run the full three-stage interpretation.
+
+    `on_stage` is an optional callback invoked with a human-readable stage name
+    before each Gemini call, so callers can show progress.
+    """
+    client = _make_client(config)
+    timestamps = has_timestamps(transcript)
+
+    def note(stage: str) -> None:
+        if on_stage:
+            on_stage(stage)
+
+    note("第 1/3 步:忠实还原 transcript")
+    reconstruction = _generate(
+        client,
+        config.model,
+        build_reconstruction_prompt(transcript, config.output_lang),
+        _TEMP_RECONSTRUCTION,
+    )
+
+    note("第 2/3 步:大白话重讲")
+    plain_language = _generate(
+        client,
+        config.model,
+        build_plain_language_prompt(transcript, reconstruction, config.output_lang),
+        _TEMP_PLAIN_LANGUAGE,
+    )
+
+    note("第 3/3 步:证据锚定洞察与个人映射")
+    mapping = _generate(
+        client,
+        config.model,
+        build_mapping_prompt(
+            reconstruction, plain_language, profile, config.output_lang
+        ),
+        _TEMP_MAPPING,
+    )
+
+    return InterpretationResult(
+        reconstruction=reconstruction,
+        plain_language=plain_language,
+        mapping=mapping,
+        model=config.model,
+        had_timestamps=timestamps,
+        had_profile=profile is not None,
+    )

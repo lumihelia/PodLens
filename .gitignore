@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+profile.md
+*.out.md
+
+# Personal interpretation outputs — keep your own reports private
+time_report*.md
+*.report.md
