@@ -2,7 +2,7 @@
 
 A transcript-grounded podcast interpretation tool.
 
-**Live site:** https://lumihelia.github.io/PodLens/ · **Feed:** [RSS](https://lumihelia.github.io/PodLens/feed.xml) · [JSON Feed](https://lumihelia.github.io/PodLens/episodes.json)
+**Live site:** https://lens.lumihelia.com · **Feed:** [RSS](https://lens.lumihelia.com/feed.xml) · [JSON Feed](https://lens.lumihelia.com/episodes.json)
 
 Most "podcast summarizers" jump straight to clever-sounding insights, and you
 never know which sentence came from the episode and which the AI made up.

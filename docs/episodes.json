@@ -1,8 +1,8 @@
 {
   "version": "https://jsonfeed.org/version/1.1",
   "title": "PodLens",
-  "home_page_url": "https://lumihelia.github.io/PodLens/",
-  "feed_url": "https://lumihelia.github.io/PodLens/episodes.json",
+  "home_page_url": "https://lens.lumihelia.com/",
+  "feed_url": "https://lens.lumihelia.com/episodes.json",
   "description": "播客的忠实解读。",
   "authors": [
     {
@@ -11,8 +11,8 @@
   ],
   "items": [
     {
-      "id": "https://lumihelia.github.io/PodLens/episodes/jim-al-khalili.html",
-      "url": "https://lumihelia.github.io/PodLens/episodes/jim-al-khalili.html",
+      "id": "https://lens.lumihelia.com/episodes/jim-al-khalili.html",
+      "url": "https://lens.lumihelia.com/episodes/jim-al-khalili.html",
       "title": "时间的本质 · Jim Al-Khalili",
       "date_published": "2026-06-02",
       "summary": "首先,他区分了两种时间。一种是“物理时间”,就是物理公式里那个冷冰冰的字母't',它只是一个坐标,没有流动的感觉 [06:28]。另一种是我们每个人都能感受到的“显性时间”(manifest time),也就是我们主观体验到的时间,它会流逝,有时快有时慢 [01:42]。你有没有觉得,小时候一年特别漫长,长大后十年一晃就过 [02:28]?或者在牙医候诊室的半小时度日如年,而在派对上的半小时转瞬即…",
