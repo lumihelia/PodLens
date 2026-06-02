@@ -43,7 +43,9 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument(
         "source",
-        help="YouTube URL, transcript file path, '-' for stdin, or raw text.",
+        nargs="?",
+        help="YouTube URL, transcript file path, '-' for stdin, or raw text. "
+             "Optional when using --publish-existing or --rebuild-site.",
     )
     parser.add_argument(
         "-o", "--output",
@@ -73,11 +75,55 @@ def main(argv: list[str] | None = None) -> int:
         help="Build and print the prompts without calling the API. "
              "Useful to inspect the pipeline or test without a key.",
     )
+    parser.add_argument(
+        "--publish",
+        action="store_true",
+        help="After interpreting, publish the PUBLIC layers to the static "
+             "site + RSS feed in docs/ (personal layers are never published).",
+    )
+    parser.add_argument(
+        "--publish-existing",
+        metavar="REPORT.md",
+        help="Publish the public layers of an already-saved report file to the "
+             "site, without calling the API. Use with --title.",
+    )
+    parser.add_argument(
+        "--rebuild-site",
+        action="store_true",
+        help="Regenerate the site index/feeds/sitemap from the existing "
+             "manifest (no new episode, no API call).",
+    )
+    parser.add_argument(
+        "--date",
+        help="Publication date (YYYY-MM-DD) for the published episode. "
+             "Defaults to today.",
+    )
     args = parser.parse_args(argv)
 
     config = load_config()
     if args.lang:
         config.output_lang = args.lang
+
+    # --- Publish-only modes (no interpretation / no API call) ---
+    if args.rebuild_site:
+        from .publish import load_site_config, rebuild_from_manifest
+        n = rebuild_from_manifest(load_site_config())
+        _eprint(f"Rebuilt site from manifest ({n} episode(s)).")
+        return 0
+
+    if args.publish_existing:
+        from .publish import load_site_config, publish_report
+        try:
+            report_md = Path(args.publish_existing).read_text(encoding="utf-8")
+        except OSError as exc:
+            _eprint(f"Error reading report: {exc}")
+            return 1
+        entry = publish_report(report_md, args.title, load_site_config(), date=args.date)
+        _eprint(f"Published public layers -> docs/episodes/{entry['slug']}.html")
+        return 0
+
+    if not args.source:
+        parser.error("source is required (unless using --publish-existing or --rebuild-site)")
 
     try:
         transcript = _read_input(args.source)
@@ -117,6 +163,12 @@ def main(argv: list[str] | None = None) -> int:
         _eprint(f"Done. Report written to {args.output}")
     else:
         print(report)
+
+    if args.publish:
+        from .publish import load_site_config, publish_report
+        entry = publish_report(report, args.title, load_site_config(), date=args.date)
+        _eprint(f"Published public layers -> docs/episodes/{entry['slug']}.html")
+
     return 0
 
 

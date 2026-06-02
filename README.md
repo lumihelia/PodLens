@@ -130,6 +130,34 @@ You should get a Markdown report with all the layers, in order.
 - A thin web UI that calls the same `interpret()` core.
 - Append accepted concepts to a growing personal knowledge file.
 
+## Publishing a public feed (optional)
+
+PodLens can publish the **public layers** of your interpretations as a static
+site with an RSS feed, JSON Feed, and sitemap — a you-owned, machine-readable
+surface that search engines and agents can discover and cite.
+
+**Privacy is enforced:** only the public layers (what the episode is about, the
+topic map, core ideas, the plain-language re-telling, moments worth hearing) are
+published. Everything from `PODLENS_PRIVATE_CUTOFF` onward — your evidence-grounded
+insights and personal mapping — is stripped and **never written to the site**.
+
+```bash
+# Interpret and publish in one go (personal layers stay local)
+python -m podlens "Episode.srt" --title "My Episode" --publish
+
+# Publish an already-saved report without re-spending an API call
+python -m podlens --publish-existing report.md --title "My Episode"
+
+# Rebuild index/feeds/sitemap from the manifest (no new episode)
+python -m podlens --rebuild-site
+```
+
+Output goes to `docs/`, which GitHub Pages can serve directly. Configure the
+site in `.env` (`PODLENS_SITE_URL`, `PODLENS_SITE_TITLE`, `PODLENS_CUSTOM_DOMAIN`,
+etc.). To serve it: enable GitHub Pages on the `main` branch `/docs` folder, and
+point a subdomain at it with a CNAME DNS record (your DNS host stays wherever it
+is — only the CNAME needs to point to `<user>.github.io`).
+
 ## License
 
 [MIT](LICENSE) — free to use, modify, and distribute.
