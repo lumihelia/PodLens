@@ -37,6 +37,9 @@ EPISODES_DIR = SITE_DIR / "episodes"
 MANIFEST = SITE_DIR / "manifest.json"
 # Public JSON Feed (jsonfeed.org), generated from the manifest.
 JSONFEED = SITE_DIR / "episodes.json"
+# Stored public markdown per episode (outside docs/, so it is committed but
+# NOT served). Lets --rebuild-site re-render pages after a domain/brand change.
+SOURCES_DIR = Path(".podlens/episodes")
 
 DEFAULT_PRIVATE_CUTOFF = "## 证据锚定洞察"
 
@@ -399,8 +402,6 @@ def publish_report(
     Returns the manifest entry. Idempotent on slug: re-publishing the same slug
     updates that episode in place.
     """
-    EPISODES_DIR.mkdir(parents=True, exist_ok=True)
-
     public_md = extract_public_markdown(report_md, site.private_cutoff)
     if not public_md:
         raise RuntimeError(
@@ -414,9 +415,9 @@ def publish_report(
              "summary": _first_sentences(public_md),
              "source_url": source_url or ""}
 
-    (EPISODES_DIR / f"{slug}.html").write_text(
-        render_episode_page(entry, public_md, site), encoding="utf-8"
-    )
+    # Store the public markdown so the page can be re-rendered on any rebuild.
+    SOURCES_DIR.mkdir(parents=True, exist_ok=True)
+    (SOURCES_DIR / f"{slug}.md").write_text(public_md, encoding="utf-8")
 
     items = [it for it in _load_manifest() if it["slug"] != slug]
     items.insert(0, entry)
@@ -428,6 +429,16 @@ def publish_report(
 
 def _rebuild_site(items: list[dict], site: SiteConfig) -> None:
     SITE_DIR.mkdir(parents=True, exist_ok=True)
+    EPISODES_DIR.mkdir(parents=True, exist_ok=True)
+    # Re-render every episode page from its stored source markdown, so a domain
+    # or branding change propagates to all pages.
+    for it in items:
+        src = SOURCES_DIR / f"{it['slug']}.md"
+        if src.exists():
+            (EPISODES_DIR / f"{it['slug']}.html").write_text(
+                render_episode_page(it, src.read_text(encoding="utf-8"), site),
+                encoding="utf-8",
+            )
     _write_manifest(items)
     _write_jsonfeed(items, site)
     (SITE_DIR / "index.html").write_text(render_index(items, site), encoding="utf-8")
