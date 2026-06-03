@@ -53,8 +53,9 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument(
         "--title",
-        default="PodLens 解读",
-        help="Title for the report (default: 'PodLens 解读').",
+        default=None,
+        help="Title for the report. If omitted, a title is auto-generated in "
+             "the format '主题 · 嘉宾'. Required with --publish-existing.",
     )
     parser.add_argument(
         "--no-profile",
@@ -120,6 +121,8 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.publish_existing:
         from .publish import load_site_config, publish_report
+        if not args.title:
+            parser.error("--publish-existing requires --title")
         try:
             report_md = Path(args.publish_existing).read_text(encoding="utf-8")
         except OSError as exc:
@@ -164,7 +167,10 @@ def main(argv: list[str] | None = None) -> int:
         _eprint(f"Error: {exc}")
         return 1
 
-    report = result.to_markdown(title=args.title)
+    report_title = args.title or result.title or "PodLens 解读"
+    if not args.title and result.title:
+        _eprint(f"Auto-title: {report_title}")
+    report = result.to_markdown(title=report_title)
 
     if args.output:
         Path(args.output).write_text(report, encoding="utf-8")
@@ -177,7 +183,7 @@ def main(argv: list[str] | None = None) -> int:
         source_url = args.source_url
         if not source_url and is_youtube_url(args.source):
             source_url = args.source
-        entry = publish_report(report, args.title, load_site_config(),
+        entry = publish_report(report, report_title, load_site_config(),
                                date=args.date, source_url=source_url,
                                tags=result.tags)
         _eprint(f"Published public layers -> docs/episodes/{entry['slug']}.html")

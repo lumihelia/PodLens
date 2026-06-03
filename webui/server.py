@@ -42,7 +42,7 @@ def index() -> FileResponse:
 
 @app.post("/interpret")
 async def do_interpret(
-    title: str = Form(...),
+    title: str = Form(""),
     source_url: str = Form(""),
     use_profile: bool = Form(True),
     file: UploadFile | None = None,
@@ -50,8 +50,6 @@ async def do_interpret(
     """Run the full interpretation and return previews (no publishing yet)."""
     title = title.strip()
     source_url = source_url.strip()
-    if not title:
-        raise HTTPException(400, "请填写标题。")
 
     # Obtain the transcript: uploaded file first, else a YouTube URL.
     if file is not None and file.filename:
@@ -78,7 +76,8 @@ async def do_interpret(
     except RuntimeError as exc:
         raise HTTPException(500, f"解读失败:{exc}")
 
-    report_md = result.to_markdown(title=title)
+    final_title = title or result.title or "PodLens 解读"
+    report_md = result.to_markdown(title=final_title)
     site = load_site_config()
     public_md = extract_public_markdown(report_md, site.private_cutoff)
 
@@ -87,6 +86,7 @@ async def do_interpret(
         "full_html": md.markdown(report_md, extensions=_MD_EXT),
         "public_html": md.markdown(public_md, extensions=_MD_EXT),
         "had_profile": result.had_profile,
+        "title": final_title,
         "tags": result.tags,
         "cutoff": site.private_cutoff,
     })
