@@ -146,7 +146,10 @@ function clearErr(){ $('error').classList.add('hidden'); }
 function detailMsg(data, status){
   const d = data && data.detail;
   if(typeof d === 'string') return d;
-  if(Array.isArray(d)) return d.map(x => (x && x.msg) ? x.msg : JSON.stringify(x)).join('；');
+  if(Array.isArray(d)) return d.map(x => {
+    const where = (x && x.loc && x.loc.length) ? x.loc[x.loc.length-1] + ': ' : '';
+    return where + ((x && x.msg) ? x.msg : JSON.stringify(x));
+  }).join('；') + '（若刚更新过代码,多半是旧服务器没关掉——请彻底重启 UI)';
   if(d) return JSON.stringify(d);
   return '请求失败(HTTP ' + status + ')。如果刚更新过代码,请重启 UI。';
 }

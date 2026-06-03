@@ -14,6 +14,16 @@ source .venv/bin/activate
 python -m pip install --quiet -r requirements.txt
 
 PORT=8765
+
+# Free the port if a previous server instance is still running, so we never
+# end up talking to a stale server.
+EXISTING=$(lsof -ti:${PORT} 2>/dev/null)
+if [ -n "$EXISTING" ]; then
+  echo "Stopping a previous server on port ${PORT}..."
+  kill $EXISTING 2>/dev/null
+  sleep 1
+fi
+
 echo ""
 echo "PodLens UI -> http://127.0.0.1:${PORT}"
 echo "(Keep this window open. Close it or press Ctrl-C to stop.)"
