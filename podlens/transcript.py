@@ -154,3 +154,24 @@ def clean_transcript(text: str) -> str:
 def has_timestamps(text: str) -> bool:
     """Whether the transcript appears to carry timestamps for evidence linking."""
     return bool(TIMESTAMP_RE.search(text))
+
+
+_CJK_RE = re.compile(r"[一-鿿]")
+_LATIN_RE = re.compile(r"[A-Za-z]")
+
+
+def detect_language(text: str) -> str:
+    """Best-effort source-language detection: 'zh' or 'en'.
+
+    Used to interpret each episode in its OWN language first (most faithful),
+    then translate to the other. Heuristic: if there is a meaningful amount of
+    Chinese relative to Latin letters, call it Chinese; otherwise English.
+    Defaults to 'en' (PodLens's typical input is English podcasts).
+    """
+    sample = text[:6000]
+    cjk = len(_CJK_RE.findall(sample))
+    latin = len(_LATIN_RE.findall(sample))
+    # Substantial CJK, and not overwhelmingly Latin -> Chinese.
+    if cjk >= 20 and cjk * 4 >= latin:
+        return "zh"
+    return "en"

@@ -10,12 +10,13 @@ Usage:
 
 import argparse
 import sys
+from datetime import datetime
 from pathlib import Path
 
 from .config import load_config
 from .interpreter import build_prompts, interpret
 from .profile import load_profile
-from .transcript import clean_transcript, load_transcript
+from .transcript import clean_transcript, detect_language, load_transcript
 from .youtube import fetch_transcript, is_youtube_url
 
 
@@ -161,8 +162,13 @@ def main(argv: list[str] | None = None) -> int:
             print(f"\n{'=' * 70}\nPROMPT: {name}\n{'=' * 70}\n{text}")
         return 0
 
+    # Interpret the public layers in the transcript's own language (faithful),
+    # unless an explicit --lang was given. The private mapping stays in
+    # config.output_lang.
+    source_lang = config.output_lang if args.lang else detect_language(transcript)
     try:
-        result = interpret(transcript, profile, config, on_stage=_eprint)
+        result = interpret(transcript, profile, config, on_stage=_eprint,
+                           public_lang=source_lang)
     except RuntimeError as exc:
         _eprint(f"Error: {exc}")
         return 1
@@ -179,26 +185,44 @@ def main(argv: list[str] | None = None) -> int:
         print(report)
 
     if args.publish:
-        from .interpreter import find_connections
+        from .interpreter import build_bilingual, find_connections
         from .publish import (
-            build_candidates, extract_claims_section, load_site_config,
-            publish_report, slugify,
+            build_candidates, extract_claims_section, extract_public_markdown,
+            load_site_config, publish_report, slugify,
         )
+        site = load_site_config()
         source_url = args.source_url
         if not source_url and is_youtube_url(args.source):
             source_url = args.source
 
         _eprint("查找与往期的关联")
-        pub_date = args.date or None
-        slug = slugify(report_title, pub_date or "")
-        candidates = build_candidates(result.tags, exclude_slug=slug)
+        pub_date = args.date or datetime.now().strftime("%Y-%m-%d")
+        tmp_slug = slugify(report_title, pub_date)
+        candidates = build_candidates(result.tags, exclude_slug=tmp_slug)
         connections = find_connections(
-            report_title, extract_claims_section(report), candidates, config
+            report_title, extract_claims_section(report), candidates, config,
+            lang=source_lang,
         )
 
-        entry = publish_report(report, report_title, load_site_config(),
-                               date=args.date, source_url=source_url,
-                               tags=result.tags, connections=connections)
+        native_public = extract_public_markdown(report, site.private_cutoff)
+        try:
+            _eprint("翻译公开层(生成中英双语页面)")
+            _, zh_b, en_b = build_bilingual(
+                native_public, report_title, result.tags, connections, config
+            )
+            slug = slugify(en_b["title"] or zh_b["title"], pub_date)
+            entry = publish_report(
+                report, zh_b["title"], site, date=pub_date, slug=slug,
+                source_url=source_url, tags=zh_b["tags"],
+                connections=zh_b["connections"], en=en_b,
+                primary_public_md=zh_b["body"],
+            )
+        except RuntimeError as exc:
+            _eprint(f"翻译失败,发布单语版:{exc}")
+            entry = publish_report(report, report_title, site, date=pub_date,
+                                   source_url=source_url, tags=result.tags,
+                                   connections=connections)
+
         _eprint(f"Published public layers -> docs/episodes/{entry['slug']}.html")
         if result.tags:
             _eprint(f"Tags: {', '.join(result.tags)}")

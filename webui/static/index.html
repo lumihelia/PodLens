@@ -68,6 +68,20 @@ a.live{color:var(--primary);font-weight:600}
 .conn-item .rel{font-size:.8rem;color:var(--primary);background:#EDEBF4;padding:2px 10px;border-radius:999px}
 .conn-item .why{color:var(--muted);font-size:.92rem;margin:6px 0 0 28px}
 .conn-item input{margin-right:4px}
+textarea{width:100%;padding:14px 16px;border:1px solid var(--border);background:var(--input-bg);
+  border-radius:var(--radius);font-family:'Source Serif Pro',serif;font-size:1rem;color:var(--text);
+  line-height:1.7;resize:vertical}
+textarea:focus{outline:none;border-color:var(--primary)}
+#edit-body{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:.92rem;line-height:1.65}
+.linklike{background:none;border:none;color:var(--primary);font-size:.95rem;padding:0;cursor:pointer}
+.linklike:hover{text-decoration:underline}
+.manage-entry{margin-top:32px}
+.mtitle{font-size:1.6rem;margin:0 0 4px}
+.ep-row{display:flex;align-items:baseline;gap:14px;padding:16px 0;border-bottom:1px solid var(--border);cursor:pointer}
+.ep-row:hover .ep-title{text-decoration:underline}
+.ep-row .ep-date{color:var(--muted);font-size:.9rem;min-width:92px}
+.ep-row .ep-title{font-family:'Playfair Display',serif;font-weight:600;font-size:1.1rem;color:var(--text)}
+.ep-row .ep-badge{font-size:.75rem;color:var(--primary);background:#EDEBF4;padding:2px 9px;border-radius:999px}
 </style>
 </head>
 <body>
@@ -97,6 +111,43 @@ a.live{color:var(--primary);font-weight:600}
     </div>
     <button id="run" class="primary">解读</button>
     <div class="note">没填文件时,如果填了 YouTube 链接会尝试抓字幕(可能被限流,字幕文件最稳)。</div>
+    <p class="manage-entry"><button id="to-manage" class="linklike">管理已发布的内容(编辑正文 / 加编者按)→</button></p>
+  </section>
+
+  <!-- Manage: list of published episodes -->
+  <section id="manage" class="hidden">
+    <h2 class="mtitle">已发布的内容</h2>
+    <p class="sub">点一期来编辑公开正文,或加一段编者按。修改后会重新上线。</p>
+    <div id="ep-list"></div>
+    <div class="actions">
+      <button id="manage-back" class="ghost">← 返回</button>
+    </div>
+  </section>
+
+  <!-- Edit: edit one episode's public body + editor note -->
+  <section id="edit" class="hidden">
+    <div class="banner info">编辑的是<strong>公开层</strong>(会上线)。「From Helia」是你本人的声音,会以独立署名板块公开显示。</div>
+    <div class="field">
+      <label for="edit-title">标题</label>
+      <input id="edit-title" type="text">
+    </div>
+    <div class="field">
+      <label for="edit-tags">主题标签(逗号分隔)</label>
+      <input id="edit-tags" type="text" placeholder="标签1, 标签2">
+    </div>
+    <div class="field">
+      <label for="edit-note">From Helia(可留空;支持 Markdown;会公开显示为署名「From Helia」的板块)</label>
+      <textarea id="edit-note" rows="5" placeholder="留空就不显示。这里写你本人想补充的话——背景、修正、你的判断……"></textarea>
+    </div>
+    <div class="field">
+      <label for="edit-body">公开正文(Markdown,时间戳如 [12:34] 会自动变成可点击跳转)</label>
+      <textarea id="edit-body" rows="22" spellcheck="false"></textarea>
+    </div>
+    <div class="actions">
+      <button id="save-edit" class="primary">保存并更新上线</button>
+      <button id="edit-cancel" class="ghost">取消</button>
+      <a id="edit-live" class="live" href="#" target="_blank">查看当前线上页面 →</a>
+    </div>
   </section>
 
   <!-- Step 2: working -->
@@ -173,7 +224,7 @@ drop.ondragleave = () => drop.classList.remove('over');
 drop.ondrop = e => { e.preventDefault(); drop.classList.remove('over'); setFile(e.dataTransfer.files[0]); };
 function setFile(f){ pickedFile = f || null; $('filename').textContent = f ? ('已选择:' + f.name) : ''; }
 
-function show(id){ ['input','working','result','done'].forEach(s => $(s).classList.toggle('hidden', s !== id)); }
+function show(id){ ['input','working','result','done','manage','edit'].forEach(s => $(s).classList.toggle('hidden', s !== id)); }
 function err(msg){ const e = $('error'); e.textContent = msg; e.classList.remove('hidden'); }
 function clearErr(){ $('error').classList.add('hidden'); }
 function detailMsg(data, status){
@@ -231,6 +282,72 @@ $('confirm').onclick = async () => {
     show('done');
   }catch(e){ err(e.message); }
   finally{ $('confirm').disabled = false; $('confirm').textContent = '确认发布并上线'; }
+};
+
+// --- Manage / edit already-published episodes ---
+let editingSlug = null;
+
+async function loadManage(){
+  clearErr();
+  show('manage');
+  $('ep-list').innerHTML = '<p class="note">加载中…</p>';
+  try{
+    const r = await fetch('/episodes');
+    const data = await readJson(r);
+    if(!r.ok){ throw new Error(detailMsg(data, r.status)); }
+    const eps = data.episodes || [];
+    if(!eps.length){ $('ep-list').innerHTML = '<p class="note">还没有已发布的内容。</p>'; return; }
+    $('ep-list').innerHTML = eps.map(e =>
+      '<div class="ep-row" data-slug="' + esc(e.slug) + '">' +
+      '<span class="ep-date">' + esc(e.date) + '</span>' +
+      '<span class="ep-title">' + esc(e.title) + '</span>' +
+      (e.has_note ? '<span class="ep-badge">有 From Helia</span>' : '') +
+      '</div>'
+    ).join('');
+    document.querySelectorAll('#ep-list .ep-row').forEach(row =>
+      row.onclick = () => openEpisode(row.dataset.slug));
+  }catch(e){ $('ep-list').innerHTML = ''; err(e.message); }
+}
+
+async function openEpisode(slug){
+  clearErr();
+  try{
+    const r = await fetch('/episode/' + encodeURIComponent(slug));
+    const data = await readJson(r);
+    if(!r.ok){ throw new Error(detailMsg(data, r.status)); }
+    editingSlug = data.slug;
+    $('edit-title').value = data.title || '';
+    $('edit-tags').value = (data.tags || []).join(', ');
+    $('edit-note').value = data.editor_note || '';
+    $('edit-body').value = data.public_md || '';
+    $('edit-live').href = data.url;
+    show('edit');
+  }catch(e){ err(e.message); }
+}
+
+$('to-manage').onclick = loadManage;
+$('manage-back').onclick = () => { clearErr(); show('input'); };
+$('edit-cancel').onclick = () => { clearErr(); loadManage(); };
+
+$('save-edit').onclick = async () => {
+  clearErr();
+  if(!$('edit-body').value.trim()){ err('公开正文不能为空。'); return; }
+  const fd = new FormData();
+  fd.append('slug', editingSlug);
+  fd.append('public_md', $('edit-body').value);
+  fd.append('editor_note', $('edit-note').value);
+  fd.append('title', $('edit-title').value.trim());
+  fd.append('tags', $('edit-tags').value.trim());
+  $('save-edit').disabled = true; $('save-edit').textContent = '更新中…';
+  try{
+    const r = await fetch('/update', { method:'POST', body: fd });
+    const data = await readJson(r);
+    if(!r.ok){ throw new Error(detailMsg(data, r.status)); }
+    $('done-msg').textContent = data.message;
+    $('livelink').href = data.url;
+    show('done');
+  }catch(e){ err(e.message); }
+  finally{ $('save-edit').disabled = false; $('save-edit').textContent = '保存并更新上线'; }
 };
 
 $('restart').onclick = () => { show('input'); };

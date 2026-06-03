@@ -25,8 +25,9 @@ from .prompts import (
     build_metadata_prompt,
     build_plain_language_prompt,
     build_reconstruction_prompt,
+    build_translation_prompt,
 )
-from .transcript import has_timestamps
+from .transcript import detect_language, has_timestamps
 
 # Temperatures rise with each stage: fidelity stays tight, mapping gets room.
 _TEMP_RECONSTRUCTION = 0.2
@@ -122,13 +123,18 @@ def find_connections(
     this_claims: str,
     candidates: list[dict],
     config: Config,
+    lang: str | None = None,
 ) -> list[dict]:
     """Find micro, evidence-grounded connections to prior episodes.
 
     `candidates` is a list of {slug, title, tags, claims}. Returns a list of
     connection dicts {slug, relation, this_point, that_point, why}, with slugs
-    validated against the candidate set.
+    validated against the candidate set. `lang` controls the output language of
+    the relation/why text (defaults to config.output_lang); pass the episode's
+    source language so connections start out in the same language as its public
+    body and translate cleanly.
     """
+    lang = lang or config.output_lang
     if not candidates or not this_claims.strip():
         return []
     blocks = []
@@ -146,7 +152,7 @@ def find_connections(
     raw = _generate(
         client, config.model,
         build_connections_prompt(
-            this_title, this_claims, candidates_block, config.output_lang
+            this_title, this_claims, candidates_block, lang
         ),
         _TEMP_MAPPING,
     )
@@ -194,7 +200,12 @@ def _strip_preamble(text: str) -> str:
     return text[idx:].strip()
 
 
-def _generate(client: genai.Client, model: str, prompt: str, temperature: float) -> str:
+def _generate_raw(client: genai.Client, model: str, prompt: str, temperature: float) -> str:
+    """Call the model and return its raw text (no preamble stripping).
+
+    Used for JSON responses, whose bodies may contain '## ' headings that the
+    preamble stripper would otherwise truncate.
+    """
     response = client.models.generate_content(
         model=model,
         contents=prompt,
@@ -206,7 +217,71 @@ def _generate(client: genai.Client, model: str, prompt: str, temperature: float)
             f"Model {model} returned an empty response. The transcript may be "
             "too short, or the request may have been blocked."
         )
-    return _strip_preamble(text)
+    return text
+
+
+def _generate(client: genai.Client, model: str, prompt: str, temperature: float) -> str:
+    """Generate a Markdown stage, dropping any conversational preamble."""
+    return _strip_preamble(_generate_raw(client, model, prompt, temperature))
+
+
+_TEMP_TRANSLATION = 0.2
+
+
+def translate_bundle(bundle: dict, target_lang: str, config: Config) -> dict:
+    """Translate a PUBLIC-layer bundle into target_lang via one Gemini call.
+
+    `bundle` keys: body (markdown str), title (str), tags (list[str]),
+    editor_note (str), connections (list of {slug, relation, why, this_point,
+    that_point}). Returns the same shape translated; slugs are preserved by
+    position from the input (the model is told to keep order).
+    """
+    src_conns = [
+        {"slug": c.get("slug", ""), "relation": c.get("relation", ""),
+         "why": c.get("why", ""), "this_point": c.get("this_point", ""),
+         "that_point": c.get("that_point", "")}
+        for c in bundle.get("connections", [])
+    ]
+    payload = {
+        "body": bundle.get("body", ""),
+        "title": bundle.get("title", ""),
+        "tags": list(bundle.get("tags", [])),
+        "editor_note": bundle.get("editor_note", ""),
+        "connections": src_conns,
+    }
+    client = _make_client(config)
+    raw = _generate_raw(
+        client, config.model,
+        build_translation_prompt(json.dumps(payload, ensure_ascii=False), target_lang),
+        _TEMP_TRANSLATION,
+    )
+    obj = _parse_json_obj(raw)
+    if not obj or not str(obj.get("body", "")).strip():
+        raise RuntimeError("translation produced no usable output")
+
+    out_conns = []
+    for i, c in enumerate(obj.get("connections", []) or []):
+        # Trust the source slug by position; never trust a model-rewritten slug.
+        slug = src_conns[i]["slug"] if i < len(src_conns) else str(c.get("slug", "")).strip()
+        out_conns.append({
+            "slug": slug,
+            "relation": str(c.get("relation", "")).strip(),
+            "why": str(c.get("why", "")).strip(),
+            "this_point": str(c.get("this_point", "")).strip(),
+            "that_point": str(c.get("that_point", "")).strip(),
+        })
+    # If the model dropped/garbled connections, fall back to the source ones so
+    # the en page still links correctly (untranslated text is better than none).
+    if len(out_conns) != len(src_conns):
+        out_conns = src_conns
+
+    return {
+        "body": str(obj.get("body", "")).strip(),
+        "title": str(obj.get("title", "")).strip() or bundle.get("title", ""),
+        "tags": [str(t).strip() for t in obj.get("tags", []) if str(t).strip()] or list(bundle.get("tags", [])),
+        "editor_note": str(obj.get("editor_note", "")).strip(),
+        "connections": out_conns,
+    }
 
 
 def build_prompts(
@@ -235,14 +310,23 @@ def interpret(
     profile: str | None,
     config: Config,
     on_stage: Callable[[str], None] | None = None,
+    public_lang: str | None = None,
 ) -> InterpretationResult:
     """Run the full three-stage interpretation.
 
     `on_stage` is an optional callback invoked with a human-readable stage name
     before each Gemini call, so callers can show progress.
+
+    `public_lang` is the language of the PUBLIC layers (reconstruction, plain
+    language, title, tags) -- pass the transcript's source language so the
+    published interpretation is done in its own language first (most faithful),
+    then translated. It defaults to config.output_lang. The PRIVATE personal
+    mapping always stays in config.output_lang (the reader's own language), so
+    your personal layer does not switch language with each source.
     """
     client = _make_client(config)
     timestamps = has_timestamps(transcript)
+    public_lang = public_lang or config.output_lang
 
     def note(stage: str) -> None:
         if on_stage:
@@ -252,7 +336,7 @@ def interpret(
     reconstruction = _generate(
         client,
         config.model,
-        build_reconstruction_prompt(transcript, config.output_lang),
+        build_reconstruction_prompt(transcript, public_lang),
         _TEMP_RECONSTRUCTION,
     )
 
@@ -260,7 +344,7 @@ def interpret(
     plain_language = _generate(
         client,
         config.model,
-        build_plain_language_prompt(transcript, reconstruction, config.output_lang),
+        build_plain_language_prompt(transcript, reconstruction, public_lang),
         _TEMP_PLAIN_LANGUAGE,
     )
 
@@ -278,7 +362,7 @@ def interpret(
     meta = _parse_json_obj(
         _generate(
             client, config.model,
-            build_metadata_prompt(reconstruction, config.output_lang),
+            build_metadata_prompt(reconstruction, public_lang),
             _TEMP_RECONSTRUCTION,
         )
     )
@@ -295,3 +379,37 @@ def interpret(
         tags=gen_tags,
         title=gen_title,
     )
+
+
+def build_bilingual(
+    native_public_md: str,
+    title: str,
+    tags: list[str],
+    connections: list[dict],
+    config: Config,
+    editor_note: str = "",
+) -> tuple[str, dict, dict]:
+    """Turn a single-language public bundle into matched zh + en bundles.
+
+    Detects the language of the already-written public body, then translates the
+    whole public bundle (body + title + tags + connections) into the OTHER
+    language with one Gemini call. Returns (native_lang, zh_bundle, en_bundle),
+    where each bundle is {body, title, tags, editor_note, connections}.
+
+    This is how PodLens gets a faithful bilingual page without re-interpreting:
+    the native side is the original interpretation; the other side is a
+    translation of it (never a translation of a translation).
+    """
+    native_lang = detect_language(native_public_md)
+    other_lang = "zh" if native_lang == "en" else "en"
+    native = {
+        "body": native_public_md,
+        "title": title,
+        "tags": list(tags or []),
+        "editor_note": editor_note or "",
+        "connections": connections or [],
+    }
+    translated = translate_bundle(native, other_lang, config)
+    if native_lang == "zh":
+        return native_lang, native, translated
+    return native_lang, translated, native

@@ -4,6 +4,7 @@ __pycache__/
 .env
 profile.md
 *.out.md
+.DS_Store
 
 # Personal interpretation outputs — keep your own reports private
 time_report*.md
