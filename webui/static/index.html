@@ -100,6 +100,10 @@ a.live{color:var(--primary);font-weight:600}
   <!-- Step 3: preview + confirm -->
   <section id="result" class="hidden">
     <div class="banner info" id="result-note">下面是<strong>完整解读</strong>(含个人映射,仅你本地可见)。确认发布后,<strong>只有公开层会上线</strong>,个人映射等私人内容不会公开。</div>
+    <div class="field">
+      <label for="tags">主题标签(自动生成,可编辑/删除,逗号分隔)</label>
+      <input id="tags" type="text" placeholder="标签1, 标签2, 标签3">
+    </div>
     <div id="preview" class="preview"></div>
     <div class="actions">
       <button id="confirm" class="primary">确认发布并上线</button>
@@ -152,6 +156,7 @@ $('run').onclick = async () => {
     const data = await r.json();
     if(!r.ok){ throw new Error(data.detail || '解读失败'); }
     reportMd = data.report_md;
+    $('tags').value = (data.tags || []).join(', ');
     $('preview').innerHTML = data.full_html;
     show('result');
   }catch(e){ show('input'); err(e.message); }
@@ -163,6 +168,7 @@ $('confirm').onclick = async () => {
   fd.append('report_md', reportMd);
   fd.append('title', $('title').value.trim());
   fd.append('source_url', $('source').value.trim());
+  fd.append('tags', $('tags').value.trim());
   $('confirm').disabled = true; $('confirm').textContent = '发布中…';
   try{
     const r = await fetch('/publish', { method:'POST', body: fd });

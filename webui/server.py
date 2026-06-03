@@ -87,6 +87,7 @@ async def do_interpret(
         "full_html": md.markdown(report_md, extensions=_MD_EXT),
         "public_html": md.markdown(public_md, extensions=_MD_EXT),
         "had_profile": result.had_profile,
+        "tags": result.tags,
         "cutoff": site.private_cutoff,
     })
 
@@ -97,14 +98,17 @@ def do_publish(
     title: str = Form(...),
     source_url: str = Form(""),
     date: str = Form(""),
+    tags: str = Form(""),
 ) -> JSONResponse:
     """Publish the public layers, then git commit & push the site live."""
     site = load_site_config()
+    tag_list = [t.strip() for t in tags.split(",") if t.strip()]
     try:
         entry = publish_report(
             report_md, title.strip(), site,
             date=date.strip() or None,
             source_url=source_url.strip() or None,
+            tags=tag_list,
         )
     except RuntimeError as exc:
         raise HTTPException(400, f"生成失败:{exc}")

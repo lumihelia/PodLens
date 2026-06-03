@@ -9,7 +9,9 @@ the verified output of the earlier ones -- this is how PodLens enforces
 "faithfulness before insight" at the architecture level, not just in prompt text.
 """
 
-from dataclasses import dataclass
+import json
+import re
+from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Callable
 
@@ -21,6 +23,7 @@ from .prompts import (
     build_mapping_prompt,
     build_plain_language_prompt,
     build_reconstruction_prompt,
+    build_tags_prompt,
 )
 from .transcript import has_timestamps
 
@@ -38,6 +41,7 @@ class InterpretationResult:
     model: str
     had_timestamps: bool
     had_profile: bool
+    tags: list[str] = field(default_factory=list)
 
     def to_markdown(self, title: str = "PodLens 解读") -> str:
         """Assemble the three stages into one ordered Markdown report."""
@@ -65,6 +69,32 @@ def _make_client(config: Config) -> genai.Client:
             "key, or get one free at https://aistudio.google.com/apikey"
         )
     return genai.Client(api_key=config.api_key)
+
+
+def _parse_json_list(text: str) -> list[str]:
+    """Parse a JSON array of strings from a model response, tolerating fences."""
+    t = text.strip()
+    if t.startswith("```"):
+        t = re.sub(r"^```[a-zA-Z]*\n?", "", t).rstrip("`").strip()
+    start, end = t.find("["), t.rfind("]")
+    if start == -1 or end == -1:
+        return []
+    try:
+        data = json.loads(t[start : end + 1])
+    except json.JSONDecodeError:
+        return []
+    return [str(x).strip() for x in data if str(x).strip()]
+
+
+def extract_tags(reconstruction: str, config: Config) -> list[str]:
+    """Generate 3-6 specific topical tags from the reconstruction."""
+    client = _make_client(config)
+    raw = _generate(
+        client, config.model,
+        build_tags_prompt(reconstruction, config.output_lang),
+        _TEMP_RECONSTRUCTION,
+    )
+    return _parse_json_list(raw)[:6]
 
 
 def _strip_preamble(text: str) -> str:
@@ -160,6 +190,15 @@ def interpret(
         _TEMP_MAPPING,
     )
 
+    note("提取主题标签")
+    tags = _parse_json_list(
+        _generate(
+            client, config.model,
+            build_tags_prompt(reconstruction, config.output_lang),
+            _TEMP_RECONSTRUCTION,
+        )
+    )[:6]
+
     return InterpretationResult(
         reconstruction=reconstruction,
         plain_language=plain_language,
@@ -167,4 +206,5 @@ def interpret(
         model=config.model,
         had_timestamps=timestamps,
         had_profile=profile is not None,
+        tags=tags,
     )
