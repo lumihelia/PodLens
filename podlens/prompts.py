@@ -165,7 +165,12 @@ TITLE rules:
 - Format: a concise topic phrase, then " · ", then the main guest/speaker's name.
   Example: "时间的本质 · Jim Al-Khalili"
 - The topic phrase captures what THIS episode is really about (specific, not
-  generic). Keep the guest's name in its original form.
+  generic).
+- The name MUST be the person's ORIGINAL name as commonly written — normally the
+  English / Latin spelling (e.g. "Jim Al-Khalili", "Dana Reyes"). NEVER
+  transliterate or translate the name into Chinese (NOT "达娜·雷耶斯"). If the
+  person is more widely known by an English name, use that English name even if
+  they also have a name in another language.
 - Do NOT invent a show name or episode number; only use what the content gives.
 
 TAGS rules:
