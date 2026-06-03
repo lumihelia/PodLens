@@ -8,8 +8,8 @@ Start with the start_ui.command launcher, or:
   uvicorn webui.server:app --host 127.0.0.1 --port 8765
 """
 
+import json
 import subprocess
-from datetime import datetime
 from pathlib import Path
 
 import markdown as md
@@ -17,12 +17,15 @@ from fastapi import FastAPI, Form, HTTPException, UploadFile
 from fastapi.responses import FileResponse, JSONResponse
 
 from podlens.config import load_config
-from podlens.interpreter import interpret
+from podlens.interpreter import find_connections, interpret
 from podlens.profile import load_profile
 from podlens.publish import (
+    build_candidates,
+    extract_claims_section,
     extract_public_markdown,
     load_site_config,
     publish_report,
+    slugify,
 )
 from podlens.transcript import load_transcript
 from podlens.youtube import fetch_transcript, is_youtube_url
@@ -81,6 +84,19 @@ async def do_interpret(
     site = load_site_config()
     public_md = extract_public_markdown(report_md, site.private_cutoff)
 
+    # Find cross-episode connections for the user to review/veto.
+    slug = slugify(final_title, "")
+    candidates = build_candidates(result.tags, exclude_slug=slug)
+    cand_titles = {c["slug"]: c["title"] for c in candidates}
+    raw_conns = (
+        find_connections(final_title, extract_claims_section(report_md),
+                         candidates, config)
+        if candidates else []
+    )
+    connections = [
+        {**c, "title": cand_titles.get(c["slug"], c["slug"])} for c in raw_conns
+    ]
+
     return JSONResponse({
         "report_md": report_md,
         "full_html": md.markdown(report_md, extensions=_MD_EXT),
@@ -88,6 +104,7 @@ async def do_interpret(
         "had_profile": result.had_profile,
         "title": final_title,
         "tags": result.tags,
+        "connections": connections,
         "cutoff": site.private_cutoff,
     })
 
@@ -99,16 +116,24 @@ def do_publish(
     source_url: str = Form(""),
     date: str = Form(""),
     tags: str = Form(""),
+    connections: str = Form(""),
 ) -> JSONResponse:
     """Publish the public layers, then git commit & push the site live."""
     site = load_site_config()
     tag_list = [t.strip() for t in tags.split(",") if t.strip()]
+    conn_list = []
+    if connections.strip():
+        try:
+            conn_list = [c for c in json.loads(connections) if isinstance(c, dict)]
+        except json.JSONDecodeError:
+            conn_list = []
     try:
         entry = publish_report(
             report_md, title.strip(), site,
             date=date.strip() or None,
             source_url=source_url.strip() or None,
             tags=tag_list,
+            connections=conn_list,
         )
     except RuntimeError as exc:
         raise HTTPException(400, f"生成失败:{exc}")
