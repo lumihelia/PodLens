@@ -270,6 +270,8 @@ a.ts:hover { border-bottom-style: solid; }
 .connections .lk { font-family: 'Playfair Display', serif; font-weight: 600; }
 .connections .why { margin: 8px 0 6px; }
 .connections .pts { color: var(--muted); font-size: 0.92rem; }
+.connections .pts > div { margin-top: 4px; }
+.connections .who { color: var(--text); font-weight: 600; margin-right: 8px; }
 """
 
 
@@ -328,8 +330,10 @@ def _render_connections(entry: dict, slug_titles: dict, backrefs: list[dict],
                         site: SiteConfig) -> str:
     """Render the bidirectional 与往期的关联 section, or '' if there are none."""
     def pts(mine: str, theirs: str) -> str:
-        return (f'<div class="pts">本期:{html.escape(mine)}　｜　'
-                f'对方:{html.escape(theirs)}</div>')
+        return ('<div class="pts">'
+                f'<div><b class="who">本期</b>{html.escape(mine)}</div>'
+                f'<div><b class="who">往期</b>{html.escape(theirs)}</div>'
+                '</div>')
 
     rows = []
     # Forward: this episode (本期) links to a later-referenced episode (对方).
