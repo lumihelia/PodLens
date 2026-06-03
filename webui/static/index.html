@@ -61,6 +61,13 @@ button{font-family:inherit;font-size:1rem;font-weight:600;border:none;cursor:poi
 .divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--border)}
 .actions{display:flex;gap:20px;align-items:center;margin-top:24px}
 a.live{color:var(--primary);font-weight:600}
+#conn-list{border:1px solid var(--border);border-radius:var(--radius);background:var(--input-bg);padding:4px 16px}
+.conn-item{display:block;padding:12px 0;border-bottom:1px solid var(--border);cursor:pointer}
+.conn-item:last-child{border-bottom:none}
+.conn-head{display:flex;align-items:center;gap:8px}
+.conn-item .rel{font-size:.8rem;color:var(--primary);background:#EDEBF4;padding:2px 10px;border-radius:999px}
+.conn-item .why{color:var(--muted);font-size:.92rem;margin:6px 0 0 28px}
+.conn-item input{margin-right:4px}
 </style>
 </head>
 <body>
@@ -108,6 +115,10 @@ a.live{color:var(--primary);font-weight:600}
       <label for="tags">主题标签(自动生成,可编辑/删除,逗号分隔)</label>
       <input id="tags" type="text" placeholder="标签1, 标签2, 标签3">
     </div>
+    <div id="conn-wrap" class="field hidden">
+      <label>与往期的关联(自动找到,取消勾选的不会发布)</label>
+      <div id="conn-list"></div>
+    </div>
     <div id="preview" class="preview"></div>
     <div class="actions">
       <button id="confirm" class="primary">确认发布并上线</button>
@@ -131,6 +142,28 @@ a.live{color:var(--primary);font-weight:600}
 const $ = id => document.getElementById(id);
 let pickedFile = null;
 let reportMd = null;
+let conns = [];
+
+function esc(s){ const d = document.createElement('div'); d.textContent = (s==null?'':s); return d.innerHTML; }
+function renderConns(list){
+  conns = list || [];
+  const wrap = $('conn-wrap');
+  if(!conns.length){ wrap.classList.add('hidden'); $('conn-list').innerHTML = ''; return; }
+  $('conn-list').innerHTML = conns.map((c, i) =>
+    '<label class="conn-item"><span class="conn-head">' +
+    '<input type="checkbox" checked data-i="' + i + '">' +
+    '<span class="rel">' + esc(c.relation || '关联') + '</span> → 《' + esc(c.title || c.slug) + '》' +
+    '</span><div class="why">' + esc(c.why || '') + '</div></label>'
+  ).join('');
+  wrap.classList.remove('hidden');
+}
+function keptConns(){
+  return conns.filter((_, i) => {
+    const cb = document.querySelector('#conn-list input[data-i="' + i + '"]');
+    return cb && cb.checked;
+  }).map(c => ({slug:c.slug, relation:c.relation, this_point:c.this_point,
+                that_point:c.that_point, why:c.why}));
+}
 
 const drop = $('drop'), fileInput = $('file');
 drop.onclick = () => fileInput.click();
@@ -174,6 +207,7 @@ $('run').onclick = async () => {
     reportMd = data.report_md;
     $('pub-title').value = data.title || '';
     $('tags').value = (data.tags || []).join(', ');
+    renderConns(data.connections);
     $('preview').innerHTML = data.full_html;
     show('result');
   }catch(e){ show('input'); err(e.message); }
@@ -186,6 +220,7 @@ $('confirm').onclick = async () => {
   fd.append('title', $('pub-title').value.trim());
   fd.append('source_url', $('source').value.trim());
   fd.append('tags', $('tags').value.trim());
+  fd.append('connections', JSON.stringify(keptConns()));
   $('confirm').disabled = true; $('confirm').textContent = '发布中…';
   try{
     const r = await fetch('/publish', { method:'POST', body: fd });
@@ -202,6 +237,7 @@ $('restart').onclick = () => { show('input'); };
 $('again').onclick = () => {
   pickedFile = null; reportMd = null;
   $('title').value = ''; $('source').value = ''; $('filename').textContent = '';
+  renderConns([]);
   show('input');
 };
 </script>
