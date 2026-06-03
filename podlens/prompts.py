@@ -191,6 +191,51 @@ RECONSTRUCTION:
 """
 
 
+def build_connections_prompt(
+    this_title: str, this_claims: str, candidates_block: str, output_lang: str
+) -> str:
+    """Find MICRO, evidence-grounded connections to prior episodes.
+
+    Each connection must name the SPECIFIC point + timestamp on BOTH sides and
+    the specific relationship. Vague macro links ("both about physics") are
+    forbidden. Returns [] if there is no genuine specific connection.
+    """
+    return f"""\
+You are linking a NEW episode to PRIOR episodes in a personal knowledge base.
+Find only GENUINE, SPECIFIC, MICRO-level connections.
+
+IRON RULES:
+- A connection must point to a SPECIFIC claim in the new episode (with its
+  timestamp) AND a SPECIFIC claim in a prior episode (with its timestamp), and
+  state the precise relationship between those two specific claims.
+- BANNED: vague macro links like "both discuss physics" / "both about science"
+  / "same field". If the only link is the broad topic, do NOT create it.
+- Only use prior episodes from the candidate list below. Cite a prior episode by
+  its exact "slug".
+- Relationship label (`relation`): one short word/phrase such as 承接 / 延伸 /
+  同构 / 印证 / 补充 / 对照 / 张力(or an equally precise label).
+- If there is no genuine specific connection, return an empty array [].
+- {_lang(output_lang)}
+
+Return ONLY a JSON array. Each item:
+{{"slug": "<prior episode slug>", "relation": "同构",
+  "this_point": "本期在 [12:30] 说……(具体观点)",
+  "that_point": "那期在 [52:09] 说……(具体观点)",
+  "why": "两者具体如何关联(一句话,落到机制/结构层面,不要泛泛)"}}
+
+NEW EPISODE: {this_title}
+NEW EPISODE KEY CLAIMS:
+\"\"\"
+{this_claims}
+\"\"\"
+
+CANDIDATE PRIOR EPISODES (slug, title, tags, key claims):
+\"\"\"
+{candidates_block}
+\"\"\"
+"""
+
+
 def build_mapping_prompt(
     reconstruction: str,
     plain_language: str,
