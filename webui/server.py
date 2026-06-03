@@ -138,6 +138,12 @@ def do_publish(
     except RuntimeError as exc:
         raise HTTPException(400, f"生成失败:{exc}")
 
+    # Archive the FULL report (incl. the private personal-mapping layer) locally,
+    # so the user can revisit their past mappings. reports/ is gitignored.
+    reports_dir = ROOT / "reports"
+    reports_dir.mkdir(exist_ok=True)
+    (reports_dir / f"{entry['slug']}.md").write_text(report_md, encoding="utf-8")
+
     pushed, message = _git_publish(entry["title"])
     url = site.clean_base + f"/episodes/{entry['slug']}.html"
     return JSONResponse({

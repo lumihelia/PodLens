@@ -187,26 +187,75 @@ def _ts_to_seconds(ts: str) -> int:
     return h * 3600 + m * 60 + s
 
 
-def _linkify_timestamps(content_html: str, source_url: str) -> str:
-    """Turn bracketed timestamps into deep links into the source video.
+def _linkify_seek(content_html: str, video_id: str) -> str:
+    """Make timestamps seek the in-page player (with a YouTube link as fallback).
 
-    Only applied when the source is a YouTube video. Each [mm:ss] becomes a
-    link to youtube.com/watch?v=ID&t=Ns, so readers can jump to the exact
-    moment the claim is made in the original.
+    Returns the html unchanged if there is no video to seek.
     """
-    vid = extract_video_id(source_url) if source_url else None
-    if not vid:
+    if not video_id:
         return content_html
 
     def repl(m: re.Match) -> str:
         secs = _ts_to_seconds(m.group(1))
-        url = f"https://www.youtube.com/watch?v={vid}&t={secs}s"
+        fallback = f"https://www.youtube.com/watch?v={video_id}&t={secs}s"
         return (
-            f'<a href="{url}" target="_blank" rel="noopener" '
-            f'class="ts">{html.escape(m.group(0))}</a>'
+            f'<a class="ts" href="{fallback}" target="_blank" rel="noopener" '
+            f'onclick="return PL.seek({secs})">{html.escape(m.group(0))}</a>'
         )
 
     return _TS_RE.sub(repl, content_html)
+
+
+def _linkify_nav(content_html: str, page_url: str) -> str:
+    """Make timestamps link to another episode's page at that time (?t=seconds).
+
+    Used for 往期 points in connections: clicking navigates to the linked
+    episode's page, which seeks its own player on load.
+    """
+    sep = "&" if "?" in page_url else "?"
+
+    def repl(m: re.Match) -> str:
+        secs = _ts_to_seconds(m.group(1))
+        return (f'<a class="ts" href="{page_url}{sep}t={secs}">'
+                f'{html.escape(m.group(0))}</a>')
+
+    return _TS_RE.sub(repl, content_html)
+
+
+def _video_embed(video_id: str) -> str:
+    """A sticky, privacy-enhanced YouTube player + JS for in-page seeking.
+
+    Exposes PL.seek(seconds) for timestamp links, and seeks to ?t=SECONDS on
+    page load (used when navigating from a related episode's 往期 timestamp).
+    """
+    return f"""<div class="player-wrap"><div id="ytplayer"></div></div>
+<script>
+var PL = (function() {{
+  var player, ready = false, pending = null;
+  window.onYouTubeIframeAPIReady = function() {{
+    player = new YT.Player('ytplayer', {{
+      videoId: '{video_id}',
+      host: 'https://www.youtube-nocookie.com',
+      playerVars: {{playsinline: 1, rel: 0}},
+      events: {{onReady: function() {{ ready = true; if (pending != null) {{ var p = pending; pending = null; seek(p); }} }}}}
+    }});
+  }};
+  function seek(s) {{
+    if (!ready) {{ pending = s; return false; }}
+    player.seekTo(s, true); player.playVideo();
+    document.querySelector('.player-wrap').scrollIntoView({{behavior: 'smooth', block: 'start'}});
+    return false;
+  }}
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+  document.addEventListener('DOMContentLoaded', function() {{
+    var t = new URLSearchParams(location.search).get('t');
+    if (t) {{ seek(parseInt(t, 10)); }}
+  }});
+  return {{seek: seek}};
+}})();
+</script>"""
 
 
 def _first_sentences(public_md: str, limit: int = 200) -> str:
@@ -261,7 +310,10 @@ li { margin: 6px 0; }
 .back { display: inline-block; margin-bottom: 48px; color: var(--muted); }
 a.ts { color: var(--primary); font-variant-numeric: tabular-nums; white-space: nowrap; text-decoration: none; border-bottom: 1px dotted var(--border); }
 a.ts:hover { border-bottom-style: solid; }
-.source { color: var(--muted); font-size: 0.95rem; margin: 0 0 48px; }
+.source { color: var(--muted); font-size: 0.95rem; margin: 0 0 24px; }
+.player-wrap { position: sticky; top: 0; z-index: 10; background: var(--bg); padding: 12px 0 16px; margin: 0 0 32px; }
+.player-wrap > div { position: relative; width: 100%; max-width: 460px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 10px var(--shadow); }
+.player-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 48px; }
 .tags span { font-size: 0.85rem; color: var(--primary); background: #EDEBF4; padding: 4px 12px; border-radius: 999px; }
 .connections { list-style: none; padding: 0; margin: 0; }
@@ -329,14 +381,20 @@ def _ep_url(site: SiteConfig, slug: str) -> str:
 def _render_connections(entry: dict, slug_titles: dict, backrefs: list[dict],
                         site: SiteConfig) -> str:
     """Render the bidirectional 与往期的关联 section, or '' if there are none."""
-    def pts(mine: str, theirs: str) -> str:
+    this_vid = extract_video_id(entry.get("source_url", "") or "")
+
+    def pts(mine: str, theirs: str, other_slug: str) -> str:
+        # 本期 timestamps seek the in-page player; 往期 timestamps navigate to
+        # the linked episode's page at that time.
+        mine_html = _linkify_seek(html.escape(mine), this_vid)
+        theirs_html = _linkify_nav(html.escape(theirs), _ep_url(site, other_slug))
         return ('<div class="pts">'
-                f'<div><b class="who">本期</b>{html.escape(mine)}</div>'
-                f'<div><b class="who">往期</b>{html.escape(theirs)}</div>'
+                f'<div><b class="who">本期</b>{mine_html}</div>'
+                f'<div><b class="who">往期</b>{theirs_html}</div>'
                 '</div>')
 
     rows = []
-    # Forward: this episode (本期) links to a later-referenced episode (对方).
+    # Forward: this episode (本期) links to a referenced episode (往期).
     for c in entry.get("connections", []):
         title = slug_titles.get(c["slug"])
         if not title:
@@ -345,16 +403,16 @@ def _render_connections(entry: dict, slug_titles: dict, backrefs: list[dict],
             f'<li><span class="rel">{html.escape(c.get("relation", "关联"))}</span>'
             f'→ <a class="lk" href="{_ep_url(site, c["slug"])}">{html.escape(title)}</a>'
             f'<div class="why">{html.escape(c.get("why", ""))}</div>'
-            + pts(c.get("this_point", ""), c.get("that_point", "")) + "</li>"
+            + pts(c.get("this_point", ""), c.get("that_point", ""), c["slug"]) + "</li>"
         )
-    # Back: a later episode (对方) linked TO this one. From this page's view,
-    # the current episode is 本期 -> use that_point; the other is 对方 -> this_point.
+    # Back: a later episode linked TO this one. From this page's view, the
+    # current episode is 本期 -> that_point; the other is 往期 -> this_point.
     for b in backrefs:
         rows.append(
             f'<li><span class="rel">{html.escape(b.get("relation", "关联"))}</span>'
             f'← <a class="lk" href="{_ep_url(site, b["from_slug"])}">{html.escape(b["from_title"])}</a>'
             f'<div class="why">{html.escape(b.get("why", ""))}</div>'
-            + pts(b.get("that_point", ""), b.get("this_point", "")) + "</li>"
+            + pts(b.get("that_point", ""), b.get("this_point", ""), b["from_slug"]) + "</li>"
         )
     if not rows:
         return ""
@@ -366,18 +424,22 @@ def render_episode_page(entry: dict, public_md: str, site: SiteConfig,
                         backrefs: list[dict] | None = None) -> str:
     content_html = md.markdown(public_md, extensions=["extra", "sane_lists"])
     source_url = entry.get("source_url", "")
-    content_html = _linkify_timestamps(content_html, source_url)
+    video_id = extract_video_id(source_url) if source_url else None
+    content_html = _linkify_seek(content_html, video_id or "")
     connections_html = _render_connections(
         entry, slug_titles or {}, backrefs or [], site
     )
+    player_html = _video_embed(video_id) if video_id else ""
     canonical = site.clean_base + f"/episodes/{entry['slug']}.html"
 
     source_line = ""
     if source_url:
+        hint = "时间戳可点击,就地跳转播放器" if video_id else ""
         source_line = (
             f'<p class="source">原节目:'
             f'<a href="{html.escape(source_url)}" target="_blank" rel="noopener">'
-            f'{html.escape(source_url)}</a>　·　时间戳可点击,直接跳到原视频对应位置</p>'
+            f'{html.escape(source_url)}</a>'
+            + (f'　·　{hint}' if hint else "") + '</p>'
         )
 
     tags = entry.get("tags", [])
@@ -406,6 +468,7 @@ def render_episode_page(entry: dict, public_md: str, site: SiteConfig,
 <h1>{html.escape(entry['title'])}</h1>
 <p class="meta">{entry['date']} · 由 PodLens 生成的忠实解读</p>
 {source_line}
+{player_html}
 {tags_line}
 {content_html}
 {connections_html}
