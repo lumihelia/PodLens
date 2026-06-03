@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PodLens · 解读与发布</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --text:#2C2C2C;--primary:#4C436F;--primary-hover:#3A3457;--bg:#F4F3F7;
+  --input-bg:#FAF9FC;--border:#D4D0E0;--muted:#9A93B3;--white:#FFFFFF;
+  --radius:12px;--shadow:rgba(76,67,111,.08);
+}
+*{box-sizing:border-box}
+body{font-family:'Source Serif Pro',serif;color:var(--text);background:var(--bg);
+  line-height:1.75;margin:0;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:80px 24px 120px}
+h1,h2,h3{font-family:'Playfair Display',serif;line-height:1.25}
+h1{font-size:2.4rem;font-weight:600;margin:0 0 4px;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 56px}
+label{display:block;font-size:.95rem;color:var(--muted);margin:0 0 8px}
+input[type=text]{width:100%;padding:12px 14px;border:1px solid var(--border);
+  background:var(--input-bg);border-radius:var(--radius);font-family:inherit;
+  font-size:1rem;color:var(--text)}
+input[type=text]:focus{outline:none;border-color:var(--primary)}
+.field{margin:0 0 24px}
+.drop{border:1px dashed var(--border);background:var(--input-bg);border-radius:var(--radius);
+  padding:40px 24px;text-align:center;color:var(--muted);cursor:pointer;transition:.15s}
+.drop:hover,.drop.over{border-color:var(--primary);color:var(--primary)}
+.drop strong{color:var(--text);font-weight:600}
+.row{display:flex;gap:16px;align-items:center;margin:0 0 24px}
+.row label{margin:0}
+.check{display:flex;align-items:center;gap:8px;color:var(--text);font-size:.95rem}
+button{font-family:inherit;font-size:1rem;font-weight:600;border:none;cursor:pointer;
+  border-radius:var(--radius);padding:13px 28px;transition:.15s}
+.primary{background:var(--primary);color:#fff}
+.primary:hover{background:var(--primary-hover)}
+.primary:disabled{opacity:.5;cursor:not-allowed}
+.ghost{background:transparent;color:var(--muted);padding:13px 0}
+.ghost:hover{color:var(--text)}
+.note{font-size:.9rem;color:var(--muted);margin-top:10px}
+.hidden{display:none}
+.spinner{display:inline-block;width:18px;height:18px;border:2px solid var(--border);
+  border-top-color:var(--primary);border-radius:50%;animation:spin .8s linear infinite;
+  vertical-align:-4px;margin-right:10px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.banner{border-radius:var(--radius);padding:16px 20px;margin:0 0 32px;font-size:.95rem}
+.banner.info{background:#EDEBF4;color:var(--primary)}
+.banner.ok{background:#E7F1EA;color:#2f6b46}
+.banner.err{background:#F6E9EA;color:#9a3b3b}
+.preview{background:var(--white);border-radius:var(--radius);padding:40px 44px;
+  box-shadow:0 1px 3px var(--shadow);margin:24px 0 32px}
+.preview h2{font-size:1.4rem;margin:48px 0 14px}
+.preview h2:first-child{margin-top:0}
+.preview h3{font-size:1.1rem;margin:28px 0 8px}
+.preview p{margin:0 0 18px}
+.preview a{color:var(--primary)}
+.divider{display:flex;align-items:center;gap:14px;color:var(--muted);
+  font-size:.85rem;margin:40px 0;text-transform:none}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--border)}
+.actions{display:flex;gap:20px;align-items:center;margin-top:24px}
+a.live{color:var(--primary);font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>PodLens</h1>
+  <p class="sub">上传字幕 → 读完整解读 → 确认后发布公开层并上线</p>
+
+  <!-- Step 1: input -->
+  <section id="input">
+    <div class="field">
+      <div id="drop" class="drop">
+        <strong>拖入字幕文件</strong>,或点击选择　·　支持 .srt / .vtt / .txt
+        <div id="filename" class="note"></div>
+      </div>
+      <input id="file" type="file" accept=".srt,.vtt,.txt,.md" class="hidden">
+    </div>
+    <div class="field">
+      <label for="title">标题</label>
+      <input id="title" type="text" placeholder="例如:时间的本质 · Jim Al-Khalili">
+    </div>
+    <div class="field">
+      <label for="source">原视频链接(可选,填了 YouTube 链接,时间戳就能点击跳转)</label>
+      <input id="source" type="text" placeholder="https://youtu.be/...">
+    </div>
+    <div class="row">
+      <label class="check"><input id="profile" type="checkbox" checked> 用我的个人档案做映射(仅本地可见)</label>
+    </div>
+    <button id="run" class="primary">解读</button>
+    <div class="note">没填文件时,如果填了 YouTube 链接会尝试抓字幕(可能被限流,字幕文件最稳)。</div>
+  </section>
+
+  <!-- Step 2: working -->
+  <section id="working" class="hidden">
+    <div class="banner info"><span class="spinner"></span>正在解读…长访谈可能要几分钟,别关页面。</div>
+  </section>
+
+  <!-- Step 3: preview + confirm -->
+  <section id="result" class="hidden">
+    <div class="banner info" id="result-note">下面是<strong>完整解读</strong>(含个人映射,仅你本地可见)。确认发布后,<strong>只有公开层会上线</strong>,个人映射等私人内容不会公开。</div>
+    <div id="preview" class="preview"></div>
+    <div class="actions">
+      <button id="confirm" class="primary">确认发布并上线</button>
+      <button id="restart" class="ghost">重来</button>
+    </div>
+  </section>
+
+  <!-- Step 4: published -->
+  <section id="done" class="hidden">
+    <div class="banner ok" id="done-msg"></div>
+    <div class="actions">
+      <a id="livelink" class="live" href="#" target="_blank">查看上线页面 →</a>
+      <button id="again" class="ghost">再发一期</button>
+    </div>
+  </section>
+
+  <div id="error" class="banner err hidden"></div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+let pickedFile = null;
+let reportMd = null;
+
+const drop = $('drop'), fileInput = $('file');
+drop.onclick = () => fileInput.click();
+fileInput.onchange = e => setFile(e.target.files[0]);
+drop.ondragover = e => { e.preventDefault(); drop.classList.add('over'); };
+drop.ondragleave = () => drop.classList.remove('over');
+drop.ondrop = e => { e.preventDefault(); drop.classList.remove('over'); setFile(e.dataTransfer.files[0]); };
+function setFile(f){ pickedFile = f || null; $('filename').textContent = f ? ('已选择:' + f.name) : ''; }
+
+function show(id){ ['input','working','result','done'].forEach(s => $(s).classList.toggle('hidden', s !== id)); }
+function err(msg){ const e = $('error'); e.textContent = msg; e.classList.remove('hidden'); }
+function clearErr(){ $('error').classList.add('hidden'); }
+
+$('run').onclick = async () => {
+  clearErr();
+  const title = $('title').value.trim();
+  if(!title){ err('请先填标题。'); return; }
+  if(!pickedFile && !$('source').value.trim()){ err('请上传字幕文件,或填一个 YouTube 链接。'); return; }
+  const fd = new FormData();
+  fd.append('title', title);
+  fd.append('source_url', $('source').value.trim());
+  fd.append('use_profile', $('profile').checked ? 'true' : 'false');
+  if(pickedFile) fd.append('file', pickedFile);
+  show('working');
+  try{
+    const r = await fetch('/interpret', { method:'POST', body: fd });
+    const data = await r.json();
+    if(!r.ok){ throw new Error(data.detail || '解读失败'); }
+    reportMd = data.report_md;
+    $('preview').innerHTML = data.full_html;
+    show('result');
+  }catch(e){ show('input'); err(e.message); }
+};
+
+$('confirm').onclick = async () => {
+  clearErr();
+  const fd = new FormData();
+  fd.append('report_md', reportMd);
+  fd.append('title', $('title').value.trim());
+  fd.append('source_url', $('source').value.trim());
+  $('confirm').disabled = true; $('confirm').textContent = '发布中…';
+  try{
+    const r = await fetch('/publish', { method:'POST', body: fd });
+    const data = await r.json();
+    if(!r.ok){ throw new Error(data.detail || '发布失败'); }
+    $('done-msg').textContent = data.message;
+    $('livelink').href = data.url;
+    show('done');
+  }catch(e){ err(e.message); }
+  finally{ $('confirm').disabled = false; $('confirm').textContent = '确认发布并上线'; }
+};
+
+$('restart').onclick = () => { show('input'); };
+$('again').onclick = () => {
+  pickedFile = null; reportMd = null;
+  $('title').value = ''; $('source').value = ''; $('filename').textContent = '';
+  show('input');
+};
+</script>
+</body>
+</html>
