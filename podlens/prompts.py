@@ -214,13 +214,16 @@ IRON RULES:
   its exact "slug".
 - Relationship label (`relation`): one short word/phrase such as 承接 / 延伸 /
   同构 / 印证 / 补充 / 对照 / 张力(or an equally precise label).
+- `this_point` and `that_point` must contain ONLY the timestamp(s) and the
+  claim itself. Do NOT prefix them with "本期"/"那期"/"this episode"/"that
+  episode" — the page adds the correct label depending on which page it shows on.
 - If there is no genuine specific connection, return an empty array [].
 - {_lang(output_lang)}
 
 Return ONLY a JSON array. Each item:
 {{"slug": "<prior episode slug>", "relation": "同构",
-  "this_point": "本期在 [12:30] 说……(具体观点)",
-  "that_point": "那期在 [52:09] 说……(具体观点)",
+  "this_point": "[12:30] ……(本集里的具体观点,不要写'本期')",
+  "that_point": "[52:09] ……(那一集里的具体观点,不要写'那期')",
   "why": "两者具体如何关联(一句话,落到机制/结构层面,不要泛泛)"}}
 
 NEW EPISODE: {this_title}

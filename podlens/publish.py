@@ -327,7 +327,12 @@ def _ep_url(site: SiteConfig, slug: str) -> str:
 def _render_connections(entry: dict, slug_titles: dict, backrefs: list[dict],
                         site: SiteConfig) -> str:
     """Render the bidirectional 与往期的关联 section, or '' if there are none."""
+    def pts(mine: str, theirs: str) -> str:
+        return (f'<div class="pts">本期:{html.escape(mine)}　｜　'
+                f'对方:{html.escape(theirs)}</div>')
+
     rows = []
+    # Forward: this episode (本期) links to a later-referenced episode (对方).
     for c in entry.get("connections", []):
         title = slug_titles.get(c["slug"])
         if not title:
@@ -336,17 +341,16 @@ def _render_connections(entry: dict, slug_titles: dict, backrefs: list[dict],
             f'<li><span class="rel">{html.escape(c.get("relation", "关联"))}</span>'
             f'→ <a class="lk" href="{_ep_url(site, c["slug"])}">{html.escape(title)}</a>'
             f'<div class="why">{html.escape(c.get("why", ""))}</div>'
-            f'<div class="pts">本期:{html.escape(c.get("this_point", ""))}　｜　'
-            f'那期:{html.escape(c.get("that_point", ""))}</div></li>'
+            + pts(c.get("this_point", ""), c.get("that_point", "")) + "</li>"
         )
+    # Back: a later episode (对方) linked TO this one. From this page's view,
+    # the current episode is 本期 -> use that_point; the other is 对方 -> this_point.
     for b in backrefs:
         rows.append(
             f'<li><span class="rel">{html.escape(b.get("relation", "关联"))}</span>'
             f'← <a class="lk" href="{_ep_url(site, b["from_slug"])}">{html.escape(b["from_title"])}</a>'
-            f' 在这一点上与本期相关'
             f'<div class="why">{html.escape(b.get("why", ""))}</div>'
-            f'<div class="pts">那期:{html.escape(b.get("this_point", ""))}　｜　'
-            f'本期:{html.escape(b.get("that_point", ""))}</div></li>'
+            + pts(b.get("that_point", ""), b.get("this_point", "")) + "</li>"
         )
     if not rows:
         return ""
