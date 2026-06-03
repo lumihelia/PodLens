@@ -22,4 +22,4 @@ echo ""
 # Open the browser shortly after the server starts.
 ( sleep 2; open "http://127.0.0.1:${PORT}" ) &
 
-exec python -m uvicorn webui.server:app --host 127.0.0.1 --port "${PORT}"
+exec python -m uvicorn webui.server:app --host 127.0.0.1 --port "${PORT}" --reload --reload-dir webui --reload-dir podlens

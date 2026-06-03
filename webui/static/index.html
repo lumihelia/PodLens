@@ -143,6 +143,17 @@ function setFile(f){ pickedFile = f || null; $('filename').textContent = f ? ('�
 function show(id){ ['input','working','result','done'].forEach(s => $(s).classList.toggle('hidden', s !== id)); }
 function err(msg){ const e = $('error'); e.textContent = msg; e.classList.remove('hidden'); }
 function clearErr(){ $('error').classList.add('hidden'); }
+function detailMsg(data, status){
+  const d = data && data.detail;
+  if(typeof d === 'string') return d;
+  if(Array.isArray(d)) return d.map(x => (x && x.msg) ? x.msg : JSON.stringify(x)).join('；');
+  if(d) return JSON.stringify(d);
+  return '请求失败(HTTP ' + status + ')。如果刚更新过代码,请重启 UI。';
+}
+async function readJson(r){
+  try{ return await r.json(); }
+  catch{ throw new Error('服务器返回异常(HTTP ' + r.status + ')。可能需要重启 UI。'); }
+}
 
 $('run').onclick = async () => {
   clearErr();
@@ -155,8 +166,8 @@ $('run').onclick = async () => {
   show('working');
   try{
     const r = await fetch('/interpret', { method:'POST', body: fd });
-    const data = await r.json();
-    if(!r.ok){ throw new Error(data.detail || '解读失败'); }
+    const data = await readJson(r);
+    if(!r.ok){ throw new Error(detailMsg(data, r.status)); }
     reportMd = data.report_md;
     $('pub-title').value = data.title || '';
     $('tags').value = (data.tags || []).join(', ');
@@ -175,8 +186,8 @@ $('confirm').onclick = async () => {
   $('confirm').disabled = true; $('confirm').textContent = '发布中…';
   try{
     const r = await fetch('/publish', { method:'POST', body: fd });
-    const data = await r.json();
-    if(!r.ok){ throw new Error(data.detail || '发布失败'); }
+    const data = await readJson(r);
+    if(!r.ok){ throw new Error(detailMsg(data, r.status)); }
     $('done-msg').textContent = data.message;
     $('livelink').href = data.url;
     show('done');
