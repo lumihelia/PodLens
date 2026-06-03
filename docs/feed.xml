@@ -4,57 +4,58 @@
 <title>PodLens</title>
 <link>https://lens.lumihelia.com/</link>
 <description>播客的忠实解读。</description>
-<language>zh</language>
+<language>zh-Hans</language>
 <atom:link href="https://lens.lumihelia.com/feed.xml" rel="self" type="application/rss+xml" />
 <item>
-<title>人类近万年的自然选择 · David Reich</title>
-<link>https://lens.lumihelia.com/episodes/david-reich.html</link>
-<guid isPermaLink="true">https://lens.lumihelia.com/episodes/david-reich.html</guid>
-<pubDate>Wed, 03 Jun 2026 00:00:00 +0000</pubDate>
-<description>追踪基因频率的变化为什么重要？因为这是探测“自然选择”最直接的方法。当环境发生巨变，比如人类开始农耕、与家畜共生带来新疾病，或者迁徙到高原地带，生存压力就会改变。某些基因变异可能突然变得更有利，拥有这些基因的人就能更好地生存繁衍，于是这些基因在人群中的比例就会系统性地提升。这种频率的定向变化，就是自然选择留下的印记 [00:04:36]。</description>
-<category>古DNA研究</category>
-<category>青铜时代选择压力</category>
-<category>认知能力选择</category>
-<category>节俭基因假说</category>
-<category>尼安德特人起源</category>
-</item>
-<item>
-<title>构成现实的三个领域 · Hakeem Oluseyi</title>
-<link>https://lens.lumihelia.com/episodes/hakeem-oluseyi.html</link>
-<guid isPermaLink="true">https://lens.lumihelia.com/episodes/hakeem-oluseyi.html</guid>
-<pubDate>Wed, 03 Jun 2026 00:00:00 +0000</pubDate>
-<description>天体物理学家哈基姆·奥卢塞伊（Hakeem Oluseyi）带我们探索构成我们现实的三个层面：量子、宇宙和可能存在的多重宇宙 [00:05]。他把这些复杂的物理学概念，讲得像是身边一个懂行的朋友在跟你聊天。</description>
-<category>量子场</category>
-<category>波函数</category>
-<category>时空膨胀</category>
-<category>多世界诠释</category>
-<category>永恒暴胀</category>
-</item>
-<item>
-<title>物理学最大的谜题:反物质、暗能量与万有理论 · Don Lincoln (Lex Fridman #497)</title>
+<title>物理学的统一 · Don Lincoln</title>
 <link>https://lens.lumihelia.com/episodes/don-lincoln-lex-fridman-497.html</link>
 <guid isPermaLink="true">https://lens.lumihelia.com/episodes/don-lincoln-lex-fridman-497.html</guid>
 <pubDate>Wed, 03 Jun 2026 00:00:00 +0000</pubDate>
-<description>旅程从牛顿开始。在牛顿之前，人们觉得天上的星星月亮运行是一套规律，而地上苹果往下掉是另一套规律。牛顿的伟大之处在于，他意识到这背后是同一种力，也就是“万有引力”。他把天上的引力（celestial gravity）和地上的引力（terrestrial gravity）统一了起来，这是物理学第一次伟大的统一 [02:55]。</description>
+<description>主持人 Lex Fridman 与费米实验室的粒子物理学家 Don Lincoln 对话，通过统一的视角探讨物理学的历史与未来。核心主题是长达数个世纪的探索，旨在证明看似不同的现象实则由一套单一的潜在原则所支配。对话追溯了物理学史上的几次主要统一，从牛顿的万有引力、麦克斯韦的电磁学，到爱因斯坦的时空观以及标准模型中的电弱力。内容深入探讨了希格斯玻色子的发现、粒子加速器的工作原理，以及当今物理学面临…</description>
+<category>粒子物理标准模型</category>
+<category>电弱统一</category>
 <category>希格斯玻色子</category>
-<category>大统一理论</category>
-<category>万有理论</category>
-<category>反物质</category>
-<category>暗能量</category>
 <category>暗物质</category>
+<category>暗能量</category>
+<category>物质-反物质不对称性</category>
 </item>
 <item>
-<title>时间的本质 · Jim Al-Khalili</title>
+<title>宇宙的三个领域 · Hakeem Oluseyi</title>
+<link>https://lens.lumihelia.com/episodes/hakeem-oluseyi.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/episodes/hakeem-oluseyi.html</guid>
+<pubDate>Wed, 03 Jun 2026 00:00:00 +0000</pubDate>
+<description>天体物理学家 Hakeem Oluseyi 探讨了他书中《我们为何存在？》提到的宇宙三个基本“领域”。讲座遵循一个从最小尺度到最大、最具推测性尺度的逻辑弧线。首先，他探索了量子领域，解释了粒子是基本量子场中的激发，而我们的经典直觉无法描述其概率性。其次，他转向宇宙学领域，详细阐述了时空的动态，包括其局部曲率、全局平坦性以及整体膨胀，这些都挑战了我们关于距离和普适当下的概念。最后，他审视了多重宇宙领…</description>
+<category>量子场</category>
+<category>时空膨胀</category>
+<category>多世界诠释</category>
+<category>永恒暴胀</category>
+<category>测量问题</category>
+</item>
+<item>
+<title>青铜时代猖獗的自然选择 · David Reich</title>
+<link>https://lens.lumihelia.com/episodes/david-reich.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/episodes/david-reich.html</guid>
+<pubDate>Wed, 03 Jun 2026 00:00:00 +0000</pubDate>
+<description>主持人采访了哈佛大学古DNA教授David Reich，谈论了他实验室的一篇新预印本论文。核心话题是在过去18000年里，欧洲和中东人类群体中自然选择的检测。Reich解释说，以前的研究难以找到选择的有力证据，因为其信号被迁徙引起的更大规模的基因变化所淹没。接着，他详细介绍了他实验室的新方法，该方法使用了一个包含超过16000个古代个体的大规模数据集，以在统计上分离出选择的信号。该研究的主要发现是…</description>
+<category>古DNA</category>
+<category>自然选择</category>
+<category>青铜时代</category>
+<category>多基因分数</category>
+<category>进化失配</category>
+<category>尼安德特人起源</category>
+</item>
+<item>
+<title>时间的四个问题 · Jim Al-Khalili</title>
 <link>https://lens.lumihelia.com/episodes/jim-al-khalili.html</link>
 <guid isPermaLink="true">https://lens.lumihelia.com/episodes/jim-al-khalili.html</guid>
 <pubDate>Tue, 02 Jun 2026 00:00:00 +0000</pubDate>
-<description>首先,他区分了两种时间。一种是“物理时间”,就是物理公式里那个冷冰冰的字母&#x27;t&#x27;,它只是一个坐标,没有流动的感觉 [06:28]。另一种是我们每个人都能感受到的“显性时间”(manifest time),也就是我们主观体验到的时间,它会流逝,有时快有时慢 [01:42]。你有没有觉得,小时候一年特别漫长,长大后十年一晃就过 [02:28]?或者在牙医候诊室的半小时度日如年,而在派对上的半小时转瞬即…</description>
+<description>物理学家 Jim Al-Khalili 探讨了时间的物理学，概述了他所谓的四个不同的“时间问题”：时间是否流逝，如何调和量子场论与广义相对论，“现在”的特殊性，以及时间方向的起源 [00:18]。他区分了物理学所描述的“物理时间”和我们的主观感知“显在时间”。讲座追溯了时间概念从牛顿的绝对时间到爱因斯坦的相对时空的演变，通过狭义和广义相对论解释了时间膨胀。接着，讲座探讨了“块宇宙”模型、统一物理学…</description>
 <category>时间膨胀</category>
-<category>块状宇宙</category>
-<category>时间涌现</category>
+<category>块宇宙</category>
 <category>时间之箭</category>
+<category>Wheeler-DeWitt 方程</category>
 <category>量子退相干</category>
-<category>时间旅行</category>
+<category>祖父悖论</category>
 </item>
 </channel>
 </rss>

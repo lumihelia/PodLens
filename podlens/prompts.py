@@ -32,6 +32,49 @@ def _lang(output_lang: str) -> str:
     return _LANG_DIRECTIVE.get(output_lang, _LANG_DIRECTIVE["zh"])
 
 
+_LANG_NAME = {"zh": "Simplified Chinese", "en": "English"}
+
+
+def build_translation_prompt(payload_json: str, target_lang: str) -> str:
+    """Translate an already-written PUBLIC-layer bundle into target_lang.
+
+    This is a TRANSLATION step (not re-interpretation): the interpretation was
+    done faithfully in the source language; here we only carry it into the other
+    language, preserving structure, timestamps, and names exactly.
+
+    `payload_json` is a JSON object with: body (markdown str), title (str),
+    tags (list[str]), editor_note (str), connections (list of objects with
+    slug/relation/why/this_point/that_point). The model returns the SAME shape
+    with every human-readable string translated and slugs left unchanged.
+    """
+    lang_name = _LANG_NAME.get(target_lang, target_lang)
+    return f"""\
+You are translating an already-written, faithful podcast interpretation into
+{lang_name}. This is a TRANSLATION task: preserve the meaning exactly. Do not
+add, remove, reinterpret, summarize, or editorialize. Keep the same structure.
+
+STRICT RULES:
+- Output {lang_name} only. Translate the prose AND the Markdown heading text.
+- Keep EVERY timestamp EXACTLY as-is and in place: e.g. [12:34], [1:02:33], or
+  ranges like [00:00-01:04]. Never alter, move, reorder, or drop a timestamp.
+- Preserve all Markdown structure: heading levels (##, ###), list markers,
+  numbering, line breaks, blank lines. Only the human-readable TEXT changes.
+- Keep ALL personal names and proper nouns in their ORIGINAL form (e.g.
+  "Jim Al-Khalili", "Dana Reyes"). Never transliterate or translate a name.
+- Do not leave untranslated source-language words in the prose, except proper
+  nouns / names.
+- The input is a JSON object. Return the SAME JSON object with every string
+  value translated. `tags` is a list of strings (translate each). `connections`
+  is a list of objects: translate `relation`, `why`, `this_point`, `that_point`
+  (keep the timestamps inside them intact) and leave `slug` UNCHANGED. Keep the
+  connections in the SAME order.
+- Return ONLY the JSON object. No code fences, no commentary.
+
+INPUT JSON:
+{payload_json}
+"""
+
+
 # --- Shared grounding rules --------------------------------------------------
 
 _FIDELITY_RULES = """\
@@ -183,11 +226,11 @@ TAGS rules:
   (e.g. "量子退相干", "块状宇宙", "时间膨胀"), NOT the broad field
   (NOT "物理", NOT "科学"). 2-6 words each, no punctuation.
 
-{_lang(output_lang)} (the title's topic phrase and the tags in this language;
-keep proper names as-is.)
+{_lang(output_lang)} (the title's topic phrase and the tags MUST be in this
+language; keep proper names as-is.)
 
-Return ONLY a JSON object, nothing else. Example:
-{{"title": "时间的本质 · Jim Al-Khalili", "tags": ["量子退相干", "块状宇宙", "时间之箭"]}}
+Return ONLY a JSON object, nothing else. Example{" (English)" if output_lang == "en" else ""}:
+{('{"title": "The Nature of Time · Jim Al-Khalili", "tags": ["Quantum Decoherence", "Block Universe", "Arrow of Time"]}' if output_lang == "en" else '{"title": "时间的本质 · Jim Al-Khalili", "tags": ["量子退相干", "块状宇宙", "时间之箭"]}')}
 
 RECONSTRUCTION:
 \"\"\"
@@ -217,8 +260,9 @@ IRON RULES:
   / "same field". If the only link is the broad topic, do NOT create it.
 - Only use prior episodes from the candidate list below. Cite a prior episode by
   its exact "slug".
-- Relationship label (`relation`): one short word/phrase such as 承接 / 延伸 /
-  同构 / 印证 / 补充 / 对照 / 张力(or an equally precise label).
+- Relationship label (`relation`): one short word/phrase, IN THE OUTPUT
+  LANGUAGE, such as {"Follows-on / Extends / Parallel / Corroborates / Complements / Contrast / Tension" if output_lang == "en" else "承接 / 延伸 / 同构 / 印证 / 补充 / 对照 / 张力"}
+  (or an equally precise label).
 - `this_point` and `that_point` must contain ONLY the timestamp(s) and the
   claim itself. Do NOT prefix them with "本期"/"那期"/"this episode"/"that
   episode" — the page adds the correct label depending on which page it shows on.

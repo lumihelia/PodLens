@@ -10,6 +10,7 @@ Start with the start_ui.command launcher, or:
 
 import json
 import subprocess
+from datetime import datetime
 from pathlib import Path
 
 import markdown as md
@@ -17,17 +18,20 @@ from fastapi import FastAPI, Form, HTTPException, UploadFile
 from fastapi.responses import FileResponse, JSONResponse
 
 from podlens.config import load_config
-from podlens.interpreter import find_connections, interpret
+from podlens.interpreter import build_bilingual, find_connections, interpret
 from podlens.profile import load_profile
 from podlens.publish import (
     build_candidates,
     extract_claims_section,
     extract_public_markdown,
+    get_episode_for_edit,
+    list_published,
     load_site_config,
     publish_report,
     slugify,
+    update_episode,
 )
-from podlens.transcript import load_transcript
+from podlens.transcript import detect_language, load_transcript
 from podlens.youtube import fetch_transcript, is_youtube_url
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -74,8 +78,11 @@ async def do_interpret(
         raise HTTPException(400, "未配置 GEMINI_API_KEY(检查 .env)。")
     profile = load_profile(config.profile_path) if use_profile else None
 
+    # Interpret the PUBLIC layers in the transcript's OWN language (most
+    # faithful); the private personal mapping stays in your reading language.
+    source_lang = detect_language(transcript)
     try:
-        result = interpret(transcript, profile, config)
+        result = interpret(transcript, profile, config, public_lang=source_lang)
     except RuntimeError as exc:
         raise HTTPException(500, f"解读失败:{exc}")
 
@@ -84,13 +91,14 @@ async def do_interpret(
     site = load_site_config()
     public_md = extract_public_markdown(report_md, site.private_cutoff)
 
-    # Find cross-episode connections for the user to review/veto.
+    # Find cross-episode connections for the user to review/veto (in the same
+    # language as this episode's public body, so they translate cleanly).
     slug = slugify(final_title, "")
     candidates = build_candidates(result.tags, exclude_slug=slug)
     cand_titles = {c["slug"]: c["title"] for c in candidates}
     raw_conns = (
         find_connections(final_title, extract_claims_section(report_md),
-                         candidates, config)
+                         candidates, config, lang=source_lang)
         if candidates else []
     )
     connections = [
@@ -118,7 +126,8 @@ def do_publish(
     tags: str = Form(""),
     connections: str = Form(""),
 ) -> JSONResponse:
-    """Publish the public layers, then git commit & push the site live."""
+    """Publish the public layers (bilingual), then git commit & push live."""
+    config = load_config()
     site = load_site_config()
     tag_list = [t.strip() for t in tags.split(",") if t.strip()]
     conn_list = []
@@ -127,16 +136,39 @@ def do_publish(
             conn_list = [c for c in json.loads(connections) if isinstance(c, dict)]
         except json.JSONDecodeError:
             conn_list = []
+
+    native_public = extract_public_markdown(report_md, site.private_cutoff)
+    if not native_public:
+        raise HTTPException(400, "没找到可公开的内容(检查报告结构)。")
+    pub_date = date.strip() or datetime.now().strftime("%Y-%m-%d")
+    extra = ""
+
     try:
+        # Native interpretation -> translate the public layer to the other
+        # language, so both /episodes and /en/episodes get a faithful page.
+        _, zh_b, en_b = build_bilingual(
+            native_public, title.strip(), tag_list, conn_list, config
+        )
+        # Slug from the English title (readable ASCII), stable across languages.
+        slug = slugify(en_b["title"] or zh_b["title"], pub_date)
         entry = publish_report(
-            report_md, title.strip(), site,
-            date=date.strip() or None,
+            report_md, zh_b["title"], site, date=pub_date, slug=slug,
             source_url=source_url.strip() or None,
-            tags=tag_list,
-            connections=conn_list,
+            tags=zh_b["tags"], connections=zh_b["connections"],
+            en=en_b, primary_public_md=zh_b["body"],
         )
     except RuntimeError as exc:
-        raise HTTPException(400, f"生成失败:{exc}")
+        # Translation/generation failed: publish a single-language version now
+        # so nothing is lost; the English mirror can be added later via re-edit.
+        try:
+            entry = publish_report(
+                report_md, title.strip(), site, date=pub_date,
+                source_url=source_url.strip() or None,
+                tags=tag_list, connections=conn_list,
+            )
+        except RuntimeError as exc2:
+            raise HTTPException(400, f"生成失败:{exc2}")
+        extra = f"(注意:翻译这一步没成功,先发了单语版。原因:{exc})"
 
     # Archive the FULL report (incl. the private personal-mapping layer) locally,
     # so the user can revisit their past mappings. reports/ is gitignored.
@@ -150,7 +182,79 @@ def do_publish(
         "url": url,
         "slug": entry["slug"],
         "pushed": pushed,
-        "message": message,
+        "message": (message + (" " + extra if extra else "")),
+    })
+
+
+@app.get("/episodes")
+def do_list_episodes() -> JSONResponse:
+    """List already-published episodes for the manage/edit view."""
+    return JSONResponse({"episodes": list_published()})
+
+
+@app.get("/episode/{slug}")
+def do_get_episode(slug: str) -> JSONResponse:
+    """Return one published episode's editable public body + editor note."""
+    data = get_episode_for_edit(slug)
+    if data is None:
+        raise HTTPException(404, "未找到这一期。")
+    site = load_site_config()
+    data["public_html"] = md.markdown(data["public_md"], extensions=_MD_EXT)
+    data["url"] = site.clean_base + f"/episodes/{slug}.html"
+    return JSONResponse(data)
+
+
+@app.post("/update")
+def do_update(
+    slug: str = Form(...),
+    public_md: str = Form(...),
+    editor_note: str = Form(""),
+    title: str = Form(""),
+    tags: str = Form(""),
+) -> JSONResponse:
+    """Save edits to an already-published episode, then rebuild + push live.
+
+    You edit the Chinese (primary) body and the From-Helia note; the English
+    mirror is re-translated from your edits so both languages stay in sync.
+    """
+    config = load_config()
+    site = load_site_config()
+    tag_list = [t.strip() for t in tags.split(",") if t.strip()]
+    extra = ""
+
+    # Re-translate the edited public content (body + title + tags + note +
+    # existing connections) into the English mirror.
+    en_bundle = None
+    existing = get_episode_for_edit(slug.strip())
+    conns = existing.get("connections", []) if existing else []
+    if public_md.strip():
+        try:
+            _, _, en_bundle = build_bilingual(
+                public_md, title.strip(), tag_list, conns, config,
+                editor_note=editor_note,
+            )
+        except RuntimeError as exc:
+            extra = f"(英文版这次没更新成:{exc};中文已更新。)"
+
+    try:
+        entry = update_episode(
+            slug.strip(), site,
+            public_md=public_md,
+            editor_note=editor_note,
+            title=title.strip() or None,
+            tags=tag_list,
+            en=en_bundle,
+        )
+    except RuntimeError as exc:
+        raise HTTPException(400, f"更新失败:{exc}")
+
+    pushed, message = _git_publish(entry["title"])
+    url = site.clean_base + f"/episodes/{entry['slug']}.html"
+    return JSONResponse({
+        "url": url,
+        "slug": entry["slug"],
+        "pushed": pushed,
+        "message": (message + (" " + extra if extra else "")),
     })
 
 
