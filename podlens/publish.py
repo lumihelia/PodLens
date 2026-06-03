@@ -124,6 +124,7 @@ def _write_jsonfeed(items: list[dict], site: SiteConfig) -> None:
                 "title": it["title"],
                 "date_published": it["date"],
                 "summary": it.get("summary", ""),
+                **({"tags": it["tags"]} if it.get("tags") else {}),
                 **({"external_url": it["source_url"]} if it.get("source_url") else {}),
             }
             for it in items
@@ -227,11 +228,17 @@ li { margin: 6px 0; }
 a.ts { color: var(--primary); font-variant-numeric: tabular-nums; white-space: nowrap; text-decoration: none; border-bottom: 1px dotted var(--border); }
 a.ts:hover { border-bottom-style: solid; }
 .source { color: var(--muted); font-size: 0.95rem; margin: 0 0 48px; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 48px; }
+.tags span { font-size: 0.85rem; color: var(--primary); background: #EDEBF4; padding: 4px 12px; border-radius: 999px; }
 """
 
 
 def _page(title: str, body: str, site: SiteConfig, *, description: str,
-          canonical: str, is_episode: bool, json_ld: dict | None = None) -> str:
+          canonical: str, is_episode: bool, json_ld: dict | None = None,
+          keywords: list[str] | None = None) -> str:
+    kw = ""
+    if keywords:
+        kw = f'<meta name="keywords" content="{html.escape(", ".join(keywords))}">'
     ld = ""
     if json_ld:
         ld = (
@@ -253,6 +260,7 @@ def _page(title: str, body: str, site: SiteConfig, *, description: str,
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(description)}">
 <meta name="author" content="{html.escape(site.author)}">
+{kw}
 <link rel="canonical" href="{canonical}">
 <meta property="og:type" content="{'article' if is_episode else 'website'}">
 <meta property="og:title" content="{html.escape(title)}">
@@ -286,6 +294,12 @@ def render_episode_page(entry: dict, public_md: str, site: SiteConfig) -> str:
             f'{html.escape(source_url)}</a>　·　时间戳可点击,直接跳到原视频对应位置</p>'
         )
 
+    tags = entry.get("tags", [])
+    tags_line = ""
+    if tags:
+        chips = "".join(f"<span>{html.escape(t)}</span>" for t in tags)
+        tags_line = f'<div class="tags">{chips}</div>'
+
     json_ld = {
         "@context": "https://schema.org",
         "@type": "Article",
@@ -297,6 +311,8 @@ def render_episode_page(entry: dict, public_md: str, site: SiteConfig) -> str:
         "author": {"@type": "Person", "name": site.author},
         "publisher": {"@type": "Person", "name": site.author},
     }
+    if tags:
+        json_ld["keywords"] = ", ".join(tags)
     if source_url:
         json_ld["isBasedOn"] = source_url
 
@@ -304,6 +320,7 @@ def render_episode_page(entry: dict, public_md: str, site: SiteConfig) -> str:
 <h1>{html.escape(entry['title'])}</h1>
 <p class="meta">{entry['date']} · 由 PodLens 生成的忠实解读</p>
 {source_line}
+{tags_line}
 {content_html}
 <p class="foot">本页为对节目内容的忠实解读与大白话重述,由 <a href="https://github.com/lumihelia/PodLens">PodLens</a> 生成。</p>
 """
@@ -311,6 +328,7 @@ def render_episode_page(entry: dict, public_md: str, site: SiteConfig) -> str:
         f"{entry['title']} · {site.title}", body, site,
         description=entry.get("summary", site.description),
         canonical=canonical, is_episode=True, json_ld=json_ld,
+        keywords=tags or None,
     )
 
 
@@ -369,6 +387,7 @@ def build_rss(items: list[dict], site: SiteConfig) -> str:
             f'<guid isPermaLink="true">{url}</guid>',
             f"<pubDate>{_rfc822(it['date'])}</pubDate>",
             f"<description>{html.escape(it.get('summary', ''))}</description>",
+            *[f"<category>{html.escape(t)}</category>" for t in it.get("tags", [])],
             "</item>",
         ]
     parts += ["</channel>", "</rss>"]
@@ -396,6 +415,7 @@ def publish_report(
     date: str | None = None,
     slug: str | None = None,
     source_url: str | None = None,
+    tags: list[str] | None = None,
 ) -> dict:
     """Add one report's PUBLIC layers to the site and rebuild feeds/index.
 
@@ -411,9 +431,14 @@ def publish_report(
 
     date = date or datetime.now().strftime("%Y-%m-%d")
     slug = slug or slugify(title, date)
+    prior = next((it for it in _load_manifest() if it["slug"] == slug), {})
+    # Keep existing tags if none are supplied this time (e.g. --publish-existing).
+    if tags is None:
+        tags = prior.get("tags", [])
     entry = {"slug": slug, "title": title, "date": date,
              "summary": _first_sentences(public_md),
-             "source_url": source_url or ""}
+             "source_url": source_url or prior.get("source_url", ""),
+             "tags": tags or []}
 
     # Store the public markdown so the page can be re-rendered on any rebuild.
     SOURCES_DIR.mkdir(parents=True, exist_ok=True)

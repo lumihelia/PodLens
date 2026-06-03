@@ -151,6 +151,33 @@ ORIGINAL TRANSCRIPT (for verification and quoting):
 
 # --- Stage 3: Evidence-grounded insight + personal mapping -------------------
 
+def build_tags_prompt(reconstruction: str, output_lang: str) -> str:
+    """Ask for 3-6 SPECIFIC topical tags describing what this episode covers.
+
+    Tags must be concrete concepts/entities actually discussed, not the broad
+    field. They power discoverability and, later, cross-episode matching.
+    """
+    return f"""\
+From the faithful reconstruction below, extract 3 to 6 SPECIFIC topical tags
+that capture what this episode concretely covers.
+
+Rules:
+- Tags must be concrete concepts, entities, theories, or terms ACTUALLY
+  discussed (e.g. "量子退相干", "块状宇宙", "时间膨胀"), NOT the broad field
+  (NOT "物理", NOT "科学", NOT "科技"). Specific over generic, always.
+- 2-6 words each. No hashtags, no punctuation.
+- {_lang(output_lang)}
+
+Return ONLY a JSON array of strings, nothing else. Example:
+["量子退相干", "块状宇宙", "时间之箭", "闭合类时曲线"]
+
+RECONSTRUCTION:
+\"\"\"
+{reconstruction}
+\"\"\"
+"""
+
+
 def build_mapping_prompt(
     reconstruction: str,
     plain_language: str,

@@ -178,8 +178,11 @@ def main(argv: list[str] | None = None) -> int:
         if not source_url and is_youtube_url(args.source):
             source_url = args.source
         entry = publish_report(report, args.title, load_site_config(),
-                               date=args.date, source_url=source_url)
+                               date=args.date, source_url=source_url,
+                               tags=result.tags)
         _eprint(f"Published public layers -> docs/episodes/{entry['slug']}.html")
+        if result.tags:
+            _eprint(f"Tags: {', '.join(result.tags)}")
 
     return 0
 
