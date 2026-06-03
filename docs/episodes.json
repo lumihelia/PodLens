@@ -11,6 +11,21 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/episodes/hakeem-oluseyi.html",
+      "url": "https://lens.lumihelia.com/episodes/hakeem-oluseyi.html",
+      "title": "构成现实的三个领域 · Hakeem Oluseyi",
+      "date_published": "2026-06-03",
+      "summary": "天体物理学家哈基姆·奥卢塞伊（Hakeem Oluseyi）带我们探索构成我们现实的三个层面：量子、宇宙和可能存在的多重宇宙 [00:05]。他把这些复杂的物理学概念，讲得像是身边一个懂行的朋友在跟你聊天。",
+      "tags": [
+        "量子场",
+        "波函数",
+        "时空膨胀",
+        "多世界诠释",
+        "永恒暴胀"
+      ],
+      "external_url": "https://youtu.be/pyhB7B3JWts?si=zlA3vP4DtuGZJ5jw"
+    },
+    {
       "id": "https://lens.lumihelia.com/episodes/don-lincoln-lex-fridman-497.html",
       "url": "https://lens.lumihelia.com/episodes/don-lincoln-lex-fridman-497.html",
       "title": "物理学最大的谜题:反物质、暗能量与万有理论 · Don Lincoln (Lex Fridman #497)",
