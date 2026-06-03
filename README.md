@@ -70,8 +70,8 @@ python -m podlens my_transcript.txt --lang en
 ### Inputs
 
 PodLens accepts a **YouTube URL**, a **subtitle file** (`.srt` / `.vtt`), a
-**transcript file** (`.txt`/`.md`), piped **stdin** (`-`), or raw transcript
-**text**. Subtitle files are the most reliable input with timestamps — and
+**transcript file** (`.txt` / `.md`, plain or with `[mm:ss]` timestamps), piped
+**stdin** (`-`), or raw transcript **text**. Subtitle files are the most reliable input with timestamps — and
 sidestep YouTube's bot-blocking entirely. Timestamps (`[12:34]`, `1:23:45`, or
 SRT/VTT cue times) are preserved and used as evidence anchors; if a pasted plain
 transcript has none, PodLens falls back to short verbatim quotes as anchors.
