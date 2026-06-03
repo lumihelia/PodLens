@@ -8,3 +8,6 @@ profile.md
 # Personal interpretation outputs — keep your own reports private
 time_report*.md
 *.report.md
+
+# Full reports (contain the private personal-mapping layer) — keep local
+reports/
