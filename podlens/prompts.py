@@ -151,25 +151,33 @@ ORIGINAL TRANSCRIPT (for verification and quoting):
 
 # --- Stage 3: Evidence-grounded insight + personal mapping -------------------
 
-def build_tags_prompt(reconstruction: str, output_lang: str) -> str:
-    """Ask for 3-6 SPECIFIC topical tags describing what this episode covers.
+def build_metadata_prompt(reconstruction: str, output_lang: str) -> str:
+    """Ask for a title and 3-6 SPECIFIC topical tags in one JSON object.
 
-    Tags must be concrete concepts/entities actually discussed, not the broad
-    field. They power discoverability and, later, cross-episode matching.
+    Title format: a concise topic phrase + " · " + the guest/speaker name,
+    e.g. "时间的本质 · Jim Al-Khalili". Tags must be concrete concepts actually
+    discussed, not the broad field.
     """
     return f"""\
-From the faithful reconstruction below, extract 3 to 6 SPECIFIC topical tags
-that capture what this episode concretely covers.
+From the faithful reconstruction below, produce a title and topical tags.
 
-Rules:
-- Tags must be concrete concepts, entities, theories, or terms ACTUALLY
-  discussed (e.g. "量子退相干", "块状宇宙", "时间膨胀"), NOT the broad field
-  (NOT "物理", NOT "科学", NOT "科技"). Specific over generic, always.
-- 2-6 words each. No hashtags, no punctuation.
-- {_lang(output_lang)}
+TITLE rules:
+- Format: a concise topic phrase, then " · ", then the main guest/speaker's name.
+  Example: "时间的本质 · Jim Al-Khalili"
+- The topic phrase captures what THIS episode is really about (specific, not
+  generic). Keep the guest's name in its original form.
+- Do NOT invent a show name or episode number; only use what the content gives.
 
-Return ONLY a JSON array of strings, nothing else. Example:
-["量子退相干", "块状宇宙", "时间之箭", "闭合类时曲线"]
+TAGS rules:
+- 3 to 6 SPECIFIC concepts, entities, theories or terms ACTUALLY discussed
+  (e.g. "量子退相干", "块状宇宙", "时间膨胀"), NOT the broad field
+  (NOT "物理", NOT "科学"). 2-6 words each, no punctuation.
+
+{_lang(output_lang)} (the title's topic phrase and the tags in this language;
+keep proper names as-is.)
+
+Return ONLY a JSON object, nothing else. Example:
+{{"title": "时间的本质 · Jim Al-Khalili", "tags": ["量子退相干", "块状宇宙", "时间之箭"]}}
 
 RECONSTRUCTION:
 \"\"\"

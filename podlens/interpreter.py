@@ -21,9 +21,9 @@ from google.genai import types
 from .config import Config
 from .prompts import (
     build_mapping_prompt,
+    build_metadata_prompt,
     build_plain_language_prompt,
     build_reconstruction_prompt,
-    build_tags_prompt,
 )
 from .transcript import has_timestamps
 
@@ -42,6 +42,7 @@ class InterpretationResult:
     had_timestamps: bool
     had_profile: bool
     tags: list[str] = field(default_factory=list)
+    title: str = ""
 
     def to_markdown(self, title: str = "PodLens 解读") -> str:
         """Assemble the three stages into one ordered Markdown report."""
@@ -86,15 +87,35 @@ def _parse_json_list(text: str) -> list[str]:
     return [str(x).strip() for x in data if str(x).strip()]
 
 
-def extract_tags(reconstruction: str, config: Config) -> list[str]:
-    """Generate 3-6 specific topical tags from the reconstruction."""
+def _parse_json_obj(text: str) -> dict:
+    """Parse a JSON object from a model response, tolerating code fences."""
+    t = text.strip()
+    if t.startswith("```"):
+        t = re.sub(r"^```[a-zA-Z]*\n?", "", t).rstrip("`").strip()
+    start, end = t.find("{"), t.rfind("}")
+    if start == -1 or end == -1:
+        return {}
+    try:
+        return json.loads(t[start : end + 1])
+    except json.JSONDecodeError:
+        return {}
+
+
+def extract_metadata(reconstruction: str, config: Config) -> dict:
+    """Generate a title and 3-6 specific tags from the reconstruction.
+
+    Returns {"title": str, "tags": list[str]}.
+    """
     client = _make_client(config)
     raw = _generate(
         client, config.model,
-        build_tags_prompt(reconstruction, config.output_lang),
+        build_metadata_prompt(reconstruction, config.output_lang),
         _TEMP_RECONSTRUCTION,
     )
-    return _parse_json_list(raw)[:6]
+    obj = _parse_json_obj(raw)
+    title = str(obj.get("title", "")).strip()
+    tags = [str(t).strip() for t in obj.get("tags", []) if str(t).strip()][:6]
+    return {"title": title, "tags": tags}
 
 
 def _strip_preamble(text: str) -> str:
@@ -190,14 +211,16 @@ def interpret(
         _TEMP_MAPPING,
     )
 
-    note("提取主题标签")
-    tags = _parse_json_list(
+    note("生成标题与主题标签")
+    meta = _parse_json_obj(
         _generate(
             client, config.model,
-            build_tags_prompt(reconstruction, config.output_lang),
+            build_metadata_prompt(reconstruction, config.output_lang),
             _TEMP_RECONSTRUCTION,
         )
-    )[:6]
+    )
+    gen_title = str(meta.get("title", "")).strip()
+    gen_tags = [str(t).strip() for t in meta.get("tags", []) if str(t).strip()][:6]
 
     return InterpretationResult(
         reconstruction=reconstruction,
@@ -206,5 +229,6 @@ def interpret(
         model=config.model,
         had_timestamps=timestamps,
         had_profile=profile is not None,
-        tags=tags,
+        tags=gen_tags,
+        title=gen_title,
     )
