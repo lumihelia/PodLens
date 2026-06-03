@@ -179,16 +179,32 @@ def main(argv: list[str] | None = None) -> int:
         print(report)
 
     if args.publish:
-        from .publish import load_site_config, publish_report
+        from .interpreter import find_connections
+        from .publish import (
+            build_candidates, extract_claims_section, load_site_config,
+            publish_report, slugify,
+        )
         source_url = args.source_url
         if not source_url and is_youtube_url(args.source):
             source_url = args.source
+
+        _eprint("查找与往期的关联")
+        pub_date = args.date or None
+        slug = slugify(report_title, pub_date or "")
+        candidates = build_candidates(result.tags, exclude_slug=slug)
+        connections = find_connections(
+            report_title, extract_claims_section(report), candidates, config
+        )
+
         entry = publish_report(report, report_title, load_site_config(),
                                date=args.date, source_url=source_url,
-                               tags=result.tags)
+                               tags=result.tags, connections=connections)
         _eprint(f"Published public layers -> docs/episodes/{entry['slug']}.html")
         if result.tags:
             _eprint(f"Tags: {', '.join(result.tags)}")
+        if connections:
+            _eprint(f"Connections: {len(connections)} -> "
+                    f"{', '.join(c['slug'] for c in connections)}")
 
     return 0
 

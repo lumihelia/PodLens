@@ -91,6 +91,40 @@ def extract_public_markdown(report_md: str, cutoff_heading: str) -> str:
     return text.strip()
 
 
+def extract_claims_section(md: str) -> str:
+    """Return the 核心观点清单 section text (used as a compact claims index)."""
+    marker = "## 核心观点清单"
+    i = md.find(marker)
+    if i == -1:
+        return ""
+    rest = md[i + len(marker):]
+    j = rest.find("\n## ")
+    return (rest[:j] if j != -1 else rest).strip()
+
+
+def build_candidates(this_tags: list[str], exclude_slug: str, limit: int = 8) -> list[dict]:
+    """Prior episodes to consider for connections, tag-prefiltered.
+
+    Returns [{slug, title, tags, claims}]. Prefers episodes sharing a tag; if
+    none share (small/diverse corpus), falls back to the most recent ones so
+    the corpus still gets connected. Capped at `limit` to keep the call bounded.
+    """
+    items = [it for it in _load_manifest() if it["slug"] != exclude_slug]
+    this_set = set(this_tags or [])
+    shared = [it for it in items if this_set & set(it.get("tags", []))]
+    pool = shared if shared else items
+    pool = sorted(pool, key=lambda it: it["date"], reverse=True)[:limit]
+    candidates = []
+    for it in pool:
+        src = SOURCES_DIR / f"{it['slug']}.md"
+        claims = extract_claims_section(src.read_text(encoding="utf-8")) if src.exists() else ""
+        candidates.append({
+            "slug": it["slug"], "title": it["title"],
+            "tags": it.get("tags", []), "claims": claims,
+        })
+    return candidates
+
+
 # --- Manifest -----------------------------------------------------------------
 
 def _load_manifest() -> list[dict]:
@@ -230,6 +264,12 @@ a.ts:hover { border-bottom-style: solid; }
 .source { color: var(--muted); font-size: 0.95rem; margin: 0 0 48px; }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 48px; }
 .tags span { font-size: 0.85rem; color: var(--primary); background: #EDEBF4; padding: 4px 12px; border-radius: 999px; }
+.connections { list-style: none; padding: 0; margin: 0; }
+.connections li { margin: 0 0 28px; padding-left: 16px; border-left: 2px solid var(--border); }
+.connections .rel { font-size: 0.8rem; color: var(--primary); background: #EDEBF4; padding: 2px 10px; border-radius: 999px; margin-right: 8px; }
+.connections .lk { font-family: 'Playfair Display', serif; font-weight: 600; }
+.connections .why { margin: 8px 0 6px; }
+.connections .pts { color: var(--muted); font-size: 0.92rem; }
 """
 
 
@@ -280,10 +320,48 @@ def _page(title: str, body: str, site: SiteConfig, *, description: str,
 """
 
 
-def render_episode_page(entry: dict, public_md: str, site: SiteConfig) -> str:
+def _ep_url(site: SiteConfig, slug: str) -> str:
+    return site.clean_base + f"/episodes/{slug}.html"
+
+
+def _render_connections(entry: dict, slug_titles: dict, backrefs: list[dict],
+                        site: SiteConfig) -> str:
+    """Render the bidirectional 与往期的关联 section, or '' if there are none."""
+    rows = []
+    for c in entry.get("connections", []):
+        title = slug_titles.get(c["slug"])
+        if not title:
+            continue
+        rows.append(
+            f'<li><span class="rel">{html.escape(c.get("relation", "关联"))}</span>'
+            f'→ <a class="lk" href="{_ep_url(site, c["slug"])}">{html.escape(title)}</a>'
+            f'<div class="why">{html.escape(c.get("why", ""))}</div>'
+            f'<div class="pts">本期:{html.escape(c.get("this_point", ""))}　｜　'
+            f'那期:{html.escape(c.get("that_point", ""))}</div></li>'
+        )
+    for b in backrefs:
+        rows.append(
+            f'<li><span class="rel">{html.escape(b.get("relation", "关联"))}</span>'
+            f'← <a class="lk" href="{_ep_url(site, b["from_slug"])}">{html.escape(b["from_title"])}</a>'
+            f' 在这一点上与本期相关'
+            f'<div class="why">{html.escape(b.get("why", ""))}</div>'
+            f'<div class="pts">那期:{html.escape(b.get("this_point", ""))}　｜　'
+            f'本期:{html.escape(b.get("that_point", ""))}</div></li>'
+        )
+    if not rows:
+        return ""
+    return '<h2>与往期的关联</h2><ul class="connections">' + "".join(rows) + "</ul>"
+
+
+def render_episode_page(entry: dict, public_md: str, site: SiteConfig,
+                        slug_titles: dict | None = None,
+                        backrefs: list[dict] | None = None) -> str:
     content_html = md.markdown(public_md, extensions=["extra", "sane_lists"])
     source_url = entry.get("source_url", "")
     content_html = _linkify_timestamps(content_html, source_url)
+    connections_html = _render_connections(
+        entry, slug_titles or {}, backrefs or [], site
+    )
     canonical = site.clean_base + f"/episodes/{entry['slug']}.html"
 
     source_line = ""
@@ -322,6 +400,7 @@ def render_episode_page(entry: dict, public_md: str, site: SiteConfig) -> str:
 {source_line}
 {tags_line}
 {content_html}
+{connections_html}
 <p class="foot">本页为对节目内容的忠实解读与大白话重述,由 <a href="https://github.com/lumihelia/PodLens">PodLens</a> 生成。</p>
 """
     return _page(
@@ -416,6 +495,7 @@ def publish_report(
     slug: str | None = None,
     source_url: str | None = None,
     tags: list[str] | None = None,
+    connections: list[dict] | None = None,
 ) -> dict:
     """Add one report's PUBLIC layers to the site and rebuild feeds/index.
 
@@ -435,10 +515,13 @@ def publish_report(
     # Keep existing tags if none are supplied this time (e.g. --publish-existing).
     if tags is None:
         tags = prior.get("tags", [])
+    if connections is None:
+        connections = prior.get("connections", [])
     entry = {"slug": slug, "title": title, "date": date,
              "summary": _first_sentences(public_md),
              "source_url": source_url or prior.get("source_url", ""),
-             "tags": tags or []}
+             "tags": tags or [],
+             "connections": connections or []}
 
     # Store the public markdown so the page can be re-rendered on any rebuild.
     SOURCES_DIR.mkdir(parents=True, exist_ok=True)
@@ -455,13 +538,26 @@ def publish_report(
 def _rebuild_site(items: list[dict], site: SiteConfig) -> None:
     SITE_DIR.mkdir(parents=True, exist_ok=True)
     EPISODES_DIR.mkdir(parents=True, exist_ok=True)
-    # Re-render every episode page from its stored source markdown, so a domain
-    # or branding change propagates to all pages.
+    # Build the connection graph: slug -> title, and back-references (who linked
+    # to me). Back-links are DERIVED from forward connections, so they are always
+    # consistent and we never have to mutate target entries.
+    slug_titles = {it["slug"]: it["title"] for it in items}
+    backrefs: dict[str, list[dict]] = {}
+    for it in items:
+        for conn in it.get("connections", []):
+            backrefs.setdefault(conn["slug"], []).append(
+                {"from_slug": it["slug"], "from_title": it["title"], **conn}
+            )
+    # Re-render every episode page from its stored source markdown, so a domain,
+    # branding, or connection-graph change propagates to all pages.
     for it in items:
         src = SOURCES_DIR / f"{it['slug']}.md"
         if src.exists():
             (EPISODES_DIR / f"{it['slug']}.html").write_text(
-                render_episode_page(it, src.read_text(encoding="utf-8"), site),
+                render_episode_page(
+                    it, src.read_text(encoding="utf-8"), site,
+                    slug_titles=slug_titles, backrefs=backrefs.get(it["slug"], []),
+                ),
                 encoding="utf-8",
             )
     _write_manifest(items)

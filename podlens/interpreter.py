@@ -20,6 +20,7 @@ from google.genai import types
 
 from .config import Config
 from .prompts import (
+    build_connections_prompt,
     build_mapping_prompt,
     build_metadata_prompt,
     build_plain_language_prompt,
@@ -99,6 +100,68 @@ def _parse_json_obj(text: str) -> dict:
         return json.loads(t[start : end + 1])
     except json.JSONDecodeError:
         return {}
+
+
+def _parse_json_objects(text: str) -> list[dict]:
+    """Parse a JSON array of objects, tolerating code fences."""
+    t = text.strip()
+    if t.startswith("```"):
+        t = re.sub(r"^```[a-zA-Z]*\n?", "", t).rstrip("`").strip()
+    start, end = t.find("["), t.rfind("]")
+    if start == -1 or end == -1:
+        return []
+    try:
+        data = json.loads(t[start : end + 1])
+    except json.JSONDecodeError:
+        return []
+    return [x for x in data if isinstance(x, dict)]
+
+
+def find_connections(
+    this_title: str,
+    this_claims: str,
+    candidates: list[dict],
+    config: Config,
+) -> list[dict]:
+    """Find micro, evidence-grounded connections to prior episodes.
+
+    `candidates` is a list of {slug, title, tags, claims}. Returns a list of
+    connection dicts {slug, relation, this_point, that_point, why}, with slugs
+    validated against the candidate set.
+    """
+    if not candidates or not this_claims.strip():
+        return []
+    blocks = []
+    valid_slugs = set()
+    for c in candidates:
+        valid_slugs.add(c["slug"])
+        tags = ", ".join(c.get("tags", []))
+        blocks.append(
+            f"--- slug: {c['slug']}\n标题: {c['title']}\n标签: {tags}\n"
+            f"核心观点:\n{c.get('claims', '').strip()}\n"
+        )
+    candidates_block = "\n".join(blocks)
+
+    client = _make_client(config)
+    raw = _generate(
+        client, config.model,
+        build_connections_prompt(
+            this_title, this_claims, candidates_block, config.output_lang
+        ),
+        _TEMP_MAPPING,
+    )
+    out = []
+    for conn in _parse_json_objects(raw):
+        slug = str(conn.get("slug", "")).strip()
+        if slug in valid_slugs and conn.get("this_point") and conn.get("that_point"):
+            out.append({
+                "slug": slug,
+                "relation": str(conn.get("relation", "关联")).strip(),
+                "this_point": str(conn.get("this_point", "")).strip(),
+                "that_point": str(conn.get("that_point", "")).strip(),
+                "why": str(conn.get("why", "")).strip(),
+            })
+    return out
 
 
 def extract_metadata(reconstruction: str, config: Config) -> dict:
