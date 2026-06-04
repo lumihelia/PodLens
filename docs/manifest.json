@@ -56,11 +56,11 @@
         "en": {
           "title": "Representation Learning and Predictive World Models · Saining Xie",
           "tags": [
-            "表征学习",
-            "预测世界模型",
-            "DiT架构",
-            "对比学习",
-            "空间智能"
+            "Diffusion Transformer",
+            "Representation Learning",
+            "Predictive World Models",
+            "Self-Supervised Learning",
+            "Model Predictive Control"
           ],
           "summary": "This episode features an in-depth, marathon interview with young scientist and entrepreneur Xie Saining, alongside a brief guest segment with Tommy (Zhiyuan Zeng). The central focus of the discussion …",
           "editor_note": "",
