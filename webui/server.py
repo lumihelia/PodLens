@@ -112,6 +112,7 @@ async def do_interpret(
 
     return JSONResponse({
         "report_md": report_md,
+        "public_md": public_md,
         "full_html": md.markdown(_normalize_claims(report_md), extensions=_MD_EXT),
         "public_html": md.markdown(_normalize_claims(public_md), extensions=_MD_EXT),
         "had_profile": result.had_profile,
@@ -122,6 +123,22 @@ async def do_interpret(
     })
 
 
+@app.post("/render")
+def do_render(markdown_text: str = Form(...)) -> JSONResponse:
+    """Render edited public markdown to HTML for the live preview (no API)."""
+    return JSONResponse({
+        "html": md.markdown(_normalize_claims(markdown_text), extensions=_MD_EXT),
+    })
+
+
+@app.post("/check-link")
+def do_check_link(url: str = Form("")) -> JSONResponse:
+    """Report the YouTube video id a link resolves to (for the edit-link UI)."""
+    from podlens.youtube import extract_video_id
+    vid = extract_video_id(url.strip()) if url.strip() else ""
+    return JSONResponse({"video_id": vid or ""})
+
+
 @app.post("/publish")
 def do_publish(
     report_md: str = Form(...),
@@ -130,8 +147,14 @@ def do_publish(
     date: str = Form(""),
     tags: str = Form(""),
     connections: str = Form(""),
+    public_md: str = Form(""),
 ) -> JSONResponse:
-    """Publish the public layers (bilingual), then git commit & push live."""
+    """Publish the public layers (bilingual), then git commit & push live.
+
+    `public_md` is the (possibly hand-edited) public body from the preview; when
+    provided it is published verbatim, so the user can fix formatting before it
+    goes live. report_md is still archived in full (incl. the private layer).
+    """
     config = load_config()
     site = load_site_config()
     tag_list = [t.strip() for t in tags.split(",") if t.strip()]
@@ -142,7 +165,8 @@ def do_publish(
         except json.JSONDecodeError:
             conn_list = []
 
-    native_public = extract_public_markdown(report_md, site.private_cutoff)
+    # Prefer the edited public body from the preview; fall back to extracting it.
+    native_public = public_md.strip() or extract_public_markdown(report_md, site.private_cutoff)
     if not native_public:
         raise HTTPException(400, "没找到可公开的内容(检查报告结构)。")
     pub_date = date.strip() or datetime.now().strftime("%Y-%m-%d")
@@ -217,6 +241,7 @@ def do_update(
     editor_note: str = Form(""),
     title: str = Form(""),
     tags: str = Form(""),
+    source_url: str = Form(""),
 ) -> JSONResponse:
     """Save edits to an already-published episode, then rebuild + push live.
 
@@ -250,6 +275,7 @@ def do_update(
             title=title.strip() or None,
             tags=tag_list,
             en=en_bundle,
+            source_url=source_url.strip() or None,
         )
     except RuntimeError as exc:
         raise HTTPException(400, f"更新失败:{exc}")

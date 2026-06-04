@@ -1136,6 +1136,7 @@ def update_episode(
     title: str | None = None,
     tags: list[str] | None = None,
     en: dict | None = None,
+    source_url: str | None = None,
 ) -> dict:
     """Edit an already-published episode in place, then rebuild the whole site.
 
@@ -1161,6 +1162,10 @@ def update_episode(
         entry["tags"] = tags
     if editor_note is not None:
         entry["editor_note"] = editor_note.strip()
+    if source_url is not None:
+        # Changing the link re-derives the in-page player + timestamp seeking
+        # (video id is re-extracted at render). Same video, any URL form, is safe.
+        entry["source_url"] = source_url.strip()
     if en is not None:
         entry["i18n"] = {"en": _en_entry_data(en)}
         if en.get("body", "").strip():

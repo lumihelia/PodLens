@@ -138,6 +138,11 @@ textarea:focus{outline:none;border-color:var(--primary)}
       <input id="edit-tags" type="text" placeholder="标签1, 标签2">
     </div>
     <div class="field">
+      <label for="edit-source">原视频链接(改了会更新播放器和时间戳跳转;同一视频换任何格式都安全)</label>
+      <input id="edit-source" type="text" placeholder="https://youtu.be/...">
+      <div id="edit-source-check" class="note"></div>
+    </div>
+    <div class="field">
       <label for="edit-note">From Helia(可留空;支持 Markdown;会公开显示为署名「From Helia」的板块)</label>
       <textarea id="edit-note" rows="5" placeholder="留空就不显示。这里写你本人想补充的话——背景、修正、你的判断……"></textarea>
     </div>
@@ -159,7 +164,7 @@ textarea:focus{outline:none;border-color:var(--primary)}
 
   <!-- Step 3: preview + confirm -->
   <section id="result" class="hidden">
-    <div class="banner info" id="result-note">下面是<strong>完整解读</strong>(含个人映射,仅你本地可见)。确认发布后,<strong>只有公开层会上线</strong>,个人映射等私人内容不会公开。</div>
+    <div class="banner info" id="result-note">下面可以<strong>直接修改公开正文</strong>(发布的就是它)——看到格式不对劲就顺手改好,点「刷新预览」看效果。个人映射等私人内容不会公开。</div>
     <div class="field">
       <label for="pub-title">标题(自动生成,可编辑)</label>
       <input id="pub-title" type="text">
@@ -172,7 +177,16 @@ textarea:focus{outline:none;border-color:var(--primary)}
       <label>与往期的关联(自动找到,取消勾选的不会发布)</label>
       <div id="conn-list"></div>
     </div>
+    <div class="field">
+      <label for="pub-body">公开正文(发布的就是这个,可直接改格式;时间戳如 [12:34] 会自动可点)</label>
+      <textarea id="pub-body" rows="20" spellcheck="false"></textarea>
+      <div class="actions" style="margin-top:12px">
+        <button id="refresh-preview" class="ghost">刷新预览 ↓</button>
+        <button id="toggle-full" class="linklike">查看含个人映射的完整版(仅本地)</button>
+      </div>
+    </div>
     <div id="preview" class="preview"></div>
+    <div id="full-preview" class="preview hidden"></div>
     <div class="actions">
       <button id="confirm" class="primary">确认发布并上线</button>
       <button id="restart" class="ghost">重来</button>
@@ -195,7 +209,9 @@ textarea:focus{outline:none;border-color:var(--primary)}
 const $ = id => document.getElementById(id);
 let pickedFile = null;
 let reportMd = null;
+let fullHtml = null;
 let conns = [];
+let sourceCheckTimer = null;
 
 function esc(s){ const d = document.createElement('div'); d.textContent = (s==null?'':s); return d.innerHTML; }
 function renderConns(list){
@@ -268,18 +284,47 @@ $('run').onclick = async () => {
     const data = await readJson(r);
     if(!r.ok){ throw new Error(detailMsg(data, r.status)); }
     reportMd = data.report_md;
+    fullHtml = data.full_html || '';
     $('pub-title').value = data.title || '';
     $('tags').value = (data.tags || []).join(', ');
+    $('pub-body').value = data.public_md || '';
     renderConns(data.connections);
-    $('preview').innerHTML = data.full_html;
+    $('preview').innerHTML = data.public_html || '';
+    $('full-preview').classList.add('hidden');
+    $('toggle-full').textContent = '查看含个人映射的完整版(仅本地)';
     show('result');
   }catch(e){ show('input'); err(e.message); }
+};
+
+$('refresh-preview').onclick = async () => {
+  clearErr();
+  const fd = new FormData();
+  fd.append('markdown_text', $('pub-body').value);
+  try{
+    const r = await fetch('/render', { method:'POST', body: fd });
+    const data = await readJson(r);
+    if(!r.ok){ throw new Error(detailMsg(data, r.status)); }
+    $('preview').innerHTML = data.html;
+    $('preview').scrollIntoView({ behavior:'smooth', block:'start' });
+  }catch(e){ err(e.message); }
+};
+
+$('toggle-full').onclick = () => {
+  const fp = $('full-preview');
+  if(fp.classList.contains('hidden')){
+    fp.innerHTML = fullHtml; fp.classList.remove('hidden');
+    $('toggle-full').textContent = '收起完整版';
+  }else{
+    fp.classList.add('hidden');
+    $('toggle-full').textContent = '查看含个人映射的完整版(仅本地)';
+  }
 };
 
 $('confirm').onclick = async () => {
   clearErr();
   const fd = new FormData();
   fd.append('report_md', reportMd);
+  fd.append('public_md', $('pub-body').value);
   fd.append('title', $('pub-title').value.trim());
   fd.append('source_url', $('source').value.trim());
   fd.append('tags', $('tags').value.trim());
@@ -332,10 +377,34 @@ async function openEpisode(slug){
     $('edit-tags').value = (data.tags || []).join(', ');
     $('edit-note').value = data.editor_note || '';
     $('edit-body').value = data.public_md || '';
+    $('edit-source').value = data.source_url || '';
+    checkEditSource();
     $('edit-live').href = data.url;
     show('edit');
   }catch(e){ err(e.message); }
 }
+
+async function checkEditSource(){
+  const url = $('edit-source').value.trim();
+  const el = $('edit-source-check');
+  if(!url){ el.textContent = '留空则没有播放器,时间戳不可点击。'; el.style.color = 'var(--muted)'; return; }
+  try{
+    const fd = new FormData(); fd.append('url', url);
+    const r = await fetch('/check-link', { method:'POST', body: fd });
+    const data = await readJson(r);
+    if(data.video_id){
+      el.textContent = '✓ 视频 ID:' + data.video_id + '(时间戳可点击跳转)';
+      el.style.color = '#2f6b46';
+    }else{
+      el.textContent = '⚠ 解析不到视频 ID,时间戳将不可点击,请检查链接。';
+      el.style.color = '#9a3b3b';
+    }
+  }catch(e){ /* leave hint as-is on transient error */ }
+}
+$('edit-source').oninput = () => {
+  clearTimeout(sourceCheckTimer);
+  sourceCheckTimer = setTimeout(checkEditSource, 400);
+};
 
 $('to-manage').onclick = loadManage;
 $('manage-back').onclick = () => { clearErr(); show('input'); };
@@ -350,6 +419,7 @@ $('save-edit').onclick = async () => {
   fd.append('editor_note', $('edit-note').value);
   fd.append('title', $('edit-title').value.trim());
   fd.append('tags', $('edit-tags').value.trim());
+  fd.append('source_url', $('edit-source').value.trim());
   $('save-edit').disabled = true; $('save-edit').textContent = '更新中…';
   try{
     const r = await fetch('/update', { method:'POST', body: fd });
@@ -364,8 +434,10 @@ $('save-edit').onclick = async () => {
 
 $('restart').onclick = () => { show('input'); };
 $('again').onclick = () => {
-  pickedFile = null; reportMd = null;
+  pickedFile = null; reportMd = null; fullHtml = null;
   $('title').value = ''; $('source').value = ''; $('filename').textContent = '';
+  $('pub-body').value = ''; $('preview').innerHTML = '';
+  $('full-preview').classList.add('hidden');
   renderConns([]);
   show('input');
 };
