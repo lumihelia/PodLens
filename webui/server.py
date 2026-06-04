@@ -21,6 +21,7 @@ from podlens.config import load_config
 from podlens.interpreter import build_bilingual, find_connections, interpret
 from podlens.profile import load_profile
 from podlens.publish import (
+    _normalize_claims,
     build_candidates,
     extract_claims_section,
     extract_public_markdown,
@@ -107,8 +108,8 @@ async def do_interpret(
 
     return JSONResponse({
         "report_md": report_md,
-        "full_html": md.markdown(report_md, extensions=_MD_EXT),
-        "public_html": md.markdown(public_md, extensions=_MD_EXT),
+        "full_html": md.markdown(_normalize_claims(report_md), extensions=_MD_EXT),
+        "public_html": md.markdown(_normalize_claims(public_md), extensions=_MD_EXT),
         "had_profile": result.had_profile,
         "title": final_title,
         "tags": result.tags,
@@ -199,7 +200,7 @@ def do_get_episode(slug: str) -> JSONResponse:
     if data is None:
         raise HTTPException(404, "未找到这一期。")
     site = load_site_config()
-    data["public_html"] = md.markdown(data["public_md"], extensions=_MD_EXT)
+    data["public_html"] = md.markdown(_normalize_claims(data["public_md"]), extensions=_MD_EXT)
     data["url"] = site.clean_base + f"/episodes/{slug}.html"
     return JSONResponse(data)
 

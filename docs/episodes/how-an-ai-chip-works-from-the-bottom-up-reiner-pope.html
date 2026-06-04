@@ -137,46 +137,58 @@ var PL = (function() {
 <li><strong><a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=4525s" target="_blank" rel="noopener" onclick="return PL.seek(4525)">[01:15:25 - 01:20:15]</a></strong> GPU（许多小型、平铺的核心）和 TPU（少数大型、粗粒度的单元）的高层架构比较。</li>
 </ul>
 <h2>核心观点清单</h2>
-<p>1.
-    - <strong>观点：</strong> AI 芯片中的基本操作是乘加（MAC），因为它是矩阵乘法嵌套循环中的基本步骤。
-    - <strong>锚点：</strong> <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=42s" target="_blank" rel="noopener" onclick="return PL.seek(42)">[00:00:42 - 00:02:36]</a>
-    - <strong>类型：</strong> 事实
-2.
-    - <strong>观点：</strong> 一个 MAC 单元在物理上由一个与门网格构成，用于生成部分积，然后由一个“全加器”树来对这些乘积求和。该电路的面积成本随相乘数字的位精度（p x q）呈二次方扩展。
-    - <strong>锚点：</strong> <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=331s" target="_blank" rel="noopener" onclick="return PL.seek(331)">[00:05:31 - 00:06:09]</a>, <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=690s" target="_blank" rel="noopener" onclick="return PL.seek(690)">[00:11:30 - 00:11:38]</a>
-    - <strong>类型：</strong> 事实
-3.
-    - <strong>观点：</strong> 电路面积随位宽的二次方扩展是低精度算术对 AI 如此有效的主要原因，因为将精度减半可以使性能翻倍以上。Nvidia 已经开始在其产品规格中反映这种超线性扩展。
-    - <strong>锚点：</strong> <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=894s" target="_blank" rel="noopener" onclick="return PL.seek(894)">[00:14:54 - 00:15:41]</a>
-    - <strong>类型：</strong> 观点
-4.
-    - <strong>观点：</strong> 在通用处理器核心（如旧的 CUDA 核心或 CPU）中，用于数据移动的电路——特别是从寄存器文件中选择数据的多路复用器（muxes）——比实际执行工作的算术逻辑单元（ALU）要大得多，成本也高得多。
-    - <strong>锚点：</strong> <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=1274s" target="_blank" rel="noopener" onclick="return PL.seek(1274)">[00:21:14 - 00:21:26]</a>
-    - <strong>类型：</strong> 观点
-5.
-    - <strong>观点：</strong> 脉动阵列（Nvidia 的 Tensor Cores 和 Google 的 TPU 背后的技术）通过为矩阵乘法创建一个大型专用硬件单元来解决数据移动瓶颈。这种设计通过在本地存储权重矩阵并为许多输入向量重复使用它，从而提高了计算与通信的比率。
-    - <strong>锚点：</strong> <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=1537s" target="_blank" rel="noopener" onclick="return PL.seek(1537)">[00:25:37 - 00:26:40]</a>, <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=1795s" target="_blank" rel="noopener" onclick="return PL.seek(1795)">[00:29:55 - 00:30:22]</a>
-    - <strong>类型：</strong> 事实
-6.
-    - <strong>观点：</strong> 芯片的时钟周期是一个全局同步事件。最高时钟速度由信号在任意两个寄存器之间的最长逻辑路径延迟决定。设计者可以通过插入“流水线寄存器”来缩短这些路径以提高速度，但这会增加面积成本和延迟。
-    - <strong>锚点：</strong> <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=2390s" target="_blank" rel="noopener" onclick="return PL.seek(2390)">[00:39:50 - 00:41:41]</a>, <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=2628s" target="_blank" rel="noopener" onclick="return PL.seek(2628)">[00:43:48 - 00:44:13]</a>
-    - <strong>类型：</strong> 事实
-7.
-    - <strong>观点：</strong> 芯片的时钟速度和其总吞吐量之间存在一个核心权衡。追求非常高的时钟速度需要添加许多流水线寄存器，这会消耗芯片面积，而这些面积本可以用于更多的并行计算单元，从而损害面积效率和总吞吐量。
-    - <strong>锚点：</strong> <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=2971s" target="_blank" rel="noopener" onclick="return PL.seek(2971)">[00:49:31 - 00:50:20]</a>
-    - <strong>类型：</strong> 观点
-8.
-    - <strong>观点：</strong> FPGA 通过使用由可编程多路复用器网络连接的通用查找表（LUTs）和寄存器网格来提供可重构硬件。这种灵活性效率低下；实现一个简单的逻辑门需要一个复杂的 LUT 电路，这使得 FPGA 在面积和能耗上比执行相同功能的专用 ASIC 贵大约一个数量级。
-    - <strong>锚点：</strong> <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=3234s" target="_blank" rel="noopener" onclick="return PL.seek(3234)">[00:53:54 - 00:55:29]</a>, <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=3731s" target="_blank" rel="noopener" onclick="return PL.seek(3731)">[01:02:11 - 01:02:46]</a>
-    - <strong>类型：</strong> 事实
-9.
-    - <strong>观点：</strong> CPU 具有非确定性延迟，这主要是因为硬件管理的缓存；访问内存的时间取决于数据是在快速缓存中还是在慢速主存中。像 TPU 这样的 AI 加速器通常通过使用软件管理的“暂存器”（scratchpad）内存来实现确定性延迟，这让程序员可以明确控制数据的位置。
-    - <strong>锚点：</strong> <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=3873s" target="_blank" rel="noopener" onclick="return PL.seek(3873)">[01:04:33 - 01:07:11]</a>
-    - <strong>类型：</strong> 事实
-10.
-    - <strong>观点：</strong> GPU 和 TPU 具有不同的高层架构。GPU 由许多小的、复制的核心（SMs）网格组成，每个核心都是一个独立的单元。TPU 则由少数大型、粗粒度的单元组成（例如，大型矩阵单元、一个中央向量单元）。GPU 的设计更灵活，而 TPU 的设计通过更好地分摊控制逻辑成本，对于大型、结构化的计算可能更高效。
-    - <strong>锚点：</strong> <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=4563s" target="_blank" rel="noopener" onclick="return PL.seek(4563)">[01:16:03 - 01:18:20]</a>
-    - <strong>类型：</strong> 观点</p>
+<ol>
+<li>
+<p>AI 芯片中的基本操作是乘加（MAC），因为它是矩阵乘法嵌套循环中的基本步骤。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=42s" target="_blank" rel="noopener" onclick="return PL.seek(42)">[00:00:42 - 00:02:36]</a></span>
+   <span class="claim-meta">类型 事实</span></p>
+</li>
+<li>
+<p>一个 MAC 单元在物理上由一个与门网格构成，用于生成部分积，然后由一个“全加器”树来对这些乘积求和。该电路的面积成本随相乘数字的位精度（p x q）呈二次方扩展。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=331s" target="_blank" rel="noopener" onclick="return PL.seek(331)">[00:05:31 - 00:06:09]</a>, <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=690s" target="_blank" rel="noopener" onclick="return PL.seek(690)">[00:11:30 - 00:11:38]</a></span>
+   <span class="claim-meta">类型 事实</span></p>
+</li>
+<li>
+<p>电路面积随位宽的二次方扩展是低精度算术对 AI 如此有效的主要原因，因为将精度减半可以使性能翻倍以上。Nvidia 已经开始在其产品规格中反映这种超线性扩展。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=894s" target="_blank" rel="noopener" onclick="return PL.seek(894)">[00:14:54 - 00:15:41]</a></span>
+   <span class="claim-meta">类型 观点</span></p>
+</li>
+<li>
+<p>在通用处理器核心（如旧的 CUDA 核心或 CPU）中，用于数据移动的电路——特别是从寄存器文件中选择数据的多路复用器（muxes）——比实际执行工作的算术逻辑单元（ALU）要大得多，成本也高得多。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=1274s" target="_blank" rel="noopener" onclick="return PL.seek(1274)">[00:21:14 - 00:21:26]</a></span>
+   <span class="claim-meta">类型 观点</span></p>
+</li>
+<li>
+<p>脉动阵列（Nvidia 的 Tensor Cores 和 Google 的 TPU 背后的技术）通过为矩阵乘法创建一个大型专用硬件单元来解决数据移动瓶颈。这种设计通过在本地存储权重矩阵并为许多输入向量重复使用它，从而提高了计算与通信的比率。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=1537s" target="_blank" rel="noopener" onclick="return PL.seek(1537)">[00:25:37 - 00:26:40]</a>, <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=1795s" target="_blank" rel="noopener" onclick="return PL.seek(1795)">[00:29:55 - 00:30:22]</a></span>
+   <span class="claim-meta">类型 事实</span></p>
+</li>
+<li>
+<p>芯片的时钟周期是一个全局同步事件。最高时钟速度由信号在任意两个寄存器之间的最长逻辑路径延迟决定。设计者可以通过插入“流水线寄存器”来缩短这些路径以提高速度，但这会增加面积成本和延迟。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=2390s" target="_blank" rel="noopener" onclick="return PL.seek(2390)">[00:39:50 - 00:41:41]</a>, <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=2628s" target="_blank" rel="noopener" onclick="return PL.seek(2628)">[00:43:48 - 00:44:13]</a></span>
+   <span class="claim-meta">类型 事实</span></p>
+</li>
+<li>
+<p>芯片的时钟速度和其总吞吐量之间存在一个核心权衡。追求非常高的时钟速度需要添加许多流水线寄存器，这会消耗芯片面积，而这些面积本可以用于更多的并行计算单元，从而损害面积效率和总吞吐量。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=2971s" target="_blank" rel="noopener" onclick="return PL.seek(2971)">[00:49:31 - 00:50:20]</a></span>
+   <span class="claim-meta">类型 观点</span></p>
+</li>
+<li>
+<p>FPGA 通过使用由可编程多路复用器网络连接的通用查找表（LUTs）和寄存器网格来提供可重构硬件。这种灵活性效率低下；实现一个简单的逻辑门需要一个复杂的 LUT 电路，这使得 FPGA 在面积和能耗上比执行相同功能的专用 ASIC 贵大约一个数量级。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=3234s" target="_blank" rel="noopener" onclick="return PL.seek(3234)">[00:53:54 - 00:55:29]</a>, <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=3731s" target="_blank" rel="noopener" onclick="return PL.seek(3731)">[01:02:11 - 01:02:46]</a></span>
+   <span class="claim-meta">类型 事实</span></p>
+</li>
+<li>
+<p>CPU 具有非确定性延迟，这主要是因为硬件管理的缓存；访问内存的时间取决于数据是在快速缓存中还是在慢速主存中。像 TPU 这样的 AI 加速器通常通过使用软件管理的“暂存器”（scratchpad）内存来实现确定性延迟，这让程序员可以明确控制数据的位置。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=3873s" target="_blank" rel="noopener" onclick="return PL.seek(3873)">[01:04:33 - 01:07:11]</a></span>
+   <span class="claim-meta">类型 事实</span></p>
+</li>
+<li>
+<p>GPU 和 TPU 具有不同的高层架构。GPU 由许多小的、复制的核心（SMs）网格组成，每个核心都是一个独立的单元。TPU 则由少数大型、粗粒度的单元组成（例如，大型矩阵单元、一个中央向量单元）。GPU 的设计更灵活，而 TPU 的设计通过更好地分摊控制逻辑成本，对于大型、结构化的计算可能更高效。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=4563s" target="_blank" rel="noopener" onclick="return PL.seek(4563)">[01:16:03 - 01:18:20]</a></span>
+   <span class="claim-meta">类型 观点</span></p>
+</li>
+</ol>
 <h2>大白话重讲</h2>
 <p>本期节目是一次从单个逻辑门一直到完整 AI 芯片架构的探索之旅，由 AI 芯片公司首席执行官 Reiner Pope 引导。其目标是理解这些复杂设备在物理层面实际上是如何工作的。</p>
 <p>在 AI 中，尤其是在神经网络中，最基本的操作是矩阵乘法。如果你深入到矩阵乘法的代码中，你会发现一个简单的、重复的步骤：取两个数，将它们相乘，然后将结果加到一个累加的总数上。这被称为“乘加”（MAC），它是 AI 芯片的基本构建模块 <a class="ts" href="https://www.youtube.com/watch?v=oIk3R-sMX5o&t=42s" target="_blank" rel="noopener" onclick="return PL.seek(42)">[00:00:42]</a>。</p>
