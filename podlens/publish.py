@@ -162,7 +162,7 @@ def _normalize_claims(public_md: str) -> str:
 _EN_RELATIONS = {
     "承接": "Follows on", "延伸": "Extends", "同构": "Parallel",
     "印证": "Corroborates", "补充": "Complements", "对照": "Contrast",
-    "张力": "Tension", "关联": "Related",
+    "张力": "Tension", "关联": "Related", "反驳": "Refutes", "矛盾": "Contradicts",
 }
 
 
@@ -211,6 +211,10 @@ _UI = {
         "source": "原节目:",
         "seek_hint": "时间戳可点击,就地跳转播放器",
         "related": "与往期的关联",
+        "resonance_heading": "与往期的呼应",
+        "tension_heading": "与往期的张力",
+        "conflict_genuine": "真冲突",
+        "conflict_apparent": "表面张力",
         "this_ep": "本期",
         "related_ep": "往期",
         "default_rel": "关联",
@@ -226,6 +230,10 @@ _UI = {
         "source": "Original episode:",
         "seek_hint": "Timestamps are clickable — they seek the player in place",
         "related": "Related episodes",
+        "resonance_heading": "Resonances with past episodes",
+        "tension_heading": "Tensions with past episodes",
+        "conflict_genuine": "Direct conflict",
+        "conflict_apparent": "Apparent tension",
         "this_ep": "This",
         "related_ep": "Related",
         "default_rel": "related",
@@ -346,9 +354,10 @@ def _en_entry_data(en: dict) -> dict:
         "summary": _englishize(_first_sentences(en.get("body", ""))),
         "editor_note": str(en.get("editor_note", "")).strip(),
         "connections": [
-            {"slug": c.get("slug", ""), "relation": c.get("relation", ""),
-             "why": c.get("why", ""), "this_point": c.get("this_point", ""),
-             "that_point": c.get("that_point", "")}
+            {"slug": c.get("slug", ""), "kind": c.get("kind", "resonance"),
+             "conflict_type": c.get("conflict_type", ""),
+             "relation": c.get("relation", ""), "why": c.get("why", ""),
+             "this_point": c.get("this_point", ""), "that_point": c.get("that_point", "")}
             for c in en.get("connections", [])
         ],
     }
@@ -565,6 +574,10 @@ a.ts:hover { border-bottom-style: solid; }
 .connections .pts { color: var(--muted); font-size: 0.92rem; }
 .connections .pts > div { margin-top: 4px; }
 .connections .who { color: var(--text); font-weight: 600; margin-right: 8px; }
+.connections.tensions li { border-left-color: var(--primary); }
+.ctype { font-size: 0.72rem; padding: 1px 9px; border-radius: 999px; margin-right: 8px; letter-spacing: 0.02em; }
+.ctype-genuine { color: #fff; background: var(--primary); }
+.ctype-apparent { color: var(--muted); background: #EDEBF4; }
 .editor-note { background: #EDEBF4; border-radius: 12px; padding: 24px 28px; margin: 0 0 48px; }
 .editor-note .en-label { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 10px; }
 .editor-note p { margin: 0 0 12px; }
@@ -663,30 +676,53 @@ def _render_connections(view: dict, slug_titles: dict, backrefs: list[dict],
                 f'<div><b class="who">{ui["related_ep"]}</b>{theirs_html}</div>'
                 '</div>')
 
-    rows = []
+    def row(conn: dict, arrow: str, other_slug: str, other_title: str,
+            mine: str, theirs: str) -> str:
+        rel = _rel_label(conn.get("relation", "") or ui["default_rel"], lang)
+        ctype = conn.get("conflict_type", "") if conn.get("kind") == "tension" else ""
+        ctype_html = ""
+        if ctype in ("genuine", "apparent"):
+            ctype_html = (f'<span class="ctype ctype-{ctype}">'
+                          f'{ui["conflict_" + ctype]}</span>')
+        return (
+            f'<li><span class="rel">{html.escape(rel)}</span>{ctype_html}'
+            f'{arrow} <a class="lk" href="{_ep_url(site, other_slug, lang, en_slugs)}">'
+            f'{html.escape(other_title)}</a>'
+            f'<div class="why">{html.escape(conn.get("why", ""))}</div>'
+            + pts(mine, theirs, other_slug) + "</li>"
+        )
+
+    resonance: list[str] = []
+    tension: list[str] = []
+
+    def bucket(conn: dict) -> list[str]:
+        return tension if conn.get("kind") == "tension" else resonance
+
     # Forward: this episode (本期) links to a referenced episode (往期).
     for c in view.get("connections", []):
         title = slug_titles.get(c["slug"])
         if not title:
             continue
-        rows.append(
-            f'<li><span class="rel">{html.escape(_rel_label(c.get("relation", "") or ui["default_rel"], lang))}</span>'
-            f'→ <a class="lk" href="{_ep_url(site, c["slug"], lang, en_slugs)}">{html.escape(title)}</a>'
-            f'<div class="why">{html.escape(c.get("why", ""))}</div>'
-            + pts(c.get("this_point", ""), c.get("that_point", ""), c["slug"]) + "</li>"
+        bucket(c).append(
+            row(c, "→", c["slug"], title,
+                c.get("this_point", ""), c.get("that_point", ""))
         )
     # Back: a later episode linked TO this one. From this page's view, the
     # current episode is 本期 -> that_point; the other is 往期 -> this_point.
     for b in backrefs:
-        rows.append(
-            f'<li><span class="rel">{html.escape(_rel_label(b.get("relation", "") or ui["default_rel"], lang))}</span>'
-            f'← <a class="lk" href="{_ep_url(site, b["from_slug"], lang, en_slugs)}">{html.escape(b["from_title"])}</a>'
-            f'<div class="why">{html.escape(b.get("why", ""))}</div>'
-            + pts(b.get("that_point", ""), b.get("this_point", ""), b["from_slug"]) + "</li>"
+        bucket(b).append(
+            row(b, "←", b["from_slug"], b["from_title"],
+                b.get("that_point", ""), b.get("this_point", ""))
         )
-    if not rows:
-        return ""
-    return f'<h2>{ui["related"]}</h2><ul class="connections">' + "".join(rows) + "</ul>"
+
+    out = ""
+    if resonance:
+        out += (f'<h2>{ui["resonance_heading"]}</h2>'
+                '<ul class="connections">' + "".join(resonance) + "</ul>")
+    if tension:
+        out += (f'<h2>{ui["tension_heading"]}</h2>'
+                '<ul class="connections tensions">' + "".join(tension) + "</ul>")
+    return out
 
 
 def render_episode_page(entry: dict, public_md: str, site: SiteConfig,

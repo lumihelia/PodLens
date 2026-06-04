@@ -160,8 +160,21 @@ def find_connections(
     for conn in _parse_json_objects(raw):
         slug = str(conn.get("slug", "")).strip()
         if slug in valid_slugs and conn.get("this_point") and conn.get("that_point"):
+            kind = str(conn.get("kind", "")).strip().lower()
+            kind = "tension" if kind in (
+                "tension", "张力", "conflict", "conflicts", "冲突", "矛盾", "contradiction"
+            ) else "resonance"
+            conflict_type = ""
+            if kind == "tension":
+                ct = str(conn.get("conflict_type", "")).strip().lower()
+                # Conservative default: only "genuine" when the model says so.
+                conflict_type = "genuine" if ct in (
+                    "genuine", "真", "真冲突", "direct", "real"
+                ) else "apparent"
             out.append({
                 "slug": slug,
+                "kind": kind,
+                "conflict_type": conflict_type,
                 "relation": str(conn.get("relation", "关联")).strip(),
                 "this_point": str(conn.get("this_point", "")).strip(),
                 "that_point": str(conn.get("that_point", "")).strip(),
@@ -236,11 +249,14 @@ def translate_bundle(bundle: dict, target_lang: str, config: Config) -> dict:
     that_point}). Returns the same shape translated; slugs are preserved by
     position from the input (the model is told to keep order).
     """
+    orig_conns = list(bundle.get("connections", []))
+    # kind/conflict_type are canonical enums — keep them OUT of the translation
+    # payload and re-attach by position afterwards (never translate them).
     src_conns = [
         {"slug": c.get("slug", ""), "relation": c.get("relation", ""),
          "why": c.get("why", ""), "this_point": c.get("this_point", ""),
          "that_point": c.get("that_point", "")}
-        for c in bundle.get("connections", [])
+        for c in orig_conns
     ]
     payload = {
         "body": bundle.get("body", ""),
@@ -261,10 +277,13 @@ def translate_bundle(bundle: dict, target_lang: str, config: Config) -> dict:
 
     out_conns = []
     for i, c in enumerate(obj.get("connections", []) or []):
-        # Trust the source slug by position; never trust a model-rewritten slug.
-        slug = src_conns[i]["slug"] if i < len(src_conns) else str(c.get("slug", "")).strip()
+        # Trust the source slug + canonical enums by position; only the free-text
+        # fields (relation/why/points) come from the translation.
+        base = orig_conns[i] if i < len(orig_conns) else {}
         out_conns.append({
-            "slug": slug,
+            "slug": base.get("slug", "") or str(c.get("slug", "")).strip(),
+            "kind": base.get("kind", "resonance"),
+            "conflict_type": base.get("conflict_type", ""),
             "relation": str(c.get("relation", "")).strip(),
             "why": str(c.get("why", "")).strip(),
             "this_point": str(c.get("this_point", "")).strip(),
@@ -272,8 +291,8 @@ def translate_bundle(bundle: dict, target_lang: str, config: Config) -> dict:
         })
     # If the model dropped/garbled connections, fall back to the source ones so
     # the en page still links correctly (untranslated text is better than none).
-    if len(out_conns) != len(src_conns):
-        out_conns = src_conns
+    if len(out_conns) != len(orig_conns):
+        out_conns = orig_conns
 
     return {
         "body": str(obj.get("body", "")).strip(),

@@ -248,11 +248,21 @@ def build_connections_prompt(
     the specific relationship. Vague macro links ("both about physics") are
     forbidden. Returns [] if there is no genuine specific connection.
     """
+    res_vocab = ("Corroborates / Extends / Parallel / Complements / Follows-on"
+                 if output_lang == "en" else "印证 / 延伸 / 同构 / 补充 / 承接")
+    ten_vocab = ("Refutes / Contradicts / Contrast / Tension"
+                 if output_lang == "en" else "反驳 / 矛盾 / 对照 / 张力")
     return f"""\
 You are linking a NEW episode to PRIOR episodes in a personal knowledge base.
-Find only GENUINE, SPECIFIC, MICRO-level connections.
+Find only GENUINE, SPECIFIC, MICRO-level connections — of TWO kinds:
 
-IRON RULES:
+  • RESONANCE (`kind`: "resonance") — the two claims AGREE, corroborate, extend,
+    or build on each other.
+  • TENSION (`kind`: "tension") — the two claims genuinely CONFLICT: they make
+    incompatible assertions about the SAME question. These are the most valuable
+    links, but they are also the easiest to fake, so the bar is HIGHER (below).
+
+IRON RULES (apply to BOTH kinds):
 - A connection must point to a SPECIFIC claim in the new episode (with its
   timestamp) AND a SPECIFIC claim in a prior episode (with its timestamp), and
   state the precise relationship between those two specific claims.
@@ -260,20 +270,36 @@ IRON RULES:
   / "same field". If the only link is the broad topic, do NOT create it.
 - Only use prior episodes from the candidate list below. Cite a prior episode by
   its exact "slug".
-- Relationship label (`relation`): one short word/phrase, IN THE OUTPUT
-  LANGUAGE, such as {"Follows-on / Extends / Parallel / Corroborates / Complements / Contrast / Tension" if output_lang == "en" else "承接 / 延伸 / 同构 / 印证 / 补充 / 对照 / 张力"}
-  (or an equally precise label).
+- `relation`: one short word/phrase IN THE OUTPUT LANGUAGE.
+  For resonance use: {res_vocab}. For tension use: {ten_vocab}.
 - `this_point` and `that_point` must contain ONLY the timestamp(s) and the
   claim itself. Do NOT prefix them with "本期"/"那期"/"this episode"/"that
   episode" — the page adds the correct label depending on which page it shows on.
-- If there is no genuine specific connection, return an empty array [].
+
+EXTRA RULES FOR TENSION (do not manufacture disagreement):
+- The two claims must address the SAME underlying question or object. Two claims
+  about DIFFERENT scopes, levels, definitions, or contexts are NOT a conflict
+  (e.g. one about the quantum scale and one about the cosmological scale do NOT
+  conflict just because both mention "scale"). If the only "conflict" is
+  different topic / scope / emphasis, do NOT create it.
+- `why` must explain EXACTLY what is incompatible between the two specific
+  claims — not merely that they "differ".
+- Set `conflict_type`:
+    "genuine"  — the two claims, as stated, cannot both be true.
+    "apparent" — they appear to conflict but actually differ in scope /
+                 definition / context; in `why`, name that difference.
+  When unsure, prefer "apparent".
+- For resonance items, omit `conflict_type` (or set it to "").
+
+- If there is no genuine specific connection of either kind, return [].
 - {_lang(output_lang)}
 
 Return ONLY a JSON array. Each item:
-{{"slug": "<prior episode slug>", "relation": "同构",
-  "this_point": "[12:30] ……(本集里的具体观点,不要写'本期')",
-  "that_point": "[52:09] ……(那一集里的具体观点,不要写'那期')",
-  "why": "两者具体如何关联(一句话,落到机制/结构层面,不要泛泛)"}}
+{{"slug": "<prior episode slug>", "kind": "tension", "relation": "{('Refutes' if output_lang=='en' else '反驳')}",
+  "conflict_type": "genuine",
+  "this_point": "[12:30] …(本集里的具体观点,不要写'本期')",
+  "that_point": "[52:09] …(那一集里的具体观点,不要写'那期')",
+  "why": "两者具体如何冲突/呼应(一句话,落到机制/结构层面,不要泛泛)"}}
 
 NEW EPISODE: {this_title}
 NEW EPISODE KEY CLAIMS:

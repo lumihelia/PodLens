@@ -68,6 +68,8 @@ a.live{color:var(--primary);font-weight:600}
 .conn-item .rel{font-size:.8rem;color:var(--primary);background:#EDEBF4;padding:2px 10px;border-radius:999px}
 .conn-item .why{color:var(--muted);font-size:.92rem;margin:6px 0 0 28px}
 .conn-item input{margin-right:4px}
+.conn-kind{font-size:.72rem;padding:1px 8px;border-radius:999px;background:#EDEBF4;color:var(--primary);margin-right:2px}
+.conn-kind.tension{background:var(--primary);color:#fff}
 textarea{width:100%;padding:14px 16px;border:1px solid var(--border);background:var(--input-bg);
   border-radius:var(--radius);font-family:'Source Serif Pro',serif;font-size:1rem;color:var(--text);
   line-height:1.7;resize:vertical}
@@ -203,16 +205,26 @@ function renderConns(list){
   $('conn-list').innerHTML = conns.map((c, i) =>
     '<label class="conn-item"><span class="conn-head">' +
     '<input type="checkbox" checked data-i="' + i + '">' +
+    connKind(c) +
     '<span class="rel">' + esc(c.relation || '关联') + '</span> → 《' + esc(c.title || c.slug) + '》' +
     '</span><div class="why">' + esc(c.why || '') + '</div></label>'
   ).join('');
   wrap.classList.remove('hidden');
 }
+function connKind(c){
+  if(c.kind === 'tension'){
+    const ct = c.conflict_type === 'genuine' ? '真冲突'
+             : (c.conflict_type === 'apparent' ? '表面张力' : '');
+    return '<span class="conn-kind tension">张力' + (ct ? ' · ' + ct : '') + '</span>';
+  }
+  return '<span class="conn-kind">呼应</span>';
+}
 function keptConns(){
   return conns.filter((_, i) => {
     const cb = document.querySelector('#conn-list input[data-i="' + i + '"]');
     return cb && cb.checked;
-  }).map(c => ({slug:c.slug, relation:c.relation, this_point:c.this_point,
+  }).map(c => ({slug:c.slug, kind:c.kind, conflict_type:c.conflict_type,
+                relation:c.relation, this_point:c.this_point,
                 that_point:c.that_point, why:c.why}));
 }
 
