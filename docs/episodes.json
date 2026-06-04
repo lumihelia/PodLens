@@ -12,6 +12,20 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/episodes/the-reality-of-frontier-ai-and-the-end-of-individual-heroism.html",
+      "url": "https://lens.lumihelia.com/episodes/the-reality-of-frontier-ai-and-the-end-of-individual-heroism.html",
+      "title": "前沿 AI 的现实与个人英雄主义的终结 · Yao Shunyu",
+      "date_published": "2026-06-04",
+      "summary": "在本期节目中，主持人 Xiaojun 采访了著名的 AI 研究员 Yao Shunyu。他从理论物理学转向 AI 领域，曾就职于 Anthropic，目前在 Google DeepMind 工作。讨论围绕前沿 AI 模型（如 Claude 和 Gemini）的现状、初创公司与大型科技公司之间的组织和文化差异，以及模型训练的技术现实（包括预训练、后训练和强化学习）展开。Yao Shunyu 探讨了为…",
+      "tags": [
+        "Scaling Law",
+        "强化学习 Scaling",
+        "系统性 AI 工程",
+        "非厄米开放量子系统"
+      ],
+      "external_url": "https://youtu.be/ttkd0t5qTD4?si=Uk61Savla2TNmcqI"
+    },
+    {
       "id": "https://lens.lumihelia.com/episodes/how-an-ai-chip-works-from-the-bottom-up-reiner-pope.html",
       "url": "https://lens.lumihelia.com/episodes/how-an-ai-chip-works-from-the-bottom-up-reiner-pope.html",
       "title": "AI 芯片如何从底层运作 · Reiner Pope",
