@@ -7,6 +7,19 @@
 <language>en</language>
 <atom:link href="https://lens.lumihelia.com/en/feed.xml" rel="self" type="application/rss+xml" />
 <item>
+<title>How an AI Chip Works from the Bottom Up · Reiner Pope</title>
+<link>https://lens.lumihelia.com/en/episodes/how-an-ai-chip-works-from-the-bottom-up-reiner-pope.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/how-an-ai-chip-works-from-the-bottom-up-reiner-pope.html</guid>
+<pubDate>Thu, 04 Jun 2026 00:00:00 +0000</pubDate>
+<description>In this episode, the host interviews Reiner Pope, CEO of the AI chip company MatX, to understand how an AI chip works from the bottom up. Starting with the most fundamental logic gates, Pope explains …</description>
+<category>Multiply-Accumulate Unit</category>
+<category>Systolic Arrays</category>
+<category>Data Movement Bottleneck</category>
+<category>FPGA vs ASIC</category>
+<category>Low-Precision Arithmetic</category>
+<category>CPU GPU TPU Architecture</category>
+</item>
+<item>
 <title>The Core Algorithm of AlphaGo · Eric Jang</title>
 <link>https://lens.lumihelia.com/en/episodes/the-core-algorithm-of-alphago-eric-jang.html</link>
 <guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/the-core-algorithm-of-alphago-eric-jang.html</guid>
