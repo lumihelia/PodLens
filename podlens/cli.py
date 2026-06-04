@@ -121,7 +121,12 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     if args.publish_existing:
-        from .publish import load_site_config, publish_report
+        from .interpreter import build_bilingual, extract_metadata, find_connections
+        from .publish import (
+            build_candidates, extract_claims_section, extract_public_markdown,
+            load_site_config, publish_report, slugify,
+        )
+        from .transcript import detect_language
         if not args.title:
             parser.error("--publish-existing requires --title")
         try:
@@ -129,9 +134,41 @@ def main(argv: list[str] | None = None) -> int:
         except OSError as exc:
             _eprint(f"Error reading report: {exc}")
             return 1
-        entry = publish_report(report_md, args.title, load_site_config(),
-                               date=args.date, source_url=args.source_url)
+        site = load_site_config()
+        native_public = extract_public_markdown(report_md, site.private_cutoff)
+        if not native_public:
+            _eprint("Error: no public content found in the report.")
+            return 1
+        source_lang = detect_language(native_public)
+        pub_date = args.date or datetime.now().strftime("%Y-%m-%d")
+        _eprint("提取主题标签")
+        tags = extract_metadata(native_public, config).get("tags", [])
+        _eprint("查找与往期的关联")
+        slug = slugify(args.title, pub_date)
+        candidates = build_candidates(tags, exclude_slug=slug)
+        connections = find_connections(
+            args.title, extract_claims_section(report_md), candidates, config,
+            lang=source_lang,
+        )
+        try:
+            _eprint("翻译公开层(生成中英双语页面)")
+            _, zh_b, en_b = build_bilingual(native_public, args.title, tags,
+                                            connections, config)
+            slug = slugify(en_b["title"] or zh_b["title"], pub_date)
+            entry = publish_report(
+                report_md, zh_b["title"], site, date=pub_date, slug=slug,
+                source_url=args.source_url, tags=zh_b["tags"],
+                connections=zh_b["connections"], en=en_b,
+                primary_public_md=zh_b["body"],
+            )
+        except RuntimeError as exc:
+            _eprint(f"翻译失败,发布单语版:{exc}")
+            entry = publish_report(report_md, args.title, site, date=pub_date,
+                                   source_url=args.source_url, tags=tags,
+                                   connections=connections)
         _eprint(f"Published public layers -> docs/episodes/{entry['slug']}.html")
+        if connections:
+            _eprint(f"Connections: {len(connections)}")
         return 0
 
     if not args.source:
