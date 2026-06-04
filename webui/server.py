@@ -66,8 +66,12 @@ async def do_interpret(
     elif source_url and is_youtube_url(source_url):
         try:
             transcript = fetch_transcript(source_url)
-        except RuntimeError as exc:
-            raise HTTPException(400, f"抓取字幕失败:{exc}")
+        except Exception as exc:
+            raise HTTPException(
+                400,
+                f"抓取字幕失败:{exc}　(YouTube 抓字幕常被限流;最稳的是下载 "
+                ".srt/.vtt 字幕文件直接上传)",
+            )
     else:
         raise HTTPException(400, "请上传字幕文件,或提供一个 YouTube 链接。")
 
@@ -81,27 +85,27 @@ async def do_interpret(
 
     # Interpret the PUBLIC layers in the transcript's OWN language (most
     # faithful); the private personal mapping stays in your reading language.
+    # Catch ANY failure (the Gemini SDK raises its own error types, not just
+    # RuntimeError) and surface a readable reason instead of an opaque HTTP 500.
     source_lang = detect_language(transcript)
     try:
         result = interpret(transcript, profile, config, public_lang=source_lang)
-    except RuntimeError as exc:
-        raise HTTPException(500, f"解读失败:{exc}")
-
-    final_title = title or result.title or "PodLens 解读"
-    report_md = result.to_markdown(title=final_title)
-    site = load_site_config()
-    public_md = extract_public_markdown(report_md, site.private_cutoff)
-
-    # Find cross-episode connections for the user to review/veto (in the same
-    # language as this episode's public body, so they translate cleanly).
-    slug = slugify(final_title, "")
-    candidates = build_candidates(result.tags, exclude_slug=slug)
-    cand_titles = {c["slug"]: c["title"] for c in candidates}
-    raw_conns = (
-        find_connections(final_title, extract_claims_section(report_md),
-                         candidates, config, lang=source_lang)
-        if candidates else []
-    )
+        final_title = title or result.title or "PodLens 解读"
+        report_md = result.to_markdown(title=final_title)
+        site = load_site_config()
+        public_md = extract_public_markdown(report_md, site.private_cutoff)
+        # Cross-episode connections for review/veto (same language as the public
+        # body, so they translate cleanly).
+        slug = slugify(final_title, "")
+        candidates = build_candidates(result.tags, exclude_slug=slug)
+        cand_titles = {c["slug"]: c["title"] for c in candidates}
+        raw_conns = (
+            find_connections(final_title, extract_claims_section(report_md),
+                             candidates, config, lang=source_lang)
+            if candidates else []
+        )
+    except Exception as exc:
+        raise HTTPException(500, f"解读失败:{type(exc).__name__}: {exc}")
     connections = [
         {**c, "title": cand_titles.get(c["slug"], c["slug"])} for c in raw_conns
     ]
@@ -158,17 +162,18 @@ def do_publish(
             tags=zh_b["tags"], connections=zh_b["connections"],
             en=en_b, primary_public_md=zh_b["body"],
         )
-    except RuntimeError as exc:
-        # Translation/generation failed: publish a single-language version now
-        # so nothing is lost; the English mirror can be added later via re-edit.
+    except Exception as exc:
+        # Translation/generation failed (incl. Gemini SDK errors): publish a
+        # single-language version now so nothing is lost; the English mirror can
+        # be added later via re-edit.
         try:
             entry = publish_report(
                 report_md, title.strip(), site, date=pub_date,
                 source_url=source_url.strip() or None,
                 tags=tag_list, connections=conn_list,
             )
-        except RuntimeError as exc2:
-            raise HTTPException(400, f"生成失败:{exc2}")
+        except Exception as exc2:
+            raise HTTPException(400, f"生成失败:{type(exc2).__name__}: {exc2}")
         extra = f"(注意:翻译这一步没成功,先发了单语版。原因:{exc})"
 
     # Archive the FULL report (incl. the private personal-mapping layer) locally,
@@ -234,7 +239,7 @@ def do_update(
                 public_md, title.strip(), tag_list, conns, config,
                 editor_note=editor_note,
             )
-        except RuntimeError as exc:
+        except Exception as exc:
             extra = f"(英文版这次没更新成:{exc};中文已更新。)"
 
     try:
