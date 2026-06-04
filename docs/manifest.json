@@ -1,6 +1,73 @@
 {
   "items": [
     {
+      "slug": "the-reality-of-frontier-ai-and-the-end-of-individual-heroism",
+      "title": "前沿 AI 的现实与个人英雄主义的终结 · Yao Shunyu",
+      "date": "2026-06-04",
+      "summary": "在本期节目中，主持人 Xiaojun 采访了著名的 AI 研究员 Yao Shunyu。他从理论物理学转向 AI 领域，曾就职于 Anthropic，目前在 Google DeepMind 工作。讨论围绕前沿 AI 模型（如 Claude 和 Gemini）的现状、初创公司与大型科技公司之间的组织和文化差异，以及模型训练的技术现实（包括预训练、后训练和强化学习）展开。Yao Shunyu 探讨了为…",
+      "source_url": "https://youtu.be/ttkd0t5qTD4?si=Uk61Savla2TNmcqI",
+      "tags": [
+        "Scaling Law",
+        "强化学习 Scaling",
+        "系统性 AI 工程",
+        "非厄米开放量子系统"
+      ],
+      "connections": [
+        {
+          "slug": "the-core-algorithm-of-alphago-eric-jang",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "补充",
+          "why": "Yao 对为什么编程是发展最快的 AI 场景的解释补充了 Jang 的观点，展示了定义明确的编译和测试反馈如何直接解决 LLM 强化学习中稀疏、高方差奖励信号的核心瓶颈。",
+          "this_point": "[00:35:54] 编程是发展最快的 AI 场景，因为它具有高度明确的反馈信号，并且在 GitHub 中拥有庞大且高质量的数据基础。",
+          "that_point": "[01:28:29] LLMs 的强化学习通常面临高方差和稀疏奖励信号（‘用吸管吸取监督信号’）的问题，使得信用分配和高效学习变得困难。"
+        },
+        {
+          "slug": "don-lincoln-lex-fridman-497",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "证实",
+          "why": "Don Lincoln 对高能物理学实验瓶颈的描述提供了一个具体的例子，说明了为什么物理学受到无法验证的理论的约束，从而证实了 Yao 与 AI 的对比——在 AI 中，任何假设都可以通过数值实验立即进行测试。",
+          "this_point": "[03:25:12] 与物理学相比，AI 从根本上说是简单的，因为它不受无法验证的理论的约束，并允许研究人员通过数值实验系统地测试任何假设。",
+          "that_point": "[1:15:32] 物理学中的‘万物理论’可能还需要几个世纪，因为测试这些理论所需的能量尺度远远超出了我们目前的实验能力。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "The Reality of Frontier AI and the End of Individual Heroism · Yao Shunyu",
+          "tags": [
+            "Scaling Law",
+            "Reinforcement Learning Scaling",
+            "Systematic AI Engineering",
+            "Non Hermitian Open Quantum Systems"
+          ],
+          "summary": "In this episode, host Xiaojun interviews Yao Shunyu, a prominent AI researcher who transitioned from theoretical physics to AI, having previously worked at Anthropic and currently at Google DeepMind. …",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "the-core-algorithm-of-alphago-eric-jang",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Complements",
+              "why": "Yao's explanation of why coding is the fastest-developing AI scenario complements Jang's point by showing how well-defined compilation and test feedback directly solves the core bottleneck of sparse, high-variance reward signals in LLM reinforcement learning.",
+              "this_point": "[00:35:54] Coding is the fastest-developing AI scenario because it has highly well-defined feedback signals and a massive, high-quality data foundation in GitHub.",
+              "that_point": "[01:28:29] Reinforcement learning for LLMs typically suffers from high variance and sparse reward signals ('sipping supervision through a straw'), making credit assignment and efficient learning difficult."
+            },
+            {
+              "slug": "don-lincoln-lex-fridman-497",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Corroborates",
+              "why": "Don Lincoln's description of the experimental bottleneck in high-energy physics provides a concrete example of why physics is constrained by unverifiable theories, corroborating Yao's contrast with AI where any hypothesis can be instantly tested via numerical experiments.",
+              "this_point": "[03:25:12] AI is fundamentally simple compared to physics because it is not constrained by unverifiable theories and allows researchers to systematically test any hypothesis through numerical experiments.",
+              "that_point": "[1:15:32] A 'Theory of Everything' in physics may be centuries away because the energy scales required to test such theories are far beyond our current experimental capabilities."
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "how-an-ai-chip-works-from-the-bottom-up-reiner-pope",
       "title": "AI 芯片如何从底层运作 · Reiner Pope",
       "date": "2026-06-04",

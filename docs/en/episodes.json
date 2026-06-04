@@ -12,6 +12,20 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/en/episodes/the-reality-of-frontier-ai-and-the-end-of-individual-heroism.html",
+      "url": "https://lens.lumihelia.com/en/episodes/the-reality-of-frontier-ai-and-the-end-of-individual-heroism.html",
+      "title": "The Reality of Frontier AI and the End of Individual Heroism · Yao Shunyu",
+      "date_published": "2026-06-04",
+      "summary": "In this episode, host Xiaojun interviews Yao Shunyu, a prominent AI researcher who transitioned from theoretical physics to AI, having previously worked at Anthropic and currently at Google DeepMind. …",
+      "tags": [
+        "Scaling Law",
+        "Reinforcement Learning Scaling",
+        "Systematic AI Engineering",
+        "Non Hermitian Open Quantum Systems"
+      ],
+      "external_url": "https://youtu.be/ttkd0t5qTD4?si=Uk61Savla2TNmcqI"
+    },
+    {
       "id": "https://lens.lumihelia.com/en/episodes/how-an-ai-chip-works-from-the-bottom-up-reiner-pope.html",
       "url": "https://lens.lumihelia.com/en/episodes/how-an-ai-chip-works-from-the-bottom-up-reiner-pope.html",
       "title": "How an AI Chip Works from the Bottom Up · Reiner Pope",
