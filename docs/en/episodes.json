@@ -12,6 +12,21 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/en/episodes/the-core-algorithm-of-alphago-eric-jang.html",
+      "url": "https://lens.lumihelia.com/en/episodes/the-core-algorithm-of-alphago-eric-jang.html",
+      "title": "The Core Algorithm of AlphaGo · Eric Jang",
+      "date_published": "2026-06-04",
+      "summary": "Guest Eric Jang, a researcher who recently rebuilt a Go-playing AI, explains the core principles of AlphaGo. The episode walks through the rules of Go, the intractability of its game tree for classica…",
+      "tags": [
+        "Monte Carlo Tree Search",
+        "Policy and Value Networks",
+        "Self-Play Reinforcement Learning",
+        "Amortized Search",
+        "Policy Improvement Operator"
+      ],
+      "external_url": "https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=1082s"
+    },
+    {
       "id": "https://lens.lumihelia.com/en/episodes/don-lincoln-lex-fridman-497.html",
       "url": "https://lens.lumihelia.com/en/episodes/don-lincoln-lex-fridman-497.html",
       "title": "The Unification of Physics · Don Lincoln",

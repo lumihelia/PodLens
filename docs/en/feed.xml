@@ -7,6 +7,18 @@
 <language>en</language>
 <atom:link href="https://lens.lumihelia.com/en/feed.xml" rel="self" type="application/rss+xml" />
 <item>
+<title>The Core Algorithm of AlphaGo · Eric Jang</title>
+<link>https://lens.lumihelia.com/en/episodes/the-core-algorithm-of-alphago-eric-jang.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/the-core-algorithm-of-alphago-eric-jang.html</guid>
+<pubDate>Thu, 04 Jun 2026 00:00:00 +0000</pubDate>
+<description>Guest Eric Jang, a researcher who recently rebuilt a Go-playing AI, explains the core principles of AlphaGo. The episode walks through the rules of Go, the intractability of its game tree for classica…</description>
+<category>Monte Carlo Tree Search</category>
+<category>Policy and Value Networks</category>
+<category>Self-Play Reinforcement Learning</category>
+<category>Amortized Search</category>
+<category>Policy Improvement Operator</category>
+</item>
+<item>
 <title>The Unification of Physics · Don Lincoln</title>
 <link>https://lens.lumihelia.com/en/episodes/don-lincoln-lex-fridman-497.html</link>
 <guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/don-lincoln-lex-fridman-497.html</guid>
