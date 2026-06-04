@@ -138,14 +138,17 @@ def _normalize_claims(public_md: str) -> str:
     out = [marker, ""]
     for n, c in enumerate(claims, 1):
         out.append(f"{n}. {c['text']}".rstrip())
+        # Each piece of evidence/type/uncertainty on its OWN line (a dot-joined
+        # single line reads as cramped, especially with a long uncertainty note).
         meta = []
         if c["ev"]:
             meta.append(f"证据 {c['ev']}")
         if c["type"]:
             meta.append(f"类型 {c['type']}")
         meta += c["extra"]
-        if meta:
-            out.append('   <span class="claim-meta">' + " · ".join(meta) + "</span>")
+        for k, piece in enumerate(meta):
+            cls = "claim-meta claim-meta-first" if k == 0 else "claim-meta"
+            out.append(f'   <span class="{cls}">{piece}</span>')
         out.append("")
     new_section = "\n".join(out).rstrip() + "\n"
     after = public_md[j:] if j != -1 else ""
@@ -566,7 +569,8 @@ a.ts:hover { border-bottom-style: solid; }
 .editor-note .en-label { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 10px; }
 .editor-note p { margin: 0 0 12px; }
 .editor-note p:last-child { margin-bottom: 0; }
-.claim-meta { display: block; margin-top: 4px; color: var(--muted); font-size: 0.9rem; }
+.claim-meta { display: block; margin-top: 2px; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+.claim-meta-first { margin-top: 8px; }
 .claim-meta a.ts { color: var(--muted); }
 """
 

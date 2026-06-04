@@ -70,7 +70,8 @@ a.ts:hover { border-bottom-style: solid; }
 .editor-note .en-label { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 10px; }
 .editor-note p { margin: 0 0 12px; }
 .editor-note p:last-child { margin-bottom: 0; }
-.claim-meta { display: block; margin-top: 4px; color: var(--muted); font-size: 0.9rem; }
+.claim-meta { display: block; margin-top: 2px; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+.claim-meta-first { margin-top: 8px; }
 .claim-meta a.ts { color: var(--muted); }
 </style>
 </head>
@@ -135,43 +136,53 @@ var PL = (function() {
 <ol>
 <li>
 <p>长期以来，围棋因其巨大的搜索空间（约 361³⁰⁰ 种可能的棋局）被认为对人工智能来说是棘手的，但通过使用深度学习智能地修剪搜索树而非穷尽地探索，这个问题得到了解决。
-   <span class="claim-meta">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=3538s" target="_blank" rel="noopener" onclick="return PL.seek(3538)">[00:58:58 - 01:00:06]</a> · 类型 事实</span></p>
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=3538s" target="_blank" rel="noopener" onclick="return PL.seek(3538)">[00:58:58 - 01:00:06]</a></span>
+   <span class="claim-meta">类型 事实</span></p>
 </li>
 <li>
 <p>AlphaGo 的核心是由两个神经网络指导的蒙特卡洛树搜索（MCTS）算法。一个<em>价值网络</em>用于估计在给定棋盘状态下的获胜概率，这使得搜索可以提前终止。一个<em>策略网络</em>用于建议有希望的落子，将搜索广度从所有合法落子缩小到少数几个好的落子。
-   <span class="claim-meta">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=1650s" target="_blank" rel="noopener" onclick="return PL.seek(1650)">[00:27:30 - 00:28:15]</a> · 类型 事实</span></p>
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=1650s" target="_blank" rel="noopener" onclick="return PL.seek(1650)">[00:27:30 - 00:28:15]</a></span>
+   <span class="claim-meta">类型 事实</span></p>
 </li>
 <li>
 <p>该系统通过自我对弈强化学习循环进行改进，其中 MCTS 充当“策略改进算子”。对于任何给定的棋盘状态，MCTS 执行深度搜索，以生成比策略网络初始猜测更好、更自信的落子分布。然后训练策略网络直接预测这种改进后的分布。
-   <span class="claim-meta">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=3766s" target="_blank" rel="noopener" onclick="return PL.seek(3766)">[01:02:46 - 01:03:17]</a> · 类型 事实</span></p>
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=3766s" target="_blank" rel="noopener" onclick="return PL.seek(3766)">[01:02:46 - 01:03:17]</a></span>
+   <span class="claim-meta">类型 事实</span></p>
 </li>
 <li>
 <p>这种强化学习训练过程非常稳定且样本高效，因为它为每场对局中的每一步都生成了低方差的监督信号，而与最终结果无关。它用来自搜索的“更好”的行动分布重新标记行动，这个过程类似于机器人学中的 DAgger 算法。
-   <span class="claim-meta">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=3949s" target="_blank" rel="noopener" onclick="return PL.seek(3949)">[01:05:49 - 01:07:18]</a> · 类型 观点</span></p>
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=3949s" target="_blank" rel="noopener" onclick="return PL.seek(3949)">[01:05:49 - 01:07:18]</a></span>
+   <span class="claim-meta">类型 观点</span></p>
 </li>
 <li>
 <p>这种方法与常用于大语言模型的策略梯度强化学习形成鲜明对比，后者存在高方差问题。大语言模型的强化学习通常依赖于长轨迹末端的单一、稀疏的奖励信号（例如，赢/输），这使得功劳分配和高效学习变得困难，这个问题被描述为“通过吸管吸取监督信号”。
-   <span class="claim-meta">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=5309s" target="_blank" rel="noopener" onclick="return PL.seek(5309)">[01:28:29 - 01:28:50]</a> · 类型 观点</span></p>
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=5309s" target="_blank" rel="noopener" onclick="return PL.seek(5309)">[01:28:29 - 01:28:50]</a></span>
+   <span class="claim-meta">类型 观点</span></p>
 </li>
 <li>
 <p>AlphaGo 带来的一个深刻见解是，一个浅层神经网络可以学会“分摊”一个巨大、几乎棘手的搜索的计算量。这种将复杂、顺序的推理过程压缩为单次、并行的前向传播的能力，挑战了我们对于在最坏情况下是 NP-hard 问题实际难度的直觉。
-   <span class="claim-meta">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=4651s" target="_blank" rel="noopener" onclick="return PL.seek(4651)">[01:17:31 - 01:18:46]</a> · 类型 观点</span></p>
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=4651s" target="_blank" rel="noopener" onclick="return PL.seek(4651)">[01:17:31 - 01:18:46]</a></span>
+   <span class="claim-meta">类型 观点</span></p>
 </li>
 <li>
 <p>构建世界级围棋 AI 所需的计算量已大幅下降。最初需要 DeepMind 的庞大团队和海量计算资源才能完成的工作，现在由于算法的改进（例如 KataGo）和硬件的提升，个人只需花费数千美元即可复制。
-   <span class="claim-meta">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=109s" target="_blank" rel="noopener" onclick="return PL.seek(109)">[00:01:49 - 00:02:13]</a> · 类型 事实</span></p>
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=109s" target="_blank" rel="noopener" onclick="return PL.seek(109)">[00:01:49 - 00:02:13]</a></span>
+   <span class="claim-meta">类型 事实</span></p>
 </li>
 <li>
 <p>成功的自我对弈训练严重依赖于一个准确的价值函数。如果价值网络在搜索树的叶子节点上给出的胜率估计很差，整个 MCTS 过程可能会被破坏，导致推荐的策略比初始策略还要糟糕。这使得良好的初始化（例如，使用专家数据）至关重要。
-   <span class="claim-meta">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=4134s" target="_blank" rel="noopener" onclick="return PL.seek(4134)">[01:08:54 - 01:09:19]</a> · 类型 观点</span></p>
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=4134s" target="_blank" rel="noopener" onclick="return PL.seek(4134)">[01:08:54 - 01:09:19]</a></span>
+   <span class="claim-meta">类型 观点</span></p>
 </li>
 <li>
 <p>尽管 MCTS 在围棋上很强大，但将其直接应用于像大语言模型推理这样的开放式领域是困难的。语言的行动空间在组合上更大且不那么离散，使得像 PUCT 这样的探索启发式方法无效，而且定义一个可靠的、用于截断搜索的中间价值函数也困难得多。
-   <span class="claim-meta">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=6465s" target="_blank" rel="noopener" onclick="return PL.seek(6465)">[01:47:45 - 01:50:32]</a> · 类型 观点</span></p>
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=6465s" target="_blank" rel="noopener" onclick="return PL.seek(6465)">[01:47:45 - 01:50:32]</a></span>
+   <span class="claim-meta">类型 观点</span></p>
 </li>
 <li>
 <p>在这个项目中使用大语言模型进行自动化研究表明，它们擅长定义明确的局部优化任务，如超参数调整和执行已描述的实验。然而，它们目前缺乏识别有缺陷的研究方向、调试复杂系统或提出根本性新方法所需的高层战略和横向思维能力。
-   <span class="claim-meta">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=8593s" target="_blank" rel="noopener" onclick="return PL.seek(8593)">[02:23:13 - 02:25:40]</a> · 类型 例子</span></p>
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=8593s" target="_blank" rel="noopener" onclick="return PL.seek(8593)">[02:23:13 - 02:25:40]</a></span>
+   <span class="claim-meta">类型 例子</span></p>
 </li>
 </ol>
 <h2>大白话重讲</h2>
