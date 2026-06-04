@@ -1,6 +1,111 @@
 {
   "items": [
     {
+      "slug": "representation-learning-and-predictive-world-models-saining",
+      "title": "表征学习与预测世界模型 · Saining Xie",
+      "date": "2026-06-04",
+      "summary": "本期节目的核心内容是对年轻科学家兼创业者 Xie Saining 的深度马拉松式访谈，以及与 Tommy (Zhiyuan Zeng) 的简短嘉宾分享。讨论的焦点是 Xie Saining 在人工智能领域的学术与职业历程，特别是他在表征学习、Diffusion Transformer (DiT) 的开发，以及他从学术界转型与图灵奖得主 Yann LeCun 共同创立初创公司 AMI Labs 的经…",
+      "source_url": "https://youtu.be/rIwgZWzUKm8?si=visnqbvS_b-eqcLF",
+      "tags": [
+        "表征学习",
+        "预测世界模型",
+        "DiT架构",
+        "对比学习",
+        "空间智能"
+      ],
+      "connections": [
+        {
+          "slug": "the-reality-of-frontier-ai-and-the-end-of-individual-heroism",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "补充",
+          "why": "Yao 对为什么编程是一个简单、快速增长的 AI 场景的解释（由于明确的反馈和结构化数据），补充了 Xie 的观点，即对于 AI 来说，写代码和数学实际上是比松鼠在物理、连续世界中的生存智能容易得多的问题。",
+          "this_point": "[06:07:44 - 06:13:49] “通用智能”（AGI）是一个虚假的前提，因为人类智能是高度专业化的，且受限于生物带宽；重建一只松鼠在物理世界中的生存智能，是一个比写代码或做数学题难得多的问题。",
+          "that_point": "[00:35:54 - 00:37:09] 编程是增长最快的 AI 场景，因为它具有高度明确的反馈信号以及在 GitHub 中的天然数据基础。"
+        },
+        {
+          "slug": "the-reality-of-frontier-ai-and-the-end-of-individual-heroism",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "平行",
+          "why": "双方都同意，仅依赖纯语言模型的时代正在结束，AI 发展的未来在于超越文本，走向多模态、物理和世界建模架构。",
+          "this_point": "[04:07:11 - 04:08:05] AI 的未来在于一个多组件 of 认知架构，其中世界模型作为底层的基底层，而语言模型退化为一个简单的沟通接口。",
+          "that_point": "[03:33:41 - 03:34:46] 纯粹从事语言模型研究已不再是蓝海；“末班车”已经开走，未来的机会在于机器人技术、多模态生成以及将 AI 应用于真实的科学问题。"
+        },
+        {
+          "slug": "the-core-algorithm-of-alphago-eric-jang",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "证实",
+          "why": "Jang 的技术观察——语言不适合作为结构化搜索 and 推理的媒介，证实了 Xie 更广泛的哲学主张，即语言仅仅是一种压缩的沟通工具，而不是思维的直接映射。",
+          "this_point": "[03:53:57 - 04:10:06] 语言是人类开发的一种高度压缩的沟通工具，而不是思维或决策的直接映射；因此，仅仅依赖语言模型会制造一个“拐杖”，限制真实智能的发展。",
+          "that_point": "[01:47:45 - 01:50:32] 直接将 MCTS 应用于 LLM 推理是困难的，因为语言的动作空间在组合上要大得多且不够离散，这使得很难为搜索定义一个可靠的中间价值函数。"
+        },
+        {
+          "slug": "the-core-algorithm-of-alphago-eric-jang",
+          "kind": "tension",
+          "conflict_type": "apparent",
+          "relation": "对比",
+          "why": "Jang 强调了 AlphaGo 如何成功地将序列化推理（System 2 搜索）压缩为单个反应式前向传播（System 1 摊销），而 Xie 则认为真正的世界模型必须显式地保留预测性规划（System 2）来指导行动，而不是依赖反应式策略。",
+          "this_point": "[04:17:24 - 04:17:41] 世界模型的本质是如何刻画一个系统和环境，以便你能做出预测……而这种预测可以指导你的行动序列，从而实现规划和推理（System 2 思维），而不仅仅是反应式策略（System 1）。",
+          "that_point": "[01:17:31 - 01:18:46] 一个浅层神经网络可以学会“摊销”巨大的搜索，将复杂的序列化推理压缩为单个并行的前向传播。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "Representation Learning and Predictive World Models · Saining Xie",
+          "tags": [
+            "表征学习",
+            "预测世界模型",
+            "DiT架构",
+            "对比学习",
+            "空间智能"
+          ],
+          "summary": "This episode features an in-depth, marathon interview with young scientist and entrepreneur Xie Saining, alongside a brief guest segment with Tommy (Zhiyuan Zeng). The central focus of the discussion …",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "the-reality-of-frontier-ai-and-the-end-of-individual-heroism",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Complements",
+              "why": "Yao's explanation of why coding is an easy, fast-growing AI scenario (due to clear feedback and structured data) complements Xie's view that coding and math are actually much easier problems for AI to solve than the physical, continuous survival intelligence of a squirrel.",
+              "this_point": "[06:07:44 - 06:13:49] \"General intelligence\" (AGI) is a false premise because human intelligence is highly specialized and limited by biological bandwidth; recreating the physical survival intelligence of a squirrel is a much harder problem than coding or math.",
+              "that_point": "[00:35:54 - 00:37:09] Programming is the fastest-growing AI scenario because it has highly explicit feedback signals and a natural data foundation in GitHub."
+            },
+            {
+              "slug": "the-reality-of-frontier-ai-and-the-end-of-individual-heroism",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Parallel",
+              "why": "Both agree that the era of relying solely on pure language models is ending, and that the future of AI development lies in moving beyond text into multimodal, physical, and world-modeling architectures.",
+              "this_point": "[04:07:11 - 04:08:05] The future of AI lies in a multi-component cognitive architecture where the world model serves as the foundational base layer, and the language model degrades into a simple communication interface.",
+              "that_point": "[03:33:41 - 03:34:46] Purely working on language models is no longer a blue ocean; the \"last train\" has already left, and future opportunities lie in robotics, multi-modal generation, and applying AI to real scientific problems."
+            },
+            {
+              "slug": "the-core-algorithm-of-alphago-eric-jang",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Corroborates",
+              "why": "Jang's technical observation that language is an unsuitable medium for structured search and reasoning corroborates Xie's broader philosophical claim that language is merely a condensed communication tool rather than a direct map of thinking.",
+              "this_point": "[03:53:57 - 04:10:06] Language is a highly condensed communication tool developed by humans, not a direct map of thinking or decision-making; therefore, relying solely on language models creates a \"crutch\" that limits the development of real intelligence.",
+              "that_point": "[01:47:45 - 01:50:32] Applying MCTS directly to LLM reasoning is difficult because language's action space is combinatorially larger and less discrete, making it hard to define a reliable intermediate value function for search."
+            },
+            {
+              "slug": "the-core-algorithm-of-alphago-eric-jang",
+              "kind": "tension",
+              "conflict_type": "apparent",
+              "relation": "Contrast",
+              "why": "Jang highlights how AlphaGo successfully compresses sequential reasoning (System 2 search) into a single reactive forward pass (System 1 amortization), whereas Xie argues that a true world model must explicitly preserve predictive planning (System 2) to guide actions rather than relying on reactive policies.",
+              "this_point": "[04:17:24 - 04:17:41] The essence of a World Model is how to characterize a system and an environment such that you can make predictions... and this prediction can guide your action sequence, enabling planning and reasoning (System 2 thinking) rather than just reactive policies (System 1).",
+              "that_point": "[01:17:31 - 01:18:46] A shallow neural network can learn to \"amortize\" a huge search, compressing complex, sequential reasoning into a single, parallel forward pass."
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "the-reality-of-frontier-ai-and-the-end-of-individual-heroism",
       "title": "前沿 AI 的现实与个人英雄主义的终结 · Yao Shunyu",
       "date": "2026-06-04",

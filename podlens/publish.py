@@ -442,7 +442,7 @@ def slugify(title: str, date: str) -> str:
     date + short hash so non-Latin titles still get a stable, clean URL."""
     ascii_part = re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")
     if len(ascii_part) >= 3:
-        return ascii_part[:60]
+        return ascii_part[:60].rstrip("-")  # avoid a trailing dash from the cap
     digest = hashlib.sha1(title.encode("utf-8")).hexdigest()[:8]
     return f"{date}-{digest}"
 
