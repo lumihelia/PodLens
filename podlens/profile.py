@@ -15,3 +15,13 @@ def load_profile(path: str) -> str | None:
         return None
     text = p.read_text(encoding="utf-8").strip()
     return text or None
+
+
+def save_profile(path: str, text: str) -> None:
+    """Write the personal profile text to `path` (a LOCAL file only).
+
+    The profile is never published; it only feeds the private personal-mapping
+    stage. The next interpretation reads it fresh, so edits take effect at once.
+    """
+    content = text.strip()
+    Path(path).write_text(content + "\n" if content else "", encoding="utf-8")

@@ -114,6 +114,22 @@ textarea:focus{outline:none;border-color:var(--primary)}
     <button id="run" class="primary">解读</button>
     <div class="note">没填文件时,如果填了 YouTube 链接会尝试抓字幕(可能被限流,字幕文件最稳)。</div>
     <p class="manage-entry"><button id="to-manage" class="linklike">管理已发布的内容(编辑正文 / 加编者按)→</button></p>
+    <p class="manage-entry" style="margin-top:8px"><button id="to-profile" class="linklike">编辑我的个人背景(用于个人映射,仅本地)→</button></p>
+  </section>
+
+  <!-- Profile: edit the personal background used for personal mapping -->
+  <section id="profile-edit" class="hidden">
+    <h2 class="mtitle">我的个人背景</h2>
+    <div class="banner info">这段背景只保存在本地的 <strong>profile.md</strong>,只喂给「个人映射」那一层,<strong>绝不会公开发布</strong>。保存后,下次解读会自动用更新后的背景。</div>
+    <div class="field">
+      <label for="profile-text">个人背景(长期兴趣、在做的项目、写作方向、已有观点……支持 Markdown)</label>
+      <textarea id="profile-text" rows="20" spellcheck="false" placeholder="留空则解读时跳过个人映射。"></textarea>
+    </div>
+    <div class="actions">
+      <button id="save-profile" class="primary">保存背景</button>
+      <button id="profile-back" class="ghost">← 返回</button>
+    </div>
+    <div id="profile-msg" class="note" style="margin-top:14px"></div>
   </section>
 
   <!-- Manage: list of published episodes -->
@@ -252,7 +268,7 @@ drop.ondragleave = () => drop.classList.remove('over');
 drop.ondrop = e => { e.preventDefault(); drop.classList.remove('over'); setFile(e.dataTransfer.files[0]); };
 function setFile(f){ pickedFile = f || null; $('filename').textContent = f ? ('已选择:' + f.name) : ''; }
 
-function show(id){ ['input','working','result','done','manage','edit'].forEach(s => $(s).classList.toggle('hidden', s !== id)); }
+function show(id){ ['input','working','result','done','manage','edit','profile-edit'].forEach(s => $(s).classList.toggle('hidden', s !== id)); }
 function err(msg){ const e = $('error'); e.textContent = msg; e.classList.remove('hidden'); }
 function clearErr(){ $('error').classList.add('hidden'); }
 function detailMsg(data, status){
@@ -408,6 +424,34 @@ $('edit-source').oninput = () => {
 
 $('to-manage').onclick = loadManage;
 $('manage-back').onclick = () => { clearErr(); show('input'); };
+
+// --- Edit personal background (profile.md, local only) ---
+async function loadProfile(){
+  clearErr(); show('profile-edit');
+  $('profile-msg').textContent = '';
+  $('profile-text').value = '加载中…';
+  try{
+    const r = await fetch('/profile');
+    const data = await readJson(r);
+    if(!r.ok){ throw new Error(detailMsg(data, r.status)); }
+    $('profile-text').value = data.profile || '';
+  }catch(e){ $('profile-text').value = ''; err(e.message); }
+}
+$('to-profile').onclick = loadProfile;
+$('profile-back').onclick = () => { clearErr(); show('input'); };
+$('save-profile').onclick = async () => {
+  clearErr();
+  const fd = new FormData();
+  fd.append('profile', $('profile-text').value);
+  $('save-profile').disabled = true; $('save-profile').textContent = '保存中…';
+  try{
+    const r = await fetch('/profile', { method:'POST', body: fd });
+    const data = await readJson(r);
+    if(!r.ok){ throw new Error(detailMsg(data, r.status)); }
+    const el = $('profile-msg'); el.textContent = '✓ ' + data.message; el.style.color = '#2f6b46';
+  }catch(e){ err(e.message); }
+  finally{ $('save-profile').disabled = false; $('save-profile').textContent = '保存背景'; }
+};
 $('edit-cancel').onclick = () => { clearErr(); loadManage(); };
 
 $('save-edit').onclick = async () => {
