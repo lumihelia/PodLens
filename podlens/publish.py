@@ -89,13 +89,41 @@ def _englishize(text: str) -> str:
     return text
 
 
-# The model formats each Key Claim as an empty "N." line followed by 3-space
-# nested "- **观点/证据/类型**:" bullets, which Markdown renders as a run-on blob.
-# Reflow each claim into a clean numbered item: the claim as the item text, and
-# evidence/type as a muted meta line. Deterministic, no API. Runs BEFORE
-# _englishize so the Chinese field labels still match.
+# The model formats each Key Claim as an empty "N." line followed by nested
+# "- **label:** value" bullets, which Markdown renders as a run-on blob. Reflow
+# each claim into a clean numbered item: the claim as the item text, evidence /
+# type / uncertainty as muted meta lines. Deterministic, no API. Runs BEFORE
+# _englishize, and emits CANONICAL Chinese meta labels (证据/类型) so _englishize
+# turns them into English on the en tree.
+#
+# The model is wildly inconsistent about the labels, so the parser is permissive:
+# bold or not, half/full-width colon, colon inside or outside the **, and a
+# vocabulary that varies per episode (观点/核心观点, 证据/锚点, 类型/标签) and even
+# switches to English on the en body (Claim/Anchor/Type). We classify by meaning.
 _CLAIM_NUM_RE = re.compile(r"^\s*(\d+)\.\s*(.*)$")
-_CLAIM_FIELD_RE = re.compile(r"^\s*[-*]\s*\*\*(.+?)\*\*\s*[:：]\s*(.*)$")
+_CLAIM_BARE_NUM_RE = re.compile(r"^\s*\d+\.\s*$")
+# bullet, optional **, label (no colon/star), optional **, colon, optional **, value
+_CLAIM_FIELD_RE = re.compile(
+    r"^\s*[-*]\s*\*{0,2}\s*([^:：*]+?)\s*\*{0,2}\s*[:：]\s*\*{0,2}\s*(.*)$"
+)
+
+_CLAIM_LABELS = {"观点", "核心观点", "主张", "论点", "claim", "point", "key claim"}
+_EVIDENCE_LABELS = {"证据", "锚点", "依据", "出处", "来源", "evidence", "anchor", "source"}
+_TYPE_LABELS = {"类型", "标签", "type", "tag"}
+_UNCERTAINTY_LABELS = {"不确定性", "不确定", "注", "备注", "note", "uncertainty", "caveat"}
+
+
+def _classify_label(label: str) -> str:
+    l = label.strip().lower()
+    if l in _CLAIM_LABELS:
+        return "claim"
+    if l in _EVIDENCE_LABELS:
+        return "evidence"
+    if l in _TYPE_LABELS:
+        return "type"
+    if l in _UNCERTAINTY_LABELS:
+        return "uncertainty"
+    return "other"
 
 
 def _normalize_claims(public_md: str) -> str:
@@ -105,29 +133,39 @@ def _normalize_claims(public_md: str) -> str:
         return public_md
     j = public_md.find("\n## ", i + len(marker))
     section = public_md[i:j] if j != -1 else public_md[i:]
-    # Only touch the broken "- **label**:" structure; leave already-clean text.
-    if not any(tok in section for tok in ("**证据**", "**观点**", "**核心观点**")):
+    lines = section.split("\n")[1:]  # skip the heading line
+    # Only reflow the broken bare-number / labeled-bullet structure; leave
+    # already-clean "N. text" sections untouched.
+    has_bare = any(_CLAIM_BARE_NUM_RE.match(ln) for ln in lines)
+    has_field = any(_CLAIM_FIELD_RE.match(ln) for ln in lines)
+    if not (has_bare or has_field):
         return public_md
 
     claims: list[dict] = []
     cur: dict | None = None
-    for ln in section.split("\n")[1:]:  # skip the heading line
+    for ln in lines:
         fm = _CLAIM_FIELD_RE.match(ln)
         nm = _CLAIM_NUM_RE.match(ln)
         if nm and not fm:
             if cur:
                 claims.append(cur)
             cur = {"text": nm.group(2).strip(), "ev": "", "type": "", "extra": []}
-        elif fm and cur is not None:
-            lab, val = fm.group(1).strip(), fm.group(2).strip()
-            if lab in ("观点", "核心观点"):
+        elif fm:
+            label, val = fm.group(1).strip(), fm.group(2).strip()
+            kind = _classify_label(label)
+            if cur is None:
+                cur = {"text": "", "ev": "", "type": "", "extra": []}
+            if kind == "claim":
                 cur["text"] = (cur["text"] + " " + val).strip() if cur["text"] else val
-            elif lab == "证据":
-                cur["ev"] = val
-            elif lab in ("类型", "标签"):
+            elif kind == "evidence":
+                cur["ev"] = (cur["ev"] + ", " + val).strip(", ") if cur["ev"] else val
+            elif kind == "type":
                 cur["type"] = val
+            elif kind == "uncertainty":
+                if val:
+                    cur["extra"].append(f"不确定性 {val}")
             elif val:
-                cur["extra"].append(f"{lab} {val}")
+                cur["extra"].append(f"{label} {val}")
         elif cur is not None and ln.strip():
             cur["text"] = (cur["text"] + " " + ln.strip()).strip()
     if cur:
