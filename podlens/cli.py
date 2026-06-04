@@ -142,7 +142,7 @@ def main(argv: list[str] | None = None) -> int:
         source_lang = detect_language(native_public)
         pub_date = args.date or datetime.now().strftime("%Y-%m-%d")
         _eprint("提取主题标签")
-        tags = extract_metadata(native_public, config).get("tags", [])
+        tags = extract_metadata(native_public, config, lang=source_lang).get("tags", [])
         _eprint("查找与往期的关联")
         slug = slugify(args.title, pub_date)
         candidates = build_candidates(tags, exclude_slug=slug)

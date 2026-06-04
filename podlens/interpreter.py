@@ -183,15 +183,20 @@ def find_connections(
     return out
 
 
-def extract_metadata(reconstruction: str, config: Config) -> dict:
+def extract_metadata(reconstruction: str, config: Config, lang: str | None = None) -> dict:
     """Generate a title and 3-6 specific tags from the reconstruction.
+
+    `lang` is the output language for the title/tags (defaults to
+    config.output_lang); pass the episode's source language so tags start out in
+    the same language as its public body and translate cleanly.
 
     Returns {"title": str, "tags": list[str]}.
     """
+    lang = lang or config.output_lang
     client = _make_client(config)
     raw = _generate(
         client, config.model,
-        build_metadata_prompt(reconstruction, config.output_lang),
+        build_metadata_prompt(reconstruction, lang),
         _TEMP_RECONSTRUCTION,
     )
     obj = _parse_json_obj(raw)
