@@ -19,7 +19,7 @@ from fastapi.responses import FileResponse, JSONResponse
 
 from podlens.config import load_config
 from podlens.interpreter import build_bilingual, find_connections, interpret
-from podlens.profile import load_profile
+from podlens.profile import load_profile, save_profile
 from podlens.publish import (
     _normalize_claims,
     build_candidates,
@@ -213,6 +213,30 @@ def do_publish(
         "slug": entry["slug"],
         "pushed": pushed,
         "message": (message + (" " + extra if extra else "")),
+    })
+
+
+@app.get("/profile")
+def do_get_profile() -> JSONResponse:
+    """Return the personal background text (profile.md) for editing. Local only."""
+    config = load_config()
+    return JSONResponse({
+        "profile": load_profile(config.profile_path) or "",
+        "path": config.profile_path,
+    })
+
+
+@app.post("/profile")
+def do_save_profile(profile: str = Form("")) -> JSONResponse:
+    """Save the personal background text. Never published; the next
+    interpretation reads it fresh, so edits apply immediately."""
+    config = load_config()
+    save_profile(config.profile_path, profile)
+    n = len(profile.strip())
+    return JSONResponse({
+        "ok": True,
+        "message": (f"已保存(共 {n} 字)。下次解读会用更新后的背景。"
+                    if n else "已清空。下次解读将跳过个人映射。"),
     })
 
 
