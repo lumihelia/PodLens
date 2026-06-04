@@ -400,6 +400,51 @@ def interpret(
     )
 
 
+def translate_connections(
+    connections: list[dict], target_lang: str, config: Config
+) -> list[dict]:
+    """Translate ONLY a connections list (relation/why/points) into target_lang.
+
+    Used when re-scanning connections without re-translating the whole body.
+    slug/kind/conflict_type are canonical and carried through untranslated.
+    """
+    orig = list(connections)
+    if not orig:
+        return []
+    payload = {
+        "body": "", "title": "", "tags": [], "editor_note": "",
+        "connections": [
+            {"slug": c.get("slug", ""), "relation": c.get("relation", ""),
+             "why": c.get("why", ""), "this_point": c.get("this_point", ""),
+             "that_point": c.get("that_point", "")}
+            for c in orig
+        ],
+    }
+    client = _make_client(config)
+    raw = _generate_raw(
+        client, config.model,
+        build_translation_prompt(json.dumps(payload, ensure_ascii=False), target_lang),
+        _TEMP_TRANSLATION,
+    )
+    obj = _parse_json_obj(raw)
+    tconns = (obj.get("connections", []) or []) if obj else []
+    out = []
+    for i, base in enumerate(orig):
+        tc = tconns[i] if i < len(tconns) else {}
+        out.append({
+            "slug": base.get("slug", ""),
+            "kind": base.get("kind", "resonance"),
+            "conflict_type": base.get("conflict_type", ""),
+            "relation": str(tc.get("relation", "")).strip() or base.get("relation", ""),
+            "why": str(tc.get("why", "")).strip() or base.get("why", ""),
+            "this_point": str(tc.get("this_point", "")).strip() or base.get("this_point", ""),
+            "that_point": str(tc.get("that_point", "")).strip() or base.get("that_point", ""),
+        })
+    if len(out) != len(orig):
+        return orig
+    return out
+
+
 def build_bilingual(
     native_public_md: str,
     title: str,
