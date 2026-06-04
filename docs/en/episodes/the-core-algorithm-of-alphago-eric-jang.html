@@ -70,6 +70,8 @@ a.ts:hover { border-bottom-style: solid; }
 .editor-note .en-label { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 10px; }
 .editor-note p { margin: 0 0 12px; }
 .editor-note p:last-child { margin-bottom: 0; }
+.claim-meta { display: block; margin-top: 4px; color: var(--muted); font-size: 0.9rem; }
+.claim-meta a.ts { color: var(--muted); }
 </style>
 </head>
 <body>
@@ -130,46 +132,48 @@ var PL = (function() {
 <li><code><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=9359s" target="_blank" rel="noopener" onclick="return PL.seek(9359)">[02:35:59 - 02:37:12]</a></code> Conclusion and links to Eric Jang's project repository and related blog posts.</li>
 </ul>
 <h2>Key Claims</h2>
-<p>1.
-   - <strong>Opinion</strong>: The game of Go was long considered intractable for AI due to its massive search space (~361³⁰⁰ possible games), but it was solved by using deep learning to intelligently prune the search tree rather than exhaustively exploring it.
-   - <strong>Evidence</strong>: <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=3538s" target="_blank" rel="noopener" onclick="return PL.seek(3538)">[00:58:58 - 01:00:06]</a>
-   - <strong>Type</strong>: Fact
-2.
-   - <strong>Opinion</strong>: AlphaGo's core is a Monte Carlo Tree Search (MCTS) algorithm guided by two neural networks. A <em>value network</em> estimates the probability of winning from a given board state, which allows the search to be truncated early. A <em>policy network</em> suggests promising moves, narrowing the search breadth from all legal moves to a handful of good ones.
-   - <strong>Evidence</strong>: <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=1650s" target="_blank" rel="noopener" onclick="return PL.seek(1650)">[00:27:30 - 00:28:15]</a>
-   - <strong>Type</strong>: Fact
-3.
-   - <strong>Opinion</strong>: The system improves via a self-play reinforcement learning loop where MCTS acts as a "policy improvement operator." For any given board state, the MCTS performs a deep search to generate a better, more confident move distribution than the policy network's initial guess. The policy network is then trained to directly predict this improved distribution.
-   - <strong>Evidence</strong>: <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=3766s" target="_blank" rel="noopener" onclick="return PL.seek(3766)">[01:02:46 - 01:03:17]</a>
-   - <strong>Type</strong>: Fact
-4.
-   - <strong>Opinion</strong>: This RL training process is exceptionally stable and sample-efficient because it generates a low-variance supervision signal for every single move in every game, regardless of the final outcome. It relabels actions with a "better" action distribution from the search, a process analogous to the DAgger algorithm in robotics.
-   - <strong>Evidence</strong>: <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=3949s" target="_blank" rel="noopener" onclick="return PL.seek(3949)">[01:05:49 - 01:07:18]</a>
-   - <strong>Type</strong>: Opinion
-5.
-   - <strong>Opinion</strong>: This method contrasts sharply with the policy gradient RL commonly used for LLMs, which suffers from high variance. LLM RL often relies on a single, sparse reward signal at the end of a long trajectory (e.g., win/loss), making it difficult to assign credit and learn efficiently, a problem described as "sucking supervision through a straw".
-   - <strong>Evidence</strong>: <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=5309s" target="_blank" rel="noopener" onclick="return PL.seek(5309)">[01:28:29 - 01:28:50]</a>
-   - <strong>Type</strong>: Opinion
-6.
-   - <strong>Opinion</strong>: A profound insight from AlphaGo is that a shallow neural network can learn to "amortize" the computation of a vast, nearly intractable search. This ability to compress a complex, sequential reasoning process into a single, parallelized forward pass challenges intuitions about the practical hardness of problems that are NP-hard in the worst case.
-   - <strong>Evidence</strong>: <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=4651s" target="_blank" rel="noopener" onclick="return PL.seek(4651)">[01:17:31 - 01:18:46]</a>
-   - <strong>Type</strong>: Opinion
-7.
-   - <strong>Opinion</strong>: The compute required to build a world-class Go AI has fallen dramatically. What originally required a large DeepMind team and massive compute can now be replicated by an individual for a few thousand dollars, due to algorithmic refinements (e.g., in KataGo) and hardware improvements.
-   - <strong>Evidence</strong>: <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=109s" target="_blank" rel="noopener" onclick="return PL.seek(109)">[00:01:49 - 00:02:13]</a>
-   - <strong>Type</strong>: Fact
-8.
-   - <strong>Opinion</strong>: Successful self-play training is critically dependent on having an accurate value function. If the value network gives poor estimates of win probability at the leaves of the search tree, the entire MCTS process can be corrupted, leading to worse-than-initial policy recommendations. This makes good initialization (e.g., from expert data) essential.
-   - <strong>Evidence</strong>: <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=4134s" target="_blank" rel="noopener" onclick="return PL.seek(4134)">[01:08:54 - 01:09:19]</a>
-   - <strong>Type</strong>: Opinion
-9.
-   - <strong>Opinion</strong>: While MCTS is powerful for Go, its direct application to open-ended domains like LLM reasoning is difficult. The action space of language is combinatorially larger and less discrete, making exploration heuristics like PUCT ineffective, and it is much harder to define a reliable, intermediate value function to truncate the search.
-   - <strong>Evidence</strong>: <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=6465s" target="_blank" rel="noopener" onclick="return PL.seek(6465)">[01:47:45 - 01:50:32]</a>
-   - <strong>Type</strong>: Opinion
-10.
-   - <strong>Opinion</strong>: Using LLMs for automated research on this project revealed that they excel at well-defined, local optimization tasks like hyperparameter tuning and executing described experiments. However, they currently lack the high-level strategic and lateral thinking needed to identify flawed research directions, debug complex systems, or propose fundamentally new approaches.
-   - <strong>Evidence</strong>: <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=8593s" target="_blank" rel="noopener" onclick="return PL.seek(8593)">[02:23:13 - 02:25:40]</a>
-   - <strong>Type</strong>: Example</p>
+<ol>
+<li>
+<p>The game of Go was long considered intractable for AI due to its massive search space (~361³⁰⁰ possible games), but it was solved by using deep learning to intelligently prune the search tree rather than exhaustively exploring it.
+   <span class="claim-meta">Evidence <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=3538s" target="_blank" rel="noopener" onclick="return PL.seek(3538)">[00:58:58 - 01:00:06]</a> · Type Fact</span></p>
+</li>
+<li>
+<p>AlphaGo's core is a Monte Carlo Tree Search (MCTS) algorithm guided by two neural networks. A <em>value network</em> estimates the probability of winning from a given board state, which allows the search to be truncated early. A <em>policy network</em> suggests promising moves, narrowing the search breadth from all legal moves to a handful of good ones.
+   <span class="claim-meta">Evidence <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=1650s" target="_blank" rel="noopener" onclick="return PL.seek(1650)">[00:27:30 - 00:28:15]</a> · Type Fact</span></p>
+</li>
+<li>
+<p>The system improves via a self-play reinforcement learning loop where MCTS acts as a "policy improvement operator." For any given board state, the MCTS performs a deep search to generate a better, more confident move distribution than the policy network's initial guess. The policy network is then trained to directly predict this improved distribution.
+   <span class="claim-meta">Evidence <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=3766s" target="_blank" rel="noopener" onclick="return PL.seek(3766)">[01:02:46 - 01:03:17]</a> · Type Fact</span></p>
+</li>
+<li>
+<p>This RL training process is exceptionally stable and sample-efficient because it generates a low-variance supervision signal for every single move in every game, regardless of the final outcome. It relabels actions with a "better" action distribution from the search, a process analogous to the DAgger algorithm in robotics.
+   <span class="claim-meta">Evidence <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=3949s" target="_blank" rel="noopener" onclick="return PL.seek(3949)">[01:05:49 - 01:07:18]</a> · Type Opinion</span></p>
+</li>
+<li>
+<p>This method contrasts sharply with the policy gradient RL commonly used for LLMs, which suffers from high variance. LLM RL often relies on a single, sparse reward signal at the end of a long trajectory (e.g., win/loss), making it difficult to assign credit and learn efficiently, a problem described as "sucking supervision through a straw".
+   <span class="claim-meta">Evidence <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=5309s" target="_blank" rel="noopener" onclick="return PL.seek(5309)">[01:28:29 - 01:28:50]</a> · Type Opinion</span></p>
+</li>
+<li>
+<p>A profound insight from AlphaGo is that a shallow neural network can learn to "amortize" the computation of a vast, nearly intractable search. This ability to compress a complex, sequential reasoning process into a single, parallelized forward pass challenges intuitions about the practical hardness of problems that are NP-hard in the worst case.
+   <span class="claim-meta">Evidence <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=4651s" target="_blank" rel="noopener" onclick="return PL.seek(4651)">[01:17:31 - 01:18:46]</a> · Type Opinion</span></p>
+</li>
+<li>
+<p>The compute required to build a world-class Go AI has fallen dramatically. What originally required a large DeepMind team and massive compute can now be replicated by an individual for a few thousand dollars, due to algorithmic refinements (e.g., in KataGo) and hardware improvements.
+   <span class="claim-meta">Evidence <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=109s" target="_blank" rel="noopener" onclick="return PL.seek(109)">[00:01:49 - 00:02:13]</a> · Type Fact</span></p>
+</li>
+<li>
+<p>Successful self-play training is critically dependent on having an accurate value function. If the value network gives poor estimates of win probability at the leaves of the search tree, the entire MCTS process can be corrupted, leading to worse-than-initial policy recommendations. This makes good initialization (e.g., from expert data) essential.
+   <span class="claim-meta">Evidence <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=4134s" target="_blank" rel="noopener" onclick="return PL.seek(4134)">[01:08:54 - 01:09:19]</a> · Type Opinion</span></p>
+</li>
+<li>
+<p>While MCTS is powerful for Go, its direct application to open-ended domains like LLM reasoning is difficult. The action space of language is combinatorially larger and less discrete, making exploration heuristics like PUCT ineffective, and it is much harder to define a reliable, intermediate value function to truncate the search.
+   <span class="claim-meta">Evidence <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=6465s" target="_blank" rel="noopener" onclick="return PL.seek(6465)">[01:47:45 - 01:50:32]</a> · Type Opinion</span></p>
+</li>
+<li>
+<p>Using LLMs for automated research on this project revealed that they excel at well-defined, local optimization tasks like hyperparameter tuning and executing described experiments. However, they currently lack the high-level strategic and lateral thinking needed to identify flawed research directions, debug complex systems, or propose fundamentally new approaches.
+   <span class="claim-meta">Evidence <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=8593s" target="_blank" rel="noopener" onclick="return PL.seek(8593)">[02:23:13 - 02:25:40]</a> · Type Example</span></p>
+</li>
+</ol>
 <h2>In Plain Language</h2>
 <p>This episode is a deep dive into how AlphaGo, the AI that mastered the game of Go, actually works. The guest, Eric Jang, recently took on the project of rebuilding it himself, and he walks us through the core concepts from the ground up.</p>
 <p>First, a quick primer on Go. It's a board game where two players, Black and White, place stones on a grid to surround and capture territory. The rules are simple, but the strategy is incredibly deep. For a computer, the main challenge is the sheer number of possible games. On a standard 19x19 board, the "game tree" of all possible move sequences is astronomically large—something like 361 to the power of 300, a number far greater than the number of atoms in the universe <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=648s" target="_blank" rel="noopener" onclick="return PL.seek(648)">[10:48]</a>. This is why for decades, experts believed a computer could never beat a top human player; a simple brute-force search was out of the question.</p>
