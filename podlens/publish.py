@@ -89,6 +89,69 @@ def _englishize(text: str) -> str:
     return text
 
 
+# The model formats each Key Claim as an empty "N." line followed by 3-space
+# nested "- **观点/证据/类型**:" bullets, which Markdown renders as a run-on blob.
+# Reflow each claim into a clean numbered item: the claim as the item text, and
+# evidence/type as a muted meta line. Deterministic, no API. Runs BEFORE
+# _englishize so the Chinese field labels still match.
+_CLAIM_NUM_RE = re.compile(r"^\s*(\d+)\.\s*(.*)$")
+_CLAIM_FIELD_RE = re.compile(r"^\s*[-*]\s*\*\*(.+?)\*\*\s*[:：]\s*(.*)$")
+
+
+def _normalize_claims(public_md: str) -> str:
+    marker = "## 核心观点清单"
+    i = public_md.find(marker)
+    if i == -1:
+        return public_md
+    j = public_md.find("\n## ", i + len(marker))
+    section = public_md[i:j] if j != -1 else public_md[i:]
+    # Only touch the broken "- **label**:" structure; leave already-clean text.
+    if not any(tok in section for tok in ("**证据**", "**观点**", "**核心观点**")):
+        return public_md
+
+    claims: list[dict] = []
+    cur: dict | None = None
+    for ln in section.split("\n")[1:]:  # skip the heading line
+        fm = _CLAIM_FIELD_RE.match(ln)
+        nm = _CLAIM_NUM_RE.match(ln)
+        if nm and not fm:
+            if cur:
+                claims.append(cur)
+            cur = {"text": nm.group(2).strip(), "ev": "", "type": "", "extra": []}
+        elif fm and cur is not None:
+            lab, val = fm.group(1).strip(), fm.group(2).strip()
+            if lab in ("观点", "核心观点"):
+                cur["text"] = (cur["text"] + " " + val).strip() if cur["text"] else val
+            elif lab == "证据":
+                cur["ev"] = val
+            elif lab in ("类型", "标签"):
+                cur["type"] = val
+            elif val:
+                cur["extra"].append(f"{lab} {val}")
+        elif cur is not None and ln.strip():
+            cur["text"] = (cur["text"] + " " + ln.strip()).strip()
+    if cur:
+        claims.append(cur)
+    if not claims:
+        return public_md
+
+    out = [marker, ""]
+    for n, c in enumerate(claims, 1):
+        out.append(f"{n}. {c['text']}".rstrip())
+        meta = []
+        if c["ev"]:
+            meta.append(f"证据 {c['ev']}")
+        if c["type"]:
+            meta.append(f"类型 {c['type']}")
+        meta += c["extra"]
+        if meta:
+            out.append('   <span class="claim-meta">' + " · ".join(meta) + "</span>")
+        out.append("")
+    new_section = "\n".join(out).rstrip() + "\n"
+    after = public_md[j:] if j != -1 else ""
+    return public_md[:i] + new_section + after
+
+
 # Connection relation labels: the connections prompt offers a Chinese vocabulary,
 # so en-native episodes can carry a Chinese relation word with English text.
 # Map the known labels to English on the English tree (no-op on translated bodies
@@ -503,6 +566,8 @@ a.ts:hover { border-bottom-style: solid; }
 .editor-note .en-label { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 10px; }
 .editor-note p { margin: 0 0 12px; }
 .editor-note p:last-child { margin-bottom: 0; }
+.claim-meta { display: block; margin-top: 4px; color: var(--muted); font-size: 0.9rem; }
+.claim-meta a.ts { color: var(--muted); }
 """
 
 
@@ -628,6 +693,9 @@ def render_episode_page(entry: dict, public_md: str, site: SiteConfig,
     ui = _UI[lang]
     en_slugs = en_slugs or set()
     view = _episode_view(entry, lang) or _episode_view(entry, "zh")
+    # Reflow the Key Claims list first (matches the Chinese field labels), then
+    # translate labels to English on the en tree.
+    public_md = _normalize_claims(public_md)
     if lang == "en":
         public_md = _englishize(public_md)
     content_html = md.markdown(public_md, extensions=["extra", "sane_lists"])

@@ -70,6 +70,8 @@ a.ts:hover { border-bottom-style: solid; }
 .editor-note .en-label { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 10px; }
 .editor-note p { margin: 0 0 12px; }
 .editor-note p:last-child { margin-bottom: 0; }
+.claim-meta { display: block; margin-top: 4px; color: var(--muted); font-size: 0.9rem; }
+.claim-meta a.ts { color: var(--muted); }
 </style>
 </head>
 <body>
@@ -140,50 +142,48 @@ var PL = (function() {
 <li><code><a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=6880s" target="_blank" rel="noopener" onclick="return PL.seek(6880)">[1:54:40]</a></code> Methodology deep dive: Reich details the technical and statistical innovations that enabled the study.</li>
 </ul>
 <h2>Key Claims</h2>
-<p>1.
-- <strong>Claim</strong>: The study of biological adaptation using ancient DNA has historically been difficult because the signal of natural selection is very weak (~2% of total genetic change) compared to the overwhelming noise from migration and genetic drift (~98%).
-- <strong>Evidence</strong>: <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=523s" target="_blank" rel="noopener" onclick="return PL.seek(523)">[08:43]</a>
-- <strong>Type</strong>: Fact</p>
-<p>2.
-- <strong>Claim</strong>: Contrary to the long-held view that natural selection has been quiescent in recent human history, a new large-scale study of ancient DNA shows that selection has been "rampant" and is detectable at thousands of positions in the genome.
-- <strong>Evidence</strong>: <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=547s" target="_blank" rel="noopener" onclick="return PL.seek(547)">[09:07]</a>, <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=753s" target="_blank" rel="noopener" onclick="return PL.seek(753)">[12:33]</a>
-- <strong>Type</strong>: Opinion</p>
-<p>3.
-- <strong>Claim</strong>: The new methodology isolates the signal of selection by modeling out the effects of population structure (migration, drift) and looking for consistent, directional changes in allele frequencies across many small, temporarily isolated populations, described as an "archipelago of little populations in space and time."
-- <strong>Evidence</strong>: <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=651s" target="_blank" rel="noopener" onclick="return PL.seek(651)">[10:51]</a>
-- <strong>Type</strong>: Fact</p>
-<p>4.
-- <strong>Claim</strong>: The strongest signals of recent natural selection are concentrated in genes related to immunity and metabolism, likely as an adaptation to increased population density, new pathogens from domesticated animals, and dietary changes associated with agriculture.
-- <strong>Evidence</strong>: <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=854s" target="_blank" rel="noopener" onclick="return PL.seek(854)">[14:14]</a>
-- <strong>Type</strong>: Opinion</p>
-<p>5.
-- <strong>Claim</strong>: The period of most intense natural selection was not the initial shift to agriculture (Neolithic), but the Bronze Age (roughly 5,000 to 2,000 years ago), suggesting this was a period of greater "evolutionary mismatch" and adaptive pressure.
-- <strong>Evidence</strong>: <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=1059s" target="_blank" rel="noopener" onclick="return PL.seek(1059)">[17:39]</a>, <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=1592s" target="_blank" rel="noopener" onclick="return PL.seek(1592)">[26:32]</a>
-- <strong>Type</strong>: Opinion
-- <strong>Uncertainty</strong>: The speaker notes this is surprising, as the "cartoon picture is that the big transition is farming" <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=1631s" target="_blank" rel="noopener" onclick="return PL.seek(1631)">[27:11]</a>.</p>
-<p>6.
-- <strong>Claim</strong>: Some genetic variants show reversals in selection. For example, the TYK2 variant, a major risk factor for severe tuberculosis, increased in frequency before the Bronze Age but then rapidly decreased, possibly due to the rise of tuberculosis as an endemic disease.
-- <strong>Evidence</strong>: <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=1252s" target="_blank" rel="noopener" onclick="return PL.seek(1252)">[20:52]</a>
-- <strong>Type</strong>: Example
-- <strong>Uncertainty</strong>: The explanation involving tuberculosis is described as "speculative" <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=1309s" target="_blank" rel="noopener" onclick="return PL.seek(1309)">[21:49]</a>.</p>
-<p>7.
-- <strong>Claim</strong>: Polygenic scores for complex traits, including those that predict performance on cognitive tests and years of schooling in modern populations, also show strong directional selection that peaked during the Bronze Age and has been negligible in the last 2,000 years.
-- <strong>Evidence</strong>: <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=1840s" target="_blank" rel="noopener" onclick="return PL.seek(1840)">[30:40]</a>, <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=1893s" target="_blank" rel="noopener" onclick="return PL.seek(1893)">[31:33]</a>
-- <strong>Type</strong>: Opinion</p>
-<p>8.
-- <strong>Claim</strong>: The genetic predictor for "years of schooling" is highly correlated with many other traits (e.g., age at first birth, obesity, walking pace), suggesting selection may be acting on a more general underlying trait like deferred gratification or a life-history strategy toggling between quality versus quantity of offspring.
-- <strong>Evidence</strong>: <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=2333s" target="_blank" rel="noopener" onclick="return PL.seek(2333)">[38:53]</a>, <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=2951s" target="_blank" rel="noopener" onclick="return PL.seek(2951)">[49:11]</a>
-- <strong>Type</strong>: Speculation
-- <strong>Uncertainty</strong>: The speaker uses phrases like "I’m just waving my hands" <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=2455s" target="_blank" rel="noopener" onclick="return PL.seek(2455)">[40:55]</a> to indicate the speculative nature of the interpretation.</p>
-<p>9.
-- <strong>Claim</strong>: The genetic toolkit for complex behaviors like farming was present in humans long before the Holocene. The independent invention of agriculture in multiple locations around 12,000 years ago may be linked to a unique period of global climate stability, a fact Reich finds "unbelievable" but is told is true by colleagues.
-- <strong>Evidence</strong>: <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=4205s" target="_blank" rel="noopener" onclick="return PL.seek(4205)">[1:10:05]</a>, <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=4261s" target="_blank" rel="noopener" onclick="return PL.seek(4261)">[1:11:01]</a>
-- <strong>Type</strong>: Speculation</p>
-<p>10.
-- <strong>Claim</strong>: Reich proposes a new model for human origins where Neanderthals are the product of a modern human expansion ~300,000 years ago that brought Middle Stone Age technology into Europe and mixed with a local archaic population. This would explain why Neanderthals share mitochondrial DNA and Y-chromosomes with modern humans despite being genetically closer to Denisovans overall.
-- <strong>Evidence</strong>: <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=4988s" target="_blank" rel="noopener" onclick="return PL.seek(4988)">[1:23:08]</a>, <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=5113s" target="_blank" rel="noopener" onclick="return PL.seek(5113)">[1:25:13]</a>
-- <strong>Type</strong>: Speculation
-- <strong>Uncertainty</strong>: Reich repeatedly states the model is speculative and "probably it's wrong, who knows" <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=5346s" target="_blank" rel="noopener" onclick="return PL.seek(5346)">[1:29:06]</a>.</p>
+<ol>
+<li>
+<p>The study of biological adaptation using ancient DNA has historically been difficult because the signal of natural selection is very weak (~2% of total genetic change) compared to the overwhelming noise from migration and genetic drift (~98%).
+   <span class="claim-meta">Evidence <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=523s" target="_blank" rel="noopener" onclick="return PL.seek(523)">[08:43]</a> · Type Fact</span></p>
+</li>
+<li>
+<p>Contrary to the long-held view that natural selection has been quiescent in recent human history, a new large-scale study of ancient DNA shows that selection has been "rampant" and is detectable at thousands of positions in the genome.
+   <span class="claim-meta">Evidence <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=547s" target="_blank" rel="noopener" onclick="return PL.seek(547)">[09:07]</a>, <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=753s" target="_blank" rel="noopener" onclick="return PL.seek(753)">[12:33]</a> · Type Opinion</span></p>
+</li>
+<li>
+<p>The new methodology isolates the signal of selection by modeling out the effects of population structure (migration, drift) and looking for consistent, directional changes in allele frequencies across many small, temporarily isolated populations, described as an "archipelago of little populations in space and time."
+   <span class="claim-meta">Evidence <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=651s" target="_blank" rel="noopener" onclick="return PL.seek(651)">[10:51]</a> · Type Fact</span></p>
+</li>
+<li>
+<p>The strongest signals of recent natural selection are concentrated in genes related to immunity and metabolism, likely as an adaptation to increased population density, new pathogens from domesticated animals, and dietary changes associated with agriculture.
+   <span class="claim-meta">Evidence <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=854s" target="_blank" rel="noopener" onclick="return PL.seek(854)">[14:14]</a> · Type Opinion</span></p>
+</li>
+<li>
+<p>The period of most intense natural selection was not the initial shift to agriculture (Neolithic), but the Bronze Age (roughly 5,000 to 2,000 years ago), suggesting this was a period of greater "evolutionary mismatch" and adaptive pressure.
+   <span class="claim-meta">Evidence <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=1059s" target="_blank" rel="noopener" onclick="return PL.seek(1059)">[17:39]</a>, <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=1592s" target="_blank" rel="noopener" onclick="return PL.seek(1592)">[26:32]</a> · Type Opinion · Uncertainty The speaker notes this is surprising, as the "cartoon picture is that the big transition is farming" <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=1631s" target="_blank" rel="noopener" onclick="return PL.seek(1631)">[27:11]</a>.</span></p>
+</li>
+<li>
+<p>Some genetic variants show reversals in selection. For example, the TYK2 variant, a major risk factor for severe tuberculosis, increased in frequency before the Bronze Age but then rapidly decreased, possibly due to the rise of tuberculosis as an endemic disease.
+   <span class="claim-meta">Evidence <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=1252s" target="_blank" rel="noopener" onclick="return PL.seek(1252)">[20:52]</a> · Type Example · Uncertainty The explanation involving tuberculosis is described as "speculative" <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=1309s" target="_blank" rel="noopener" onclick="return PL.seek(1309)">[21:49]</a>.</span></p>
+</li>
+<li>
+<p>Polygenic scores for complex traits, including those that predict performance on cognitive tests and years of schooling in modern populations, also show strong directional selection that peaked during the Bronze Age and has been negligible in the last 2,000 years.
+   <span class="claim-meta">Evidence <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=1840s" target="_blank" rel="noopener" onclick="return PL.seek(1840)">[30:40]</a>, <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=1893s" target="_blank" rel="noopener" onclick="return PL.seek(1893)">[31:33]</a> · Type Opinion</span></p>
+</li>
+<li>
+<p>The genetic predictor for "years of schooling" is highly correlated with many other traits (e.g., age at first birth, obesity, walking pace), suggesting selection may be acting on a more general underlying trait like deferred gratification or a life-history strategy toggling between quality versus quantity of offspring.
+   <span class="claim-meta">Evidence <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=2333s" target="_blank" rel="noopener" onclick="return PL.seek(2333)">[38:53]</a>, <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=2951s" target="_blank" rel="noopener" onclick="return PL.seek(2951)">[49:11]</a> · Type Speculation · Uncertainty The speaker uses phrases like "I’m just waving my hands" <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=2455s" target="_blank" rel="noopener" onclick="return PL.seek(2455)">[40:55]</a> to indicate the speculative nature of the interpretation.</span></p>
+</li>
+<li>
+<p>The genetic toolkit for complex behaviors like farming was present in humans long before the Holocene. The independent invention of agriculture in multiple locations around 12,000 years ago may be linked to a unique period of global climate stability, a fact Reich finds "unbelievable" but is told is true by colleagues.
+   <span class="claim-meta">Evidence <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=4205s" target="_blank" rel="noopener" onclick="return PL.seek(4205)">[1:10:05]</a>, <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=4261s" target="_blank" rel="noopener" onclick="return PL.seek(4261)">[1:11:01]</a> · Type Speculation</span></p>
+</li>
+<li>
+<p>Reich proposes a new model for human origins where Neanderthals are the product of a modern human expansion ~300,000 years ago that brought Middle Stone Age technology into Europe and mixed with a local archaic population. This would explain why Neanderthals share mitochondrial DNA and Y-chromosomes with modern humans despite being genetically closer to Denisovans overall.
+   <span class="claim-meta">Evidence <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=4988s" target="_blank" rel="noopener" onclick="return PL.seek(4988)">[1:23:08]</a>, <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=5113s" target="_blank" rel="noopener" onclick="return PL.seek(5113)">[1:25:13]</a> · Type Speculation · Uncertainty Reich repeatedly states the model is speculative and "probably it's wrong, who knows" <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=5346s" target="_blank" rel="noopener" onclick="return PL.seek(5346)">[1:29:06]</a>.</span></p>
+</li>
+</ol>
 <h2>In Plain Language</h2>
 <p>For a long time, the common wisdom among scientists was that human evolution had slowed down dramatically. The idea was that our species hit a kind of sweet spot tens of thousands of years ago, and since then, natural selection has been pretty quiet, or "quiescent" <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=375s" target="_blank" rel="noopener" onclick="return PL.seek(375)">[06:15]</a>. A new, massive study of ancient DNA from David Reich's lab at Harvard turns this idea on its head. Their findings suggest that, far from being quiet, natural selection has been "rampant" <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=552s" target="_blank" rel="noopener" onclick="return PL.seek(552)">[09:12]</a> in recent human history, especially in the last 5,000 years.</p>
 <p>So, why was this powerful force so hard to see until now? Reich explains that the signal from natural selection is incredibly faint. Imagine trying to hear a whisper during a hurricane. The hurricane is migration. Over the last 18,000 years in Europe and the Middle East, huge waves of people moved around, replacing or mixing with previous populations. These migrations caused massive, sudden shifts in the gene pool. Compared to this, the slow, steady pressure of natural selection is a tiny effect. Reich estimates that migration and other random factors account for about 98% of all genetic change, while adaptation from natural selection is only about 2% <a class="ts" href="https://www.youtube.com/watch?v=sRKBGVFVYAw&t=523s" target="_blank" rel="noopener" onclick="return PL.seek(523)">[08:43]</a>. Previous studies, with much smaller datasets, simply couldn't filter out the overwhelming noise of the hurricane to hear the whisper.</p>
