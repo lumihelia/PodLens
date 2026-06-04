@@ -1,6 +1,67 @@
 {
   "items": [
     {
+      "slug": "the-core-algorithm-of-alphago-eric-jang",
+      "title": "AlphaGo 的核心算法 · Eric Jang",
+      "date": "2026-06-04",
+      "summary": "嘉宾 Eric Jang 是一名研究员，他最近重建了一个围棋 AI。在本期节目中，他解释了 AlphaGo 的核心原理。本期节目介绍了围棋的规则、其博弈树对于经典搜索算法的棘手之处，以及 AlphaGo 如何结合蒙特卡洛树搜索（MCTS）和两个神经网络（一个策略网络和一个价值网络）来解决这个问题。讨论的核心机制是自我对弈强化学习循环，其中 MCTS 过程充当“策略改进算子”，生成更优的落子分布，然…",
+      "source_url": "https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=1082s",
+      "tags": [
+        "蒙特卡洛树搜索",
+        "策略和价值网络",
+        "自我对弈强化学习",
+        "分摊式搜索",
+        "策略改进算子"
+      ],
+      "connections": [
+        {
+          "slug": "david-reich",
+          "relation": "平行",
+          "why": "两者都描述了从嘈杂过程中提取有意义信号的挑战，并强调了一种旨在克服低信噪比的方法（强化学习中的密集监督，遗传学中的统计建模）。",
+          "this_point": "[01:05:49 - 01:07:18] AlphaGo 的强化学习训练过程非常稳定且样本高效，因为它通过使用来自搜索的‘更好’的行动分布重新标记行动，为每一步都生成了低方差的监督信号，从而避免了稀疏奖励带来的高方差问题。",
+          "that_point": "[08:43] 使用古 DNA 研究生物适应一直很困难，因为自然选择的信号（约占总遗传变化的 2%）与来自迁徙和遗传漂变的压倒性噪音（约 98%）相比非常微弱。"
+        },
+        {
+          "slug": "jim-al-khalili",
+          "relation": "结构平行",
+          "why": "两个观点都提出，一个看似基础的顺序过程（逻辑搜索、时间流逝）可以被理解为一个更基础的、并行的或永恒的系统（神经网络的前向传播、一个永恒的量子态）的涌现或压缩表示。",
+          "this_point": "[01:17:31 - 01:18:46] AlphaGo 带来的一个深刻见解是，一个浅层神经网络可以‘分摊’一个巨大搜索的计算量，有效地将一个复杂的、顺序的推理过程压缩为单次、并行的前向传播。",
+          "that_point": "[22:37], [23:45] 试图统一广义相对论和量子力学的 Wheeler-DeWitt 方程不包含时间变量，这引出了一个假说，即时间本身并非基本要素，而是一个更基础、永恒现实的‘涌现属性’。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "The Core Algorithm of AlphaGo · Eric Jang",
+          "tags": [
+            "Monte Carlo Tree Search",
+            "Policy and Value Networks",
+            "Self-Play Reinforcement Learning",
+            "Amortized Search",
+            "Policy Improvement Operator"
+          ],
+          "summary": "Guest Eric Jang, a researcher who recently rebuilt a Go-playing AI, explains the core principles of AlphaGo. The episode walks through the rules of Go, the intractability of its game tree for classica…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "david-reich",
+              "relation": "Parallel",
+              "why": "Both describe the challenge of extracting a meaningful signal from a noisy process, and highlight a method (dense supervision in RL, statistical modeling in genetics) designed to overcome a low signal-to-noise ratio.",
+              "this_point": "[01:05:49 - 01:07:18] The AlphaGo RL training process is exceptionally stable and sample-efficient because it generates a low-variance supervision signal for every single move by relabeling actions with a 'better' action distribution from the search, avoiding the high-variance problem of sparse rewards.",
+              "that_point": "[08:43] Studying biological adaptation with ancient DNA has been difficult because the signal of natural selection is very weak (about 2% of total genetic change) compared to the overwhelming noise from migration and genetic drift (about 98%)."
+            },
+            {
+              "slug": "jim-al-khalili",
+              "relation": "Structural Parallel",
+              "why": "Both points posit that a seemingly fundamental sequential process (logical search, the flow of time) can be understood as an emergent or compressed representation of a more fundamental, parallelized or timeless system (a neural network's forward pass, a timeless quantum state).",
+              "this_point": "[01:17:31 - 01:18:46] A profound insight from AlphaGo is that a shallow neural network can 'amortize' the computation of a vast search, effectively compressing a complex, sequential reasoning process into a single, parallelized forward pass.",
+              "that_point": "[22:37], [23:45] The Wheeler-DeWitt equation, an attempt to unify general relativity and quantum mechanics, contains no time variable, leading to the hypothesis that time itself is not fundamental but an 'emergent property' of a more basic, timeless reality."
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "don-lincoln-lex-fridman-497",
       "title": "物理学的统一 · Don Lincoln",
       "date": "2026-06-03",
