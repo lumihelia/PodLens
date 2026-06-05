@@ -12,6 +12,20 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/episodes/the-economics-of-agi-and-automation-alex-imas-phil-trammell.html",
+      "url": "https://lens.lumihelia.com/episodes/the-economics-of-agi-and-automation-alex-imas-phil-trammell.html",
+      "title": "AGI 与自动化的经济学 · Alex Imas & Phil Trammell",
+      "date_published": "2026-06-05",
+      "summary": "在本期节目中，主持人 Dwarkesh Patel 采访了 Alex Imas（Google DeepMind 的 AGI 经济学总监兼 University of Chicago 经济学教授）和 Phil Trammell（Epoch 的经济学主管兼 Stanford 的研究学者）。讨论探讨了经济理论和历史对于一个拥有先进 AI 和自动化的未来向我们揭示了什么，重点关注工资、劳动力份额、财富再分…",
+      "tags": [
+        "关系型部门",
+        "劳动力与资本份额",
+        "工作的 O 型环模型",
+        "全民基本资本"
+      ],
+      "external_url": "https://youtu.be/Jj-kBHzUohs?si=U_PzY64u7cTjAyjp"
+    },
+    {
       "id": "https://lens.lumihelia.com/episodes/representation-learning-and-predictive-world-models-saining.html",
       "url": "https://lens.lumihelia.com/episodes/representation-learning-and-predictive-world-models-saining.html",
       "title": "表征学习与预测世界模型 · Saining Xie",
