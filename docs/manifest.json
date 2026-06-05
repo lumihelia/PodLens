@@ -1,6 +1,55 @@
 {
   "items": [
     {
+      "slug": "the-economics-of-agi-and-automation-alex-imas-phil-trammell",
+      "title": "AGI 与自动化的经济学 · Alex Imas & Phil Trammell",
+      "date": "2026-06-05",
+      "summary": "在本期节目中，主持人 Dwarkesh Patel 采访了 Alex Imas（Google DeepMind 的 AGI 经济学总监兼 University of Chicago 经济学教授）和 Phil Trammell（Epoch 的经济学主管兼 Stanford 的研究学者）。讨论探讨了经济理论和历史对于一个拥有先进 AI 和自动化的未来向我们揭示了什么，重点关注工资、劳动力份额、财富再分…",
+      "source_url": "https://youtu.be/Jj-kBHzUohs?si=U_PzY64u7cTjAyjp",
+      "tags": [
+        "关系型部门",
+        "劳动力与资本份额",
+        "工作的 O 型环模型",
+        "全民基本资本"
+      ],
+      "connections": [
+        {
+          "slug": "the-reality-of-frontier-ai-and-the-end-of-individual-heroism",
+          "kind": "tension",
+          "conflict_type": "apparent",
+          "relation": "对比",
+          "why": "新一期节目依赖于当前的实证宏观经济数据，这些数据显示出对开发人员具有韧性的劳动力需求，而 Yao 做出了一项长期结构性预测，即 AI 将使编程工作集中化，并取代 99.9% 的开发人员劳动力。",
+          "this_point": "[30:06] 当前的宏观经济数据没有显示出因 AI 导致“白领大屠杀”或大规模失业的证据；即使在软件工程等高度暴露的行业，入门级招聘也仅略低于趋势，而对高级开发人员的需求依然强劲。",
+          "that_point": "[00:47:16] AI 是一种非常中心化的技术，它会让少数人变得更强大，但会让大多数人失去其独特价值，从而导致 1/1000 的人完成过去所有人的工作的情景。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "The Economics of AGI and Automation · Alex Imas & Phil Trammell",
+          "tags": [
+            "Relational Sector",
+            "Labor and Capital Shares",
+            "O-ring Model of Jobs",
+            "Universal Basic Capital"
+          ],
+          "summary": "In this episode, host Dwarkesh Patel interviews Alex Imas (Director of AGI Economics at Google DeepMind and Professor of Economics at the University of Chicago) and Phil Trammell (Head of Economics at…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "the-reality-of-frontier-ai-and-the-end-of-individual-heroism",
+              "kind": "tension",
+              "conflict_type": "apparent",
+              "relation": "Contrast",
+              "why": "The new episode relies on current empirical macroeconomic data showing resilient labor demand for developers, whereas Yao makes a long-term structural prediction that AI will centralize programming work and displace 99.9% of the developer workforce.",
+              "this_point": "[30:06] Current macroeconomic data shows no evidence of a 'white-collar bloodbath' or mass unemployment due to AI; even in highly exposed sectors like software engineering, entry-level hiring is merely slightly below trend while demand for senior developers remains strong.",
+              "that_point": "[00:47:16] AI is a very centralized technology that will make a small number of people stronger but will make most people lose their unique value, leading to a scenario where 1/1000 of the people do the work of everyone in the past."
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "representation-learning-and-predictive-world-models-saining",
       "title": "表征学习与预测世界模型 · Saining Xie",
       "date": "2026-06-04",

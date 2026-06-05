@@ -12,6 +12,20 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/en/episodes/the-economics-of-agi-and-automation-alex-imas-phil-trammell.html",
+      "url": "https://lens.lumihelia.com/en/episodes/the-economics-of-agi-and-automation-alex-imas-phil-trammell.html",
+      "title": "The Economics of AGI and Automation · Alex Imas & Phil Trammell",
+      "date_published": "2026-06-05",
+      "summary": "In this episode, host Dwarkesh Patel interviews Alex Imas (Director of AGI Economics at Google DeepMind and Professor of Economics at the University of Chicago) and Phil Trammell (Head of Economics at…",
+      "tags": [
+        "Relational Sector",
+        "Labor and Capital Shares",
+        "O-ring Model of Jobs",
+        "Universal Basic Capital"
+      ],
+      "external_url": "https://youtu.be/Jj-kBHzUohs?si=U_PzY64u7cTjAyjp"
+    },
+    {
       "id": "https://lens.lumihelia.com/en/episodes/representation-learning-and-predictive-world-models-saining.html",
       "url": "https://lens.lumihelia.com/en/episodes/representation-learning-and-predictive-world-models-saining.html",
       "title": "Representation Learning and Predictive World Models · Saining Xie",
