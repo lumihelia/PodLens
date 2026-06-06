@@ -1,6 +1,184 @@
 {
   "items": [
     {
+      "slug": "humans-almanac",
+      "title": "智能体协作的行动级心智模型数据集 · Jiaju Chen",
+      "date": "2026-06-06",
+      "kind": "paper",
+      "summary": "本文介绍了 ALMANAC，这是第一个针对人机协作(human-agent collaboration)的行动级心智模型标注(Action-Level Mental Model Annotations)数据集。虽然大语言模型(LLM)智能体具备多步推理和规划能力，但它们大多被优化用于独立完成任务，缺乏协作所需的共享心智模型对齐能力。为了填补这一空白，作者设计了一个理论指导的双步标注框架，基于经典社…",
+      "source_url": "https://arxiv.org/pdf/2606.06388",
+      "tags": [
+        "智能体协作",
+        "心智模型",
+        "ALMANAC",
+        "地图任务",
+        "行为预测"
+      ],
+      "connections": [
+        {
+          "slug": "representation-learning-and-predictive-world-models-saining",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "印证",
+          "this_point": "4.3.1. Next Action Prediction · \"next action prediction is\" 心智模型能够为智能体预测和模拟人类未来的交互行为提供传统历史轨迹无法提供的增量信号。",
+          "that_point": "[04:17:24 - 04:17:41] 真正的世界模型是一个预测性的大脑，它刻画环境状态以预测行动的后果，从而实现规划 and 推理（系统二思维），而不仅仅是反应式策略（系统一思维）。",
+          "why": "两者在“通过内部模型进行行为预测”的机制上高度契合。前者的“心智模型为预测人类未来交互行为提供增量信号”，在人机协作维度上具体实践并印证了后者所主张的“世界模型通过刻画系统与环境状态来预测行动后果、指导行动序列”的预测性大脑机制。"
+        },
+        {
+          "slug": "representation-learning-and-predictive-world-models-saining",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "印证",
+          "this_point": "4.3.2. Mental Model Prediction · \"hardest dimension to predict\" 大模型在预测共享的心智模型维度上表现尚可，但在推断私有的自我推理上面临严重瓶颈。",
+          "that_point": "[03:53:57 - 04:10:06] 语言是人类开发的一种高度压缩的沟通工具，而不是思维或决策的直接映射；因此，仅仅依赖语言模型会制造一个“拐杖”，限制真实智能的发展。",
+          "why": "大模型难以推断人类私有的自我推理过程，印证了后者关于“语言并非思维或决策的直接映射”的观点，表明仅靠语言文本训练的大模型在还原人类未显式表达的深层心智逻辑时存在根本局限。"
+        },
+        {
+          "slug": "the-era-of-experience",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "承接",
+          "this_point": "1. Introduction · \"primarily optimized for task completion\" 当前的大语言模型智能体设计主要针对独立完成任务进行优化，导致学术界缺乏过程级的协作数据。",
+          "that_point": "Streams · \"An experiential agent can continue to learn throughout a lifetime\" 经验时代的智能体将存在于长期的、不间断的经验流中，而非简短的单次交互片段。",
+          "why": "前者指出当前智能体设计局限于独立、单次的任务执行，因而缺乏过程级协作数据；这在人机交互背景下承接了后者关于智能体必须摆脱简短的单次交互片段、走向“长期且不间断经验流”的演进方向。"
+        },
+        {
+          "slug": "the-economics-of-agi-and-automation-alex-imas-phil-trammell",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "补充",
+          "this_point": "1. Introduction · \"verbal cues present in\" 在人机交互通道缺乏非言语线索时，智能体对人类伴侣意图和团队目标的感知是协同成功的核心。",
+          "that_point": "[17:06] - [17:49] 在衡量艺术印刷品支付意愿的实验中，当印刷品是单一且独特的时候，人们对人类创作艺术的估值显著高于人工智能创作的艺术，但当生产了 500 张印刷品时，这种溢价就消失了，这表明关系价值与感知到的独特人类连接有关，而不仅仅是产出本身。",
+          "why": "经济学实证表明人类极度重视“独特的人类连接”（关系价值），而本研究从技术实现层面进行了补充，指出在缺乏非言语线索的数字化交互中，智能体必须精准重建对人类意图和目标的感知，才能在技术上建立这种协同关系。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "Action-Level Mental Model Dataset for Agent Collaboration · Jiaju Chen",
+          "tags": [
+            "Agent Collaboration",
+            "Mental Models",
+            "ALMANAC",
+            "Map Task",
+            "Behavior Prediction"
+          ],
+          "summary": "This paper introduces ALMANAC, the first dataset of Action-Level Mental Model Annotations for human-agent collaboration. Although Large Language Model (LLM) agents possess multi-step reasoning and pla…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "representation-learning-and-predictive-world-models-saining",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Confirms",
+              "why": "The two are highly aligned on the mechanism of 'behavior prediction through internal models.' The former's 'mental models providing incremental signals for predicting future human interactive behaviors' concretely implements and confirms, in the dimension of human-agent collaboration, the predictive brain mechanism advocated by the latter, where 'world models predict action consequences and guide action sequences by characterizing system and environmental states.'",
+              "this_point": "4.3.1. Next Action Prediction · \"next action prediction is\" Mental models can provide incremental signals for agents to predict and simulate future human interactive behaviors that traditional historical trajectories cannot provide.",
+              "that_point": "[04:17:24 - 04:17:41] A true world model is a predictive brain that characterizes environmental states to predict the consequences of actions, thereby enabling planning and reasoning (System 2 thinking), rather than just reactive strategies (System 1 thinking)."
+            },
+            {
+              "slug": "representation-learning-and-predictive-world-models-saining",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Confirms",
+              "why": "The difficulty of large models in inferring humans' private self-reasoning processes confirms the latter's view that 'language is not a direct mapping of thought or decision-making,' indicating that large models trained solely on linguistic text have fundamental limitations in reconstructing deep mental logic that humans do not explicitly express.",
+              "this_point": "4.3.2. Mental Model Prediction · \"hardest dimension to predict\" Large models perform acceptably in predicting shared mental model dimensions, but face severe bottlenecks in inferring private self-reasoning.",
+              "that_point": "[03:53:57 - 04:10:06] Language is a highly compressed communication tool developed by humans, not a direct mapping of thought or decision-making; therefore, relying solely on language models creates a 'crutch' that limits the development of true intelligence."
+            },
+            {
+              "slug": "the-era-of-experience",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Builds on",
+              "why": "The former points out that current agent designs are limited to independent, single-turn task execution, thus lacking process-level collaborative data; in the context of human-agent interaction, this builds on the latter's evolutionary direction that agents must break free from brief, single-turn interaction snippets and move toward a 'long-term and continuous stream of experience.'",
+              "this_point": "1. Introduction · \"primarily optimized for task completion\" Current LLM agent designs are primarily optimized for independent task completion, leading to a lack of process-level collaborative data in academia.",
+              "that_point": "Streams · \"An experiential agent can continue to learn throughout a lifetime\" Agents in the era of experience will exist in long-term, continuous streams of experience, rather than brief, single-turn interaction snippets."
+            },
+            {
+              "slug": "the-economics-of-agi-and-automation-alex-imas-phil-trammell",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Complements",
+              "why": "Empirical economics shows that humans highly value 'unique human connection' (relational value), and this study complements that from a technical implementation perspective, pointing out that in digital interactions lacking non-verbal cues, agents must precisely reconstruct their perception of human intent and goals to technically establish this collaborative relationship.",
+              "this_point": "1. Introduction · \"verbal cues present in\" When non-verbal cues are lacking in human-agent interaction channels, the agent's perception of the human partner's intent and team goals is central to collaborative success.",
+              "that_point": "[17:06] - [17:49] In experiments measuring willingness to pay for art prints, when a print was single and unique, people valued human-created art significantly higher than AI-created art, but this premium disappeared when 500 prints were produced, suggesting that relational value is tied to a perceived unique human connection, not just the output itself."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "agent-memory",
+      "title": "智能体记忆：长周期工作负载的系统特征与启示 · Yasmine Omri",
+      "date": "2026-06-06",
+      "kind": "paper",
+      "summary": "本文是针对大语言模型(LLM)智能体记忆系统(Agent Memory Systems)的第一份系统级表征(systems characterization)研究。随着大语言模型智能体被越来越多地应用于需要长期持续推理的长周期任务(long-horizon tasks)中，智能体需要在多个会话中持久化存储、检索和更新其自身的记忆。尽管目前存在多种智能体记忆系统设计，但它们的系统级行为和计算开销一直…",
+      "source_url": "https://arxiv.org/pdf/2606.06448",
+      "tags": [
+        "智能体记忆",
+        "系统级表征",
+        "预填充开销",
+        "记忆构建",
+        "鲜度与延迟",
+        "能耗开销"
+      ],
+      "connections": [
+        {
+          "slug": "the-era-of-experience",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "补充",
+          "this_point": "4.2. Construction Dominates the Agent Lifecycle · \"exceeds total query-phase energy across 300\" 对于大语言模型介导的记忆系统，记忆构建所消耗的能量占据了智能体生命周期的绝大部分。",
+          "that_point": "Streams · \"An experiential agent can continue to learn throughout a lifetime\" 经验时代的智能体将存在于长期的、不间断的经验流中，而非简短的单次交互片段。",
+          "why": "戴维·西尔弗提出未来智能体将存在于长期的、不间断的经验流中进行持续学习；而该研究从系统底层提供了量化支撑，指出在消化这种不间断经验流时，记忆构建所消耗的能量将占据智能体物理生命周期的绝对主导。"
+        },
+        {
+          "slug": "how-an-ai-chip-works-from-the-bottom-up-reiner-pope",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "印证",
+          "this_point": "4.3. Construction Is an Overwhelmingly Embedding and Prefill-dominated Workload · \"it repeatedly reads long chunks or windows and emits compact\" 智能体记忆构建本质上是一个以 Prefill 和 Embedding 为主导的重读取、轻写入的工作负载。",
+          "that_point": "[00:25:37 - 00:26:40], [00:29:55 - 00:30:22] 脉动阵列（Nvidia 的 Tensor Cores 和 Google 的 TPU 背后的技术）通过为矩阵乘法创建一个大型专用硬件单元来解决数据移动瓶颈。这种设计通过在本地存储权重矩阵并为许多输入向量重复使用它，从而提高了计算与通信的比率。",
+          "why": "记忆构建负载高度偏向首字生成前阶段（Prefill）和向量嵌入（Embedding），其核心是重复读取长上下文并进行密集的矩阵乘法，这正好能完美契合脉动阵列通过本地权重复用提高计算通信比（算力利用率）的设计优势。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "Agent Memory: System Characterization and Implications for Long-Horizon Workloads · Yasmine Omri",
+          "tags": [
+            "Agent Memory",
+            "System-level Characterization",
+            "Prefill Overhead",
+            "Memory Construction",
+            "Freshness and Latency",
+            "Energy Overhead"
+          ],
+          "summary": "This paper presents the first system-level characterization of Agent Memory Systems for Large Language Models (LLMs). As LLM agents are increasingly deployed in long-horizon tasks requiring continuous…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "the-era-of-experience",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Complement",
+              "why": "David Silver proposed that future agents will exist in long-term, uninterrupted streams of experience for continuous learning; this study provides quantitative support from the system level, pointing out that when digesting such uninterrupted streams of experience, the energy consumed by memory construction will absolutely dominate the agent's physical lifecycle.",
+              "this_point": "4.2. Construction Dominates the Agent Lifecycle · \"exceeds total query-phase energy across 300\" For LLM-mediated memory systems, the energy consumed by memory construction dominates the vast majority of the agent's lifecycle.",
+              "that_point": "Streams · \"An experiential agent can continue to learn throughout a lifetime\" Agents in the experiential era will exist in long-term, uninterrupted streams of experience, rather than brief, single interaction episodes."
+            },
+            {
+              "slug": "how-an-ai-chip-works-from-the-bottom-up-reiner-pope",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Corroboration",
+              "why": "The memory construction workload is highly biased toward the pre-first-token generation phase (Prefill) and vector embedding (Embedding). Its core is repeatedly reading long contexts and performing dense matrix multiplications, which perfectly aligns with the design advantage of systolic arrays to improve the computation-to-communication ratio (compute utilization) through local weight reuse.",
+              "this_point": "4.3. Construction Is an Overwhelmingly Embedding and Prefill-dominated Workload · \"it repeatedly reads long chunks or windows and emits compact\" Agent memory construction is inherently a read-heavy, write-light workload dominated by Prefill and Embedding.",
+              "that_point": "[00:25:37 - 00:26:40], [00:29:55 - 00:30:22] Systolic arrays (the technology behind Nvidia's Tensor Cores and Google's TPUs) solve the data movement bottleneck by creating a large, dedicated hardware unit for matrix multiplication. This design improves the computation-to-communication ratio by storing the weight matrix locally and reusing it for many input vectors."
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "the-era-of-experience",
       "title": "经验时代：超越人类数据的强化学习 · David Silver",
       "date": "2026-06-06",

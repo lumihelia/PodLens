@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent Memory: System Characterization and Implications for Long-Horizon Workloads · Yasmine Omri · PodLens</title>
+<meta name="description" content="This paper presents the first system-level characterization of Agent Memory Systems for Large Language Models (LLMs). As LLM agents are increasingly deployed in long-horizon tasks requiring continuous…">
+<meta name="author" content="lumihelia">
+<meta name="keywords" content="Agent Memory, System-level Characterization, Prefill Overhead, Memory Construction, Freshness and Latency, Energy Overhead">
+<link rel="canonical" href="https://lens.lumihelia.com/en/papers/agent-memory.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://lens.lumihelia.com/papers/agent-memory.html"><link rel="alternate" hreflang="en" href="https://lens.lumihelia.com/en/papers/agent-memory.html"><link rel="alternate" hreflang="x-default" href="https://lens.lumihelia.com/papers/agent-memory.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Agent Memory: System Characterization and Implications for Long-Horizon Workloads · Yasmine Omri · PodLens">
+<meta property="og:description" content="This paper presents the first system-level characterization of Agent Memory Systems for Large Language Models (LLMs). As LLM agents are increasingly deployed in long-horizon tasks requiring continuous…">
+<meta property="og:url" content="https://lens.lumihelia.com/en/papers/agent-memory.html">
+<link rel="alternate" type="application/rss+xml" title="PodLens" href="https://lens.lumihelia.com/en/feed.xml"><link rel="alternate" type="application/json" title="PodLens" href="https://lens.lumihelia.com/en/episodes.json">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Agent Memory: System Characterization and Implications for Long-Horizon Workloads · Yasmine Omri", "datePublished": "2026-06-06", "inLanguage": "en", "url": "https://lens.lumihelia.com/en/papers/agent-memory.html", "description": "This paper presents the first system-level characterization of Agent Memory Systems for Large Language Models (LLMs). As LLM agents are increasingly deployed in long-horizon tasks requiring continuous…", "author": {"@type": "Person", "name": "lumihelia"}, "publisher": {"@type": "Person", "name": "lumihelia"}, "keywords": "Agent Memory, System-level Characterization, Prefill Overhead, Memory Construction, Freshness and Latency, Energy Overhead", "isBasedOn": "https://arxiv.org/pdf/2606.06448"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --text: #2C2C2C; --primary: #4C436F; --bg: #F4F3F7; --muted: #9A93B3;
+  --border: #D4D0E0; --white: #FFFFFF; --radius: 12px; --shadow: rgba(76,67,111,0.08);
+}
+* { box-sizing: border-box; }
+body {
+  font-family: 'Source Serif Pro', serif; color: var(--text);
+  background: var(--bg); line-height: 1.75; margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 96px 24px 128px; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text); line-height: 1.25; }
+h1 { font-size: 2.6rem; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.01em; }
+h2 { font-size: 1.5rem; font-weight: 600; margin: 64px 0 16px; }
+h3 { font-size: 1.15rem; font-weight: 600; margin: 32px 0 8px; }
+p { margin: 0 0 20px; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.meta { color: var(--muted); font-size: 0.95rem; margin: 0 0 64px; }
+.site-head { margin-bottom: 80px; }
+.site-head .tagline { color: var(--muted); font-size: 1.05rem; margin-top: 4px; }
+ul, ol { padding-left: 1.4em; }
+li { margin: 6px 0; }
+.episode-list { list-style: none; padding: 0; }
+.episode-list li { margin: 0 0 48px; }
+.episode-list .date { color: var(--muted); font-size: 0.9rem; }
+.episode-list .title { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 600; display: block; margin: 4px 0 8px; }
+.episode-list .summary { color: #5a5566; }
+.foot { margin-top: 96px; color: var(--muted); font-size: 0.85rem; }
+.disclaimer { margin-top: 16px; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.index-disclaimer { margin: 48px 0 0; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.topbar { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 48px; }
+.back { color: var(--muted); }
+.langswitch { color: var(--muted); font-size: 0.9rem; border: 1px solid var(--border); padding: 4px 12px; border-radius: 999px; }
+.langswitch:hover { color: var(--primary); border-color: var(--primary); text-decoration: none; }
+.sectionnav { display: flex; align-items: baseline; flex-wrap: wrap; gap: 20px; }
+.sectionnav .brand { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.05rem; color: var(--text); }
+.sectionnav .sec { color: var(--muted); font-size: 0.9rem; padding-bottom: 2px; }
+.sectionnav .sec.active { color: var(--text); border-bottom: 1px solid var(--text); }
+.sectionnav a:hover { color: var(--primary); text-decoration: none; }
+a.ts { color: var(--primary); font-variant-numeric: tabular-nums; white-space: nowrap; text-decoration: none; border-bottom: 1px dotted var(--border); }
+a.ts:hover { border-bottom-style: solid; }
+.source { color: var(--muted); font-size: 0.95rem; margin: 0 0 24px; }
+.player-wrap { position: sticky; top: 0; z-index: 10; background: var(--bg); padding: 12px 0 16px; margin: 0 0 32px; }
+.player-box { position: relative; width: 100%; max-width: 460px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 10px var(--shadow); }
+.player-box #ytplayer, .player-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 48px; }
+.tags span { font-size: 0.85rem; color: var(--primary); background: #EDEBF4; padding: 4px 12px; border-radius: 999px; }
+.connections { list-style: none; padding: 0; margin: 0; }
+.connections li { margin: 0 0 28px; padding-left: 16px; border-left: 2px solid var(--border); }
+.connections .rel { font-size: 0.8rem; color: var(--primary); background: #EDEBF4; padding: 2px 10px; border-radius: 999px; margin-right: 8px; }
+.connections .lk { font-family: 'Playfair Display', serif; font-weight: 600; }
+.connections .why { margin: 8px 0 6px; }
+.connections .pts { color: var(--muted); font-size: 0.92rem; }
+.connections .pts > div { margin-top: 4px; }
+.connections .who { color: var(--text); font-weight: 600; margin-right: 8px; }
+.connections.tensions li { border-left-color: var(--primary); }
+.ctype { font-size: 0.72rem; padding: 1px 9px; border-radius: 999px; margin-right: 8px; letter-spacing: 0.02em; }
+.ctype-genuine { color: #fff; background: var(--primary); }
+.ctype-apparent { color: var(--muted); background: #EDEBF4; }
+.editor-note { background: #EDEBF4; border-radius: 12px; padding: 24px 28px; margin: 0 0 48px; }
+.editor-note .en-label { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 10px; }
+.editor-note p { margin: 0 0 12px; }
+.editor-note p:last-child { margin-bottom: 0; }
+.claim-meta { display: block; margin-top: 2px; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+.claim-meta-first { margin-top: 8px; }
+.claim-meta a.ts { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="topbar"><nav class="sectionnav"><a class="brand" href="https://lens.lumihelia.com/en/">PodLens</a><a class="sec" href="https://lens.lumihelia.com/en/">episodes</a><a class="sec active" href="https://lens.lumihelia.com/en/papers/">papers</a></nav><a class="langswitch" href="https://lens.lumihelia.com/papers/agent-memory.html">中文</a></div>
+<h1>Agent Memory: System Characterization and Implications for Long-Horizon Workloads · Yasmine Omri</h1>
+<p class="meta">2026-06-06 · A faithful, transcript-grounded reading by PodLens</p>
+<p class="source">Source paper:<a href="https://arxiv.org/pdf/2606.06448" target="_blank" rel="noopener">https://arxiv.org/pdf/2606.06448</a></p>
+
+<div class="tags"><span>Agent Memory</span><span>System-level Characterization</span><span>Prefill Overhead</span><span>Memory Construction</span><span>Freshness and Latency</span><span>Energy Overhead</span></div>
+
+<h2>What This Paper Is About</h2>
+<p>This paper presents the first system-level characterization of Agent Memory Systems for Large Language Models (LLMs). As LLM agents are increasingly deployed in long-horizon tasks requiring continuous long-term reasoning, agents need to persistently store, retrieve, and update their own memories across multiple sessions. Although various agent memory system designs exist, their system-level behaviors and computational overheads have remained uncharacterized. The authors, Yasmine Omri, Ziyu Gan, et al., establish a systematic taxonomy, build a stage-aware profiling harness, and conduct a system-level evaluation of ten representative memory systems on the MemoryAgentBench and MemoryArena benchmarks. The study finds that memory construction overhead dominates the vast majority of the agent's lifecycle and conflicts in computational resources with latency-sensitive question-answering (QA) services. Finally, the paper proposes ten system recommendations regarding agent memory serving architecture, scheduling, and system selection.</p>
+<h2>Paper Skeleton</h2>
+<ul>
+<li><strong>Research Background and Problem Definition</strong>: The state accumulated by LLM agents in long-horizon tasks far exceeds the upper limit of what a single inference context can hold. The traditional approach of keeping the entire history in-context faces three core limitations: limited context budgets, quadratic growth in Prefill overhead, and degraded inference fidelity in long sequences (the U-curve effect). External memory systems decouple storage capacity from context length by persisting state to external databases. (1. Introduction · "Realizing this at scale requires agents to")</li>
+<li><strong>Core Taxonomy</strong>: The paper proposes a taxonomy that classifies agent memory systems into four paradigms:</li>
+<li><strong>Paradigm I: Long-context memory</strong>: Performs no memory construction and directly passes the complete interaction history as a prompt to the model. (2.2. Taxonomy of Agent Memory Paradigms · "performs no memory construction and stores no")</li>
+<li><strong>Paradigm II: Flat RAG memory</strong>: Applies a deterministic chunking and indexing pipeline (such as BM25 or EmbedRAG) without calling an LLM for construction, supporting lexical or dense retrieval, and is append-only. (2.2. Taxonomy of Agent Memory Paradigms · "applies a deterministic indexing pipeline")</li>
+<li><strong>Paradigm III: Structure-augmented RAG memory</strong>: Uses an LLM as a fixed extractor to extract facts, summaries, entities, or relation triples from the interaction stream. It is divided into append-only (such as GraphRAG, HippoRAG v2) and consolidating (such as Mem0, SimpleMem, where the latter performs ADD/UPDATE/DELETE record updates). (2.2. Taxonomy of Agent Memory Paradigms · "These systems use an LLM as a fixed extractor")</li>
+<li><strong>Paradigm IV: Agentic control flow</strong>: Exposes memory operations as tools or actions to the agent's LLM decision loop, allowing the LLM to autonomously control memory reading, writing, and modification (such as A-Mem, Letta, MIRIX). (2.2. Taxonomy of Agent Memory Paradigms · "Memory access is an action selected by")</li>
+<li><strong>System-level Overhead and Behavioral Characterization</strong>:</li>
+<li><strong>Construction Overhead Dominates</strong>: In systems that use LLMs for memory processing, memory construction overhead dominates the energy consumption of the entire lifecycle, far exceeding the energy consumption of the query phase. (4.2. Construction Dominates the Agent Lifecycle · "exceeds total query-phase energy across 300")</li>
+<li><strong>Prefill and Embedding Bottlenecks</strong>: Memory construction is a high-input, low-output task. Its LLM invocation overhead is almost entirely concentrated in the Prefill phase, with Decode accounting for only a tiny fraction. Furthermore, the embedding traffic generated by different paradigms exhibits contrasting characteristics of bimodal batching versus serialized writes. (4.3. Construction Is an Overwhelmingly Embedding and Prefill-dominated Workload · "it repeatedly reads long chunks or windows and emits compact")</li>
+<li><strong>Construction Model Downward Compatibility</strong>: Most systems support cost savings by downscaling the LLM used during the construction phase. However, for systems that require strict adherence to JSON schemas or tool-calling syntax (such as MIRIX), model degradation leads to memory store corruption and complete failure. (4.4. Construction-LLM Choice Is Agent memory system-Constrained · "LLM downscaling is a cost lever")</li>
+<li><strong>Research Limitations</strong>: The authors acknowledge that the current study is limited to single-node agents. The consistency and coordination requirements of distributed storage in multi-node and multi-agent deployments, as well as the storage and retrieval of multimodal memory (combining images, audio, etc.), remain unresolved challenges. (5. Discussion &amp; Conclusion · "stores that single-node")</li>
+</ul>
+<h2>Core Arguments List</h2>
+<ol>
+<li><strong>The Prefill overhead of full-history context scales quadratically as history accumulates, and there is a risk of losing information in the middle</strong>.
+   - Anchor: 1. Introduction · "prefill costs scale"
+   - Type: Fact</li>
+<li><strong>External memory systems overcome the system-level limitations of long-context processing by decoupling context length from storage capacity</strong>.
+   - Anchor: 1. Introduction · "decoupling capacity"
+   - Type: Claim</li>
+<li><strong>For LLM-mediated memory systems, the energy consumed by memory construction dominates the vast majority of the agent's lifecycle</strong>.
+   - Anchor: 4.2. Construction Dominates the Agent Lifecycle · "exceeds total query-phase energy across 300"
+   - Type: Fact</li>
+<li><strong>Agent memory construction is inherently a read-heavy, write-light workload dominated by Prefill and Embedding</strong>.
+   - Anchor: 4.3. Construction Is an Overwhelmingly Embedding and Prefill-dominated Workload · "it repeatedly reads long chunks or windows and emits compact"
+   - Type: Fact</li>
+<li><strong>During parallel serving, the massive Prefill throughput of construction tasks occupies KV-cache headroom and directly competes for resources with low-latency QA queries</strong>.
+   - Anchor: 4.3. Construction Is an Overwhelmingly Embedding and Prefill-dominated Workload · "a large construction prefill job occupies KV-cache headroom and stalls the batch scheduler precisely when a latency-sensitive query arrives."
+   - Type: Prediction</li>
+<li><strong>Downscaling the LLM during the construction phase is a viable cost-control lever, but its lower bound is strictly constrained by the algorithm's output format constraints</strong>.
+   - Anchor: 4.4. Construction-LLM Choice Is Agent memory system-Constrained · "LLM downscaling is a cost lever"
+   - Type: Fact</li>
+<li><strong>No single memory system is optimal across construction overhead, query latency, and task accuracy simultaneously</strong>.
+   - Anchor: 4.5. The Construction–Serve–Accuracy Frontier · "No agent memory system is optimal across"
+   - Type: Fact</li>
+<li><strong>Under asynchronous scheduling, slow-construction memory systems serve stale memory data to the agent due to uncommitted writes, leading to a conflict in the "freshness-latency" tradeoff</strong>.
+   - Anchor: 4.6. Inter-Session Construction Creates a Freshness–Latency Tradeoff · "Under asynchronous scheduling, slow-construction agent memory systems serve"
+   - Type: Fact</li>
+</ol>
+<h2>Plain English Explanation</h2>
+<p>We can think of agent memory as a leap from "static document retrieval" to "dynamic, mutable state management." In the past, agents either foolishly crammed hundreds of thousands of words of conversation history into the LLM every single time, or they could only search through a bunch of rigid, never-changing local documents like traditional RAG. But both approaches come with huge costs: the former gets more and more expensive the more you chat (with Prefill overhead scaling quadratically), and the model completely forgets information in the middle; the latter fails to let the agent record user preferences or continuously correct old knowledge as new interactions occur.</p>
+<p>Agent memory systems were born to resolve this contradiction. They store memories outside the LLM and only "fish out" the most relevant ones when needed, saving a massive amount of GPU computation costs.</p>
+<p>However, there is no free lunch. The core finding of this paper is that agent memory systems actually shift the cost from "query time (Read Path)" to "recording time (Write Path)." For example, in a system like Mem0, every time a user says something, it has to call an LLM in the background to distill and refine that sentence into atomic facts, and even perform deduplication and merging with the existing memory store via ADD, UPDATE, or DELETE operations. This "memory construction" process runs quietly in the background, consuming an astonishing amount of power and time—sometimes dozens of times more than the actual Q&amp;A itself.</p>
+<p>Furthermore, because "memorizing" requires the LLM to repeatedly read a long context and spit out just a few short lines of core relationships, this is a high-throughput task heavily dependent on "Prefill" on computing chips (GPUs). If you stuff this background "memory construction task" and the foreground chat Q&amp;A—where users are urgently waiting for the first-token response (latency-sensitive Decode)—into the same GPU cluster, they will violently compete for resources, causing the user's waiting time to multiply.</p>
+<p>Finally, the paper tells us that choosing a memory paradigm is like making a multi-dimensional trade-off. If your agent is the type where users chat very little but you have to repeatedly read this history (e.g., high-frequency query types), then a paradigm that puts the overhead in the construction phase to make queries extremely lightweight is highly cost-effective. But if your agent needs to frequently ingest large amounts of real-time data while users only ask questions occasionally, spending high costs to construct fine-grained memories in real-time is a massive waste.</p>
+<h2>Glossary</h2>
+<ul>
+<li><strong>Prefill</strong>: The initial phase where an LLM processes the input prompt and builds the internal KV Cache state. When agents construct memory, they need to read long texts, and their overhead is almost entirely concentrated here. (1. Introduction · "prefill costs scale")</li>
+<li><strong>Decode</strong>: The generation phase where an LLM performs autoregressive computation word-by-word to generate a response. (4.3. Construction Is an Overwhelmingly Embedding and Prefill-dominated Workload · "it repeatedly reads long chunks or windows and emits compact")</li>
+<li><strong>KV Cache</strong>: The temporary state of processed context stored in GPU memory to avoid redundant computations. When the context is extremely long, the KV Cache imposes immense memory pressure. (1. Introduction · "reasoning and recall fidelity degrade significantly in long sequences")</li>
+<li><strong>Memory Ingestion</strong>: The first stage of agent memory, which determines whether to use a single turn of dialogue, fixed chunks, or a complete session as the basic unit for processing memory. (2.1. Agent Memory Execution Pipeline · "systems can be decomposed into seven stages")</li>
+<li><strong>Flat RAG</strong>: An append-only retrieval paradigm that stores raw text directly into a database via chunking, vectorization, or term frequency statistics, without LLM extraction or rewriting. (2.2. Taxonomy of Agent Memory Paradigms · "applies a deterministic indexing pipeline")</li>
+<li><strong>Consolidating Memory</strong>: A memory mechanism that not only extracts facts but also dynamically deduplicates, modifies, and deletes/updates persisted old memories based on new interactions. (2.2. Taxonomy of Agent Memory Paradigms · "These systems use an LLM as a fixed extractor")</li>
+<li><strong>Agentic Control Flow</strong>: A memory mechanism that exposes memory operations (such as writing notes or searching archives) directly as tools to the LLM, allowing the model to autonomously control and decide when to read and write. (2.2. Taxonomy of Agent Memory Paradigms · "Memory access is an action selected by")</li>
+</ul>
+<h2>Before and After This Paper</h2>
+<ul>
+<li><strong>Before This Paper</strong>: When optimizing long dialogues for agents, the entire LLM community often defaulted to "long context windows" as the ultimate answer—as long as the model supported a million tokens, they would mindlessly cram everything in. When evaluating memory systems, everyone also focused solely on downstream QA accuracy, with almost no one measuring how much power they actually burned in the background or how long they stalled the GPUs. (1. Introduction · "Realizing this at scale requires agents to")</li>
+<li><strong>After This Paper</strong>: This study, for the first time, shattered the utopian illusion of long contexts with hard data, pointing out its quadratic Prefill overhead and memory resource constraints. More importantly, it mapped out a three-dimensional "construction-query-accuracy" frontier, proving that there is no one-size-fits-all memory system, and providing practical physical metrics and system architecture recommendations for deploying agent memory at scale in the industry. (4.5. The Construction–Serve–Accuracy Frontier · "No agent memory system is optimal across")</li>
+</ul>
+<h2>Most Worth-Reading Sections</h2>
+<ul>
+<li><strong>Section 1 on the Three Physical Limitations of Long Contexts</strong>: (1. Introduction · "reasoning and recall fidelity degrade significantly in long sequences")</li>
+<li><em>Why it's worth reading</em>: This section clearly and logically explains why we must use external memory systems. Starting from three physical system bottlenecks—the maximum capacity limit, the quadratic growth of Prefill overhead, and the "Lost in the Middle" limitation where LLMs lose information in the middle of long texts—it directly derives the necessity of external memory.</li>
+<li><strong>Section 4.2 on the Discovery of Construction Phase Energy Dominance</strong>: (4.2. Construction Dominates the Agent Lifecycle · "exceeds total query-phase energy across 300")</li>
+<li><em>Why it's worth reading</em>: Using fine-grained energy statistics, the paper reveals a shocking phenomenon: in LLM-mediated memory systems, the energy burned to construct memory dominates by a landslide, far exceeding Q&amp;A retrieval. This completely shifts the conventional mindset of "only focusing on query serving overhead."</li>
+<li><strong>Section 4.3 on the Analysis of Memory Construction Computational Characteristics</strong>: (4.3. Construction Is an Overwhelmingly Embedding and Prefill-dominated Workload · "it repeatedly reads long chunks or windows and emits compact")</li>
+<li><em>Why it's worth reading</em>: This section dissects the computational nature of memory construction in detail—specifically, that it is a high-input, low-output workload that is "heavy on Prefill, almost zero on Decode." This is highly valuable for system scheduling reference for engineers who want to co-locate construction tasks and real-time dialogue services on the same hardware cluster.</li>
+</ul>
+<h2>Resonances with past episodes</h2><ul class="connections"><li><span class="rel">Complement</span>→ <a class="lk" href="https://lens.lumihelia.com/en/papers/the-era-of-experience.html">The Era of Experience: Reinforcement Learning Beyond Human Data · David Silver</a><div class="why">David Silver proposed that future agents will exist in long-term, uninterrupted streams of experience for continuous learning; this study provides quantitative support from the system level, pointing out that when digesting such uninterrupted streams of experience, the energy consumed by memory construction will absolutely dominate the agent&#x27;s physical lifecycle.</div><div class="pts"><div><b class="who">This</b>4.2. Construction Dominates the Agent Lifecycle · &quot;exceeds total query-phase energy across 300&quot; For LLM-mediated memory systems, the energy consumed by memory construction dominates the vast majority of the agent&#x27;s lifecycle.</div><div><b class="who">Related</b>Streams · &quot;An experiential agent can continue to learn throughout a lifetime&quot; Agents in the experiential era will exist in long-term, uninterrupted streams of experience, rather than brief, single interaction episodes.</div></div></li><li><span class="rel">Corroboration</span>→ <a class="lk" href="https://lens.lumihelia.com/en/episodes/how-an-ai-chip-works-from-the-bottom-up-reiner-pope.html">How an AI Chip Works from the Bottom Up · Reiner Pope</a><div class="why">The memory construction workload is highly biased toward the pre-first-token generation phase (Prefill) and vector embedding (Embedding). Its core is repeatedly reading long contexts and performing dense matrix multiplications, which perfectly aligns with the design advantage of systolic arrays to improve the computation-to-communication ratio (compute utilization) through local weight reuse.</div><div class="pts"><div><b class="who">This</b>4.3. Construction Is an Overwhelmingly Embedding and Prefill-dominated Workload · &quot;it repeatedly reads long chunks or windows and emits compact&quot; Agent memory construction is inherently a read-heavy, write-light workload dominated by Prefill and Embedding.</div><div><b class="who">Related</b><a class="ts" href="https://lens.lumihelia.com/en/episodes/how-an-ai-chip-works-from-the-bottom-up-reiner-pope.html?t=1537">[00:25:37 - 00:26:40]</a>, <a class="ts" href="https://lens.lumihelia.com/en/episodes/how-an-ai-chip-works-from-the-bottom-up-reiner-pope.html?t=1795">[00:29:55 - 00:30:22]</a> Systolic arrays (the technology behind Nvidia&#x27;s Tensor Cores and Google&#x27;s TPUs) solve the data movement bottleneck by creating a large, dedicated hardware unit for matrix multiplication. This design improves the computation-to-communication ratio by storing the weight matrix locally and reusing it for many input vectors.</div></div></li></ul>
+<p class="foot">A faithful reading and plain-language retelling of the paper, generated by <a href="https://github.com/lumihelia/PodLens">PodLens</a>.</p>
+<p class="disclaimer">This is one source-grounded reading, not a replacement for the original. Every point is anchored to its source, so you can check it yourself — and corrections are welcome.</p>
+
+</div>
+</body>
+</html>
