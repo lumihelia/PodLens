@@ -1,0 +1,30 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "PodLens",
+  "language": "en",
+  "home_page_url": "https://lumihelia.github.io/PodLens/en/papers/",
+  "feed_url": "https://lumihelia.github.io/PodLens/en/papers/papers.json",
+  "description": "Grounded readings, every point traceable to the source.",
+  "authors": [
+    {
+      "name": "lumihelia"
+    }
+  ],
+  "items": [
+    {
+      "id": "https://lumihelia.github.io/PodLens/en/papers/the-era-of-experience.html",
+      "url": "https://lumihelia.github.io/PodLens/en/papers/the-era-of-experience.html",
+      "title": "The Era of Experience: Reinforcement Learning Beyond Human Data · David Silver",
+      "date_published": "2026-06-06",
+      "summary": "This paper is written by David Silver and Richard S. Sutton (the text is a preprint of a chapter in the forthcoming book Designing an Intelligence to be published by MIT Press). The paper explores how…",
+      "tags": [
+        "experience streams",
+        "grounded rewards",
+        "bi-level optimisation",
+        "self-play",
+        "world models"
+      ],
+      "external_url": "https://storage.googleapis.com/deepmind-media/Era-of-Experience%20/The%20Era%20of%20Experience%20Paper.pdf"
+    }
+  ]
+}
