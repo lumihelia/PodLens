@@ -1268,6 +1268,7 @@ def get_episode_for_edit(slug: str) -> dict | None:
         "slug": slug,
         "title": entry["title"],
         "date": entry["date"],
+        "kind": entry.get("kind", "podcast"),
         "source_url": entry.get("source_url", ""),
         "tags": entry.get("tags", []),
         "editor_note": entry.get("editor_note", ""),
