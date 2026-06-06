@@ -12,3 +12,10 @@ time_report*.md
 
 # Full reports (contain the private personal-mapping layer) — keep local
 reports/
+
+# Source papers (copyrighted PDFs you feed in) — keep local, never publish
+论文/
+*.pdf
+
+# Internal planning docs — local working notes, not for the public repo
+PAPERS_PLAN.md
