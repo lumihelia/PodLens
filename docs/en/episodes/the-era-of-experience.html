@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Era of Experience: Reinforcement Learning Beyond Human Data · David Silver · PodLens</title>
+<meta name="description" content="This paper is written by David Silver and Richard S. Sutton (the text is a preprint of a chapter in the forthcoming book Designing an Intelligence to be published by MIT Press). The paper explores how…">
+<meta name="author" content="lumihelia">
+<meta name="keywords" content="experience streams, grounded rewards, bi-level optimisation, self-play, world models">
+<link rel="canonical" href="https://lumihelia.github.io/PodLens/en/episodes/the-era-of-experience.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://lumihelia.github.io/PodLens/episodes/the-era-of-experience.html"><link rel="alternate" hreflang="en" href="https://lumihelia.github.io/PodLens/en/episodes/the-era-of-experience.html"><link rel="alternate" hreflang="x-default" href="https://lumihelia.github.io/PodLens/episodes/the-era-of-experience.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Era of Experience: Reinforcement Learning Beyond Human Data · David Silver · PodLens">
+<meta property="og:description" content="This paper is written by David Silver and Richard S. Sutton (the text is a preprint of a chapter in the forthcoming book Designing an Intelligence to be published by MIT Press). The paper explores how…">
+<meta property="og:url" content="https://lumihelia.github.io/PodLens/en/episodes/the-era-of-experience.html">
+<link rel="alternate" type="application/rss+xml" title="PodLens" href="https://lumihelia.github.io/PodLens/en/feed.xml"><link rel="alternate" type="application/json" title="PodLens" href="https://lumihelia.github.io/PodLens/en/episodes.json">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "The Era of Experience: Reinforcement Learning Beyond Human Data · David Silver", "datePublished": "2026-06-06", "inLanguage": "en", "url": "https://lumihelia.github.io/PodLens/en/episodes/the-era-of-experience.html", "description": "This paper is written by David Silver and Richard S. Sutton (the text is a preprint of a chapter in the forthcoming book Designing an Intelligence to be published by MIT Press). The paper explores how…", "author": {"@type": "Person", "name": "lumihelia"}, "publisher": {"@type": "Person", "name": "lumihelia"}, "keywords": "experience streams, grounded rewards, bi-level optimisation, self-play, world models", "isBasedOn": "https://storage.googleapis.com/deepmind-media/Era-of-Experience%20/The%20Era%20of%20Experience%20Paper.pdf"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --text: #2C2C2C; --primary: #4C436F; --bg: #F4F3F7; --muted: #9A93B3;
+  --border: #D4D0E0; --white: #FFFFFF; --radius: 12px; --shadow: rgba(76,67,111,0.08);
+}
+* { box-sizing: border-box; }
+body {
+  font-family: 'Source Serif Pro', serif; color: var(--text);
+  background: var(--bg); line-height: 1.75; margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 96px 24px 128px; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text); line-height: 1.25; }
+h1 { font-size: 2.6rem; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.01em; }
+h2 { font-size: 1.5rem; font-weight: 600; margin: 64px 0 16px; }
+h3 { font-size: 1.15rem; font-weight: 600; margin: 32px 0 8px; }
+p { margin: 0 0 20px; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.meta { color: var(--muted); font-size: 0.95rem; margin: 0 0 64px; }
+.site-head { margin-bottom: 80px; }
+.site-head .tagline { color: var(--muted); font-size: 1.05rem; margin-top: 4px; }
+ul, ol { padding-left: 1.4em; }
+li { margin: 6px 0; }
+.episode-list { list-style: none; padding: 0; }
+.episode-list li { margin: 0 0 48px; }
+.episode-list .date { color: var(--muted); font-size: 0.9rem; }
+.episode-list .title { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 600; display: block; margin: 4px 0 8px; }
+.episode-list .summary { color: #5a5566; }
+.foot { margin-top: 96px; color: var(--muted); font-size: 0.85rem; }
+.disclaimer { margin-top: 16px; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.index-disclaimer { margin: 48px 0 0; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.topbar { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 48px; }
+.back { color: var(--muted); }
+.langswitch { color: var(--muted); font-size: 0.9rem; border: 1px solid var(--border); padding: 4px 12px; border-radius: 999px; }
+.langswitch:hover { color: var(--primary); border-color: var(--primary); text-decoration: none; }
+a.ts { color: var(--primary); font-variant-numeric: tabular-nums; white-space: nowrap; text-decoration: none; border-bottom: 1px dotted var(--border); }
+a.ts:hover { border-bottom-style: solid; }
+.source { color: var(--muted); font-size: 0.95rem; margin: 0 0 24px; }
+.player-wrap { position: sticky; top: 0; z-index: 10; background: var(--bg); padding: 12px 0 16px; margin: 0 0 32px; }
+.player-box { position: relative; width: 100%; max-width: 460px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 10px var(--shadow); }
+.player-box #ytplayer, .player-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 48px; }
+.tags span { font-size: 0.85rem; color: var(--primary); background: #EDEBF4; padding: 4px 12px; border-radius: 999px; }
+.connections { list-style: none; padding: 0; margin: 0; }
+.connections li { margin: 0 0 28px; padding-left: 16px; border-left: 2px solid var(--border); }
+.connections .rel { font-size: 0.8rem; color: var(--primary); background: #EDEBF4; padding: 2px 10px; border-radius: 999px; margin-right: 8px; }
+.connections .lk { font-family: 'Playfair Display', serif; font-weight: 600; }
+.connections .why { margin: 8px 0 6px; }
+.connections .pts { color: var(--muted); font-size: 0.92rem; }
+.connections .pts > div { margin-top: 4px; }
+.connections .who { color: var(--text); font-weight: 600; margin-right: 8px; }
+.connections.tensions li { border-left-color: var(--primary); }
+.ctype { font-size: 0.72rem; padding: 1px 9px; border-radius: 999px; margin-right: 8px; letter-spacing: 0.02em; }
+.ctype-genuine { color: #fff; background: var(--primary); }
+.ctype-apparent { color: var(--muted); background: #EDEBF4; }
+.editor-note { background: #EDEBF4; border-radius: 12px; padding: 24px 28px; margin: 0 0 48px; }
+.editor-note .en-label { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 10px; }
+.editor-note p { margin: 0 0 12px; }
+.editor-note p:last-child { margin-bottom: 0; }
+.claim-meta { display: block; margin-top: 2px; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+.claim-meta-first { margin-top: 8px; }
+.claim-meta a.ts { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="topbar"><a class="back" href="https://lumihelia.github.io/PodLens/en/">← PodLens</a><a class="langswitch" href="https://lumihelia.github.io/PodLens/episodes/the-era-of-experience.html">中文</a></div>
+<h1>The Era of Experience: Reinforcement Learning Beyond Human Data · David Silver</h1>
+<p class="meta">2026-06-06 · A faithful, transcript-grounded reading by PodLens</p>
+<p class="source">Source paper:<a href="https://storage.googleapis.com/deepmind-media/Era-of-Experience%20/The%20Era%20of%20Experience%20Paper.pdf" target="_blank" rel="noopener">https://storage.googleapis.com/deepmind-media/Era-of-Experience%20/The%20Era%20of%20Experience%20Paper.pdf</a></p>
+
+<div class="tags"><span>experience streams</span><span>grounded rewards</span><span>bi-level optimisation</span><span>self-play</span><span>world models</span></div>
+
+<h2>What This Paper Is About</h2>
+<p>This paper is written by David Silver and Richard S. Sutton (the text is a preprint of a chapter in the forthcoming book <em>Designing an Intelligence</em> to be published by MIT Press). The paper explores how artificial intelligence (AI) is at a critical turning point, transitioning from the "Era of Human Data" to the "Era of Experience". The authors point out that although current AI (such as Large Language Models, or LLMs) has achieved immense success by training on massive amounts of human-generated data, this approach of relying on imitating humans is approaching its limits in many important domains. To achieve superhuman intelligence, AI must shift to an entirely new paradigm—the "Era of Experience"—where agents learn primarily by continuously interacting with their environment, autonomously generating experience, and utilizing reinforcement learning (RL) algorithms. The paper elaborates on the four core characteristics of the Era of Experience (streams, actions and observations, rewards, planning and reasoning), argues that current technology already possesses the foundation to realize this transition, and explores the potential societal impacts and safety benefits brought by this paradigm.</p>
+<h2>Paper Skeleton</h2>
+<ul>
+<li><strong>Problem Solved</strong>: The limitations of the Era of Human Data. Progress driven by supervised learning on human data is slowing down as high-quality data is on the verge of depletion, and it cannot generate new insights that go beyond current human understanding.</li>
+<li>Anchor: The Era of Human Data · "The pace of progress driven solely by supervised learning"</li>
+<li><strong>Core Claim</strong>: AI is entering the Era of Experience, where agents will learn continuously primarily through experience generated by their own interactions with the environment, thereby breaking through the limitations of human-centric AI systems to achieve superhuman capabilities.</li>
+<li>Anchor: The Era of Experience · "experience will become the dominant medium of improvement"</li>
+<li><strong>Argumentation Style</strong>: The paper adopts the argumentative chain of a position paper. It first points out the bottleneck of human data through logical reasoning, and then demonstrates the feasibility of experiential learning through recent case studies (such as AlphaProof's performance in the Mathematical Olympiad and DeepSeek-R1's reinforcement learning practices). Subsequently, the authors build a theoretical framework for the Era of Experience across four dimensions (streams, actions and observations, rewards, planning and reasoning), conduct feasibility arguments in conjunction with classic reinforcement learning (RL) concepts, and finally dialectically analyze the consequences of this paradigm regarding safety and societal impact.</li>
+<li><strong>Key Evidence &amp; Examples</strong>:</li>
+<li><strong>AlphaProof</strong>: As the first program to reach the silver medal standard in the International Mathematical Olympiad, it autonomously generated 100 million proofs through a reinforcement learning algorithm interacting with a formal proof system, based on 100,000 human-generated formal proofs, thereby exploring mathematical possibilities beyond human preconceptions.<ul>
+<li>Anchor: The Era of Experience · "AlphaProof’s reinforcement learning (RL) algorithm subsequently generated"</li>
+</ul>
+</li>
+<li><strong>DeepSeek</strong>: Its recent work (DeepSeek-R1) demonstrates the power of reinforcement learning; without explicit teaching, and solely by providing the correct incentives, the model autonomously develops advanced problem-solving strategies.<ul>
+<li>Anchor: The Era of Experience · "autonomously develops advanced problem-solving strategies"</li>
+</ul>
+</li>
+<li><strong>Historical Reinforcement Learning Systems</strong>: Such as AlphaZero discovering fundamentally new strategies in Go and chess through self-play, proving the agent's ability to self-discover knowledge and its scalability.<ul>
+<li>Anchor: Why Now? · "AlphaZero discovered fundamentally new strategies for chess"</li>
+</ul>
+</li>
+<li><strong>Acknowledged Boundaries &amp; Limitations</strong>:</li>
+<li><strong>Physical Time Constraints</strong>: Progress relying on physical experience is inherently constrained by the actual time it takes to execute actions and observe results in the real world, which cannot be achieved overnight.<ul>
+<li>Anchor: Consequences · "inherently constrained by the time it takes to"</li>
+</ul>
+</li>
+<li><strong>Reduced Interpretability</strong>: Moving away from human data and human thought patterns may make future AI systems harder for humans to understand and interpret.<ul>
+<li>Anchor: Consequences · "may also make future AI systems harder to interpret"</li>
+</ul>
+</li>
+<li><strong>No Absolute Guarantee of Alignment</strong>: Although reward functions can be adjusted through experience and bi-level optimization to correct biases, there is still no absolute guarantee of perfect alignment with human goals.<ul>
+<li>Anchor: Consequences · "there is no guarantee of perfect alignment"</li>
+</ul>
+</li>
+</ul>
+<h2>Core Arguments List</h2>
+<ol>
+<li>
+<p><strong>The human data dividend is facing its limits and cannot lead AI to superhuman intelligence.</strong>
+   - Anchor: The Era of Human Data · "The pace of progress driven solely by supervised learning"
+   - Type: Claim
+   - Author's Reservations: None. The authors explicitly point out that the pace of progress driven solely by supervised learning is slowing down, and human data cannot capture new scientific breakthroughs that go beyond current human understanding.</p>
+</li>
+<li>
+<p><strong>Agents in the Era of Experience will exist in long-term, uninterrupted streams of experience, rather than brief, single-interaction episodes.</strong>
+   - Anchor: Streams · "An experiential agent can continue to learn throughout a lifetime"
+   - Type: Definition
+   - Author's Reservations: None.</p>
+</li>
+<li>
+<p><strong>Agents will have richer action and observation spaces, interacting autonomously in the real or digital world, rather than being limited to human-privileged formats (such as pure text dialogue).</strong>
+   - Anchor: Actions and Observations · "act autonomously in the real world"
+   - Type: Claim
+   - Author's Reservations: None.</p>
+</li>
+<li>
+<p><strong>Relying on rewards based on human prejudgement sets an insurmountable ceiling on agent performance, whereas grounded rewards from the environment allow agents to discover new strategies that go beyond existing human knowledge.</strong>
+   - Anchor: Rewards · "Relying on human prejudgement in this manner usually leads"
+   - Type: Claim
+   - Author's Reservations: None.</p>
+</li>
+<li>
+<p><strong>A bi-level optimisation process can combine the user's macro-level goals with grounded signals from the environment, allowing the reward function to be flexibly adjusted and alignment biases corrected under user guidance.</strong>
+   - Anchor: Rewards · "optimises user feedback as the top-level goal"
+   - Type: Claim
+   - Author's Reservations: The authors point out that this is merely "sketching one possible way in which these requirements might be met" and acknowledge that other viable approaches may exist.</p>
+</li>
+<li>
+<p><strong>Agents can utilize non-human languages (such as symbols, distributed, or continuous computation) to discover or improve more efficient thinking mechanisms, without being limited to imitating human chains of thought.</strong>
+   - Anchor: Planning and Reasoning · "discover or improve such approaches by learning how to"
+   - Type: Prediction
+   - Author's Reservations: None.</p>
+</li>
+<li>
+<p><strong>Agents must interact with the real world (grounding) to test and overturn erroneous thinking assumptions inherited from human data, avoiding becoming an "echo chamber" of existing knowledge.</strong>
+   - Anchor: Planning and Reasoning · "grounding provides a feedback loop, allowing the agent to"
+   - Type: Claim
+   - Author's Reservations: None.</p>
+</li>
+<li>
+<p><strong>The arrival of the Era of Experience provides an opportunity to revisit and improve classic reinforcement learning concepts (such as value functions, exploration, world models, and temporal abstraction), thereby paving the way to truly superhuman intelligence.</strong>
+   - Anchor: Reinforcement Learning Methods · "pave the way to truly superhuman intelligence"
+   - Type: Claim
+   - Author's Reservations: None.</p>
+</li>
+<li>
+<p><strong>Although experiential learning will increase certain safety risks, it also brings unique safety benefits, such as the agent's ability to dynamically adapt to environmental changes and the incremental correction of its reward function through experience.</strong>
+   - Anchor: Consequences · "experiential learning will increase certain safety risks"
+   - Type: Claim
+   - Author's Reservations: The authors acknowledge that the transition to the Era of Experience indeed requires further research to ensure safety.</p>
+</li>
+</ol>
+<h2>Plain English Retelling</h2>
+<p>What is this paper wrestling with? Simply put, it's wrestling with the idea that "AI can only get smarter by imitating humans." Current AI (like various Large Language Models, LLMs) is indeed very impressive—it can write poetry and code—but it is all trained by "reading data written by humans." The authors point out that this trick of relying on imitating humans is almost at its end, because high-quality human data is about to be sucked dry. If we want AI to possess "superhuman intelligence" that surpasses humans, we must let AI live differently—transitioning from the "Era of Human Data" into the "Era of Experience." In other words, AI can no longer just be a "bookworm." Instead, it needs to be like a child, interacting with the world and exploring on its own, learning from its own firsthand "experience" through "reinforcement learning (RL)."</p>
+<p>The paper's logic unfolds like this: First, the authors point out the dead end of the "Era of Human Data." Relying solely on imitating humans, the pace of AI's progress has noticeably slowed down (The Era of Human Data · "The pace of progress driven solely by supervised learning"). More importantly, those new scientific theorems and technologies that humans haven't discovered yet simply do not exist in human data, so how could AI learn them just by reading books?</p>
+<p>Therefore, AI must shift to the "Era of Experience," generating its own data through interaction with the environment and using this as the engine for continuous progress (The Era of Experience · "experience will become the dominant medium of improvement"). The authors give two fresh examples: One is AlphaProof. When solving Olympiad math problems, humans only gave it 100,000 proofs. It played with the formal proof system on its own and managed to autonomously generate 100 million proofs, exploring mathematical solutions that humans had never even thought of (The Era of Experience · "AlphaProof’s reinforcement learning (RL) algorithm subsequently generated"). The other is the recently wildly popular DeepSeek-R1, which proves the magic of reinforcement learning: we don't need to teach it step-by-step how to think; as long as we give it the right incentives (like giving it a candy when it gets it right), it can figure out super powerful problem-solving strategies on its own (The Era of Experience · "autonomously develops advanced problem-solving strategies").</p>
+<p>Next, the authors describe the four core characteristics of the "Era of Experience." These four features are highly counterintuitive and shatter our current understanding of AI:</p>
+<p>First, <strong>"Streams"</strong>. Current AI is like a "goldfish brain"—you ask a question, it answers, and once the conversation ends, it forgets everything. But an AI in the Era of Experience possesses a long-term, uninterrupted "stream of experience" just like a human (Streams · "An experiential agent can continue to learn throughout a lifetime"). It can live a lifetime, remember past lessons, and plan every current step for long-term goals months or even years down the road (such as helping a user condition their body, learning a new language, or researching new materials), even if that step seems to have no immediate benefit right now.</p>
+<p>Second, <strong>"Actions and Observations"</strong>. Current AI is trapped in a chat box, only able to engage in word battles with humans. Future AI will be like animals, possessing rich action and observation capabilities, able to act autonomously in the real or digital world (Actions and Observations · "act autonomously in the real world"). For example, calling APIs on its own, using human computer interfaces by itself, or even using robotic arms to conduct experiments in a lab. It will no longer just listen to humans, but will be able to explore the world on its own.</p>
+<p>Third, <strong>"Rewards"</strong>. This is the most counterintuitive part: the authors believe that <strong>relying on humans to score AI (judging good or bad) is actually harming AI</strong>. Because if a strategy is something even human experts cannot understand or comprehend, humans will give it a low score, which directly puts a ceiling on the AI's capabilities (Rewards · "Relying on human prejudgement in this manner usually leads"). To surpass humans, the AI's rewards must come from the environment itself (such as whether heart rate has improved, whether it scored points on an exam, or whether a material in a physics simulator is sturdy). So how do we ensure AI doesn't spiral out of control? The authors propose a concept of "bi-level optimisation": the top level is driven by feedback from human users to determine the general direction, while the bottom level is automatically optimized by the AI for specific signals in the environment (Rewards · "optimises user feedback as the top-level goal"). This way, it can both listen to humans and run wild autonomously.</p>
+<p>Fourth, <strong>"Planning and Reasoning"</strong>. Current AI uses human language (like "chain of thought") when thinking. But is human language really the smartest way to think? Not necessarily. AI can completely use non-human languages like symbols or continuous computation to invent more efficient thinking mechanisms on its own (Planning and Reasoning · "discover or improve such approaches by learning how to"). More importantly, AI must test its ideas by colliding with the real world. If it only spins around in human data, AI will become a "bias parrot," inheriting all of humanity's biases and mistakes. Only by hitting a brick wall can AI overturn those incorrect assumptions (Planning and Reasoning · "grounding provides a feedback loop, allowing the agent to").</p>
+<p>Why now? The authors look back at history. Previous reinforcement learning (such as AlphaZero, which defeated Go masters) could discover fundamentally new strategies on its own (Why Now? · "AlphaZero discovered fundamentally new strategies for chess"), but it could only play in closed simulators (like a chessboard) and couldn't step into the complex real world. Later, everyone found human data to be incredibly convenient, so they all went to work on large models, losing the soul of "autonomously discovering knowledge" in the process. Now, with large models as our foundation and tools that can interact with the real world, it's time to combine the two, pick back up the treasures of classic reinforcement learning (such as value functions, exploration, and world models), and pave the way to truly superhuman intelligence (Reinforcement Learning Methods · "pave the way to truly superhuman intelligence").</p>
+<p>Of course, the authors also honestly discuss the costs. AI venturing out on its own will indeed bring safety risks, and once it invents non-human ways of thinking, humans will find it increasingly difficult to understand (Consequences · "may also make future AI systems harder to interpret"). However, experiential learning also brings unique safety benefits: First, it can adjust itself based on environmental changes just like a living person—if hardware breaks or society changes, it can navigate around it on its own. Second, its reward mechanism can be continuously fine-tuned through trial and error; if it senses humans are unhappy, it can stop in time, rather than foolishly turning the entire Earth into paperclips (Consequences · "there is no guarantee of perfect alignment"). Third, conducting experiments in the physical world takes time (such as clinical trials for new drug development), and this physical time constraint will act as a natural brake on AI's self-evolution (Consequences · "inherently constrained by the time it takes to").</p>
+<h2>Glossary</h2>
+<ol>
+<li><strong>Supervised Learning</strong>: A common way for AI to learn, much like a student memorizing books while looking at standard answers. AI learns how to speak and act like a human by imitating data such as text and code written by humans.
+   - Anchor: The Era of Human Data · "The pace of progress driven solely by supervised learning"</li>
+<li><strong>Experience</strong>: Rather than reading static books (static data), AI generates a sequence of dynamic data through its own interactions with the environment (such as taking actions, observing results, making mistakes, and adjusting).
+   - Anchor: The Era of Experience · "experience will become the dominant medium of improvement"</li>
+<li><strong>Reinforcement Learning / RL</strong>: A "trial-and-error" learning mechanism. AI gropes around in the environment on its own, receiving rewards when it does something right and punishments when it does something wrong, thereby continuously optimizing its behavior to obtain more rewards.
+   - Anchor: The Era of Experience · "AlphaProof’s reinforcement learning (RL) algorithm subsequently generated"</li>
+<li><strong>Grounded Rewards</strong>: Direct feedback signals from the objective environment (such as heart rate, exam scores, or physical sensor values), rather than subjective judgments pulled out of thin air by humans.
+   - Anchor: Rewards · "Relying on human prejudgement in this manner usually leads"</li>
+<li><strong>Bi-level Optimisation</strong>: A two-level nested optimization method. The upper level is guided by human macro-level feedback (such as "make me healthier") to point the direction, while the lower level is automatically optimized by the AI for specific signals in the environment (such as sleep and heart rate) to achieve that direction.
+   - Anchor: Rewards · "optimises user feedback as the top-level goal"</li>
+<li><strong>World Model</strong>: A simulator of the laws of the real world in the AI's mind. With it, before taking action, the AI can first deduce in its mind: "If I do this, how will the world change? What reward will I get?"
+   - Anchor: Planning and Reasoning · "predicts the consequences of the agent’s actions upon the world"</li>
+</ol>
+<h2>Before and After This Paper</h2>
+<p>Before this paper, the AI field had almost entirely shifted to a "human-centric" paradigm over the past few years (such as Large Language Models, LLMs). Everyone took it for granted that as long as we fed AI all the data written by humans on the entire internet, and then had human experts score and align the AI's answers (RLHF), we could build the smartest AI. In this process, classic reinforcement learning methods (such as world models for AI to deduce in its own mind, and mechanisms for autonomously exploring new behaviors) were marginalized because the shortcut of imitating humans was simply too effective.
+- Anchor: Reinforcement Learning Methods · "The rise of human-centric LLMs, however, shifted the focus"</p>
+<p>This paper, however, issues an assertion: relying solely on imitating humans is almost at its end, because high-quality human data is on the verge of depletion, and imitating humans can never allow AI to generate new discoveries that surpass current human cognition. The authors advocate that AI must step into the "Era of Experience," reactivating and upgrading classic reinforcement learning methods, allowing AI to learn autonomously in long-term "experience streams" interacting with the real world. This directly challenges the current AI R&amp;D roadmap that heavily relies on human data and subjective human judgment, pointing to an entirely new direction toward superhuman intelligence.
+- Anchor: Reinforcement Learning Methods · "pave the way to truly superhuman intelligence"</p>
+<h2>Most Worth-Reading Passages from the Original Text</h2>
+<ol>
+<li>
+<p><strong>The crisis discourse on "human data depletion"</strong>
+   - Anchor: The Era of Human Data · "The majority of high-quality data sources - those that can actually"
+   - <strong>Why it's worth reading</strong>: This passage hits the nail on the head regarding the hidden worry behind the current boom of large models—the "data wall." It shatters the illusion that "as long as we pile up data, AI can get infinitely smarter" in plain language, serving as the starting point for the entire paper's argument.</p>
+</li>
+<li>
+<p><strong>The counterintuitive argument that "subjective human judgment sets limits on AI"</strong>
+   - Anchor: Rewards · "Relying on human prejudgement in this manner usually leads to an"
+   - <strong>Why it's worth reading</strong>: This part of the argument is brilliant and highly counterintuitive. We usually think of human feedback (RLHF) as a magic potion to make AI smarter, but the authors point out that if AI can only please human evaluators, it will never discover those great strategies that transcend human understanding.</p>
+</li>
+<li>
+<p><strong>The argument that "AI must be grounded to break the echo chamber of thought"</strong>
+   - Anchor: Planning and Reasoning · "Without this grounding, an agent, no matter how sophisticated, will"
+   - <strong>Why it's worth reading</strong>: Here, the authors draw on the evolution of human scientific history (from animism to quantum mechanics) to explain why an AI that only spins around in human words will turn into a "bias parrot." To obtain truth, AI must collide with the physical world just like a scientist.</p>
+</li>
+<li>
+<p><strong>The safety perspective that "physical time is a natural brake on AI's self-evolution"</strong>
+   - Anchor: Consequences · "inherently constrained by the time it takes to execute"
+   - <strong>Why it's worth reading</strong>: When discussing the risk of AI spiraling out of control, this is a very pragmatic and reassuring perspective. It reminds us that even if AI's intelligence explodes, as long as it needs to interact with the physical world (such as conducting chemistry experiments or waiting for crops to grow), it must obey the physical laws of time in the universe and cannot instantly complete infinite self-evolution in a virtual world.</p>
+</li>
+</ol>
+
+<p class="foot">A faithful reading and plain-language retelling of the paper, generated by <a href="https://github.com/lumihelia/PodLens">PodLens</a>.</p>
+<p class="disclaimer">This is one source-grounded reading, not a replacement for the original. Every point is anchored to its source, so you can check it yourself — and corrections are welcome.</p>
+
+</div>
+</body>
+</html>

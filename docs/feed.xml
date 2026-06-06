@@ -2,14 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
 <title>PodLens</title>
-<link>https://lens.lumihelia.com/</link>
-<description>播客的忠实解读。</description>
+<link>https://lumihelia.github.io/PodLens/</link>
+<description>解读有据,出处可查。</description>
 <language>zh-Hans</language>
-<atom:link href="https://lens.lumihelia.com/feed.xml" rel="self" type="application/rss+xml" />
+<atom:link href="https://lumihelia.github.io/PodLens/feed.xml" rel="self" type="application/rss+xml" />
+<item>
+<title>经验时代：超越人类数据的强化学习 · David Silver</title>
+<link>https://lumihelia.github.io/PodLens/episodes/the-era-of-experience.html</link>
+<guid isPermaLink="true">https://lumihelia.github.io/PodLens/episodes/the-era-of-experience.html</guid>
+<pubDate>Sat, 06 Jun 2026 00:00:00 +0000</pubDate>
+<description>本篇论文由 David Silver 和 Richard S. Sutton 撰写（该文为即将由 MIT Press 出版的书籍《Designing an Intelligence》中的一个章节预印本）。论文探讨了人工智能（AI）正处于从“人类数据时代”向“经验时代”转变的临界点。作者指出，尽管当前的 AI（如大型语言模型，即 LLMs）通过在海量人类生成的数据上进行训练取得了巨大成功，但这种依赖…</description>
+<category>经验流</category>
+<category>具地奖励</category>
+<category>双层优化</category>
+<category>自我博弈</category>
+<category>世界模型</category>
+</item>
 <item>
 <title>AGI 与自动化的经济学 · Alex Imas &amp; Phil Trammell</title>
-<link>https://lens.lumihelia.com/episodes/the-economics-of-agi-and-automation-alex-imas-phil-trammell.html</link>
-<guid isPermaLink="true">https://lens.lumihelia.com/episodes/the-economics-of-agi-and-automation-alex-imas-phil-trammell.html</guid>
+<link>https://lumihelia.github.io/PodLens/episodes/the-economics-of-agi-and-automation-alex-imas-phil-trammell.html</link>
+<guid isPermaLink="true">https://lumihelia.github.io/PodLens/episodes/the-economics-of-agi-and-automation-alex-imas-phil-trammell.html</guid>
 <pubDate>Fri, 05 Jun 2026 00:00:00 +0000</pubDate>
 <description>在本期节目中，主持人 Dwarkesh Patel 采访了 Alex Imas（Google DeepMind 的 AGI 经济学总监兼 University of Chicago 经济学教授）和 Phil Trammell（Epoch 的经济学主管兼 Stanford 的研究学者）。讨论探讨了经济理论和历史对于一个拥有先进 AI 和自动化的未来向我们揭示了什么，重点关注工资、劳动力份额、财富再分…</description>
 <category>关系型部门</category>
@@ -19,8 +31,8 @@
 </item>
 <item>
 <title>表征学习与预测世界模型 · Saining Xie</title>
-<link>https://lens.lumihelia.com/episodes/representation-learning-and-predictive-world-models-saining.html</link>
-<guid isPermaLink="true">https://lens.lumihelia.com/episodes/representation-learning-and-predictive-world-models-saining.html</guid>
+<link>https://lumihelia.github.io/PodLens/episodes/representation-learning-and-predictive-world-models-saining.html</link>
+<guid isPermaLink="true">https://lumihelia.github.io/PodLens/episodes/representation-learning-and-predictive-world-models-saining.html</guid>
 <pubDate>Thu, 04 Jun 2026 00:00:00 +0000</pubDate>
 <description>本期节目的核心内容是对年轻科学家兼创业者 Xie Saining 的深度马拉松式访谈，以及与 Tommy (Zhiyuan Zeng) 的简短嘉宾分享。讨论的焦点是 Xie Saining 在人工智能领域的学术与职业历程，特别是他在表征学习、Diffusion Transformer (DiT) 的开发，以及他从学术界转型与图灵奖得主 Yann LeCun 共同创立初创公司 AMI Labs 的经…</description>
 <category>表征学习</category>
@@ -31,8 +43,8 @@
 </item>
 <item>
 <title>前沿 AI 的现实与个人英雄主义的终结 · Yao Shunyu</title>
-<link>https://lens.lumihelia.com/episodes/the-reality-of-frontier-ai-and-the-end-of-individual-heroism.html</link>
-<guid isPermaLink="true">https://lens.lumihelia.com/episodes/the-reality-of-frontier-ai-and-the-end-of-individual-heroism.html</guid>
+<link>https://lumihelia.github.io/PodLens/episodes/the-reality-of-frontier-ai-and-the-end-of-individual-heroism.html</link>
+<guid isPermaLink="true">https://lumihelia.github.io/PodLens/episodes/the-reality-of-frontier-ai-and-the-end-of-individual-heroism.html</guid>
 <pubDate>Thu, 04 Jun 2026 00:00:00 +0000</pubDate>
 <description>在本期节目中，主持人 Xiaojun 采访了著名的 AI 研究员 Yao Shunyu。他从理论物理学转向 AI 领域，曾就职于 Anthropic，目前在 Google DeepMind 工作。讨论围绕前沿 AI 模型（如 Claude 和 Gemini）的现状、初创公司与大型科技公司之间的组织和文化差异，以及模型训练的技术现实（包括预训练、后训练和强化学习）展开。Yao Shunyu 探讨了为…</description>
 <category>Scaling Law</category>
@@ -42,8 +54,8 @@
 </item>
 <item>
 <title>AI 芯片如何从底层运作 · Reiner Pope</title>
-<link>https://lens.lumihelia.com/episodes/how-an-ai-chip-works-from-the-bottom-up-reiner-pope.html</link>
-<guid isPermaLink="true">https://lens.lumihelia.com/episodes/how-an-ai-chip-works-from-the-bottom-up-reiner-pope.html</guid>
+<link>https://lumihelia.github.io/PodLens/episodes/how-an-ai-chip-works-from-the-bottom-up-reiner-pope.html</link>
+<guid isPermaLink="true">https://lumihelia.github.io/PodLens/episodes/how-an-ai-chip-works-from-the-bottom-up-reiner-pope.html</guid>
 <pubDate>Thu, 04 Jun 2026 00:00:00 +0000</pubDate>
 <description>在本期节目中，主持人采访了 AI 芯片公司 MatX 的首席执行官 Reiner Pope，从底层开始了解 AI 芯片的工作原理。从最基本的逻辑门开始，Pope 解释了如何构建乘加单元，这是 AI 计算的核心。然后，他将话题扩展到处理器核心的架构，强调了从寄存器文件移动数据的成本通常超过了计算本身的成本。本期节目探讨了脉动阵列（如 Nvidia 的 Tensor Cores）是如何通过创建更大、更…</description>
 <category>乘加单元</category>
@@ -55,8 +67,8 @@
 </item>
 <item>
 <title>AlphaGo 的核心算法 · Eric Jang</title>
-<link>https://lens.lumihelia.com/episodes/the-core-algorithm-of-alphago-eric-jang.html</link>
-<guid isPermaLink="true">https://lens.lumihelia.com/episodes/the-core-algorithm-of-alphago-eric-jang.html</guid>
+<link>https://lumihelia.github.io/PodLens/episodes/the-core-algorithm-of-alphago-eric-jang.html</link>
+<guid isPermaLink="true">https://lumihelia.github.io/PodLens/episodes/the-core-algorithm-of-alphago-eric-jang.html</guid>
 <pubDate>Thu, 04 Jun 2026 00:00:00 +0000</pubDate>
 <description>嘉宾 Eric Jang 是一名研究员，他最近重建了一个围棋 AI。在本期节目中，他解释了 AlphaGo 的核心原理。本期节目介绍了围棋的规则、其博弈树对于经典搜索算法的棘手之处，以及 AlphaGo 如何结合蒙特卡洛树搜索（MCTS）和两个神经网络（一个策略网络和一个价值网络）来解决这个问题。讨论的核心机制是自我对弈强化学习循环，其中 MCTS 过程充当“策略改进算子”，生成更优的落子分布，然…</description>
 <category>蒙特卡洛树搜索</category>
@@ -67,8 +79,8 @@
 </item>
 <item>
 <title>物理学的统一 · Don Lincoln</title>
-<link>https://lens.lumihelia.com/episodes/don-lincoln-lex-fridman-497.html</link>
-<guid isPermaLink="true">https://lens.lumihelia.com/episodes/don-lincoln-lex-fridman-497.html</guid>
+<link>https://lumihelia.github.io/PodLens/episodes/don-lincoln-lex-fridman-497.html</link>
+<guid isPermaLink="true">https://lumihelia.github.io/PodLens/episodes/don-lincoln-lex-fridman-497.html</guid>
 <pubDate>Wed, 03 Jun 2026 00:00:00 +0000</pubDate>
 <description>主持人 Lex Fridman 与费米实验室的粒子物理学家 Don Lincoln 对话，通过统一的视角探讨物理学的历史与未来。核心主题是长达数个世纪的探索，旨在证明看似不同的现象实则由一套单一的潜在原则所支配。对话追溯了物理学史上的几次主要统一，从牛顿的万有引力、麦克斯韦的电磁学，到爱因斯坦的时空观以及标准模型中的电弱力。内容深入探讨了希格斯玻色子的发现、粒子加速器的工作原理，以及当今物理学面临…</description>
 <category>粒子物理标准模型</category>
@@ -80,8 +92,8 @@
 </item>
 <item>
 <title>宇宙的三个领域 · Hakeem Oluseyi</title>
-<link>https://lens.lumihelia.com/episodes/hakeem-oluseyi.html</link>
-<guid isPermaLink="true">https://lens.lumihelia.com/episodes/hakeem-oluseyi.html</guid>
+<link>https://lumihelia.github.io/PodLens/episodes/hakeem-oluseyi.html</link>
+<guid isPermaLink="true">https://lumihelia.github.io/PodLens/episodes/hakeem-oluseyi.html</guid>
 <pubDate>Wed, 03 Jun 2026 00:00:00 +0000</pubDate>
 <description>天体物理学家 Hakeem Oluseyi 探讨了他书中《我们为何存在？》提到的宇宙三个基本“领域”。讲座遵循一个从最小尺度到最大、最具推测性尺度的逻辑弧线。首先，他探索了量子领域，解释了粒子是基本量子场中的激发，而我们的经典直觉无法描述其概率性。其次，他转向宇宙学领域，详细阐述了时空的动态，包括其局部曲率、全局平坦性以及整体膨胀，这些都挑战了我们关于距离和普适当下的概念。最后，他审视了多重宇宙领…</description>
 <category>量子场</category>
@@ -92,8 +104,8 @@
 </item>
 <item>
 <title>青铜时代猖獗的自然选择 · David Reich</title>
-<link>https://lens.lumihelia.com/episodes/david-reich.html</link>
-<guid isPermaLink="true">https://lens.lumihelia.com/episodes/david-reich.html</guid>
+<link>https://lumihelia.github.io/PodLens/episodes/david-reich.html</link>
+<guid isPermaLink="true">https://lumihelia.github.io/PodLens/episodes/david-reich.html</guid>
 <pubDate>Wed, 03 Jun 2026 00:00:00 +0000</pubDate>
 <description>主持人采访了哈佛大学古DNA教授David Reich，谈论了他实验室的一篇新预印本论文。核心话题是在过去18000年里，欧洲和中东人类群体中自然选择的检测。Reich解释说，以前的研究难以找到选择的有力证据，因为其信号被迁徙引起的更大规模的基因变化所淹没。接着，他详细介绍了他实验室的新方法，该方法使用了一个包含超过16000个古代个体的大规模数据集，以在统计上分离出选择的信号。该研究的主要发现是…</description>
 <category>古DNA</category>
@@ -105,8 +117,8 @@
 </item>
 <item>
 <title>时间的四个问题 · Jim Al-Khalili</title>
-<link>https://lens.lumihelia.com/episodes/jim-al-khalili.html</link>
-<guid isPermaLink="true">https://lens.lumihelia.com/episodes/jim-al-khalili.html</guid>
+<link>https://lumihelia.github.io/PodLens/episodes/jim-al-khalili.html</link>
+<guid isPermaLink="true">https://lumihelia.github.io/PodLens/episodes/jim-al-khalili.html</guid>
 <pubDate>Tue, 02 Jun 2026 00:00:00 +0000</pubDate>
 <description>物理学家 Jim Al-Khalili 探讨了时间的物理学，概述了他所谓的四个不同的“时间问题”：时间是否流逝，如何调和量子场论与广义相对论，“现在”的特殊性，以及时间方向的起源 [00:18]。他区分了物理学所描述的“物理时间”和我们的主观感知“显在时间”。讲座追溯了时间概念从牛顿的绝对时间到爱因斯坦的相对时空的演变，通过狭义和广义相对论解释了时间膨胀。接着，讲座探讨了“块宇宙”模型、统一物理学…</description>
 <category>时间膨胀</category>
