@@ -1,6 +1,74 @@
 {
   "items": [
     {
+      "slug": "human-data-and-robotics-gpt-3-moment-danfei-xu",
+      "title": "人类数据与机器人学的GPT-3时刻 · Danfei Xu",
+      "date": "2026-06-06",
+      "kind": "podcast",
+      "summary": "本期播客探讨了机器人学习（robot learning）的演进路径，特别是“人类数据”（human data）如何作为核心燃料推动机器人走向其“GPT-3时刻”。嘉宾是佐治亚理工学院（Georgia Tech）助理教授 Danfei Xu，他将自己定义为一个全栈机器人学家（full-stack roboticist）。播客围绕的核心问题是：机器人学习如何摆脱对强化学习（reinforcement …",
+      "source_url": "https://youtu.be/__P5yygfRRQ?si=BWi-1loCvJIIep2i",
+      "tags": [
+        "行为克隆",
+        "第一人称数据",
+        "人形机器人",
+        "具身模仿"
+      ],
+      "connections": [
+        {
+          "slug": "the-era-of-experience",
+          "kind": "tension",
+          "conflict_type": "genuine",
+          "relation": "矛盾",
+          "this_point": "[40:40 - 40:47] 直接做行为克隆（BC）就能让机器人工作，不需要做强化学习（RL），过去学术界对强化学习的偏见强行压制了行为克隆的有效性。",
+          "that_point": "The Era of Human Data · \"The pace of progress driven solely by supervised learning\" 仅靠监督学习（行为克隆的底层逻辑）驱动的进步速度正在放缓，人类数据红利正面临极限，无法引领智能体达到超人类智能，必须依赖环境中的强化学习。",
+          "why": "前者认为直接对人类数据进行监督模仿（行为克隆）就足够解决机器人控制问题，而后者认为模仿人类数据的监督学习存在硬性上限，必须通过强化学习和环境交互才能实现真正的智能突破。"
+        },
+        {
+          "slug": "representation-learning-and-predictive-world-models-saining",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "印证",
+          "this_point": "[55:54 - 56:16] 以语言（LLM）作为基础能力主导的机器人路线是不对的，因为符号层和物理层距离太远，无法解决精细操作和物理常识问题。",
+          "that_point": "[04:31:16 - 04:31:30] 语言模型的建模技术无法解决这些连续空间信号的认知，这是站不住脚的，因为它们完全在离散的语义/标记空间中运行，缺乏建模连续空间动力学的能力。",
+          "why": "两者共同指出，离散的符号/语言空间与连续的物理世界之间存在根本鸿沟，因此以语言模型为主导的路线无法真正解决物理世界中的空间认知与机器人控制问题。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "Human Data and Robotics' GPT-3 Moment · Danfei Xu",
+          "tags": [
+            "Behavior Cloning",
+            "Egocentric Data",
+            "Humanoid Robots",
+            "Embodied Imitation"
+          ],
+          "summary": "This episode explores the evolutionary path of robot learning, particularly how \"human data\" serves as the core fuel driving robotics toward its \"GPT-3 moment.\" The guest is Danfei Xu, an Assistant Pr…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "the-era-of-experience",
+              "kind": "tension",
+              "conflict_type": "genuine",
+              "relation": "Contradiction",
+              "why": "The former believes that direct supervised imitation of human data (behavior cloning) is sufficient to solve robot control problems, whereas the latter argues that supervised learning imitating human data has a hard ceiling and that true intelligence breakthroughs must be achieved through reinforcement learning and environmental interaction.",
+              "this_point": "[40:40 - 40:47] Doing behavior cloning (BC) directly makes the robot work, no need for reinforcement learning (RL); past academic bias toward reinforcement learning forcibly suppressed the effectiveness of behavior cloning.",
+              "that_point": "The Era of Human Data · \"The pace of progress driven solely by supervised learning\" is slowing down, the human data dividend is facing its limits, and it cannot lead agents to superhuman intelligence; there must be reliance on reinforcement learning in the environment."
+            },
+            {
+              "slug": "representation-learning-and-predictive-world-models-saining",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Corroboration",
+              "why": "Both point out that there is a fundamental chasm between discrete symbolic/language spaces and the continuous physical world, meaning that language model-dominated paths cannot truly solve spatial cognition and robot control problems in the physical world.",
+              "this_point": "[55:54 - 56:16] The robotics path dominated by language (LLMs) as a foundational capability is wrong because the symbolic layer and the physical layer are too far apart to solve fine manipulation and physical common sense problems.",
+              "that_point": "[04:31:16 - 04:31:30] Language model modeling techniques cannot solve the cognition of these continuous spatial signals; this is untenable because they operate entirely in discrete semantic/token spaces and lack the ability to model continuous spatial dynamics."
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "humans-almanac",
       "title": "智能体协作的行动级心智模型数据集 · Jiaju Chen",
       "date": "2026-06-06",

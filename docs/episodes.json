@@ -12,6 +12,20 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/episodes/human-data-and-robotics-gpt-3-moment-danfei-xu.html",
+      "url": "https://lens.lumihelia.com/episodes/human-data-and-robotics-gpt-3-moment-danfei-xu.html",
+      "title": "人类数据与机器人学的GPT-3时刻 · Danfei Xu",
+      "date_published": "2026-06-06",
+      "summary": "本期播客探讨了机器人学习（robot learning）的演进路径，特别是“人类数据”（human data）如何作为核心燃料推动机器人走向其“GPT-3时刻”。嘉宾是佐治亚理工学院（Georgia Tech）助理教授 Danfei Xu，他将自己定义为一个全栈机器人学家（full-stack roboticist）。播客围绕的核心问题是：机器人学习如何摆脱对强化学习（reinforcement …",
+      "tags": [
+        "行为克隆",
+        "第一人称数据",
+        "人形机器人",
+        "具身模仿"
+      ],
+      "external_url": "https://youtu.be/__P5yygfRRQ?si=BWi-1loCvJIIep2i"
+    },
+    {
       "id": "https://lens.lumihelia.com/episodes/the-economics-of-agi-and-automation-alex-imas-phil-trammell.html",
       "url": "https://lens.lumihelia.com/episodes/the-economics-of-agi-and-automation-alex-imas-phil-trammell.html",
       "title": "AGI 与自动化的经济学 · Alex Imas & Phil Trammell",

@@ -231,7 +231,10 @@ def _generate_raw(client: genai.Client, model: str, prompt: str, temperature: fl
     response = client.models.generate_content(
         model=model,
         contents=prompt,
-        config=types.GenerateContentConfig(temperature=temperature),
+        config=types.GenerateContentConfig(
+            temperature=temperature,
+            max_output_tokens=65536,
+        ),
     )
     text = (response.text or "").strip()
     if not text:
