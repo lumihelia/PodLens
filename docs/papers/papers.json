@@ -1,0 +1,30 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "PodLens",
+  "language": "zh-Hans",
+  "home_page_url": "https://lumihelia.github.io/PodLens/papers/",
+  "feed_url": "https://lumihelia.github.io/PodLens/papers/papers.json",
+  "description": "解读有据,出处可查。",
+  "authors": [
+    {
+      "name": "lumihelia"
+    }
+  ],
+  "items": [
+    {
+      "id": "https://lumihelia.github.io/PodLens/papers/the-era-of-experience.html",
+      "url": "https://lumihelia.github.io/PodLens/papers/the-era-of-experience.html",
+      "title": "经验时代：超越人类数据的强化学习 · David Silver",
+      "date_published": "2026-06-06",
+      "summary": "本篇论文由 David Silver 和 Richard S. Sutton 撰写（该文为即将由 MIT Press 出版的书籍《Designing an Intelligence》中的一个章节预印本）。论文探讨了人工智能（AI）正处于从“人类数据时代”向“经验时代”转变的临界点。作者指出，尽管当前的 AI（如大型语言模型，即 LLMs）通过在海量人类生成的数据上进行训练取得了巨大成功，但这种依赖…",
+      "tags": [
+        "经验流",
+        "具地奖励",
+        "双层优化",
+        "自我博弈",
+        "世界模型"
+      ],
+      "external_url": "https://storage.googleapis.com/deepmind-media/Era-of-Experience%20/The%20Era%20of%20Experience%20Paper.pdf"
+    }
+  ]
+}

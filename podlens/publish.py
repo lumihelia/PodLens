@@ -39,8 +39,22 @@ _TS_RE = re.compile(
 # Site output dir (GitHub Pages can serve from /docs on the main branch).
 SITE_DIR = Path("docs")
 EPISODES_DIR = SITE_DIR / "episodes"
+PAPERS_DIR = SITE_DIR / "papers"
 EN_DIR = SITE_DIR / "en"
 EN_EPISODES_DIR = EN_DIR / "episodes"
+EN_PAPERS_DIR = EN_DIR / "papers"
+
+# Sections: each kind maps to a URL section + output dir. "episodes" is the
+# home/primary section (covers audio AND video); "papers" is its own section.
+# Adding a future section is one row here + one nav label — nothing else.
+_SECTIONS = ("episodes", "papers")
+_KIND_SECTION = {"podcast": "episodes", "paper": "papers"}
+# Nav labels stay in English by design (universal, and the brand isn't localized).
+_SECTION_LABEL = {"episodes": "episodes", "papers": "papers"}
+
+
+def _section(kind: str) -> str:
+    return _KIND_SECTION.get(kind or "podcast", "episodes")
 # Internal source-of-truth manifest (full entries, incl. slug/source_url/i18n).
 MANIFEST = SITE_DIR / "manifest.json"
 # Public JSON Feed (jsonfeed.org), generated from the manifest.
@@ -433,22 +447,25 @@ def _body_path(slug: str, lang: str) -> Path:
 
 # --- JSON Feed ----------------------------------------------------------------
 
-def _write_jsonfeed(items: list[dict], site: SiteConfig, lang: str, path: Path) -> None:
-    # A JSON Feed (jsonfeed.org) for machine consumers, per language.
+def _write_jsonfeed(items: list[dict], site: SiteConfig, lang: str, path: Path,
+                    section: str = "episodes") -> None:
+    # A JSON Feed (jsonfeed.org) for machine consumers, per language + section.
     desc = site.description if lang == "zh" else site.description_en
+    feed_base = _section_index_url(site, section, lang)
+    json_name = "episodes.json" if section == "episodes" else f"{section}.json"
     feed = {
         "version": "https://jsonfeed.org/version/1.1",
         "title": site.title,
         "language": _UI[lang]["html_lang"],
-        "home_page_url": _index_url(site, lang),
-        "feed_url": _index_url(site, lang) + "episodes.json",
+        "home_page_url": feed_base,
+        "feed_url": feed_base + json_name,
         "description": desc,
         "authors": [{"name": site.author}],
         "items": [],
     }
     for it in items:
         v = _episode_view(it, lang) or _episode_view(it, "zh")
-        url = _ep_url(site, it["slug"], lang)
+        url = _ep_url(site, it["slug"], lang, section=section)
         feed["items"].append({
             "id": url,
             "url": url,
@@ -630,6 +647,11 @@ li { margin: 6px 0; }
 .back { color: var(--muted); }
 .langswitch { color: var(--muted); font-size: 0.9rem; border: 1px solid var(--border); padding: 4px 12px; border-radius: 999px; }
 .langswitch:hover { color: var(--primary); border-color: var(--primary); text-decoration: none; }
+.sectionnav { display: flex; align-items: baseline; flex-wrap: wrap; gap: 20px; }
+.sectionnav .brand { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.05rem; color: var(--text); }
+.sectionnav .sec { color: var(--muted); font-size: 0.9rem; padding-bottom: 2px; }
+.sectionnav .sec.active { color: var(--text); border-bottom: 1px solid var(--text); }
+.sectionnav a:hover { color: var(--primary); text-decoration: none; }
 a.ts { color: var(--primary); font-variant-numeric: tabular-nums; white-space: nowrap; text-decoration: none; border-bottom: 1px dotted var(--border); }
 a.ts:hover { border-bottom-style: solid; }
 .source { color: var(--muted); font-size: 0.95rem; margin: 0 0 24px; }
@@ -715,12 +737,35 @@ def _index_url(site: SiteConfig, lang: str) -> str:
 
 
 def _ep_url(site: SiteConfig, slug: str, lang: str = "zh",
-            en_slugs: set | None = None) -> str:
-    """Episode page URL in `lang`. For en, fall back to the zh page when the
-    target has no English version (so cross-links never 404)."""
+            en_slugs: set | None = None, section: str = "episodes") -> str:
+    """Item page URL in `lang`, routed to its `section` (episodes/papers). For
+    en, fall back to the zh page when the target has no English version (so
+    cross-links never 404)."""
     use_en = lang == "en" and (en_slugs is None or slug in en_slugs)
     prefix = "/en" if use_en else ""
-    return site.clean_base + f"{prefix}/episodes/{slug}.html"
+    return site.clean_base + f"{prefix}/{section}/{slug}.html"
+
+
+def _section_index_url(site: SiteConfig, section: str, lang: str) -> str:
+    """The listing-page URL for a section. episodes == the site home."""
+    prefix = "/en" if lang == "en" else ""
+    if section == "episodes":
+        return site.clean_base + (prefix + "/" if prefix else "/")
+    return site.clean_base + f"{prefix}/{section}/"
+
+
+def _section_nav(site: SiteConfig, lang: str, active_section: str) -> str:
+    """A small, extensible nav: the brand (home) + one lowercase link per
+    section. Adding a future section adds one link here and nowhere else."""
+    home = _index_url(site, lang)
+    parts = [f'<a class="brand" href="{home}">{html.escape(site.title)}</a>']
+    for sec in _SECTIONS:
+        cls = "sec active" if sec == active_section else "sec"
+        parts.append(
+            f'<a class="{cls}" href="{_section_index_url(site, sec, lang)}">'
+            f'{_SECTION_LABEL[sec]}</a>'
+        )
+    return '<nav class="sectionnav">' + "".join(parts) + "</nav>"
 
 
 def _hreflang_links(zh_url: str, en_url: str) -> str:
@@ -733,16 +778,23 @@ def _hreflang_links(zh_url: str, en_url: str) -> str:
 
 def _render_connections(view: dict, slug_titles: dict, backrefs: list[dict],
                         site: SiteConfig, entry: dict, lang: str,
-                        en_slugs: set) -> str:
-    """Render the bidirectional related-episodes section, or '' if none."""
+                        en_slugs: set, slug_kinds: dict | None = None) -> str:
+    """Render the bidirectional related-items section, or '' if none.
+
+    Links resolve to the TARGET item's section (episodes/papers) via slug_kinds,
+    so a paper<->episode connection always points at the right page.
+    """
     ui = _UI[lang]
+    slug_kinds = slug_kinds or {}
     this_vid = extract_video_id(entry.get("source_url", "") or "")
+
+    def other_url(other_slug: str) -> str:
+        sec = _section(slug_kinds.get(other_slug, "podcast"))
+        return _ep_url(site, other_slug, lang, en_slugs, section=sec)
 
     def pts(mine: str, theirs: str, other_slug: str) -> str:
         mine_html = _linkify_seek(html.escape(mine), this_vid)
-        theirs_html = _linkify_nav(
-            html.escape(theirs), _ep_url(site, other_slug, lang, en_slugs)
-        )
+        theirs_html = _linkify_nav(html.escape(theirs), other_url(other_slug))
         return ('<div class="pts">'
                 f'<div><b class="who">{ui["this_ep"]}</b>{mine_html}</div>'
                 f'<div><b class="who">{ui["related_ep"]}</b>{theirs_html}</div>'
@@ -758,7 +810,7 @@ def _render_connections(view: dict, slug_titles: dict, backrefs: list[dict],
                           f'{ui["conflict_" + ctype]}</span>')
         return (
             f'<li><span class="rel">{html.escape(rel)}</span>{ctype_html}'
-            f'{arrow} <a class="lk" href="{_ep_url(site, other_slug, lang, en_slugs)}">'
+            f'{arrow} <a class="lk" href="{other_url(other_slug)}">'
             f'{html.escape(other_title)}</a>'
             f'<div class="why">{html.escape(conn.get("why", ""))}</div>'
             + pts(mine, theirs, other_slug) + "</li>"
@@ -801,10 +853,13 @@ def render_episode_page(entry: dict, public_md: str, site: SiteConfig,
                         lang: str = "zh", slug_titles: dict | None = None,
                         backrefs: list[dict] | None = None,
                         has_sibling: bool = False,
-                        en_slugs: set | None = None) -> str:
+                        en_slugs: set | None = None,
+                        slug_kinds: dict | None = None) -> str:
     ui = _UI[lang]
-    # A paper rides the same pipeline as a podcast; only a few labels differ.
+    # A paper rides the same pipeline as a podcast; only a few labels + the URL
+    # section differ.
     kind = entry.get("kind", "podcast")
+    section = _section(kind)
     pui = _PAPER_UI[lang] if kind == "paper" else {}
     source_label = pui.get("source", ui["source"])
     foot_text = pui.get("foot", ui["foot"])
@@ -820,14 +875,15 @@ def render_episode_page(entry: dict, public_md: str, site: SiteConfig,
     video_id = extract_video_id(source_url) if source_url else None
     content_html = _linkify_seek(content_html, video_id or "")
     connections_html = _render_connections(
-        view, slug_titles or {}, backrefs or [], site, entry, lang, en_slugs
+        view, slug_titles or {}, backrefs or [], site, entry, lang, en_slugs,
+        slug_kinds or {},
     )
     player_html = _video_embed(video_id) if video_id else ""
-    canonical = _ep_url(site, entry["slug"], lang)
+    canonical = _ep_url(site, entry["slug"], lang, section=section)
 
     # Language switch + hreflang (only when the sibling page actually exists).
-    zh_url = _ep_url(site, entry["slug"], "zh")
-    en_url = _ep_url(site, entry["slug"], "en")
+    zh_url = _ep_url(site, entry["slug"], "zh", section=section)
+    en_url = _ep_url(site, entry["slug"], "en", section=section)
     switch_html = ""
     head_extra = ""
     if lang == "en":
@@ -881,7 +937,7 @@ def render_episode_page(entry: dict, public_md: str, site: SiteConfig,
     if source_url:
         json_ld["isBasedOn"] = source_url
 
-    body = f"""<div class="topbar"><a class="back" href="{_index_url(site, lang)}">← {html.escape(site.title)}</a>{switch_html}</div>
+    body = f"""<div class="topbar">{_section_nav(site, lang, section)}{switch_html}</div>
 <h1>{html.escape(view['title'])}</h1>
 <p class="meta">{entry['date']} · {ui['by_line']}</p>
 {source_line}
@@ -902,13 +958,14 @@ def render_episode_page(entry: dict, public_md: str, site: SiteConfig,
     )
 
 
-def render_index(items: list[dict], site: SiteConfig, lang: str = "zh") -> str:
+def render_index(items: list[dict], site: SiteConfig, lang: str = "zh",
+                 section: str = "episodes") -> str:
     ui = _UI[lang]
     description = site.description if lang == "zh" else site.description_en
     rows = []
     for it in items:
         v = _episode_view(it, lang) or _episode_view(it, "zh")
-        url = _ep_url(site, it["slug"], lang)
+        url = _ep_url(site, it["slug"], lang, section=section)
         rows.append(
             f'<li><span class="date">{it["date"]}</span>'
             f'<a class="title" href="{url}">{html.escape(v["title"])}</a>'
@@ -916,13 +973,15 @@ def render_index(items: list[dict], site: SiteConfig, lang: str = "zh") -> str:
         )
     listing = "\n".join(rows) if rows else f"<p class='summary'>{ui['empty']}</p>"
 
-    # Language switch to the other index (root <-> /en/).
+    # Language switch stays within the SAME section (papers/en <-> papers/zh).
     other = "en" if lang == "zh" else "zh"
     switch_html = (
-        f'<a class="langswitch" href="{_index_url(site, other)}">{ui["switch_to"]}</a>'
+        f'<a class="langswitch" href="{_section_index_url(site, section, other)}">'
+        f'{ui["switch_to"]}</a>'
     )
-    feed_index = _index_url(site, lang)
-    body = f"""<div class="topbar"><span></span>{switch_html}</div>
+    feed_base = _section_index_url(site, section, lang)
+    json_name = "episodes.json" if section == "episodes" else f"{section}.json"
+    body = f"""<div class="topbar">{_section_nav(site, lang, section)}{switch_html}</div>
 <div class="site-head">
 <h1>{html.escape(site.title)}</h1>
 <p class="tagline">{html.escape(description)}</p>
@@ -931,10 +990,10 @@ def render_index(items: list[dict], site: SiteConfig, lang: str = "zh") -> str:
 {listing}
 </ul>
 <p class="index-disclaimer">{ui['disclaimer']}</p>
-<p class="foot">{ui['subscribe']}<a href="{feed_index}feed.xml">RSS</a> · <a href="{feed_index}episodes.json">JSON Feed</a></p>
+<p class="foot">{ui['subscribe']}<a href="{feed_base}feed.xml">RSS</a> · <a href="{feed_base}{json_name}">JSON Feed</a></p>
 """
     return _page(site.title, body, site, description=description,
-                 canonical=feed_index, is_episode=False, lang=lang)
+                 canonical=feed_base, is_episode=False, lang=lang)
 
 
 # --- Feeds & sitemap ----------------------------------------------------------
@@ -949,9 +1008,10 @@ def _rfc822(date_iso: str) -> str:
     return format_datetime(dt)
 
 
-def build_rss(items: list[dict], site: SiteConfig, lang: str = "zh") -> str:
+def build_rss(items: list[dict], site: SiteConfig, lang: str = "zh",
+              section: str = "episodes") -> str:
     desc = site.description if lang == "zh" else site.description_en
-    feed_index = _index_url(site, lang)
+    feed_index = _section_index_url(site, section, lang)
     parts = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
@@ -964,7 +1024,7 @@ def build_rss(items: list[dict], site: SiteConfig, lang: str = "zh") -> str:
     ]
     for it in items:
         v = _episode_view(it, lang) or _episode_view(it, "zh")
-        url = _ep_url(site, it["slug"], lang)
+        url = _ep_url(site, it["slug"], lang, section=section)
         parts += [
             "<item>",
             f"<title>{html.escape(v['title'])}</title>",
@@ -980,11 +1040,17 @@ def build_rss(items: list[dict], site: SiteConfig, lang: str = "zh") -> str:
 
 
 def build_sitemap(items: list[dict], site: SiteConfig, en_slugs: set) -> str:
+    sec = lambda it: _section(it.get("kind", "podcast"))
     urls = [site.clean_base + "/"]
+    if any(sec(it) == "papers" for it in items):
+        urls.append(_section_index_url(site, "papers", "zh"))
     if en_slugs:
         urls.append(site.clean_base + "/en/")
-    urls += [_ep_url(site, it["slug"], "zh") for it in items]
-    urls += [_ep_url(site, it["slug"], "en") for it in items if it["slug"] in en_slugs]
+        if any(it["slug"] in en_slugs and sec(it) == "papers" for it in items):
+            urls.append(_section_index_url(site, "papers", "en"))
+    urls += [_ep_url(site, it["slug"], "zh", section=sec(it)) for it in items]
+    urls += [_ep_url(site, it["slug"], "en", section=sec(it))
+             for it in items if it["slug"] in en_slugs]
     body = "\n".join(f"<url><loc>{u}</loc></url>" for u in urls)
     return (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -1065,9 +1131,31 @@ def publish_report(
     return entry
 
 
+def _section_dir(section: str, lang: str) -> Path:
+    if lang == "zh":
+        return EPISODES_DIR if section == "episodes" else PAPERS_DIR
+    return EN_EPISODES_DIR if section == "episodes" else EN_PAPERS_DIR
+
+
 def _rebuild_site(items: list[dict], site: SiteConfig) -> None:
     SITE_DIR.mkdir(parents=True, exist_ok=True)
     EPISODES_DIR.mkdir(parents=True, exist_ok=True)
+
+    # Stale guard: an item may have moved sections (e.g. a slug republished as a
+    # paper). Drop any rendered page whose slug now belongs to a different
+    # section, so no orphan page lingers at the old URL.
+    slug_kinds = {it["slug"]: it.get("kind", "podcast") for it in items}
+    for lang in LANGS:
+        for section in _SECTIONS:
+            d = _section_dir(section, lang)
+            if not d.exists():
+                continue
+            for f in d.glob("*.html"):
+                if f.stem == "index":
+                    continue
+                want = _section(slug_kinds.get(f.stem, "podcast"))
+                if want != section:
+                    f.unlink()
 
     # Which slugs have an English body (so cross-links/hreflang only point to
     # pages that actually exist).
@@ -1075,9 +1163,7 @@ def _rebuild_site(items: list[dict], site: SiteConfig) -> None:
 
     for lang in LANGS:
         if lang == "en" and not en_slugs:
-            continue  # no English episodes yet -> don't create an empty /en/
-        out_eps = EPISODES_DIR if lang == "zh" else EN_EPISODES_DIR
-        out_eps.mkdir(parents=True, exist_ok=True)
+            continue  # no English items yet -> don't create an empty /en/
 
         # Per-language title map + back-references (derived from forward
         # connections, so they are always consistent without mutating targets).
@@ -1100,23 +1186,36 @@ def _rebuild_site(items: list[dict], site: SiteConfig) -> None:
             body_path = _body_path(it["slug"], lang)
             if not body_path.exists():
                 continue  # no version in this language yet
+            section = _section(it.get("kind", "podcast"))
+            out_dir = _section_dir(section, lang)
+            out_dir.mkdir(parents=True, exist_ok=True)
             html_out = render_episode_page(
                 it, body_path.read_text(encoding="utf-8"), site, lang=lang,
                 slug_titles=slug_titles, backrefs=backrefs.get(it["slug"], []),
                 has_sibling=(it["slug"] in en_slugs), en_slugs=en_slugs,
+                slug_kinds=slug_kinds,
             )
-            (out_eps / f"{it['slug']}.html").write_text(html_out, encoding="utf-8")
+            (out_dir / f"{it['slug']}.html").write_text(html_out, encoding="utf-8")
             rendered.append(it)
 
-        if lang == "zh":
-            (SITE_DIR / "index.html").write_text(render_index(rendered, site, "zh"), encoding="utf-8")
-            (SITE_DIR / "feed.xml").write_text(build_rss(rendered, site, "zh"), encoding="utf-8")
-            _write_jsonfeed(rendered, site, "zh", JSONFEED)
-        elif rendered:
+        # Split into sections for per-section index + feeds.
+        eps = [it for it in rendered if _section(it.get("kind", "podcast")) == "episodes"]
+        paps = [it for it in rendered if _section(it.get("kind", "podcast")) == "papers"]
+
+        if lang == "en":
             EN_DIR.mkdir(parents=True, exist_ok=True)
-            (EN_DIR / "index.html").write_text(render_index(rendered, site, "en"), encoding="utf-8")
-            (EN_DIR / "feed.xml").write_text(build_rss(rendered, site, "en"), encoding="utf-8")
-            _write_jsonfeed(rendered, site, "en", EN_DIR / "episodes.json")
+        root = SITE_DIR if lang == "zh" else EN_DIR
+        # episodes is the home section (root index + root feeds).
+        (root / "index.html").write_text(render_index(eps, site, lang, "episodes"), encoding="utf-8")
+        (root / "feed.xml").write_text(build_rss(eps, site, lang, "episodes"), encoding="utf-8")
+        _write_jsonfeed(eps, site, lang, root / "episodes.json", "episodes")
+        # papers is its own section (only emitted when papers exist).
+        if paps:
+            pdir = _section_dir("papers", lang)
+            pdir.mkdir(parents=True, exist_ok=True)
+            (pdir / "index.html").write_text(render_index(paps, site, lang, "papers"), encoding="utf-8")
+            (pdir / "feed.xml").write_text(build_rss(paps, site, lang, "papers"), encoding="utf-8")
+            _write_jsonfeed(paps, site, lang, pdir / "papers.json", "papers")
 
     _write_manifest(items)
     (SITE_DIR / "sitemap.xml").write_text(build_sitemap(items, site, en_slugs), encoding="utf-8")
