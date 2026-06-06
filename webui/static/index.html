@@ -84,18 +84,28 @@ textarea:focus{outline:none;border-color:var(--primary)}
 .ep-row .ep-date{color:var(--muted);font-size:.9rem;min-width:92px}
 .ep-row .ep-title{font-family:'Playfair Display',serif;font-weight:600;font-size:1.1rem;color:var(--text)}
 .ep-row .ep-badge{font-size:.75rem;color:var(--primary);background:#EDEBF4;padding:2px 9px;border-radius:999px}
+.mode-switch{display:flex;gap:8px;margin:0 0 28px}
+.mode-btn{background:var(--input-bg);color:var(--muted);border:1px solid var(--border);
+  font-size:.92rem;font-weight:600;padding:8px 18px;border-radius:999px}
+.mode-btn.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.mode-btn:hover{border-color:var(--primary);color:var(--primary)}
+.mode-btn.active:hover{color:#fff}
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>PodLens</h1>
-  <p class="sub">上传字幕 → 读完整解读 → 确认后发布公开层并上线</p>
+  <p class="sub">上传字幕或论文 → 读完整解读 → 确认后发布公开层并上线</p>
 
   <!-- Step 1: input -->
   <section id="input">
+    <div class="mode-switch">
+      <button id="mode-podcast" type="button" class="mode-btn active">解读播客 / 视频</button>
+      <button id="mode-paper" type="button" class="mode-btn">解读论文</button>
+    </div>
     <div class="field">
       <div id="drop" class="drop">
-        <strong>拖入字幕文件</strong>,或点击选择　·　支持 .srt / .vtt / .txt / .md(带时间戳即可)
+        <strong id="drop-text">拖入字幕文件</strong>,或点击选择　·　<span id="drop-hint">支持 .srt / .vtt / .txt / .md(带时间戳即可)</span>
         <div id="filename" class="note"></div>
       </div>
       <input id="file" type="file" accept=".srt,.vtt,.txt,.md" class="hidden">
@@ -105,14 +115,14 @@ textarea:focus{outline:none;border-color:var(--primary)}
       <input id="title" type="text" placeholder="留空则自动生成,例如:时间的本质 · Jim Al-Khalili">
     </div>
     <div class="field">
-      <label for="source">原视频链接(可选,填了 YouTube 链接,时间戳就能点击跳转)</label>
+      <label for="source" id="source-label">原视频链接(可选,填了 YouTube 链接,时间戳就能点击跳转)</label>
       <input id="source" type="text" placeholder="https://youtu.be/...">
     </div>
     <div class="row">
       <label class="check"><input id="profile" type="checkbox" checked> 用我的个人档案做映射(仅本地可见)</label>
     </div>
     <button id="run" class="primary">解读</button>
-    <div class="note">没填文件时,如果填了 YouTube 链接会尝试抓字幕(可能被限流,字幕文件最稳)。</div>
+    <div class="note" id="input-hint">没填文件时,如果填了 YouTube 链接会尝试抓字幕(可能被限流,字幕文件最稳)。</div>
     <p class="manage-entry"><button id="to-manage" class="linklike">管理已发布的内容(编辑正文 / 加编者按)→</button></p>
     <p class="manage-entry" style="margin-top:8px"><button id="to-profile" class="linklike">编辑我的个人背景(用于个人映射,仅本地)→</button></p>
   </section>
@@ -228,6 +238,7 @@ let reportMd = null;
 let fullHtml = null;
 let conns = [];
 let sourceCheckTimer = null;
+let mode = 'podcast';  // 'podcast' | 'paper'
 
 function esc(s){ const d = document.createElement('div'); d.textContent = (s==null?'':s); return d.innerHTML; }
 function renderConns(list){
@@ -268,6 +279,28 @@ drop.ondragleave = () => drop.classList.remove('over');
 drop.ondrop = e => { e.preventDefault(); drop.classList.remove('over'); setFile(e.dataTransfer.files[0]); };
 function setFile(f){ pickedFile = f || null; $('filename').textContent = f ? ('已选择:' + f.name) : ''; }
 
+function setMode(m){
+  mode = m;
+  const paper = m === 'paper';
+  $('mode-podcast').classList.toggle('active', !paper);
+  $('mode-paper').classList.toggle('active', paper);
+  $('drop-text').textContent = paper ? '拖入论文 PDF' : '拖入字幕文件';
+  $('drop-hint').textContent = paper
+    ? '支持 .pdf / .txt / .md(双栏或公式多时可改存成 .txt/.md)'
+    : '支持 .srt / .vtt / .txt / .md(带时间戳即可)';
+  $('file').setAttribute('accept', paper ? '.pdf,.txt,.md' : '.srt,.vtt,.txt,.md');
+  $('source-label').textContent = paper
+    ? '论文原文链接(arXiv 或 PDF 地址;会作为「原文」出处显示在页面顶部)'
+    : '原视频链接(可选,填了 YouTube 链接,时间戳就能点击跳转)';
+  $('source').placeholder = paper ? 'https://arxiv.org/abs/...  或  .../paper.pdf' : 'https://youtu.be/...';
+  $('input-hint').textContent = paper
+    ? '论文会用「忠实还原 → 大白话 → 个人映射」三步解读,每条要点都标注英文原文出处;个人映射只存本地。'
+    : '没填文件时,如果填了 YouTube 链接会尝试抓字幕(可能被限流,字幕文件最稳)。';
+  setFile(null);
+}
+$('mode-podcast').onclick = () => setMode('podcast');
+$('mode-paper').onclick = () => setMode('paper');
+
 function show(id){ ['input','working','result','done','manage','edit','profile-edit'].forEach(s => $(s).classList.toggle('hidden', s !== id)); }
 function err(msg){ const e = $('error'); e.textContent = msg; e.classList.remove('hidden'); }
 function clearErr(){ $('error').classList.add('hidden'); }
@@ -288,8 +321,13 @@ async function readJson(r){
 
 $('run').onclick = async () => {
   clearErr();
-  if(!pickedFile && !$('source').value.trim()){ err('请上传字幕文件,或填一个 YouTube 链接。'); return; }
+  if(mode === 'paper'){
+    if(!pickedFile){ err('请上传论文 PDF(或 .txt / .md 文本)。'); return; }
+  }else if(!pickedFile && !$('source').value.trim()){
+    err('请上传字幕文件,或填一个 YouTube 链接。'); return;
+  }
   const fd = new FormData();
+  fd.append('kind', mode);
   fd.append('title', $('title').value.trim());
   fd.append('source_url', $('source').value.trim());
   fd.append('use_profile', $('profile').checked ? 'true' : 'false');
@@ -339,6 +377,7 @@ $('toggle-full').onclick = () => {
 $('confirm').onclick = async () => {
   clearErr();
   const fd = new FormData();
+  fd.append('kind', mode);
   fd.append('report_md', reportMd);
   fd.append('public_md', $('pub-body').value);
   fd.append('title', $('pub-title').value.trim());

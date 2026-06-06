@@ -23,6 +23,10 @@ from .prompts import (
     build_connections_prompt,
     build_mapping_prompt,
     build_metadata_prompt,
+    build_paper_mapping_prompt,
+    build_paper_metadata_prompt,
+    build_paper_plain_language_prompt,
+    build_paper_reconstruction_prompt,
     build_plain_language_prompt,
     build_reconstruction_prompt,
     build_translation_prompt,
@@ -399,6 +403,65 @@ def interpret(
         mapping=mapping,
         model=config.model,
         had_timestamps=timestamps,
+        had_profile=profile is not None,
+        tags=gen_tags,
+        title=gen_title,
+    )
+
+
+def interpret_paper(
+    paper_text: str,
+    profile: str | None,
+    config: Config,
+    on_stage: Callable[[str], None] | None = None,
+) -> InterpretationResult:
+    """Run the three-stage interpretation on a research paper.
+
+    Same faithfulness-first ordering as interpret(), but paper-shaped: the
+    evidence anchor is "section + a verbatim English source quote" (papers have
+    no timestamps), and the plain-language layer adds a glossary + before/after
+    framing for a non-academic reader. Output is in config.output_lang (zh); the
+    public layer is translated to the other language at publish time, like
+    episodes. The private personal-mapping layer is produced only when a profile
+    is given and is never published.
+    """
+    client = _make_client(config)
+
+    def note(stage: str) -> None:
+        if on_stage:
+            on_stage(stage)
+
+    note("第 1/3 步:忠实还原论文")
+    reconstruction = _generate(
+        client, config.model,
+        build_paper_reconstruction_prompt(paper_text), _TEMP_RECONSTRUCTION,
+    )
+    note("第 2/3 步:大白话重讲 + 术语词典")
+    plain_language = _generate(
+        client, config.model,
+        build_paper_plain_language_prompt(paper_text, reconstruction),
+        _TEMP_PLAIN_LANGUAGE,
+    )
+    note("第 3/3 步:证据锚定洞察与个人映射")
+    mapping = _generate(
+        client, config.model,
+        build_paper_mapping_prompt(reconstruction, plain_language, profile),
+        _TEMP_MAPPING,
+    )
+    note("生成标题与主题标签")
+    meta = _parse_json_obj(_generate(
+        client, config.model,
+        build_paper_metadata_prompt(reconstruction), _TEMP_RECONSTRUCTION,
+    ))
+    gen_title = str(meta.get("title", "")).strip()
+    gen_tags = [str(t).strip() for t in meta.get("tags", []) if str(t).strip()][:6]
+
+    return InterpretationResult(
+        reconstruction=reconstruction,
+        plain_language=plain_language,
+        mapping=mapping,
+        model=config.model,
+        had_timestamps=False,
         had_profile=profile is not None,
         tags=gen_tags,
         title=gen_title,

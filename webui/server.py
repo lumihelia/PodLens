@@ -9,7 +9,9 @@ Start with the start_ui.command launcher, or:
 """
 
 import json
+import os
 import subprocess
+import tempfile
 from datetime import datetime
 from pathlib import Path
 
@@ -18,7 +20,10 @@ from fastapi import FastAPI, Form, HTTPException, UploadFile
 from fastapi.responses import FileResponse, JSONResponse
 
 from podlens.config import load_config
-from podlens.interpreter import build_bilingual, find_connections, interpret
+from podlens.interpreter import (
+    build_bilingual, find_connections, interpret, interpret_paper,
+)
+from podlens.papers import extract_pdf_text, load_paper, verify_anchors
 from podlens.profile import load_profile, save_profile
 from podlens.publish import (
     _normalize_claims,
@@ -48,60 +53,99 @@ def index() -> FileResponse:
     return FileResponse(STATIC / "index.html")
 
 
-@app.post("/interpret")
-async def do_interpret(
-    title: str = Form(""),
-    source_url: str = Form(""),
-    use_profile: bool = Form(True),
-    file: UploadFile | None = None,
-) -> JSONResponse:
-    """Run the full interpretation and return previews (no publishing yet)."""
-    title = title.strip()
-    source_url = source_url.strip()
-
-    # Obtain the transcript: uploaded file first, else a YouTube URL.
+async def _read_transcript(file: UploadFile | None, source_url: str) -> str:
+    """Get a podcast/video transcript: an uploaded subtitle file, else YouTube."""
     if file is not None and file.filename:
         raw = (await file.read()).decode("utf-8", errors="replace")
-        transcript = load_transcript(raw)
-    elif source_url and is_youtube_url(source_url):
+        return load_transcript(raw)
+    if source_url and is_youtube_url(source_url):
         try:
-            transcript = fetch_transcript(source_url)
+            return fetch_transcript(source_url)
         except Exception as exc:
             raise HTTPException(
                 400,
                 f"抓取字幕失败:{exc}　(YouTube 抓字幕常被限流;最稳的是下载 "
                 ".srt/.vtt 字幕文件直接上传)",
             )
-    else:
-        raise HTTPException(400, "请上传字幕文件,或提供一个 YouTube 链接。")
+    raise HTTPException(400, "请上传字幕文件,或提供一个 YouTube 链接。")
 
-    if not transcript.strip():
-        raise HTTPException(400, "字幕内容为空。")
+
+async def _read_paper(file: UploadFile | None) -> str:
+    """Get clean paper text from an uploaded PDF (or .txt/.md text)."""
+    if file is None or not file.filename:
+        raise HTTPException(400, "请上传论文 PDF(或 .txt/.md 文本)。")
+    data = await file.read()
+    if file.filename.lower().endswith(".pdf"):
+        with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as tf:
+            tf.write(data)
+            tmp = tf.name
+        try:
+            return extract_pdf_text(tmp)
+        except Exception as exc:
+            raise HTTPException(
+                400, f"读取 PDF 失败:{exc}(也可以把论文文字存成 .txt/.md 再上传)")
+        finally:
+            os.unlink(tmp)
+    return load_paper(data.decode("utf-8", errors="replace"))
+
+
+@app.post("/interpret")
+async def do_interpret(
+    title: str = Form(""),
+    source_url: str = Form(""),
+    use_profile: bool = Form(True),
+    kind: str = Form("podcast"),
+    file: UploadFile | None = None,
+) -> JSONResponse:
+    """Run the full interpretation and return previews (no publishing yet).
+
+    kind="podcast": interpret a transcript (subtitle upload or YouTube link).
+    kind="paper":   interpret a research paper (PDF / .txt / .md upload); every
+    quote anchor is verified against the source so nothing un-findable is shown.
+    """
+    title = title.strip()
+    source_url = source_url.strip()
+    is_paper = kind == "paper"
 
     config = load_config()
     if not config.has_api_key:
         raise HTTPException(400, "未配置 GEMINI_API_KEY(检查 .env)。")
     profile = load_profile(config.profile_path) if use_profile else None
+    site = load_site_config()
 
-    # Interpret the PUBLIC layers in the transcript's OWN language (most
-    # faithful); the private personal mapping stays in your reading language.
-    # Catch ANY failure (the Gemini SDK raises its own error types, not just
-    # RuntimeError) and surface a readable reason instead of an opaque HTTP 500.
-    source_lang = detect_language(transcript)
+    # 1) Acquire the source text (transcript vs paper).
+    if is_paper:
+        source_text = await _read_paper(file)
+        empty_msg = "论文内容为空(检查 PDF 是否能抽取文字,或改为粘贴文本)。"
+        conn_lang = "zh"  # papers are interpreted in zh; translated at publish
+    else:
+        source_text = await _read_transcript(file, source_url)
+        empty_msg = "字幕内容为空。"
+        conn_lang = detect_language(source_text)
+    if not source_text.strip():
+        raise HTTPException(400, empty_msg)
+
+    # 2) Interpret. Catch ANY failure (Gemini SDK raises its own error types) and
+    # surface a readable reason instead of an opaque HTTP 500.
     try:
-        result = interpret(transcript, profile, config, public_lang=source_lang)
-        final_title = title or result.title or "PodLens 解读"
+        if is_paper:
+            result = interpret_paper(source_text, profile, config)
+        else:
+            result = interpret(source_text, profile, config, public_lang=conn_lang)
+        final_title = title or result.title or (
+            "PodLens 论文解读" if is_paper else "PodLens 解读")
         report_md = result.to_markdown(title=final_title)
-        site = load_site_config()
+        # Papers: neutralize any anchor quote not findable in the source paper.
+        if is_paper:
+            report_md, _ok, _fixed = verify_anchors(report_md, source_text)
         public_md = extract_public_markdown(report_md, site.private_cutoff)
-        # Cross-episode connections for review/veto (same language as the public
-        # body, so they translate cleanly).
+        # Cross-source connections (papers <-> episodes) for review/veto.
         slug = slugify(final_title, "")
         candidates = build_candidates(result.tags, exclude_slug=slug)
         cand_titles = {c["slug"]: c["title"] for c in candidates}
         raw_conns = (
             find_connections(final_title, extract_claims_section(report_md),
-                             candidates, config, lang=source_lang)
+                             candidates, config, lang=conn_lang)
             if candidates else []
         )
     except Exception as exc:
@@ -120,6 +164,7 @@ async def do_interpret(
         "tags": result.tags,
         "connections": connections,
         "cutoff": site.private_cutoff,
+        "kind": kind,
     })
 
 
@@ -148,6 +193,7 @@ def do_publish(
     tags: str = Form(""),
     connections: str = Form(""),
     public_md: str = Form(""),
+    kind: str = Form("podcast"),
 ) -> JSONResponse:
     """Publish the public layers (bilingual), then git commit & push live.
 
@@ -184,7 +230,7 @@ def do_publish(
             report_md, zh_b["title"], site, date=pub_date, slug=slug,
             source_url=source_url.strip() or None,
             tags=zh_b["tags"], connections=zh_b["connections"],
-            en=en_b, primary_public_md=zh_b["body"],
+            en=en_b, primary_public_md=zh_b["body"], kind=kind,
         )
     except Exception as exc:
         # Translation/generation failed (incl. Gemini SDK errors): publish a
@@ -194,7 +240,7 @@ def do_publish(
             entry = publish_report(
                 report_md, title.strip(), site, date=pub_date,
                 source_url=source_url.strip() or None,
-                tags=tag_list, connections=conn_list,
+                tags=tag_list, connections=conn_list, kind=kind,
             )
         except Exception as exc2:
             raise HTTPException(400, f"生成失败:{type(exc2).__name__}: {exc2}")
@@ -207,7 +253,8 @@ def do_publish(
     (reports_dir / f"{entry['slug']}.md").write_text(report_md, encoding="utf-8")
 
     pushed, message = _git_publish(entry["title"])
-    url = site.clean_base + f"/episodes/{entry['slug']}.html"
+    section = "papers" if entry.get("kind") == "paper" else "episodes"
+    url = site.clean_base + f"/{section}/{entry['slug']}.html"
     return JSONResponse({
         "url": url,
         "slug": entry["slug"],
@@ -254,7 +301,8 @@ def do_get_episode(slug: str) -> JSONResponse:
         raise HTTPException(404, "未找到这一期。")
     site = load_site_config()
     data["public_html"] = md.markdown(_normalize_claims(data["public_md"]), extensions=_MD_EXT)
-    data["url"] = site.clean_base + f"/episodes/{slug}.html"
+    section = "papers" if data.get("kind") == "paper" else "episodes"
+    data["url"] = site.clean_base + f"/{section}/{slug}.html"
     return JSONResponse(data)
 
 
@@ -305,7 +353,8 @@ def do_update(
         raise HTTPException(400, f"更新失败:{exc}")
 
     pushed, message = _git_publish(entry["title"])
-    url = site.clean_base + f"/episodes/{entry['slug']}.html"
+    section = "papers" if entry.get("kind") == "paper" else "episodes"
+    url = site.clean_base + f"/{section}/{entry['slug']}.html"
     return JSONResponse({
         "url": url,
         "slug": entry["slug"],
