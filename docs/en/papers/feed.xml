@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
 <title>PodLens</title>
-<link>https://lumihelia.github.io/PodLens/en/papers/</link>
+<link>https://lens.lumihelia.com/en/papers/</link>
 <description>Grounded readings, every point traceable to the source.</description>
 <language>en</language>
-<atom:link href="https://lumihelia.github.io/PodLens/en/papers/feed.xml" rel="self" type="application/rss+xml" />
+<atom:link href="https://lens.lumihelia.com/en/papers/feed.xml" rel="self" type="application/rss+xml" />
 <item>
 <title>The Era of Experience: Reinforcement Learning Beyond Human Data · David Silver</title>
-<link>https://lumihelia.github.io/PodLens/en/papers/the-era-of-experience.html</link>
-<guid isPermaLink="true">https://lumihelia.github.io/PodLens/en/papers/the-era-of-experience.html</guid>
+<link>https://lens.lumihelia.com/en/papers/the-era-of-experience.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/papers/the-era-of-experience.html</guid>
 <pubDate>Sat, 06 Jun 2026 00:00:00 +0000</pubDate>
 <description>This paper is written by David Silver and Richard S. Sutton (the text is a preprint of a chapter in the forthcoming book Designing an Intelligence to be published by MIT Press). The paper explores how…</description>
 <category>experience streams</category>
