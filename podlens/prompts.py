@@ -138,6 +138,17 @@ entry should stand on its own as a real point worth noting. For EACH claim:
   (fact / claim / example / prediction / speculation / host-prompt)
 - if relevant, a one-line note on uncertainty or hedging the speaker expressed
 
+## 内部张力与自我修正
+ONLY include this section when genuine internal tension exists within THIS
+episode. If none, omit the section entirely -- do NOT write "no tension found."
+Tension means: the same speaker says two things at different moments in the
+same episode that pull against each other -- a position they walk back, a
+strong claim followed by a qualifier that substantially undermines it, or two
+statements that cannot both be true. For each:
+- [timestampA] vs [timestampB]: one sentence stating exactly what is in tension
+  with what, at the level of the specific claims -- not "the topic is complex."
+Do not write preamble, framing, or meta-commentary. State the tension directly.
+
 TRANSCRIPT:
 \"\"\"
 {transcript}
