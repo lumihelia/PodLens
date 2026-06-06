@@ -28,6 +28,11 @@ from pathlib import Path
 
 import markdown as md
 
+# Import config for its side effect: it loads the project .env (so PODLENS_*
+# site settings resolve here even when publish is imported on its own, e.g. a
+# standalone rebuild). Real entry points import config anyway, but this makes
+# load_site_config self-sufficient regardless of import order.
+from . import config as _config  # noqa: F401
 from .youtube import extract_video_id
 
 # A bracketed timestamp like [12:34] or [1:23:45] or a range [00:00-01:04].

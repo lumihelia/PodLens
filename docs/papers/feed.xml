@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
 <title>PodLens</title>
-<link>https://lumihelia.github.io/PodLens/papers/</link>
+<link>https://lens.lumihelia.com/papers/</link>
 <description>解读有据,出处可查。</description>
 <language>zh-Hans</language>
-<atom:link href="https://lumihelia.github.io/PodLens/papers/feed.xml" rel="self" type="application/rss+xml" />
+<atom:link href="https://lens.lumihelia.com/papers/feed.xml" rel="self" type="application/rss+xml" />
 <item>
 <title>经验时代：超越人类数据的强化学习 · David Silver</title>
-<link>https://lumihelia.github.io/PodLens/papers/the-era-of-experience.html</link>
-<guid isPermaLink="true">https://lumihelia.github.io/PodLens/papers/the-era-of-experience.html</guid>
+<link>https://lens.lumihelia.com/papers/the-era-of-experience.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/papers/the-era-of-experience.html</guid>
 <pubDate>Sat, 06 Jun 2026 00:00:00 +0000</pubDate>
 <description>本篇论文由 David Silver 和 Richard S. Sutton 撰写（该文为即将由 MIT Press 出版的书籍《Designing an Intelligence》中的一个章节预印本）。论文探讨了人工智能（AI）正处于从“人类数据时代”向“经验时代”转变的临界点。作者指出，尽管当前的 AI（如大型语言模型，即 LLMs）通过在海量人类生成的数据上进行训练取得了巨大成功，但这种依赖…</description>
 <category>经验流</category>

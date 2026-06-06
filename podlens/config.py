@@ -2,10 +2,15 @@
 
 import os
 from dataclasses import dataclass
+from pathlib import Path
 
 from dotenv import load_dotenv
 
-load_dotenv()
+# Load the project .env by EXPLICIT path. Bare load_dotenv() relies on
+# find_dotenv() walking the call stack, which fails under `python -c`, some test
+# runners, and certain server launch contexts — silently leaving every setting
+# at its default. An explicit path is robust everywhere (CLI, WebUI, scripts).
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 DEFAULT_MODEL = "gemini-2.5-pro"
 DEFAULT_OUTPUT_LANG = "zh"
