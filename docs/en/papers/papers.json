@@ -12,6 +12,37 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/en/papers/humans-almanac.html",
+      "url": "https://lens.lumihelia.com/en/papers/humans-almanac.html",
+      "title": "Action-Level Mental Model Dataset for Agent Collaboration · Jiaju Chen",
+      "date_published": "2026-06-06",
+      "summary": "This paper introduces ALMANAC, the first dataset of Action-Level Mental Model Annotations for human-agent collaboration. Although Large Language Model (LLM) agents possess multi-step reasoning and pla…",
+      "tags": [
+        "Agent Collaboration",
+        "Mental Models",
+        "ALMANAC",
+        "Map Task",
+        "Behavior Prediction"
+      ],
+      "external_url": "https://arxiv.org/pdf/2606.06388"
+    },
+    {
+      "id": "https://lens.lumihelia.com/en/papers/agent-memory.html",
+      "url": "https://lens.lumihelia.com/en/papers/agent-memory.html",
+      "title": "Agent Memory: System Characterization and Implications for Long-Horizon Workloads · Yasmine Omri",
+      "date_published": "2026-06-06",
+      "summary": "This paper presents the first system-level characterization of Agent Memory Systems for Large Language Models (LLMs). As LLM agents are increasingly deployed in long-horizon tasks requiring continuous…",
+      "tags": [
+        "Agent Memory",
+        "System-level Characterization",
+        "Prefill Overhead",
+        "Memory Construction",
+        "Freshness and Latency",
+        "Energy Overhead"
+      ],
+      "external_url": "https://arxiv.org/pdf/2606.06448"
+    },
+    {
       "id": "https://lens.lumihelia.com/en/papers/the-era-of-experience.html",
       "url": "https://lens.lumihelia.com/en/papers/the-era-of-experience.html",
       "title": "The Era of Experience: Reinforcement Learning Beyond Human Data · David Silver",

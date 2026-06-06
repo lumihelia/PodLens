@@ -7,6 +7,31 @@
 <language>en</language>
 <atom:link href="https://lens.lumihelia.com/en/papers/feed.xml" rel="self" type="application/rss+xml" />
 <item>
+<title>Action-Level Mental Model Dataset for Agent Collaboration · Jiaju Chen</title>
+<link>https://lens.lumihelia.com/en/papers/humans-almanac.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/papers/humans-almanac.html</guid>
+<pubDate>Sat, 06 Jun 2026 00:00:00 +0000</pubDate>
+<description>This paper introduces ALMANAC, the first dataset of Action-Level Mental Model Annotations for human-agent collaboration. Although Large Language Model (LLM) agents possess multi-step reasoning and pla…</description>
+<category>Agent Collaboration</category>
+<category>Mental Models</category>
+<category>ALMANAC</category>
+<category>Map Task</category>
+<category>Behavior Prediction</category>
+</item>
+<item>
+<title>Agent Memory: System Characterization and Implications for Long-Horizon Workloads · Yasmine Omri</title>
+<link>https://lens.lumihelia.com/en/papers/agent-memory.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/papers/agent-memory.html</guid>
+<pubDate>Sat, 06 Jun 2026 00:00:00 +0000</pubDate>
+<description>This paper presents the first system-level characterization of Agent Memory Systems for Large Language Models (LLMs). As LLM agents are increasingly deployed in long-horizon tasks requiring continuous…</description>
+<category>Agent Memory</category>
+<category>System-level Characterization</category>
+<category>Prefill Overhead</category>
+<category>Memory Construction</category>
+<category>Freshness and Latency</category>
+<category>Energy Overhead</category>
+</item>
+<item>
 <title>The Era of Experience: Reinforcement Learning Beyond Human Data · David Silver</title>
 <link>https://lens.lumihelia.com/en/papers/the-era-of-experience.html</link>
 <guid isPermaLink="true">https://lens.lumihelia.com/en/papers/the-era-of-experience.html</guid>

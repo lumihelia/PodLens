@@ -7,6 +7,31 @@
 <language>zh-Hans</language>
 <atom:link href="https://lens.lumihelia.com/papers/feed.xml" rel="self" type="application/rss+xml" />
 <item>
+<title>智能体协作的行动级心智模型数据集 · Jiaju Chen</title>
+<link>https://lens.lumihelia.com/papers/humans-almanac.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/papers/humans-almanac.html</guid>
+<pubDate>Sat, 06 Jun 2026 00:00:00 +0000</pubDate>
+<description>本文介绍了 ALMANAC，这是第一个针对人机协作(human-agent collaboration)的行动级心智模型标注(Action-Level Mental Model Annotations)数据集。虽然大语言模型(LLM)智能体具备多步推理和规划能力，但它们大多被优化用于独立完成任务，缺乏协作所需的共享心智模型对齐能力。为了填补这一空白，作者设计了一个理论指导的双步标注框架，基于经典社…</description>
+<category>智能体协作</category>
+<category>心智模型</category>
+<category>ALMANAC</category>
+<category>地图任务</category>
+<category>行为预测</category>
+</item>
+<item>
+<title>智能体记忆：长周期工作负载的系统特征与启示 · Yasmine Omri</title>
+<link>https://lens.lumihelia.com/papers/agent-memory.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/papers/agent-memory.html</guid>
+<pubDate>Sat, 06 Jun 2026 00:00:00 +0000</pubDate>
+<description>本文是针对大语言模型(LLM)智能体记忆系统(Agent Memory Systems)的第一份系统级表征(systems characterization)研究。随着大语言模型智能体被越来越多地应用于需要长期持续推理的长周期任务(long-horizon tasks)中，智能体需要在多个会话中持久化存储、检索和更新其自身的记忆。尽管目前存在多种智能体记忆系统设计，但它们的系统级行为和计算开销一直…</description>
+<category>智能体记忆</category>
+<category>系统级表征</category>
+<category>预填充开销</category>
+<category>记忆构建</category>
+<category>鲜度与延迟</category>
+<category>能耗开销</category>
+</item>
+<item>
 <title>经验时代：超越人类数据的强化学习 · David Silver</title>
 <link>https://lens.lumihelia.com/papers/the-era-of-experience.html</link>
 <guid isPermaLink="true">https://lens.lumihelia.com/papers/the-era-of-experience.html</guid>
