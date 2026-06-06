@@ -253,7 +253,10 @@ def build_connections_prompt(
     ten_vocab = ("Refutes / Contradicts / Contrast / Tension"
                  if output_lang == "en" else "反驳 / 矛盾 / 对照 / 张力")
     return f"""\
-You are linking a NEW episode to PRIOR episodes in a personal knowledge base.
+You are linking a NEW item (a podcast/talk episode OR a research paper) to PRIOR
+items in a personal knowledge base. The two may be of different kinds — a paper
+can resonate with or contradict an episode, and vice versa; actively look for
+those cross-kind links too.
 Find only GENUINE, SPECIFIC, MICRO-level connections — of TWO kinds:
 
   • RESONANCE (`kind`: "resonance") — the two claims AGREE, corroborate, extend,
@@ -263,18 +266,22 @@ Find only GENUINE, SPECIFIC, MICRO-level connections — of TWO kinds:
     links, but they are also the easiest to fake, so the bar is HIGHER (below).
 
 IRON RULES (apply to BOTH kinds):
-- A connection must point to a SPECIFIC claim in the new episode (with its
-  timestamp) AND a SPECIFIC claim in a prior episode (with its timestamp), and
-  state the precise relationship between those two specific claims.
+- A connection must point to a SPECIFIC claim in the new item (with its anchor)
+  AND a SPECIFIC claim in a prior item (with its anchor), and state the precise
+  relationship between those two specific claims. An anchor is a timestamp like
+  [12:34] for an audio/video episode, OR a section name + a short verbatim source
+  quote for a paper (papers have NO timestamps — never invent one; use the
+  section + quote exactly as given in the claims).
 - BANNED: vague macro links like "both discuss physics" / "both about science"
   / "same field". If the only link is the broad topic, do NOT create it.
 - Only use prior episodes from the candidate list below. Cite a prior episode by
   its exact "slug".
 - `relation`: one short word/phrase IN THE OUTPUT LANGUAGE.
   For resonance use: {res_vocab}. For tension use: {ten_vocab}.
-- `this_point` and `that_point` must contain ONLY the timestamp(s) and the
-  claim itself. Do NOT prefix them with "本期"/"那期"/"this episode"/"that
-  episode" — the page adds the correct label depending on which page it shows on.
+- `this_point` and `that_point` must contain ONLY the anchor (a timestamp, or a
+  section + short source quote) and the claim itself. Do NOT prefix them with
+  "本期"/"那期"/"this episode"/"that episode" — the page adds the correct label
+  depending on which page it shows on.
 
 EXTRA RULES FOR TENSION (do not manufacture disagreement):
 - The two claims must address the SAME underlying question or object. Two claims

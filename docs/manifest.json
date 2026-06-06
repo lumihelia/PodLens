@@ -14,7 +14,44 @@
         "自我博弈",
         "世界模型"
       ],
-      "connections": [],
+      "connections": [
+        {
+          "slug": "representation-learning-and-predictive-world-models-saining",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "印证",
+          "this_point": "Planning and Reasoning · \"discover or improve such approaches by learning how to\" 智能体可以利用非人类语言（如符号、分布式或连续计算）发现或改进更高效的思考机制，而无需局限于模仿人类的思维链。",
+          "that_point": "[03:53:57 - 04:10:06] 语言是人类开发的一种高度压缩的沟通工具，而不是思维或决策的直接映射；因此，仅仅依赖语言模型会制造一个“拐杖”，限制真实智能的发展。",
+          "why": "两者都指出人类语言不应被视为智能或思维的终极载体，过度依赖人类语言会限制人工智能的发展，智能体应当探索非语言的、更高效的底层计算与思考机制。"
+        },
+        {
+          "slug": "representation-learning-and-predictive-world-models-saining",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "补充",
+          "this_point": "Actions and Observations · \"act autonomously in the real world\" 智能体将拥有更丰富的动作与观察空间，在真实或数字世界中进行自主交互，而非仅限于人类特权的形式（如纯文本对话）。",
+          "that_point": "[06:07:44 - 06:13:49] AGI 是一个虚假的前提……人类智能是一种非常专业化的智能……构建松鼠的智能才是难题",
+          "why": "两者都主张将人工智能的研究重心从人类特有的符号和文本交互（如写代码、聊天）转向更具挑战性的、在真实世界中进行自主交互与生存的具地智能。"
+        },
+        {
+          "slug": "the-core-algorithm-of-alphago-eric-jang",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "延伸",
+          "this_point": "Planning and Reasoning · \"discover or improve such approaches by learning how to\" 智能体可以利用非人类语言（如符号、分布式或连续计算）发现或改进更高效的思考机制，而无需局限于模仿人类的思维链。",
+          "that_point": "[01:47:45 - 01:50:32] 尽管 MCTS 在围棋上很强大，但将其直接应用于像大语言模型推理这样的开放式领域是困难的。语言的行动空间在组合上更大且不那么离散，使得像 PUCT 这样的探索启发式方法无效，而且定义一个可靠的、用于截断搜索的中间价值函数也困难得多。",
+          "why": "前者指出了在离散且组合空间巨大的语言空间中进行搜索和推理的局限性，而后者提出智能体可以使用非人类语言（如连续或分布式计算）来发现更高效的思考机制，这为克服语言空间的搜索瓶颈提供了潜在的解决路径。"
+        },
+        {
+          "slug": "the-core-algorithm-of-alphago-eric-jang",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "印证",
+          "this_point": "Rewards · \"Relying on human prejudgement in this manner usually leads\" 依赖人类预判的奖励会给智能体性能设定无法逾越的上限，而来自环境的具地/接地奖励（grounded rewards）能让智能体发现超越人类现有知识的新策略。",
+          "that_point": "[01:02:46 - 01:03:17] 该系统通过自我对弈强化学习循环进行改进，其中 MCTS 充当“策略改进算子”。对于任何给定的棋盘状态，MCTS 执行深度搜索，以生成比策略网络初始猜测更好、更自信的落子分布。然后训练策略网络直接预测这种改进后的分布。",
+          "why": "前者强调摆脱人类预判、依赖环境具地反馈的重要性，而后者阐述的 AlphaGo 自我对弈机制正是通过游戏规则给出的确定性输赢反馈（接地奖励），在没有人类引导的情况下探索出超越人类的围棋策略。"
+        }
+      ],
       "editor_note": "",
       "i18n": {
         "en": {
@@ -28,7 +65,44 @@
           ],
           "summary": "This paper is written by David Silver and Richard S. Sutton (the text is a preprint of a chapter in the forthcoming book Designing an Intelligence to be published by MIT Press). The paper explores how…",
           "editor_note": "",
-          "connections": []
+          "connections": [
+            {
+              "slug": "representation-learning-and-predictive-world-models-saining",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Corroboration",
+              "why": "Both point out that human language should not be viewed as the ultimate vehicle for intelligence or thought, and that over-reliance on human language limits the development of artificial intelligence. Agents should explore non-linguistic, more efficient underlying computational and thinking mechanisms.",
+              "this_point": "Planning and Reasoning · \"discover or improve such approaches by learning how to\" Agents can use non-human languages (such as symbolic, distributed, or continuous computation) to discover or improve more efficient thinking mechanisms, without being limited to mimicking human chains of thought.",
+              "that_point": "[03:53:57 - 04:10:06] Language is a highly compressed communication tool developed by humans, rather than a direct mapping of thought or decision-making; therefore, relying solely on language models creates a \"crutch\" that limits the development of true intelligence."
+            },
+            {
+              "slug": "representation-learning-and-predictive-world-models-saining",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Complement",
+              "why": "Both advocate shifting the focus of artificial intelligence research from human-specific symbolic and textual interactions (such as writing code or chatting) to the more challenging embodied intelligence that autonomously interacts and survives in the real world.",
+              "this_point": "Actions and Observations · \"act autonomously in the real world\" Agents will have richer action and observation spaces to interact autonomously in the real or digital world, rather than being limited to human-privileged formats (such as pure text dialogue).",
+              "that_point": "[06:07:44 - 06:13:49] AGI is a false premise... human intelligence is a highly specialized intelligence... building the intelligence of a squirrel is the real challenge"
+            },
+            {
+              "slug": "the-core-algorithm-of-alphago-eric-jang",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Extension",
+              "why": "The former points out the limitations of searching and reasoning in a discrete and combinatorially massive language space, while the latter proposes that agents can use non-human languages (such as continuous or distributed computation) to discover more efficient thinking mechanisms, providing a potential path to overcome the search bottleneck in language space.",
+              "this_point": "Planning and Reasoning · \"discover or improve such approaches by learning how to\" Agents can use non-human languages (such as symbolic, distributed, or continuous computation) to discover or improve more efficient thinking mechanisms, without being limited to mimicking human chains of thought.",
+              "that_point": "[01:47:45 - 01:50:32] Although MCTS is powerful in Go, applying it directly to open-ended domains like large language model reasoning is difficult. The action space of language is combinatorially larger and less discrete, making exploration heuristics like PUCT ineffective, and defining a reliable intermediate value function for search truncation is also much harder."
+            },
+            {
+              "slug": "the-core-algorithm-of-alphago-eric-jang",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Corroboration",
+              "why": "The former emphasizes the importance of breaking free from human prejudgement and relying on embodied feedback from the environment, while the latter's explanation of the AlphaGo self-play mechanism is precisely about exploring Go strategies that surpass humans without human guidance, through deterministic win/loss feedback (grounded rewards) provided by the game rules.",
+              "this_point": "Rewards · \"Relying on human prejudgement in this manner usually leads\" Relying on rewards from human prejudgement sets an insurmountable ceiling on agent performance, whereas embodied/grounded rewards from the environment allow agents to discover new strategies that transcend existing human knowledge.",
+              "that_point": "[01:02:46 - 01:03:17] The system improves through a self-play reinforcement learning loop, where MCTS acts as a \"policy improvement operator\". For any given board state, MCTS performs a deep search to generate a better, more confident move distribution than the policy network's initial guess. The policy network is then trained to directly predict this improved distribution."
+            }
+          ]
         }
       }
     },

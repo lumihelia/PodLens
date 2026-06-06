@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
 <title>PodLens</title>
-<link>https://lumihelia.github.io/PodLens/en/</link>
+<link>https://lens.lumihelia.com/en/</link>
 <description>Grounded readings, every point traceable to the source.</description>
 <language>en</language>
-<atom:link href="https://lumihelia.github.io/PodLens/en/feed.xml" rel="self" type="application/rss+xml" />
+<atom:link href="https://lens.lumihelia.com/en/feed.xml" rel="self" type="application/rss+xml" />
 <item>
 <title>The Era of Experience: Reinforcement Learning Beyond Human Data · David Silver</title>
-<link>https://lumihelia.github.io/PodLens/en/episodes/the-era-of-experience.html</link>
-<guid isPermaLink="true">https://lumihelia.github.io/PodLens/en/episodes/the-era-of-experience.html</guid>
+<link>https://lens.lumihelia.com/en/episodes/the-era-of-experience.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/the-era-of-experience.html</guid>
 <pubDate>Sat, 06 Jun 2026 00:00:00 +0000</pubDate>
 <description>This paper is written by David Silver and Richard S. Sutton (the text is a preprint of a chapter in the forthcoming book Designing an Intelligence to be published by MIT Press). The paper explores how…</description>
 <category>experience streams</category>
@@ -20,8 +20,8 @@
 </item>
 <item>
 <title>The Economics of AGI and Automation · Alex Imas &amp; Phil Trammell</title>
-<link>https://lumihelia.github.io/PodLens/en/episodes/the-economics-of-agi-and-automation-alex-imas-phil-trammell.html</link>
-<guid isPermaLink="true">https://lumihelia.github.io/PodLens/en/episodes/the-economics-of-agi-and-automation-alex-imas-phil-trammell.html</guid>
+<link>https://lens.lumihelia.com/en/episodes/the-economics-of-agi-and-automation-alex-imas-phil-trammell.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/the-economics-of-agi-and-automation-alex-imas-phil-trammell.html</guid>
 <pubDate>Fri, 05 Jun 2026 00:00:00 +0000</pubDate>
 <description>In this episode, host Dwarkesh Patel interviews Alex Imas (Director of AGI Economics at Google DeepMind and Professor of Economics at the University of Chicago) and Phil Trammell (Head of Economics at…</description>
 <category>Relational Sector</category>
@@ -31,8 +31,8 @@
 </item>
 <item>
 <title>Representation Learning and Predictive World Models · Saining Xie</title>
-<link>https://lumihelia.github.io/PodLens/en/episodes/representation-learning-and-predictive-world-models-saining.html</link>
-<guid isPermaLink="true">https://lumihelia.github.io/PodLens/en/episodes/representation-learning-and-predictive-world-models-saining.html</guid>
+<link>https://lens.lumihelia.com/en/episodes/representation-learning-and-predictive-world-models-saining.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/representation-learning-and-predictive-world-models-saining.html</guid>
 <pubDate>Thu, 04 Jun 2026 00:00:00 +0000</pubDate>
 <description>This episode features an in-depth, marathon interview with young scientist and entrepreneur Xie Saining, alongside a brief guest segment with Tommy (Zhiyuan Zeng). The central focus of the discussion …</description>
 <category>Diffusion Transformer</category>
@@ -43,8 +43,8 @@
 </item>
 <item>
 <title>The Reality of Frontier AI and the End of Individual Heroism · Yao Shunyu</title>
-<link>https://lumihelia.github.io/PodLens/en/episodes/the-reality-of-frontier-ai-and-the-end-of-individual-heroism.html</link>
-<guid isPermaLink="true">https://lumihelia.github.io/PodLens/en/episodes/the-reality-of-frontier-ai-and-the-end-of-individual-heroism.html</guid>
+<link>https://lens.lumihelia.com/en/episodes/the-reality-of-frontier-ai-and-the-end-of-individual-heroism.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/the-reality-of-frontier-ai-and-the-end-of-individual-heroism.html</guid>
 <pubDate>Thu, 04 Jun 2026 00:00:00 +0000</pubDate>
 <description>In this episode, host Xiaojun interviews Yao Shunyu, a prominent AI researcher who transitioned from theoretical physics to AI, having previously worked at Anthropic and currently at Google DeepMind. …</description>
 <category>Scaling Law</category>
@@ -54,8 +54,8 @@
 </item>
 <item>
 <title>How an AI Chip Works from the Bottom Up · Reiner Pope</title>
-<link>https://lumihelia.github.io/PodLens/en/episodes/how-an-ai-chip-works-from-the-bottom-up-reiner-pope.html</link>
-<guid isPermaLink="true">https://lumihelia.github.io/PodLens/en/episodes/how-an-ai-chip-works-from-the-bottom-up-reiner-pope.html</guid>
+<link>https://lens.lumihelia.com/en/episodes/how-an-ai-chip-works-from-the-bottom-up-reiner-pope.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/how-an-ai-chip-works-from-the-bottom-up-reiner-pope.html</guid>
 <pubDate>Thu, 04 Jun 2026 00:00:00 +0000</pubDate>
 <description>In this episode, the host interviews Reiner Pope, CEO of the AI chip company MatX, to understand how an AI chip works from the bottom up. Starting with the most fundamental logic gates, Pope explains …</description>
 <category>Multiply-Accumulate Unit</category>
@@ -67,8 +67,8 @@
 </item>
 <item>
 <title>The Core Algorithm of AlphaGo · Eric Jang</title>
-<link>https://lumihelia.github.io/PodLens/en/episodes/the-core-algorithm-of-alphago-eric-jang.html</link>
-<guid isPermaLink="true">https://lumihelia.github.io/PodLens/en/episodes/the-core-algorithm-of-alphago-eric-jang.html</guid>
+<link>https://lens.lumihelia.com/en/episodes/the-core-algorithm-of-alphago-eric-jang.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/the-core-algorithm-of-alphago-eric-jang.html</guid>
 <pubDate>Thu, 04 Jun 2026 00:00:00 +0000</pubDate>
 <description>Guest Eric Jang, a researcher who recently rebuilt a Go-playing AI, explains the core principles of AlphaGo. The episode walks through the rules of Go, the intractability of its game tree for classica…</description>
 <category>Monte Carlo Tree Search</category>
@@ -79,8 +79,8 @@
 </item>
 <item>
 <title>The Unification of Physics · Don Lincoln</title>
-<link>https://lumihelia.github.io/PodLens/en/episodes/don-lincoln-lex-fridman-497.html</link>
-<guid isPermaLink="true">https://lumihelia.github.io/PodLens/en/episodes/don-lincoln-lex-fridman-497.html</guid>
+<link>https://lens.lumihelia.com/en/episodes/don-lincoln-lex-fridman-497.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/don-lincoln-lex-fridman-497.html</guid>
 <pubDate>Wed, 03 Jun 2026 00:00:00 +0000</pubDate>
 <description>Host Lex Fridman speaks with Don Lincoln, a particle physicist at Fermilab, about the history and future of physics through the lens of unification. The central theme is the centuries-long quest to sh…</description>
 <category>Standard Model of Particle Physics</category>
@@ -92,8 +92,8 @@
 </item>
 <item>
 <title>The Three Realms of the Universe · Hakeem Oluseyi</title>
-<link>https://lumihelia.github.io/PodLens/en/episodes/hakeem-oluseyi.html</link>
-<guid isPermaLink="true">https://lumihelia.github.io/PodLens/en/episodes/hakeem-oluseyi.html</guid>
+<link>https://lens.lumihelia.com/en/episodes/hakeem-oluseyi.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/hakeem-oluseyi.html</guid>
 <pubDate>Wed, 03 Jun 2026 00:00:00 +0000</pubDate>
 <description>Astrophysicist Hakeem Oluseyi discusses three fundamental &quot;realms&quot; of the universe from his book, Why Do We Exist?. The talk follows a logical arc from the smallest scale to the largest and most specu…</description>
 <category>Quantum Fields</category>
@@ -104,8 +104,8 @@
 </item>
 <item>
 <title>Rampant Natural Selection in the Bronze Age · David Reich</title>
-<link>https://lumihelia.github.io/PodLens/en/episodes/david-reich.html</link>
-<guid isPermaLink="true">https://lumihelia.github.io/PodLens/en/episodes/david-reich.html</guid>
+<link>https://lens.lumihelia.com/en/episodes/david-reich.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/david-reich.html</guid>
 <pubDate>Wed, 03 Jun 2026 00:00:00 +0000</pubDate>
 <description>The host interviews guest David Reich, a professor of ancient DNA at Harvard, about a new preprint from his lab. The central topic is the detection of natural selection in human populations in Europe …</description>
 <category>Ancient DNA</category>
@@ -117,8 +117,8 @@
 </item>
 <item>
 <title>The Four Problems of Time · Jim Al-Khalili</title>
-<link>https://lumihelia.github.io/PodLens/en/episodes/jim-al-khalili.html</link>
-<guid isPermaLink="true">https://lumihelia.github.io/PodLens/en/episodes/jim-al-khalili.html</guid>
+<link>https://lens.lumihelia.com/en/episodes/jim-al-khalili.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/jim-al-khalili.html</guid>
 <pubDate>Tue, 02 Jun 2026 00:00:00 +0000</pubDate>
 <description>Physicist Jim Al-Khalili discusses the physics of time, outlining what he calls the four distinct &quot;problems of time&quot;: whether time flows, how to reconcile quantum field theory with general relativity,…</description>
 <category>Time Dilation</category>

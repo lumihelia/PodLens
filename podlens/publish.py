@@ -329,14 +329,18 @@ def extract_public_markdown(report_md: str, cutoff_heading: str) -> str:
 
 
 def extract_claims_section(md_text: str) -> str:
-    """Return the 核心观点清单 section text (used as a compact claims index)."""
-    marker = "## 核心观点清单"
-    i = md_text.find(marker)
-    if i == -1:
-        return ""
-    rest = md_text[i + len(marker):]
-    j = rest.find("\n## ")
-    return (rest[:j] if j != -1 else rest).strip()
+    """Return the key-claims section text (used as a compact claims index).
+
+    Episodes label it 核心观点清单; papers label it 核心论点清单. Match either so
+    cross-kind connections (paper <-> episode) can compare claims both ways.
+    """
+    for marker in ("## 核心观点清单", "## 核心论点清单"):
+        i = md_text.find(marker)
+        if i != -1:
+            rest = md_text[i + len(marker):]
+            j = rest.find("\n## ")
+            return (rest[:j] if j != -1 else rest).strip()
+    return ""
 
 
 def build_candidates(this_tags: list[str], exclude_slug: str, limit: int = 8) -> list[dict]:
