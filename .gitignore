@@ -17,5 +17,11 @@ reports/
 论文/
 *.pdf
 
+# Source material (transcripts, srt/vtt, link lists) — copyrighted, keep local
+材料/
+
+# One-off local run scripts (Antigravity / scratch runners) — not for the repo
+scripts/run_*.py
+
 # Internal planning docs — local working notes, not for the public repo
 PAPERS_PLAN.md
