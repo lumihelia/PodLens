@@ -12,6 +12,37 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/en/papers/microglia-synaptic-pruning.html",
+      "url": "https://lens.lumihelia.com/en/papers/microglia-synaptic-pruning.html",
+      "title": "A New Perspective on Synaptic Pruning · Soyon Hong",
+      "date_published": "2026-06-09",
+      "summary": "This paper delves into the role and mechanisms of microglia-mediated synaptic pruning under physiological and pathological conditions. The authors Soyon Hong, Lasse Dissing-Olesen, and Beth Stevens pr…",
+      "tags": [
+        "Microglia",
+        "Synaptic Pruning",
+        "Complement System",
+        "Neurodevelopment",
+        "Neurodegenerative Diseases"
+      ],
+      "external_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5479435/pdf/nihms863063.pdf"
+    },
+    {
+      "id": "https://lens.lumihelia.com/en/papers/active-forgetting.html",
+      "url": "https://lens.lumihelia.com/en/papers/active-forgetting.html",
+      "title": "Active Forgetting and Neuropsychiatric Diseases · Jacob A. Berry",
+      "date_published": "2026-06-09",
+      "summary": "In this Expert Review, Jacob A. Berry, Dana C. Guhle, and Ronald L. Davis comprehensively elucidate the neurobiological mechanisms of \"active forgetting\" and their relationship with neuropsychiatric d…",
+      "tags": [
+        "Active forgetting",
+        "Neuropsychiatric diseases",
+        "Memory engram",
+        "Dopamine receptors",
+        "Cytoskeleton remodeling",
+        "Microglia"
+      ],
+      "external_url": "https://www.nature.com/articles/s41380-024-02521-9.pdf"
+    },
+    {
       "id": "https://lens.lumihelia.com/en/papers/humans-almanac.html",
       "url": "https://lens.lumihelia.com/en/papers/humans-almanac.html",
       "title": "Action-Level Mental Model Dataset for Agent Collaboration · Jiaju Chen",

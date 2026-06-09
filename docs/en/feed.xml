@@ -7,6 +7,188 @@
 <language>en</language>
 <atom:link href="https://lens.lumihelia.com/en/feed.xml" rel="self" type="application/rss+xml" />
 <item>
+<title>Mindset Restructuring and the Commercial Boundaries of Physical Simulation · Yuanming Hu</title>
+<link>https://lens.lumihelia.com/en/episodes/hu-yuan-ming-meshy-graphics-simulation.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/hu-yuan-ming-meshy-graphics-simulation.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>This episode explores academic research, commercialization paths, and the mental evolution of founders in the fields of computer graphics and physical simulation. The guest is Yuanming Hu, creator of …</description>
+<category>Physical Simulation</category>
+<category>3D Inductive Bias</category>
+<category>Non-consensus Market</category>
+<category>Self-firing</category>
+<category>Stage Two Mindset</category>
+</item>
+<item>
+<title>Computational Design and Synthetic Biology · Neri Oxman</title>
+<link>https://lens.lumihelia.com/en/episodes/neri-oxman-computational-design-synthetic-biology.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/neri-oxman-computational-design-synthetic-biology.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>In this episode, Lex Fridman engages in a deep conversation with scientist, designer, and architect Neri Oxman about computational design, synthetic biology, and natural intelligence. Neri Oxman expou…</description>
+<category>Computational Design</category>
+<category>Synthetic Biology</category>
+<category>Material Ecology</category>
+<category>Hybrid Living Materials</category>
+<category>Co-fabrication</category>
+<category>Information and Entropy</category>
+</item>
+<item>
+<title>Exploration and Reflection on Large Model Post-Training Reinforcement Learning Infrastructure · Weng Jiayi</title>
+<link>https://lens.lumihelia.com/en/episodes/openai-post-training-rl-infra.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/openai-post-training-rl-infra.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>This episode features a conversation with Weng Jiayi, a core contributor to OpenAI&#x27;s post-training reinforcement learning (RL) infrastructure. The interview traces his academic journey at Tsinghua Uni…</description>
+<category>Reinforcement Learning</category>
+<category>Post-Training</category>
+<category>Infrastructure</category>
+<category>Tianshou</category>
+<category>Determinism</category>
+</item>
+<item>
+<title>The Neurobiology of Hunger and Thirst · Zachary Knight</title>
+<link>https://lens.lumihelia.com/en/episodes/neurobiology-of-hunger-zachary-knight.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/neurobiology-of-hunger-zachary-knight.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>In this episode, UCSF neuroscientist Zachary Knight and host Andrew Huberman delve deep into the neurobiological mechanisms controlling hunger, thirst, and weight regulation. The content centers aroun…</description>
+<category>Hunger Neuroscience</category>
+<category>AgRP Neurons</category>
+<category>GLP-1 Drugs</category>
+<category>Dopamine Wanting</category>
+<category>Thirst Regulation</category>
+<category>Hypothalamic Homeostasis</category>
+</item>
+<item>
+<title>The Reality of Security Crises and Organizational Resilience · Joe Sullivan</title>
+<link>https://lens.lumihelia.com/en/episodes/cs153-11-the-road-ahead-resilience-required.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/cs153-11-the-road-ahead-resilience-required.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>This episode is a lecture from the Stanford CS153 (Frontier Systems) course, delivered by Joe Sullivan, former Chief Security Officer (CSO) of Facebook, Uber, and Cloudflare. The lecture revolves arou…</description>
+<category>Security Crisis</category>
+<category>Organizational Resilience</category>
+<category>Cybersecurity</category>
+<category>Crisis Management</category>
+<category>Leadership</category>
+</item>
+<item>
+<title>The Discipline of Value Delivery per Gigawatt · Amin Vahdat</title>
+<link>https://lens.lumihelia.com/en/episodes/cs153-10-amin-vahdat-value-per-gigawatt.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/cs153-10-amin-vahdat-value-per-gigawatt.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>This episode features a guest lecture from Stanford CS153 (Frontier Systems), delivered by Amin Vahdat, Vice President of Systems Infrastructure at Google. Centered around the theme of &quot;Value per Giga…</description>
+<category>Compute Infrastructure</category>
+<category>Value per Gigawatt</category>
+<category>Data Centers</category>
+<category>Energy Efficiency</category>
+<category>System Co-design</category>
+</item>
+<item>
+<title>The Rise of AI-Native Companies and Personal Software Factories · Garry Tan &amp; Diana Hu</title>
+<link>https://lens.lumihelia.com/en/episodes/cs153-09-garry-tan-diana-hu-ai-native-company.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/cs153-09-garry-tan-diana-hu-ai-native-company.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>This episode is a lecture from the Stanford CS153 (Frontier Systems) course, guest-starred by YC President and CEO Garry Tan and YC Partner Diana Hu. The core of the lecture revolves around the organi…</description>
+<category>AI-Native Company</category>
+<category>Personal Software Factory</category>
+<category>Startup Paradigm</category>
+<category>Engineering Efficiency</category>
+<category>YC</category>
+</item>
+<item>
+<title>Computing Infrastructure and the Continuous Operation of Intelligence · Jensen Huang</title>
+<link>https://lens.lumihelia.com/en/episodes/cs153-08-jensen-huang-nvidia-compute.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/cs153-08-jensen-huang-nvidia-compute.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>NVIDIA founder and CEO Jensen Huang engaged in a deep conversation with host Anj in the Stanford CS153 classroom. Jensen Huang analyzed the most fundamental reshaping of computer science in 60 years: …</description>
+<category>Computing Infrastructure</category>
+<category>Codesign</category>
+<category>NVIDIA</category>
+<category>Inference Infrastructure</category>
+<category>Continuous Generative Computing</category>
+</item>
+<item>
+<title>Energy Bottlenecks and the Physical Breakthrough of Uranium Enrichment · Scott Nolan</title>
+<link>https://lens.lumihelia.com/en/episodes/cs153-07-scott-nolan-energy-bottleneck.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/cs153-07-scott-nolan-energy-bottleneck.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>General Matter co-founder and CEO Scott Nolan and host Anj dive deep into the energy bottlenecks behind AI compute expansion, the central role of nuclear energy (especially the uranium enrichment phas…</description>
+<category>Energy Bottlenecks</category>
+<category>Uranium Enrichment</category>
+<category>Nuclear Energy</category>
+<category>Compute Power Consumption</category>
+<category>Physical Manufacturing</category>
+</item>
+<item>
+<title>System Design of Venture Capital and Paradigm Shifts in the Age of Intelligence · Ben Horowitz</title>
+<link>https://lens.lumihelia.com/en/episodes/cs153-06-ben-horowitz-venture-capital.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/cs153-06-ben-horowitz-venture-capital.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>This episode is a lecture from the Stanford CS153 (Frontier Systems) course, featuring guest speaker Ben Horowitz, co-founder of a16z. The lecture centers on the system design of venture capital, orga…</description>
+<category>Venture Capital</category>
+<category>Network Effects</category>
+<category>Organizational Control</category>
+<category>Startup Systems</category>
+<category>Paradigm Shifts</category>
+</item>
+<item>
+<title>Product Building and Career Evolution in the AI Era · Nikhyl Singhal</title>
+<link>https://lens.lumihelia.com/en/episodes/cs153-05-nikhyl-singhal-ai-product-management.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/cs153-05-nikhyl-singhal-ai-product-management.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>Nikhyl Singhal and host Mike explore the massive shifts in Product Management and individual career planning under the AI wave. Drawing on his experience as a product executive at Google, Meta, and Cr…</description>
+<category>Product Management</category>
+<category>AI Products</category>
+<category>Career Evolution</category>
+<category>Team Building</category>
+<category>Product Thinking</category>
+</item>
+<item>
+<title>Unified Intelligence and Physical World Simulators · Amit Jain</title>
+<link>https://lens.lumihelia.com/en/episodes/cs153-04-amit-jain-luma-ai.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/cs153-04-amit-jain-luma-ai.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>This interview centers around Unified Intelligence and physical world simulators, featuring Amit Jain, the founder and CEO of Luma AI, as the main guest. The conversation explores Luma AI&#x27;s evolution …</description>
+<category>Unified Intelligence</category>
+<category>World Models</category>
+<category>Physical Simulators</category>
+<category>Multimodal</category>
+<category>Luma</category>
+</item>
+<item>
+<title>The Physical Foundations of Visual Intelligence and the Multimodal Flywheel · Andreas Blattmann</title>
+<link>https://lens.lumihelia.com/en/episodes/cs153-03-andreas-blattmann-black-forest-labs.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/cs153-03-andreas-blattmann-black-forest-labs.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>Black Forest Labs co-founder Andreas Blattmann and host Anj dive deep into the essence of visual intelligence, the evolutionary roadmap of generative models, the business logic of open-source versus c…</description>
+<category>Visual Intelligence</category>
+<category>Diffusion Models</category>
+<category>Multimodal Flywheel</category>
+<category>Image Generation</category>
+<category>Physical Priors</category>
+</item>
+<item>
+<title>Frontier Systems and the Future of Voice AI · Mati Staniszewski</title>
+<link>https://lens.lumihelia.com/en/episodes/cs153-02-mati-staniszewski-elevenlabs.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/cs153-02-mati-staniszewski-elevenlabs.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>As the co-founder and CEO of ElevenLabs, Mati Staniszewski joins host Anj to dive deep into the development history of voice AI and audio generation technology, the evolution of system architectures, …</description>
+<category>Voice AI</category>
+<category>ElevenLabs</category>
+<category>Speech Synthesis</category>
+<category>Multimodal Interaction</category>
+<category>Frontier Systems</category>
+</item>
+<item>
+<title>Frontier Systems Compute and the Context Loop War · Anjney Midha</title>
+<link>https://lens.lumihelia.com/en/episodes/cs153-01-anjney-midha-frontier-systems.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/cs153-01-anjney-midha-frontier-systems.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>This episode is a lecture from the Stanford CS153 (Frontier Systems) course, delivered by co-instructor and AMP PBC co-founder Anjney Midha. The core of the lecture revolves around the compute infrast…</description>
+<category>Frontier Systems</category>
+<category>Compute Competition</category>
+<category>Context Window</category>
+<category>Open Source Models</category>
+<category>Geotechnology</category>
+</item>
+<item>
 <title>Human Data and Robotics&#x27; GPT-3 Moment · Danfei Xu</title>
 <link>https://lens.lumihelia.com/en/episodes/human-data-and-robotics-gpt-3-moment-danfei-xu.html</link>
 <guid isPermaLink="true">https://lens.lumihelia.com/en/episodes/human-data-and-robotics-gpt-3-moment-danfei-xu.html</guid>

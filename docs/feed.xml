@@ -7,6 +7,188 @@
 <language>zh-Hans</language>
 <atom:link href="https://lens.lumihelia.com/feed.xml" rel="self" type="application/rss+xml" />
 <item>
+<title>心智重组与物理仿真的商业边界 · Yuanming Hu</title>
+<link>https://lens.lumihelia.com/episodes/hu-yuan-ming-meshy-graphics-simulation.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/episodes/hu-yuan-ming-meshy-graphics-simulation.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>本期播客探讨了计算机图形学与物理仿真领域的学术研究、商业化路径以及创始人的心智演变过程。嘉宾是 Yuanming Hu，他是 Taichi 物理仿真语言的创作者，也是 3D 生成 AI 创业公司 Meshy 的联合创始人兼 CEO。播客围绕的核心议题是：技术理想主义如何跨越鸿沟进入残酷的商业现实，以及在此过程中创始人如何通过自我开除和心智重组完成转型。</description>
+<category>物理仿真</category>
+<category>三维归纳偏置</category>
+<category>非共识市场</category>
+<category>自我开除</category>
+<category>阶段二心智</category>
+</item>
+<item>
+<title>计算设计与合成生物学 · Neri Oxman</title>
+<link>https://lens.lumihelia.com/episodes/neri-oxman-computational-design-synthetic-biology.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/episodes/neri-oxman-computational-design-synthetic-biology.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>本期节目中，Lex Fridman 与科学家、设计师兼建筑师 Neri Oxman 展开了一场关于计算设计、合成生物学与自然智慧的深度对话。Neri Oxman 阐述了其创立的物质生态学（Material Ecology）理念，并分享了她从 MIT 介质物质小组（Mediated Matter Group）到新公司 Oxman 的演进历程。讨论围绕人造物（Anthropomass）与生物量（Bio…</description>
+<category>计算设计</category>
+<category>合成生物学</category>
+<category>物质生态学</category>
+<category>混杂活性材料</category>
+<category>生物共制</category>
+<category>信息与熵</category>
+</item>
+<item>
+<title>大模型后训练强化学习基建的探索与反思 · Weng Jiayi</title>
+<link>https://lens.lumihelia.com/episodes/openai-post-training-rl-infra.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/episodes/openai-post-training-rl-infra.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>本期播客对话了 OpenAI 后训练（post-training）强化学习（RL）基础设施的核心贡献者 Weng Jiayi。访谈追溯了他在清华大学和 Carnegie Mellon University（CMU）的学术历程，分享了他开发开源项目天授（Tianshou）和退学网（tuixue.online）的幕后故事，并深入探讨了他在 OpenAI 搭建大模型强化学习后训练基建（RLHF）的工程实…</description>
+<category>强化学习</category>
+<category>后训练</category>
+<category>基础设施</category>
+<category>天授</category>
+<category>确定论</category>
+</item>
+<item>
+<title>饥饿与口渴的神经生物学 · Zachary Knight</title>
+<link>https://lens.lumihelia.com/episodes/neurobiology-of-hunger-zachary-knight.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/episodes/neurobiology-of-hunger-zachary-knight.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>本期节目中，UCSF 的神经科学家 Zachary Knight 与主持人 Andrew Huberman 深入探讨了控制饥饿、口渴及体重调节的神经生物学机制。内容围绕下丘脑的 AgRP 与 POMC 神经元回路展开，详细阐述了它们如何感应身体的能量状态并驱动摄食行为。节目分析了体重的“设定点”理论（Set-point theory）以及身体抵抗体重减轻的代偿性代谢与食欲反应，进而深入探讨了减肥药…</description>
+<category>饥饿神经科学</category>
+<category>AgRP神经元</category>
+<category>GLP-1药物</category>
+<category>多巴胺渴望</category>
+<category>口渴调控</category>
+<category>下丘脑稳态</category>
+</item>
+<item>
+<title>安全危机与组织韧性的现实拷问 · Joe Sullivan</title>
+<link>https://lens.lumihelia.com/episodes/cs153-11-the-road-ahead-resilience-required.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/episodes/cs153-11-the-road-ahead-resilience-required.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>本期是 Stanford CS153（Frontier Systems）课程的讲座，由前 Facebook、Uber 和 Cloudflare 的首席安全官（CSO）Joe Sullivan 主讲。讲座围绕网络安全历史演变、组织与个人在危机中的“韧性”（Resilience）、以及 AI 时代新型安全挑战展开。Joe Sullivan 结合自身在司法部（DOJ）、eBay、Facebook 的职业…</description>
+<category>安全危机</category>
+<category>组织韧性</category>
+<category>网络安全</category>
+<category>危机管理</category>
+<category>领导力</category>
+</item>
+<item>
+<title>每吉瓦的价值交付纪律 · Amin Vahdat</title>
+<link>https://lens.lumihelia.com/episodes/cs153-10-amin-vahdat-value-per-gigawatt.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/episodes/cs153-10-amin-vahdat-value-per-gigawatt.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>本期内容为 Stanford CS153（前沿系统）的课程讲座，由 Google 负责系统基础设施的副总裁 Amin Vahdat 主讲。讲座围绕“每吉瓦交付的价值”（Value per Gigawatt）展开，探讨了在 AI 规模化时代，算力基础设施的建设重点应当从单纯的“容量与规模（Megawatt/Gigawatt/FLOPs）”转向“实际交付的用户价值与有效产出（Goodput/Daily…</description>
+<category>算力基建</category>
+<category>每吉瓦价值</category>
+<category>数据中心</category>
+<category>能效</category>
+<category>系统协同</category>
+</item>
+<item>
+<title>AI 原生公司与个人软件工厂的崛起 · Garry Tan &amp; Diana Hu</title>
+<link>https://lens.lumihelia.com/episodes/cs153-09-garry-tan-diana-hu-ai-native-company.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/episodes/cs153-09-garry-tan-diana-hu-ai-native-company.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>本期是 Stanford CS153（Frontier Systems）课程的讲座，由 YC 总裁兼 CEO Garry Tan 与 YC 合伙人 Diana Hu 主讲。讲座核心围绕 AI 时代下“AI 原生公司（AI-Native Company）”的组织变革与“个人软件工厂（Personal Software Factory）”的崛起展开。通过对比 2011 年前资本市场的混乱状态（Paul…</description>
+<category>AI原生公司</category>
+<category>个人软件工厂</category>
+<category>创业范式</category>
+<category>工程效率</category>
+<category>YC</category>
+</item>
+<item>
+<title>算力底座与智能的连续运行 · Jensen Huang</title>
+<link>https://lens.lumihelia.com/episodes/cs153-08-jensen-huang-nvidia-compute.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/episodes/cs153-08-jensen-huang-nvidia-compute.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>NVIDIA 创始人兼 CEO Jensen Huang 与主持人 Anj 在 Stanford CS153 课堂上展开了深度对话。Jensen Huang 剖析了计算机科学 60 年来最根本的重塑：计算正在从基于预录制检索的按需模式，演变为实时、生成式且持续运行的 Agentic 系统。他详细拆解了极端协同设计（Codesign）在芯片、编译、软件和网络层面的底层逻辑，并以 10 年 100 万…</description>
+<category>算力底座</category>
+<category>协同设计</category>
+<category>NVIDIA</category>
+<category>推理基建</category>
+<category>连续生成计算</category>
+</item>
+<item>
+<title>能源瓶颈与铀浓缩的物理突围 · Scott Nolan</title>
+<link>https://lens.lumihelia.com/episodes/cs153-07-scott-nolan-energy-bottleneck.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/episodes/cs153-07-scott-nolan-energy-bottleneck.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>General Matter 联合创始人兼 CEO Scott Nolan 与主持人 Anj 深入探讨了 AI 算力扩张背后的能源瓶颈、核能（尤其是铀浓缩环节）在基荷电力中的核心地位，以及硬科技创业的系统化路径。Scott Nolan 结合其在 SpaceX 的早期工程经历以及在 Founders Fund 十余年的硬科技投资经验，剖析了美国在核燃料供应链（尤其是铀浓缩）中面临的空前安全危机：本土…</description>
+<category>能源瓶颈</category>
+<category>铀浓缩</category>
+<category>核能</category>
+<category>算力能耗</category>
+<category>物理制造</category>
+</item>
+<item>
+<title>风险投资的系统设计与智能时代的范式转移 · Ben Horowitz</title>
+<link>https://lens.lumihelia.com/episodes/cs153-06-ben-horowitz-venture-capital.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/episodes/cs153-06-ben-horowitz-venture-capital.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>本期是 Stanford CS153（Frontier Systems）课程的讲座，主讲嘉宾为 a16z 联合创始人 Ben Horowitz。讲座核心围绕风险投资的系统设计、组织文化与领导力，以及 AI 时代带来的范式转移展开。Ben Horowitz 从 a16z 创立初期如何通过中央集权式决策和网络效应重塑风险投资行业切入，剖析了 Skype 收购与 HP 简报中心获客等早期网络构建的非对称…</description>
+<category>风险投资</category>
+<category>网络效应</category>
+<category>组织控制权</category>
+<category>创业系统</category>
+<category>范式转移</category>
+</item>
+<item>
+<title>AI时代的产品构建与职业进化 · Nikhyl Singhal</title>
+<link>https://lens.lumihelia.com/episodes/cs153-05-nikhyl-singhal-ai-product-management.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/episodes/cs153-05-nikhyl-singhal-ai-product-management.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>Nikhyl Singhal 与主持人 Mike 探讨了 AI 浪潮下产品管理（Product Management）的巨变与个体职业规划。Nikhyl Singhal 结合其在 Google、Meta、Credit Karma 担任产品高管的经历，以及运营 Skip 职业平台的独特洞察，指出传统作为“信息搬运工”的产品经理（PM）正面临大清算，而具备系统设计思维和判断力的“产品构建者”（Prod…</description>
+<category>产品管理</category>
+<category>AI产品</category>
+<category>职业进化</category>
+<category>团队构建</category>
+<category>产品思维</category>
+</item>
+<item>
+<title>统一智能与物理世界模拟器 · Amit Jain</title>
+<link>https://lens.lumihelia.com/episodes/cs153-04-amit-jain-luma-ai.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/episodes/cs153-04-amit-jain-luma-ai.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>本期访谈围绕统一智能（Unified Intelligence）与物理世界模拟器展开，由 Luma AI 的创始人兼 CEO Amit Jain 担任主讲嘉宾。对话探讨了 Luma AI 从早期的 3D 重建（NeRF 与 Gaussian Splatting）到生成式视频（Dream Machine），再到如今 2026 年构建融合语言、视觉与物理规律的统一智能多模态模型的演化历程。Amit J…</description>
+<category>统一智能</category>
+<category>世界模型</category>
+<category>物理模拟器</category>
+<category>多模态</category>
+<category>Luma</category>
+</item>
+<item>
+<title>视觉智能的物理根基与多模态飞轮 · Andreas Blattmann</title>
+<link>https://lens.lumihelia.com/episodes/cs153-03-andreas-blattmann-black-forest-labs.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/episodes/cs153-03-andreas-blattmann-black-forest-labs.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>Black Forest Labs 联合创始人 Andreas Blattmann 与主持人 Anj 深入探讨了视觉智能的本质、生成式模型的演进路线、开源与闭源生态的商业逻辑，以及通往物理 AI 的发展路径。Andreas Blattmann 回顾了他在 Heidelberg University 攻读 PhD 期间与合作者通过潜空间生成建模（latent generative modeling）…</description>
+<category>视觉智能</category>
+<category>扩散模型</category>
+<category>多模态飞轮</category>
+<category>图像生成</category>
+<category>物理先验</category>
+</item>
+<item>
+<title>语音 AI 的前沿系统与未来 · Mati Staniszewski</title>
+<link>https://lens.lumihelia.com/episodes/cs153-02-mati-staniszewski-elevenlabs.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/episodes/cs153-02-mati-staniszewski-elevenlabs.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>Mati Staniszewski 作为 ElevenLabs 的创始人兼 CEO，与主持人 Anj 深入探讨了语音 AI 和音频生成技术的发展历程、系统架构的演进、商业化策略以及未来的前沿趋势。对话从 ElevenLabs 的早期 Discord 社群驱动增长（PLG）模式切入，回顾了他们从最初立志解决多语种 AI 配音（AI dubbing）难题，到策略性地先攻克单语种高质量文本转语音（TTS…</description>
+<category>语音AI</category>
+<category>ElevenLabs</category>
+<category>语音合成</category>
+<category>多模态交互</category>
+<category>前沿系统</category>
+</item>
+<item>
+<title>前沿系统算力与上下文回路战争 · Anjney Midha</title>
+<link>https://lens.lumihelia.com/episodes/cs153-01-anjney-midha-frontier-systems.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/episodes/cs153-01-anjney-midha-frontier-systems.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>本期是 Stanford CS153（Frontier Systems）课程的讲座，由联合授课教师、AMP PBC 联合创始人 Anjney Midha 主讲。讲座核心围绕 AI 领域前沿系统的 compute 基础设施与 context 反馈循环展开，探讨在 AI 大模型时代，如何突破 context、compute、capital 与 culture 这四大瓶颈以持续推进前沿技术的发展。讲座逻…</description>
+<category>前沿系统</category>
+<category>算力竞争</category>
+<category>上下文窗口</category>
+<category>开源模型</category>
+<category>地缘技术</category>
+</item>
+<item>
 <title>人类数据与机器人学的GPT-3时刻 · Danfei Xu</title>
 <link>https://lens.lumihelia.com/episodes/human-data-and-robotics-gpt-3-moment-danfei-xu.html</link>
 <guid isPermaLink="true">https://lens.lumihelia.com/episodes/human-data-and-robotics-gpt-3-moment-danfei-xu.html</guid>

@@ -7,6 +7,31 @@
 <language>zh-Hans</language>
 <atom:link href="https://lens.lumihelia.com/papers/feed.xml" rel="self" type="application/rss+xml" />
 <item>
+<title>突触修剪新视角 · Soyon Hong</title>
+<link>https://lens.lumihelia.com/papers/microglia-synaptic-pruning.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/papers/microglia-synaptic-pruning.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>本文深入探讨了小胶质细胞（microglia）在生理与病理状态下介导突触修剪（synaptic pruning）的作用及机制。作者 Soyon Hong、Lasse Dissing-Olesen 和 Beth Stevens 提出，在阿尔茨海默病（Alzheimer&#x27;s disease, AD）等神经退行性疾病早期（淀粉样蛋白斑块形成前），发育时期的经典补体级联反应（classical compl…</description>
+<category>小胶质细胞</category>
+<category>突触修剪</category>
+<category>补体系统</category>
+<category>神经发育</category>
+<category>神经退行性疾病</category>
+</item>
+<item>
+<title>主动遗忘与神经精神疾病 · Jacob A. Berry</title>
+<link>https://lens.lumihelia.com/papers/active-forgetting.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/papers/active-forgetting.html</guid>
+<pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+<description>Jacob A. Berry, Dana C. Guhle 和 Ronald L. Davis 在这篇 Expert Review 中全面阐述了“主动遗忘 (active forgetting)”的神经生物学机制及其与神经精神疾病之间的关系。作者主张，遗忘并不是记忆巩固失败的被动结果，而是一个由特定细胞和分子信号通路控制的主动过程。文章系统回顾了在 Drosophila 和哺乳动物中发现的遗忘通路…</description>
+<category>主动遗忘</category>
+<category>神经精神疾病</category>
+<category>记忆印迹</category>
+<category>多巴胺受体</category>
+<category>细胞骨架重塑</category>
+<category>小胶质细胞</category>
+</item>
+<item>
 <title>智能体协作的行动级心智模型数据集 · Jiaju Chen</title>
 <link>https://lens.lumihelia.com/papers/humans-almanac.html</link>
 <guid isPermaLink="true">https://lens.lumihelia.com/papers/humans-almanac.html</guid>
