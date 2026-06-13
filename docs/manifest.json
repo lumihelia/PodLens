@@ -1,6 +1,91 @@
 {
   "items": [
     {
+      "slug": "alison-gopnik-childhood-learning-ai-cultural-technology",
+      "title": "儿童如何学习，AI 是什么文化技术 · Alison Gopnik",
+      "date": "2026-06-14",
+      "kind": "podcast",
+      "summary": "这是 Tyler Cowen 的\"Conversations with Tyler\"播客，嘉宾 Alison Gopnik 是 UC Berkeley 心理学与哲学教授，全球最重要的儿童发展心理学家之一，著有《摇篮里的科学家》《园丁与木匠》等书。她长期研究儿童的因果推理、贝叶斯学习与心理理论（theory of mind）。对话覆盖：科学家和儿童如何同样做因果推理；儿童作为\"模拟退火\"高温搜索器；…",
+      "source_url": "",
+      "tags": [
+        "儿童学习",
+        "认知科学",
+        "AI文化技术",
+        "探索与利用",
+        "自然与养育"
+      ],
+      "connections": [
+        {
+          "slug": "alexei-efros-surface-data-deep-data",
+          "kind": "resonance",
+          "relation": "互引",
+          "why": "Gopnik 的「文化技术」框架被 Efros 直接引用并作为其「表层数据 vs 深层数据」论点的核心参照——两者对当前 AI 的诊断高度一致（缺乏主动具身实验），且他们出席了同一个工作坊，Gopnik 在 Efros 讲座的 Q&A 中直接发言。",
+          "this_point": "[45:05-47:00] Gopnik 阐述「文化技术」论：AI = 印刷术/图书馆/互联网搜索，是人类获取彼此知识的工具；它做不到两岁儿童能做的事——主动与物理世界互动、做实验、得到具身反馈。",
+          "that_point": "[24:09-24:29] Efros 在工作坊演讲中说「我非常喜欢 Alison 谈论当前 AI 的方式。她说，这些当前的 AI 不是智能体，它们是文化技术」——直接援引 Gopnik 的框架作为自己「表层数据」论点的哲学基础。"
+        },
+        {
+          "slug": "the-era-of-experience",
+          "kind": "resonance",
+          "relation": "张力",
+          "why": "Gopnik 主张 AI 是文化技术、无法通过接触现实产生新知识；而「经验时代」论文恰好提出了走出这个限制的路径——智能体主动与环境交互生成经验数据。两者诊断相同，方向相反：前者是对当前状态的本体论判断，后者是走出困境的工程路线图。",
+          "this_point": "[44:30-47:00] Gopnik 说 LLM 产生文本而永不接触外部现实（「Derrida 的复仇」）；真正的智能体必须主动与物理世界交互来产生新知识；机器人学是这个鸿沟最清晰的呈现。",
+          "that_point": "[The Era of Experience · 核心论断] 论文主张 AI 正从「人类数据时代」转向「经验时代」——智能体将通过与环境主动交互产生经验进行持续学习，突破监督学习的人类数据瓶颈。"
+        },
+        {
+          "slug": "yann-lecun-world-models-next-ai-revolution",
+          "kind": "resonance",
+          "relation": "同构",
+          "why": "Gopnik 的发展心理学和 Yann 的 AI 架构指向同一个洞察：智能的核心是建构对世界的因果模型，而这只能通过主动的具身交互来完成。儿童通过在物理世界中做实验来建立世界模型；Yann 的 JEPA 是试图在工程上实现同一机制的架构。",
+          "this_point": "[23:52-25:30] Gopnik 的「贝叶斯构建主义」：儿童从物理实验数据中构建因果世界模型；这是 Piaget 构建主义的现代版本，也是 Gopnik 认为当前 AI 缺失的核心能力。",
+          "that_point": "[05:37-08:05] Yann LeCun 提出动物与人类智能通过具身交互建立内部世界模型；JEPA（联合嵌入预测架构）是其工程实现；当前 LLM 的根本缺陷正是缺乏这个世界模型建构机制。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "How Children Learn and What AI Actually Is · Alison Gopnik",
+          "tags": [
+            "childhood learning",
+            "cognitive science",
+            "AI as cultural technology",
+            "explore vs exploit",
+            "nature and nurture"
+          ],
+          "summary": "In this episode of Tyler Cowen's \"Conversations with Tyler,\" developmental psychologist and philosopher Alison Gopnik — professor at UC Berkeley, author of The Scientist in the Crib, The Philosophical…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "alexei-efros-surface-data-deep-data",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Efros directly cites Gopnik's 'cultural technology' framing as the philosophical foundation for his surface/deep data thesis; they share the same diagnosis (current AI lacks active embodied experimentation); Gopnik appears in the Q&A of Efros's workshop talk",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "the-era-of-experience",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Gopnik diagnoses the limitation (AI as text-only cultural technology, 'Derrida's revenge'); the Era of Experience paper proposes the engineering path out — agents generating their own experiential data through active environmental interaction",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "yann-lecun-world-models-next-ai-revolution",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Gopnik's developmental psychology and Yann's AI architecture share the same core insight: intelligence is built through active construction of causal world models via embodied interaction; JEPA is the engineering attempt to implement what children do naturally",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "diarmaid-macculloch-christianity-sex-history",
       "title": "基督教、性与颠覆定论 · Diarmaid MacCulloch",
       "date": "2026-06-14",
