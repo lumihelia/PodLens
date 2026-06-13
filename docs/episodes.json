@@ -12,6 +12,21 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/episodes/ms&e435-class3-economics-ai-supercycle.html",
+      "url": "https://lens.lumihelia.com/episodes/ms&e435-class3-economics-ai-supercycle.html",
+      "title": "AI超量扩张的电网硬壁垒与能源套利 · Chase Lock Miller",
+      "date_published": "2026-06-11",
+      "summary": "在 Stanford University 的 MS&E435（Economics of the AI Supercycle）课堂上，主讲人 Apoorv Agrawal 与 Crusoe 创始人兼 CEO Chase Lock Miller 深入探讨了 AI 超级周期下的数据中心经济学与能源供给架构。对话以五大 Hyperscalers 呈指数增长的 AI 资本支出（CapEx）为引子，引入了 …",
+      "tags": [
+        "算力电能",
+        "数据中心",
+        "数字劳动力",
+        "垂直整合",
+        "电网基建"
+      ],
+      "external_url": "https://youtu.be/4zk-hJ50vmU?si=9d_9Y7wbYavqltYO"
+    },
+    {
       "id": "https://lens.lumihelia.com/episodes/joscha-bach-life-intelligence-consciousness-future.html",
       "url": "https://lens.lumihelia.com/episodes/joscha-bach-life-intelligence-consciousness-future.html",
       "title": "心智清晰度、硅基意识与长线博弈 · Joscha Bach",

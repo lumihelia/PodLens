@@ -1,6 +1,96 @@
 {
   "items": [
     {
+      "slug": "ms&e435-class3-economics-ai-supercycle",
+      "title": "AI超量扩张的电网硬壁垒与能源套利 · Chase Lock Miller",
+      "date": "2026-06-11",
+      "kind": "podcast",
+      "summary": "在 Stanford University 的 MS&E435（Economics of the AI Supercycle）课堂上，主讲人 Apoorv Agrawal 与 Crusoe 创始人兼 CEO Chase Lock Miller 深入探讨了 AI 超级周期下的数据中心经济学与能源供给架构。对话以五大 Hyperscalers 呈指数增长的 AI 资本支出（CapEx）为引子，引入了 …",
+      "source_url": "https://youtu.be/4zk-hJ50vmU?si=9d_9Y7wbYavqltYO",
+      "tags": [
+        "算力电能",
+        "数据中心",
+        "数字劳动力",
+        "垂直整合",
+        "电网基建"
+      ],
+      "connections": [
+        {
+          "slug": "ms&e435-class4-economics-ai-supercycle",
+          "kind": "resonance",
+          "relation": "同系"
+        },
+        {
+          "slug": "cs153-08-jensen-huang-nvidia-compute",
+          "kind": "resonance",
+          "relation": "印证"
+        },
+        {
+          "slug": "jane-street-gpus-trading-hiring-dwarkesh",
+          "kind": "resonance",
+          "relation": "同构"
+        },
+        {
+          "slug": "dan-loeb-ai-credit-third-point",
+          "kind": "resonance",
+          "relation": "补充"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "AI Overexpansion's Hard Grid Barriers and Energy Arbitrage · Chase Lock Miller",
+          "tags": [
+            "compute energy",
+            "data centers",
+            "digital labor",
+            "vertical integration",
+            "grid infrastructure"
+          ],
+          "summary": "In Stanford's MS&E435 (Economics of the AI Supercycle) classroom, host Apoorv Agrawal and Crusoe founder and CEO Chase Lock Miller explore the economics and energy supply architecture underlying the d…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "ms&e435-class4-economics-ai-supercycle",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "companion session in the same course: both analyze AI infrastructure economics from the inside",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "cs153-08-jensen-huang-nvidia-compute",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Jensen Huang's compute scaling thesis is the demand-side basis Chase builds his energy-first supply-side strategy upon",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "jane-street-gpus-trading-hiring-dwarkesh",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "both analyze how high-performance compute forces physical infrastructure codesign — from cooling to power delivery to chip architecture",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "dan-loeb-ai-credit-third-point",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "both are finance-world perspectives on the structural economic consequences of the AI compute buildout",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "joscha-bach-life-intelligence-consciousness-future",
       "title": "心智清晰度、硅基意识与长线博弈 · Joscha Bach",
       "date": "2026-06-11",
