@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>教 AI 的人与知识工作的未来 · Brendan Foody · PodLens</title>
+<meta name="description" content="这是 Tyler Cowen 的&quot;Conversations with Tyler&quot;播客，嘉宾 Brendan Foody 是 Mercor 的 CEO 和联合创始人（2023年初创立），当时22岁，据说是有史以来最年轻的独角兽创始人。Mercor 做的事是雇用专家来教 AI 模型：当 OpenAI 想让模型学习写诗，Mercor 找来最顶尖的诗人；想提升法律能力，找来 Cass Sunstein…">
+<meta name="author" content="lumihelia">
+<meta name="keywords" content="AI训练, 知识工作, 评估体系, 劳动力市场, 强化学习">
+<link rel="canonical" href="https://lens.lumihelia.com/episodes/brendan-foody-mercor-teaching-ai-knowledge-work.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://lens.lumihelia.com/episodes/brendan-foody-mercor-teaching-ai-knowledge-work.html"><link rel="alternate" hreflang="en" href="https://lens.lumihelia.com/en/episodes/brendan-foody-mercor-teaching-ai-knowledge-work.html"><link rel="alternate" hreflang="x-default" href="https://lens.lumihelia.com/episodes/brendan-foody-mercor-teaching-ai-knowledge-work.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="教 AI 的人与知识工作的未来 · Brendan Foody · PodLens">
+<meta property="og:description" content="这是 Tyler Cowen 的&quot;Conversations with Tyler&quot;播客，嘉宾 Brendan Foody 是 Mercor 的 CEO 和联合创始人（2023年初创立），当时22岁，据说是有史以来最年轻的独角兽创始人。Mercor 做的事是雇用专家来教 AI 模型：当 OpenAI 想让模型学习写诗，Mercor 找来最顶尖的诗人；想提升法律能力，找来 Cass Sunstein…">
+<meta property="og:url" content="https://lens.lumihelia.com/episodes/brendan-foody-mercor-teaching-ai-knowledge-work.html">
+<link rel="alternate" type="application/rss+xml" title="PodLens" href="https://lens.lumihelia.com/feed.xml"><link rel="alternate" type="application/json" title="PodLens" href="https://lens.lumihelia.com/episodes.json">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "教 AI 的人与知识工作的未来 · Brendan Foody", "datePublished": "2026-06-14", "inLanguage": "zh-Hans", "url": "https://lens.lumihelia.com/episodes/brendan-foody-mercor-teaching-ai-knowledge-work.html", "description": "这是 Tyler Cowen 的\"Conversations with Tyler\"播客，嘉宾 Brendan Foody 是 Mercor 的 CEO 和联合创始人（2023年初创立），当时22岁，据说是有史以来最年轻的独角兽创始人。Mercor 做的事是雇用专家来教 AI 模型：当 OpenAI 想让模型学习写诗，Mercor 找来最顶尖的诗人；想提升法律能力，找来 Cass Sunstein…", "author": {"@type": "Person", "name": "lumihelia"}, "publisher": {"@type": "Person", "name": "lumihelia"}, "keywords": "AI训练, 知识工作, 评估体系, 劳动力市场, 强化学习"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --text: #2C2C2C; --primary: #4C436F; --bg: #F4F3F7; --muted: #9A93B3;
+  --border: #D4D0E0; --white: #FFFFFF; --radius: 12px; --shadow: rgba(76,67,111,0.08);
+}
+* { box-sizing: border-box; }
+body {
+  font-family: 'Source Serif Pro', serif; color: var(--text);
+  background: var(--bg); line-height: 1.75; margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 96px 24px 128px; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text); line-height: 1.25; }
+h1 { font-size: 2.6rem; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.01em; }
+h2 { font-size: 1.5rem; font-weight: 600; margin: 64px 0 16px; }
+h3 { font-size: 1.15rem; font-weight: 600; margin: 32px 0 8px; }
+p { margin: 0 0 20px; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.meta { color: var(--muted); font-size: 0.95rem; margin: 0 0 64px; }
+.site-head { margin-bottom: 80px; }
+.site-head .tagline { color: var(--muted); font-size: 1.05rem; margin-top: 4px; }
+ul, ol { padding-left: 1.4em; }
+li { margin: 6px 0; }
+.episode-list { list-style: none; padding: 0; }
+.episode-list li { margin: 0 0 48px; }
+.episode-list .date { color: var(--muted); font-size: 0.9rem; }
+.episode-list .title { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 600; display: block; margin: 4px 0 8px; }
+.episode-list .summary { color: #5a5566; }
+.foot { margin-top: 96px; color: var(--muted); font-size: 0.85rem; }
+.disclaimer { margin-top: 16px; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.index-disclaimer { margin: 48px 0 0; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.topbar { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 48px; }
+.back { color: var(--muted); }
+.langswitch { color: var(--muted); font-size: 0.9rem; border: 1px solid var(--border); padding: 4px 12px; border-radius: 999px; }
+.langswitch:hover { color: var(--primary); border-color: var(--primary); text-decoration: none; }
+.sectionnav { display: flex; align-items: baseline; flex-wrap: wrap; gap: 20px; }
+.sectionnav .brand { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.05rem; color: var(--text); }
+.sectionnav .sec { color: var(--muted); font-size: 0.9rem; padding-bottom: 2px; }
+.sectionnav .sec.active { color: var(--text); border-bottom: 1px solid var(--text); }
+.sectionnav a:hover { color: var(--primary); text-decoration: none; }
+a.ts { color: var(--primary); font-variant-numeric: tabular-nums; white-space: nowrap; text-decoration: none; border-bottom: 1px dotted var(--border); }
+a.ts:hover { border-bottom-style: solid; }
+.source { color: var(--muted); font-size: 0.95rem; margin: 0 0 24px; }
+.player-wrap { position: sticky; top: 0; z-index: 10; background: var(--bg); padding: 12px 0 16px; margin: 0 0 32px; }
+.player-box { position: relative; width: 100%; max-width: 460px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 10px var(--shadow); }
+.player-box #ytplayer, .player-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 48px; }
+.tags span { font-size: 0.85rem; color: var(--primary); background: #EDEBF4; padding: 4px 12px; border-radius: 999px; }
+.connections { list-style: none; padding: 0; margin: 0; }
+.connections li { margin: 0 0 28px; padding-left: 16px; border-left: 2px solid var(--border); }
+.connections .rel { font-size: 0.8rem; color: var(--primary); background: #EDEBF4; padding: 2px 10px; border-radius: 999px; margin-right: 8px; }
+.connections .lk { font-family: 'Playfair Display', serif; font-weight: 600; }
+.connections .why { margin: 8px 0 6px; }
+.connections .pts { color: var(--muted); font-size: 0.92rem; }
+.connections .pts > div { margin-top: 4px; }
+.connections .who { color: var(--text); font-weight: 600; margin-right: 8px; }
+.connections.tensions li { border-left-color: var(--primary); }
+.ctype { font-size: 0.72rem; padding: 1px 9px; border-radius: 999px; margin-right: 8px; letter-spacing: 0.02em; }
+.ctype-genuine { color: #fff; background: var(--primary); }
+.ctype-apparent { color: var(--muted); background: #EDEBF4; }
+.editor-note { background: #EDEBF4; border-radius: 12px; padding: 24px 28px; margin: 0 0 48px; }
+.editor-note .en-label { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 10px; }
+.editor-note p { margin: 0 0 12px; }
+.editor-note p:last-child { margin-bottom: 0; }
+.claim-meta { display: block; margin-top: 2px; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+.claim-meta-first { margin-top: 8px; }
+.claim-meta a.ts { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="topbar"><nav class="sectionnav"><a class="brand" href="https://lens.lumihelia.com/">PodLens</a><a class="sec active" href="https://lens.lumihelia.com/">episodes</a><a class="sec" href="https://lens.lumihelia.com/papers/">papers</a></nav><a class="langswitch" href="https://lens.lumihelia.com/en/episodes/brendan-foody-mercor-teaching-ai-knowledge-work.html">English</a></div>
+<h1>教 AI 的人与知识工作的未来 · Brendan Foody</h1>
+<p class="meta">2026-06-14 · 由 PodLens 生成的忠实解读</p>
+
+
+<div class="tags"><span>AI训练</span><span>知识工作</span><span>评估体系</span><span>劳动力市场</span><span>强化学习</span></div>
+
+<h2>这期讲了什么</h2>
+<p>这是 Tyler Cowen 的"Conversations with Tyler"播客，嘉宾 Brendan Foody 是 Mercor 的 CEO 和联合创始人（2023年初创立），当时22岁，据说是有史以来最年轻的独角兽创始人。Mercor 做的事是<strong>雇用专家来教 AI 模型</strong>：当 OpenAI 想让模型学习写诗，Mercor 找来最顶尖的诗人；想提升法律能力，找来 Cass Sunstein 和 Larry Summers 帮助设计评估体系（APEX）。经济逻辑非常清楚：一个专家的知识"做一次、用于数十亿用户"，因此支付每小时150美元找诗人是合理的。</p>
+<p>这次对话覆盖三个核心主题：</p>
+<p><strong>第一：AI 模型能力的真实现状</strong>。Foody 团队开发了 APEX（AI 生产力指数），测量模型在<strong>有经济价值任务</strong>上的表现（不是学术基准）。GPT-5 在这个指标上达到64%的人类专家水平，一年前的 GPT-4o 大约是40%左右；每年约25-30%的改进。Tyler 和 Foody 在两个问题上有分歧：(1) 多快 AI 会让 Cass Sunstein 无法找到错误（Tyler：6个月；Foody：2-3年）；(2) 模型目前的核心限制是什么（长时任务 + 多工具整合，预计6-12个月改善）。</p>
+<p><strong>第二：两种数据类型与知识经济的结构性变革</strong>。Foody 区分了"输出数据"（模型能读并学习的内容）和"评估数据"（衡量成功的测试、标准答案、评分规则）——后者远比前者宝贵，因为它能让模型"尝试很多次、不断打分、不断改进"。他的核心预言：<strong>知识工作将重构为"构建 RL 环境"</strong>——投行分析师将不再重复分析数据室，而是教会智能体一次如何做，然后无限次使用。</p>
+<p><strong>第三：品味的难题与 Kantian 悖论</strong>。Tyler 援引康德《判断力批判》：品味（taste）就是那种无法被纳入评分标准的东西。如果 Mercor 需要的数据是评分标准，而品味根本无法被标准化，那 Foody 是在追求一个逻辑循环？Foody 的回应是 RLHF（偏好学习）——不一定要明确的标准，而是让有品味的人反复选择哪个更好，让模型从偏好中学习。这个哲学张力贯穿整个对话。</p>
+<h2>时间线主题地图</h2>
+<ul>
+<li>[00:00-01:35] 背景介绍：Mercor 是什么（AI 公司，2023年初成立），Foody 的成就（最年轻独角兽创始人，最快达到4亿美元估值）。</li>
+<li>[01:35-05:30] Mercor 的商业模式：雇用专家教 AI 模型，$150/小时找诗人——经济逻辑："做一次，覆盖数十亿用户"；poets 如何创建评分标准（rubric）；如何用 AI 模型本身来检测人类专家是否在认真工作（"模型能发现懈怠的人类评分员"）。</li>
+<li>[05:30-09:30] APEX 方法论：调查知识工作者如何分配时间（麦肯锡、贝恩顾问如何花时间）→ 让他们写对应任务的提示词和评分标准 → 时间分配作为经济价值的代理指标 → GPT-5 达到64%，年均25-30%改进。当前模型的两个核心限制：(1) 长时任务（50-100小时的工作）；(2) 多工具整合。</li>
+<li>[09:30-15:40] Tyler 和 Foody 的辩论：何时 AI 能让 Cass Sunstein 无法找到错误？Tyler：6个月；Foody：2-3年（因为"法律品味"很难完全捕获）。哪些领域人类专家仍然领先（未被文字化编码的隐性知识）；Tyler 问是否应该把顶尖大学研讨课的讨论录音送给 Mercor。</li>
+<li>[15:40-22:30] 两种数据类型：输出数据（模型学习的内容）vs 评估数据（测试+标准答案+评分规则）。康德的品味问题：如果品味是不能被标准化的东西，而你要的数据是标准，你是在追求逻辑上的循环。Foody 的回应：RLHF 作为替代（偏好比较，不需要显式标准）。AI 生成诗与人类诗的用户偏好研究——普通用户更喜欢 AI 诗，顶尖诗人认为人类诗更好。</li>
+<li>[22:30-31:40] 社会的 RL 化：知识工作将转向"构建 RL 环境"而非"直接完成任务"；投行分析师将教会智能体一次分析数据室，然后无限次使用；软件工程高度需求价格弹性（10倍效率→10倍工程师）；会计和客服需求弹性低；教育的价格弹性讨论（Sal Khan 作为个人家教）。</li>
+<li>[31:40-38:30] 劳动力市场：Mercor 如何使用 AI 技术招聘300人；面试中人们犯的最大错误（氛围型面试 vs 能力测试）；AI 辅助面试的预测力；求职者使用 AI 欺骗工具 → 正确应对是允许并鼓励使用工具、测试他们用工具能做什么。</li>
+<li>[38:30-46:50] 劳动力市场效率：LinkedIn 分发好但匹配差；Thiel Fellowship 的规模化问题；Foody 的解决方案是 AI 面试；二次机会问题；AI 运行的劳动力市场是否减少晚成者。</li>
+<li>[46:50-52:10] 个人故事：8年级的"甜甜圈王国"（从 Safeway 以5美元/打买入，以每个2美元卖出，最终被学校驱逐、在校园外50英尺设摊、雇用妈妈的面包车、对竞争者发动价格战）。</li>
+<li>[52:10-57:00] 诵说与辩论：Foody 有阅读障碍（dyslexia），联合创始人是有史以来赢得最多全国级别辩论冠军的搭档；阅读障碍与创业成功的正相关性（及其机制：早期学会委托他人、大局思考）。</li>
+<li>[57:00-01:01:16] 杂项：22岁男性的约会危机（旧金山 vs 纽约）；同名命运论（Foody = 美食家）；Mercor 名字的拉丁语来源；耶稣会高中的影响；公司下一步目标（超真实的长时任务评估）。</li>
+</ul>
+<h2>核心观点清单</h2>
+<ol>
+<li>
+<p><strong>Mercor 的经济学：专家的知识做一次，用于数十亿用户</strong>。这解释了为什么给诗人每小时150美元是合理的——一个顶级诗人建立的评分标准可以训练被数十亿人使用的模型。"我们能支付这么高的价格，是因为这些知识被重复使用了这么多次。" [01:35-02:45] | 类型：商业逻辑</p>
+</li>
+<li>
+<p><strong>两种数据类型：输出数据（内容）vs 评估数据（测量成功的标准、测试、答案）</strong>。评估数据远比输出数据宝贵，因为它能让模型"无限次尝试、不断打分、不断改进"。学术期刊同行评审报告 = 天然的高质量评估数据，Foody 认为学术机构应该把这些数据送给 AI 实验室（但目前还没有发生）。[13:42-15:13] | 类型：框架</p>
+</li>
+<li>
+<p><strong>APEX 发现：模型在经济价值任务上每年改进约25-30%</strong>；GPT-5 达到64%的人类专家水平。但当前两个主要限制：(1) 长时任务（50-100小时工作，模型仍然做不到）；(2) 多工具整合。两者都预计在6-12个月内有重大突破。[05:41-09:25] | 类型：实证数据 | 备注：Tyler 认为 Foody 低估了进展速度，Tyler 预测 Cass Sunstein 在6个月内无法找到模型错误；Foody 说2-3年。</p>
+</li>
+<li>
+<p><strong>康德的品味难题（Foody 没有完全解决的核心张力）</strong>：康德在《判断力批判》中说，品味（taste）就是那种无法被捕入标准/规则（rule）的东西。Mercor 需要的数据是标准，但品味是 AI 领域最关键的缺失。Foody 的应对是 RLHF（偏好比较），但这并没有从根本上解决问题——品味偏好数据和品味本身之间的距离依然存在。[17:58-18:40] | 类型：哲学张力</p>
+</li>
+<li>
+<p><strong>知识经济将重构为"构建 RL 环境"</strong>：投行分析师将不再重复分析数据室，而是教会智能体一次如何分析，然后无限次使用；客服人员将不再重复回答工单，而是找到智能体犯的错误，把它变成 RL 环境，让智能体从错误中学习。5年内，大部分高端知识工作者将成为"模型训练者"（全职或通过平台兼职）。[23:04-30:39] | 类型：预测</p>
+</li>
+<li>
+<p><strong>需求价格弹性决定 AI 对不同行业的影响</strong>：软件工程高度弹性（10倍效率可能带来10倍数量的工程师）；会计和客服可能弹性低；教育居中（Sal Khan 私教效应非常好，但每天只有那么多小时）。[31:36-36:32] | 类型：分析框架 | 备注：这是最实用的判断框架之一——不问"会不会被替代"，而问"需求是否随供给增加而增加"。</p>
+</li>
+<li>
+<p><strong>AI 辅助面试的正确应对：不是禁止使用工具，而是测试他们使用工具能做什么</strong>。"要求在纸上写作是错误的；正确的做法是给他们所有 AI 工具、录屏，看1小时内能构建什么。这是对实际能力的更好预测。" [44:08-44:34] | 类型：实践建议 | 备注：这个框架对于所有需要评估人类在 AI 时代价值的场合都适用。</p>
+</li>
+<li>
+<p><strong>阅读障碍与创业成功的正相关（shockingly strong）</strong>。可能机制：早期学会向他人委托任务、习惯大局思考而非细节执行、适应多种认知策略的能力。Tyler 的假说：强迫早期学会委托，是所有聪明人中最难习得的技能之一。[54:13-56:14] | 类型：观察 | 备注：Foody 本人是阅读障碍者，联合创始人是全国最强的辩论队，两者互补。</p>
+</li>
+</ol>
+<h2>内部张力与自我修正</h2>
+<ul>
+<li>
+<p><strong>[17:58-19:35] 康德问题没有被真正解决</strong>：Foody 用 RLHF 回应 Tyler 的康德挑战，但 RLHF 也有同样的问题——当普通用户更喜欢 AI 写的诗，而顶尖诗人认为人类写的更好时，你优化谁的偏好？Foody 的回答是"这取决于你优化什么目标"，但这其实承认了标准本身是任意的——和 Tyler 的问题完全吻合。</p>
+</li>
+<li>
+<p><strong>[06:37-07:40] APEX 测量的是什么？</strong> Tyler 追问：你测的是"模型在测试上的表现"还是"模型创造的经济价值"？这两者可能脱钩，尤其是 Goodhart 定律在这里非常相关——一旦 APEX 成为 AI 实验室的优化目标，它就可能不再代表真实的经济价值。Foody 承认"将这个指标映射到经济影响存在一定复杂性"，但没有进一步展开。</p>
+</li>
+<li>
+<p><strong>[33:44-35:10] 教育需求弹性</strong>：Tyler 说教育是"不太有价格弹性的"（只有那么多学习时间），Foody 同意，但后来说教师仍然重要——个人关系、情感支持。这两个论点可以共存，但 Foody 在这里有点前后摇摆，没有清楚地区分"Sal Khan式信息传递"和"教师的关系功能"这两个不同的产品。</p>
+</li>
+</ul>
+<h2>大白话重讲</h2>
+<p>Brendan Foody 在22岁创立了 Mercor，做的事你可以用一句话总结：<strong>他是给 AI 模型找老师的人</strong>。当 OpenAI 想让 GPT 学会写更好的诗，他找来顶尖诗人；当想让模型更懂法律，他找来 Cass Sunstein；当想让模型更懂金融，他找来 Larry Summers。这些专家的工作是制定评分标准、创建测试用例，让模型能够反复练习、打分、改进。</p>
+<p>为什么给诗人每小时150美元？因为那个诗人建立的知识和标准，会被用来训练一个被数十亿用户使用的模型。这个知识只需要做一次，就可以无限次使用——所以单次成本分摊到全部用户身上，非常合算。</p>
+<p>Foody 的团队做了一个叫 APEX 的测量工具，专门测模型在"有经济价值的任务"上有多厉害——不是测数学竞赛题、博士级别的知识，而是测"模型能帮麦肯锡顾问完成多少他们日常工作中的任务"。测量方法也很巧妙：先调查这些顾问如何分配时间，然后用时间比例作为经济价值的代理指标。结果显示，GPT-5 大概能完成人类专家64%的经济价值任务，而一年前的模型大约是40%多——每年约25-30%的改进。</p>
+<p>在这场对话里，Tyler 和 Foody 有几个有趣的分歧。Tyler 认为，6个月内就会到达模型无法被顶尖法学家找到错误的阶段；Foody 说2-3年。Tyler 觉得 AI 已经在很多方面超越了人类专家；Foody 说最后25%的能力——那些依靠未被文字编码的隐性知识和品味——会很长时间内仍然需要人类。</p>
+<p>最有意思的一段是 Tyler 搬出了康德。康德在《判断力批判》里说，品味（taste）的定义就是"无法被纳入任何规则或标准的判断"。Foody 说他需要的数据是评分标准（rubric）。那如果品味根本不能被标准化，你要的数据从哪里来？Foody 用 RLHF 回应：不一定要显式的标准，让有品味的人反复比较两个输出选哪个更好，模型从这些偏好中学习。但这并没有完全回答问题——因为普通用户在研究中更喜欢 AI 写的诗，而顶尖诗人认为人类写的更好。你到底优化谁的偏好？</p>
+<p>Foody 对知识工作未来的预测是：大部分人不会被 AI 替代，而是会变成"模型训练者"。投行分析师现在每隔几周就要从头分析一个新的数据室，未来他们会教模型一次如何做这件事，然后专注于发现模型犯的错误、把这些错误变成新的训练数据。这个过渡用 Foody 的话说，"就像建软件：固定成本投入，无限次使用。"他预测5年内大多数高端知识工作者会在做这件事。</p>
+<h2>值得精听的片段</h2>
+<ul>
+<li>
+<p><strong>[13:42-15:13]</strong> 两种数据类型的区分——输出数据和评估数据。这是 Mercor 整个商业模式的核心，也是理解为什么"评分标准"比"训练材料"更值钱的最清晰解释。</p>
+</li>
+<li>
+<p><strong>[17:58-18:40]</strong> Tyler 的康德问题。一个经济学家用哲学史来质疑一个22岁创始人的整个商业模式，而创始人的回应实际上没有完全解决这个问题——这段对话很难得。</p>
+</li>
+<li>
+<p><strong>[23:04-24:11]</strong> 社会的 RL 环境化。Foody 把知识工作变成 RL 训练场的预测，用投行分析师的案例解释得非常具体，值得仔细听。</p>
+</li>
+<li>
+<p><strong>[44:08-44:34]</strong> AI 辅助面试的正确框架。"不是禁止使用工具，而是测试用工具能做什么"——这是一个可以立即应用的实践建议。</p>
+</li>
+<li>
+<p><strong>[50:42-52:08]</strong> 甜甜圈王国故事。Foody 8年级时从 Safeway 买甜甜圈转卖，被驱逐出校园后在校外50英尺摆摊、价格战驱逐竞争者。这一段非常好玩，同时也真实展现了一个创业者的早期思维。</p>
+</li>
+</ul>
+<h2>与往期的呼应</h2><ul class="connections"><li><span class="rel">张力</span>→ <a class="lk" href="https://lens.lumihelia.com/episodes/alison-gopnik-childhood-learning-ai-cultural-technology.html">儿童如何学习，AI 是什么文化技术 · Alison Gopnik</a><div class="why">Gopnik 主张 AI 是「文化技术」，因为它只汇总人类已有知识、永远无法主动接触外部现实；Foody 的 Mercor 正在系统性地把越来越多的隐性专家知识注入模型——这是一个对 Gopnik「文化技术」图景的动态挑战，暗示边界会随训练不断移动而非固定。</div><div class="pts"><div><b class="who">本期</b>[23:04-24:11] Foody 说知识工作将转化为「构建 RL 环境」——专家把隐性知识外化为训练数据，模型持续吸收人类最高质量的判断能力；这个过程理论上没有上限。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/episodes/alison-gopnik-childhood-learning-ai-cultural-technology.html?t=2705">[45:05-47:00]</a> Gopnik 说 AI 是文化技术，做不到两岁儿童能做的主动实验；真正的智能体必须与物理世界互动产生新知识——而 Foody 的方案恰恰是继续深挖文化技术层面，而非突破它。</div></div></li><li><span class="rel">补充</span>→ <a class="lk" href="https://lens.lumihelia.com/episodes/alexei-efros-surface-data-deep-data.html">表层数据与深层数据 · Alexei Efros</a><div class="why">Foody 区分「输出数据」（表层）和「评估数据」（深层）——后者让模型能反复尝试、打分、改进——这和 Efros 对「表层数据」（被动收集）vs「深层数据」（主动具身采集）的区分在结构上高度一致。两者都指向同一个结论：能衡量成功的反馈数据比纯内容数据更有价值。</div><div class="pts"><div><b class="who">本期</b>[13:42-15:13] Foody 说评估数据（rubric、测试题、标准答案）远比输出数据（模型读的内容）宝贵，因为它让模型能「无限次尝试、不断打分、不断学习」——即形成真正的强化信号。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/episodes/alexei-efros-surface-data-deep-data.html?t=1215">[20:15-21:00]</a> Efros 说深层数据的关键是「物理世界的推回（pushback）」——当你对物体做错了，世界会告诉你；被动收集的表层数据缺乏这种反馈，因此无法训练真正的具身能力。</div></div></li></ul>
+<p class="foot">本页为对节目内容的忠实解读与大白话重述,由 <a href="https://github.com/lumihelia/PodLens">PodLens</a> 生成。</p>
+<p class="disclaimer">这是以原文为依据的一次解读,不能替代原文。每条要点都标注了出处,欢迎回到原文核对——也欢迎指出任何细微的偏差。</p>
+
+</div>
+</body>
+</html>

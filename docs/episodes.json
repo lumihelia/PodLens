@@ -12,6 +12,20 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/episodes/brendan-foody-mercor-teaching-ai-knowledge-work.html",
+      "url": "https://lens.lumihelia.com/episodes/brendan-foody-mercor-teaching-ai-knowledge-work.html",
+      "title": "教 AI 的人与知识工作的未来 · Brendan Foody",
+      "date_published": "2026-06-14",
+      "summary": "这是 Tyler Cowen 的\"Conversations with Tyler\"播客，嘉宾 Brendan Foody 是 Mercor 的 CEO 和联合创始人（2023年初创立），当时22岁，据说是有史以来最年轻的独角兽创始人。Mercor 做的事是雇用专家来教 AI 模型：当 OpenAI 想让模型学习写诗，Mercor 找来最顶尖的诗人；想提升法律能力，找来 Cass Sunstein…",
+      "tags": [
+        "AI训练",
+        "知识工作",
+        "评估体系",
+        "劳动力市场",
+        "强化学习"
+      ]
+    },
+    {
       "id": "https://lens.lumihelia.com/episodes/sarah-paine-continental-maritime-powers-geopolitics.html",
       "url": "https://lens.lumihelia.com/episodes/sarah-paine-continental-maritime-powers-geopolitics.html",
       "title": "为何普京和习近平无法逃脱地理的宿命 · Sarah Paine",
