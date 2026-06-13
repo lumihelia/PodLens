@@ -1,6 +1,74 @@
 {
   "items": [
     {
+      "slug": "john-mackey-whole-foods-44-years",
+      "title": "44年的布道者与全食超市的征服 · John Mackey",
+      "date": "2026-06-14",
+      "kind": "podcast",
+      "summary": "John Mackey 是 Whole Foods Market 的联合创始人兼 CEO，从 1978 年一家叫 SaferWay 的小型天然食品店，用 44 年时间将其建造成美国最大的天然食品超市连锁（最终被亚马逊以 137 亿美元收购）。他在这次谈话中讨论他刚刚出版的回忆录，以及贯穿全书的主题：布道者型创始人与雇佣兵型创始人的区别、资本主义如何创造非零和价值、他与父亲的关系、母亲临终前的最后一…",
+      "source_url": "",
+      "tags": [
+        "创业哲学",
+        "使命驱动",
+        "资本主义",
+        "创业精神",
+        "内在成长"
+      ],
+      "connections": [
+        {
+          "slug": "rick-rubin-creative-act-less-is-more",
+          "kind": "resonance",
+          "relation": "同构",
+          "why": "Mackey 的「布道者 vs. 雇佣兵」框架和 Rubin 的「教堂生意 vs. 银行生意」框架是对同一个底层差异的两种命名——一种工作取向以相信产品本身的价值为前提，另一种以商业可行性为前提。Mackey 用这个框架解释了为什么他能和某些联合创始人合作、不能和另一些合作；Rubin 用来解释 Iovine 和他的差异。两者都认为两种取向都能成功，但必须认清自己是哪种。",
+          "this_point": "[00:02-01:57] Mackey 说布道者和雇佣兵之间「没有对错」，但他们的游戏规则完全不同——布道者愿意20年复利，雇佣兵寻求快速出口；两者共处一家公司是灾难的根源。",
+          "that_point": "[55:42-56:09] Rubin 说 Jimmy Iovine 的框架——「银行生意」（商业底线逻辑，这首歌会给你买一栋房）vs.「教堂生意」（信仰与激情，我听到了什么，我知道它很了不起）——是两种截然不同的职业取向，两者都能成功，但需要认清自己是哪种人。"
+        },
+        {
+          "slug": "james-dyson-5127-prototypes-invention",
+          "kind": "resonance",
+          "relation": "张力",
+          "why": "两人在同一次录音里相互引用对方——Mackey 说他准备去听 Dyson 的那期，并讨论了 Dyson「失败比成功更有趣」的主题。Mackey 轻轻地推回了一下：「成功也是有趣的，你从两者都能学到，只是从失败学到的更多。」这是对 Dyson 核心命题的唯一一次公开的、诚实的分歧——不是驳倒，而是修正为双轨版本（两者都有价值，但失败的信息密度更高）。",
+          "this_point": "[01:02:53-01:03:13] Mackey 听到 Senra 引用 Dyson「失败比成功更有趣」的框架后，温和地推回：「成功也是有趣的……但你确实从失败中学到更多，因为你必须学。学习或死亡。」",
+          "that_point": "[03:58-04:29] Dyson 说失败本质上比成功更有趣，因为失败迫使你质疑「为什么出了问题」——而成功时你只说「太好了」就继续了，不会深究为什么成功。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "44 Years of Building Whole Foods · John Mackey",
+          "tags": [
+            "entrepreneurial philosophy",
+            "mission-driven",
+            "capitalism",
+            "founder psychology",
+            "inner growth"
+          ],
+          "summary": "John Mackey — co-founder and longtime CEO of Whole Foods Market, the natural grocery chain he built from a small Austin store in 1978 into a national chain that Amazon acquired for $13.7 billion — sit…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "rick-rubin-creative-act-less-is-more",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Mackey's 'missionary vs. mercenary' framework and Rubin's 'church business vs. banking business' framework are two names for the same underlying distinction — one orientation presupposes belief in the product's value as the primary driver, the other presupposes commercial viability; both argue neither is wrong, but mixing them in a single partnership is the source of most co-founder conflict",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "james-dyson-5127-prototypes-invention",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Both appear in the same recording — Mackey says he's about to listen to Dyson's episode, then gently pushes back on Dyson's 'failure is more interesting than success' thesis: 'success is interesting too... but you learn more from failure because you have to, learn or die' — the only public, honest disagreement with Dyson's central claim in the entire corpus, correcting it to a dual-track version rather than refuting it",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "james-dyson-5127-prototypes-invention",
       "title": "5127次原型与发明家的宿命 · James Dyson",
       "date": "2026-06-14",
