@@ -85,11 +85,8 @@ GROUNDING RULES (apply to every stage):
   anchors. When it has none, quote a short verbatim phrase from the transcript
   as the anchor instead.
 - Clearly separate what the speaker actually said from your own inference.
-- Keep ALL personal names and proper nouns (people, hosts, guests, places,
-  organizations) in their ORIGINAL form — for these English-language podcasts,
-  the original English/Latin spelling (e.g. "Hakeem Oluseyi", "Jim Al-Khalili").
-  Do NOT translate or transliterate a person's name into Chinese anywhere it
-  appears; write the English name directly (no Chinese, no parentheses).
+- Keep ALL personal names, speaker names, and author names (e.g., Lex Fridman, Neri Oxman, Ron Milo) in their ORIGINAL Latin/English spelling. Do NOT translate or transliterate them into Chinese anywhere they appear (no Chinese, no parentheses).
+- Absolutely NO emojis are allowed anywhere in the output. Keep layout spacious, prose dense, and hierarchy clear (Helia style).
 - Do not add outside knowledge as if it came from the episode. If you must
   note context the episode did not state, label it explicitly as your own note.
 - No hype, no motivational filler, no decorative summary. Plain and serious.

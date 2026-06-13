@@ -12,6 +12,21 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/papers/microglia-function-cns-development-plasticity.html",
+      "url": "https://lens.lumihelia.com/papers/microglia-function-cns-development-plasticity.html",
+      "title": "中枢神经系统发育与可塑性中的小胶质细胞功能 · Dorothy P. Schafer",
+      "date_published": "2026-06-10",
+      "summary": "Dorothy P. Schafer 与 Beth Stevens 在这篇综述中系统整理了小胶质细胞（microglia）在中枢神经系统（central nervous system, CNS）发育与可塑性（plasticity）中的生理功能。长期以来，小胶质细胞被误认为仅在病理状态下起免疫反应。然而，近期的体内成像与遗传学操控研究表明，小胶质细胞作为脑中常驻的髓系免疫细胞（myeloid-der…",
+      "tags": [
+        "小胶质细胞",
+        "突触剪切",
+        "经典补体级联",
+        "活性依赖性",
+        "发育可塑性"
+      ],
+      "external_url": "https://cshperspectives.cshlp.org/content/7/10/a020545.full.pdf"
+    },
+    {
       "id": "https://lens.lumihelia.com/papers/microglia-synaptic-pruning.html",
       "url": "https://lens.lumihelia.com/papers/microglia-synaptic-pruning.html",
       "title": "突触修剪新视角 · Soyon Hong",
