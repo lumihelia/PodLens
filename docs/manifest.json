@@ -1,6 +1,57 @@
 {
   "items": [
     {
+      "slug": "sarah-paine-continental-maritime-powers-geopolitics",
+      "title": "为何普京和习近平无法逃脱地理的宿命 · Sarah Paine",
+      "date": "2026-06-14",
+      "kind": "podcast",
+      "summary": "这是一场由 Sarah Paine 在海军战争学院（她在那里执教24年）给非专业听众所做的公开演讲。Paine 是俄罗斯、中国与日本大战略领域的历史学家，她的核心论点是：陆权大国（大象）和海权大国（鲸鱼）对世界的组织逻辑从根本上不同，而这一差异由地理决定——不是由意识形态、领导人性格或历史偶然性决定。普京和习近平并非异类，他们只是在运行各自地理环境决定的古老安全逻辑。",
+      "source_url": "",
+      "tags": [
+        "地缘政治",
+        "海权与陆权",
+        "帝国史",
+        "大战略",
+        "国际秩序"
+      ],
+      "connections": [
+        {
+          "slug": "ms-e435-class3-economics-ai-supercycle",
+          "kind": "resonance",
+          "relation": "框架补充",
+          "why": "Paine 的陆权/海权框架为理解美中 AI 竞争提供了地缘政治底层逻辑：美国的芯片出口管制是海权猎象策略第二条（「封锁敌方贸易」）在技术领域的现代应用；中国的 AI 基础设施自建冲动是陆权自给自足逻辑在计算领域的复现。这不仅是科技竞争，是两种文明秩序在最新权力领域的正面相遇。",
+          "this_point": "[37:04-37:58] Paine 的猎象策略第二条：封锁敌方贸易，切断其资源补充，让对手被迫依赖内部日益枯竭的资产——这是美国芯片管制政策的战略逻辑。",
+          "that_point": "[ms&e435-class3 · 核心论点] Chase Lock Miller 指出美中 AI 超算力竞争中，美国通过出口管制切断中国获取先进芯片的路径；中国转而构建国内算力生态——这正是陆权自给自足逻辑在 AI 时代的表现。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "Why Putin and Xi Can't Escape Geography · Sarah Paine",
+          "tags": [
+            "geopolitics",
+            "sea power and land power",
+            "imperial history",
+            "grand strategy",
+            "international order"
+          ],
+          "summary": "This is a public lecture by Sarah Paine, historian of Russian, Chinese, and Japanese grand strategy, who spent 24 years on the faculty of the Naval War College. Her central argument is that continenta…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "ms-e435-class3-economics-ai-supercycle",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Paine's maritime/continental framework provides the geopolitical logic underlying US-China AI competition: US chip export controls are the maritime 'don't let the elephant forage' strategy applied to semiconductors; China's domestic AI infrastructure push is continental self-sufficiency logic applied to compute",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "alison-gopnik-childhood-learning-ai-cultural-technology",
       "title": "儿童如何学习，AI 是什么文化技术 · Alison Gopnik",
       "date": "2026-06-14",
