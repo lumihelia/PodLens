@@ -1,6 +1,91 @@
 {
   "items": [
     {
+      "slug": "alexei-efros-surface-data-deep-data",
+      "title": "表层数据与深层数据 · Alexei Efros",
+      "date": "2026-06-14",
+      "kind": "podcast",
+      "summary": "这是 UC Berkeley 计算机视觉教授 Alexei Efros（Alyosha）在一场学术研讨会上的演讲，他是 Shiri 的博士导师，与 Alison Gopnik、Jitendra Malik、Phil Isola 等人同处一个多日工作坊。演讲的核心问题非常直接：Rich Sutton 2019 年的\"苦涩的教训\"究竟苦在哪里？计算（Compute）真的能替代数据（Data）吗？Efr…",
+      "source_url": "",
+      "tags": [
+        "具身智能",
+        "好奇心驱动",
+        "深层数据",
+        "机器人",
+        "世界模型"
+      ],
+      "connections": [
+        {
+          "slug": "yann-lecun-world-models-next-ai-revolution",
+          "kind": "resonance",
+          "relation": "同构",
+          "why": "两者共享同一核心洞察：在表示/特征空间做预测比在像素/token层面更有效。Efros 的2017好奇心论文正是「Yann 称之为世界模型之前的世界模型」，JEPA 是其系统化与命名。",
+          "this_point": "[30:25-31:44] Efros 将2017年好奇心论文称为「pre-JEPA」——在特征空间做预测、同步训练逆模型学习特征表示，显式说这是「Yann 之前就存在的世界模型」。",
+          "that_point": "[23:36-25:00] Yann LeCun 提出 JEPA（联合嵌入预测架构）：不在像素空间而在表示空间做抽象预测，以过滤噪声并捕获物理规律——即 Efros 2017年工作的系统化后继。"
+        },
+        {
+          "slug": "the-era-of-experience",
+          "kind": "resonance",
+          "relation": "印证",
+          "why": "Silver & Sutton 提出 AI 正从「人类数据时代」转向「经验时代」——智能体主动与环境交互产生经验来学习；这正是 Efros 的深层数据飞轮。Efros 在演讲末甚至直接说 Sutton 最新论文「提到数据18次，非常同意我们」。",
+          "this_point": "[37:00-37:28] Efros 说 Rich Sutton 最新论文「非常同意我们，提到了数据18次」，并提出飞轮宣言：「不要问数据能为你的机器人做什么，要问你的机器人能为数据做什么」。",
+          "that_point": "[The Era of Experience · 核心论断] 论文主张 AI 正从「人类数据时代」转向「经验时代」——智能体将通过与环境主动交互产生的经验进行持续学习，突破监督学习的人类数据瓶颈。"
+        },
+        {
+          "slug": "human-data-and-robotics-gpt-3-moment-danfei-xu",
+          "kind": "resonance",
+          "relation": "补充",
+          "why": "Efros 诊断了机器人深层数据危机（数量为零、质量错误），但未给出采集路径；Danfei Xu 的 EgoMimic 工作正好填补这个缺口：以第一人称人类数据作为可规模化的具身深层数据来源。",
+          "this_point": "[20:15-21:00] Efros 指出机器人数据「几乎为零」且「种类错误」——遥操作缺乏规模和负样本，物理世界的「推回」无法从被动数据中获得。",
+          "that_point": "[01:23:53] Danfei Xu 指出第一人称人类视频（EgoMimic）在数据精确度与可规模化之间找到甜蜜点——让采集者佩戴 AR 眼镜主动生活即可采集具身交互数据，是机器人深层数据的当前最佳路径。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "Surface Data vs. Deep Data · Alexei Efros",
+          "tags": [
+            "embodied intelligence",
+            "curiosity-driven",
+            "deep data",
+            "robotics",
+            "world models"
+          ],
+          "summary": "This is a workshop talk by Alexei Efros (Alyosha), professor of computer vision at UC Berkeley and Shiri's PhD advisor, delivered at a multi-day academic symposium alongside Alison Gopnik, Jitendra Ma…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "yann-lecun-world-models-next-ai-revolution",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Efros's 2017 curiosity paper is explicitly called 'pre-JEPA' — prediction in feature space with a simultaneously trained inverse model, i.e. a world model before Yann named it",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "the-era-of-experience",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "both argue that agents must actively interact with environments to generate experiential data — Efros's deep data flywheel and Silver/Sutton's 'era of experience' are the same thesis from different traditions; Efros even cites Sutton's newest paper as 'very much agreeing with us'",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "human-data-and-robotics-gpt-3-moment-danfei-xu",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Efros diagnoses the robotics deep-data crisis (near-zero data, wrong kind); Danfei Xu's EgoMimic work provides the acquisition path: first-person human video as scalable embodied deep data for robots",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "ms&e435-class3-economics-ai-supercycle",
       "title": "AI超量扩张的电网硬壁垒与能源套利 · Chase Lock Miller",
       "date": "2026-06-11",

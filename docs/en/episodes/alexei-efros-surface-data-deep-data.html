@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Surface Data vs. Deep Data · Alexei Efros · PodLens</title>
+<meta name="description" content="This is a workshop talk by Alexei Efros (Alyosha), professor of computer vision at UC Berkeley and Shiri&#x27;s PhD advisor, delivered at a multi-day academic symposium alongside Alison Gopnik, Jitendra Ma…">
+<meta name="author" content="lumihelia">
+<meta name="keywords" content="embodied intelligence, curiosity-driven, deep data, robotics, world models">
+<link rel="canonical" href="https://lens.lumihelia.com/en/episodes/alexei-efros-surface-data-deep-data.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://lens.lumihelia.com/episodes/alexei-efros-surface-data-deep-data.html"><link rel="alternate" hreflang="en" href="https://lens.lumihelia.com/en/episodes/alexei-efros-surface-data-deep-data.html"><link rel="alternate" hreflang="x-default" href="https://lens.lumihelia.com/episodes/alexei-efros-surface-data-deep-data.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Surface Data vs. Deep Data · Alexei Efros · PodLens">
+<meta property="og:description" content="This is a workshop talk by Alexei Efros (Alyosha), professor of computer vision at UC Berkeley and Shiri&#x27;s PhD advisor, delivered at a multi-day academic symposium alongside Alison Gopnik, Jitendra Ma…">
+<meta property="og:url" content="https://lens.lumihelia.com/en/episodes/alexei-efros-surface-data-deep-data.html">
+<link rel="alternate" type="application/rss+xml" title="PodLens" href="https://lens.lumihelia.com/en/feed.xml"><link rel="alternate" type="application/json" title="PodLens" href="https://lens.lumihelia.com/en/episodes.json">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Surface Data vs. Deep Data · Alexei Efros", "datePublished": "2026-06-14", "inLanguage": "en", "url": "https://lens.lumihelia.com/en/episodes/alexei-efros-surface-data-deep-data.html", "description": "This is a workshop talk by Alexei Efros (Alyosha), professor of computer vision at UC Berkeley and Shiri's PhD advisor, delivered at a multi-day academic symposium alongside Alison Gopnik, Jitendra Ma…", "author": {"@type": "Person", "name": "lumihelia"}, "publisher": {"@type": "Person", "name": "lumihelia"}, "keywords": "embodied intelligence, curiosity-driven, deep data, robotics, world models"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --text: #2C2C2C; --primary: #4C436F; --bg: #F4F3F7; --muted: #9A93B3;
+  --border: #D4D0E0; --white: #FFFFFF; --radius: 12px; --shadow: rgba(76,67,111,0.08);
+}
+* { box-sizing: border-box; }
+body {
+  font-family: 'Source Serif Pro', serif; color: var(--text);
+  background: var(--bg); line-height: 1.75; margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 96px 24px 128px; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text); line-height: 1.25; }
+h1 { font-size: 2.6rem; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.01em; }
+h2 { font-size: 1.5rem; font-weight: 600; margin: 64px 0 16px; }
+h3 { font-size: 1.15rem; font-weight: 600; margin: 32px 0 8px; }
+p { margin: 0 0 20px; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.meta { color: var(--muted); font-size: 0.95rem; margin: 0 0 64px; }
+.site-head { margin-bottom: 80px; }
+.site-head .tagline { color: var(--muted); font-size: 1.05rem; margin-top: 4px; }
+ul, ol { padding-left: 1.4em; }
+li { margin: 6px 0; }
+.episode-list { list-style: none; padding: 0; }
+.episode-list li { margin: 0 0 48px; }
+.episode-list .date { color: var(--muted); font-size: 0.9rem; }
+.episode-list .title { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 600; display: block; margin: 4px 0 8px; }
+.episode-list .summary { color: #5a5566; }
+.foot { margin-top: 96px; color: var(--muted); font-size: 0.85rem; }
+.disclaimer { margin-top: 16px; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.index-disclaimer { margin: 48px 0 0; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.topbar { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 48px; }
+.back { color: var(--muted); }
+.langswitch { color: var(--muted); font-size: 0.9rem; border: 1px solid var(--border); padding: 4px 12px; border-radius: 999px; }
+.langswitch:hover { color: var(--primary); border-color: var(--primary); text-decoration: none; }
+.sectionnav { display: flex; align-items: baseline; flex-wrap: wrap; gap: 20px; }
+.sectionnav .brand { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.05rem; color: var(--text); }
+.sectionnav .sec { color: var(--muted); font-size: 0.9rem; padding-bottom: 2px; }
+.sectionnav .sec.active { color: var(--text); border-bottom: 1px solid var(--text); }
+.sectionnav a:hover { color: var(--primary); text-decoration: none; }
+a.ts { color: var(--primary); font-variant-numeric: tabular-nums; white-space: nowrap; text-decoration: none; border-bottom: 1px dotted var(--border); }
+a.ts:hover { border-bottom-style: solid; }
+.source { color: var(--muted); font-size: 0.95rem; margin: 0 0 24px; }
+.player-wrap { position: sticky; top: 0; z-index: 10; background: var(--bg); padding: 12px 0 16px; margin: 0 0 32px; }
+.player-box { position: relative; width: 100%; max-width: 460px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 10px var(--shadow); }
+.player-box #ytplayer, .player-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 48px; }
+.tags span { font-size: 0.85rem; color: var(--primary); background: #EDEBF4; padding: 4px 12px; border-radius: 999px; }
+.connections { list-style: none; padding: 0; margin: 0; }
+.connections li { margin: 0 0 28px; padding-left: 16px; border-left: 2px solid var(--border); }
+.connections .rel { font-size: 0.8rem; color: var(--primary); background: #EDEBF4; padding: 2px 10px; border-radius: 999px; margin-right: 8px; }
+.connections .lk { font-family: 'Playfair Display', serif; font-weight: 600; }
+.connections .why { margin: 8px 0 6px; }
+.connections .pts { color: var(--muted); font-size: 0.92rem; }
+.connections .pts > div { margin-top: 4px; }
+.connections .who { color: var(--text); font-weight: 600; margin-right: 8px; }
+.connections.tensions li { border-left-color: var(--primary); }
+.ctype { font-size: 0.72rem; padding: 1px 9px; border-radius: 999px; margin-right: 8px; letter-spacing: 0.02em; }
+.ctype-genuine { color: #fff; background: var(--primary); }
+.ctype-apparent { color: var(--muted); background: #EDEBF4; }
+.editor-note { background: #EDEBF4; border-radius: 12px; padding: 24px 28px; margin: 0 0 48px; }
+.editor-note .en-label { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 10px; }
+.editor-note p { margin: 0 0 12px; }
+.editor-note p:last-child { margin-bottom: 0; }
+.claim-meta { display: block; margin-top: 2px; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+.claim-meta-first { margin-top: 8px; }
+.claim-meta a.ts { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="topbar"><nav class="sectionnav"><a class="brand" href="https://lens.lumihelia.com/en/">PodLens</a><a class="sec active" href="https://lens.lumihelia.com/en/">episodes</a><a class="sec" href="https://lens.lumihelia.com/en/papers/">papers</a></nav><a class="langswitch" href="https://lens.lumihelia.com/episodes/alexei-efros-surface-data-deep-data.html">中文</a></div>
+<h1>Surface Data vs. Deep Data · Alexei Efros</h1>
+<p class="meta">2026-06-14 · A faithful, transcript-grounded reading by PodLens</p>
+
+
+<div class="tags"><span>embodied intelligence</span><span>curiosity-driven</span><span>deep data</span><span>robotics</span><span>world models</span></div>
+
+<h2>What This Episode Is About</h2>
+<p>This is a workshop talk by Alexei Efros (Alyosha), professor of computer vision at UC Berkeley and Shiri's PhD advisor, delivered at a multi-day academic symposium alongside Alison Gopnik, Jitendra Malik, and Phil Isola. The talk opens with a sharp re-read of Rich Sutton's 2019 "Bitter Lesson" — Efros's verdict: it isn't bitter at all, and it points in the wrong direction.</p>
+<p>The core argument is a two-level critique. First, Efros defends data over compute: our world is not "any possible world" but this specific world, shaped by an irreducible vector of coin-flip decisions from the Big Bang through dinosaur extinction to now. That vector — the entropy signature of our particular reality — cannot be derived from first principles. It only lives in data. Compute without data is useless; compute with data needs only O(N) to "touch" everything. Second, not all data is equal: surface data (passively scraped text, pixels, audio) versus deep data (actively mined through embodied interaction — the weight of a knife, the viscosity of a liquid, how a Mac lid opens). Current AI is entirely built on surface data, which is why it excels at interpolation and mimicry but cannot truly extrapolate. The path forward requires robots — or any agent — to mine deep data the way infants do: by putting everything in their mouths.</p>
+<p>The third layer is a concrete direction: curiosity-driven embodied exploration, exemplified by Efros and Deepak Pathak's 2017 work training Mario without any reward signal, defining curiosity as prediction error. Efros explicitly calls this "a world model before Yann called it world model" — pre-JEPA, doing prediction in feature space with a simultaneously learned inverse model. His ultimate vision is a "Robot Scientist in the Crib": an agent whose only objective is to mine better deep data, creating a flywheel of capabilities that unlock richer data that unlocks better capabilities.</p>
+<h2>Timeline Theme Map</h2>
+<ul>
+<li>[00:00-01:04] Moderator introduces Alexei Efros (Alyosha); this talk is framed as a "rhyme" to Alison Gopnik's earlier talk at the same workshop.</li>
+<li>[01:04-03:30] Reexamining the Bitter Lesson. Darwin and Newton both made things simpler, not more complex — simplicity is the goal of science, not a loss. The lesson is not actually bitter.</li>
+<li>[03:30-05:10] What IS bitter: the Copernican demotion of humans. 99% of the time we are stochastic parrots, walking pastiches of our high school reading lists. Only occasionally do we genuinely transcend and extrapolate.</li>
+<li>[05:10-09:35] The Bitter Lesson's real flaw: Sutton mentions computation 21 times; data, once and in passing. The "compute equals data" equivalence is wrong for modeling our specific world.</li>
+<li>[09:35-10:52] The irreducible entropy argument: the coin-flip vector from the Big Bang forward is the signature of our world. It cannot be derived from first principles — it can only be injected via data.</li>
+<li>[10:52-12:12] Compute is secondary: just enough to touch all the data. O(N) compute for N data points. Compute without data is completely useless.</li>
+<li>[12:12-14:57] Visual data attribution experiment: any synthetic image can be traced back to 6 most-influential training images in LAION. Modern diffusion models are fundamentally texture synthesis — nearest-neighbor patch matching stitched together.</li>
+<li>[14:57-17:25] Neural Thickets paper: randomly walking the weight space of a large pre-trained model produces specialist models (better at math, better at coding) without any new data or fine-tuning. All knowledge was already there from pre-training on data.</li>
+<li>[17:25-19:00] Post-training reframed: it is not adding new capabilities but orienting the model — "which subject is today's exam?" Like showing up after a party night and the first question tells you if it's physics or chemistry.</li>
+<li>[19:00-21:05] Alison Gopnik's "cultural technologies" framing: current AI is like the printing press or encyclopedia, not an intelligent agent. Phil Isola's Data++ concept: generative models compress data and controls into one structure — exceptional at interpolation, not at creation.</li>
+<li>[21:05-23:05] Two ingredients for "true AI": (1) focus on data, not algorithms; (2) emergent objective — AI is when the computer <em>wants</em> to write poetry, not just when it can.</li>
+<li>[23:05-27:30] The surface data / deep data distinction. Surface data: passively received text, photons, audio signals. Deep data: actively mined through embodied interaction — weight, viscosity, which way the lid opens. Babies are deep data miners: they put everything in their mouths. You can imagine how your phone tastes because you did it as a child.</li>
+<li>[27:30-29:10] Moravec's paradox illustration: chess was solved 30 years ago, but no robot can yet move chess pieces the way a human does. VC heuristic: judge a startup by how much data it has. Robotics data: essentially nothing.</li>
+<li>[29:10-31:45] Robotics' double data crisis: (1) no data, (2) wrong kind of data — passive teleoperation with no negative samples, no embodied feedback. Language is forgiving (worst case sounds like James Joyce); physics pushes back.</li>
+<li>[31:45-34:20] Curiosity-driven exploration: the 2017 Pathak collaboration. Curiosity = prediction error. No reward signal, just intrinsic motivation. Efros explicitly frames this as "a world model before Yann called it world model" — prediction in feature space with an inverse model for simultaneous feature learning; pre-JEPA.</li>
+<li>[34:20-35:30] Mario experiment: the agent learns to survive, kill enemies, and move forward — not for points, but because that's the interesting thing to do. Ping-pong: the goal is not to score but to keep the rally going.</li>
+<li>[35:30-37:00] Curiosity applied to diffusion models and text. Still hasn't worked on real robots. But the direction is right.</li>
+<li>[37:00-38:30] Summary: surface data enables magic but will hit a wall of mimicry. Deep data flywheel is the path. Rich Sutton's newest paper mentions data 18 times — "things are getting better." Slogan: "Ask not what the data can do for your robot; ask what your robot can do for data."</li>
+<li>[38:30-46:00] Q&amp;A: Can surface data partially convert to deep data? (Socrates: "appearance of wisdom, not reality.") Deep data++? RL vs. deep data (Alison Gopnik: RL is halfway there but uses a fixed objective); post-training RLHF as "boring" preference feedback. Is embodiment strictly necessary? Gibsonian active perception as parallel framework.</li>
+</ul>
+<h2>Core Viewpoints List</h2>
+<ol>
+<li>
+<p><strong>The Bitter Lesson is not bitter — science seeks simplicity, and Darwin's and Newton's simplifications were gains, not losses.</strong> The genuinely humbling lesson is about humans: we are simpler than we thought, mostly stochastic nearest-neighbor machines. [01:04-02:50] | Type: Reframing | Note: Efros's move is to shift the "who gets demoted" from AI researchers to humans.</p>
+</li>
+<li>
+<p><strong>Irreducible entropy argument: our world's data cannot be generated from compute because the world is uniquely itself due to an unrepeatable chain of random decisions. That entropy vector only exists in data.</strong> [06:55-08:39] | Type: Philosophical argument | Note: This is a definitional closure — if you could simulate our world from scratch, you'd need that entropy vector, which is the data itself.</p>
+</li>
+<li>
+<p><strong>Compute is secondary: you need at least O(N) compute to touch N data points, but compute without data is completely useless.</strong> [09:05-09:38] | Type: Claim | Note: This is the operational definition of data primacy — compute serves data, not the other way around.</p>
+</li>
+<li>
+<p><strong>Modern diffusion models are texture synthesis: they interpolate patches from training images, not generate new content. The synthetic image can be traced back to its 6 most influential real training images.</strong> [12:12-12:45] | Type: Fact | Note: Supported by data attribution work on LAION and Surya's theoretical paper showing diffusion as nearest-neighbor patch matching.</p>
+</li>
+<li>
+<p><strong>Surface data (passively scraped text, pixels, audio) vs. deep data (actively mined through embodied interaction): current AI trains entirely on surface data, which is why it can interpolate brilliantly but cannot truly extrapolate.</strong> [22:01-25:10] | Type: Framework | Note: The infant analogy: babies mine deep data by putting everything in their mouths. Socrates' critique of books is the same critique: "appearance of wisdom, not reality."</p>
+</li>
+<li>
+<p><strong>Robotics has a double data crisis: near-zero data volume, and the existing data is the wrong kind — passive, no negative samples, no embodied feedback from physics pushing back.</strong> [20:15-21:32] | Type: Fact | Note: Language is forgiving (worst case: sounds like James Joyce). Physics is not — robots break things and break themselves.</p>
+</li>
+<li>
+<p><strong>Curiosity = prediction error: an agent's intrinsic motivation can be defined as "what I cannot predict," generating a natural curriculum and a lifelong learning flywheel with no external reward.</strong> [30:54-31:06] | Type: Framework | Note: The 2017 Pathak collaboration; Efros calls it "pre-JEPA" — prediction in feature space with a simultaneously learned inverse model.</p>
+</li>
+<li>
+<p><strong>Deep data flywheel: data → capabilities → ability to acquire better data → better data, with a naturally increasing difficulty curriculum built in.</strong> [26:01-26:21] | Type: Framework | Note: All current robot training paths (teleoperation, simulation, video learning) sit outside this flywheel.</p>
+</li>
+<li>
+<p><strong>RL is halfway to deep data mining: it does interact with environments and does generate negative samples, but uses a fixed objective. True general intelligence may require an evolving objective — one that itself changes with experience, as in evolution.</strong> [42:50-43:57] | Type: Claim | Note: Efros notes that GANs had a flavor of evolving objectives (discriminator and generator co-evolve); RLHF as used in post-training is "boring" — just preference labels.</p>
+</li>
+</ol>
+<h2>Internal Tension and Self-Correction</h2>
+<ul>
+<li>
+<p><strong>[33:01-33:07] vs [37:36-37:44]</strong>: Efros says in his summary that "surface data is enough for some magical things" but elsewhere acknowledges he cannot prove where the ceiling is and that current AI models change every five minutes — making the falsifiability of his claim weak. He accepts the audience's criticism that one image attribution example is thin evidence for "AI cannot be creative." His position is openly speculative, not empirical.</p>
+</li>
+<li>
+<p><strong>[20:22-20:29] vs [43:04-43:20]</strong>: Efros says robotics has "no hope" with current data, but in Q&amp;A agrees that RL succeeded in Chess and Go precisely because those environments are "small and constrained enough" to generate high-quality deep data efficiently. He does not articulate a principled boundary between "too complex for RL" and "appropriately constrained for RL" — only gestures at real-world complexity.</p>
+</li>
+<li>
+<p><strong>[14:57-16:12] vs Q&amp;A [15:33-16:06]</strong>: Efros uses Neural Thickets to argue for data primacy, but Phil Isola (the paper's author, present as moderator) immediately objects: "couldn't it be that the model is very good?" — distinguishing between the data being primary and the algorithm being primary. Efros does not resolve this; he says the claim "should be easy to prove" but acknowledges it hasn't been. This is the weakest logical link in his chain.</p>
+</li>
+</ul>
+<h2>Plain English Retelling</h2>
+<p>Here's the intuition: why can you imagine how your phone tastes? Not because you read "the taste of a smartphone: slightly metallic, plastic coating, hint of screen oil." You know it because you put it in your mouth as a kid, or watched someone else do it, or at minimum picked it up and touched it. That embodied, active experience — the deep data — is what current AI has never had.</p>
+<p>Alexei Efros opens by rehabilitating the "Bitter Lesson." Rich Sutton in 2019 argued that simple methods at scale beat everything specialized — and AI researchers took this as a kind of humiliation. Efros says: why? Darwin did the same thing to taxonomy — replaced thousands of species catalogs with one simple tree. Newton did it to physics. Simplicity is the <em>goal</em> of science. The lesson isn't bitter. What IS somewhat uncomfortable is the implication for humans: we're apparently much more like stochastic parrots and nearest-neighbor machines than we'd like to think.</p>
+<p>The bigger problem with the Bitter Lesson, Efros argues, is what it leaves out: data. Sutton mentions "computation" 21 times; "data" once. This creates the impression that with enough compute, you could bypass data entirely — just simulate the universe from scratch. But here's the catch: you're not trying to simulate <em>a</em> universe. You're trying to model <em>this</em> universe. And this universe is what it is because of an irreducible chain of random decisions — the asteroid that killed the dinosaurs, the evolutionary forks that produced human hands, all the way down to every quirk of every human culture that produced every text in Common Crawl. That chain cannot be reconstructed from physics equations. It only exists as data. Compute without data, Efros says, is completely useless.</p>
+<p>But data itself splits into two kinds. Surface data is what you get by passively scraping: text on the internet, images, audio signals. Deep data is what you get only by actively interacting with the world: picking up the knife to feel its weight, pouring the liquid to see its viscosity, trying to open the Mac in the wrong direction and getting it right the second time. Babies are the canonical deep data miners. They put everything in their mouths — not because they're curious about germs, but because taste is data that cannot be scraped. It can only be harvested by reaching in.</p>
+<p>Current AI, from GPT to Sora to every image diffusion model, is built entirely on surface data. This is why image generation looks like magic — until you trace the synthetic image back to the 6 most-influential training images in the dataset and realize the model is doing sophisticated texture synthesis, not imagination. Alison Gopnik (who is in the room) calls current AI systems "cultural technologies" — like the printing press or encyclopedia. Phil Isola (also in the room) frames generative models as Data++: they compress data and controls into one structure, making interpolation feel like creation. Efros thinks this framing is accurate and clarifying, not a put-down.</p>
+<p>For robotics, this creates a crisis. There is almost no robotics data. And the data that exists is the wrong kind: passive teleoperation with a human joystick, simulation with poor visual and tactile realism, video from YouTube with no embodied feedback. Language is forgiving — if your model outputs wrong tokens you just sound like James Joyce. But a robot that breaks a table or crashes into itself has met physics pushing back. The soft surface-data world has no equivalent.</p>
+<p>The path forward, for Efros, is a robot driven by curiosity. In 2017, working with Deepak Pathak, he trained a Mario-playing agent with no external reward whatsoever — defining curiosity as prediction error. When the model couldn't predict what would happen next, that uncertainty became the signal to explore. The agent learned to survive, kill enemies, and advance — not because it was told to, but because those were the interesting, surprising, unpredictable things to do. He frames this as "a world model before Yann called it world model" — they were doing prediction in feature space with an inverse model learning the feature space simultaneously. Pre-JEPA.</p>
+<p>His final vision: "Ask not what the data can do for your robot; ask what your robot can do for data." Small, purposeless robots crawling around the world, mining deep data, gradually improving, generating capabilities that let them access even deeper data. The Robot Scientist in the Crib.</p>
+<h2>Recommended Segments for Close Listening</h2>
+<ul>
+<li>
+<p><strong>[06:55-08:39]</strong> The irreducible entropy argument. Efros builds the case for why compute cannot substitute for data using a thought experiment about simulating the universe from scratch. This is the philosophical core of the whole talk — tightly argued and surprisingly deep.</p>
+</li>
+<li>
+<p><strong>[22:01-24:29]</strong> The surface vs. deep data distinction with the knife, liquid, and Mac examples, climaxing in the "imagine how your phone tastes" thought experiment. This is where an abstract distinction becomes viscerally concrete.</p>
+</li>
+<li>
+<p><strong>[30:25-32:10]</strong> The 2017 curiosity paper and the "pre-JEPA world model" claim. Dense with history: Efros is quietly asserting priority on a key idea while crediting Yann LeCun and Deepak Pathak. Good for anyone building intuition about the intellectual lineage of world models.</p>
+</li>
+<li>
+<p><strong>[42:01-44:14]</strong> Q&amp;A exchange with Alison Gopnik on RL and deep data. This is the sharpest conceptual exchange in the talk: Gopnik draws the distinction between goal-directed RL (fixed objective, halfway to deep data) and intrinsic curiosity (no fixed objective, the right direction). Her comment that RLHF in post-training is "pretty boring" — just preference labels — lands cleanly. Don't miss Efros's nostalgic return to GANs as a system that had an "evolving objective."</p>
+</li>
+<li>
+<p><strong>[34:37-35:30]</strong> Mario and ping-pong demonstrations. The ping-pong framing is the best sentence in the talk: "the goal is not to score, the goal is to keep the rally going, because that's more interesting." A one-line illustration of intrinsic motivation vs. task reward.</p>
+</li>
+</ul>
+<h2>Resonances with past episodes</h2><ul class="connections"><li><span class="rel">Efros&#x27;s 2017 curiosity paper is explicitly called &#x27;pre-JEPA&#x27; — prediction in feature space with a simultaneously trained inverse model, i.e. a world model before Yann named it</span>→ <a class="lk" href="https://lens.lumihelia.com/en/episodes/yann-lecun-world-models-next-ai-revolution.html">World Models and Real-World Intelligence · Yann LeCun</a><div class="why"></div><div class="pts"><div><b class="who">This</b></div><div><b class="who">Related</b></div></div></li><li><span class="rel">both argue that agents must actively interact with environments to generate experiential data — Efros&#x27;s deep data flywheel and Silver/Sutton&#x27;s &#x27;era of experience&#x27; are the same thesis from different traditions; Efros even cites Sutton&#x27;s newest paper as &#x27;very much agreeing with us&#x27;</span>→ <a class="lk" href="https://lens.lumihelia.com/en/papers/the-era-of-experience.html">The Era of Experience: Reinforcement Learning Beyond Human Data · David Silver</a><div class="why"></div><div class="pts"><div><b class="who">This</b></div><div><b class="who">Related</b></div></div></li><li><span class="rel">Efros diagnoses the robotics deep-data crisis (near-zero data, wrong kind); Danfei Xu&#x27;s EgoMimic work provides the acquisition path: first-person human video as scalable embodied deep data for robots</span>→ <a class="lk" href="https://lens.lumihelia.com/en/episodes/human-data-and-robotics-gpt-3-moment-danfei-xu.html">Human Data and Robotics&#x27; GPT-3 Moment · Danfei Xu</a><div class="why"></div><div class="pts"><div><b class="who">This</b></div><div><b class="who">Related</b></div></div></li></ul>
+<p class="foot">A faithful reconstruction and plain-language retelling of the episode, generated by <a href="https://github.com/lumihelia/PodLens">PodLens</a>.</p>
+<p class="disclaimer">This is one source-grounded reading, not a replacement for the original. Every point is anchored to its source, so you can check it yourself — and corrections are welcome.</p>
+
+</div>
+</body>
+</html>

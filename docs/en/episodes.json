@@ -12,6 +12,20 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/en/episodes/alexei-efros-surface-data-deep-data.html",
+      "url": "https://lens.lumihelia.com/en/episodes/alexei-efros-surface-data-deep-data.html",
+      "title": "Surface Data vs. Deep Data · Alexei Efros",
+      "date_published": "2026-06-14",
+      "summary": "This is a workshop talk by Alexei Efros (Alyosha), professor of computer vision at UC Berkeley and Shiri's PhD advisor, delivered at a multi-day academic symposium alongside Alison Gopnik, Jitendra Ma…",
+      "tags": [
+        "embodied intelligence",
+        "curiosity-driven",
+        "deep data",
+        "robotics",
+        "world models"
+      ]
+    },
+    {
       "id": "https://lens.lumihelia.com/en/episodes/ms&e435-class3-economics-ai-supercycle.html",
       "url": "https://lens.lumihelia.com/en/episodes/ms&e435-class3-economics-ai-supercycle.html",
       "title": "AI Overexpansion's Hard Grid Barriers and Energy Arbitrage · Chase Lock Miller",
