@@ -12,6 +12,20 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/episodes/alexei-efros-surface-data-deep-data.html",
+      "url": "https://lens.lumihelia.com/episodes/alexei-efros-surface-data-deep-data.html",
+      "title": "表层数据与深层数据 · Alexei Efros",
+      "date_published": "2026-06-14",
+      "summary": "这是 UC Berkeley 计算机视觉教授 Alexei Efros（Alyosha）在一场学术研讨会上的演讲，他是 Shiri 的博士导师，与 Alison Gopnik、Jitendra Malik、Phil Isola 等人同处一个多日工作坊。演讲的核心问题非常直接：Rich Sutton 2019 年的\"苦涩的教训\"究竟苦在哪里？计算（Compute）真的能替代数据（Data）吗？Efr…",
+      "tags": [
+        "具身智能",
+        "好奇心驱动",
+        "深层数据",
+        "机器人",
+        "世界模型"
+      ]
+    },
+    {
       "id": "https://lens.lumihelia.com/episodes/ms&e435-class3-economics-ai-supercycle.html",
       "url": "https://lens.lumihelia.com/episodes/ms&e435-class3-economics-ai-supercycle.html",
       "title": "AI超量扩张的电网硬壁垒与能源套利 · Chase Lock Miller",
