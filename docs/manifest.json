@@ -1,6 +1,57 @@
 {
   "items": [
     {
+      "slug": "diarmaid-macculloch-christianity-sex-history",
+      "title": "基督教、性与颠覆定论 · Diarmaid MacCulloch",
+      "date": "2026-06-14",
+      "kind": "podcast",
+      "summary": "这是 Tyler Cowen 的\"Conversations with Tyler\"播客的一期对话，嘉宾 Diarmaid MacCulloch 是牛津大学教会史荣退教授，也是当代最重要的宗教史学家之一，著有《基督教：一种全球历史》《克兰默传》等多部里程碑式作品。本期围绕他的新书《低于天使：性与基督教的历史》（Lower than the Angels）展开，以问答形式覆盖从早期基督教到现代英国国…",
+      "source_url": "",
+      "tags": [
+        "宗教史",
+        "基督教",
+        "性与婚姻",
+        "历史方法论",
+        "宗教改革"
+      ],
+      "connections": [
+        {
+          "slug": "rights-pre-modern-masculinist-fantasy",
+          "kind": "resonance",
+          "relation": "张力",
+          "why": "右翼基督教话语体系援引保罗来压制性别平等、援引「传统婚姻」来论证父权结构——但 MacCulloch 的历史考证直接拆解这一叙事：保罗最重要的婚姻文本恰恰是古代最平等的性别声明，而「传统」婚姻中的独身要求不过是12世纪的制度发明。",
+          "this_point": "[05:45-06:22] 保罗《哥林多前书》7:3 声称丈夫的身体同样属于妻子——MacCulloch 称之为「真正非凡、前所未有的声明」，两千年来几乎被整个基督教传统搁置。",
+          "that_point": "[34:47-38:07] 右翼基督教与福音派将耶稣男性化、偏好引用保罗来论证传统性别秩序——但这种援引建立在对保罗文本的选择性剪辑之上，与历史记录中保罗的实际立场相悖。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "Christianity, Sex, and Unsettling Settled Facts · Diarmaid MacCulloch",
+          "tags": [
+            "religious history",
+            "Christianity",
+            "sex and marriage",
+            "historiography",
+            "Reformation"
+          ],
+          "summary": "In this episode of Tyler Cowen's \"Conversations with Tyler,\" historian Diarmaid MacCulloch — emeritus professor of the History of the Church at Oxford, author of Christianity: The First Three Thousand…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "rights-pre-modern-masculinist-fantasy",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "direct historical counter: MacCulloch's scholarship shows that what the New Right calls 'traditional Christianity' on gender and marriage is largely a 12th-century institutional invention — and that Paul's actual texts on sexuality are more egalitarian than the right-wing reading acknowledges",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "alexei-efros-surface-data-deep-data",
       "title": "表层数据与深层数据 · Alexei Efros",
       "date": "2026-06-14",
