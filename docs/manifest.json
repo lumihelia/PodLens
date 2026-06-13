@@ -1,6 +1,57 @@
 {
   "items": [
     {
+      "slug": "ivanka-trump-authenticity-reinvention",
+      "title": "自我认知、本真性与人生重建 · Ivanka Trump",
+      "date": "2026-06-14",
+      "kind": "podcast",
+      "summary": "这是 David Senra 的 Founders 播客，嘉宾 Ivanka Trump——早年职业法国号演奏家的比喻放在别处，而她的轨迹是：22岁创办第一家公司→在特朗普集团负责地产开发（老邮政局翻新、特朗普多拉）→同时运营时装品牌（年销售额8亿美元）→2017年随父进入白宫四年→2021年离开华府迁居迈阿密→重新开始，投身科技早期投资（AI、生物技术、机器人）、地产（阿尔巴尼亚岛 Seaiso…",
+      "source_url": "",
+      "tags": [
+        "自我认知",
+        "创业哲学",
+        "使命驱动",
+        "人生重建",
+        "本真性"
+      ],
+      "connections": [
+        {
+          "slug": "arthur-brooks-reinvention-religion-happiness",
+          "kind": "resonance",
+          "relation": "同构",
+          "why": "两者都把「知道自己是谁」作为所有其他事情的前提，且都经历了主要的人生轨道中断并选择了不回头的重建。Brooks 的「螺旋型职业」（主动选择每7-12年学习新事物）和 Ivanka 的「不重接旧线」（被迫中断后拒绝回头）是同一个底层命题的两种不同路径——两者都认为打断惯性、从新的自我位置出发，比沿原轨迹继续更有价值。",
+          "this_point": "[41:36-42:05] Ivanka 说最聪明的决定是不「重接旧线」——不回家族企业、不重启时装品牌，而是花6个月说不，等待真正从新的自我位置出现的吸引力，然后才开始行动。",
+          "that_point": "[46:16-46:34] Brooks 描述螺旋型职业：每7-12年主动设计一个新的迷你职业，驱动力是「我想学下一件大事」而不是升职或薪酬——两者的共同点是把惯性打断视为机会，而不是损失。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "Self-Knowledge, Authenticity, and Rebuilding a Life · Ivanka Trump",
+          "tags": [
+            "self-knowledge",
+            "entrepreneurial philosophy",
+            "mission-driven work",
+            "reinvention",
+            "authenticity"
+          ],
+          "summary": "In this episode of David Senra's Founders podcast, Ivanka Trump traces a life of repeated reinvention — from 22-year-old founder, to managing high-profile Trump Organization real estate projects while…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "arthur-brooks-reinvention-religion-happiness",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Both center on self-knowledge as the precondition for everything, and both describe leveraging major life discontinuity rather than fighting it — Brooks's spiral career (actively designing 7-12 year pivots) and Ivanka's 'don't reconnect old wires' (refusing to return after an involuntary break) are two paths to the same insight: momentum break as opportunity, not loss",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "arthur-brooks-reinvention-religion-happiness",
       "title": "重塑人生、宗教与幸福科学 · Arthur Brooks",
       "date": "2026-06-14",
