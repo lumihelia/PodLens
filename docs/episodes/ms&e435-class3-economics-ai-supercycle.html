@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI超量扩张的电网硬壁垒与能源套利 · Chase Lock Miller · PodLens</title>
+<meta name="description" content="在 Stanford University 的 MS&amp;E435（Economics of the AI Supercycle）课堂上，主讲人 Apoorv Agrawal 与 Crusoe 创始人兼 CEO Chase Lock Miller 深入探讨了 AI 超级周期下的数据中心经济学与能源供给架构。对话以五大 Hyperscalers 呈指数增长的 AI 资本支出（CapEx）为引子，引入了 …">
+<meta name="author" content="lumihelia">
+<meta name="keywords" content="算力电能, 数据中心, 数字劳动力, 垂直整合, 电网基建">
+<link rel="canonical" href="https://lens.lumihelia.com/episodes/ms&e435-class3-economics-ai-supercycle.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://lens.lumihelia.com/episodes/ms&e435-class3-economics-ai-supercycle.html"><link rel="alternate" hreflang="en" href="https://lens.lumihelia.com/en/episodes/ms&e435-class3-economics-ai-supercycle.html"><link rel="alternate" hreflang="x-default" href="https://lens.lumihelia.com/episodes/ms&e435-class3-economics-ai-supercycle.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI超量扩张的电网硬壁垒与能源套利 · Chase Lock Miller · PodLens">
+<meta property="og:description" content="在 Stanford University 的 MS&amp;E435（Economics of the AI Supercycle）课堂上，主讲人 Apoorv Agrawal 与 Crusoe 创始人兼 CEO Chase Lock Miller 深入探讨了 AI 超级周期下的数据中心经济学与能源供给架构。对话以五大 Hyperscalers 呈指数增长的 AI 资本支出（CapEx）为引子，引入了 …">
+<meta property="og:url" content="https://lens.lumihelia.com/episodes/ms&e435-class3-economics-ai-supercycle.html">
+<link rel="alternate" type="application/rss+xml" title="PodLens" href="https://lens.lumihelia.com/feed.xml"><link rel="alternate" type="application/json" title="PodLens" href="https://lens.lumihelia.com/episodes.json">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "AI超量扩张的电网硬壁垒与能源套利 · Chase Lock Miller", "datePublished": "2026-06-11", "inLanguage": "zh-Hans", "url": "https://lens.lumihelia.com/episodes/ms&e435-class3-economics-ai-supercycle.html", "description": "在 Stanford University 的 MS&E435（Economics of the AI Supercycle）课堂上，主讲人 Apoorv Agrawal 与 Crusoe 创始人兼 CEO Chase Lock Miller 深入探讨了 AI 超级周期下的数据中心经济学与能源供给架构。对话以五大 Hyperscalers 呈指数增长的 AI 资本支出（CapEx）为引子，引入了 …", "author": {"@type": "Person", "name": "lumihelia"}, "publisher": {"@type": "Person", "name": "lumihelia"}, "keywords": "算力电能, 数据中心, 数字劳动力, 垂直整合, 电网基建", "isBasedOn": "https://youtu.be/4zk-hJ50vmU?si=9d_9Y7wbYavqltYO"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --text: #2C2C2C; --primary: #4C436F; --bg: #F4F3F7; --muted: #9A93B3;
+  --border: #D4D0E0; --white: #FFFFFF; --radius: 12px; --shadow: rgba(76,67,111,0.08);
+}
+* { box-sizing: border-box; }
+body {
+  font-family: 'Source Serif Pro', serif; color: var(--text);
+  background: var(--bg); line-height: 1.75; margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 96px 24px 128px; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text); line-height: 1.25; }
+h1 { font-size: 2.6rem; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.01em; }
+h2 { font-size: 1.5rem; font-weight: 600; margin: 64px 0 16px; }
+h3 { font-size: 1.15rem; font-weight: 600; margin: 32px 0 8px; }
+p { margin: 0 0 20px; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.meta { color: var(--muted); font-size: 0.95rem; margin: 0 0 64px; }
+.site-head { margin-bottom: 80px; }
+.site-head .tagline { color: var(--muted); font-size: 1.05rem; margin-top: 4px; }
+ul, ol { padding-left: 1.4em; }
+li { margin: 6px 0; }
+.episode-list { list-style: none; padding: 0; }
+.episode-list li { margin: 0 0 48px; }
+.episode-list .date { color: var(--muted); font-size: 0.9rem; }
+.episode-list .title { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 600; display: block; margin: 4px 0 8px; }
+.episode-list .summary { color: #5a5566; }
+.foot { margin-top: 96px; color: var(--muted); font-size: 0.85rem; }
+.disclaimer { margin-top: 16px; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.index-disclaimer { margin: 48px 0 0; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.topbar { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 48px; }
+.back { color: var(--muted); }
+.langswitch { color: var(--muted); font-size: 0.9rem; border: 1px solid var(--border); padding: 4px 12px; border-radius: 999px; }
+.langswitch:hover { color: var(--primary); border-color: var(--primary); text-decoration: none; }
+.sectionnav { display: flex; align-items: baseline; flex-wrap: wrap; gap: 20px; }
+.sectionnav .brand { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.05rem; color: var(--text); }
+.sectionnav .sec { color: var(--muted); font-size: 0.9rem; padding-bottom: 2px; }
+.sectionnav .sec.active { color: var(--text); border-bottom: 1px solid var(--text); }
+.sectionnav a:hover { color: var(--primary); text-decoration: none; }
+a.ts { color: var(--primary); font-variant-numeric: tabular-nums; white-space: nowrap; text-decoration: none; border-bottom: 1px dotted var(--border); }
+a.ts:hover { border-bottom-style: solid; }
+.source { color: var(--muted); font-size: 0.95rem; margin: 0 0 24px; }
+.player-wrap { position: sticky; top: 0; z-index: 10; background: var(--bg); padding: 12px 0 16px; margin: 0 0 32px; }
+.player-box { position: relative; width: 100%; max-width: 460px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 10px var(--shadow); }
+.player-box #ytplayer, .player-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 48px; }
+.tags span { font-size: 0.85rem; color: var(--primary); background: #EDEBF4; padding: 4px 12px; border-radius: 999px; }
+.connections { list-style: none; padding: 0; margin: 0; }
+.connections li { margin: 0 0 28px; padding-left: 16px; border-left: 2px solid var(--border); }
+.connections .rel { font-size: 0.8rem; color: var(--primary); background: #EDEBF4; padding: 2px 10px; border-radius: 999px; margin-right: 8px; }
+.connections .lk { font-family: 'Playfair Display', serif; font-weight: 600; }
+.connections .why { margin: 8px 0 6px; }
+.connections .pts { color: var(--muted); font-size: 0.92rem; }
+.connections .pts > div { margin-top: 4px; }
+.connections .who { color: var(--text); font-weight: 600; margin-right: 8px; }
+.connections.tensions li { border-left-color: var(--primary); }
+.ctype { font-size: 0.72rem; padding: 1px 9px; border-radius: 999px; margin-right: 8px; letter-spacing: 0.02em; }
+.ctype-genuine { color: #fff; background: var(--primary); }
+.ctype-apparent { color: var(--muted); background: #EDEBF4; }
+.editor-note { background: #EDEBF4; border-radius: 12px; padding: 24px 28px; margin: 0 0 48px; }
+.editor-note .en-label { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 10px; }
+.editor-note p { margin: 0 0 12px; }
+.editor-note p:last-child { margin-bottom: 0; }
+.claim-meta { display: block; margin-top: 2px; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+.claim-meta-first { margin-top: 8px; }
+.claim-meta a.ts { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="topbar"><nav class="sectionnav"><a class="brand" href="https://lens.lumihelia.com/">PodLens</a><a class="sec active" href="https://lens.lumihelia.com/">episodes</a><a class="sec" href="https://lens.lumihelia.com/papers/">papers</a></nav><a class="langswitch" href="https://lens.lumihelia.com/en/episodes/ms&e435-class3-economics-ai-supercycle.html">English</a></div>
+<h1>AI超量扩张的电网硬壁垒与能源套利 · Chase Lock Miller</h1>
+<p class="meta">2026-06-11 · 由 PodLens 生成的忠实解读</p>
+<p class="source">原节目:<a href="https://youtu.be/4zk-hJ50vmU?si=9d_9Y7wbYavqltYO" target="_blank" rel="noopener">https://youtu.be/4zk-hJ50vmU?si=9d_9Y7wbYavqltYO</a>　·　时间戳可点击,就地跳转播放器</p>
+<div class="player-wrap"><div class="player-box"><div id="ytplayer"></div></div></div>
+<script>
+var PL = (function() {
+  var player, ready = false, pending = null;
+  window.onYouTubeIframeAPIReady = function() {
+    player = new YT.Player('ytplayer', {
+      videoId: '4zk-hJ50vmU',
+      host: 'https://www.youtube-nocookie.com',
+      playerVars: {playsinline: 1, rel: 0},
+      events: {onReady: function() { ready = true; if (pending != null) { var p = pending; pending = null; seek(p); } }}
+    });
+  };
+  function seek(s) {
+    if (!ready) { pending = s; return false; }
+    player.seekTo(s, true); player.playVideo();
+    document.querySelector('.player-wrap').scrollIntoView({behavior: 'smooth', block: 'start'});
+    return false;
+  }
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+  document.addEventListener('DOMContentLoaded', function() {
+    var t = new URLSearchParams(location.search).get('t');
+    if (t) { seek(parseInt(t, 10)); }
+  });
+  return {seek: seek};
+})();
+</script>
+<div class="tags"><span>算力电能</span><span>数据中心</span><span>数字劳动力</span><span>垂直整合</span><span>电网基建</span></div>
+
+<h2>这期讲了什么</h2>
+<p>在 Stanford University 的 MS&amp;E435（Economics of the AI Supercycle）课堂上，主讲人 Apoorv Agrawal 与 Crusoe 创始人兼 CEO Chase Lock Miller 深入探讨了 AI 超级周期下的数据中心经济学与能源供给架构。对话以五大 Hyperscalers 呈指数增长的 AI 资本支出（CapEx）为引子，引入了 AI 作为“数字劳动力”的经济学模型（Cobb-Douglas Model），并指出当前的硬性物理制约已从芯片供应转向“Energized Data Centers”（带电数据中心/电力外壳）。Chase Lock Miller 详细拆解了 Crusoe 采用“能源先行（Energy-First）”策略在西德州 Abilene 与 Claude, Texas 建立吉瓦（GW）级计算园区的逻辑（包括就地捕获廉价风光电能、跨电表双向并网互联、以及建设自备天然气电厂），并首次公开披露了数据中心物理基建、IT 设备、电力系统以及施工劳动力在每兆瓦（Per Megawatt）维度上的 CapEx/OpEx 及营收回报模型。最后，对话对旧算力的商品化趋势、长期铀浓缩等核燃料供应链瓶颈、数据中心在太空轨道部署的物理障碍与经济可行性，以及电气化设备供应链（如 Eaton, Schneider）的颠覆性机遇给出了第一性原理级别的分析与评估。</p>
+<h2>时间线主题地图</h2>
+<ul>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=0s" target="_blank" rel="noopener" onclick="return PL.seek(0)">[00:00-01:22]</a> Apoorv Agrawal 引入本期主题——AI Hyperscalers 的巨额资本支出（CapEx），介绍 Crusoe 创始人兼 CEO Chase Lock Miller 及其登山背景。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=83s" target="_blank" rel="noopener" onclick="return PL.seek(83)">[01:23-02:23]</a> Chase Lock Miller 概述数据中心作为 AI 技术爆发的“物理化身”，是运行 GPU、计算任务和向消费者提供 token 的基础物理架构。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=144s" target="_blank" rel="noopener" onclick="return PL.seek(144)">[02:24-04:47]</a> 讨论 AI 的生产方程（AI = Data + Algorithms + Compute + Energy + Data Centers），拆解各要素的成本属性。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=288s" target="_blank" rel="noopener" onclick="return PL.seek(288)">[04:48-07:20]</a> 引用 Cobb-Douglas 经济模型，阐述为什么 token 极其昂贵且有价值：AI 首次创造了“数字劳动力（Digital Labor）”，打破了传统劳动力受限于人口出生率和 20 年孵化期的约束。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=441s" target="_blank" rel="noopener" onclick="return PL.seek(441)">[07:21-08:55]</a> 介绍 Crusoe 垂直整合的定位，涵盖底层的能源开发、物理数据中心（电力与冷却）到上层的 GPU 集群与管理服务。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=536s" target="_blank" rel="noopener" onclick="return PL.seek(536)">[08:56-10:51]</a> 讨论 AI 产业链条的动态瓶颈演变。当前最核心的瓶颈已从 chips 转向 energized data centers，并解释垂直整合如何应对瓶颈转移。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=652s" target="_blank" rel="noopener" onclick="return PL.seek(652)">[10:52-12:52]</a> 回顾 Crusoe 的创业逻辑。为了避免与传统 Northern Virginia 数据中心开发商红海竞争，Crusoe 采取逆向思维，工作重点从“移动能源”转向“就地计算、移动数据”。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=773s" target="_blank" rel="noopener" onclick="return PL.seek(773)">[12:53-15:28]</a> 详解 Abilene, Texas 计算园区项目。分析其依托当地廉价甚至负电价风光资源、1GW 私有变电站（相当于 Denver 全市电力需求）、以及 350MW 自备天然气发电厂的规划，透露客户为 Oracle 和 OpenAI 的 Project Stargate。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=929s" target="_blank" rel="noopener" onclick="return PL.seek(929)">[15:29-18:08]</a> 讨论 Abilene 园区的超大规模劳动配置（每日 9000 人施工，长期运营 2000 人），并预告 Microsoft 将在园区南侧扩展，总规模达 2.1GW。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=1089s" target="_blank" rel="noopener" onclick="return PL.seek(1089)">[18:09-21:10]</a> 细拆每兆瓦（Per Megawatt）物理基建与动力系统 CapEx。详细解释空调水冷循环（闭环水路，极低耗水）机制，批驳 AI 消耗大量淡水的舆论。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=1271s" target="_blank" rel="noopener" onclick="return PL.seek(1271)">[21:11-26:24]</a> 深入分析物理基建的 2000 万美元/兆瓦的 CapEx 构成，强调建筑施工劳动力成本（470万美元/兆瓦，熟练工短缺）、天然气涡轮机设备价格飞涨（从100万美元/兆瓦涨至300万美元/兆瓦），以及变电站与 UPS 的配置。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=1585s" target="_blank" rel="noopener" onclick="return PL.seek(1585)">[26:25-29:19]</a> 介绍 Claude, Texas 的 3500 人在建项目，讲解“Across the Meter”（跨电表）的双向并网套利机制。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=1760s" target="_blank" rel="noopener" onclick="return PL.seek(1760)">[29:20-31:47]</a> 细拆 IT 设备每兆瓦约 4000 万美元的 CapEx 构成。其中 GPU 占 3000 万美元，网络（NVLink, InfiniBand/RoCE）占 400 万美元，CPU 与存储占 300 万美元，指出由于 Agentic 任务和云端调度爆发导致 CPU 严重短缺。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=1908s" target="_blank" rel="noopener" onclick="return PL.seek(1908)">[31:48-33:31]</a> 讨论算力商品化（Commoditization）争议。Chase 认为旧算力会随时间商品化，但极端规模（Scale）与最前沿技术仍将维持高溢价，预计 Nvidia 的毛利率终将从 80% 回归至 60% 左右。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=2012s" target="_blank" rel="noopener" onclick="return PL.seek(2012)">[33:32-36:42]</a> 分析折旧周期与托管服务。指出华尔街关注物理建筑与计算设备的折旧曲线，Crusoe 策略是通过云平台抽象底层的具体芯片型号。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=2203s" target="_blank" rel="noopener" onclick="return PL.seek(2203)">[36:43-39:56]</a> 详解数据中心运营的财务逻辑。每兆瓦 upfront CapEx 约 6000 万美元，OpEx 约 100 万美元/年。若仅出租裸芯片，年营收约 1500 万美元/兆瓦（4年回本）；若提供托管 API 服务（从 electrons 到 tokens），年营收可达 3000 万美元/兆瓦（2年回本）。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=2397s" target="_blank" rel="noopener" onclick="return PL.seek(2397)">[39:57-42:04]</a> 介绍 Crusoe 研发的“Crusoe Spark”模块化风冷（500kW）及液冷（2MW）自研移动数据中心，通过工厂预制将基建成本削减 30% 至 50%。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=2525s" target="_blank" rel="noopener" onclick="return PL.seek(2525)">[42:05-43:56]</a> 问答环节 1：行业股票与电气供应链看法。Chase 长期看空缺乏创新的传统输配电设备巨头（如 Eaton, Schneider），认为数据中心将逼迫电气栈向 900V DC 直流与固态变压器等革新方向演进。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=2637s" target="_blank" rel="noopener" onclick="return PL.seek(2637)">[43:57-44:41]</a> 问答环节 2：开源与闭源生态。Chase 认为开源（Open Source）将持续崛起并侵蚀闭源模型的市场份额。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=2682s" target="_blank" rel="noopener" onclick="return PL.seek(2682)">[44:42-47:39]</a> 问答环节 3：太空数据中心的可行性。Crusoe 投资了 StarCloud（发射首颗 H100 卫星）。Chase 分析了太空免建房、免电力许可、全光学互联 the 优势，以及热管理和无法派宇航员物理更换坏卡的致命约束，认为 5-10 年内无法规模化商业化。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=2860s" target="_blank" rel="noopener" onclick="return PL.seek(2860)">[47:40-49:28]</a> 问答环节 4：对 Stanford 学生的建议。分享 Crusoe 的核心价值观“Living on the infinite growth loop”（终身成长环），呼吁学生关注“如何学习与行动（process &amp; tools）”而非具体的研究方向。</li>
+</ul>
+<h2>核心观点清单</h2>
+<ol>
+<li><strong>AI 资本支出的超量爆发，本质是人类历史上首次通过投资物理基建来直接创生“数字劳动力（Digital Labor）”。</strong> 传统的宏观 GDP 增长高度受限国民人口的繁衍与成长周期（通常需 20 年孵化期），而 AI 时代的“数字劳动力”可以通过购买 GPU 和建设数据中心外壳来实现瞬时、批量且无限可扩展的供给增长。<a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=358s" target="_blank" rel="noopener" onclick="return PL.seek(358)">[05:58-06:54]</a> | 类型：观点 | 备注：Chase 指出这是生产函数 Cobb-Douglas 方程中 Delta L 的数字化重塑。</li>
+<li><strong>当前 AI 算力扩张的限制性瓶颈，已从前几年的芯片供应紧缺流转为“带电的物理数据中心（Energized Data Centers/Powered Shells）”的短缺。</strong> 在当前环境下，拥有昂贵的芯片并不等于拥有算力，寻找能够安全接入足够负荷电网并将芯片通电开启的物理场址才是真正的竞争硬边界。<a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=590s" target="_blank" rel="noopener" onclick="return PL.seek(590)">[09:50-10:27]</a> | 类型：事实 | 备注：Chase 同时强调瓶颈在产业链条中是动态转移的，可能会随时流转回变电切换器或冷却机组。</li>
+<li><strong>在北弗吉尼亚等传统网络枢纽之外寻找偏远且过剩的“受限能源（Stranded Energy）”，并采取“计算就地、移动数据”是最高效的破局思路。</strong> 面对主电网的并网拖延与红海竞争，在可再生能源（风能/太阳能）丰富但输电通道受阻的地方直接 collocating 建设数据中心，能以极低成本获取电力，避免传统的基建拥挤。<a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=735s" target="_blank" rel="noopener" onclick="return PL.seek(735)">[12:15-12:45]</a> | 类型：观点</li>
+<li><strong>通过“Across the Meter”（跨电表）双向并网套利，超大规模计算园区能够同时实现绿电就地消纳与主电网调峰。</strong> 数据中心在本地发电富余时将电能反向注入主电网为本地 rate payers 降低用能成本，在本地风光出力不足或设备维护时从电网取电 firm up 负荷，形成了良性的分布式共生系统。<a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=1700s" target="_blank" rel="noopener" onclick="return PL.seek(1700)">[28:20-29:08]</a> | 类型：观点</li>
+<li><strong>数据中心物理基建每兆瓦高达 2000 万美元的 CapEx 中，主要膨胀点来自熟练工种的短缺以及天然气发电设备制造的寡头垄断。</strong> 由于行业普遍面临电工、焊工、管道工不足，施工人工成本每兆瓦被推高至 470 万美元；同时由于 GE Vernova, Siemens 等几家巨头控制了气轮机产能，设备单价已飙升至 300 万美元/兆瓦。<a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=1410s" target="_blank" rel="noopener" onclick="return PL.seek(1410)">[23:30-25:53]</a> | 类型：事实</li>
+<li><strong>由于智能 Agentic 任务和复杂的云端算力调度爆发，当前 AI 算力底座面临严重的 CPU 供应缺口。</strong> 行业通常把目光聚集在 GPU 上，但作为计算任务协调和调度中枢的 CPU 在当下正遭遇严重的供应链瓶颈，直接卡住了部分新增集群的上线进度。<a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=1871s" target="_blank" rel="noopener" onclick="return PL.seek(1871)">[31:11-31:25]</a> | 类型：事实</li>
+<li><strong>数据中心向极速配电演进将倒逼电气输配电产业链变革，长期看空缺乏创新的 Eaton、Schneider 等传统厂商。</strong> 传统设备在 900V DC 直流直供和固态电力电子设备（Solid-State Power Electronics）的爆发下将丧失统治地位，数据中心的特定大电流需求终将重置百年未变的电气总线设计。<a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=2539s" target="_blank" rel="noopener" onclick="return PL.seek(2539)">[42:19-43:37]</a> | 类型：预测 | 备注：Chase 补充由于这些传统厂商目前手握大量待交付订单，其短期财务表现仍然会很强劲。</li>
+<li><strong>由于太空无法进行物理插拔坏卡和极为棘手的热管理难题，太空轨道数据中心在未来 5 到 10 年内无法形成规模化商业闭环。</strong> 太空计算虽有免土地和免用能审批的极大自由度，但高达百分之十几的 GPU 自然物理损坏率在无法人工作业的前提下，将直接折损系统的折旧经济可行性。<a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=2741s" target="_blank" rel="noopener" onclick="return PL.seek(2741)">[45:41-47:22]</a> | 类型：预测 | 备注：该技术的可行性完全系于 SpaceX Starship 能否将发射 payload 成本压低两个数量级。</li>
+</ol>
+<h2>内部张力与自我修正</h2>
+<ul>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=2588s" target="_blank" rel="noopener" onclick="return PL.seek(2588)">[43:08]</a> vs <a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=2604s" target="_blank" rel="noopener" onclick="return PL.seek(2604)">[43:24]</a>：Chase 承认 Eaton 和 Schneider 等传统电气巨头在短期内将因为积压订单和关键零部件的独占地位而“做得非常好（do very well）”，但他同时断言这些公司在长期内会因为百年来缺乏根本性创新、无法适应数据中心向 900V DC 固态变压器演进而被颠覆。这种“短期财务极度看好”与“长期技术本质做空”之间存在明显的战略张力。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=1940s" target="_blank" rel="noopener" onclick="return PL.seek(1940)">[32:20]</a> vs <a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=1952s" target="_blank" rel="noopener" onclick="return PL.seek(1952)">[32:32]</a>：在回答算力是否是商品（commodity）的问题时，Chase 指出旧的算力硬件会不可避免地商品化，但超大规模（scale）和最前沿的计算能力具有强壁垒，能持续索取溢价。这揭示了算力商品化叙事与前沿算力溢价之间拉扯的行业演进张力。</li>
+</ul>
+<h2>大白话重讲</h2>
+<p>那我们来聊聊 Chase Lock Miller 这一次的分享。当所有人都在讨论大语言模型（LLM）的智力又突破了多少、什么时候能达到 AGI 时，Chase 和 Stanford MS&amp;E435 课堂的师生们却把目光落到了最坚硬、最朴素的物理世界——电网、水泥和冷却管道上。</p>
+<p>Chase 提出了一个非常有趣的经济学视角：<strong>为什么 AI 产生的 token 这么贵、这么受资本追捧？</strong> 传统的宏观经济学里，GDP 的增长离不开劳动力（L）和资本（K）的投入。但人脑这种劳动力，从怀孕到能够搬砖或写代码，至少需要 20 年的“物理孵化周期”，而且人口出生率很难说变就变。但 AI 的出现，本质上是人类历史上第一次可以直接批量“生产数字劳动力（Digital Labor）”。你只需要买 GPU，盖好带电的数据中心，就能直接往电网里注入劳动力。这是生产力模式的根本颠覆。</p>
+<p>但要把这个“数字劳动力”工厂开起来，目前被死死卡在电网上。前几年大家都在抢 GPU，现在芯片的紧张稍微缓解了，最头疼的变成了“Energized Data Center”——也就是通了电的数据中心外壳。现在，你有钱买显卡，但没有电网接入，它就是一堆无用的硅片。</p>
+<p>Crusoe 的核心商业直觉，就是逆向思维：<strong>与其在北弗吉尼亚这种传统网络枢纽去和别人拼高昂的电价、抢拥挤的电网接口，不如“计算就地、移动数据”</strong>。他们跑去西德州的 Abilene 这样的地方，那里风大、阳光足，新能源开发商为了拿政府的清洁能源补贴拼命发绿电，但本地根本没有那么多居民去消费，加上输电网建得慢，电根本运不出去，经常出现负电价。Crusoe 跑去盖了 1GW 规模的超大变电站，直接在风光发电机旁边消耗绿电。Abilene 园区的 Stargate 项目，就是 Oracle 和 OpenAI 的联合超算集群。不仅如此，Crusoe 还在现场建了 350MW 的天然气发电厂，用来作为电网波动的稳定支撑。</p>
+<p>很多人关心，这样砸几百亿美元下去，到底能不能赚到钱？Chase 直接算了一笔账：
+1. <strong>盖房子加建电厂（物理基础设施）</strong>：大约是每兆瓦（Megawatt）2000万美元。这笔钱里，施工劳动力（电工、焊工等熟练工）和天然气涡轮机占了大头，且设备价格因为 GE、Siemens 等巨头垄断，已经从 100 万美元/兆瓦飙升到了 300 万美元/兆瓦。
+2. <strong>买显卡和网络设备（IT Capex）</strong>：每兆瓦大约是 4000 万美元，其中 3000 万美元都送给了 Jensen Huang（Nvidia），剩下的去买高速互联网络（NVLink、Infiniband）以及越来越紧缺的 CPU。
+3. <strong>合计 upfront CapEx</strong>：每兆瓦大约 6000 万美元。
+4. <strong>营收与回本周期</strong>：如果只是把显卡出租给客户，年营收大约是 1500 万美元/兆瓦，大概 4 年能回本。但如果你在上面做垂直整合，提供托管 API 服务，直接向客户吐 token，年营收能直接拉到 3000 万美元/兆瓦，也就是 2 年回本。</p>
+<p>这其实就解释了为什么 Crusoe 不甘于只当一个“包租公”，而一定要往上做“Crusoe Cloud”的逻辑：只有从“电子（Electrons）”一路整合到“Token”，才能在硬件快速商品化、折旧的周期里，拿走最丰厚的那部分利润。</p>
+<p>最后，对于未来的技术演进，Chase 也给出了非常清醒的直觉。比如太空数据中心（太空无 Permitting 审批，直接用阳光发电，光学互联），听起来很美，但物理限制太明显了：在太空中坏了的 GPU 没法让人上去重新插拔，随着硬件自然坏死，折旧成本高得惊人，这注定在 10 年内成不了气候。而在地面上，真正的创新反而会发生在那些百年没变过的电气链条上——怎么把高压变电直接做进机柜的 900V DC 直流电，这才是留给新一代工程师的巨大蓝海。</p>
+<h2>值得精听的片段</h2>
+<ul>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=351s" target="_blank" rel="noopener" onclick="return PL.seek(351)">[05:51-06:54]</a> Chase 解释 Cobb-Douglas 生产函数以及 AI 作为“数字劳动力（Digital Labor）”如何打破 20 年人口孵化周期的限制。这一段阐述是整场分享的经济学地基，极具洞察力。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=855s" target="_blank" rel="noopener" onclick="return PL.seek(855)">[14:15-15:28]</a> 详细描述 Abilene 1GW 变电站（Denver 市级电力规模）的物理尺度、Project Stargate（OpenAI &amp; Oracle）的合作细节以及 350MW 自备天然气电厂的规划，极具临场感和震撼力。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=1410s" target="_blank" rel="noopener" onclick="return PL.seek(1410)">[23:30-24:37]</a> Chase 揭开每兆瓦 CapEx 中 470 万美元用于 capitalized labor（施工劳动力）的结构，痛陈焊工、电工短缺成为物理硬壁垒的行业真相。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=2203s" target="_blank" rel="noopener" onclick="return PL.seek(2203)">[36:43-39:56]</a> 纯干货算账。Chase 详细拆解 6000 万美元/兆瓦 CapEx 投入下，纯算力出租（4年回本）与托管 API 服务（2年回本）的账本对比，是理解 AI 基建商业可行性的必听篇章。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=4zk-hJ50vmU&t=2539s" target="_blank" rel="noopener" onclick="return PL.seek(2539)">[42:19-43:37]</a> Chase 解释为什么在电气输配电产业链上长期看空传统厂商 Eaton 和 Schneider，指出数据中心将逼迫电力设备往固态电子方向发生根本性技术迭代，具有很强的战略前瞻性。</li>
+</ul>
+<h2>与往期的呼应</h2><ul class="connections"><li><span class="rel">同系</span>→ <a class="lk" href="https://lens.lumihelia.com/episodes/ms&e435-class4-economics-ai-supercycle.html">AI超级周期的经济学：企业落地的上下文鸿沟 · Ali Ghodsi</a><div class="why"></div><div class="pts"><div><b class="who">本期</b></div><div><b class="who">往期</b></div></div></li><li><span class="rel">印证</span>→ <a class="lk" href="https://lens.lumihelia.com/episodes/cs153-08-jensen-huang-nvidia-compute.html">算力底座与智能的连续运行 · Jensen Huang</a><div class="why"></div><div class="pts"><div><b class="who">本期</b></div><div><b class="who">往期</b></div></div></li><li><span class="rel">同构</span>→ <a class="lk" href="https://lens.lumihelia.com/episodes/jane-street-gpus-trading-hiring-dwarkesh.html">算力、交易与招聘：Jane Street 的技术与组织哲学 · Ron Minsky &amp; Dan Ponttovo</a><div class="why"></div><div class="pts"><div><b class="who">本期</b></div><div><b class="who">往期</b></div></div></li><li><span class="rel">补充</span>→ <a class="lk" href="https://lens.lumihelia.com/episodes/dan-loeb-ai-credit-third-point.html">信用与科技的范式重塑 · Dan Loeb</a><div class="why"></div><div class="pts"><div><b class="who">本期</b></div><div><b class="who">往期</b></div></div></li></ul>
+<p class="foot">本页为对节目内容的忠实解读与大白话重述,由 <a href="https://github.com/lumihelia/PodLens">PodLens</a> 生成。</p>
+<p class="disclaimer">这是以原文为依据的一次解读,不能替代原文。每条要点都标注了出处,欢迎回到原文核对——也欢迎指出任何细微的偏差。</p>
+
+</div>
+</body>
+</html>
