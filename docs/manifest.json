@@ -1,6 +1,1215 @@
 {
   "items": [
     {
+      "slug": "joscha-bach-life-intelligence-consciousness-future",
+      "title": "心智清晰度、硅基意识与长线博弈 · Joscha Bach",
+      "date": "2026-06-11",
+      "kind": "podcast",
+      "summary": "本期节目中，Lex Fridman 与认知科学家、人工智能研究者 Joscha Bach 围绕智能的本质、人类意识的层级以及人工智能与人类的共生未来展开了深度对话。Joscha Bach 结合 Robert Kegan 的心理学模型，提出了人类心智发展的七个清晰度阶段（Levels of Lucidity），并以此透视当前人工智能对齐讨论的局限。随后，他们深入探讨了大脑信号异步传导的生物学机制、苦…",
+      "source_url": "https://youtu.be/e8qJsk1j2zE?si=hwXhLfy6aBOXXQ0F",
+      "tags": [
+        "意识",
+        "硅基智能",
+        "发展心理学",
+        "长线博弈",
+        "心智模型"
+      ],
+      "connections": [],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "Levels of Lucidity, Silicon-Based Consciousness, and the Long Game · Joscha Bach",
+          "tags": [
+            "Consciousness",
+            "Silicon-Based Intelligence",
+            "Developmental Psychology",
+            "The Long Game",
+            "Mental Models"
+          ],
+          "summary": "In this episode, Lex Fridman and cognitive scientist and AI researcher Joscha Bach engage in a deep conversation about the nature of intelligence, the levels of human consciousness, and the symbiotic …",
+          "editor_note": "",
+          "connections": []
+        }
+      }
+    },
+    {
+      "slug": "meditation-state-most-people-never-experience",
+      "title": "冥想的极致体验与自我重构 · Stephen Zurface",
+      "date": "2026-06-11",
+      "kind": "podcast",
+      "summary": "本期节目中，主持人 Dan Shipper 与 Journey 创始人 Stephen Zurface 展开对话。Stephen Zurface 在节目中现场演示并口述了他进入 Jhana（禅那）状态的完整心智过程。随后，双方深入探讨了 Jhana 状态的机制（如记忆再巩固）、冥想中的目标管理与“玩耍”心态、冥想实践的潜在误区与安全边界（如心理弹性的容受窗口），以及如何利用 AI 建立个性化的心智…",
+      "source_url": "https://youtu.be/LYvjNgcGlKA?si=a2Tczgb8tZLMq8o1",
+      "tags": [
+        "冥想",
+        "禅那",
+        "意识状态",
+        "自我重构",
+        "心智训练"
+      ],
+      "connections": [
+        {
+          "slug": "how-to-make-better-decisions-george-mack",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "同构",
+          "this_point": "[51:41-52:27] 语言上的自我接纳若与实际行动脱节，则无法通过心智底层的真实性检验，在日常行动中持续自我背叛会使冥想中的自我关爱词句失效。",
+          "that_point": "[01:10:55] 司机知识是背诵和模仿来的语言碎片，而普朗克知识是源于在深水区挣扎和亲自解决问题后获得的结构化认知。",
+          "why": "两者都指出，缺乏实际行动、切身体验和风险共担（Skin in the game）支撑的语言表达（无论是口头禅还是背诵的知识），都无法转化为个体底层的真实认知与改变。"
+        },
+        {
+          "slug": "how-to-make-better-decisions-george-mack",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "印证",
+          "this_point": "[40:12-40:48] 将目标转化为对满意度的胁迫性契约会阻碍心智流动，任何真正出色的表现都源自“玩耍/游戏”而非“自我胁迫”。",
+          "that_point": "[36:29] 目标是一个单一的终点，在未达到前会让人持续焦虑；而系统是每日的机制运转，成功的分野在于每日系统的合理运作。",
+          "why": "两者都批判了以终点为导向、带有胁迫性质的心智模式，认为过度执着于目标会引发焦虑并阻碍表现，主张通过关注当下的过程（如玩耍状态或每日系统）来释放潜力。"
+        },
+        {
+          "slug": "private-markets-software-repricing-marc-rowan",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "补充",
+          "this_point": "[01:09:46-01:11:37] 人工智能（AI）能够通过消化冥想者的会话数据与生理信号，结合技能树进行个性化的双向互动引导，将冥想学习周期从数千小时压缩至数十小时。",
+          "that_point": "[34:21-35:14] 人工智能（AI）的能力上限取决于反馈回路的闭环，能够自动验证对错的岗位其 AI 替代率是陡峭的，而需要人类复杂裁量的决策将被持久增强。",
+          "why": "此处的冥想 AI 引导系统通过收集生理信号与会话数据，将原本高度主观、缺乏客观对错标准的冥想体验转化为可量化、可验证的闭环反馈，从而验证并补充了 AI 能力边界取决于反馈闭环的论断。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "The Ultimate Experience of Meditation and Self-Reconstruction · Stephen Zurface",
+          "tags": [
+            "Meditation",
+            "Jhana",
+            "States of Consciousness",
+            "Self-Reconstruction",
+            "Mind Training"
+          ],
+          "summary": "In this episode, host Dan Shipper talks with Journey founder Stephen Zurface. During the show, Stephen Zurface live-demonstrates and verbally narrates his complete mental process of entering the Jhana…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "how-to-make-better-decisions-george-mack",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Isomorphic",
+              "why": "Both point out that verbal expressions (whether catchphrases or memorized knowledge) unsupported by actual actions, personal experience, and skin in the game cannot be transformed into an individual's underlying real cognition and change.",
+              "this_point": "[51:41-52:27] Verbal self-acceptance, if disconnected from actual actions, cannot pass the authenticity test of the underlying mind; continuing to betray oneself in daily actions invalidates self-care phrases in meditation.",
+              "that_point": "[01:10:55] Chauffeur knowledge consists of memorized and mimicked verbal fragments, whereas Planck knowledge stems from structured cognition gained after struggling in deep waters and solving problems firsthand."
+            },
+            {
+              "slug": "how-to-make-better-decisions-george-mack",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Corroboration",
+              "why": "Both criticize end-oriented, coercive mental models, arguing that over-attachment to goals triggers anxiety and hinders performance, and advocate for releasing potential by focusing on the present process (such as a playful state or daily systems).",
+              "this_point": "[40:12-40:48] Turning goals into a coercive contract for satisfaction hinders mental flow; any truly outstanding performance stems from 'play/gaming' rather than 'self-coercion'.",
+              "that_point": "[36:29] A goal is a single endpoint that causes continuous anxiety before it is reached; whereas a system is the daily operation of a mechanism, and the distinction of success lies in the proper functioning of the daily system."
+            },
+            {
+              "slug": "private-markets-software-repricing-marc-rowan",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Complementary",
+              "why": "The meditation AI guidance system here, by collecting physiological signals and session data, transforms the originally highly subjective meditation experience—which lacks objective standards of right and wrong—into quantifiable, verifiable closed-loop feedback, thereby validating and supplementing the assertion that the boundary of AI capability depends on the feedback loop.",
+              "this_point": "[01:09:46-01:11:37] Artificial intelligence (AI) can compress the meditation learning cycle from thousands of hours to dozens of hours by digesting meditators' session data and physiological signals, combined with a skill tree for personalized, two-way interactive guidance.",
+              "that_point": "[34:21-35:14] The upper limit of artificial intelligence (AI) capability depends on the closed-loop feedback; roles that can automatically verify right and wrong will see a steep AI replacement rate, whereas decisions requiring complex human discretion will be permanently augmented."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "ms&e435-class4-economics-ai-supercycle",
+      "title": "AI超级周期的经济学：企业落地的上下文鸿沟 · Ali Ghodsi",
+      "date": "2026-06-11",
+      "kind": "podcast",
+      "summary": "本期内容源自 Stanford University 2026 年春季 MS&E435 课程（Economics of the AI Supercycle）的第四讲，由 Apoorv Agrawal 主持，嘉宾为 Databricks 联合创始人兼 CEO Ali Ghodsi。对话围绕 AI 产业的真实落地现状展开，挑战了当前 Silicon Valley 对超级智能（Superintellig…",
+      "source_url": "https://youtu.be/1-v5ODNx9fM?si=-zDmffRmX7vTzmxH",
+      "tags": [
+        "AI超级周期",
+        "企业落地",
+        "上下文鸿沟",
+        "数据智能",
+        "超级智能"
+      ],
+      "connections": [
+        {
+          "slug": "uber-ceo-ai-autonomous-vehicles-future",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "印证",
+          "this_point": "[22:05-24:44] AI 辅助研发的真正提效取决于人性的流程改革而非纯技术使用，需要打破传统长周期流程并重塑团队协作架构。",
+          "that_point": "[13:35-13:53] 组织若仅将 AI 用作外挂工具进行局部优化，只能获得边际提升；唯有从第一性原理出发，自下而上地利用 AI 重新构建整个业务系统和流程才能发挥其最大潜能。",
+          "why": "两者均指出，AI 带来的生产力爆发不能仅靠技术本身的引入，而必须伴随组织底层业务流程与协作架构的根本性重塑。"
+        },
+        {
+          "slug": "yann-lecun-world-models-next-ai-revolution",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "同构",
+          "this_point": "[05:20-06:38] 企业端 AI 应用的概念验证（PoC）失败率极高，本质上不是 AI 模型智能不足的问题，而是模型缺乏人类员工脑海中的业务上下文（Context）。",
+          "that_point": "[10:50-11:52] 纯文本训练无法带来真正的人类级别智能，因为大语言模型（LLM）缺乏具身常识的物理世界映射（即缺乏物理世界的上下文）。",
+          "why": "两者在不同维度（企业应用与通用智能）上指出了相同的核心瓶颈：AI 模型的局限不在于计算或参数层面的“智能”不足，而在于缺乏支撑其做出正确决策的“上下文”支撑。"
+        },
+        {
+          "slug": "uber-ceo-ai-autonomous-vehicles-future",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "补充",
+          "this_point": "[32:17-34:44] 闭源的前沿模型在开源模型的快速逼近与价格战下，最终将演变为低利润率的 Token 工厂，竞争本质上是规模经济博弈。",
+          "that_point": "[15:58-16:39] 在 AI 开发的预算管理上，合理的策略是在早期探索阶段使用昂贵的前沿模型，在规模化落地时则切换为成本更低、效率更高的特定模型或开源模型。",
+          "why": "Dara Khosrowshahi 提出的“规模化落地时切换至开源/特定模型”的降本策略，从需求侧印证并推动了 Ali Ghodsi 所预测的“前沿模型因开源逼近和价格战演变为低利润率 Token 工厂”的趋势。"
+        },
+        {
+          "slug": "private-markets-software-repricing-marc-rowan",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "补充",
+          "this_point": "[08:56-11:08] AI 的引入并未导致软件消亡，而是显著降低了软件的准入门槛和切换成本，使得传统软件厂商必须提高效率以应对竞争。",
+          "that_point": "[32:42-33:53] 企业软件在过去十年被过度定价，在 AI 浪潮下正在经历灾难性的“软件重定价”风险，因为 AI 带来的免费代码平替了先前的估值壁垒。",
+          "why": "两人均看到了 AI 降低软件开发门槛和壁垒对传统软件行业的冲击，Marc Rowan 侧重于这一趋势对资本市场软件估值的重创，而 Ali Ghodsi 则补充了这迫使软件厂商通过提升效率来应对切换成本降低的行业视角。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "Economics of the AI Supercycle: The Context Gap in Enterprise Adoption · Ali Ghodsi",
+          "tags": [
+            "AI Supercycle",
+            "Enterprise Adoption",
+            "Context Gap",
+            "Data Intelligence",
+            "Superintelligence"
+          ],
+          "summary": "This episode originates from the fourth lecture of Stanford University's Spring 2026 course MS&E435 (Economics of the AI Supercycle), hosted by Apoorv Agrawal, featuring guest Ali Ghodsi, co-founder a…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "uber-ceo-ai-autonomous-vehicles-future",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Corroboration",
+              "why": "Both point out that the productivity explosion brought by AI cannot rely solely on the introduction of the technology itself, but must be accompanied by a fundamental reshaping of underlying organizational business processes and collaborative architectures.",
+              "this_point": "[22:05-24:44] The true efficiency gains of AI-assisted R&D depend on human process reforms rather than pure technology usage, requiring the breaking of traditional long-cycle processes and the reshaping of team collaboration architectures.",
+              "that_point": "[13:35-13:53] If organizations only use AI as an add-on tool for local optimization, they will only achieve marginal improvements; only by starting from first principles and rebuilding the entire business system and processes from the ground up using AI can its maximum potential be unleashed."
+            },
+            {
+              "slug": "yann-lecun-world-models-next-ai-revolution",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Isomorphism",
+              "why": "Both point out the same core bottleneck in different dimensions (enterprise applications vs. general intelligence): the limitation of AI models is not a lack of \"intelligence\" at the computational or parameter level, but rather a lack of \"context\" support to enable correct decision-making.",
+              "this_point": "[05:20-06:38] The PoC failure rate of enterprise AI applications is extremely high. This is fundamentally not a problem of insufficient intelligence in AI models, but rather that models lack the business context in the minds of human employees.",
+              "that_point": "[10:50-11:52] Pure text training cannot bring about true human-level intelligence, because large language models (LLMs) lack physical world mapping of embodied common sense (i.e., lacking physical world context)."
+            },
+            {
+              "slug": "uber-ceo-ai-autonomous-vehicles-future",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Complement",
+              "why": "The cost-reduction strategy of \"switching to open-source/specific models during large-scale deployment\" proposed by Dara Khosrowshahi corroborates and drives from the demand side the trend predicted by Ali Ghodsi that \"frontier models will evolve into low-margin Token factories due to open-source convergence and price wars.\"",
+              "this_point": "[32:17-34:44] Under the rapid approach of open source models and price wars, closed-source frontier models will eventually evolve into low-margin Token factories, with the competition essentially being a game of economies of scale.",
+              "that_point": "[15:58-16:39] In terms of budget management for AI development, a reasonable strategy is to use expensive frontier models during the early exploration phase, and switch to lower-cost, higher-efficiency specific models or open-source models during large-scale deployment."
+            },
+            {
+              "slug": "private-markets-software-repricing-marc-rowan",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Complement",
+              "why": "Both see the impact of AI lowering software development barriers and moats on the traditional software industry. Marc Rowan focuses on the heavy blow this trend deals to software valuations in capital markets, while Ali Ghodsi complements this with an industry perspective of forcing software vendors to improve efficiency to cope with reduced switching costs.",
+              "this_point": "[08:56-11:08] The introduction of AI has not led to the death of software, but has significantly lowered the barriers to entry and switching costs of software, forcing traditional software vendors to improve efficiency to cope with competition.",
+              "that_point": "[32:42-33:53] Enterprise software has been overpriced over the past decade and is undergoing a catastrophic risk of 'software repricing' under the AI wave, as free code brought by AI replaces previous valuation barriers."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "mental-models-that-change-how-you-think",
+      "title": "认知框架、前沿与金融基石 · Bill Gurley",
+      "date": "2026-06-11",
+      "kind": "podcast",
+      "summary": "在这期访谈中，Benchmark 前合伙人 Bill Gurley 与主持人 Shane Parrish 探讨了塑造其认知和投资决策的核心心智模型。讨论主要围绕系统思考（Systems Thinking）、对行业历史的深度研究以及对技术前沿的敏锐捕捉展开。Bill Gurley 阐述了价值投资在早期风投中的演变，分析了 AI 算力军备竞赛、中国开源模型生态、硅谷的风险偏好与估值泡沫，并深入剖析了支…",
+      "source_url": "https://youtu.be/yBBhd0-Os74?si=pL74Oli9uzLYrtyQ",
+      "tags": [
+        "思维模型",
+        "复杂系统",
+        "第一性原理",
+        "金融认知",
+        "圣塔菲研究所"
+      ],
+      "connections": [
+        {
+          "slug": "how-to-make-better-decisions-george-mack",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "印证",
+          "this_point": "[05:22-08:08] 研究行业历史和经典案例是极罕见的差异化竞争优势，深入理解领域的基石知识能够直接体现热情并拉开与平庸者的距离。",
+          "that_point": "[31:16] 根据林迪效应，已经存在两百年的书籍预计还将继续存活两百年，而现代人将99%的注意力消耗在过去24小时内产生的信息垃圾中，导致严重的近因偏差。",
+          "why": "两者共同指出了“向历史寻求深度认知”的稀缺价值，研究行业历史的基石知识与阅读历经时间检验的经典，都是对抗现代浅薄信息环境的差异化竞争路径。"
+        },
+        {
+          "slug": "how-to-make-better-decisions-george-mack",
+          "kind": "tension",
+          "conflict_type": "apparent",
+          "relation": "对照",
+          "this_point": "[08:55-09:44] 创始人的核心成功特质是“强迫症式学习”，必须在技术浪潮（如移动端、人工智能）的最前沿成为前1%掌握新范式的人。",
+          "that_point": "[31:16] 大部分信息的价值与其发布时间呈反比，现代人将99%的注意力消耗在过去24小时内产生的信息垃圾中，导致严重的近因偏差。",
+          "why": "前者要求将注意力极度聚焦于最前沿、最新的技术范式信息以保持领先；后者则指出最新信息大多缺乏长期价值，倡导回归经典。这揭示了在“技术剧变期的前沿感知”与“长期底层认知沉淀”之间的时间分配张力。"
+        },
+        {
+          "slug": "how-to-make-better-decisions-george-mack",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "同构",
+          "this_point": "[00:24-00:55] 复杂系统（如天气、股市）是多变量且非线性的，极难预测，必须避免决定论式的单一指标思考。",
+          "that_point": "[01:08:57] 人们倾向于选择低分辨率的“地图”以逃避充满摩擦和随机噪声的“实地”（真实世界）。",
+          "why": "试图用单一的确定性指标去预测非线性复杂系统，本质上就是用极低分辨率的“地图”去强行套用复杂的“实地”世界，两者都揭示了人类用简化模型逃避真实世界复杂性的认知倾向。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "Cognitive Frameworks, Frontiers, and Financial Bedrocks · Bill Gurley",
+          "tags": [
+            "Mental Models",
+            "Complex Systems",
+            "First Principles",
+            "Financial Literacy",
+            "Santa Fe Institute"
+          ],
+          "summary": "In this interview, former Benchmark partner Bill Gurley and host Shane Parrish explore the core mental models that shape his cognition and investment decisions. The discussion primarily revolves aroun…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "how-to-make-better-decisions-george-mack",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Corroboration",
+              "why": "Both point out the scarce value of 'seeking deep understanding from history.' Studying the bedrock knowledge of industry history and reading classics that have stood the test of time are both differentiated competitive paths against the modern shallow information environment.",
+              "this_point": "[05:22-08:08] Studying industry history and classic cases is an extremely rare differentiating competitive advantage; deeply understanding the bedrock knowledge of a field can directly demonstrate passion and set one apart from the mediocre.",
+              "that_point": "[31:16] According to the Lindy effect, books that have existed for two hundred years are expected to continue to survive for another two hundred years, whereas modern people consume 99% of their attention on information garbage generated within the last 24 hours, leading to severe recency bias."
+            },
+            {
+              "slug": "how-to-make-better-decisions-george-mack",
+              "kind": "tension",
+              "conflict_type": "apparent",
+              "relation": "Contrast",
+              "why": "The former requires focusing attention extremely on the absolute forefront and newest technological paradigm information to stay ahead; the latter points out that most new information lacks long-term value and advocates returning to the classics. This reveals the tension in time allocation between 'frontier perception during periods of technological upheaval' and 'long-term underlying cognitive accumulation.'",
+              "this_point": "[08:55-09:44] A founder's core success trait is 'obsessive learning'; they must become part of the top 1% who master new paradigms at the absolute forefront of technological waves (such as mobile and AI).",
+              "that_point": "[31:16] The value of most information is inversely proportional to its publication time; modern people consume 99% of their attention on information garbage generated within the last 24 hours, leading to severe recency bias."
+            },
+            {
+              "slug": "how-to-make-better-decisions-george-mack",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Isomorphism",
+              "why": "Attempting to use a single deterministic metric to predict a non-linear complex system is essentially using an extremely low-resolution 'map' to force-fit a complex 'territory' (the real world). Both reveal the human cognitive tendency to use simplified models to escape the complexity of the real world.",
+              "this_point": "[00:24-00:55] Complex systems (such as weather or the stock market) are multivariable and non-linear, making them extremely difficult to predict; deterministic single-metric thinking must be avoided.",
+              "that_point": "[01:08:57] People tend to choose low-resolution 'maps' to escape the 'territory' (the real world) full of friction and random noise."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "dan-loeb-ai-credit-third-point",
+      "title": "信用与科技的范式重塑 · Dan Loeb",
+      "date": "2026-06-11",
+      "kind": "podcast",
+      "summary": "本期对话由 Third Point 创始人 Dan Loeb 展开。对话探讨了在人工智能（AI）与全球宏观变局下，投资策略、信贷市场、公司治理以及对冲基金商业模式的演变。Dan Loeb 分享了 Third Point 从早期的事件驱动与信贷投资，向质量投资与主题投资的跨代演化过程，并详细剖析了 AI 浪潮对传统“高质量”软件公司的颠覆、信贷资产对冲的独特优势、日本公司治理改革的亲身经历，以及其在…",
+      "source_url": "https://youtu.be/vhTi_8QwXjg?si=n5doTNsUPFdsFHbS",
+      "tags": [
+        "事件驱动投资",
+        "公司治理",
+        "信用资产",
+        "技术栈认知",
+        "达纳赫业务系统"
+      ],
+      "connections": [
+        {
+          "slug": "private-markets-software-repricing-marc-rowan",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "印证",
+          "this_point": "[11:55-12:44] 许多在传统框架下被定义为“高质量”的软件与信息服务企业，在 AI 浪潮的范式颠覆下迅速失去了壁垒与商业护城河。",
+          "that_point": "[32:42-33:53] 企业软件（Enterprise Software）在过去十年被过度定价，在 AI 浪潮下正在经历灾难性的“软件重定价”风险。其先前的估值倍数并未将 AI 这一“免费数据与代码”带来的平替风险定价进去。",
+          "why": "两者共同指出，AI 带来的低成本代码与技术平替正在彻底颠覆传统软件和信息服务行业的壁垒，导致原有的高质量估值模型失效。"
+        },
+        {
+          "slug": "private-markets-software-repricing-marc-rowan",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "同构",
+          "this_point": "[22:20-23:12] AI 无法取代私有股权（private equity）、债务重组（restructuring）以及私人信贷（private credit）等领域，因为 these 交易深度依赖人类之间的复杂谈判、关系网络与高频沟通。",
+          "that_point": "[34:21-35:14] 在泛在智能时代，能自动验证对错的岗位（如 coding）的 AI 替代率是垂直折射的，而需要人类复杂 judgement 的决策将被持久增强。",
+          "why": "两者在逻辑结构上高度一致，都认为 AI 无法取代那些缺乏绝对对错标准、高度依赖人类主观价值判断、复杂博弈和人际深度沟通的决策与交易领域。"
+        },
+        {
+          "slug": "apollos-private-credit-exposure-chris-edson",
+          "kind": "tension",
+          "conflict_type": "apparent",
+          "relation": "对照",
+          "this_point": "[11:55-12:44] 许多在传统框架下被定义为“高质量”的软件与信息服务企业，在 AI 浪潮的范式颠覆下迅速失去了壁垒与商业护城河。",
+          "that_point": "[06:34-07:23] 尽管 AI 可以在 60 秒内生成简单程序，降低无监管、无壁垒软件的价值，但深度整合进企业记账和核心流程的 ERP 软件因迁移成本极高，受 AI 冲击的速度会缓慢得多。",
+          "why": "前者认为传统的高质量软件企业在 AI 浪潮下正迅速失去壁垒，而后者则指出，由于极高的迁移和重构成本，深度整合进企业核心流程的 ERP 等软件其护城河在短期内依然稳固。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "Paradigm Reshaping of Credit and Technology · Dan Loeb",
+          "tags": [
+            "Event-Driven Investing",
+            "Corporate Governance",
+            "Credit Assets",
+            "Technology Stack Cognition",
+            "Danaher Business System"
+          ],
+          "summary": "This conversation is led by Dan Loeb, the founder of Third Point. The dialogue explores the evolution of investment strategies, credit markets, corporate governance, and hedge fund business models und…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "private-markets-software-repricing-marc-rowan",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Corroboration",
+              "why": "Both point out that low-cost code and technology substitutes brought by AI are completely disrupting the barriers of traditional software and information service industries, causing original high-quality valuation models to fail.",
+              "this_point": "[11:55-12:44] Many software and information service enterprises defined as \"high-quality\" under traditional frameworks have rapidly lost their barriers and commercial moats under the paradigm disruption of the AI wave.",
+              "that_point": "[32:42-33:53] Enterprise Software has been overpriced over the past decade and is undergoing a catastrophic \"software repricing\" risk under the AI wave. Its previous valuation multiples did not price in the substitution risk brought by AI as \"free data and code.\""
+            },
+            {
+              "slug": "private-markets-software-repricing-marc-rowan",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Isomorphism",
+              "why": "The two are highly consistent in logical structure, both believing that AI cannot replace decision-making and transaction fields that lack absolute standards of right and wrong and rely heavily on human subjective value judgments, complex games, and deep interpersonal communication.",
+              "this_point": "[22:20-23:12] AI cannot replace fields such as private equity, debt restructuring, and private credit, because these transactions deeply rely on complex negotiations, relationship networks, and high-frequency communication among humans.",
+              "that_point": "[34:21-35:14] In the era of ubiquitous intelligence, the AI replacement rate for roles that can automatically verify right from wrong (such as coding) is vertically refracting, while decisions requiring complex human judgment will be permanently enhanced."
+            },
+            {
+              "slug": "apollos-private-credit-exposure-chris-edson",
+              "kind": "tension",
+              "conflict_type": "apparent",
+              "relation": "Contrast",
+              "why": "The former believes that traditional high-quality software enterprises are rapidly losing their barriers under the AI wave, while the latter points out that due to extremely high migration and reconstruction costs, ERP and other software deeply integrated into core corporate processes still have solid moats in the short term.",
+              "this_point": "[11:55-12:44] Many software and information service enterprises defined as \"high-quality\" under traditional frameworks have rapidly lost their barriers and commercial moats under the paradigm disruption of the AI wave.",
+              "that_point": "[06:34-07:23] Although AI can generate simple programs in 60 seconds, reducing the value of unregulated, barrier-free software, ERP software deeply integrated into corporate bookkeeping and core processes will be impacted by AI much more slowly due to extremely high migration costs."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "yann-lecun-world-models-next-ai-revolution",
+      "title": "世界模型与真实世界智能 · Yann LeCun",
+      "date": "2026-06-11",
+      "kind": "podcast",
+      "summary": "在这场演讲中，Yann LeCun 探讨了世界模型（World Models）作为下一代人工智能革命使能器的核心作用。Yann LeCun 指出当前基于自回归（auto-regressive）架构的大语言模型（LLMs）在处理高维、连续且多噪的真实物理世界数据时存在根本性缺陷，无法真正获得人类或动物级别的物理常识与自主规划能力。他系统性地阐述了如何通过联合嵌入预测架构（JEPA）和能量模型（EBM…",
+      "source_url": "https://youtu.be/72Xj8k5WQX4?si=eVD7EfrtsPRE4sOC",
+      "tags": [
+        "世界模型",
+        "自监督学习",
+        "具身智能",
+        "能量模型",
+        "JEPA"
+      ],
+      "connections": [
+        {
+          "slug": "the-era-of-experience",
+          "kind": "tension",
+          "conflict_type": "genuine",
+          "relation": "矛盾",
+          "this_point": "[52:21 - 52:58] 强化学习极其低效，应在特征表示完备的基础上最小化其使用。大多数学习应通过观察建立世界模型，在获得优秀表示后再在顶层使用强化学习。",
+          "that_point": "Reinforcement Learning Methods · \"pave the way to truly superhuman intelligence\" 经验时代的到来为重新审视和改进经典强化学习概念（如价值函数、探索、世界模型和时间抽象）提供了契机，从而铺平通往超人类智能的道路。",
+          "why": "对于如何实现超人类智能，LeCun 认为强化学习因采样效率极低应被边缘化，核心应靠自监督观察建立世界模型；而 Silver 则将强化学习（基于环境具地奖励的经验流）视为通往并超越人类智能的根本路径。"
+        },
+        {
+          "slug": "cs153-04-amit-jain-luma-ai",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "补充",
+          "this_point": "[10:50 - 11:52] 纯文本训练无法带来真正的人类级别智能。大语言模型训练所消耗的 Token 数量极大，但仍缺乏具身常识的物理世界映射。",
+          "that_point": "[08:05-08:28] 视频蕴含了空间（二维）与时间（一维）的物理规律，是人类大脑理解 3D 物理表征的重要媒介；因此，通过视频学习能有效训练 AI 对物理世界的理解 and 模拟。",
+          "why": "两者都指出仅靠文本无法让模型建立对物理世界的真正理解。LeCun 强调了文本缺乏物理映射的局限，而 Jain 则进一步提出视频是传递时空物理规律、训练三维物理表征的关键媒介。"
+        },
+        {
+          "slug": "cs153-04-amit-jain-luma-ai",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "印证",
+          "this_point": "[19:54 - 21:18] 世界模型不应是生成式的像素级预测系统，视频中的冗余信息和不可预测性导致像素级预测注定失败，正确的路径是在抽象表示空间进行预测。",
+          "that_point": "[54:35-56:15] 视觉模型走向通用和实用的最大瓶颈在于“智能”（包含多轮交互能力、时间一贯性与物理因果理解），而非单纯的像素生成美学。",
+          "why": "两者均批判了将“视觉/世界模型”等同于“像素级生成”的路线，共同指出模型的真正核心在于底层的物理因果理解与抽象表示，而非表面的像素重建或美学呈现。"
+        },
+        {
+          "slug": "the-era-of-experience",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "印证",
+          "this_point": "[10:50 - 11:52] 纯文本训练无法带来真正的人类级别智能，因为纯文本缺乏具身常识的物理世界映射。",
+          "that_point": "Actions and Observations · \"act autonomously in the real world\" 智能体将拥有更丰富的动作与观察空间，在真实或数字世界中进行自主交互，而非仅限于人类特权的形式（如纯文本对话）。",
+          "why": "两者都认为局限于纯文本对话无法产生真正的通用智能，AI 必须摆脱单一的文本模态，进入包含更丰富动作与观察的真实物理世界进行交互。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "World Models and Real-World Intelligence · Yann LeCun",
+          "tags": [
+            "World Models",
+            "Self-Supervised Learning",
+            "Embodied Intelligence",
+            "Energy-Based Models",
+            "JEPA"
+          ],
+          "summary": "In this lecture, Yann LeCun explores the core role of World Models as the enabler of the next generation of the artificial intelligence revolution. Yann LeCun points out that current Large Language Mo…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "the-era-of-experience",
+              "kind": "tension",
+              "conflict_type": "genuine",
+              "relation": "Contradiction",
+              "why": "Regarding how to achieve superhuman intelligence, LeCun believes that reinforcement learning should be marginalized due to its extremely low sample efficiency, and the core should rely on self-supervised observation to build world models; whereas Silver views reinforcement learning (based on the stream of experience from embodied environmental rewards) as the fundamental path to reaching and surpassing human intelligence.",
+              "this_point": "[52:21 - 52:58] Reinforcement learning is extremely inefficient and its use should be minimized on the basis of complete feature representation. Most learning should build a world model through observation, and then use reinforcement learning at the top level after obtaining excellent representations.",
+              "that_point": "Reinforcement Learning Methods · \"pave the way to truly superhuman intelligence\" The arrival of the era of experience provides an opportunity to re-examine and improve classical reinforcement learning concepts (such as value functions, exploration, world models, and temporal abstraction), thereby paving the way to truly superhuman intelligence."
+            },
+            {
+              "slug": "cs153-04-amit-jain-luma-ai",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Complement",
+              "why": "Both point out that text alone cannot allow models to build a true understanding of the physical world. LeCun emphasizes the limitation of text lacking physical mapping, while Jain further proposes that video is a key medium for conveying spatial-temporal physical laws and training 3D physical representations.",
+              "this_point": "[10:50 - 11:52] Text-only training cannot bring about true human-level intelligence. The number of tokens consumed in Large Language Model training is extremely large, but it still lacks the physical world mapping of embodied common sense.",
+              "that_point": "[08:05-08:28] Video contains spatial (2D) and temporal (1D) physical laws, serving as an important medium for the human brain to understand 3D physical representations; therefore, learning through video can effectively train AI's understanding and simulation of the physical world."
+            },
+            {
+              "slug": "cs153-04-amit-jain-luma-ai",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Corroboration",
+              "why": "Both criticize the route of equating 'vision/world models' with 'pixel-level generation,' jointly pointing out that the true core of the model lies in the underlying physical causal understanding and abstract representation, rather than superficial pixel reconstruction or aesthetic presentation.",
+              "this_point": "[19:54 - 21:18] World models should not be generative pixel-level prediction systems; redundant information and unpredictability in videos doom pixel-level prediction to failure, and the correct path is to make predictions in the abstract representation space.",
+              "that_point": "[54:35-56:15] The biggest bottleneck for vision models to become general and practical lies in 'intelligence' (including multi-turn interaction capabilities, temporal consistency, and physical causal understanding), rather than pure pixel generation aesthetics."
+            },
+            {
+              "slug": "the-era-of-experience",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Corroboration",
+              "why": "Both believe that being limited to pure text dialogue cannot generate true general intelligence; AI must break free from a single text modality and enter the real physical world, which contains richer actions and observations, to interact.",
+              "this_point": "[10:50 - 11:52] Text-only training cannot bring about true human-level intelligence, because pure text lacks the physical world mapping of embodied common sense.",
+              "that_point": "Actions and Observations · \"act autonomously in the real world\" Agents will have richer action and observation spaces, interacting autonomously in the real or digital world, rather than being limited to human-privileged forms (such as pure text dialogue)."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "how-to-make-better-decisions-george-mack",
+      "title": "思维模型与决策体系 · George Mack",
+      "date": "2026-06-11",
+      "kind": "podcast",
+      "summary": "本期节目中, 主持人 Chris Williamson 与嘉宾 George Mack 展开对话, 系统探讨了如何利用思维模型(mental models)作为认知操作系统的“插件”来优化日常决策与生活设计。 George Mack 从 Charlie Munger 的模型格栅(latticework)出发, 详细拆解了逆向思维(inversion)、对比效用(contrast)、第一性原理(fi…",
+      "source_url": "https://youtu.be/m_56L8EGLIk?si=-BoF2yX_OgC9gX8L",
+      "tags": [
+        "思维模型",
+        "决策体系",
+        "逆向思维",
+        "系统思考",
+        "复杂性"
+      ],
+      "connections": [
+        {
+          "slug": "hu-yuan-ming-meshy-graphics-simulation",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "印证",
+          "this_point": "[01:10:55] 普朗克知识与司机知识的区别在于是否拥有真实体验与身心投入（skin in the game）。司机知识是背诵和模仿来的语言碎片，而普朗克知识是源于在深水区挣扎和亲自解决问题后获得的结构化认知。",
+          "that_point": "[02:59:01] 一个理解技术的科技公司创始人（Founder）应当维持亲自动手（Hands-on）的底层样例能力，不亲自写业务代码，但必须能调试（debug）和理顺底层逻辑，以防决策浮于表面。",
+          "why": "胡渊鸣主张创始人必须保持亲自动手和调试底层逻辑的能力，这正是为了避免沦为只掌握“司机知识”的浮于表面的决策者，从而获得真正解决过问题的“普朗克知识”。"
+        },
+        {
+          "slug": "hu-yuan-ming-meshy-graphics-simulation",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "同构",
+          "this_point": "[01:08:57] 地图是低分辨率的虚拟概念，而实地是包含随机噪声和真实阻力的现实世界。人们倾向于选择低分辨率的“地图”以逃避充满摩擦的“实地”的痛苦。",
+          "that_point": "[00:51:45] 物理仿真虽然在公式推导上极为优美，但在现实商业和工业落地中常沦为“烟花秀”，单纯以技术深度为导向的设计往往会忽视市场闭环的存在。",
+          "why": "优美的物理公式和仿真算法就是低分辨率、理想化的“地图”，而充满复杂商业利益和客户需求的市场闭环则是充满摩擦的“实地”；单纯追求技术深度而忽视市场，本质上就是躲在“地图”中逃避现实商业摩擦的痛苦。"
+        },
+        {
+          "slug": "uber-ceo-ai-autonomous-vehicles-future",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "补充",
+          "this_point": "[01:10:55] 普朗克知识与司机知识的区别在于是否拥有真实体验与身心投入（skin in the game）。普朗克知识是源于在深水区挣扎和亲自解决问题后获得的结构化认知。",
+          "that_point": "[09:12] - [09:59] 直升机式的育儿方式对孩子的长期发展是有害的，克服生活中的各种挑战才是人类获得深层满足感的来源。如果家长替孩子扫清所有障碍，便剥夺了他们发展抗脆弱性和自我效能感的机会。",
+          "why": "两者共同强调了在真实世界中承受摩擦与挣扎的不可替代性。扫清障碍的育儿方式剥夺了孩子在“深水区挣扎”并建立抗脆弱性的机会，导致他们无法获得真正的认知和自我效能感。"
+        },
+        {
+          "slug": "uber-ceo-ai-autonomous-vehicles-future",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "印证",
+          "this_point": "[04:48] 逆向思考在解决复杂 and 模糊问题时至关重要。成功不需要追求完美和卓越，只需要识别并彻底避开会导致失败的愚蠢行为，从而将原本复杂的“如何获得幸福”简化为“避开五个负向指标”。",
+          "that_point": "[03:48] - [04:43] 在处理企业混乱局面时，最关键的管理方式是简化局势，将看起来不可逾越的复杂三维问题拆解为各个维度的子问题逐一解决。",
+          "why": "两者在面对高度复杂和模糊的系统性问题时，都采用了“降维简化”的思考方法：一者通过逆向思维将复杂的幸福追求简化为避开具体的负面指标，另一者通过向量拆解将庞杂的乱局分解为单一维度的子问题。"
+        },
+        {
+          "slug": "openai-post-training-rl-infra",
+          "kind": "tension",
+          "conflict_type": "genuine",
+          "relation": "矛盾",
+          "this_point": "[43:23] 高主动性（high agency）是区分卓越与平庸的决定性因素，表现为拒绝接受他人编造的叙事或规则约束，拥有极高的内部控制点（locus of control）。",
+          "that_point": "[01:53:40 - 01:54:08] 宇宙底层是一个确定性系统（determinism），并不存在自由意志；每个人的思维、决策和未来的世界轨迹在宇宙大爆炸那一刻就已被决定。",
+          "why": "如果宇宙是完全确定的且不存在自由意志，那么所谓的“高主动性”和“内部控制点”在根本上就是不存在的，人的所有“拒绝规则”或“卓越决策”都只是早已被决定的物理轨迹，而非自主选择。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "Mental Models and Decision-Making Systems · George Mack",
+          "tags": [
+            "Mental Models",
+            "Decision-Making Systems",
+            "Inversion",
+            "Systems Thinking",
+            "Complexity"
+          ],
+          "summary": "In this episode, host Chris Williamson sits down with guest George Mack to systematically explore how to use mental models as \"plugins\" for the cognitive operating system to optimize daily decision-ma…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "hu-yuan-ming-meshy-graphics-simulation",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Corroboration",
+              "why": "Hu Yuanming advocates that founders must maintain the ability to get hands-on and debug underlying logic. This is precisely to avoid becoming superficial decision-makers who only possess \"chauffeur knowledge,\" thereby gaining \"Planck knowledge\" from actually solving problems.",
+              "this_point": "[01:10:55] The difference between Planck knowledge and chauffeur knowledge lies in whether one has real experience and skin in the game. Chauffeur knowledge consists of memorized and imitated fragments of language, whereas Planck knowledge is structured cognition derived from struggling in deep waters and solving problems firsthand.",
+              "that_point": "[02:59:01] A tech company founder who understands technology should maintain hands-on capability with low-level examples. They don't need to write production code themselves, but they must be able to debug and straighten out the underlying logic to prevent decision-making from being superficial."
+            },
+            {
+              "slug": "hu-yuan-ming-meshy-graphics-simulation",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Isomorphism",
+              "why": "Beautiful physical formulas and simulation algorithms are low-resolution, idealized \"maps,\" while the market closed-loop filled with complex commercial interests and customer needs is the friction-filled \"terrain.\" Pursuing technical depth while ignoring the market is essentially hiding in the \"map\" to escape the pain of real-world commercial friction.",
+              "this_point": "[01:08:57] The map is a low-resolution virtual concept, while the terrain is the real world containing random noise and actual resistance. People tend to choose low-resolution \"maps\" to escape the pain of the friction-filled \"terrain.\"",
+              "that_point": "[00:51:45] Although physical simulation is extremely elegant in formula derivation, it often degenerates into a \"fireworks show\" in real commercial and industrial implementation. Designs solely guided by technical depth tend to ignore the existence of the market closed-loop."
+            },
+            {
+              "slug": "uber-ceo-ai-autonomous-vehicles-future",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Complement",
+              "why": "Both jointly emphasize the irreplaceable nature of enduring friction and struggle in the real world. Snowplow parenting deprives children of the opportunity to \"struggle in deep waters\" and build antifragility, leaving them unable to gain true cognition and self-efficacy.",
+              "this_point": "[01:10:55] The difference between Planck knowledge and chauffeur knowledge lies in whether one has real experience and skin in the game. Planck knowledge is structured cognition derived from struggling in deep waters and solving problems firsthand.",
+              "that_point": "[09:12] - [09:59] Helicopter parenting is harmful to children's long-term development; overcoming various challenges in life is the source of deep satisfaction for humans. If parents clear all obstacles for their children, they deprive them of the opportunity to develop antifragility and self-efficacy."
+            },
+            {
+              "slug": "uber-ceo-ai-autonomous-vehicles-future",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Corroboration",
+              "why": "Both adopt a \"dimensionality reduction and simplification\" approach when facing highly complex and ambiguous systemic problems: one simplifies the complex pursuit of happiness into avoiding specific negative indicators through inversion, while the other decomposes a chaotic situation into single-dimension sub-problems through vector deconstruction.",
+              "this_point": "[04:48] Inversion is crucial when solving complex and ambiguous problems. Success does not require pursuing perfection and excellence; it only requires identifying and completely avoiding stupid behaviors that lead to failure, thereby simplifying the originally complex question of \"how to achieve happiness\" into \"avoiding five negative indicators.\"",
+              "that_point": "[03:48] - [04:43] When dealing with corporate chaos, the most critical management approach is to simplify the situation, breaking down seemingly insurmountable complex three-dimensional problems into sub-problems of various dimensions to be solved one by one."
+            },
+            {
+              "slug": "openai-post-training-rl-infra",
+              "kind": "tension",
+              "conflict_type": "genuine",
+              "relation": "Contradiction",
+              "why": "If the universe is completely deterministic and free will does not exist, then so-called \"high agency\" and \"internal locus of control\" fundamentally do not exist. All of a person's \"refusal of rules\" or \"excellent decisions\" are merely physical trajectories already determined long ago, rather than autonomous choices.",
+              "this_point": "[43:23] High agency is the decisive factor distinguishing excellence from mediocrity, manifesting as refusing to accept narratives fabricated by others or the constraints of rules, possessing an extremely high internal locus of control.",
+              "that_point": "[01:53:40 - 01:54:08] The underlying universe is a deterministic system, and free will does not exist; every person's thoughts, decisions, and future world trajectory were already determined at the moment of the Big Bang."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "apollos-private-credit-exposure-chris-edson",
+      "title": "Apollo 的私募信贷敞口 · Chris Edson",
+      "date": "2026-06-11",
+      "kind": "podcast",
+      "summary": "Steve Eisman 与 Apollo 联合发起与发起业务全球主管 (Global Head of Originations) Chris Edson 探讨了私募信贷 (Private Credit) 市场的现状、潜在风险以及 Apollo 的业务策略 [00:41]。Edson 澄清了私募信贷不仅限于杠杆收购 (LBO) 的直接借贷，而是一个更为庞大且多元的 40 万亿美元市场 [03:03…",
+      "source_url": "https://youtu.be/Q6PUFCBbiBU?si=KOdpOqkjrlfEEGuz",
+      "tags": [
+        "私募信贷",
+        "资产负债匹配",
+        "协同设计",
+        "金融透明度",
+        "软件护城河"
+      ],
+      "connections": [],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "Apollo's Private Credit Exposure · Chris Edson",
+          "tags": [
+            "Private Credit",
+            "Asset-Liability Matching",
+            "Synergistic Design",
+            "Financial Transparency",
+            "Software Moats"
+          ],
+          "summary": "Steve Eisman and Chris Edson, Apollo's Global Head of Originations, discussed the current state of the private credit (Private Credit) market, potential risks, and Apollo's business strategy [00:41]. …",
+          "editor_note": "",
+          "connections": []
+        }
+      }
+    },
+    {
+      "slug": "private-markets-software-repricing-marc-rowan",
+      "title": "私有市场、软件重塑与资本配置的范式转移 · Marc Rowan",
+      "date": "2026-06-11",
+      "kind": "podcast",
+      "summary": "本期对话由 Apollo Global Management 的联合创始人兼 CEO Marc Rowan 与 a16z 展开。Marc Rowan 围绕私有市场（Private Markets）的崛起、固定收益与信用资产的范式转移、人工智能对企业软件估值的重定价风险（Software Repricing），以及现代金融机构的资本与文化建设进行了深度探讨。Marc Rowan 回顾了其在 Drex…",
+      "source_url": "https://youtu.be/oYK_MmZW9XI?si=hgCJrdqPP-KSgc4a",
+      "tags": [
+        "私有市场",
+        "软件定价重塑",
+        "资本配置",
+        "退休服务",
+        "信用市场",
+        "组织文化"
+      ],
+      "connections": [
+        {
+          "slug": "cs153-11-the-road-ahead-resilience-required",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "印证",
+          "this_point": "[34:21-35:14] 在泛在智能时代，能自动验证对错的岗位（如编程）的 AI 替代率是垂直折射的，代码可以通过运行测试自我验证，因而改变速度是陡峭的。",
+          "that_point": "[37:38-38:18] 在 AI 辅助编程时代，代码生成的高速度彻底压垮了传统应用安全体系，某金融机构的代码月产生量在两个月内从25万行暴增至125万行。",
+          "why": "罗文关于“代码因可自我验证而导致 AI 替代率曲线极其陡峭”的理论预测，在安全专家苏利文所观察到的企业端 AI 辅助编程导致代码量短期内呈指数级暴增的现实中得到了印证。"
+        },
+        {
+          "slug": "cs153-11-the-road-ahead-resilience-required",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "补充",
+          "this_point": "[47:38-48:30] 组织维持长线饥饿感的秘密，在于建立全员参与的“耻辱墙”（Wall of Shame），通过让所有高级合伙人公开承认曾经的投资亏损，将“决策失败”去罪化，鼓励快速修正和白纸思考。",
+          "that_point": "[40:01-40:20] 真正的个人声誉和职业韧性，并非来自于刻意避开灾难，而是来自于在灾难后的公开反思与社群重建，敢于公开剖析自己的危机才是重获同行尊重的起点。",
+          "why": "两者都主张通过“公开剖析失败与危机”来去罪化错误，从而在组织和个人层面克服因害怕犯错而导致的决策瘫痪，以此构建真正的长期韧性。"
+        },
+        {
+          "slug": "uber-ceo-ai-autonomous-vehicles-future",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "印证",
+          "this_point": "[41:40-42:30] 大学和商业机构不应基于不可变特征将人作为类别来录用，而应考量个体作为独立的人，在自身家庭与社会背景下所克服的实际阻力与奋斗过程（即根据奋斗距离调整后的绩效）。",
+          "that_point": "[09:12-09:59] 直升机式的育儿方式对孩子的长期发展是有害的，克服生活中的各种挑战才是人类获得深层满足感的来源。如果家长替孩子扫清所有障碍，便剥夺了他们发展抗脆弱性和自我效能感的机会。",
+          "why": "罗文提倡的“根据个体克服的阻力与奋斗距离来评估人才”的机制，与达拉关于“克服生活挑战才能培养抗脆弱性、扫清障碍反而有害”的成长观高度同构，都强调了逆境和奋斗对塑造真实竞争力的决定性作用。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "Private Markets, Software Repricing, and the Paradigm Shift in Capital Allocation · Marc Rowan",
+          "tags": [
+            "Private Markets",
+            "Software Repricing",
+            "Capital Allocation",
+            "Retirement Services",
+            "Credit Markets",
+            "Organizational Culture"
+          ],
+          "summary": "This conversation features Marc Rowan, co-founder and CEO of Apollo Global Management, in discussion with a16z. Marc Rowan shares deep insights into the rise of private markets, the paradigm shift in …",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "cs153-11-the-road-ahead-resilience-required",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Corroboration",
+              "why": "Rowan's theoretical prediction that 'AI replacement curves are extremely steep because code can self-verify' is corroborated by the reality observed by security expert Sullivan, where enterprise-side AI-assisted programming has led to an exponential explosion in code volume in the short term.",
+              "this_point": "[34:21-35:14] In the era of ubiquitous intelligence, the AI replacement rate for roles that can automatically verify right from wrong (such as coding) is vertically steep; code can self-verify by running tests, so the rate of change is steep.",
+              "that_point": "[37:38-38:18] In the era of AI-assisted programming, the high speed of code generation has completely overwhelmed traditional application security systems, with one financial institution's monthly code generation exploding from 250,000 lines to 1.25 million lines within two months."
+            },
+            {
+              "slug": "cs153-11-the-road-ahead-resilience-required",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Complement",
+              "why": "Both advocate for decriminalizing mistakes by 'publicly dissecting failures and crises,' thereby overcoming decision paralysis caused by the fear of making mistakes at both organizational and individual levels, to build true long-term resilience.",
+              "this_point": "[47:38-48:30] The secret to an organization maintaining long-term hunger lies in establishing an all-hands 'Wall of Shame.' By having all senior partners publicly acknowledge past investment losses, 'decision failure' is decriminalized, encouraging rapid correction and clean-sheet thinking.",
+              "that_point": "[40:01-40:20] True personal reputation and professional resilience do not come from deliberately avoiding disasters, but from public reflection and community rebuilding after disasters. Having the courage to publicly dissect one's own crisis is the starting point for regaining peer respect."
+            },
+            {
+              "slug": "uber-ceo-ai-autonomous-vehicles-future",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Corroboration",
+              "why": "Rowan's advocated mechanism of 'evaluating talent based on the obstacles overcome and the distance traveled by the individual' is highly isomorphic with Dara's growth view that 'overcoming life's challenges is the only way to build anti-fragility, and clearing obstacles is actually harmful.' Both emphasize the decisive role of adversity and struggle in shaping true competitiveness.",
+              "this_point": "[41:40-42:30] Universities and commercial institutions should not hire people as categories based on immutable characteristics, but should consider individuals as independent people, looking at the actual obstacles they overcame and their journey within their own family and social backgrounds (i.e., merit adjusted for distance traveled).",
+              "that_point": "[09:12-09:59] Helicopter parenting is harmful to children's long-term development; overcoming various challenges in life is the source of deep human satisfaction. If parents clear all obstacles for their children, they deprive them of the opportunity to develop anti-fragility and self-efficacy."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "uber-ceo-ai-autonomous-vehicles-future",
+      "title": "物理AI、供给生态与组织进化 · Dara Khosrowshahi",
+      "date": "2026-06-11",
+      "kind": "podcast",
+      "summary": "这期节目由 Uber 首席执行官 Dara Khosrowshahi 与主持人 Patrick 展开对话。主要探讨了物理人工智能（Physical AI）、自动驾驶汽车（AVs）与无人机对未来交通出行的颠覆性影响 [00:17]。Dara Khosrowshahi 分享了他从 Expedia 离职加入 Uber 时的混乱局面及其通过简化问题和重构团队来重组公司秩序的工程学管理方法 [03:48]，…",
+      "source_url": "https://youtu.be/ThMtheE5eO0?si=Dg7vQwjcMursCsOC",
+      "tags": [
+        "物理AI",
+        "自动驾驶",
+        "供给侧生态",
+        "会员制",
+        "组织突变",
+        "商业导师"
+      ],
+      "connections": [
+        {
+          "slug": "cs153-10-amin-vahdat-value-per-gigawatt",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "同构",
+          "this_point": "[15:58] - [16:39] 在 AI 开发的预算管理上，合理的策略是在早期探索阶段使用昂贵的前沿模型，在规模化落地时则切换为成本更低、效率更高的特定模型或开源模型。",
+          "that_point": "[25:05-25:24] 随着 AI 从训练主导转向推理（Serving）主导，算力部署将从超大 contiguous 集群逐步分流到小型、分散且高度灵活可调度的 100 兆瓦以下中小站点。",
+          "why": "两者在商业与技术架构层面呈现出相同的演进规律：人工智能系统的部署必然经历从早期的集中式、高成本“探索与训练”阶段，向规模化落地时分布式、高性价比“应用与推理”阶段的结构性转变。"
+        },
+        {
+          "slug": "cs153-09-garry-tan-diana-hu-ai-native-company",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "补充",
+          "this_point": "[13:35] - [13:53] 在利用 AI 时，简单的局部优化固然容易，但更难也更有价值的是从第一性原理出发，自下而上地利用 AI 重新构建整个业务系统 and 流程。",
+          "that_point": "[31:39-33:32] 传统的公司组织运行方式是高度“开环（open loop）”且充满信息损耗的，而 AI 能够使其转变为“闭环控制系统（closed loop）”。",
+          "why": "两者共同探讨了人工智能对组织重构的深远影响。前者强调不能仅将人工智能作为外挂式的局部优化工具，而需自下而上重构业务系统；后者则具体指明了这一重构的终局方向，即利用人工智能将传统开环、高损耗的组织转变为自愈的闭环控制系统。"
+        },
+        {
+          "slug": "hu-yuan-ming-meshy-graphics-simulation",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "补充",
+          "this_point": "[01:01:31] - [01:02:10] 公司就像是一个有机体，必须通过不断的“基因突变”来进化。为了避免大公司安于现状的倾向，领导者需要主动寻找并引入组织中的“捣蛋鬼”（troublemakers）。",
+          "that_point": "[01:49:10] 在不确定性极高的创业环境下，创始人必须每三到六个月以“假装自己是继任者”的心态，实现对自我的开除和认知架构的重组，砍掉不符合未来战略的资产和路径。",
+          "why": "两者共同探讨了组织和个人如何对抗安于现状的惯性。前者主张在组织内部主动引入“捣蛋鬼”来触发基因突变，后者则主张领导者通过“自我开除”进行认知重组，分别从组织生态和领导者自我两个维度给出了打破停滞的解法。"
+        },
+        {
+          "slug": "cs153-11-the-road-ahead-resilience-required",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "印证",
+          "this_point": "[05:59] - [06:22] 童年因伊朗革命丧失一切并随家庭移民美国重新奋斗的经历，塑造了 Dara Khosrowshahi 极高的压力耐受度以及解决问题的工程学思维。失去一切并成功重建生活的背景，让他意识到企业面临的困难并非生死存亡的终点，从而能保持冷静。",
+          "that_point": "[40:01-40:20] 真正的个人声誉和职业韧性，并非来自于刻意避开灾难，而是来自于在灾难后的公开反思与社群重建。",
+          "why": "两者共同阐述了“韧性”的本质：真正的抗挫折能力并非来自顺境或刻意规避风险，而是在经历毁灭性灾难（如童年丧失一切或职业生涯的重大危机）并成功重建的过程中锻造出来的。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "Physical AI, Supply Ecosystems, and Organizational Evolution · Dara Khosrowshahi",
+          "tags": [
+            "Physical AI",
+            "Autonomous Driving",
+            "Supply-Side Ecosystem",
+            "Membership Programs",
+            "Organizational Mutation",
+            "Business Mentors"
+          ],
+          "summary": "In this episode, Uber CEO Dara Khosrowshahi joins host Patrick for a conversation. They primarily explore the disruptive impact of Physical AI, autonomous vehicles (AVs), and drones on the future of t…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "cs153-10-amin-vahdat-value-per-gigawatt",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Isomorphic",
+              "why": "Both present the same evolutionary pattern at the business and technical architecture levels: the deployment of AI systems must undergo a structural transition from the early centralized, high-cost 'exploration and training' phase to the distributed, highly cost-effective 'application and inference' phase during large-scale implementation.",
+              "this_point": "[15:58] - [16:39] In budget management for AI development, a reasonable strategy is to use expensive frontier models in the early exploration stage, and switch to lower-cost, higher-efficiency specific models or open-source models during large-scale deployment.",
+              "that_point": "[25:05-25:24] As AI shifts from training-dominated to inference (serving)-dominated, computing power deployment will gradually divert from ultra-large contiguous clusters to small, dispersed, and highly flexible, schedulable small-to-medium sites of under 100 megawatts."
+            },
+            {
+              "slug": "cs153-09-garry-tan-diana-hu-ai-native-company",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Complementary",
+              "why": "Both explore the profound impact of AI on organizational restructuring. The former emphasizes that AI cannot merely be used as an add-on local optimization tool, but requires a bottom-up reconstruction of business systems; the latter specifically points out the ultimate direction of this reconstruction, which is using AI to transform traditional open-loop, high-loss organizations into self-healing closed-loop control systems.",
+              "this_point": "[13:35] - [13:53] When utilizing AI, simple local optimization is easy, but what is harder and more valuable is starting from first principles to bottom-up reconstruct the entire business system and processes using AI.",
+              "that_point": "[31:39-33:32] Traditional corporate organizational operations are highly 'open loop' and full of information loss, whereas AI can transform them into 'closed loop' control systems."
+            },
+            {
+              "slug": "hu-yuan-ming-meshy-graphics-simulation",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Complementary",
+              "why": "Both explore how organizations and individuals combat the inertia of settling for the status quo. The former advocates actively introducing 'troublemakers' within the organization to trigger genetic mutations, while the latter advocates leaders undergoing cognitive restructuring through 'self-firing,' providing solutions to break stagnation from the two dimensions of organizational ecology and the leader's self, respectively.",
+              "this_point": "[01:01:31] - [01:02:10] A company is like an organism that must evolve through continuous 'genetic mutations.' To avoid the tendency of large companies to settle for the status quo, leaders need to actively find and introduce 'troublemakers' into the organization.",
+              "that_point": "[01:49:10] In a highly uncertain entrepreneurial environment, founders must achieve self-firing and cognitive architecture restructuring every three to six months with the mindset of 'pretending to be their own successor,' cutting off assets and paths that do not align with future strategies."
+            },
+            {
+              "slug": "cs153-11-the-road-ahead-resilience-required",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Corroboration",
+              "why": "Both elaborate on the essence of 'resilience': true ability to withstand setbacks does not come from favorable circumstances or deliberately avoiding risks, but is forged in the process of experiencing devastating disasters (such as losing everything in childhood or major career crises) and successfully rebuilding.",
+              "this_point": "[05:59] - [06:22] The experience of losing everything during childhood due to the Iranian Revolution and immigrating to the US with his family to rebuild shaped Dara Khosrowshahi's extremely high stress tolerance and engineering mindset for problem-solving. The background of losing everything and successfully rebuilding his life made him realize that the difficulties faced by enterprises are not the end of life or death, allowing him to remain calm.",
+              "that_point": "[40:01-40:20] True personal reputation and professional resilience do not come from deliberately avoiding disasters, but from public reflection and community rebuilding after disasters."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "microglia-function-cns-development-plasticity",
+      "title": "中枢神经系统发育与可塑性中的小胶质细胞功能 · Dorothy P. Schafer",
+      "date": "2026-06-10",
+      "kind": "paper",
+      "summary": "Dorothy P. Schafer 与 Beth Stevens 在这篇综述中系统整理了小胶质细胞（microglia）在中枢神经系统（central nervous system, CNS）发育与可塑性（plasticity）中的生理功能。长期以来，小胶质细胞被误认为仅在病理状态下起免疫反应。然而，近期的体内成像与遗传学操控研究表明，小胶质细胞作为脑中常驻的髓系免疫细胞（myeloid-der…",
+      "source_url": "https://cshperspectives.cshlp.org/content/7/10/a020545.full.pdf",
+      "tags": [
+        "小胶质细胞",
+        "突触剪切",
+        "经典补体级联",
+        "活性依赖性",
+        "发育可塑性"
+      ],
+      "connections": [
+        {
+          "slug": "microglia-synaptic-pruning",
+          "kind": "resonance",
+          "relation": "承接"
+        },
+        {
+          "slug": "active-forgetting",
+          "kind": "resonance",
+          "relation": "同构"
+        },
+        {
+          "slug": "neurobiology-of-hunger-zachary-knight",
+          "kind": "resonance",
+          "relation": "补充"
+        },
+        {
+          "slug": "agent-memory",
+          "kind": "resonance",
+          "relation": "印证"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "Microglia Function in Central Nervous System Development and Plasticity · Dorothy P. Schafer",
+          "tags": [
+            "microglia",
+            "synaptic pruning",
+            "complement cascade",
+            "activity-dependent",
+            "developmental plasticity"
+          ],
+          "summary": "Dorothy P. Schafer and Beth Stevens systematically synthesize the physiological functions of microglia in CNS development and plasticity. Long misunderstood as mere responders in pathological states, …",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "microglia-synaptic-pruning",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Schafer's CNS development paper is foundational context for the synaptic pruning review published separately",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "active-forgetting",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "both papers explore selective elimination as a neural maintenance principle: phagoptosis for development, active forgetting for adult plasticity",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "neurobiology-of-hunger-zachary-knight",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "both reveal how molecular-level neural mechanisms govern macro behavioral outputs",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "agent-memory",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "activity-dependent pruning principle maps onto selective retention and forgetting in AI agent memory systems",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "jane-street-gpus-trading-hiring-dwarkesh",
+      "title": "算力、交易与招聘：Jane Street 的技术与组织哲学 · Ron Minsky & Dan Ponttovo",
+      "date": "2026-06-10",
+      "kind": "podcast",
+      "summary": "Dwarkesh Patel 访问了 Jane Street 位于德克萨斯州的数据中心，与技术团队共同负责人 Ron Minsky 以及物理工程团队负责人 Dan Ponttovo 展开了深度对话。本期节目探讨了 Jane Street 在极速量化交易到大规模机器学习等多重时间尺度下的技术架构。嘉宾们详细拆解了从亚百纳秒 FPGA 直接连线网络到大尺度 GPU 离线模型训练的多层级交易系统，并透露…",
+      "source_url": "https://youtu.be/xKZ_8ULR91Y?si=BgAEuMWNMEKXXWWX",
+      "tags": [
+        "Jane Street",
+        "算力底座",
+        "交易策略",
+        "量化招聘",
+        "协同设计"
+      ],
+      "connections": [
+        {
+          "slug": "ms&e435-class4-economics-ai-supercycle",
+          "kind": "resonance",
+          "relation": "同构"
+        },
+        {
+          "slug": "cs153-08-jensen-huang-nvidia-compute",
+          "kind": "resonance",
+          "relation": "印证"
+        },
+        {
+          "slug": "dan-loeb-ai-credit-third-point",
+          "kind": "resonance",
+          "relation": "延伸"
+        },
+        {
+          "slug": "how-an-ai-chip-works-from-the-bottom-up-reiner-pope",
+          "kind": "resonance",
+          "relation": "补充"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "Compute, Trading, and Hiring: Jane Street's Technology and Organizational Philosophy · Ron Minsky & Dan Ponttovo",
+          "tags": [
+            "Jane Street",
+            "compute infrastructure",
+            "trading strategy",
+            "quantitative hiring",
+            "codesign"
+          ],
+          "summary": "Dwarkesh Patel visits Jane Street's Texas data center for an in-depth conversation with Ron Minsky, co-head of the technology group, and Dan Ponttovo, head of physical engineering. This episode explor…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "ms&e435-class4-economics-ai-supercycle",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "both analyze compute economics and strategic AI infrastructure investment",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "cs153-08-jensen-huang-nvidia-compute",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Jane Street's GPU scale-up story validates Jensen Huang's compute scaling vision",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "dan-loeb-ai-credit-third-point",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "both finance-world perspectives on AI's structural impact on markets and investment strategy",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "how-an-ai-chip-works-from-the-bottom-up-reiner-pope",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "hardware-constrained co-design philosophy shared between chip engineering and trading system design",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "rights-pre-modern-masculinist-fantasy",
+      "title": "右翼的\"前现代\"男性气概幻想 · Helen Lewis",
+      "date": "2026-06-09",
+      "kind": "podcast",
+      "summary": "本期节目探讨了新右翼（New Right）中日益盛行的“前现代男性气概幻想”（pre-modern masculinist fantasy）这一意识形态。主持人 Ezra Klein 与《大西洋月刊》撰稿人 Helen Lewis 围绕后者的封面报道展开讨论，系统解构了这一思潮的代表人物、核心主张以及潜在的社会政治影响。节目分析了右翼如何利用对现代性的不满，将男性与男孩的现实困境（如教育落后、工资…",
+      "source_url": "https://youtu.be/YK1aj39y55k?si=mqXBvOLIyINPGi8-",
+      "tags": [
+        "男性气概",
+        "政治文化",
+        "MAGA",
+        "性别叙事",
+        "保守主义"
+      ],
+      "connections": [
+        {
+          "slug": "joscha-bach-life-intelligence-consciousness-future",
+          "kind": "resonance",
+          "relation": "同构"
+        },
+        {
+          "slug": "mental-models-that-change-how-you-think",
+          "kind": "tension",
+          "relation": "张力"
+        },
+        {
+          "slug": "ms&e435-class4-economics-ai-supercycle",
+          "kind": "tension",
+          "relation": "张力"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "The Right's Pre-Modern Masculinist Fantasy · Helen Lewis",
+          "tags": [
+            "masculinity",
+            "political culture",
+            "MAGA",
+            "gender narrative",
+            "conservatism"
+          ],
+          "summary": "This episode explores the ideology of the \"pre-modern masculinist fantasy\" increasingly prevalent in the New Right. Host Ezra Klein and The Atlantic writer Helen Lewis discuss Lewis's cover story, sys…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "joscha-bach-life-intelligence-consciousness-future",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "both dissect postmodern collapse of ground truth and ideological drift in affluent societies",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "mental-models-that-change-how-you-think",
+              "kind": "tension",
+              "conflict_type": "",
+              "relation": "Mack builds frameworks for clear thinking; Lewis reveals how frameworks can be weaponized in political manipulation",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "ms&e435-class4-economics-ai-supercycle",
+              "kind": "tension",
+              "conflict_type": "",
+              "relation": "AI optimism about economic transformation vs Lewis's warning that political fragmentation accelerates as social constraints loosen",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "joscha-bach-nature-of-reality-dreams-consciousness",
+      "title": "现实之网、梦境与意识的本质 · Joscha Bach",
+      "date": "2026-06-09",
+      "kind": "podcast",
+      "summary": "在本期节目中，Lex Fridman 与认知科学家兼 AI 学者 Joscha Bach 围绕现实、梦境、意识以及人类心灵的本质展开了极具深度的控制论对话。Joscha Bach 首先以“自我解脱”的软件定义开篇，将人视为在类人猿大脑中运行的短暂软件，从而探讨了痛苦和注意力控制模型的本质。对话由浅入深，横跨了代理人层级（从细胞到宏观国家）、生命与非生命边界、物理复杂性与负熵收割、以及自由意志的“决…",
+      "source_url": "https://youtu.be/rIpUf-Vy2JA?si=gXnGCO58t36qh8Ae",
+      "tags": [
+        "控制论",
+        "注意力模型",
+        "模拟假说",
+        "自由意志",
+        "认知基础设施",
+        "意识形态"
+      ],
+      "connections": [
+        {
+          "slug": "joscha-bach-life-intelligence-consciousness-future",
+          "kind": "resonance",
+          "relation": "同构"
+        },
+        {
+          "slug": "meditation-state-most-people-never-experience",
+          "kind": "resonance",
+          "relation": "延伸"
+        },
+        {
+          "slug": "yann-lecun-world-models-next-ai-revolution",
+          "kind": "tension",
+          "relation": "张力"
+        },
+        {
+          "slug": "the-era-of-experience",
+          "kind": "resonance",
+          "relation": "补充"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "The Nature of Reality, Dreams, and Consciousness · Joscha Bach",
+          "tags": [
+            "cybernetics",
+            "attention model",
+            "simulation hypothesis",
+            "free will",
+            "cognitive infrastructure"
+          ],
+          "summary": "In this episode, Lex Fridman and cognitive scientist and AI scholar Joscha Bach engage in a profoundly cybernetic dialogue about the nature of reality, dreams, consciousness, and the human mind. Bach …",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "joscha-bach-life-intelligence-consciousness-future",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "companion episode by same speaker exploring the same cybernetic consciousness framework",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "meditation-state-most-people-never-experience",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "both explore consciousness and altered mind states through first-person experience",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "yann-lecun-world-models-next-ai-revolution",
+              "kind": "tension",
+              "conflict_type": "",
+              "relation": "Bach advocates discrete simulation-based consciousness; LeCun advocates continuous world model representations",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "the-era-of-experience",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "DeepMind's experience-based AI thesis complements Bach's simulation hypothesis about consciousness requiring modeled experience",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "microglia-synaptic-pruning",
       "title": "突触修剪新视角 · Soyon Hong",
       "date": "2026-06-09",

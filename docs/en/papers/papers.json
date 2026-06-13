@@ -12,6 +12,21 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/en/papers/microglia-function-cns-development-plasticity.html",
+      "url": "https://lens.lumihelia.com/en/papers/microglia-function-cns-development-plasticity.html",
+      "title": "Microglia Function in Central Nervous System Development and Plasticity · Dorothy P. Schafer",
+      "date_published": "2026-06-10",
+      "summary": "Dorothy P. Schafer and Beth Stevens systematically synthesize the physiological functions of microglia in CNS development and plasticity. Long misunderstood as mere responders in pathological states, …",
+      "tags": [
+        "microglia",
+        "synaptic pruning",
+        "complement cascade",
+        "activity-dependent",
+        "developmental plasticity"
+      ],
+      "external_url": "https://cshperspectives.cshlp.org/content/7/10/a020545.full.pdf"
+    },
+    {
       "id": "https://lens.lumihelia.com/en/papers/microglia-synaptic-pruning.html",
       "url": "https://lens.lumihelia.com/en/papers/microglia-synaptic-pruning.html",
       "title": "A New Perspective on Synaptic Pruning · Soyon Hong",
