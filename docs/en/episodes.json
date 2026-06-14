@@ -12,6 +12,20 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/en/episodes/lewis-spacex-7years-manufacturing-musk.html",
+      "url": "https://lens.lumihelia.com/en/episodes/lewis-spacex-7years-manufacturing-musk.html",
+      "title": "SpaceX Oral History: First-Principles Manufacturing, the Rocket Cost Revolution, and the Musk Management Ghost · Lewis",
+      "date_published": "2026-06-14",
+      "summary": "Lewis is a former SpaceX manufacturing engineer who spent seven years at the company, ending as the executive responsible for seven departments and more than three thousand rocket parts. He grew up in…",
+      "tags": [
+        "SpaceX oral history",
+        "first-principles manufacturing",
+        "Coke can conversation",
+        "rocket cost revolution",
+        "SpaceX Mafia"
+      ]
+    },
+    {
       "id": "https://lens.lumihelia.com/en/episodes/alexei-efros-surface-deep-data-curious-robot.html",
       "url": "https://lens.lumihelia.com/en/episodes/alexei-efros-surface-deep-data-curious-robot.html",
       "title": "Surface Data, Deep Data, and the Curious Robot: What Current AI Is Missing · Alexei Efros",
