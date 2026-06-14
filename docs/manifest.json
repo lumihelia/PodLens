@@ -1,6 +1,261 @@
 {
   "items": [
     {
+      "slug": "marc-andreessen-malleable-world-founder-capitalism",
+      "title": "世界比你想象的更可塑：零内省、创始人资本主义与马斯克方法 · Marc Andreessen",
+      "date": "2026-06-14",
+      "kind": "podcast",
+      "summary": "[00:00-08:00] 开场：David解释他做新节目的动机——和真正知道自己在说什么的人对话时，他要抵制不插嘴的冲动。Marc是他遇过最能说的人之一。Marc的第一个主题：零内省哲学。「前进。走。」弗洛伊德和1910-1920年代创造了「我们应该坐在那里分析自己」的文化——但在弗洛伊德之前，历史上伟大的人物根本不这样做。他见过硅谷创始人在压力下使用迷幻药，「平静地离开了」然后辞职搬去印度尼西…",
+      "source_url": "",
+      "tags": [
+        "零内省",
+        "创始人资本主义",
+        "管理主义批判",
+        "道德恐慌",
+        "马斯克方法"
+      ],
+      "connections": [
+        {
+          "slug": "caa-co-founder-michael-ovitz",
+          "kind": "resonance",
+          "relation": "同构",
+          "why": "Marc在这集里明确说A16Z是以CAA为模型建立的：「集群进攻法——如果你有一个A16Z合伙人，你就有整个公司」「7点员工会议，在竞争对手叫醒自己客户之前先叫醒客户的客户」。Marc研究了Ovitz的方法并在VC行业完整复制了它。但两者之间有一个深层张力：Ovitz是Marc定义的「管理主义者」——当好莱坞环境改变时，他无法适应（Disney决策、DreamWorks失误）。Marc整个论点的核心是创始人比管理者更能适应变化，但他建立的组织却以管理者中最成功的一个（Ovitz）为模型。两者最大的共同点是对关系和渠道的垄断性控制——控制人才供给，然后以集群方式部署，制造不对称优势。",
+          "this_point": "[约40:00-50:00] Marc描述A16Z以CAA为组织模型：「Ovitz发明的这种集群进攻法——整个公司一起出击。如果你有一个A16Z合伙人，你就有整个公司背书。」早晨优势：7点员工会议让他们在竞争对手九点开始工作之前，已经打完了第一轮客户电话——直接打给客户的客户，不是客户自己。Marc把这描述为A16Z最重要的组织创新之一，是他从对CAA历史的研究中直接提取的。",
+          "that_point": "[书的内容贯穿全集] Ovitz建立CAA的核心洞察：经纪行业的价值不在个人代理人，在整个公司的集体力量。CAA在好莱坞早期的7点员工会议、在竞争对手醒来之前已完成第一轮行动、把整个公司作为一个整体向客户呈现——这些都是Marc在A16Z复制的具体实践。Ovitz后来的失败（Disney谈判、市场环境改变）也印证了Marc的管理主义批判：即使是最聪明的管理者，当环境根本性改变时也会失去方向，因为他们的成功模式是为稳定环境设计的。"
+        },
+        {
+          "slug": "daniel-ek-impact-happiness-self-mastery",
+          "kind": "resonance",
+          "relation": "同构",
+          "why": "Marc（通过IBM大灰云分析）和Daniel（通过Gustav的「你在这里没什么帮助」故事）分别从外部观察者和内部当事人两个角度诊断了同一个组织病理：**当一个人达到足够的权力和成功后，真相停止向他流动**。Marc的分析是系统性的——12层管理的复合谎言让IBM的CEO对公司实况一无所知，而他毫不知情地活在泡泡里。Daniel的分析是个人的——他的产品评审变成了一场「让Daniel满意的表演」，整个团队的能量用于管理他，而不是做产品。Marc的解法是Elon式的：打破层级，直接接触做事的人。Daniel的解法是关系式的：保留一批无论你有多成功都还在说真话的人（母亲、Jack、妻子、Gustav）。两者都承认这是成功本身制造的最危险的副作用。",
+          "this_point": "[01:32:07-01:37:02] Marc用IBM和Elon对比：「IBM在我工作的时候有12层管理——我和CEO之间有12层。每一层都在向上一层撒小谎，12层之后，CEO对公司里真正发生的事情一无所知。他们有个词叫'大灰云'——一群灰色西装跟着CEO，确保他永远不会和任何真正在做事情的人说话。CEO感觉非常好，直到感恩节。」Elon的极端反面：「他只和工程师说话。当有问题时，他直接找到负责那个问题的工程师，一起待到解决。几乎没有CEO这样做。」",
+          "that_point": "[32:03-35:27, 53:56-55:16] Daniel讲Gustav的故事：「Gustav告诉我：你在产品评审里没什么帮助。我们都在试图安抚你，而不是做真正的工作。」Daniel的第一反应：想解雇他。然后他意识到这是情绪反应，给了三个月观察期。结果：产品团队效率大幅提升，Spotify的产品能力在他退出产品评审后明显改善。「从那以后我就不再运营产品评审了。」——这是Daniel主动寻找并接受真相的故事；Marc分析的是真相被系统性阻断的故事。同一病理，一个有好结局，一个有坏结局。"
+        },
+        {
+          "slug": "james-dyson-5127-prototypes-invention",
+          "kind": "resonance",
+          "relation": "张力",
+          "why": "两人都把「从失败中学习」作为创造力的核心机制，但学习的方式截然不同。Dyson：亲手做5127个原型，每一个失败都是物理信息，体验在手上，知识通过身体积累。Marc：系统性研究历史失败模式——读Burnham 1941来理解2024年的资本主义，研究爱迪生的留声机预测错误来理解AI预测的局限，分析IBM的衰落来理解Elon方法的价值。Dyson学于做；Marc学于读和跨越历史的模式匹配。两者都到达同一个信念：当前的世界只是「应然状态」的原始近似——但一个人带着这个信念进实验室，另一个人带着它进风险投资。更深的张力：Dyson对「知识」的定义是具身的、失败驱动的、不可绕过的（你必须亲手失败5127次）；Marc的定义是模式化的、历史性的、可以通过学习他人经验来加速的（你不必亲手失败，可以从爱迪生的失败里学）。",
+          "this_point": "[约20:00-35:00] Burnham框架：Marc通过读1941年的书来理解2024年的创业生态，「这解释了我今天看到的几乎所有事情」。[01:12:01-01:14:14] 爱迪生留声机故事：Marc用这个1890年代的历史失败案例来论证「发明者是预测其发明影响最不可靠的人」，这个论证是他系统性历史研究方法的典型案例。他的结论不来自自己发明一个类似留声机的东西然后失败，而是来自跨越一个世纪的模式识别。",
+          "that_point": "[07:19-09:49, 30:31-33:00] Dyson的5127个原型哲学：「每一个失败都让我更接近解决方案。失败比成功更有趣。」这种知识是完全具身的，不可以在书上读到——你必须亲手做，感受材料，感受什么不起作用，然后修正。Dyson甚至明确批评了那种「先研究再行动」的方法：他认为很多研究者花太多时间阅读别人的研究，而没有足够时间做自己的实验。这和Marc通过读Burnham和分析爱迪生来学习的方式是直接对立的。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "The World Is More Malleable Than You Think: Zero Introspection, Founder Capitalism, and the Musk Method · Marc Andreessen",
+          "tags": [
+            "zero introspection",
+            "founder capitalism",
+            "managerialism critique",
+            "moral panics",
+            "Elon's management method"
+          ],
+          "summary": "Marc Andreessen co-founded Netscape at twenty-two, was at the table for the first commercial web browser, the first internet advertising business, and the first e-commerce platform. He then co-founded…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "caa-co-founder-michael-ovitz",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Marc built A16Z explicitly on the CAA model — the phalanx approach (if you have one partner, you have the whole firm), the 7 AM staff meetings to call clients' clients before competitors were awake. He studied Ovitz and replicated the organizational structure in venture capital. The deeper tension: Ovitz is exactly what Marc's managerialism critique describes — a supremely skilled manager who could not adapt when his environment fundamentally changed (the Disney negotiation, the shift in Hollywood power). Marc adopted Ovitz's organizational innovation while his entire intellectual framework predicts why Ovitz's kind of manager ultimately fails.",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "daniel-ek-impact-happiness-self-mastery",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Both diagnose the same organizational pathology from opposite vantage points: as success and power accumulate, truth stops reaching the person who needs to act on it. Marc's analysis is systemic — IBM's twelve layers of management produced compounding lies that left the CEO completely insulated from reality, protected by what IBM called 'the Big Gray Cloud.' Ek's analysis is personal — his product reviews had become a performance designed to manage him rather than improve the product. Marc's remedy is structural (Elon's direct access to engineers, eliminating the layers); Ek's remedy is relational (maintaining people who will tell you the truth regardless of your power). Same disease, different prescriptions.",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "james-dyson-5127-prototypes-invention",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Both treat failure as the primary mechanism of learning — but the mechanism is opposite. Dyson: physical iteration, 5,127 prototypes built by hand, knowledge that accumulates in the body through direct failure. You must fail yourself. Marc: systematic study of historical failure patterns — reading Burnham from 1941 to understand 2024 capitalism, analyzing Edison's phonograph prediction to understand the limits of AI forecasting. You can learn from others' failures without repeating them. Dyson's epistemology is embodied and irreducible; Marc's is pattern-based and historical. Both arrive at the same conviction — the current world is a primitive approximation of what's possible — but one carries it into the lab, the other into venture capital.",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "daniel-ek-impact-happiness-self-mastery",
+      "title": "影响先于幸福：自我精通与造物者之道 · Daniel Ek",
+      "date": "2026-06-14",
+      "kind": "podcast",
+      "summary": "Daniel Ek是Spotify的联合创始人兼CEO，从2006年建立Spotify至今将近二十年。这是David Senra的新节目「第一位嘉宾」——他选择Daniel，因为与Daniel的一次私下晚餐对话从根本上改变了他对工作和生活的理解。整集不是采访，更像是两个相互学习多年的朋友之间的对话：一个创始人和一个几乎读遍所有伟大创始人传记的人，在研究「那些传记里的人到底是什么样的人」这件事上相互…",
+      "source_url": "",
+      "tags": [
+        "影响先于幸福",
+        "自我精通",
+        "企业家原型",
+        "质量哲学",
+        "能量管理"
+      ],
+      "connections": [
+        {
+          "slug": "james-dyson-5127-prototypes-invention",
+          "kind": "resonance",
+          "relation": "同构",
+          "why": "两人都把「质量」定义为对「永远无法实现的完美」的永恒追求，而不是一个可以达到的终点状态。Daniel的日本茶道大师故事（34年只做一件事，追求0.01%的改进）与Dyson的5127个原型是同一种精神的不同表达：不是「我完成了」，而是「它还可以更好」。更直接的连接：Daniel在对话中明确引用了Dyson写的《伟大发明史》——「他从1700年的发明里取出一小块，然后和今天的技术组合在一起。这就是创新。」Daniel自己对「创新=把已知的两件事以新方式组合」的定义，和Dyson的历史性学习方法完全同构。两人都是从历史中提取材料的思考者，不是从零开始的发明者。",
+          "this_point": "[01:29:25-01:39:41] Daniel：「创新实际上是把两件或以上已经很有名的事情以新的方式组合。」他在前一段引用了Dyson写的《伟大发明史》——Dyson翻阅这本书，找到1700年的某个发明，取出一小部分，和今天的新技术结合，产生新产品。Daniel把这个创新框架用于Spotify：不是发明streaming，而是把已知的欲望（消费者想要任何音乐，不想付每首单价）和已知的技术（宽带、压缩）以未曾有人组合过的方式连接。另：[01:49:00-01:50:06] 日本茶道大师：34年只完善泡茶，追求0.01%的提升——「完美永远不存在，但对完美的渴望是非凡的。」",
+          "that_point": "[07:19-09:49] Dyson把「失败比成功更有趣」的哲学应用于5127个原型：每一个失败都是信息，每一次「这不对」都是向完美收敛的一步。Dyson也在《伟大发明史》里做了完全相同的事：从历史中提取不同时代的技术片段，重新组合。这本书不是学术史，是他自己的「组合原料库」。他写了它，因为他相信理解技术的历史是创新的前提——Daniel在自己的讲述里印证了这一点。"
+        },
+        {
+          "slug": "patrick-oshaughnessy-principle-life-work",
+          "kind": "resonance",
+          "relation": "张力",
+          "why": "Patrick和Daniel在几乎所有宏观框架上一致（了解自己才能建公司、关系是最重要的投资、较少但更深入的连接），但在最核心的生命操作系统上截然不同。Patrick：「增长而无目标，一切从视野边缘来，我没有在追逐任何东西。」Daniel：「幸福是影响力的滞后指标，满足是危险的，你必须去找更难的挑战。」Patrick明确反对目标因为它创造「遮蔽」；Daniel则用「影响力」作为方向感，虽然他的「影响」也是高度个人化且非金融化的。表面上都是使命驱动，但Patrick的驱动力是「原则」（当原则被违反时有义务纠正），Daniel的驱动力是「影响」（克服最大的对抗产生最大的满足感）——前者被动响应，后者主动寻找。他们在这集里也直接交流：Daniel在对话中间发短信问Patrick要提问，Patrick评价Daniel是「在所有人中，应用所学最快最高的人」。",
+          "this_point": "[02:17-05:14, 10:55-14:27] Daniel：「幸福是影响力的滞后指标。真正持续的幸福来自克服最大的对抗。」22岁的满足期（最抑郁时刻）：「满足不是幸福。我降档到轻松档，生活很轻松——但那不是我想要的。」以及：「我告诉Dara：自什么时候开始，生活是关于幸福的？它关于影响。」Daniel的驱动是主动的：寻找更难的问题，不让自己downshift，刻意保持不舒服。",
+          "that_point": "[09:05-12:51, 20:13-21:20] Patrick：「增长而无目标。对非常有才华的人，设定目标通常会实现目标，但这会带来遮蔽——你已经知道前方的路，这让我感到无聊。」Patrick不是在追逐什么，他是在等待和识别从视野边缘来的机会。他的播客不是从某个目标演化来的，是从左场出现的。「更令我兴奋的是：它不会停止，未来十年将出现一组我今天无法想象的事情。」"
+        },
+        {
+          "slug": "caa-co-founder-michael-ovitz",
+          "kind": "resonance",
+          "relation": "同构",
+          "why": "这场对话里，David明确把Ovitz的故事讲给Daniel听了：「Ovitz现在80岁，他说在他那个位置的危险是没有人再告诉他真相了。他能维持25年老友关系的原因：那个人还在告诉他真相。」两人都在相似的地方做了相似的思考：在极度成功和权力之后，维持能说真话的人成为最重要的事，也是最难的事。Daniel的解法：20年关系的mom、Jack、妻子、Gustav——这些人不因为他的地位而改变他们对他说的话。但两人的终局不同：Ovitz最终因为没有足够的「镜子」而做出了严重误判（Disney/DreamWorks的决策，以及对自己局限性的误判）；Daniel的故事里，Gustav的那次坦诚「你在这里其实没什么帮助」反而成了Spotify产品能力提升的关键时刻。信任的维护机制不同，因此后果不同。",
+          "this_point": "[32:03-35:27, 53:56-55:16] David把Ovitz的25年朋友谈到说真话，引入话题：「谁在给你说真话？」Daniel列举：母亲（对商业成就冷淡，只关心他是否克服了对他重要的挑战）、Jack、妻子、Gustav。Gustav的故事：告诉Daniel他在产品评审上没有帮助，「我们都在试图安抚你」——Daniel的第一反应是想解雇他，然后意识到这是情绪，给了三个月，结果产品团队更有效率。「从那以后，我不再运营产品评审了。」",
+          "that_point": "[31:49-34:25, 01:15:35-01:19:08] Ovitz明确表述：「你到了我这个位置，大多数和你互动的人都是你的员工，这很危险。我生命中真正告诉我真相的人不多。」他的25年友谊的核心：那个人在他权力和财富都很大的时候还是直接说出不好听的东西。但Ovitz自己的错误——在Disney与Eisner的关系处理，以及对自己局限性的判断——表明即使有这样的镜子，也可能没有被充分使用或倾听。Daniel的Gustav故事是Ovitz故事的「有好结局的版本」。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "Impact Before Happiness: Self-Mastery and the Maker's Way · Daniel Ek",
+          "tags": [
+            "impact over happiness",
+            "self-mastery",
+            "founder archetypes",
+            "quality philosophy",
+            "energy management"
+          ],
+          "summary": "Daniel Ek has been building Spotify for nearly two decades. David Senra chose him as the first guest on this new show because a single private dinner conversation with Ek had fundamentally changed how…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "james-dyson-5127-prototypes-invention",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Both define quality as the permanent aspiration toward an impossible perfection that can never be reached — Ek's Japanese tea master (34 years perfecting tea, pursuing 0.01% improvement) and Dyson's 5,127 prototypes are the same philosophy at different scales. More directly: Ek explicitly cites Dyson's book 'The History of Great Inventions' as the clearest illustration of his own innovation framework — take a piece from 1700, combine it with today's technology in a new way. Both are synthesizers drawing from history's material, not inventors starting from zero.",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "patrick-oshaughnessy-principle-life-work",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Two different operating systems for the same underlying commitment. Patrick: 'growth without goals, everything interesting came from the periphery, I am not chasing anything.' Ek: 'happiness is a trailing indicator of impact, contentment is the danger, you must seek the harder challenge.' Patrick organizes around a principle that compels correction when violated (passive, reactive); Ek organizes around impact that must be actively pursued (active, directional). Both reject money and status as primary drivers — but the mechanism is opposite. They know each other: Ek texted Patrick mid-conversation asking for questions; Patrick called Ek 'the person who applies what he learns fastest at the highest level.'",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "caa-co-founder-michael-ovitz",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "David raised the Ovitz story directly in this conversation: at the top of power, almost no one tells you the truth anymore — the ability to maintain relationships with people who still will is one of the rarest things a successful person can possess. Both Ek and Ovitz built their worlds around trust as the foundational economic force. But the outcomes diverged: Ovitz lost his mirrors late and made consequential errors of self-assessment; Ek's mirror moment (Gustav telling him he wasn't helping in product reviews) became a turning point that improved Spotify's product capability. Same diagnosis, different resolution.",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "patrick-oshaughnessy-principle-life-work",
+      "title": "原则、生命之业与不竭之欢 · Patrick O'Shaughnessy",
+      "date": "2026-06-14",
+      "kind": "podcast",
+      "summary": "Patrick O'Shaughnessy是「Invest Like The Best」播客主持人，以及Colossus和Positive Sum的创始人。这是他与Founders播客主持人David Senra之间一场罕见的双向对话——通常是Patrick采访他人，这次轮到他坐到另一侧。",
+      "source_url": "",
+      "tags": [
+        "原则与目标",
+        "生命之业",
+        "不竭之欢",
+        "增长而无目标",
+        "发现才华"
+      ],
+      "connections": [
+        {
+          "slug": "rick-rubin-creative-act-less-is-more",
+          "kind": "resonance",
+          "relation": "张力",
+          "why": "Patrick和Rubin都围绕「真实自我表达是作品力量来源」这个核心哲学组织他们的工作——两人都拒绝把创作强行导向预设结果。但方法结构上相反：Rubin是激进的被动——作品通过你来到，你的工作是清空障碍、让它到达；Patrick是主动的原则驱动——他通过构建组织、做播客、写长篇特写来执行一个原则，这个原则本身也是真实的，但它是行动而非等待。Rubin的「少即是多」来自删除——「移除所有不属于它的东西」；Patrick的生命之业来自累积——一生的探索和建造。两者都在服务一个比自我更大的东西，但路径截然不同。",
+          "this_point": "[01:23:32-01:24:10] Patrick定义生命之业：「一生的探索，去建立对他人有益并表达你自己的东西。」以及[09:05-10:43] 「增长而无目标」：所有真正有意义的事情都从视野边缘来——不是从精心设计的目标里，而是从你没有在找它的地方。Patrick的方法是主动的：他建播客、杂志、基金，每一个都是同一个原则的不同形式；但他从不把某个结果定为目标。",
+          "that_point": "[28:00-35:00] Rubin的核心立场：艺术家是一个容器，作品本身存在于宇宙中，你的工作是清空自己的偏见和期望，让作品通过你来到。「删除所有阻碍它的东西。」Rubin的激进被动——不是「建造它」，而是「揭示它」——与Patrick的原则驱动主动性形成直接张力：同样的真实性哲学，完全相反的操作模式。"
+        },
+        {
+          "slug": "arthur-brooks-reinvention-religion-happiness",
+          "kind": "resonance",
+          "relation": "同构",
+          "why": "两人都通过不同的路径抵达相同的目的地：一种当你使用时不会耗尽的喜悦——Patrick从26岁读《奥义书》，Brooks从五六十岁的幸福科学研究和宗教转变。两人都明确地把金钱/权力/声名画为陷阱：第一次拥有感觉极好，然后把你困住。两人都把「对他人的贡献」识别为唯一的非耗尽性燃料。更深层：两人都以死亡恐惧作为最初的探索驱动力（Patrick有严重的童年死亡恐惧；Brooks的父亲之死成为他重新反思什么是幸福的扳机），然后找到了某种「让死亡恐惧转化为服务意志」的路径。",
+          "this_point": "[06:06-08:31, 40:53-41:48] Patrick从26岁起的世界观：「整件事的意义就是帮助他人。就这些。」《奥义书》的「不竭之欢」：「这是一种不会耗尽的喜悦，不像那么多资源被消耗掉。当你使用它时，你得到更多。」对比：金钱、权力、声名——「感觉非常好，第一次拥有时。然后它们把你困住了。」Patrick还提到儿时对死亡的严重恐惧，通过哲学和宗教探索找到了答案。",
+          "that_point": "[18:00-28:00] Brooks的幸福科学框架：金钱/权力/声名满足「流动智力」的追求，但流动智力在35-45岁后开始下降——如果你的身份完全建立在它上面，你会在顶峰崩溃。真正的幸福来自信仰、家庭、友谊和对他人有意义的工作（贡献，而不是成就）。Brooks的父亲之死是扳机：他发现「我在追求的所有东西都不是我实际想要的」——与Patrick的Springsteen分析完全同构：顶峰→深渊→真正的东西。"
+        },
+        {
+          "slug": "garry-tan-yc-personal-ai-revolution",
+          "kind": "resonance",
+          "relation": "同构",
+          "why": "Patrick的核心原则（在他人之前看到未被发现的巨大潜力，有义务去揭示它）与Garry的YC使命（让更多人能进入这个帐篷、获得工具和资源）在结构上是同一个主张：把还没有被广泛接触到的东西带给更多的人。两人都直接被「有人在他们不值得时赌上了他们」的经历塑造：Tim O'Shaughnessy在Patrick刚到Notre Dame时的极度慷慨改变了他的整个人生轨迹；Garry在YC获得的早期支持同样是一个生命转折点。两人都理解「创始人不只是创立公司，也可以创立家庭」——David Senra的古巴祖父和Patrick的Tim故事都是「一个人的一个决定改写了整个家族轨迹」的同构叙事。",
+          "this_point": "[06:06-08:31, 02:04:12-02:05:04] Patrick的核心乐趣和原则：在别人发现之前找到一个人和他们正在做的事，成为他们最热烈的支持者。Tim O'Shaughnessy故事：刚到Notre Dame的第一个学期，Tim主动把Patrick整合进社交圈，甚至在自己不能参加时打电话「我来不了，但Patrick来——好好照顾他」。Patrick后来遇到了他的妻子和他最好的朋友们。Tim年轻离世。「整个生活都是简单、快速的善意行为的下游产物。」",
+          "that_point": "[01:26:02-01:26:27, 01:52:14-01:53:20] Garry的使命：让技术和工具进入更多人的手中，「技术就是一种服务彼此的方式」——他的民主化使命来自个人的技术债务感。关于「创立家庭的创始人」：David Senra的祖父从古巴出逃，那一个决定让整个后代的轨迹改写——David是他家族的「创始人」，他的存在和选择是那一个决定的远期涟漪。Garry对YC校友的「下注」是同一个原则在组织规模上的表达。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "Principle, Life's Work, and Abiding Joy · Patrick O'Shaughnessy",
+          "tags": [
+            "principle vs goal",
+            "life's work",
+            "abiding joy",
+            "growth without goals",
+            "discovering talent"
+          ],
+          "summary": "Patrick O'Shaughnessy — founder of Invest Like the Best, Colossus, and Positive Sum — almost never sits on the receiving end of an interview. This conversation with David Senra is one of the few times…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "rick-rubin-creative-act-less-is-more",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Both organize their work around authentic self-expression as the source of creative power, and both resist forcing work toward predetermined outcomes (Patrick's 'growth without goals'; Rubin's 'clear the space, let it arrive'). But the method is structurally opposite: Rubin is radically passive — the work comes through the artist, who must empty themselves of expectations to receive it; Patrick is actively principle-driven — he builds podcasts, magazines, and investment funds to execute a principle, with intention and construction rather than waiting and receiving. Same commitment to authenticity, opposite operating modes.",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "arthur-brooks-reinvention-religion-happiness",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Both arrive at the same destination through different routes: a joy that does not deplete as you use it (Patrick from the Upanishads at twenty-six; Brooks from happiness science research and religious conversion in his fifties). Both explicitly map money, power, and fame as the trap — feels intensely good at first, then hollows you out. Both identify service-to-others as the only non-depleting fuel. Both used the fear of death as an early driver before finding a path toward something generative — Patrick's childhood terror of death resolved through philosophy; Brooks' father's death as the trigger for reconsidering what happiness actually is.",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "garry-tan-yc-personal-ai-revolution",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Patrick's organizing principle (see enormous unrealized potential before others do; it is your obligation to reveal it) and Garry's YC mission (bring more people into the tent, democratize tools and resources) are structurally the same claim: take something not yet widely accessible and spread it as broadly as possible. Both were fundamentally shaped by one person betting on them before they deserved it. Both understand the concept of 'founder of a family' — the person who makes the choice that rewrites the generational trajectory for everyone who comes after: Tim O'Shaughnessy for Patrick; David Senra's grandfather leaving Cuba.",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "how-elon-thinks-algorithm-physics-makers",
       "title": "五步算法、物理律法与造物者的使命 · Elon Musk思维解码",
       "date": "2026-06-14",
