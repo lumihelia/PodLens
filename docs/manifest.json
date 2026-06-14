@@ -1,6 +1,261 @@
 {
   "items": [
     {
+      "slug": "how-elon-thinks-algorithm-physics-makers",
+      "title": "五步算法、物理律法与造物者的使命 · Elon Musk思维解码",
+      "date": "2026-06-14",
+      "kind": "podcast",
+      "summary": "这是《The Book of Elon: Elon Musk's Most Useful Ideas in His Own Words》的作者与Founders播客主持人David Senra的对谈。作者花了五年、数千小时研究Elon Musk，把他最重要的思维工具提炼进这本书。本集是两人翻阅书的亮点段落、互相补充上下文的对话。",
+      "source_url": "",
+      "tags": [
+        "五步算法",
+        "物理律法",
+        "速度",
+        "垂直整合",
+        "造物者哲学"
+      ],
+      "connections": [
+        {
+          "slug": "james-dyson-5127-prototypes-invention",
+          "kind": "resonance",
+          "relation": "同构",
+          "why": "两人都把「失败」重新定义为系统设计的信息基础设施，而不是需要规避的事故——但实现路径不同。Dyson的失败系统是线性的、物理化的：5127个原型，每一个都是下一个的前提；Elon的失败系统是概率化的、组织化的：50%截止日期命中率是最优设计，「如果你不能告诉我你以四种方式搞砸了某件事，你不是真正做那件事的人」。Dyson把失败内化为个人迭代节奏；Elon把失败外化为组织设计原则——两者都在说，失败本身是你能积累的最有价值的信息，拒绝失败等于拒绝学习。",
+          "this_point": "[22:07-24:36] Elon：「失败本质上无关紧要，除非它是灾难性的。我想对每一个设计决策都制造500次失败，这样当我们扩大规模时我就知道我们有最优雅的版本了。我喜欢选一个我有50%可能实现的截止日期——我们会错过一半，我完全没问题。」",
+          "that_point": "[04:05-04:29] Dyson：「失败比成功更有趣，因为失败了你会质疑它——它会引发调查。成功了你只说'太好了'然后继续。」5127个原型是这个原则放大到商业可行性规模的产物：每次失败都是信息密集的调查起点。"
+        },
+        {
+          "slug": "john-mackey-whole-foods-44-years",
+          "kind": "resonance",
+          "relation": "同构",
+          "why": "两人都明确拒绝「利润最大化」作为创业的起点，都把使命的真实性视为长期竞争优势而非软性情感。Elon：「我不从风险调整回报率出发——我找需要发生的事并让它发生。」Mackey：「布道者和雇佣兵不是对错之分，但长期来看信仰的人走得更稳。」更深的共同点：两人都发现了「不以利润为导向的决策」反而产生了更强的竞争优势——Tesla不打广告，把钱全押回产品；Mackey的天然食品网络最终成为信任型并购管道。悖论相同：越不直接追求利润，越持久地产生利润。",
+          "this_point": "[00:58-02:20, 01:19:55-01:20:49] Elon：「我不从风险调整回报率出发。我只找需要发生的事并试图让它发生。如果我们不造东西就没有东西——技术进步不是不可避免的，必须有人做真正的工作。」他对Tesla的定义：不是建立盈利的电动车公司，是让尽可能多的人开上电动车。",
+          "that_point": "[00:02-01:57] Mackey说布道者和雇佣兵之间没有对错，但真实信仰的人比计算的人走得更远更稳——他的天然食品网络最终成了信任收购管道，整个competitive moat建立在使命一致性上，而不是战略精算上。"
+        },
+        {
+          "slug": "garry-tan-yc-personal-ai-revolution",
+          "kind": "resonance",
+          "relation": "同构",
+          "why": "书的作者对这本书的终极目标（「生产一百万个Musk」）与Garry Tan对YC和个人AI的使命（「技术民主化，让更多人能建造」）在结构上是同一个主张：找到还没有被广泛接触到的高杠杆能力，然后把它散布给尽可能多的人。同时，Elon和Garry都有来自困难童年的燃料（Elon：父亲当众羞辱，七八岁被父亲在客厅里站立数小时骂「没用」「愚蠢」；Garry：酗酒暴力父亲，七岁的屋子）——两人都「让恶魔拉犁」，但提取方式不同：Garry是主动的、蓄意的（「我可以随时走进那间屋子，取出一杯铀235」），Elon更像是把它烧成推进剂压入永续驱动。",
+          "this_point": "[15:23-16:34, 01:22:02-01:23:05] 书的作者：「我希望这本书能生产一百万个Musk——不是复制他的人生，而是找一个别人还没在做的独特的重要问题，并把一生押注于解决它。」Elon的童年：父亲当众羞辱多年；被一群孩子打到住院一周，父亲站在施暴者那边；「想象一下这给一个孩子填满了什么样的燃料。Elon学会了让恶魔拉犁。」",
+          "that_point": "[01:26:02-01:26:27, 01:52:14-01:53:20] Garry说「上帝给了你这个大脑……技术就是一种服务彼此的方式」——他的民主化使命来自个人的技术债务感：技术给了我一切，我想让所有人都拥有它。七岁的屋子：他能「随时走进那间屋子」，那个七岁的自己「倒出一杯放射性铀235，我带着那杯走进我的一天」——主动提取创伤能量。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "The Five-Step Algorithm, Physics as the Only Law, and the Maker's Mission · Decoding Elon Musk",
+          "tags": [
+            "five-step algorithm",
+            "physics as law",
+            "speed",
+            "vertical integration",
+            "maker philosophy"
+          ],
+          "summary": "This is a conversation between the author of The Book of Elon: Elon Musk's Most Useful Ideas in His Own Words and David Senra, host of the Founders podcast. The author spent five years and thousands o…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "james-dyson-5127-prototypes-invention",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Both redefine failure as designed information infrastructure rather than something to avoid — but through different mechanisms: Dyson's is linear and physical (5,127 sequential prototypes, each the prerequisite for the next); Elon's is probabilistic and organizational (50% deadline hit rate as optimal design, 'if you can't tell me the four ways you f***ed it up, you weren't doing the real work') — Dyson internalizes failure as personal iteration rhythm; Elon externalizes it as organizational architecture; both reach the same conclusion: refusing failure means refusing to learn",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "john-mackey-whole-foods-44-years",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Both explicitly refuse profit-maximization as the starting point of entrepreneurship, and both discovered that mission-authentic decisions produce stronger long-term competitive advantage than strategic profit-calculation: Elon's Tesla doesn't advertise and pushes all money back into the product; Mackey's natural foods network became a trust-based acquisition pipeline; the same paradox — the less directly you pursue profit, the more durably you generate it",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "garry-tan-yc-personal-ai-revolution",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "The book author's stated goal ('generate one million Musks') and Garry's YC/personal AI mission ('democratize tools so more people can build') are structurally the same claim: find a high-leverage capability not yet widely accessible, then spread it to as many people as possible; additionally, both Elon and Garry ran difficult-childhood fuel through their engines (Elon: father's public humiliation for hours at age eight, sided with the bullies who hospitalized him; Garry: alcoholic-violent father, the seven-year-old's room) — both made the demons pull the plow, but with opposite extraction mechanisms: Garry's is deliberate and conscious (he 'walks into the room' and pours the plutonium); Elon's runs as continuous combustion, always on",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "michael-ovitz-caa-frame-of-reference",
+      "title": "参照系与制霸好莱坞 · Michael Ovitz",
+      "date": "2026-06-14",
+      "kind": "podcast",
+      "summary": "Michael Ovitz，CAA（创意艺人经纪公司）的联合创始人，好莱坞历史上最强大的经纪人，在这次对话中和 David Senra 回顾了他如何从圣费尔南多谷的穷小子（父亲是一周挣不到300美元的酒水推销员）成长为代理了46位好莱坞票房前50名导演的掌权者，同时也是撮成索尼收购哥伦比亚影业、可口可乐广告重构、环球影业融资的幕后策略家。",
+      "source_url": "",
+      "tags": [
+        "好莱坞",
+        "经纪人",
+        "参照系",
+        "组织建设",
+        "销售哲学"
+      ],
+      "connections": [
+        {
+          "slug": "garry-tan-yc-personal-ai-revolution",
+          "kind": "resonance",
+          "relation": "同构",
+          "why": "两人都承认自己童年的物质匮乏记忆从未真正离开，并将它视为持续竞争驱动力的来源——但提取方式不同。Garry 是蓄意的：他能「随时走进那间屋子」取出放射性能量。Ovitz 的是不由自主的：他在餐厅菜单上无意识地看价格，虽然他早就不需要在乎钱了。两种形式，同一个来源：原始的匮乏和「不能回到那里」的恐惧，从未完全被后来的成功覆盖，持续提供燃料。",
+          "this_point": "[01:55:55-01:56:35] Ovitz 说他的父亲会带他们去5:50的早鸟特惠餐厅（不允许点超出预算的菜）。「现在我不看账单，但我发现自己有时会自动看菜单价格，没有任何必要。那是我的童年，它偶尔会压过我。」他把这认为是积极的——让他仍然感到想要赢。",
+          "that_point": "[01:52:14-01:53:20] Garry 描述他能「随时走进那间屋子」——七岁时的公寓，父亲随时可能喝醉打人——然后他的七岁自己「倒出一杯放射性铀235，我带着那杯走进我的一天——我有了它。」主动提取，而不是被动侵入。"
+        },
+        {
+          "slug": "james-dyson-5127-prototypes-invention",
+          "kind": "resonance",
+          "relation": "同构",
+          "why": "两人都把信息摄入量（而不是先天能力）识别为真正的护城河：Dyson 的5127个原型 = Ovitz 的每天200张图像 + 210本杂志订阅 + 70年好莱坞档案通读。两人都把这描述为一种「可以被蓄意建立」的能力，而不是天赋。Ovitz 字面上称之为「原始版 AI，机器学习，只是机器是我的大脑」；Dyson 用5127个原型在工程领域做了同样的事。都是用压倒性的信息体量建立竞争对手无法复制的判断力基础设施。",
+          "this_point": "[34:56-35:56] Ovitz 说他每天看200张图像，「机器学习，我的大脑是那台机器——我放进去的图像越多，识别精度越高。」他还订阅了210本杂志、通读了好莱坞70年档案，以便在见任何人时都能「说他们的语言」。",
+          "that_point": "[04:05-04:29] Dyson 说失败比成功更有趣，因为「失败你会质疑它，成功了你只说'太好了'就继续了」——每次失败都是信息密集的调查起点；5127个原型是把这个原则放大到商业可行性的规模。"
+        },
+        {
+          "slug": "john-mackey-whole-foods-44-years",
+          "kind": "resonance",
+          "relation": "同构",
+          "why": "两人都把「诚实」制度化为核心竞争优势，而不仅仅是道德选择。Ovitz 的「不知道就说不知道」在1974年娱乐行业的谎言生态里是革命性的；Mackey 的「布道者」框架里同样包含了对「用真实信仰代替算计」的坚持。更深的共同点：两人都相信信任可以复利——Mackey 通过20年的天然食品网络得到了信任收购，Ovitz 通过退还可口可乐的支票建立了最有利可图的广告客户关系。诚实不是美德，是商业策略。",
+          "this_point": "[01:01:30-01:02:23] Ovitz 说在1974年的娱乐行业，「每个人都觉得必须显得无所不知，所以每个人都撒谎。」他制定了一条制度：「如果你不知道答案，这是你的回答：'我不知道，我会回你电话。'撒谎的人永远无法把同一个故事说对两遍。」",
+          "that_point": "[00:02-01:57] Mackey 说布道者和雇佣兵之间「没有对错」，但他的核心优势来自真实信仰——他雇不到他认为只是来拿钱的人，因为长期来看信仰的人会比计算的人走得更远更稳定，就像他的天然食品网络最终成了信任收购管道。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "Frame of Reference and the Conquest of Hollywood · Michael Ovitz",
+          "tags": [
+            "Hollywood",
+            "talent agency",
+            "frame of reference",
+            "organization building",
+            "sales philosophy"
+          ],
+          "summary": "Michael Ovitz — co-founder of Creative Artists Agency (CAA), the most powerful talent agency in Hollywood history — sits down with David Senra to discuss how a kid from the San Fernando Valley with no…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "garry-tan-yc-personal-ai-revolution",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Both acknowledge their childhood scarcity memories never fully left and treat them as ongoing motivational fuel — but in opposite control modalities: Garry's is deliberate (he 'walks into that room' and extracts plutonium energy at will); Ovitz's is involuntary (he finds himself automatically checking menu prices despite not needing to) — the same underlying origin story operating as conscious tool in one case and unconscious reflex in the other",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "james-dyson-5127-prototypes-invention",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Both identify information volume (not innate ability) as the real moat: Dyson's 5,127 prototypes = Ovitz's 200 images per day + 210 magazine subscriptions + 70 years of Hollywood archives — both describe this as a capacity that can be deliberately built rather than inherited; Ovitz literally calls it 'primitive AI — machine learning, my brain is the machine'; Dyson built the same information infrastructure in engineering; both created judgment capacity that competitors couldn't replicate because they couldn't match the input volume",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "john-mackey-whole-foods-44-years",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Both institutionalized honesty as competitive advantage rather than just ethical virtue: Ovitz's 'I don't know, I'll call you back' was revolutionary in a 1974 entertainment industry built on performative omniscience; Mackey's 'missionary' framework included replacing calculation with genuine belief; both discovered that trust compounds — Mackey's natural foods network became an acquisition pipeline built entirely on trust; Ovitz's returned Coca-Cola check became his most profitable client relationship",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "garry-tan-yc-personal-ai-revolution",
+      "title": "YC、个人AI与那间七岁的屋子 · Garry Tan",
+      "date": "2026-06-14",
+      "kind": "podcast",
+      "summary": "Garry Tan，Y Combinator 现任 CEO、硅谷最重要的早期创业培养机构的掌舵人，在一次深度对话中讲述了三个彼此缠绕的故事：他从酗酒、暴力的家庭环境逃进计算机世界的童年；他如何在2022年被召回接管 YC 并将其从「Alphabet 时刻」拉回核心使命；以及他为什么相信我们正处在一场和 PC 革命规模相当的个人 AI 时代——而这次革命的核心不是能力，是民主化。",
+      "source_url": "",
+      "tags": [
+        "YC创始文化",
+        "个人AI",
+        "技术民主化",
+        "建造者伦理",
+        "创始人心理"
+      ],
+      "connections": [
+        {
+          "slug": "alison-gopnik-childhood-learning-ai-cultural-technology",
+          "kind": "resonance",
+          "relation": "同构",
+          "why": "Garry 的技术民主化谱系（火→书→印刷机→PC→AI，每次革命都把一个只有「祭司阶层」才能接触的能力交给所有人）与 Gopnik 对文化技术（写作、科学、学校教育）作为「认知棘轮」的论述在核心命题上完全重合：每种新技术都在扩展集体智慧的边界，AI 是这个链条的下一环而不是断裂。Garry 从创业生态的角度叙述，Gopnik 从认知科学的角度叙述，指向同一个结论：「让更多人进入」永远是技术的真正革命性。",
+          "this_point": "[26:45-28:15] Garry 说「识字从一个祭司的小圈子突然变成每个人都能做的事——这就是每次关键时刻反复出现的模式。PC 是'无限之书'，iPhone 把 PC 放进口袋，AI 是智能计算机——同一条链条，下一环。」",
+          "that_point": "[44:00-47:30] Gopnik 说语言、写作和科学是「文化棘轮」——每一代人不需要重新发明轮子，可以继承并超越前人的认知成就；AI 是这个过程的下一个工具，让个体能接触到原本只有专业训练才能触及的思维能力。"
+        },
+        {
+          "slug": "john-mackey-whole-foods-44-years",
+          "kind": "resonance",
+          "relation": "同构",
+          "why": "两人都字面上使用「上帝给了你这个大脑」来描述创业的使命感，都把技术或商业定义为「服务彼此」的工具而不仅仅是经济活动，都将创业明确表述为一种精神旅程（Mackey：英雄之旅；Garry：从无神论到基督徒的信仰转变，Act 17 项目）。但触发点不同：Mackey 的使命感来自对天然食品行业本身价值的信仰；Garry 的使命感来自一笔具体的个人债务——「技术给了我一切，我想让所有人都拥有它」。",
+          "this_point": "[01:26:02-01:26:27] Garry 说：「上帝给了你这个大脑和这些感知，我们能做如此之多。我们怎么能做更多？怎么能更好地服务彼此？技术肯定不是坏事——它就是一种服务彼此的方式。」",
+          "that_point": "[01:38:57-01:39:43] Mackey 说创业之旅在最深层是一种英雄之旅，同时也是精神旅程——它要求你回应一个无法完全被外部理性化的内在召唤；他使用冥想、breathwork 和致幻剂作为精神工具（而不是治疗工具）来接触更深层的自我。"
+        },
+        {
+          "slug": "rick-rubin-creative-act-less-is-more",
+          "kind": "resonance",
+          "relation": "张力",
+          "why": "两人都维持了数十年的极高强度工作，驱动力都与内在的未解决之处有关，但提取能量的方式在结构上相反：Rubin 几乎无法忍受创作过程，他的坚持来自等待一个外部的、无法预期的「天启时刻」（被动接收）；Garry 能随时主动走进「那间屋子」并从特定的创伤记忆中蓄意汲取能量（主动提取）。两人的访谈者都问了同一个问题：「这种强度可持续吗，它会不会烧毁你周围的人？」两人的回答都是：「我还在解决这个问题。」",
+          "this_point": "[01:52:14-01:53:20] Garry 描述他能「随时走进那间屋子」——七岁时的公寓，然后那个七岁的自己「倒出一杯放射性铀235，然后我带着那杯走进我的一天——我有了它。」这是一种有意识的、主动的创伤能量提取，而不是被动的创伤反应。",
+          "that_point": "[24:36-25:48] Rubin 说他对过程几乎无法忍受，他只是强迫自己去上班，因为「如果我不在那里，奇迹就不会发生」——他的持续力来自对那个无法预期的外部天启时刻的依赖，而不是来自过程本身或内部蓄积的能量。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "YC, Personal AI, and the Seven-Year-Old's Room · Garry Tan",
+          "tags": [
+            "YC founder culture",
+            "personal AI",
+            "technology democratization",
+            "builder ethos",
+            "founder psychology"
+          ],
+          "summary": "Garry Tan — president and CEO of Y Combinator, the world's most important early-stage founder training program — sits down for a wide-ranging conversation that weaves together three interlocking narra…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "alison-gopnik-childhood-learning-ai-cultural-technology",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Garry's technology democratization lineage (fire → writing → printing press → PC → AI, each revolution handing a priestly-class capability to everyone) and Gopnik's account of cultural technologies (writing, science, schooling) as 'cognitive ratchets' are two formulations of the same claim: each new technology expands the boundary of collective intelligence, and AI is the next link in that chain rather than a rupture — Garry argues from the startup ecosystem, Gopnik from cognitive science, both conclude that 'letting more people in' is always the true revolution",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "john-mackey-whole-foods-44-years",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Both literally use 'God gave you this brain' to frame their entrepreneurial mission, both define technology or business as a tool for 'serving each other' rather than purely economic activity, and both explicitly describe entrepreneurship as a spiritual journey (Mackey: hero's journey + psychedelics as spiritual tools; Garry: atheist to Christian, Act 17 project) — but their triggering debt differs: Mackey's mission comes from belief in natural food's intrinsic value; Garry's from a specific personal ledger ('technology gave me everything, I want everyone to have it')",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "rick-rubin-creative-act-less-is-more",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Both sustain decades of extreme-intensity work from unresolved inner sources, but extract energy through structurally opposite mechanisms: Rubin can barely tolerate the process, sustained only by waiting for an external, unpredictable 'revelation moment' (passive reception); Garry can walk into 'that room' any time and deliberately extract energy from a specific traumatic memory (active extraction) — both interviewers asked the same question ('is this intensity sustainable, will it burn the people around you?') and both answers were: 'I haven't resolved this yet'",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "john-mackey-whole-foods-44-years",
       "title": "44年的布道者与全食超市的征服 · John Mackey",
       "date": "2026-06-14",
