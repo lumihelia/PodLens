@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neural Population Dynamics of Human Working Memory: Memory Is Not Storage, It Is Transformation · PodLens</title>
+<meta name="description" content="A bioRxiv preprint by Hsin-Hung Li and Clayton E. Curtis (Department of Psychology and Center for Neural Science, New York University), posted February 10, 2023. The paper uses fMRI during a memory-gu…">
+<meta name="author" content="lumihelia">
+<meta name="keywords" content="working memory is computation not storage, dynamic memory codes in visual cortex, neural subspaces and temporal generalization, sensory-to-motor reformatting, top-down feedback in early visual cortex">
+<link rel="canonical" href="https://lens.lumihelia.com/en/papers/li-curtis-working-memory-neural-dynamics.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://lens.lumihelia.com/papers/li-curtis-working-memory-neural-dynamics.html"><link rel="alternate" hreflang="en" href="https://lens.lumihelia.com/en/papers/li-curtis-working-memory-neural-dynamics.html"><link rel="alternate" hreflang="x-default" href="https://lens.lumihelia.com/papers/li-curtis-working-memory-neural-dynamics.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Neural Population Dynamics of Human Working Memory: Memory Is Not Storage, It Is Transformation · PodLens">
+<meta property="og:description" content="A bioRxiv preprint by Hsin-Hung Li and Clayton E. Curtis (Department of Psychology and Center for Neural Science, New York University), posted February 10, 2023. The paper uses fMRI during a memory-gu…">
+<meta property="og:url" content="https://lens.lumihelia.com/en/papers/li-curtis-working-memory-neural-dynamics.html">
+<link rel="alternate" type="application/rss+xml" title="PodLens" href="https://lens.lumihelia.com/en/feed.xml"><link rel="alternate" type="application/json" title="PodLens" href="https://lens.lumihelia.com/en/episodes.json">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Neural Population Dynamics of Human Working Memory: Memory Is Not Storage, It Is Transformation", "datePublished": "2026-06-14", "inLanguage": "en", "url": "https://lens.lumihelia.com/en/papers/li-curtis-working-memory-neural-dynamics.html", "description": "A bioRxiv preprint by Hsin-Hung Li and Clayton E. Curtis (Department of Psychology and Center for Neural Science, New York University), posted February 10, 2023. The paper uses fMRI during a memory-gu…", "author": {"@type": "Person", "name": "lumihelia"}, "publisher": {"@type": "Person", "name": "lumihelia"}, "keywords": "working memory is computation not storage, dynamic memory codes in visual cortex, neural subspaces and temporal generalization, sensory-to-motor reformatting, top-down feedback in early visual cortex", "isBasedOn": "https://doi.org/10.1101/2022.09.23.509245"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --text: #2C2C2C; --primary: #4C436F; --bg: #F4F3F7; --muted: #9A93B3;
+  --border: #D4D0E0; --white: #FFFFFF; --radius: 12px; --shadow: rgba(76,67,111,0.08);
+}
+* { box-sizing: border-box; }
+body {
+  font-family: 'Source Serif Pro', serif; color: var(--text);
+  background: var(--bg); line-height: 1.75; margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 96px 24px 128px; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text); line-height: 1.25; }
+h1 { font-size: 2.6rem; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.01em; }
+h2 { font-size: 1.5rem; font-weight: 600; margin: 64px 0 16px; }
+h3 { font-size: 1.15rem; font-weight: 600; margin: 32px 0 8px; }
+p { margin: 0 0 20px; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.meta { color: var(--muted); font-size: 0.95rem; margin: 0 0 64px; }
+.site-head { margin-bottom: 80px; }
+.site-head .tagline { color: var(--muted); font-size: 1.05rem; margin-top: 4px; }
+ul, ol { padding-left: 1.4em; }
+li { margin: 6px 0; }
+.episode-list { list-style: none; padding: 0; }
+.episode-list li { margin: 0 0 48px; }
+.episode-list .date { color: var(--muted); font-size: 0.9rem; }
+.episode-list .title { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 600; display: block; margin: 4px 0 8px; }
+.episode-list .summary { color: #5a5566; }
+.foot { margin-top: 96px; color: var(--muted); font-size: 0.85rem; }
+.disclaimer { margin-top: 16px; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.index-disclaimer { margin: 48px 0 0; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.topbar { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 48px; }
+.back { color: var(--muted); }
+.langswitch { color: var(--muted); font-size: 0.9rem; border: 1px solid var(--border); padding: 4px 12px; border-radius: 999px; }
+.langswitch:hover { color: var(--primary); border-color: var(--primary); text-decoration: none; }
+.sectionnav { display: flex; align-items: baseline; flex-wrap: wrap; gap: 20px; }
+.sectionnav .brand { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.05rem; color: var(--text); }
+.sectionnav .sec { color: var(--muted); font-size: 0.9rem; padding-bottom: 2px; }
+.sectionnav .sec.active { color: var(--text); border-bottom: 1px solid var(--text); }
+.sectionnav a:hover { color: var(--primary); text-decoration: none; }
+a.ts { color: var(--primary); font-variant-numeric: tabular-nums; white-space: nowrap; text-decoration: none; border-bottom: 1px dotted var(--border); }
+a.ts:hover { border-bottom-style: solid; }
+.source { color: var(--muted); font-size: 0.95rem; margin: 0 0 24px; }
+.player-wrap { position: sticky; top: 0; z-index: 10; background: var(--bg); padding: 12px 0 16px; margin: 0 0 32px; }
+.player-box { position: relative; width: 100%; max-width: 460px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 10px var(--shadow); }
+.player-box #ytplayer, .player-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 48px; }
+.tags span { font-size: 0.85rem; color: var(--primary); background: #EDEBF4; padding: 4px 12px; border-radius: 999px; }
+.connections { list-style: none; padding: 0; margin: 0; }
+.connections li { margin: 0 0 28px; padding-left: 16px; border-left: 2px solid var(--border); }
+.connections .rel { font-size: 0.8rem; color: var(--primary); background: #EDEBF4; padding: 2px 10px; border-radius: 999px; margin-right: 8px; }
+.connections .lk { font-family: 'Playfair Display', serif; font-weight: 600; }
+.connections .why { margin: 8px 0 6px; }
+.connections .pts { color: var(--muted); font-size: 0.92rem; }
+.connections .pts > div { margin-top: 4px; }
+.connections .who { color: var(--text); font-weight: 600; margin-right: 8px; }
+.connections.tensions li { border-left-color: var(--primary); }
+.ctype { font-size: 0.72rem; padding: 1px 9px; border-radius: 999px; margin-right: 8px; letter-spacing: 0.02em; }
+.ctype-genuine { color: #fff; background: var(--primary); }
+.ctype-apparent { color: var(--muted); background: #EDEBF4; }
+.editor-note { background: #EDEBF4; border-radius: 12px; padding: 24px 28px; margin: 0 0 48px; }
+.editor-note .en-label { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 10px; }
+.editor-note p { margin: 0 0 12px; }
+.editor-note p:last-child { margin-bottom: 0; }
+.claim-meta { display: block; margin-top: 2px; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+.claim-meta-first { margin-top: 8px; }
+.claim-meta a.ts { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="topbar"><nav class="sectionnav"><a class="brand" href="https://lens.lumihelia.com/en/">PodLens</a><a class="sec" href="https://lens.lumihelia.com/en/">episodes</a><a class="sec active" href="https://lens.lumihelia.com/en/papers/">papers</a></nav><a class="langswitch" href="https://lens.lumihelia.com/papers/li-curtis-working-memory-neural-dynamics.html">中文</a></div>
+<h1>Neural Population Dynamics of Human Working Memory: Memory Is Not Storage, It Is Transformation</h1>
+<p class="meta">2026-06-14 · A faithful, transcript-grounded reading by PodLens</p>
+<p class="source">Source paper:<a href="https://doi.org/10.1101/2022.09.23.509245" target="_blank" rel="noopener">https://doi.org/10.1101/2022.09.23.509245</a></p>
+
+<div class="tags"><span>working memory is computation not storage</span><span>dynamic memory codes in visual cortex</span><span>neural subspaces and temporal generalization</span><span>sensory-to-motor reformatting</span><span>top-down feedback in early visual cortex</span></div>
+
+<p>A bioRxiv preprint by Hsin-Hung Li and Clayton E. Curtis (Department of Psychology and Center for Neural Science, New York University), posted February 10, 2023. The paper uses fMRI during a memory-guided saccade task to study how working memory representations evolve across time in the human cortex — and discovers that early visual cortex is not a passive memory store but an active computational transformer.</p>
+<p><strong>The Classic View and Why It Was Incomplete</strong></p>
+<p>Working memory research has long centered on a simple model: neurons in prefrontal cortex (PFC) fire persistently during a delay period to maintain a representation of absent information. This "persistent activity" framework — dominated by monkey neurophysiology studies — treats WM maintenance as essentially a cache: store the sensory content, hold it until it is needed.</p>
+<p>More recent work in monkey PFC found something more complicated: neural population codes during WM exhibit both stable components (decodable across time) and dynamic components (where representations evolve during the delay). Li and Curtis asked whether the same structure appears in human cortex, and if so, where.</p>
+<p><strong>The Task</strong></p>
+<p>Participants performed a memory-guided saccade task while undergoing fMRI. A brief target dot appeared at 12° eccentricity from fixation at a pseudo-random polar angle. The target was visible for 500 milliseconds, then disappeared. Participants maintained gaze at the fixation point for a 12-second delay period while remembering the target location. At the end of the delay, they made a saccadic eye movement to report the remembered location and also reported their memory uncertainty using a manual arc-length adjustment.</p>
+<p>A control experiment with a subset of participants (n=6) used the same timing but replaced the dim memory target with a high-contrast flickering checkerboard — a salient sensory stimulus that participants were asked to ignore rather than remember. This passive viewing condition allowed the researchers to distinguish WM-specific dynamics from simple sensory persistence.</p>
+<p>Retinotopic mapping sessions allowed the researchers to define population receptive fields (pRF) for each voxel — the location and size of each voxel's "window" into visual space — across eight ROIs: V1, V2, V3, V3AB, IPS0, IPS1, IPS2, IPS3, and two frontal regions (iPCS, sPCS).</p>
+<p><strong>Two Analytical Tools</strong></p>
+<p>The paper uses two complementary approaches to characterize the WM neural code.</p>
+<p><em>Temporal generalization analysis</em>: a decoder trained on fMRI voxel activity patterns at one time point is tested on all other time points. A stable code produces above-chance decoding across the off-diagonal elements of the cross-decoding matrix — the same decoder works regardless of when during the delay it is applied. A dynamic code produces off-diagonal elements that are significantly worse than the corresponding diagonal — the neural population that encodes the target location at time T1 is not the same population doing so at time T2.</p>
+<p><em>PCA-based neural subspace analysis</em>: principal component analysis identifies the low-dimensional subspace that best captures variance in voxel activity patterns. Stable subspaces are derived from time-averaged data. Dynamic subspaces are derived from early, middle, and late time windows separately. The <em>principal angle</em> between the early and late subspaces quantifies how much the neural representation has rotated in high-dimensional space — a large principal angle means the brain is using substantially different neural populations to represent the target at different points in the delay.</p>
+<p><strong>Finding 1: Stable and Dynamic Codes Coexist in All Regions</strong></p>
+<p>The temporal generalization analysis found stable WM codes (above-chance cross-decoding) in every ROI, including PFC. Within approximately 1–2 seconds of target offset, the WM content became decodable and remained so throughout the delay. The memory holds.</p>
+<p>Most ROIs also showed dynamic codes: off-diagonal elements significantly worse than diagonal, indicating that the neural population encoding the target location changed over time. The two types of code coexist — memory is maintained and transformed simultaneously.</p>
+<p><strong>Finding 2: Dynamics Are Strongest in Early Visual Cortex</strong></p>
+<p>The key finding is a gradient. The degree of dynamics — quantified by the principal angle between early and late neural subspaces — varied significantly across ROIs (F(7, 91) = 3.88, p &lt; .00). V1 showed the largest principal angles, indicating the greatest change in neural subspace across the delay. V3AB and the parietal IPS regions showed substantially smaller angles. PFC showed a stable code throughout, with no significant dynamic clusters in the temporal generalization matrices.</p>
+<p>This is counterintuitive. The standard view treats PFC as the seat of working memory, with posterior sensory regions playing a supporting role. Here, the most active computational transformation during the delay is happening in V1, not PFC.</p>
+<p><strong>Finding 3: What V1 Is Actually Doing</strong></p>
+<p>The pRF projection method makes the V1 dynamics interpretable by mapping voxel activity patterns directly into two-dimensional visual field space. The result, shown across sixteen snapshots spanning the 12-second delay (Figure 4), is striking.</p>
+<p>Early in the delay (0–4.5 seconds): V1 activation concentrates at the target's peripheral eccentricity (12°), in a compact, narrowly tuned response at the target's polar angle. The brain appears to be representing "the target is there."</p>
+<p>Late in the delay (4.5–12 seconds): activation at 12° eccentricity decreases, and the response spreads inward, filling in a diffuse line-like pattern along the polar angle of the target, connecting the peripheral target location to the foveal region.</p>
+<p>By the end of the delay, activation peaks near the fovea with a tail extending toward the target — the opposite spatial profile from early in the delay.</p>
+<p>The proposed interpretation: V1 is recoding the sensory representation of the target's location into a representation of the planned saccade trajectory. The "target was at 12° in that direction" code is being transformed into a "to move my eyes from here to there" code. Memory maintenance and motor preparation are not sequential — they overlap and interpenetrate within the same neural structure.</p>
+<p><strong>The Control Condition Confirms This Is WM-Specific</strong></p>
+<p>In the passive viewing experiment, V1 showed only a stable code, not a dynamic one. Activation appeared at the target's location early in the trial and diminished over time — the profile of a sensory response fading, not a WM computation unfolding. The foveal spread observed in the memory task was entirely absent.</p>
+<p>This confirms that the dynamic transformation in V1 requires WM maintenance — it is not a byproduct of sensory processing but an active consequence of the task demand to hold and prepare to report the location.</p>
+<p><strong>PFC Is the Stable Abstraction Layer</strong></p>
+<p>Prefrontal cortex (iPCS and sPCS) maintained decodable WM content throughout the delay with a stable code and no significant dynamic clusters. However, the PFC stable subspace did not preserve the spatial topology of target locations — the circular arrangement of 32 target positions that was preserved in the topographic structure of visual and parietal cortex was not present in PFC.</p>
+<p>PFC "knows" that you are remembering a location, but it does not store the location in retinotopic coordinates. It is the highest-level abstraction of the WM content — task-relevant but geometrically impoverished relative to the visual representations.</p>
+<p><strong>A Revised Picture of Working Memory</strong></p>
+<p>The paper argues for a distributed, gradient WM system rather than a PFC-centered one:</p>
+<p>V1 performs the most dynamic transformation — recoding sensory inputs into motor-proximal formats over the 12-second delay. It is the most task-embedded of the WM-maintaining regions.</p>
+<p>Higher visual cortex (V3AB) and parietal cortex maintain stable, topographically organized representations of the remembered location throughout the delay — the abstract spatial record.</p>
+<p>PFC maintains the highest-level, most stable representation — task-relevant and decodable, but lacking the spatial geometry that the lower-level regions preserve.</p>
+<p>Working memory is not one thing happening in one place. It is a set of parallel computations at different levels of abstraction, all maintaining different aspects of the same remembered content, with the most dramatic temporal evolution happening not at the apex of the hierarchy but at its base.</p>
+<p><strong>The Broader Implication</strong></p>
+<p>A memory is not a copy of an experience held in a buffer. It is an ongoing process of reinterpretation — the brain continuously reformats what it is holding in memory into whatever is most proximal to the demands of the next action. "Remembering" and "preparing to act on the memory" are not sequential phases. In V1, they are the same process, observed at different moments in its unfolding.</p>
+<h2>Resonances with past episodes</h2><ul class="connections"><li><span class="rel">The Patel paper shows LLMs have crystallized knowledge but lack executive control — they know the task rules but cannot sustain correct performance under conflicting interference. Li and Curtis show that in humans, the gap between knowing and acting is bridged by an ongoing neural computation: V1 continuously reformats the sensory memory trace into a motor-ready format over 12 seconds. LLMs lack precisely this reformatting process — they store pattern associations but have no dynamic mechanism for translating &#x27;what I know&#x27; into &#x27;what the current action requires.&#x27; The V1 dynamics described here are one neural implementation of the computation that bridges knowing and doing. Its absence, or its architectural analog, may be what the Stroop failure is measuring.</span>→ <a class="lk" href="https://lens.lumihelia.com/en/papers/patel-wang-fan-transformer-executive-control.html">Deficient Executive Control in Transformer Attention: The Stroop Test Reveals What LLMs Cannot Do</a><div class="why"></div><div class="pts"><div><b class="who">This</b></div><div><b class="who">Related</b></div></div></li><li><span class="rel">Gopnik&#x27;s framework treats prefrontal cortex as the seat of executive control — it matures late, and its maturation enables goal-directed behavior at the cost of exploratory openness. Li and Curtis offer a complication: even in mature human WM, PFC&#x27;s contribution is the thinnest. It maintains a stable, abstract signal — &#x27;I am remembering a location&#x27; — but without the spatial topology or the dynamic transformation. The actual computational work — recoding sensory inputs into motor-proximal formats — happens in V1, the lowest-level visual region. Higher does not mean more important, or more computationally active. The most task-embedded WM computation sits at the base of the hierarchy, not the apex.</span>→ <a class="lk" href="https://lens.lumihelia.com/en/episodes/alison-gopnik-childhood-learning-ai-cultural-technology.html">How Children Learn and What AI Actually Is · Alison Gopnik</a><div class="why"></div><div class="pts"><div><b class="who">This</b></div><div><b class="who">Related</b></div></div></li><li><span class="rel">Efros argues that AI systems trained on passive surface data (statistical associations from text and images) cannot develop genuine world models — the missing ingredient is active, embodied, causally structured data. The V1 dynamics in this paper are a neural case study in what deep-data-derived computation looks like: during working memory, V1 does not merely store &#x27;the target was there.&#x27; It transforms that record into a planned saccade trajectory — integrating current fixation position, remembered target location, and the action that will connect them. The passive viewing control confirms this is not a sensory effect but an action-driven computation. The same input, minus the task demand, produces none of the dynamics. This is exactly the distinction Efros draws: surface pattern recognition responds to the input; deep, action-oriented computation is driven by intention.</span>→ <a class="lk" href="https://lens.lumihelia.com/en/episodes/alexei-efros-surface-deep-data-curious-robot.html">Surface Data, Deep Data, and the Curious Robot: What Current AI Is Missing · Alexei Efros</a><div class="why"></div><div class="pts"><div><b class="who">This</b></div><div><b class="who">Related</b></div></div></li></ul>
+<p class="foot">A faithful reading and plain-language retelling of the paper, generated by <a href="https://github.com/lumihelia/PodLens">PodLens</a>.</p>
+<p class="disclaimer">This is one source-grounded reading, not a replacement for the original. Every point is anchored to its source, so you can check it yourself — and corrections are welcome.</p>
+
+</div>
+</body>
+</html>
