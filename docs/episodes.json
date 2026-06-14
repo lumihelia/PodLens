@@ -12,6 +12,20 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/episodes/alexei-efros-surface-deep-data-curious-robot.html",
+      "url": "https://lens.lumihelia.com/episodes/alexei-efros-surface-deep-data-curious-robot.html",
+      "title": "表面数据与深度数据：好奇心、体现与AI的下一个前沿 · Alexei Efros",
+      "date_published": "2026-06-14",
+      "summary": "Alexei Efros（阿廖沙·叶夫罗斯）是UC Berkeley计算机视觉领域的教授，Shiri Azaria的博士导师。这是他在一次AI/计算机视觉研讨会上的演讲，约34分钟加上15分钟的Q&A。他明确说这个演讲是「与Alison Gopnik之前演讲的呼应（a rhyme）」，两人从不同角度论证了同一个核心问题：当前AI的根本性局限，以及越过它需要什么。",
+      "tags": [
+        "深度数据",
+        "具身学习",
+        "好奇心驱动探索",
+        "苦涩教训批判",
+        "婴儿即科学家"
+      ]
+    },
+    {
       "id": "https://lens.lumihelia.com/episodes/tobi-lutke-companies-as-technology-shopify-os.html",
       "url": "https://lens.lumihelia.com/episodes/tobi-lutke-companies-as-technology-shopify-os.html",
       "title": "公司即技术：差异化的义务与创始人的工艺 · Tobi Lütke",
