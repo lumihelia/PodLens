@@ -12,6 +12,21 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/en/papers/li-curtis-working-memory-neural-dynamics.html",
+      "url": "https://lens.lumihelia.com/en/papers/li-curtis-working-memory-neural-dynamics.html",
+      "title": "Neural Population Dynamics of Human Working Memory: Memory Is Not Storage, It Is Transformation",
+      "date_published": "2026-06-14",
+      "summary": "A bioRxiv preprint by Hsin-Hung Li and Clayton E. Curtis (Department of Psychology and Center for Neural Science, New York University), posted February 10, 2023. The paper uses fMRI during a memory-gu…",
+      "tags": [
+        "working memory is computation not storage",
+        "dynamic memory codes in visual cortex",
+        "neural subspaces and temporal generalization",
+        "sensory-to-motor reformatting",
+        "top-down feedback in early visual cortex"
+      ],
+      "external_url": "https://doi.org/10.1101/2022.09.23.509245"
+    },
+    {
       "id": "https://lens.lumihelia.com/en/papers/patel-wang-fan-transformer-executive-control.html",
       "url": "https://lens.lumihelia.com/en/papers/patel-wang-fan-transformer-executive-control.html",
       "title": "Deficient Executive Control in Transformer Attention: The Stroop Test Reveals What LLMs Cannot Do",

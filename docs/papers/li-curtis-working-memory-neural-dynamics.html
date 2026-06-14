@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>工作记忆的神经种群动力学：记忆不是存储，是变形 · PodLens</title>
+<meta name="description" content="工作记忆（working memory，WM）在人类大脑中是如何在时间上演化的？记忆内容在延迟期间的神经表征是稳定不变，还是动态变化的？不同脑区的记忆码是否有差异？">
+<meta name="author" content="lumihelia">
+<meta name="keywords" content="工作记忆不是存储而是计算, 视觉皮层的动态记忆码, 神经子空间与时间泛化, 感觉到运动的再格式化, 早期视觉皮层的记忆反馈">
+<link rel="canonical" href="https://lens.lumihelia.com/papers/li-curtis-working-memory-neural-dynamics.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://lens.lumihelia.com/papers/li-curtis-working-memory-neural-dynamics.html"><link rel="alternate" hreflang="en" href="https://lens.lumihelia.com/en/papers/li-curtis-working-memory-neural-dynamics.html"><link rel="alternate" hreflang="x-default" href="https://lens.lumihelia.com/papers/li-curtis-working-memory-neural-dynamics.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工作记忆的神经种群动力学：记忆不是存储，是变形 · PodLens">
+<meta property="og:description" content="工作记忆（working memory，WM）在人类大脑中是如何在时间上演化的？记忆内容在延迟期间的神经表征是稳定不变，还是动态变化的？不同脑区的记忆码是否有差异？">
+<meta property="og:url" content="https://lens.lumihelia.com/papers/li-curtis-working-memory-neural-dynamics.html">
+<link rel="alternate" type="application/rss+xml" title="PodLens" href="https://lens.lumihelia.com/feed.xml"><link rel="alternate" type="application/json" title="PodLens" href="https://lens.lumihelia.com/episodes.json">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "工作记忆的神经种群动力学：记忆不是存储，是变形", "datePublished": "2026-06-14", "inLanguage": "zh-Hans", "url": "https://lens.lumihelia.com/papers/li-curtis-working-memory-neural-dynamics.html", "description": "工作记忆（working memory，WM）在人类大脑中是如何在时间上演化的？记忆内容在延迟期间的神经表征是稳定不变，还是动态变化的？不同脑区的记忆码是否有差异？", "author": {"@type": "Person", "name": "lumihelia"}, "publisher": {"@type": "Person", "name": "lumihelia"}, "keywords": "工作记忆不是存储而是计算, 视觉皮层的动态记忆码, 神经子空间与时间泛化, 感觉到运动的再格式化, 早期视觉皮层的记忆反馈", "isBasedOn": "https://doi.org/10.1101/2022.09.23.509245"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --text: #2C2C2C; --primary: #4C436F; --bg: #F4F3F7; --muted: #9A93B3;
+  --border: #D4D0E0; --white: #FFFFFF; --radius: 12px; --shadow: rgba(76,67,111,0.08);
+}
+* { box-sizing: border-box; }
+body {
+  font-family: 'Source Serif Pro', serif; color: var(--text);
+  background: var(--bg); line-height: 1.75; margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 96px 24px 128px; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text); line-height: 1.25; }
+h1 { font-size: 2.6rem; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.01em; }
+h2 { font-size: 1.5rem; font-weight: 600; margin: 64px 0 16px; }
+h3 { font-size: 1.15rem; font-weight: 600; margin: 32px 0 8px; }
+p { margin: 0 0 20px; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.meta { color: var(--muted); font-size: 0.95rem; margin: 0 0 64px; }
+.site-head { margin-bottom: 80px; }
+.site-head .tagline { color: var(--muted); font-size: 1.05rem; margin-top: 4px; }
+ul, ol { padding-left: 1.4em; }
+li { margin: 6px 0; }
+.episode-list { list-style: none; padding: 0; }
+.episode-list li { margin: 0 0 48px; }
+.episode-list .date { color: var(--muted); font-size: 0.9rem; }
+.episode-list .title { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 600; display: block; margin: 4px 0 8px; }
+.episode-list .summary { color: #5a5566; }
+.foot { margin-top: 96px; color: var(--muted); font-size: 0.85rem; }
+.disclaimer { margin-top: 16px; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.index-disclaimer { margin: 48px 0 0; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.topbar { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 48px; }
+.back { color: var(--muted); }
+.langswitch { color: var(--muted); font-size: 0.9rem; border: 1px solid var(--border); padding: 4px 12px; border-radius: 999px; }
+.langswitch:hover { color: var(--primary); border-color: var(--primary); text-decoration: none; }
+.sectionnav { display: flex; align-items: baseline; flex-wrap: wrap; gap: 20px; }
+.sectionnav .brand { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.05rem; color: var(--text); }
+.sectionnav .sec { color: var(--muted); font-size: 0.9rem; padding-bottom: 2px; }
+.sectionnav .sec.active { color: var(--text); border-bottom: 1px solid var(--text); }
+.sectionnav a:hover { color: var(--primary); text-decoration: none; }
+a.ts { color: var(--primary); font-variant-numeric: tabular-nums; white-space: nowrap; text-decoration: none; border-bottom: 1px dotted var(--border); }
+a.ts:hover { border-bottom-style: solid; }
+.source { color: var(--muted); font-size: 0.95rem; margin: 0 0 24px; }
+.player-wrap { position: sticky; top: 0; z-index: 10; background: var(--bg); padding: 12px 0 16px; margin: 0 0 32px; }
+.player-box { position: relative; width: 100%; max-width: 460px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 10px var(--shadow); }
+.player-box #ytplayer, .player-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 48px; }
+.tags span { font-size: 0.85rem; color: var(--primary); background: #EDEBF4; padding: 4px 12px; border-radius: 999px; }
+.connections { list-style: none; padding: 0; margin: 0; }
+.connections li { margin: 0 0 28px; padding-left: 16px; border-left: 2px solid var(--border); }
+.connections .rel { font-size: 0.8rem; color: var(--primary); background: #EDEBF4; padding: 2px 10px; border-radius: 999px; margin-right: 8px; }
+.connections .lk { font-family: 'Playfair Display', serif; font-weight: 600; }
+.connections .why { margin: 8px 0 6px; }
+.connections .pts { color: var(--muted); font-size: 0.92rem; }
+.connections .pts > div { margin-top: 4px; }
+.connections .who { color: var(--text); font-weight: 600; margin-right: 8px; }
+.connections.tensions li { border-left-color: var(--primary); }
+.ctype { font-size: 0.72rem; padding: 1px 9px; border-radius: 999px; margin-right: 8px; letter-spacing: 0.02em; }
+.ctype-genuine { color: #fff; background: var(--primary); }
+.ctype-apparent { color: var(--muted); background: #EDEBF4; }
+.editor-note { background: #EDEBF4; border-radius: 12px; padding: 24px 28px; margin: 0 0 48px; }
+.editor-note .en-label { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 10px; }
+.editor-note p { margin: 0 0 12px; }
+.editor-note p:last-child { margin-bottom: 0; }
+.claim-meta { display: block; margin-top: 2px; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+.claim-meta-first { margin-top: 8px; }
+.claim-meta a.ts { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="topbar"><nav class="sectionnav"><a class="brand" href="https://lens.lumihelia.com/">PodLens</a><a class="sec" href="https://lens.lumihelia.com/">episodes</a><a class="sec active" href="https://lens.lumihelia.com/papers/">papers</a></nav><a class="langswitch" href="https://lens.lumihelia.com/en/papers/li-curtis-working-memory-neural-dynamics.html">English</a></div>
+<h1>工作记忆的神经种群动力学：记忆不是存储，是变形</h1>
+<p class="meta">2026-06-14 · 由 PodLens 生成的忠实解读</p>
+<p class="source">原文:<a href="https://doi.org/10.1101/2022.09.23.509245" target="_blank" rel="noopener">https://doi.org/10.1101/2022.09.23.509245</a></p>
+
+<div class="tags"><span>工作记忆不是存储而是计算</span><span>视觉皮层的动态记忆码</span><span>神经子空间与时间泛化</span><span>感觉到运动的再格式化</span><span>早期视觉皮层的记忆反馈</span></div>
+
+<h2>这篇讲了什么</h2>
+<h3>核心问题</h3>
+<p>工作记忆（working memory，WM）在人类大脑中是如何在时间上演化的？记忆内容在延迟期间的神经表征是<strong>稳定不变</strong>，还是<strong>动态变化</strong>的？不同脑区的记忆码是否有差异？</p>
+<h3>研究背景</h3>
+<p>工作记忆的经典图景是「持续激活」（persistent activity）：神经元在延迟期间持续放电来维持记忆内容，就像一个简单的缓存。这个图景主要来自非人灵长类前额叶皮层（PFC）的电生理记录。但近年来在猴子PFC的研究发现，神经种群代码既有稳定成分，也有动态成分（Spaak等，2017；Murray等，2017）。问题是：在人类的视觉皮层和顶叶皮层，情况是怎样的？</p>
+<h3>实验设计</h3>
+<p><strong>主实验：记忆引导扫视任务（memory-guided saccade task）</strong>
+- 参与者在fMRI扫描仪中注视中心
+- 一个短暂（500ms）的目标点出现在12°离心率的随机方位角处（32个位置，覆盖全圆）
+- 随后进入12秒的<strong>延迟期</strong>：目标消失，参与者必须维持对目标位置的记忆
+- 延迟期结束后，参与者用眼跳（saccade）指向记忆中的目标位置
+- 此外参与者还汇报其记忆的不确定性（调整圆弧长度）</p>
+<p><strong>对照实验：被动观看实验（passive viewing）</strong>
+- n=6名参与者额外完成此实验
+- 显示条件相似，但刺激是高对比度闪烁棋盘格（不需要记忆）
+- 目的：区分延迟期的神经活动是否只是感觉响应的缓慢衰减，还是真正的WM维持</p>
+<p><strong>关键ROI</strong>：
+- 早期视觉皮层：V1, V2, V3, V3AB
+- 顶内沟（IPS）：IPS0, IPS1, IPS2, IPS3
+- 前额叶皮层：内侧前沟（iPCS）、上前沟（sPCS）</p>
+<p><strong>分析方法</strong>：
+1. <strong>时间泛化分析（Temporal generalization）</strong>：在时间点T1训练解码器，在所有时间点T2测试→稳定码=在不同时间点间也能解码；动态码=跨时间点解码性能比同时间点更差
+2. <strong>主成分分析（PCA）</strong>：构建神经子空间——稳定子空间（时间平均）和动态子空间（分早/中/晚三个时间窗口），用主角（principal angle）量化子空间之间的偏转程度
+3. <strong>群体感受野投影（pRF mapping）</strong>：把voxel活动模式投影到二维视觉场空间，可视化大脑正在「看」视觉场的哪个位置</p>
+<h3>核心发现</h3>
+<p><strong>1. 稳定码和动态码在几乎所有脑区共存</strong></p>
+<p>时间泛化分析显示，在所有ROI中都存在稳定码（跨时间可解码的粉色区域）——记忆目标的位置在整个延迟期都可以被解码。同时，大多数ROI中也存在动态码（对角线性能 &gt; 非对角线性能的蓝色区域），意味着不同时间点的神经代码有所不同。</p>
+<p><strong>2. 动态程度因脑区而异（关键发现）</strong></p>
+<ul>
+<li><strong>V1动态最强</strong>：早期和晚期时间窗口的神经子空间偏转角最大</li>
+<li><strong>V3AB及顶叶（IPS）稳定性最高</strong>：子空间偏转最小</li>
+<li>F(7, 91) = 3.88, p &lt; .00（稳定性在不同ROI之间存在显著差异）</li>
+<li>PCA可视化：在V1中，目标位置在空间中的「轨迹」（3D螺旋）显示出明显的时间演化；在V3AB中，轨迹更稳定</li>
+</ul>
+<p><strong>3. V1的动态模式：从外周到中央凹</strong>（最具体的发现）</p>
+<p>通过pRF投影到视觉场空间（图4）：
+- 延迟期<strong>早期</strong>（0-4.5秒）：V1的激活集中在目标的12°外周离心率位置，窄调谐的点状激活
+- 延迟期<strong>晚期</strong>（4.5-12秒）：激活从目标离心率位置<strong>扩散向中央凹</strong>，形成一条从目标位置到中心注视点之间的线状激活带
+- 也就是说：从「目标在哪里」的代码，转变为「从这里到目标的路径」的代码</p>
+<p><strong>4. 被动观看中没有这种动态</strong></p>
+<p>当参与者只是被动看一个闪烁棋盘（不需要记忆）时，V1只显示稳定码，且激活随时间迅速衰减。动态的向中央凹传播只在WM维持条件下出现——证明这是真正的WM计算，而不是感觉残留。</p>
+<p><strong>5. 前额叶皮层：稳定但无拓扑结构</strong></p>
+<p>前额叶（iPCS, sPCS）在整个延迟期都是稳定码，记忆内容可解码，但：
+- 解码误差比视觉和顶叶皮层都大
+- 稳定子空间中目标位置不像视觉皮层那样维持拓扑关系（不保留视觉场的空间结构）
+- PFC「知道」你在记忆某个位置，但不以视网膜坐标格式存储</p>
+<h3>核心观点</h3>
+<p><strong>1. 工作记忆不是简单的缓存，是积极的格式转换</strong></p>
+<p>早期视觉皮层（V1）的动态表明记忆过程不是「把看到的东西存着」，而是把感觉输入（目标在外周12°处）重新格式化为更接近任务需求的表征（从中央凹到目标的轨迹）。作者提出：V1的晚期激活可能代表计划中的记忆引导扫视——大脑在延迟期已经在预计算「我的眼睛需要怎么移动」，而不只是「目标在哪里」。</p>
+<p><strong>2. 动态的机制：不同神经种群在不同时间被募集</strong></p>
+<p>通过PCA分析，动态不是由「旋转」驱动（神经子空间绕轴旋转，这在猴PFC中被发现），而是由不同时间窗口使用不同的神经种群来表征目标。早期子空间和晚期子空间正交偏转——激活的神经元群体本身发生了改变。</p>
+<p><strong>3. 稳定性沿视觉层级升高</strong></p>
+<p>V1最动态 → V2, V3, V3AB逐渐稳定 → IPS更稳定 → PFC最稳定。这个梯度可能反映了不同层级区域的功能分工：低级视觉皮层（V1）负责任务相关的格式转换（感觉→运动），高级视觉和顶叶皮层维持抽象的空间记忆（不需要随时间变化），PFC维持最高级别的任务相关信号。</p>
+<p><strong>4. 早期视觉皮层的动态来自自上而下的反馈</strong></p>
+<p>被动观看对照实验排除了「动态只是感觉响应的缓慢衰减」的解释。结合V1调谐宽度在延迟晚期的增宽（从窄变宽，而V3AB不变化），作者推测：V1的晚期动态来自自上而下的反馈信号，来源是感受野更大的高级皮层区域，把精确的点状感觉表征「平滑」成更宽泛的路径表征。</p>
+<p><strong>5. 人类和猴子PFC的关键差异</strong></p>
+<p>猴PFC研究中发现的稳定和动态共存，在本研究中被发现主要在<strong>视觉皮层</strong>，而人类PFC的WM代码以稳定为主、动态不显著。这可能是物种差异，也可能是测量方法差异（fMRI vs. 电生理），尚无法确定。</p>
+<hr />
+<h2>大白话重讲</h2>
+<p>你闭上眼睛，想象钥匙放在桌子的左上角。你的大脑在做什么？</p>
+<p>经典答案是：有一些神经元开始放电，然后一直保持放电状态，直到你找到钥匙。这叫「持续激活」——大脑是一个能暂时维持放电的缓存。</p>
+<p>这篇论文说：不，不是这样的。</p>
+<p>实验很简单：在fMRI扫描仪里，一个点出现在你眼前偏左的地方。0.5秒后消失。你需要记住它在哪里，默默等待12秒，然后用眼跳指向它的位置。</p>
+<p>扫描仪记录了这12秒里，你的视觉皮层发生了什么。</p>
+<p>结果令人惊讶：在最基础的视觉皮层（V1）里，记忆的神经代码<strong>一直在变</strong>。</p>
+<p>在最初的4秒里，V1激活的区域对应目标的外周位置（离眼球中心12度）。就好像V1在说：「目标在那里，那个方向，那个距离。」</p>
+<p>但在后面8秒，激活的区域开始往眼球中心<strong>漂移</strong>——最终形成了一条从注视点延伸向目标方向的线。就好像V1在说：「从这里出发，往那个方向走。」</p>
+<p>这不是「存储」——这是<strong>路径规划</strong>。V1正在把「感觉到什么」重新格式化成「眼睛需要怎么动」。</p>
+<p>更有意思的是：当参与者只是被动看同样位置的一个闪烁光，不需要记忆时，这种漂移<strong>完全不存在</strong>。动态是工作记忆特有的，是大脑主动参与任务要求的结果。</p>
+<p>与此形成对比的是更高级的脑区。在顶叶皮层和前额叶皮层，目标位置的神经表征整个12秒都比较稳定——但它们「知道」的不是「从这里到目标的路径」，而是更抽象的「我在记忆一个位置」。</p>
+<p>这给出了一个新的工作记忆图景：</p>
+<p><strong>不同脑区在记忆的不同「层次」上工作。</strong></p>
+<p>V1是最靠近行动的那一层——它把感觉信息重新编码成任务相关的运动指令。V3AB和顶叶皮层是中间层——维持抽象的空间位置，不随时间变化。PFC是最抽象的层——知道你在记忆某件事，但不保留具体的空间细节。</p>
+<p>工作记忆不是一个地方，也不是一种活动。它是一个<strong>分布在不同脑区的动态转换过程</strong>，把「我看到了什么」逐渐转化为「我需要做什么」。</p>
+<hr />
+<h2>与往期的呼应</h2><ul class="connections"><li><span class="rel">同构/张力</span>→ <a class="lk" href="https://lens.lumihelia.com/papers/patel-wang-fan-transformer-executive-control.html">变换器注意力的执行控制缺陷：Stroop任务揭示LLM不能做什么</a><div class="why">Patel等人的论文发现LLM有「晶体知识」但缺乏「执行控制」——知道任务规则但无法在竞争干扰下执行。Li和Curtis的论文揭示了人类大脑的工作记忆不是简单的「知道」，而是持续的格式转换——从「我记住了目标在哪里」到「我的眼睛需要怎么动」。两篇论文共同指向同一个更深层的问题：知道（knowing）和行动（acting）之间存在巨大的计算鸿沟，这个鸿沟需要主动的神经计算来填补。LLM缺乏执行控制，正是因为它没有这种「持续格式转换」的计算过程——它只有晶体知识，但没有「把知识转换为当前行动格式」的动态机制。从这个角度看，Li和Curtis所描述的V1动态，正是人类大脑弥合这个鸿沟的具体实现。</div><div class="pts"><div><b class="who">本期</b>[论文讨论，第12页] 「The sensory properties of the visual target were reformatted into a mnemonic code more proximal to the response required by the task.」[论文结论] WM dynamics in early visual cortex involves a propagation from neural populations selective for the peripheral location of targets to locations near the fovea — a recoding of sensory inputs into task-relevant representations.</div><div><b class="who">往期</b>[Patel等论文结论] LLM既展示出Stroop效应（说明有训练驱动的自动化），也在长列表不一致条件下崩溃（GPT-4o: 91%→15%；Claude: 76%→24%），说明有晶体知识但缺乏工作时的执行控制。「knowledge understanding and execution capabilities」的解离是其核心发现。论文建议未来需要在变换器中实现类似前扣带回/背外侧前额叶的执行控制机制。</div></div></li><li><span class="rel">张力</span>→ <a class="lk" href="https://lens.lumihelia.com/episodes/alison-gopnik-childhood-learning-ai-cultural-technology.html">儿童如何学习，AI 是什么文化技术 · Alison Gopnik</a><div class="why">Gopnik认为儿童的前额叶皮层「欠发育」是探索优先的功能优势，前额叶成熟带来执行控制（快速目标导向行为）但减少开放探索。Li和Curtis的发现提供了一个有趣的反角度：即便是「最高级」的前额叶皮层，在工作记忆中所做的也是最抽象、最无细节的部分——它维持「我在记忆某个位置」但不保留空间拓扑结构。真正的精细空间计算在最低级的V1里。这挑战了「高级=更多功能」的假设：V1在工作记忆中承担的是最接近行动的任务相关计算，PFC承担的是最抽象的标记。两者都需要，但高级不等于更重要。Gopnik关注的是认知发展中前额叶的角色；这篇论文告诉我们在成熟的人类大脑中，前额叶对工作记忆的贡献是什么——而那个贡献比通常认为的要更「薄」。</div><div class="pts"><div><b class="who">本期</b>[论文图8和第9页] 「In both frontal regions, we found a stable cluster throughout the memory delay in each of the ROIs, without significant dynamical clusters. Projecting the voxel activity pattern of each time point into the stable subspace extracted by PCA, we found that the locations of the targets remained largely stable and separable within the stable subspace. However, their spatial topology (in the visual field space) was not well-maintained like those observed in the visual and the parietal cortices.」</div><div><b class="who">往期</b>[Gopnik集核心论点] 前额叶皮层的成熟 = 执行控制能力增强 = 目标导向行为增强 = 探索性开放性下降。Gopnik认为前额叶是「开发」（exploitation）的神经基础，儿童前额叶欠发育是「探索」（exploration）优先的功能选择。她对前额叶的理解是「执行控制的中心」。Li和Curtis的发现暗示：即便在工作记忆这个前额叶的「传统领地」里，前额叶也可能是最薄弱的一环——它维持抽象信号，但空间计算和格式转换在视觉皮层。</div></div></li><li><span class="rel">同构</span>→ <a class="lk" href="https://lens.lumihelia.com/episodes/alexei-efros-surface-deep-data-curious-robot.html">表面数据与深度数据：好奇心、体现与AI的下一个前沿 · Alexei Efros</a><div class="why">Efros区分「表面数据」（被动统计关联）和「深度数据」（主动探索、因果结构、感觉-运动反馈的同步）。他认为AI系统需要深度数据才能发展出真正的世界模型。Li和Curtis的发现提供了「深度数据产生什么样的内部表征」的神经科学案例：在工作记忆任务中，人类V1的神经代码不只是存储了「目标在哪里」的静态模式（这是表面数据能做到的），而是在12秒延迟中把感觉输入主动转换为扫视计划（感觉→运动的格式转换）——这需要大脑知道自己在视觉场中的位置（中央凹位置）、知道任务目标（眼跳到目标），然后计算两者的关系。这种「我的位置 + 目标位置 + 行动计划」的整合，正是Efros所说的主动具身探索（embodied active exploration）产生的深度计算。被动观看条件证明了这一点：相同的感觉输入，没有行动意图，V1就不执行这种转换——计算由任务驱动，而不是由感觉输入驱动。</div><div class="pts"><div><b class="who">本期</b>[论文对照实验，第9页] 「Notably, when visualizing the activation maps for V1 during the passive viewing experiment, we did not observe dynamics like those in the WM experiment. The response emerged at the target&#x27;s polar and eccentricity at the early time points, and diminished in the middle of the delay.」[论文讨论，第12页] 「The early visual cortex seems to concurrently reflect the immediate task demand that requires observers to concurrently hold fixation and the memorized target at far eccentricity, leading to an activity with a peak at more foveal locations with a tail pointing toward the target.」</div><div><b class="who">往期</b>[Efros集核心论点] 「表面数据」是AI从互联网的被动观察中学到的统计关联——图像识别、语言理解。「深度数据」是机器人通过主动探索获得的感觉-运动关联数据：伸手触碰物体时，同时获得视觉（物体移动）、触觉（手的感觉）、运动（手的位置）的同步反馈。Efros认为这种主动具身数据是构建真正世界模型的必要条件。他的「好奇心驱动的机器人」正是在主动生成这种深度数据。Li和Curtis所描述的V1动态是人类大脑利用这种深度数据（通过漫长的发展历史，通过眼动经验和感觉-运动协调）建立起来的「扫视引导计算」能力的体现。</div></div></li></ul>
+<p class="foot">本页为对论文内容的忠实解读与大白话重述,由 <a href="https://github.com/lumihelia/PodLens">PodLens</a> 生成。</p>
+<p class="disclaimer">这是以原文为依据的一次解读,不能替代原文。每条要点都标注了出处,欢迎回到原文核对——也欢迎指出任何细微的偏差。</p>
+
+</div>
+</body>
+</html>
