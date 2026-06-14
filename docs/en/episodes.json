@@ -12,6 +12,48 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/en/episodes/marc-andreessen-malleable-world-founder-capitalism.html",
+      "url": "https://lens.lumihelia.com/en/episodes/marc-andreessen-malleable-world-founder-capitalism.html",
+      "title": "The World Is More Malleable Than You Think: Zero Introspection, Founder Capitalism, and the Musk Method · Marc Andreessen",
+      "date_published": "2026-06-14",
+      "summary": "Marc Andreessen co-founded Netscape at twenty-two, was at the table for the first commercial web browser, the first internet advertising business, and the first e-commerce platform. He then co-founded…",
+      "tags": [
+        "zero introspection",
+        "founder capitalism",
+        "managerialism critique",
+        "moral panics",
+        "Elon's management method"
+      ]
+    },
+    {
+      "id": "https://lens.lumihelia.com/en/episodes/daniel-ek-impact-happiness-self-mastery.html",
+      "url": "https://lens.lumihelia.com/en/episodes/daniel-ek-impact-happiness-self-mastery.html",
+      "title": "Impact Before Happiness: Self-Mastery and the Maker's Way · Daniel Ek",
+      "date_published": "2026-06-14",
+      "summary": "Daniel Ek has been building Spotify for nearly two decades. David Senra chose him as the first guest on this new show because a single private dinner conversation with Ek had fundamentally changed how…",
+      "tags": [
+        "impact over happiness",
+        "self-mastery",
+        "founder archetypes",
+        "quality philosophy",
+        "energy management"
+      ]
+    },
+    {
+      "id": "https://lens.lumihelia.com/en/episodes/patrick-oshaughnessy-principle-life-work.html",
+      "url": "https://lens.lumihelia.com/en/episodes/patrick-oshaughnessy-principle-life-work.html",
+      "title": "Principle, Life's Work, and Abiding Joy · Patrick O'Shaughnessy",
+      "date_published": "2026-06-14",
+      "summary": "Patrick O'Shaughnessy — founder of Invest Like the Best, Colossus, and Positive Sum — almost never sits on the receiving end of an interview. This conversation with David Senra is one of the few times…",
+      "tags": [
+        "principle vs goal",
+        "life's work",
+        "abiding joy",
+        "growth without goals",
+        "discovering talent"
+      ]
+    },
+    {
       "id": "https://lens.lumihelia.com/en/episodes/how-elon-thinks-algorithm-physics-makers.html",
       "url": "https://lens.lumihelia.com/en/episodes/how-elon-thinks-algorithm-physics-makers.html",
       "title": "The Five-Step Algorithm, Physics as the Only Law, and the Maker's Mission · Decoding Elon Musk",

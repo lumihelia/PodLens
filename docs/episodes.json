@@ -12,6 +12,48 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/episodes/marc-andreessen-malleable-world-founder-capitalism.html",
+      "url": "https://lens.lumihelia.com/episodes/marc-andreessen-malleable-world-founder-capitalism.html",
+      "title": "世界比你想象的更可塑：零内省、创始人资本主义与马斯克方法 · Marc Andreessen",
+      "date_published": "2026-06-14",
+      "summary": "[00:00-08:00] 开场：David解释他做新节目的动机——和真正知道自己在说什么的人对话时，他要抵制不插嘴的冲动。Marc是他遇过最能说的人之一。Marc的第一个主题：零内省哲学。「前进。走。」弗洛伊德和1910-1920年代创造了「我们应该坐在那里分析自己」的文化——但在弗洛伊德之前，历史上伟大的人物根本不这样做。他见过硅谷创始人在压力下使用迷幻药，「平静地离开了」然后辞职搬去印度尼西…",
+      "tags": [
+        "零内省",
+        "创始人资本主义",
+        "管理主义批判",
+        "道德恐慌",
+        "马斯克方法"
+      ]
+    },
+    {
+      "id": "https://lens.lumihelia.com/episodes/daniel-ek-impact-happiness-self-mastery.html",
+      "url": "https://lens.lumihelia.com/episodes/daniel-ek-impact-happiness-self-mastery.html",
+      "title": "影响先于幸福：自我精通与造物者之道 · Daniel Ek",
+      "date_published": "2026-06-14",
+      "summary": "Daniel Ek是Spotify的联合创始人兼CEO，从2006年建立Spotify至今将近二十年。这是David Senra的新节目「第一位嘉宾」——他选择Daniel，因为与Daniel的一次私下晚餐对话从根本上改变了他对工作和生活的理解。整集不是采访，更像是两个相互学习多年的朋友之间的对话：一个创始人和一个几乎读遍所有伟大创始人传记的人，在研究「那些传记里的人到底是什么样的人」这件事上相互…",
+      "tags": [
+        "影响先于幸福",
+        "自我精通",
+        "企业家原型",
+        "质量哲学",
+        "能量管理"
+      ]
+    },
+    {
+      "id": "https://lens.lumihelia.com/episodes/patrick-oshaughnessy-principle-life-work.html",
+      "url": "https://lens.lumihelia.com/episodes/patrick-oshaughnessy-principle-life-work.html",
+      "title": "原则、生命之业与不竭之欢 · Patrick O'Shaughnessy",
+      "date_published": "2026-06-14",
+      "summary": "Patrick O'Shaughnessy是「Invest Like The Best」播客主持人，以及Colossus和Positive Sum的创始人。这是他与Founders播客主持人David Senra之间一场罕见的双向对话——通常是Patrick采访他人，这次轮到他坐到另一侧。",
+      "tags": [
+        "原则与目标",
+        "生命之业",
+        "不竭之欢",
+        "增长而无目标",
+        "发现才华"
+      ]
+    },
+    {
       "id": "https://lens.lumihelia.com/episodes/how-elon-thinks-algorithm-physics-makers.html",
       "url": "https://lens.lumihelia.com/episodes/how-elon-thinks-algorithm-physics-makers.html",
       "title": "五步算法、物理律法与造物者的使命 · Elon Musk思维解码",
