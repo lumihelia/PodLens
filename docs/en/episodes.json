@@ -12,6 +12,20 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/en/episodes/alexei-efros-surface-deep-data-curious-robot.html",
+      "url": "https://lens.lumihelia.com/en/episodes/alexei-efros-surface-deep-data-curious-robot.html",
+      "title": "Surface Data, Deep Data, and the Curious Robot: What Current AI Is Missing · Alexei Efros",
+      "date_published": "2026-06-14",
+      "summary": "Alexei Efros — known to this audience, he notes, primarily as Shiri's PhD advisor — opens by saying that this talk is meant to be a rhyme to Alison Gopnik's earlier presentation at the same workshop. …",
+      "tags": [
+        "deep data",
+        "embodied learning",
+        "curiosity-driven exploration",
+        "bitter lesson critique",
+        "babies as scientists"
+      ]
+    },
+    {
       "id": "https://lens.lumihelia.com/en/episodes/tobi-lutke-companies-as-technology-shopify-os.html",
       "url": "https://lens.lumihelia.com/en/episodes/tobi-lutke-companies-as-technology-shopify-os.html",
       "title": "Company as Technology: The Obligation of Differentiation and the Founder's Craft · Tobi Lütke",
