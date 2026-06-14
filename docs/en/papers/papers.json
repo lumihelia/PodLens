@@ -12,6 +12,21 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/en/papers/patel-wang-fan-transformer-executive-control.html",
+      "url": "https://lens.lumihelia.com/en/papers/patel-wang-fan-transformer-executive-control.html",
+      "title": "Deficient Executive Control in Transformer Attention: The Stroop Test Reveals What LLMs Cannot Do",
+      "date_published": "2026-06-14",
+      "summary": "A bioRxiv preprint by Suketu Patel, Hongbin Wang, and Jin Fan (Queens College, CUNY and Texas A&M University College of Medicine), posted January 22, 2025. The paper uses the classic Stroop task to te…",
+      "tags": [
+        "deficient executive control",
+        "Stroop effect",
+        "crystallized vs fluid intelligence",
+        "attention network theory",
+        "hidden ceiling on context length"
+      ],
+      "external_url": "https://doi.org/10.1101/2025.01.22.634394"
+    },
+    {
       "id": "https://lens.lumihelia.com/en/papers/microglia-function-cns-development-plasticity.html",
       "url": "https://lens.lumihelia.com/en/papers/microglia-function-cns-development-plasticity.html",
       "title": "Microglia Function in Central Nervous System Development and Plasticity · Dorothy P. Schafer",

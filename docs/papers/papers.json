@@ -12,6 +12,21 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/papers/patel-wang-fan-transformer-executive-control.html",
+      "url": "https://lens.lumihelia.com/papers/patel-wang-fan-transformer-executive-control.html",
+      "title": "变换器注意力的执行控制缺陷：Stroop任务揭示LLM不能做什么",
+      "date_published": "2026-06-14",
+      "summary": "大型语言模型（LLM）的自注意力机制（self-attention）在功能上等价于人类注意力的哪个层面？它是全部，还是只是一部分？",
+      "tags": [
+        "执行控制缺陷",
+        "Stroop效应",
+        "晶体智力vs流体智力",
+        "注意力网络理论",
+        "语境长度的隐藏天花板"
+      ],
+      "external_url": "https://doi.org/10.1101/2025.01.22.634394"
+    },
+    {
       "id": "https://lens.lumihelia.com/papers/microglia-function-cns-development-plasticity.html",
       "url": "https://lens.lumihelia.com/papers/microglia-function-cns-development-plasticity.html",
       "title": "中枢神经系统发育与可塑性中的小胶质细胞功能 · Dorothy P. Schafer",
