@@ -1,0 +1,37 @@
+The Attention Tax: Cognitive Overhead in One-Person Knowledge Businesses
+
+Abstract
+
+One-person knowledge businesses — independent consultants, researchers, writers, and operators — face a distinctive cognitive challenge that differs structurally from that of salaried employees. This paper examines what we term the "attention tax": the overhead cost imposed by operating without organizational scaffolding, and its measurable effects on knowledge work output quality and decision latency.
+
+Introduction
+
+The growth of independent knowledge work over the past decade has been well documented. Less studied is its cognitive architecture. Employees in organizations operate within systems that externalize many attention-allocation decisions: scheduled meetings direct when to switch tasks, managers triage incoming requests, shared tools create ambient visibility into priorities. The independent operator has none of these systems by default, and must build or substitute for each.
+
+We propose that this structural difference imposes a recurring cognitive overhead — the attention tax — that operates independently of the operator's skill level and that accumulates across the working day. Unlike the cognitive demands of the knowledge work itself, the attention tax does not diminish with expertise. It may, in fact, increase as the scope of independent work expands.
+
+Study Design
+
+We recruited 47 independent knowledge workers (consultants, researchers, writers, and analysts operating solo businesses for at least 18 months) and 43 salaried knowledge workers matched for domain and years of experience. Participants completed work-sampling diaries over a 10-day period, logging task type, task switches, interruption source, and self-rated cognitive load at 90-minute intervals. A subset (n=22 independent, n=19 salaried) also completed a battery of executive function tests at the start and end of each workday.
+
+Key Findings
+
+Finding 1: Independent knowledge workers reported an average of 6.7 self-initiated task switches per hour, compared to 3.2 for salaried workers. The majority of independent-worker switches were administrative or coordination tasks (responding to inquiries, invoicing, scheduling) that interrupted primary knowledge work.
+
+Finding 2: End-of-day executive function scores declined more steeply for independent workers than for salaried controls — a mean decline of 18% on the inhibition subscale, versus 9% for salaried workers — suggesting that self-managing the portfolio of tasks (deciding what to do next, triaging interruptions) draws from the same executive resources as primary work.
+
+Finding 3: Independent workers with externalized priority systems (a written daily plan reviewed before starting work, or a commitment to a single primary task per half-day block) showed significantly smaller end-of-day executive function decline (8% on inhibition, not statistically different from salaried controls).
+
+Finding 4: The attention tax was not correlated with years of independent experience. Veterans and relative newcomers showed similar overhead levels, suggesting the tax is structural rather than a skill-development issue.
+
+Discussion
+
+The attention tax framework suggests that the primary bottleneck for one-person knowledge businesses is not expertise — most practitioners in our sample had domain knowledge comparable to their salaried peers. The bottleneck is executive resource depletion from the overhead of self-management.
+
+Two implications follow. First, productivity interventions for independent operators that target output volume or work habits may be addressing the wrong variable. The more tractable intervention is system design: building externalized structures that reduce the decision overhead of self-management. Second, the benefit of such structures is not motivational but neurological — they preserve executive function capacity for primary knowledge work rather than consuming it in meta-decisions about task sequencing.
+
+The finding that experience does not attenuate the attention tax is significant. It suggests that independent operators who have "figured it out" have done so by building structural solutions, not by developing greater cognitive resilience. The tax is always owed; the question is whether the operator has engineered a system that pays it from the organizational overhead budget rather than the knowledge work budget.
+
+Limitations
+
+Self-reported task-switching data is subject to recall bias. The executive function battery administered in this study captures inhibition and working memory updating but does not measure all relevant constructs. The sample skewed toward higher-earning independent operators, which may limit generalizability to independent workers at earlier career stages.
