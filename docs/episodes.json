@@ -12,6 +12,195 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/episodes/tim-spector-gut-microbiome-mental-health.html",
+      "url": "https://lens.lumihelia.com/episodes/tim-spector-gut-microbiome-mental-health.html",
+      "title": "肠道微生态、神经免疫与膳食多中心主义 · Tim Spector",
+      "date_published": "2026-06-21",
+      "summary": "Tim Spector 阐释了肠道微生态作为一个“虚拟器官”在人体代谢、免疫调节和第二大脑（肠道神经元网络）连接中的中枢机制。他揭示了肠道与大脑之间的神经免疫双向通道（即肠脑轴），指出通过迷走神经高速传输的化学信号决定了大脑的神经炎症、抗压阈值和阿尔茨海默病等退行性认知病变。针对现代工业社会泛滥的心理亚健康，他批判了传统医学对心理病变孤立治疗的笛卡尔二元论局限，主张从肠道慢性炎症切入，并提出了改善…",
+      "tags": [
+        "肠道微生态",
+        "神经免疫学",
+        "膳食多样性",
+        "慢性炎症",
+        "限时禁食"
+      ],
+      "external_url": "https://youtu.be/A3_fG1h2a_g?si=A2qdjxmoCtRGF08u"
+    },
+    {
+      "id": "https://lens.lumihelia.com/episodes/simon-haines-fiona-mueller-education-activism.html",
+      "url": "https://lens.lumihelia.com/episodes/simon-haines-fiona-mueller-education-activism.html",
+      "title": "教育的异化、官僚化与通识传统的复兴 · Simon Haines & Fiona Mueller",
+      "date_published": "2026-06-21",
+      "summary": "Simon Haines 与 Fiona Mueller 共同诊断了现代教育体系（特别是澳大利亚及西方国家）中“思想家缺位与活动家泛滥”的深层异化。他们尖锐批判了自 1960 年代以来，以 Paulo Freire 批判教育学（分化压迫者与被压迫者）为代表的“学生中心论”及政治意识形态对传统人文通识（Humanitas）的系统性蚕食。Fiona Mueller 指出，官僚机构在政策宣言中充斥空洞的…",
+      "tags": [
+        "人文通识",
+        "经典阅读",
+        "批判性教育学",
+        "管理主义",
+        "逆向自审"
+      ],
+      "external_url": "https://youtu.be/8uf6bmCYr1k?si=C6ar8-CMfZKjpGfH"
+    },
+    {
+      "id": "https://lens.lumihelia.com/episodes/dave-eggers-storytelling-creative-writing.html",
+      "url": "https://lens.lumihelia.com/episodes/dave-eggers-storytelling-creative-writing.html",
+      "title": "形式突围、触觉记忆与独立创作的防线 · Dave Eggers",
+      "date_published": "2026-06-21",
+      "summary": "Dave Eggers 探讨了小说创作中非线性构思的拼贴本质，以及他如何从早期的“形式实验”转向对“讲故事”与人物命运的深层倾注。他分享了自己独特的物理记事抽屉系统，将日常生活的真实细节与社会矛盾（如 826 Valencia 中孩子们采访街头乐手得到的鲜活素材）转化为超越“模板化”套路的真实故事。作为 McSweeney's 的创始人，他详细阐述了通过将书籍设计为高维触觉物理实体（如竹质封面、磁…",
+      "tags": [
+        "创意写作",
+        "独立出版",
+        "触觉化设计",
+        "预警审查",
+        "个人叙事"
+      ],
+      "external_url": "https://youtu.be/LwoWdKuB8gg?si=d_BXcZmjPRv-gjCy"
+    },
+    {
+      "id": "https://lens.lumihelia.com/episodes/robert-sapolsky-biology-best-worst.html",
+      "url": "https://lens.lumihelia.com/episodes/robert-sapolsky-biology-best-worst.html",
+      "title": "人类最好与最坏行为的生物学 · Robert Sapolsky",
+      "date_published": "2026-06-21",
+      "summary": "Robert Sapolsky 系统性地剖析了决定人类暴力与共情行为的深层生物学机制，提出理解人类行为必须跨越从秒级脑神经活动到百万年进化压力的多维尺度 [12:02]。他拆解了杏仁核、脑岛与前额叶皮层在恐惧、道德厌恶与冲动控制中的协作与冲突，并揭示了多巴胺对“期待”而非“奖赏”的神经学映射 [16:26], [22:28]。此外，他还阐述了睾酮与催产素如何以极其选择性的方式放大已有的社会行为模式…",
+      "tags": [
+        "神经生物学",
+        "攻击性",
+        "认知偏见",
+        "表观遗传学",
+        "自由意志",
+        "我们与他们"
+      ],
+      "external_url": "https://youtu.be/GRYcSuyLiJk?si=UISur_5lDov4_Z4K"
+    },
+    {
+      "id": "https://lens.lumihelia.com/episodes/how-do-computers-work-from-scratch.html",
+      "url": "https://lens.lumihelia.com/episodes/how-do-computers-work-from-scratch.html",
+      "title": "计算机自底向上构建指南 · Unnamed Speaker",
+      "date_published": "2026-06-21",
+      "summary": "讲者以纯粹的自底向上视角，极其详尽地演示了如何从最基础的二进制与电学原理出发，逐步搭建出一台完整的 8 位 CPU，并在其上编写运行程序 [05:06]。在深入剖析了逻辑门、半加器与全加器、ALU、触发器锁存器、寄存器及 RAM 等微观硬件组件的构造后，他展示了总线通信规则与由 ROM 查找表构成的“计算机大脑”控制微码 [02:24:31], [07:53:48]。接着，他将这一自制 CPU 的…",
+      "tags": [
+        "二进制",
+        "逻辑门",
+        "ALU",
+        "寄存器",
+        "内存映射I/O",
+        "计算机体系结构"
+      ],
+      "external_url": "https://youtu.be/rl0jkP9kOMw?si=wdmL8iD4nOYAFGFf"
+    },
+    {
+      "id": "https://lens.lumihelia.com/episodes/avi-wigderson-p-vs-np-zero-knowledge-proofs.html",
+      "url": "https://lens.lumihelia.com/episodes/avi-wigderson-p-vs-np-zero-knowledge-proofs.html",
+      "title": "P vs NP、零知识证明与计算的胚胎阶段 · Avi Wigderson",
+      "date_published": "2026-06-21",
+      "summary": "Avi Wigderson 深入探讨了计算复杂性理论的核心命题，指出 P vs NP 本质上是关于人类知识边界的问题，并分享了理论计算科学在过去几十年中如何重塑我们对随机性、证明和计算的认知 [02:22]。他详细论述了随机性作为一种依赖于观察者计算能力的相对资源（Blum-Micali 视角）[55:14]，阐释了困难性与伪随机性之间的深刻对等关系（P = BPP）[01:00:24]，以及零知…",
+      "tags": [
+        "计算复杂性",
+        "随机性",
+        "零知识证明",
+        "量子计算",
+        "MIP* = RE",
+        "认知边界"
+      ],
+      "external_url": "https://youtu.be/5GUcvSAJcJw?si=IzMRyU2jYXu5fJOZ"
+    },
+    {
+      "id": "https://lens.lumihelia.com/episodes/why-does-2-plus-2-equal-4-math-deep-reality.html",
+      "url": "https://lens.lumihelia.com/episodes/why-does-2-plus-2-equal-4-math-deep-reality.html",
+      "title": "数学实在、物理规律与唯物主义之死 · David Berlinski",
+      "date_published": "2026-06-21",
+      "summary": "David Berlinski、Sergiu Klainerman 和 Stephen Meyer 深入探讨了数学的客观实在性及其与物理世界之间的神秘联系 [00:15]。他们以 “2+2=4” 及复数 $i = \\sqrt{-1}$ 等概念为例，探讨了数学事实如何独立于人类心智与物质世界而客观存在，并深刻批判了主张“只存在物质”的唯物主义世界观 [03:49]。通过解读 Eugene Wigne…",
+      "tags": [
+        "数学实在论",
+        "唯物主义批判",
+        "物理规律",
+        "Wigner 谜题",
+        "科学哲学",
+        "审美原理"
+      ],
+      "external_url": "https://youtu.be/bY3ZMOn9mHQ?si=YK8r0tH5d5ikIR8Q"
+    },
+    {
+      "id": "https://lens.lumihelia.com/episodes/thomas-sargent-ai-past-present-future.html",
+      "url": "https://lens.lumihelia.com/episodes/thomas-sargent-ai-past-present-future.html",
+      "title": "人工智能的演进：统计、经济学与规则推断 · Thomas Sargent",
+      "date_published": "2026-06-21",
+      "summary": "Thomas Sargent 在北京大学汇丰商学院的讲座中，从经济学家和统计学家的独特视角剖析了人工智能的本质与历史 [02:53]。他将人类智能定义为模式识别、泛化和决策三种核心活动 [05:48]，并指出人工智能本质上是人类为模拟这些活动而发明的机器。Sargent 借用 Steven Pinker 的认知科学观点，揭示了一个深刻的悖论：人类在进化中被硬编码了在统计、生物、经济和物理学上的认知…",
+      "tags": [
+        "结构模型",
+        "规则推断",
+        "认知局限",
+        "科学革命",
+        "信息论",
+        "经济学思维"
+      ],
+      "external_url": "https://youtu.be/B2m-T3QQiqQ?si=KQd2LE89eI5RbuMl"
+    },
+    {
+      "id": "https://lens.lumihelia.com/episodes/the-curse-of-optionality-tim-ferriss-founder-mindset.html",
+      "url": "https://lens.lumihelia.com/episodes/the-curse-of-optionality-tim-ferriss-founder-mindset.html",
+      "title": "选择权的诅咒与实验精神 · Tim Ferriss",
+      "date_published": "2026-06-21",
+      "summary": "Tim Ferriss 深入探讨了风险的本质、选择权 (optionality) 与承诺 (commitment) 之间的辩证关系 [01:30]。他向“拼命保留所有选择”的精英认知模式提出挑战，指出过度追求选择权往往是懦弱的避风港，反而限制了人的实际潜能。此外，他详细介绍了通过斯多葛哲学演化出的“恐惧设定 (fear-setting)”方法，以此帮助人们对抗脑海中模糊的焦虑与 Ruminatio…",
+      "tags": [
+        "选择权",
+        "风险校准",
+        "恐惧设定",
+        "实验主义",
+        "认知负荷",
+        "决策策略"
+      ],
+      "external_url": "https://youtu.be/6sfpC8qRGFA?si=Wz4BQ7S2a7wzGU6O"
+    },
+    {
+      "id": "https://lens.lumihelia.com/episodes/simon-peyton-jones-haskell-functional-programming.html",
+      "url": "https://lens.lumihelia.com/episodes/simon-peyton-jones-haskell-functional-programming.html",
+      "title": "纯粹函数式编程、类型系统与 AI 时代的代码演化 · Simon Payton Jones",
+      "date_published": "2026-06-21",
+      "summary": "Simon Payton Jones 探讨了纯粹函数式编程的核心哲学——“用值编程 (programming with values)”而非“修改状态 (mutation)”，并阐述了这一范式在程序模块化与长周期维护性上的卓越表现 [00:57]。他对比了 Haskell 和 OCaml 的设计选择，揭示了“惰性求值”如何逼迫 Haskell 保持纯粹性并最终引入 monads 来管理副作用 [2…",
+      "tags": [
+        "函数式编程",
+        "Haskell",
+        "类型系统",
+        "编译器设计",
+        "软件维护性",
+        "AI 辅助编程"
+      ],
+      "external_url": "https://youtu.be/xcB_LF3cdqw?si=5-v3_z7m1oGjg5oC"
+    },
+    {
+      "id": "https://lens.lumihelia.com/episodes/michael-levin-bioelectricity-morphogenesis.html",
+      "url": "https://lens.lumihelia.com/episodes/michael-levin-bioelectricity-morphogenesis.html",
+      "title": "生物电、形态发生与两头涡虫 · Michael Levin",
+      "date_published": "2026-06-21",
+      "summary": "Michael Levin 讨论了生物电生理网络如何作为高于基因组的全局信息处理接口，引导组织发育、器官再生和细胞集体的决策 [01:09]。他指出，生命体将形态结构的模板存储在生物电状态中，这种生理层面的软件可以在不修改基因组的前提下进行重编程，从而实现涡虫双头再生或青蛙断肢再生。此外，他还探讨了由青蛙或人类体细胞直接组装而成的 xenobots 和 anthrobots，在没有进化选择历史的情…",
+      "tags": [
+        "生物电",
+        "形态发生",
+        "群体智能",
+        "涡虫再生",
+        "缝隙连接",
+        "异种机器人"
+      ],
+      "external_url": "https://youtu.be/t6EFV2gSSmg?si=eDBbtGowW3yN2ANn"
+    },
+    {
+      "id": "https://lens.lumihelia.com/episodes/ed-catmull-pixar-business-of-great-things.html",
+      "url": "https://lens.lumihelia.com/episodes/ed-catmull-pixar-business-of-great-things.html",
+      "title": "创意组织的管理、动力学与 Steve Jobs · Ed Catmull",
+      "date_published": "2026-06-21",
+      "summary": "Ed Catmull 回顾了 Pixar 数十年的管理与文化构建经验，重点探讨了如何在一个创意组织中建立坦诚、无惧尴尬且聚焦于解决实际问题的决策机制 [00:09]。他深入分析了智囊团 (Brain Trust) 的运作逻辑与演进，讲述了 Steve Jobs 在董事会管理、业务谈判以及对抗短期股东价值最大化倾向中的独特智慧。此外，他还详细还原了 Pixar 与 Disney 在商业博弈、技术授权…",
+      "tags": [
+        "组织动力学",
+        "智囊团",
+        "创意文化",
+        "决策机制",
+        "认知安全",
+        "领导力"
+      ],
+      "external_url": "https://youtu.be/6ffhW9WAUv0?si=4p_nM4iLmgH9E_W9"
+    },
+    {
       "id": "https://lens.lumihelia.com/episodes/pavel-durov-telegram-freedom-resistance.html",
       "url": "https://lens.lumihelia.com/episodes/pavel-durov-telegram-freedom-resistance.html",
       "title": "自由高于金钱：Pavel Durov与Telegram的坚守",

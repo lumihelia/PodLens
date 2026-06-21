@@ -7,6 +7,32 @@
 <language>zh-Hans</language>
 <atom:link href="https://lens.lumihelia.com/papers/feed.xml" rel="self" type="application/rss+xml" />
 <item>
+<title>SkillComposer：大语言模型推理期 Agent 技能自适应演化 · Qi Zhang</title>
+<link>https://lens.lumihelia.com/papers/skillcomposer-learning-to-evolve-agent-skills.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/papers/skillcomposer-learning-to-evolve-agent-skills.html</guid>
+<pubDate>Sun, 21 Jun 2026 00:00:00 +0000</pubDate>
+<description>这篇论文探讨了如何让大语言模型（LLM）驱动的智能体在推理期自主构建、优化和提炼可重用的“Agent 技能 (Agent Skills)” [Abstract]。传统的技能抽取方法通常采用“单次抽取 (one-shot extraction)”，这带来了一个根本性的张力：如果技能写得太具体，就很难迁移到其他任务上；如果技能写得太抽象，又无法对具体任务提供足够的指导 [§1]。</description>
+<category>Agent 技能</category>
+<category>推理期演化</category>
+<category>拒绝采样</category>
+<category>泛化与特异性</category>
+<category>认知基础设施</category>
+<category>编译型过滤器</category>
+</item>
+<item>
+<title>G-Memory：多智能体系统的层级记忆追踪 · Guibin Zhang</title>
+<link>https://lens.lumihelia.com/papers/g-memory-hierarchical-memory-multi-agent-systems.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/papers/g-memory-hierarchical-memory-multi-agent-systems.html</guid>
+<pubDate>Sun, 21 Jun 2026 00:00:00 +0000</pubDate>
+<description>这篇论文针对大语言模型驱动的多智能体系统（MAS）在自适应和自演化能力上的缺失，指出其根本瓶颈在于缺乏专为多智能体协同设计的记忆机制 [Abstract]。现有方案要么仅使用单次会话内的局部记忆，要么直接照搬单智能体记忆，导致面对长达 10 倍于单智能体任务的对话轨迹时，因信息过载或角色特异性丢失而失效 [Introduction]。</description>
+<category>多智能体系统 (MAS)</category>
+<category>层级记忆</category>
+<category>图数据库</category>
+<category>自我演化</category>
+<category>上下文压缩</category>
+<category>认识论环境</category>
+</item>
+<item>
 <title>工作记忆的神经种群动力学：记忆不是存储，是变形</title>
 <link>https://lens.lumihelia.com/papers/li-curtis-working-memory-neural-dynamics.html</link>
 <guid isPermaLink="true">https://lens.lumihelia.com/papers/li-curtis-working-memory-neural-dynamics.html</guid>

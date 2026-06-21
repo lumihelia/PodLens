@@ -7,6 +7,32 @@
 <language>en</language>
 <atom:link href="https://lens.lumihelia.com/en/papers/feed.xml" rel="self" type="application/rss+xml" />
 <item>
+<title>SkillComposer: Inference-Time Adaptive Evolution of Agent Skills for LLMs · Qi Zhang</title>
+<link>https://lens.lumihelia.com/en/papers/skillcomposer-learning-to-evolve-agent-skills.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/papers/skillcomposer-learning-to-evolve-agent-skills.html</guid>
+<pubDate>Sun, 21 Jun 2026 00:00:00 +0000</pubDate>
+<description>This paper explores how an LLM-driven agent can autonomously construct, optimize, and distill reusable &quot;Agent Skills&quot; at inference time [Abstract]. Traditional skill-extraction methods typically rely …</description>
+<category>agent skills</category>
+<category>inference-time evolution</category>
+<category>rejection sampling</category>
+<category>generalization vs. specification</category>
+<category>cognitive infrastructure</category>
+<category>compiled filters</category>
+</item>
+<item>
+<title>G-Memory: Tracing Hierarchical Memory for Multi-Agent Systems · Guibin Zhang</title>
+<link>https://lens.lumihelia.com/en/papers/g-memory-hierarchical-memory-multi-agent-systems.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/en/papers/g-memory-hierarchical-memory-multi-agent-systems.html</guid>
+<pubDate>Sun, 21 Jun 2026 00:00:00 +0000</pubDate>
+<description>This paper targets the missing self-adaptive and self-evolving capacity in LLM-driven multi-agent systems (MAS), arguing that the root bottleneck is the lack of a memory mechanism designed specificall…</description>
+<category>multi-agent systems (MAS)</category>
+<category>hierarchical memory</category>
+<category>graph databases</category>
+<category>self-evolution</category>
+<category>context compression</category>
+<category>epistemic environments</category>
+</item>
+<item>
 <title>Neural Population Dynamics of Human Working Memory: Memory Is Not Storage, It Is Transformation</title>
 <link>https://lens.lumihelia.com/en/papers/li-curtis-working-memory-neural-dynamics.html</link>
 <guid isPermaLink="true">https://lens.lumihelia.com/en/papers/li-curtis-working-memory-neural-dynamics.html</guid>
