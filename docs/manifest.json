@@ -1500,7 +1500,7 @@
       ],
       "connections": [
         {
-          "slug": "caa-co-founder-michael-ovitz",
+          "slug": "michael-ovitz-caa-frame-of-reference",
           "kind": "resonance",
           "relation": "同构",
           "why": "Marc在这集里明确说A16Z是以CAA为模型建立的：「集群进攻法——如果你有一个A16Z合伙人，你就有整个公司」「7点员工会议，在竞争对手叫醒自己客户之前先叫醒客户的客户」。Marc研究了Ovitz的方法并在VC行业完整复制了它。但两者之间有一个深层张力：Ovitz是Marc定义的「管理主义者」——当好莱坞环境改变时，他无法适应（Disney决策、DreamWorks失误）。Marc整个论点的核心是创始人比管理者更能适应变化，但他建立的组织却以管理者中最成功的一个（Ovitz）为模型。两者最大的共同点是对关系和渠道的垄断性控制——控制人才供给，然后以集群方式部署，制造不对称优势。",
@@ -1539,7 +1539,7 @@
           "editor_note": "",
           "connections": [
             {
-              "slug": "caa-co-founder-michael-ovitz",
+              "slug": "michael-ovitz-caa-frame-of-reference",
               "kind": "resonance",
               "conflict_type": "",
               "relation": "Marc built A16Z explicitly on the CAA model — the phalanx approach (if you have one partner, you have the whole firm), the 7 AM staff meetings to call clients' clients before competitors were awake. He studied Ovitz and replicated the organizational structure in venture capital. The deeper tension: Ovitz is exactly what Marc's managerialism critique describes — a supremely skilled manager who could not adapt when his environment fundamentally changed (the Disney negotiation, the shift in Hollywood power). Marc adopted Ovitz's organizational innovation while his entire intellectual framework predicts why Ovitz's kind of manager ultimately fails.",
@@ -1601,7 +1601,7 @@
           "that_point": "[09:05-12:51, 20:13-21:20] Patrick：「增长而无目标。对非常有才华的人，设定目标通常会实现目标，但这会带来遮蔽——你已经知道前方的路，这让我感到无聊。」Patrick不是在追逐什么，他是在等待和识别从视野边缘来的机会。他的播客不是从某个目标演化来的，是从左场出现的。「更令我兴奋的是：它不会停止，未来十年将出现一组我今天无法想象的事情。」"
         },
         {
-          "slug": "caa-co-founder-michael-ovitz",
+          "slug": "michael-ovitz-caa-frame-of-reference",
           "kind": "resonance",
           "relation": "同构",
           "why": "这场对话里，David明确把Ovitz的故事讲给Daniel听了：「Ovitz现在80岁，他说在他那个位置的危险是没有人再告诉他真相了。他能维持25年老友关系的原因：那个人还在告诉他真相。」两人都在相似的地方做了相似的思考：在极度成功和权力之后，维持能说真话的人成为最重要的事，也是最难的事。Daniel的解法：20年关系的mom、Jack、妻子、Gustav——这些人不因为他的地位而改变他们对他说的话。但两人的终局不同：Ovitz最终因为没有足够的「镜子」而做出了严重误判（Disney/DreamWorks的决策，以及对自己局限性的误判）；Daniel的故事里，Gustav的那次坦诚「你在这里其实没什么帮助」反而成了Spotify产品能力提升的关键时刻。信任的维护机制不同，因此后果不同。",
@@ -1642,7 +1642,7 @@
               "that_point": ""
             },
             {
-              "slug": "caa-co-founder-michael-ovitz",
+              "slug": "michael-ovitz-caa-frame-of-reference",
               "kind": "resonance",
               "conflict_type": "",
               "relation": "David raised the Ovitz story directly in this conversation: at the top of power, almost no one tells you the truth anymore — the ability to maintain relationships with people who still will is one of the rarest things a successful person can possess. Both Ek and Ovitz built their worlds around trust as the foundational economic force. But the outcomes diverged: Ovitz lost his mirrors late and made consequential errors of self-assessment; Ek's mirror moment (Gustav telling him he wasn't helping in product reviews) became a turning point that improved Spotify's product capability. Same diagnosis, different resolution.",
@@ -2401,7 +2401,7 @@
       ],
       "connections": [
         {
-          "slug": "ms-e435-class3-economics-ai-supercycle",
+          "slug": "ms&e435-class3-economics-ai-supercycle",
           "kind": "resonance",
           "relation": "框架补充",
           "why": "Paine 的陆权/海权框架为理解美中 AI 竞争提供了地缘政治底层逻辑：美国的芯片出口管制是海权猎象策略第二条（「封锁敌方贸易」）在技术领域的现代应用；中国的 AI 基础设施自建冲动是陆权自给自足逻辑在计算领域的复现。这不仅是科技竞争，是两种文明秩序在最新权力领域的正面相遇。",
@@ -2424,7 +2424,7 @@
           "editor_note": "",
           "connections": [
             {
-              "slug": "ms-e435-class3-economics-ai-supercycle",
+              "slug": "ms&e435-class3-economics-ai-supercycle",
               "kind": "resonance",
               "conflict_type": "",
               "relation": "Paine's maritime/continental framework provides the geopolitical logic underlying US-China AI competition: US chip export controls are the maritime 'don't let the elephant forage' strategy applied to semiconductors; China's domestic AI infrastructure push is continental self-sufficiency logic applied to compute",
