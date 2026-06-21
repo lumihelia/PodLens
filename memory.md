@@ -21,10 +21,20 @@ PodLens publishes bilingual (zh/en) podcast/paper interpretations to a static si
 - Both papers now render all 7 canonical sections in both languages; all glossary/anchor quotes verified against the actual published paper text fetched live.
 
 ## Known Issues
-(none currently open from this fix)
+- Pre-existing (not from this session): 3 episodes have a connection pointing at a slightly wrong slug, so that one backlink silently fails to render: `marc-andreessen-malleable-world-founder-capitalism` and `daniel-ek-impact-happiness-self-mastery` both reference `caa-co-founder-michael-ovitz` (should be `michael-ovitz-caa-frame-of-reference`); `sarah-paine-continental-maritime-powers-geopolitics` references `ms-e435-class3-economics-ai-supercycle` (should be `ms&e435-class3-economics-ai-supercycle`). Flagged as a spawned background task (`task_5836df04`), not fixed yet.
 
 ## Architecture Audits
 (none logged yet)
 
+## Completed (continued)
+- **2026-06-21, later same day**: Verified and published 14 new episodes from a corrected batch. Helia had originally had "Anti-gravity" (Gemini) interpret `材料/0621`, but the first pass used a different "Skill" output format (Stage 1/2/3 + marketing Content Pack) that doesn't match this site's template — only 3 of 11 files (avi-wigderson, how-do-computers-work, robert-sapolsky) were affected; the other 8 were already in the correct template. Helia had it redone correctly into `reports/0621副本` (all 11, now in the standard template) and added 3 more in `reports/0621 plus`. Confirmed the first 5 episodes already published from `reports/0621` were byte-identical (or only trivially different — a stray `✱`→`*` character fix) to the `0621副本` versions, so no rework was needed there.
+  - Published all 14: ed-catmull, g-memory (paper), michael-levin, simon-peyton-jones, skillcomposer (paper), tim-ferriss, thomas-sargent, david-berlinski (2+2=4), avi-wigderson, how-do-computers-work, robert-sapolsky, dave-eggers, simon-haines & fiona-mueller, tim-spector.
+  - For every episode: spot-verified 4-6 specific claims/quotes against the actual source transcript or paper text in `材料/0621`, `材料/0621副本`, `材料/0621 plus` before publishing (all passed faithfulness checks; one instance of a transcription-ASR error in the source transcript — "Paulo Ferrero/Ferrera" — was correctly normalized by the original report to the real name, Paulo Freire).
+  - Wrote 2 cross-episode connections per item (28 total), each grounded in verbatim quotes from both sides, cross-referencing existing site episodes (e.g. Sapolsky↔hunger-neuroscience on dopamine "wanting vs liking"; Levin↔G-Memory on software-layer rewrites without touching hardware; Sargent↔Patel-Wang-Fan on descriptive vs. structural AI capability).
+  - Wrote full English bodies for all 14 (faithful translation/structuring into the site's standard template, no API calls).
+  - Verified: all 14 pass the privacy gate (zero leakage of `证据锚定洞察`/`个人映射`/`值得收藏的概念`/`待追踪的问题`) in zh and en, zero collapsed-structure defects, all connections resolve to real published slugs, feed/sitemap/index all updated.
+  - `docs/manifest.json` now has 81 items total (14 new on top of 67 from before).
+
 ## Next Steps
-- Commit and push the fixed `docs/` output + source changes once reviewed.
+- Commit and push today's combined work (the June-14 fix batch + the 14 new 0621 episodes) once reviewed.
+- Decide whether to action the spawned task fixing the 3 dangling connection slugs (`task_5836df04`).

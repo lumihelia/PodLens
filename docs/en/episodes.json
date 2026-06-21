@@ -12,6 +12,195 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/en/episodes/tim-spector-gut-microbiome-mental-health.html",
+      "url": "https://lens.lumihelia.com/en/episodes/tim-spector-gut-microbiome-mental-health.html",
+      "title": "The Gut Microbiome, Neuroimmunity, and Dietary Polycentrism · Tim Spector",
+      "date_published": "2026-06-21",
+      "summary": "Tim Spector explains the gut microbiome's role as a \"virtual organ\" central to the body's metabolism, immune regulation, and its connection to the \"second brain\" — the gut's own neuron network. He rev…",
+      "tags": [
+        "gut microbiome",
+        "neuroimmunology",
+        "dietary diversity",
+        "chronic inflammation",
+        "time-restricted eating"
+      ],
+      "external_url": "https://youtu.be/A3_fG1h2a_g?si=A2qdjxmoCtRGF08u"
+    },
+    {
+      "id": "https://lens.lumihelia.com/en/episodes/simon-haines-fiona-mueller-education-activism.html",
+      "url": "https://lens.lumihelia.com/en/episodes/simon-haines-fiona-mueller-education-activism.html",
+      "title": "The Alienation of Education, Bureaucratization, and the Revival of the Liberal Arts Tradition · Simon Haines & Fiona Mueller",
+      "date_published": "2026-06-21",
+      "summary": "Simon Haines and Fiona Mueller jointly diagnose a deep alienation in the modern education system (particularly in Australia and other Western countries): \"an absence of thinkers and a glut of activist…",
+      "tags": [
+        "liberal arts",
+        "reading the classics",
+        "critical pedagogy",
+        "managerialism",
+        "oikophobia"
+      ],
+      "external_url": "https://youtu.be/8uf6bmCYr1k?si=C6ar8-CMfZKjpGfH"
+    },
+    {
+      "id": "https://lens.lumihelia.com/en/episodes/dave-eggers-storytelling-creative-writing.html",
+      "url": "https://lens.lumihelia.com/en/episodes/dave-eggers-storytelling-creative-writing.html",
+      "title": "Breaking Through Form, Tactile Memory, and the Last Line of Defense for Independent Creation · Dave Eggers",
+      "date_published": "2026-06-21",
+      "summary": "Dave Eggers explores the collage-like, non-linear nature of conceiving a novel, and how he shifted from early \"formal experimentation\" toward a deep investment in storytelling and the fates of his cha…",
+      "tags": [
+        "creative writing",
+        "independent publishing",
+        "tactile design",
+        "preemptive censorship",
+        "personal narrative"
+      ],
+      "external_url": "https://youtu.be/LwoWdKuB8gg?si=d_BXcZmjPRv-gjCy"
+    },
+    {
+      "id": "https://lens.lumihelia.com/en/episodes/robert-sapolsky-biology-best-worst.html",
+      "url": "https://lens.lumihelia.com/en/episodes/robert-sapolsky-biology-best-worst.html",
+      "title": "The Biology of Humans at Our Best and Worst · Robert Sapolsky",
+      "date_published": "2026-06-21",
+      "summary": "Robert Sapolsky systematically dissects the deep biological mechanisms that determine human violence and empathy, arguing that understanding human behavior requires spanning multiple scales — from sec…",
+      "tags": [
+        "neurobiology",
+        "aggression",
+        "cognitive bias",
+        "epigenetics",
+        "free will",
+        "us vs. them"
+      ],
+      "external_url": "https://youtu.be/GRYcSuyLiJk?si=UISur_5lDov4_Z4K"
+    },
+    {
+      "id": "https://lens.lumihelia.com/en/episodes/how-do-computers-work-from-scratch.html",
+      "url": "https://lens.lumihelia.com/en/episodes/how-do-computers-work-from-scratch.html",
+      "title": "Building a Computer from Scratch, Bottom-Up · Unnamed Speaker",
+      "date_published": "2026-06-21",
+      "summary": "From a purely bottom-up perspective, the speaker demonstrates in extraordinary detail how to build a complete 8-bit CPU starting from the most basic principles of binary and electricity, and then writ…",
+      "tags": [
+        "binary",
+        "logic gates",
+        "ALU",
+        "registers",
+        "memory-mapped I/O",
+        "computer architecture"
+      ],
+      "external_url": "https://youtu.be/rl0jkP9kOMw?si=wdmL8iD4nOYAFGFf"
+    },
+    {
+      "id": "https://lens.lumihelia.com/en/episodes/avi-wigderson-p-vs-np-zero-knowledge-proofs.html",
+      "url": "https://lens.lumihelia.com/en/episodes/avi-wigderson-p-vs-np-zero-knowledge-proofs.html",
+      "title": "P vs. NP, Zero-Knowledge Proofs, and the Embryonic Stage of Computation · Avi Wigderson",
+      "date_published": "2026-06-21",
+      "summary": "Avi Wigderson explores in depth the core propositions of computational complexity theory, arguing that P vs. NP is fundamentally a question about the boundary of human knowledge, and shares how theore…",
+      "tags": [
+        "computational complexity",
+        "randomness",
+        "zero-knowledge proofs",
+        "quantum computation",
+        "MIP* = RE",
+        "the boundary of knowledge"
+      ],
+      "external_url": "https://youtu.be/5GUcvSAJcJw?si=IzMRyU2jYXu5fJOZ"
+    },
+    {
+      "id": "https://lens.lumihelia.com/en/episodes/why-does-2-plus-2-equal-4-math-deep-reality.html",
+      "url": "https://lens.lumihelia.com/en/episodes/why-does-2-plus-2-equal-4-math-deep-reality.html",
+      "title": "Mathematical Reality, Physical Law, and the Death of Materialism · David Berlinski",
+      "date_published": "2026-06-21",
+      "summary": "David Berlinski, Sergiu Klainerman, and Stephen Meyer explore in depth the objective reality of mathematics and its mysterious connection to the physical world [00:15]. Using examples like \"2+2=4\" and…",
+      "tags": [
+        "mathematical realism",
+        "critique of materialism",
+        "physical law",
+        "Wigner's puzzle",
+        "philosophy of science",
+        "the beauty principle"
+      ],
+      "external_url": "https://youtu.be/bY3ZMOn9mHQ?si=YK8r0tH5d5ikIR8Q"
+    },
+    {
+      "id": "https://lens.lumihelia.com/en/episodes/thomas-sargent-ai-past-present-future.html",
+      "url": "https://lens.lumihelia.com/en/episodes/thomas-sargent-ai-past-present-future.html",
+      "title": "The Evolution of Artificial Intelligence: Statistics, Economics, and Rule Inference · Thomas Sargent",
+      "date_published": "2026-06-21",
+      "summary": "In a lecture at Peking University's HSBC Business School, Thomas Sargent dissects the nature and history of artificial intelligence from the distinctive vantage point of an economist and statistician …",
+      "tags": [
+        "structural models",
+        "rule inference",
+        "cognitive limitations",
+        "scientific revolution",
+        "information theory",
+        "economic thinking"
+      ],
+      "external_url": "https://youtu.be/B2m-T3QQiqQ?si=KQd2LE89eI5RbuMl"
+    },
+    {
+      "id": "https://lens.lumihelia.com/en/episodes/the-curse-of-optionality-tim-ferriss-founder-mindset.html",
+      "url": "https://lens.lumihelia.com/en/episodes/the-curse-of-optionality-tim-ferriss-founder-mindset.html",
+      "title": "The Curse of Optionality and the Experimental Mindset · Tim Ferriss",
+      "date_published": "2026-06-21",
+      "summary": "Tim Ferriss explores in depth the nature of risk and the dialectic between optionality and commitment [01:30]. He challenges the elite cognitive pattern of \"desperately preserving every option,\" point…",
+      "tags": [
+        "optionality",
+        "risk calibration",
+        "fear-setting",
+        "experimentalism",
+        "cognitive load",
+        "decision strategy"
+      ],
+      "external_url": "https://youtu.be/6sfpC8qRGFA?si=Wz4BQ7S2a7wzGU6O"
+    },
+    {
+      "id": "https://lens.lumihelia.com/en/episodes/simon-peyton-jones-haskell-functional-programming.html",
+      "url": "https://lens.lumihelia.com/en/episodes/simon-peyton-jones-haskell-functional-programming.html",
+      "title": "Pure Functional Programming, Type Systems, and Code Evolution in the AI Era · Simon Peyton Jones",
+      "date_published": "2026-06-21",
+      "summary": "Simon Peyton Jones explores the core philosophy of pure functional programming — \"programming with values\" rather than mutating state — and explains why this paradigm excels at modularity and long-ter…",
+      "tags": [
+        "functional programming",
+        "Haskell",
+        "type systems",
+        "compiler design",
+        "software maintainability",
+        "AI-assisted programming"
+      ],
+      "external_url": "https://youtu.be/xcB_LF3cdqw?si=5-v3_z7m1oGjg5oC"
+    },
+    {
+      "id": "https://lens.lumihelia.com/en/episodes/michael-levin-bioelectricity-morphogenesis.html",
+      "url": "https://lens.lumihelia.com/en/episodes/michael-levin-bioelectricity-morphogenesis.html",
+      "title": "Bioelectricity, Morphogenesis, and Two-Headed Worms · Michael Levin",
+      "date_published": "2026-06-21",
+      "summary": "Michael Levin discusses how bioelectric physiological networks function as a global information-processing interface above the genome, guiding tissue development, organ regeneration, and the decision-…",
+      "tags": [
+        "bioelectricity",
+        "morphogenesis",
+        "collective intelligence",
+        "planarian regeneration",
+        "gap junctions",
+        "xenobots"
+      ],
+      "external_url": "https://youtu.be/t6EFV2gSSmg?si=eDBbtGowW3yN2ANn"
+    },
+    {
+      "id": "https://lens.lumihelia.com/en/episodes/ed-catmull-pixar-business-of-great-things.html",
+      "url": "https://lens.lumihelia.com/en/episodes/ed-catmull-pixar-business-of-great-things.html",
+      "title": "Managing Creative Organizations, Group Dynamics, and Steve Jobs · Ed Catmull",
+      "date_published": "2026-06-21",
+      "summary": "Ed Catmull looks back on decades of management and culture-building experience at Pixar, focusing on how a creative organization can build a decision-making mechanism that is candid, unafraid of embar…",
+      "tags": [
+        "organizational dynamics",
+        "the Brain Trust",
+        "creative culture",
+        "decision mechanisms",
+        "psychological safety",
+        "leadership"
+      ],
+      "external_url": "https://youtu.be/6ffhW9WAUv0?si=4p_nM4iLmgH9E_W9"
+    },
+    {
       "id": "https://lens.lumihelia.com/en/episodes/pavel-durov-telegram-freedom-resistance.html",
       "url": "https://lens.lumihelia.com/en/episodes/pavel-durov-telegram-freedom-resistance.html",
       "title": "Freedom Over Money: Pavel Durov and Telegram's Line in the Sand",

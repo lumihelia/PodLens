@@ -12,6 +12,38 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/en/papers/skillcomposer-learning-to-evolve-agent-skills.html",
+      "url": "https://lens.lumihelia.com/en/papers/skillcomposer-learning-to-evolve-agent-skills.html",
+      "title": "SkillComposer: Inference-Time Adaptive Evolution of Agent Skills for LLMs · Qi Zhang",
+      "date_published": "2026-06-21",
+      "summary": "This paper explores how an LLM-driven agent can autonomously construct, optimize, and distill reusable \"Agent Skills\" at inference time [Abstract]. Traditional skill-extraction methods typically rely …",
+      "tags": [
+        "agent skills",
+        "inference-time evolution",
+        "rejection sampling",
+        "generalization vs. specification",
+        "cognitive infrastructure",
+        "compiled filters"
+      ],
+      "external_url": "https://arxiv.org/abs/2606.06079"
+    },
+    {
+      "id": "https://lens.lumihelia.com/en/papers/g-memory-hierarchical-memory-multi-agent-systems.html",
+      "url": "https://lens.lumihelia.com/en/papers/g-memory-hierarchical-memory-multi-agent-systems.html",
+      "title": "G-Memory: Tracing Hierarchical Memory for Multi-Agent Systems · Guibin Zhang",
+      "date_published": "2026-06-21",
+      "summary": "This paper targets the missing self-adaptive and self-evolving capacity in LLM-driven multi-agent systems (MAS), arguing that the root bottleneck is the lack of a memory mechanism designed specificall…",
+      "tags": [
+        "multi-agent systems (MAS)",
+        "hierarchical memory",
+        "graph databases",
+        "self-evolution",
+        "context compression",
+        "epistemic environments"
+      ],
+      "external_url": "https://arxiv.org/pdf/2506.07398"
+    },
+    {
       "id": "https://lens.lumihelia.com/en/papers/li-curtis-working-memory-neural-dynamics.html",
       "url": "https://lens.lumihelia.com/en/papers/li-curtis-working-memory-neural-dynamics.html",
       "title": "Neural Population Dynamics of Human Working Memory: Memory Is Not Storage, It Is Transformation",
