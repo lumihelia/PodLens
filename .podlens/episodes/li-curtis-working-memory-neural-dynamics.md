@@ -1,5 +1,9 @@
 ## 这篇讲了什么
 
+这是 Hsin-Hung Li 与 Clayton E. Curtis（纽约大学心理学系与神经科学中心）的一篇 bioRxiv 预印本，研究工作记忆（working memory）在人脑中如何随时间演化：记忆内容在延迟期间的神经表征，究竟是稳定不变的，还是动态变化的？不同脑区之间是否存在差异？论文用一个记忆引导扫视任务配合 fMRI 给出了答案——而答案因脑区而异，这个差异本身揭示了工作记忆的真正运作机制：它不是一个统一的「缓存」，而是一个把感觉输入逐步转化为行动指令的分布式过程。
+
+## 论文骨架
+
 ### 核心问题
 
 工作记忆（working memory，WM）在人类大脑中是如何在时间上演化的？记忆内容在延迟期间的神经表征是**稳定不变**，还是**动态变化**的？不同脑区的记忆码是否有差异？
@@ -63,7 +67,7 @@
 - 稳定子空间中目标位置不像视觉皮层那样维持拓扑关系（不保留视觉场的空间结构）
 - PFC「知道」你在记忆某个位置，但不以视网膜坐标格式存储
 
-### 核心观点
+## 核心论点清单
 
 **1. 工作记忆不是简单的缓存，是积极的格式转换**
 
@@ -118,5 +122,34 @@ V1最动态 → V2, V3, V3AB逐渐稳定 → IPS更稳定 → PFC最稳定。这
 V1是最靠近行动的那一层——它把感觉信息重新编码成任务相关的运动指令。V3AB和顶叶皮层是中间层——维持抽象的空间位置，不随时间变化。PFC是最抽象的层——知道你在记忆某件事，但不保留具体的空间细节。
 
 工作记忆不是一个地方，也不是一种活动。它是一个**分布在不同脑区的动态转换过程**，把「我看到了什么」逐渐转化为「我需要做什么」。
+
+---
+
+## 术语小词典
+
+- **持续激活 (Persistent activity)**：经典工作记忆理论假设的机制——神经元在记忆延迟期间持续放电以维持记忆内容，主要证据来自猴子前额叶皮层的电生理记录。(Summary · "The activity of neurons in macaque prefrontal cortex (PFC) persists during working memory (WM) delays providing a mechanism for memory")
+- **稳定码与动态码 (Stable vs. dynamic WM code)**：稳定码指神经表征在整个延迟期保持一致、可被同一解码器跨时间识别；动态码指代表记忆内容的神经种群随时间发生改变。本文发现两者在多数脑区共存。(Results · "We found coexisting stable and dynamic neural representations of WM during a memory-guided saccade task.")
+- **神经子空间与主角 (Neural subspace & principal angle)**：用主成分分析（PCA）从神经活动中提取的低维子空间；主角衡量不同时间窗口对应的子空间之间的偏转程度，是量化「动态强度」的核心指标。(Results · Neural subspaces · "We found that the stability of WM representations, quantified by principal angles, varied across ROIs.")
+- **群体感受野投影 (pRF projection)**：把voxel活动模式投影到二维视觉场空间的方法，让原本抽象的神经活动模式变成可以直接「看见」大脑在视觉场中关注哪个位置的图像。(Discussion · "By projecting voxel activity in V1 into the visual field space, we found that the stimulus is reformatted into a representation that is more proximal to the behavior guided by the memory.")
+
+## 这篇之前与之后
+
+- **这篇之前**：工作记忆研究长期以猴子前额叶皮层（PFC）的电生理记录为核心证据，认为「持续激活」（神经元在延迟期间持续放电）是记忆维持的主要机制。近年的多变量重分析发现猴PFC中稳定与动态代码共存（Spaak et al., 2017；Murray et al., 2017），但这一现象是否存在于人类大脑、存在于哪些脑区，此前并不清楚。
+- **这篇之后**：这篇论文确立了一个和「PFC中心论」相反的图景——动态代码最强的舞台不是PFC，而是早期视觉皮层（V1）；V1 在记忆延迟期间执行了从「感觉表征」到「行为相关抽象」的格式转换（Discussion · "Neural dynamics in V1 resulted from the format of the WM representation changing into a behaviorally relevant abstraction of the stimulus."）。这意味着未来的工作记忆理论必须同时考虑感觉特征和它们的任务相关抽象，因为记忆内容格式的变化本身就会驱动神经动态——这是对单一「持续激活」模型的根本修正。
+
+## 最值得读原文的几段
+
+- **Results 部分「Factors driving WM dynamics」中关于V1空间动态从外周到中央凹的描述**。
+  - 锚点：Factors driving WM dynamics · "In V1, the spatial pattern of the population neural response showed clear changes across time. The response first emerged at the target's polar angle and eccentricity...then spread inward across the visual field in a line between the target and the fovea."
+  - 原因：这是全文最具体、最可视化的发现，用一句话精确捕捉了V1如何把「目标在哪」转化为「如何到达目标」。
+- **Discussion 中关于「刺激被重新格式化为更接近行为」的理论陈述**。
+  - 锚点：Discussion · "By projecting voxel activity in V1 into the visual field space, we found that the stimulus is reformatted into a representation that is more proximal to the behavior guided by the memory."
+  - 原因：这句话是全篇论点的浓缩版，把V1的具体发现提升为对工作记忆本质的一般性主张。
+- **Discussion 中与猴子PFC研究的对比陈述**。
+  - 锚点：Discussion · "Distinct from the neurophysiological results in macaque PFC, we find evidence for coexisting stable and dynamic WM codes in early visual cortex, not PFC."
+  - 原因：这句话直接点出了本研究与既有动物模型文献之间的关键张力——「动态」的位置从PFC换到了V1，是整篇论文最具颠覆性的一句话。
+- **Results 部分「Neural code during WM is stable in PFC」中关于V3AB稳定性的描述**。
+  - 锚点：Neural code during WM is stable in PFC · "In V3AB, the ROI with the greatest stability, we found that the peak of activation remained at the target's peripheral location over the course of the trial."
+  - 原因：提供了与V1动态形成鲜明对比的「对照组」证据，让V1的特殊性更加可信。
 
 ---

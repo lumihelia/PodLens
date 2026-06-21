@@ -13,7 +13,7 @@ PRIVATE_HEADINGS = ["证据锚定洞察", "个人映射", "值得收藏的概念
 ITEM = {
     "slug": "pavel-durov-telegram-freedom-resistance",
     "report": "reports/pavel-durov-telegram-freedom-resistance.md",
-    "url": "",
+    "url": "https://youtu.be/qjPH9njnaVU?si=x9ebCbdRcCod6zJx",
     "kind": "podcast",
     "date": "2026-06-14",
     "title": "自由高于金钱：Pavel Durov与Telegram的坚守",

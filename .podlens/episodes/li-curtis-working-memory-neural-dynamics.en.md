@@ -1,75 +1,155 @@
-A bioRxiv preprint by Hsin-Hung Li and Clayton E. Curtis (Department of Psychology and Center for Neural Science, New York University), posted February 10, 2023. The paper uses fMRI during a memory-guided saccade task to study how working memory representations evolve across time in the human cortex — and discovers that early visual cortex is not a passive memory store but an active computational transformer.
+## What This Paper Is About
 
-**The Classic View and Why It Was Incomplete**
+This is a bioRxiv preprint by Hsin-Hung Li and Clayton E. Curtis (Department of Psychology and Center for Neural Science, New York University), studying how working memory representations evolve over time in the human cortex. The question: during the delay period, is the neural representation of remembered content **stable**, or does it **change dynamically**? And does this differ across brain regions? The paper answers this with a memory-guided saccade task under fMRI — and the answer differs by region, and that difference itself reveals how working memory actually works: not as a single unified "cache," but as a distributed process that progressively transforms sensory input into a plan for action.
 
-Working memory research has long centered on a simple model: neurons in prefrontal cortex (PFC) fire persistently during a delay period to maintain a representation of absent information. This "persistent activity" framework — dominated by monkey neurophysiology studies — treats WM maintenance as essentially a cache: store the sensory content, hold it until it is needed.
+## Paper Skeleton
 
-More recent work in monkey PFC found something more complicated: neural population codes during WM exhibit both stable components (decodable across time) and dynamic components (where representations evolve during the delay). Li and Curtis asked whether the same structure appears in human cortex, and if so, where.
+### Core Question
 
-**The Task**
+How do working memory (WM) representations evolve over time in the human brain? Is the neural representation of memory content during the delay period **stable**, or **dynamically changing**? Does the memory code differ across brain regions?
 
-Participants performed a memory-guided saccade task while undergoing fMRI. A brief target dot appeared at 12° eccentricity from fixation at a pseudo-random polar angle. The target was visible for 500 milliseconds, then disappeared. Participants maintained gaze at the fixation point for a 12-second delay period while remembering the target location. At the end of the delay, they made a saccadic eye movement to report the remembered location and also reported their memory uncertainty using a manual arc-length adjustment.
+### Background
 
-A control experiment with a subset of participants (n=6) used the same timing but replaced the dim memory target with a high-contrast flickering checkerboard — a salient sensory stimulus that participants were asked to ignore rather than remember. This passive viewing condition allowed the researchers to distinguish WM-specific dynamics from simple sensory persistence.
+The classic picture of working memory is "persistent activity": neurons fire continuously during the delay period to maintain memory content, like a simple cache. This picture comes mainly from electrophysiological recordings in non-human primate prefrontal cortex (PFC). But recent work in monkey PFC found that neural population codes contain both stable and dynamic components (Spaak et al., 2017; Murray et al., 2017). The open question: what does this look like in human visual and parietal cortex?
 
-Retinotopic mapping sessions allowed the researchers to define population receptive fields (pRF) for each voxel — the location and size of each voxel's "window" into visual space — across eight ROIs: V1, V2, V3, V3AB, IPS0, IPS1, IPS2, IPS3, and two frontal regions (iPCS, sPCS).
+### Experimental Design
 
-**Two Analytical Tools**
+**Main experiment: memory-guided saccade task**
+- Participants fixated centrally inside an fMRI scanner.
+- A brief (500ms) target dot appeared at a random polar angle at 12° eccentricity (32 positions covering the full circle).
+- This was followed by a 12-second **delay period**: the target disappeared, and participants had to maintain memory of its location.
+- After the delay, participants made a saccade to the remembered target location.
+- Participants also reported their memory uncertainty (by adjusting an arc length).
 
-The paper uses two complementary approaches to characterize the WM neural code.
+**Control experiment: passive viewing**
+- n=6 participants completed an additional experiment.
+- Display conditions were similar, but the stimulus was a high-contrast flickering checkerboard (no memory required).
+- Purpose: to separate whether delay-period neural activity is just slow sensory decay, or genuine WM maintenance.
 
-*Temporal generalization analysis*: a decoder trained on fMRI voxel activity patterns at one time point is tested on all other time points. A stable code produces above-chance decoding across the off-diagonal elements of the cross-decoding matrix — the same decoder works regardless of when during the delay it is applied. A dynamic code produces off-diagonal elements that are significantly worse than the corresponding diagonal — the neural population that encodes the target location at time T1 is not the same population doing so at time T2.
+**Key ROIs**:
+- Early visual cortex: V1, V2, V3, V3AB
+- Intraparietal sulcus (IPS): IPS0, IPS1, IPS2, IPS3
+- Prefrontal cortex: inferior precentral sulcus (iPCS), superior precentral sulcus (sPCS)
 
-*PCA-based neural subspace analysis*: principal component analysis identifies the low-dimensional subspace that best captures variance in voxel activity patterns. Stable subspaces are derived from time-averaged data. Dynamic subspaces are derived from early, middle, and late time windows separately. The *principal angle* between the early and late subspaces quantifies how much the neural representation has rotated in high-dimensional space — a large principal angle means the brain is using substantially different neural populations to represent the target at different points in the delay.
+**Analysis methods**:
+1. **Temporal generalization analysis**: train a decoder at time point T1, test it at all time points T2 → a stable code decodes well across time points; a dynamic code decodes worse across time points than within the same time point.
+2. **Principal component analysis (PCA)**: construct neural subspaces — a stable subspace (time-averaged) and dynamic subspaces (split into early/middle/late time windows) — and use the **principal angle** to quantify how much the subspaces have rotated relative to each other.
+3. **Population receptive field (pRF) projection**: project voxel activity patterns into two-dimensional visual field space, visualizing where in the visual field the brain is "looking."
 
-**Finding 1: Stable and Dynamic Codes Coexist in All Regions**
+### Core Findings
 
-The temporal generalization analysis found stable WM codes (above-chance cross-decoding) in every ROI, including PFC. Within approximately 1–2 seconds of target offset, the WM content became decodable and remained so throughout the delay. The memory holds.
+**1. Stable and dynamic codes coexist in nearly every brain region**
 
-Most ROIs also showed dynamic codes: off-diagonal elements significantly worse than diagonal, indicating that the neural population encoding the target location changed over time. The two types of code coexist — memory is maintained and transformed simultaneously.
+Temporal generalization analysis showed a stable code in every ROI (cross-time decodable) — the memory target's location could be decoded throughout the entire delay period. At the same time, most ROIs also showed a dynamic code (diagonal performance > off-diagonal performance), meaning the neural code differs across time points.
 
-**Finding 2: Dynamics Are Strongest in Early Visual Cortex**
+**2. The degree of dynamics varies by brain region (the key finding)**
 
-The key finding is a gradient. The degree of dynamics — quantified by the principal angle between early and late neural subspaces — varied significantly across ROIs (F(7, 91) = 3.88, p < .00). V1 showed the largest principal angles, indicating the greatest change in neural subspace across the delay. V3AB and the parietal IPS regions showed substantially smaller angles. PFC showed a stable code throughout, with no significant dynamic clusters in the temporal generalization matrices.
+- **V1 is the most dynamic**: the neural subspace rotation angle between early and late time windows is largest.
+- **V3AB and parietal cortex (IPS) are the most stable**: subspace rotation is smallest.
+- F(7, 91) = 3.88, p < .00 (stability differs significantly across ROIs).
+- PCA visualization: in V1, the target location's "trajectory" in space (a 3D spiral) shows clear evolution over time; in V3AB, the trajectory is more stable.
 
-This is counterintuitive. The standard view treats PFC as the seat of working memory, with posterior sensory regions playing a supporting role. Here, the most active computational transformation during the delay is happening in V1, not PFC.
+**3. V1's dynamic pattern: from periphery to fovea (the most specific finding)**
 
-**Finding 3: What V1 Is Actually Doing**
+Via pRF projection into visual field space (Figure 4):
+- **Early** in the delay (0–4.5s): V1 activation concentrates at the target's 12° peripheral eccentricity, a narrowly tuned point of activation.
+- **Late** in the delay (4.5–12s): activation spreads from the target's eccentricity **toward the fovea**, forming a line of activation between the target location and central fixation.
+- In other words: the code shifts from "where the target is" to "the path from here to the target."
 
-The pRF projection method makes the V1 dynamics interpretable by mapping voxel activity patterns directly into two-dimensional visual field space. The result, shown across sixteen snapshots spanning the 12-second delay (Figure 4), is striking.
+**4. This dynamic is absent during passive viewing**
 
-Early in the delay (0–4.5 seconds): V1 activation concentrates at the target's peripheral eccentricity (12°), in a compact, narrowly tuned response at the target's polar angle. The brain appears to be representing "the target is there."
+When participants merely passively viewed a flickering checkerboard (no memory required), V1 showed only a stable code, with activation decaying quickly over time. The dynamic spread toward the fovea appeared only under WM maintenance — proof that this is a genuine WM computation, not sensory residue.
 
-Late in the delay (4.5–12 seconds): activation at 12° eccentricity decreases, and the response spreads inward, filling in a diffuse line-like pattern along the polar angle of the target, connecting the peripheral target location to the foveal region.
+**5. Prefrontal cortex: stable but without topographic structure**
 
-By the end of the delay, activation peaks near the fovea with a tail extending toward the target — the opposite spatial profile from early in the delay.
+Prefrontal regions (iPCS, sPCS) showed a stable code throughout the delay, with memory content decodable, but:
+- Decoding error was larger than in visual and parietal cortex.
+- The target location's position within the stable subspace did not preserve topographic relationships the way visual cortex did (it did not retain the visual field's spatial structure).
+- PFC "knows" you are remembering a location, but does not store it in retinotopic coordinates.
 
-The proposed interpretation: V1 is recoding the sensory representation of the target's location into a representation of the planned saccade trajectory. The "target was at 12° in that direction" code is being transformed into a "to move my eyes from here to there" code. Memory maintenance and motor preparation are not sequential — they overlap and interpenetrate within the same neural structure.
+---
 
-**The Control Condition Confirms This Is WM-Specific**
+## Core Arguments List
 
-In the passive viewing experiment, V1 showed only a stable code, not a dynamic one. Activation appeared at the target's location early in the trial and diminished over time — the profile of a sensory response fading, not a WM computation unfolding. The foveal spread observed in the memory task was entirely absent.
+**1. Working memory is not a simple cache — it is an active format conversion**
 
-This confirms that the dynamic transformation in V1 requires WM maintenance — it is not a byproduct of sensory processing but an active consequence of the task demand to hold and prepare to report the location.
+The dynamics in early visual cortex (V1) show that memory is not "storing what was seen," but reformatting the sensory input (the target at 12° eccentricity) into a representation closer to the task's actual demand (a trajectory from fovea to target). The authors propose that V1's late-delay activation may represent a planned memory-guided saccade — the brain is already pre-computing "how my eyes need to move," not just "where the target is."
 
-**PFC Is the Stable Abstraction Layer**
+**2. The mechanism of the dynamics: different neural populations are recruited at different times**
 
-Prefrontal cortex (iPCS and sPCS) maintained decodable WM content throughout the delay with a stable code and no significant dynamic clusters. However, the PFC stable subspace did not preserve the spatial topology of target locations — the circular arrangement of 32 target positions that was preserved in the topographic structure of visual and parietal cortex was not present in PFC.
+PCA analysis shows the dynamics are not driven by "rotation" (a neural subspace rotating around an axis, as found in monkey PFC), but by different time windows using different neural populations to represent the target. The early and late subspaces are orthogonally rotated relative to each other — the activated population of neurons itself changes.
 
-PFC "knows" that you are remembering a location, but it does not store the location in retinotopic coordinates. It is the highest-level abstraction of the WM content — task-relevant but geometrically impoverished relative to the visual representations.
+**3. Stability increases up the visual hierarchy**
 
-**A Revised Picture of Working Memory**
+V1 is most dynamic → V2, V3, V3AB become progressively more stable → IPS is more stable still → PFC is most stable. This gradient may reflect a division of labor: low-level visual cortex (V1) handles task-relevant format conversion (sensory → motor), higher visual and parietal cortex maintain abstract spatial memory (no need to change over time), and PFC maintains the highest-level task-relevant signal.
 
-The paper argues for a distributed, gradient WM system rather than a PFC-centered one:
+**4. The dynamics in early visual cortex come from top-down feedback**
 
-V1 performs the most dynamic transformation — recoding sensory inputs into motor-proximal formats over the 12-second delay. It is the most task-embedded of the WM-maintaining regions.
+The passive-viewing control rules out the explanation that the dynamics are merely slow sensory decay. Combined with the widening of V1's tuning width late in the delay (from narrow to broad, while V3AB does not change), the authors propose: V1's late-delay dynamics come from top-down feedback signals, originating in higher cortical areas with larger receptive fields, which "smooth" the precise point-like sensory representation into a broader path-like representation.
 
-Higher visual cortex (V3AB) and parietal cortex maintain stable, topographically organized representations of the remembered location throughout the delay — the abstract spatial record.
+**5. A key difference between human and monkey PFC**
 
-PFC maintains the highest-level, most stable representation — task-relevant and decodable, but lacking the spatial geometry that the lower-level regions preserve.
+The coexistence of stable and dynamic codes found in monkey PFC studies was found in this study mainly in **visual cortex**, while the human PFC's WM code is predominantly stable with no significant dynamics. Whether this is a species difference or a methodological difference (fMRI vs. electrophysiology) cannot yet be determined.
 
-Working memory is not one thing happening in one place. It is a set of parallel computations at different levels of abstraction, all maintaining different aspects of the same remembered content, with the most dramatic temporal evolution happening not at the apex of the hierarchy but at its base.
+---
 
-**The Broader Implication**
+## Plain English Explanation
 
-A memory is not a copy of an experience held in a buffer. It is an ongoing process of reinterpretation — the brain continuously reformats what it is holding in memory into whatever is most proximal to the demands of the next action. "Remembering" and "preparing to act on the memory" are not sequential phases. In V1, they are the same process, observed at different moments in its unfolding.
+You close your eyes and imagine a set of keys sitting on the upper-left corner of a table. What is your brain doing?
+
+The classic answer: some neurons start firing, and keep firing, until you find the keys. This is called "persistent activity" — the brain as a cache that can briefly hold a charge.
+
+This paper says: no, that's not what's happening.
+
+The experiment is simple: in an fMRI scanner, a dot appears slightly to the left of where you're looking. It disappears after 0.5 seconds. You need to remember where it was, wait silently for 12 seconds, then point your eyes at its location.
+
+The scanner recorded what happened in your visual cortex during those 12 seconds.
+
+The result is surprising: in the most basic visual cortex (V1), the neural code for the memory **keeps changing**.
+
+In the first 4 seconds, the area of V1 that activates corresponds to the target's peripheral position (12 degrees from the center of the eye). It's as if V1 is saying: "the target is over there, that direction, that distance."
+
+But over the next 8 seconds, the activated area starts to **drift** toward the center of the eye — eventually forming a line extending from the fixation point toward the target's direction. It's as if V1 is now saying: "starting from here, go that way."
+
+This isn't "storage" — it's **path planning**. V1 is reformatting "what was sensed" into "how the eyes need to move."
+
+What's even more interesting: when participants merely passively watched a flickering light at the same location, with no need to remember it, this drift **doesn't happen at all**. The dynamic is specific to working memory — it's the result of the brain actively engaging with the task's demands.
+
+This contrasts with higher-level brain regions. In parietal and prefrontal cortex, the neural representation of the target location stays fairly stable across all 12 seconds — but what they "know" isn't "the path from here to the target," it's the more abstract "I am remembering a location."
+
+This gives us a new picture of working memory:
+
+**Different brain regions work at different "levels" of memory.**
+
+V1 is the layer closest to action — it re-encodes sensory information into task-relevant motor instructions. V3AB and parietal cortex are the middle layer — maintaining an abstract spatial position that doesn't change over time. PFC is the most abstract layer — it knows you're remembering something, but doesn't retain the specific spatial details.
+
+Working memory is not a place, and not a single activity. It is a **dynamic transformation process distributed across brain regions**, gradually converting "what I saw" into "what I need to do."
+
+---
+
+## Glossary
+
+- **Persistent activity**: the mechanism assumed by classic working memory theory — neurons fire continuously during the memory delay to maintain memory content, based mainly on electrophysiological recordings in monkey prefrontal cortex. (Summary · "The activity of neurons in macaque prefrontal cortex (PFC) persists during working memory (WM) delays providing a mechanism for memory")
+- **Stable vs. dynamic WM code**: a stable code is a neural representation that stays consistent throughout the delay and can be identified by the same decoder across time; a dynamic code is one where the neural population representing the memory content changes over time. This paper finds the two coexist in most brain regions. (Results · "We found coexisting stable and dynamic neural representations of WM during a memory-guided saccade task.")
+- **Neural subspace & principal angle**: a low-dimensional subspace extracted from neural activity via PCA; the principal angle measures how much the subspaces from different time windows have rotated relative to each other, and is the core metric for quantifying the "degree of dynamics." (Results · Neural subspaces · "We found that the stability of WM representations, quantified by principal angles, varied across ROIs.")
+- **Population receptive field (pRF) projection**: a method that projects voxel activity patterns into two-dimensional visual field space, turning an otherwise abstract neural activity pattern into something you can directly "see" — exactly where in the visual field the brain is attending. (Discussion · "By projecting voxel activity in V1 into the visual field space, we found that the stimulus is reformatted into a representation that is more proximal to the behavior guided by the memory.")
+
+## Before and After This Paper
+
+- **Before This Paper**: working memory research long relied on electrophysiological recordings in monkey prefrontal cortex (PFC) as its central evidence, treating "persistent activity" (neurons firing continuously during the delay) as the primary mechanism of memory maintenance. More recent multivariate reanalyses found that stable and dynamic codes coexist in monkey PFC (Spaak et al., 2017; Murray et al., 2017), but whether this also holds in the human brain — and in which regions — was unknown.
+- **After This Paper**: this paper establishes a picture that runs counter to the "PFC-centered" view — the region with the strongest dynamic code is not PFC, but early visual cortex (V1); V1 performs a format conversion during the memory delay, from a "sensory representation" into a "behaviorally relevant abstraction" (Discussion · "Neural dynamics in V1 resulted from the format of the WM representation changing into a behaviorally relevant abstraction of the stimulus."). This means future theories of working memory must account for both sensory features and their task-relevant abstractions, since a change in the format of remembered content itself drives neural dynamics — a fundamental revision to any single "persistent activity" model.
+
+## Sections Most Worth Reading in the Original
+
+- **The description in the Results section "Factors driving WM dynamics" of V1's spatial dynamics moving from periphery to fovea.**
+  - Anchor: Factors driving WM dynamics · "In V1, the spatial pattern of the population neural response showed clear changes across time. The response first emerged at the target's polar angle and eccentricity...then spread inward across the visual field in a line between the target and the fovea."
+  - Reason: this is the most concrete, most visualizable finding in the paper — one sentence precisely captures how V1 converts "where the target is" into "how to get there."
+- **The theoretical statement in the Discussion about the stimulus being "reformatted into something closer to behavior."**
+  - Anchor: Discussion · "By projecting voxel activity in V1 into the visual field space, we found that the stimulus is reformatted into a representation that is more proximal to the behavior guided by the memory."
+  - Reason: this sentence is the condensed version of the paper's entire argument, elevating the specific V1 finding into a general claim about the nature of working memory itself.
+- **The Discussion's contrast with monkey PFC research.**
+  - Anchor: Discussion · "Distinct from the neurophysiological results in macaque PFC, we find evidence for coexisting stable and dynamic WM codes in early visual cortex, not PFC."
+  - Reason: this sentence directly names the key tension between this study and the existing animal-model literature — the location of "dynamics" moves from PFC to V1, arguably the single most disruptive sentence in the paper.
+- **The description in the Results section "Neural code during WM is stable in PFC" of V3AB's stability.**
+  - Anchor: Neural code during WM is stable in PFC · "In V3AB, the ROI with the greatest stability, we found that the peak of activation remained at the target's peripheral location over the course of the trial."
+  - Reason: provides the "control group" evidence that contrasts sharply with V1's dynamics, making V1's distinctiveness more credible.

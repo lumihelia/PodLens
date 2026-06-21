@@ -13,7 +13,7 @@ PRIVATE_HEADINGS = ["证据锚定洞察", "个人映射", "值得收藏的概念
 ITEM = {
     "slug": "adam-neumann-wework-flow-community",
     "report": "reports/adam-neumann-wework-flow-community.md",
-    "url": "",
+    "url": "https://youtu.be/RAHsF4A8GLM?si=yEde8Tld7lZRPiq1",
     "kind": "podcast",
     "date": "2026-06-14",
     "title": "集体农庄到WeWork：社区愿景的失控与重建 · Adam Neumann",

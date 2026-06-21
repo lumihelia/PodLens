@@ -13,7 +13,7 @@ PRIVATE_HEADINGS = ["证据锚定洞察", "个人映射", "值得收藏的概念
 ITEM = {
     "slug": "daniel-ek-impact-happiness-self-mastery",
     "report": "reports/daniel-ek-impact-happiness-self-mastery.md",
-    "url": "",
+    "url": "https://youtu.be/qiXH0y2V3_8?si=kNvfy4iW85RpmnUu",
     "kind": "podcast",
     "date": "2026-06-14",
     "title": "影响先于幸福：自我精通与造物者之道 · Daniel Ek",

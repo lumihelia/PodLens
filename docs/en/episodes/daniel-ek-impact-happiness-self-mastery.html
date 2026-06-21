@@ -14,7 +14,7 @@
 <meta property="og:description" content="Daniel Ek has been building Spotify for nearly two decades. David Senra chose him as the first guest on this new show because a single private dinner conversation with Ek had fundamentally changed how…">
 <meta property="og:url" content="https://lens.lumihelia.com/en/episodes/daniel-ek-impact-happiness-self-mastery.html">
 <link rel="alternate" type="application/rss+xml" title="PodLens" href="https://lens.lumihelia.com/en/feed.xml"><link rel="alternate" type="application/json" title="PodLens" href="https://lens.lumihelia.com/en/episodes.json">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Impact Before Happiness: Self-Mastery and the Maker's Way · Daniel Ek", "datePublished": "2026-06-14", "inLanguage": "en", "url": "https://lens.lumihelia.com/en/episodes/daniel-ek-impact-happiness-self-mastery.html", "description": "Daniel Ek has been building Spotify for nearly two decades. David Senra chose him as the first guest on this new show because a single private dinner conversation with Ek had fundamentally changed how…", "author": {"@type": "Person", "name": "lumihelia"}, "publisher": {"@type": "Person", "name": "lumihelia"}, "keywords": "impact over happiness, self-mastery, founder archetypes, quality philosophy, energy management"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Impact Before Happiness: Self-Mastery and the Maker's Way · Daniel Ek", "datePublished": "2026-06-14", "inLanguage": "en", "url": "https://lens.lumihelia.com/en/episodes/daniel-ek-impact-happiness-self-mastery.html", "description": "Daniel Ek has been building Spotify for nearly two decades. David Senra chose him as the first guest on this new show because a single private dinner conversation with Ek had fundamentally changed how…", "author": {"@type": "Person", "name": "lumihelia"}, "publisher": {"@type": "Person", "name": "lumihelia"}, "keywords": "impact over happiness, self-mastery, founder archetypes, quality philosophy, energy management", "isBasedOn": "https://youtu.be/qiXH0y2V3_8?si=kNvfy4iW85RpmnUu"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -91,8 +91,35 @@ a.ts:hover { border-bottom-style: solid; }
 <div class="topbar"><nav class="sectionnav"><a class="brand" href="https://lens.lumihelia.com/en/">PodLens</a><a class="sec active" href="https://lens.lumihelia.com/en/">episodes</a><a class="sec" href="https://lens.lumihelia.com/en/papers/">papers</a></nav><a class="langswitch" href="https://lens.lumihelia.com/episodes/daniel-ek-impact-happiness-self-mastery.html">中文</a></div>
 <h1>Impact Before Happiness: Self-Mastery and the Maker&#x27;s Way · Daniel Ek</h1>
 <p class="meta">2026-06-14 · A faithful, transcript-grounded reading by PodLens</p>
-
-
+<p class="source">Original episode:<a href="https://youtu.be/qiXH0y2V3_8?si=kNvfy4iW85RpmnUu" target="_blank" rel="noopener">https://youtu.be/qiXH0y2V3_8?si=kNvfy4iW85RpmnUu</a>　·　Timestamps are clickable — they seek the player in place</p>
+<div class="player-wrap"><div class="player-box"><div id="ytplayer"></div></div></div>
+<script>
+var PL = (function() {
+  var player, ready = false, pending = null;
+  window.onYouTubeIframeAPIReady = function() {
+    player = new YT.Player('ytplayer', {
+      videoId: 'qiXH0y2V3_8',
+      host: 'https://www.youtube-nocookie.com',
+      playerVars: {playsinline: 1, rel: 0},
+      events: {onReady: function() { ready = true; if (pending != null) { var p = pending; pending = null; seek(p); } }}
+    });
+  };
+  function seek(s) {
+    if (!ready) { pending = s; return false; }
+    player.seekTo(s, true); player.playVideo();
+    document.querySelector('.player-wrap').scrollIntoView({behavior: 'smooth', block: 'start'});
+    return false;
+  }
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+  document.addEventListener('DOMContentLoaded', function() {
+    var t = new URLSearchParams(location.search).get('t');
+    if (t) { seek(parseInt(t, 10)); }
+  });
+  return {seek: seek};
+})();
+</script>
 <div class="tags"><span>impact over happiness</span><span>self-mastery</span><span>founder archetypes</span><span>quality philosophy</span><span>energy management</span></div>
 
 <p>Daniel Ek has been building Spotify for nearly two decades. David Senra chose him as the first guest on this new show because a single private dinner conversation with Ek had fundamentally changed how he approached his work and life — and because he suspected other people deserved to hear the ideas from that dinner out loud.</p>

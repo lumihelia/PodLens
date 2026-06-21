@@ -13,7 +13,7 @@ PRIVATE_HEADINGS = ["证据锚定洞察", "个人映射", "值得收藏的概念
 ITEM = {
     "slug": "alexei-efros-surface-data-deep-data",
     "report": "reports/alexei-efros-surface-data-deep-data.md",
-    "url": "",
+    "url": "https://www.youtube.com/live/vk6lgHjjGp8?si=5F0NXJlFZ_LtNfgm",
     "kind": "podcast",
     "date": "2026-06-14",
     "title": "表层数据与深层数据 · Alexei Efros",

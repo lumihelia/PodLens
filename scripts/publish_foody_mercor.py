@@ -13,7 +13,7 @@ PRIVATE_HEADINGS = ["证据锚定洞察", "个人映射", "值得收藏的概念
 ITEM = {
     "slug": "brendan-foody-mercor-teaching-ai-knowledge-work",
     "report": "reports/brendan-foody-mercor-teaching-ai-knowledge-work.md",
-    "url": "",
+    "url": "https://youtu.be/zld39xD4sus?si=WrrsvImuMSX5fv4G",
     "kind": "podcast",
     "date": "2026-06-14",
     "title": "教 AI 的人与知识工作的未来 · Brendan Foody",

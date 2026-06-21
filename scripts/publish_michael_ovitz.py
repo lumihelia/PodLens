@@ -13,7 +13,7 @@ PRIVATE_HEADINGS = ["证据锚定洞察", "个人映射", "值得收藏的概念
 ITEM = {
     "slug": "michael-ovitz-caa-frame-of-reference",
     "report": "reports/michael-ovitz-caa-frame-of-reference.md",
-    "url": "",
+    "url": "https://youtu.be/yhh-J0zVsik?si=nu1Qg1WdCz2dOm2h",
     "kind": "podcast",
     "date": "2026-06-14",
     "title": "参照系与制霸好莱坞 · Michael Ovitz",

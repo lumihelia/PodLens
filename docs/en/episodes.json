@@ -16,28 +16,30 @@
       "url": "https://lens.lumihelia.com/en/episodes/pavel-durov-telegram-freedom-resistance.html",
       "title": "Freedom Over Money: Pavel Durov and Telegram's Line in the Sand",
       "date_published": "2026-06-14",
-      "summary": "Pavel Durov is the founder and CEO of Telegram. He co-founded VKontakte (VK) — Russia's largest social network — in 2006, was forced out in 2014 after refusing to hand over user data to the Russian go…",
+      "summary": "This is Lex Fridman's interview with Telegram founder Pavel Durov. Durov was born in the Soviet Union and spent part of his childhood in Italy, and his core philosophical claim — \"Svoboda vazhne deneg…",
       "tags": [
         "freedom over money",
         "humans as attack vectors",
         "living on bonus time",
         "scarcity enables purpose",
         "the moral weight of craft"
-      ]
+      ],
+      "external_url": "https://youtu.be/qjPH9njnaVU?si=x9ebCbdRcCod6zJx"
     },
     {
       "id": "https://lens.lumihelia.com/en/episodes/adam-neumann-wework-flow-community.html",
       "url": "https://lens.lumihelia.com/en/episodes/adam-neumann-wework-flow-community.html",
       "title": "Kibbutz to WeWork to Flow: The Community Vision, the Fall, and the Rebuild · Adam Neumann",
       "date_published": "2026-06-14",
-      "summary": "Adam Neumann is the co-founder of WeWork and the founder of Flow. He grew up in Israel, moved thirteen times before finishing school, spent five years in a kibbutz where his mother worked as the overn…",
+      "summary": "This is an interview with WeWork co-founder and Flow founder Adam Neumann on Rick Rubin's podcast Tetragrammaton. Neumann was born in Israel and moved thirteen times as a child, including several year…",
       "tags": [
         "kibbutz spirit",
         "WeWork collapse",
         "community as mission",
         "narrative surrender",
         "authenticity over wealth"
-      ]
+      ],
+      "external_url": "https://youtu.be/RAHsF4A8GLM?si=yEde8Tld7lZRPiq1"
     },
     {
       "id": "https://lens.lumihelia.com/en/episodes/lewis-spacex-7years-manufacturing-musk.html",
@@ -51,49 +53,38 @@
         "Coke can conversation",
         "rocket cost revolution",
         "SpaceX Mafia"
-      ]
-    },
-    {
-      "id": "https://lens.lumihelia.com/en/episodes/alexei-efros-surface-deep-data-curious-robot.html",
-      "url": "https://lens.lumihelia.com/en/episodes/alexei-efros-surface-deep-data-curious-robot.html",
-      "title": "Surface Data, Deep Data, and the Curious Robot: What Current AI Is Missing · Alexei Efros",
-      "date_published": "2026-06-14",
-      "summary": "Alexei Efros — known to this audience, he notes, primarily as Shiri's PhD advisor — opens by saying that this talk is meant to be a rhyme to Alison Gopnik's earlier presentation at the same workshop. …",
-      "tags": [
-        "deep data",
-        "embodied learning",
-        "curiosity-driven exploration",
-        "bitter lesson critique",
-        "babies as scientists"
-      ]
+      ],
+      "external_url": "https://youtu.be/a93FT2340c0?si=VYbwPUuIeqiwX8vX"
     },
     {
       "id": "https://lens.lumihelia.com/en/episodes/tobi-lutke-companies-as-technology-shopify-os.html",
       "url": "https://lens.lumihelia.com/en/episodes/tobi-lutke-companies-as-technology-shopify-os.html",
       "title": "Company as Technology: The Obligation of Differentiation and the Founder's Craft · Tobi Lütke",
       "date_published": "2026-06-14",
-      "summary": "Tobi Lütke has been building Shopify for twenty-one years. David Senra has spent ten years reading biographies of history's greatest founders. He says Lütke's name comes up repeatedly when he asks the…",
+      "summary": "This is David Senra (host of the Founders podcast) interviewing Shopify co-founder and 21-year CEO Tobi Lütke. Other founders mention Tobi so often that David calls him \"singular.\" The conversation op…",
       "tags": [
         "company as social technology",
         "Shopify OS",
         "obligation of differentiation",
         "rivalry vs competition",
         "brain as narrative alignment mechanism"
-      ]
+      ],
+      "external_url": "https://youtu.be/ZSM2uFnJ5bs?si=PmSUanLOTp2sgprn"
     },
     {
       "id": "https://lens.lumihelia.com/en/episodes/marc-andreessen-malleable-world-founder-capitalism.html",
       "url": "https://lens.lumihelia.com/en/episodes/marc-andreessen-malleable-world-founder-capitalism.html",
       "title": "The World Is More Malleable Than You Think: Zero Introspection, Founder Capitalism, and the Musk Method · Marc Andreessen",
       "date_published": "2026-06-14",
-      "summary": "Marc Andreessen co-founded Netscape at twenty-two, was at the table for the first commercial web browser, the first internet advertising business, and the first e-commerce platform. He then co-founded…",
+      "summary": "This is a long-form conversation between David Senra (host of the Founders podcast) and Marc Andreessen, with Andrew Huberman briefly joining to ask a question. It covers several of Marc's most centra…",
       "tags": [
         "zero introspection",
         "founder capitalism",
         "managerialism critique",
         "moral panics",
         "Elon's management method"
-      ]
+      ],
+      "external_url": "https://youtu.be/qBVe3M2g_SA?si=4nH-M9kcrb9AqiAB"
     },
     {
       "id": "https://lens.lumihelia.com/en/episodes/daniel-ek-impact-happiness-self-mastery.html",
@@ -107,7 +98,8 @@
         "founder archetypes",
         "quality philosophy",
         "energy management"
-      ]
+      ],
+      "external_url": "https://youtu.be/qiXH0y2V3_8?si=kNvfy4iW85RpmnUu"
     },
     {
       "id": "https://lens.lumihelia.com/en/episodes/patrick-oshaughnessy-principle-life-work.html",
@@ -121,7 +113,8 @@
         "abiding joy",
         "growth without goals",
         "discovering talent"
-      ]
+      ],
+      "external_url": "https://youtu.be/E8B-P1oGuz4?si=UnR_tDYITDaSYeVU"
     },
     {
       "id": "https://lens.lumihelia.com/en/episodes/how-elon-thinks-algorithm-physics-makers.html",
@@ -135,7 +128,8 @@
         "speed",
         "vertical integration",
         "maker philosophy"
-      ]
+      ],
+      "external_url": "https://youtu.be/CdBcZSau5iA?si=6fvU6uMUB1u-vN60"
     },
     {
       "id": "https://lens.lumihelia.com/en/episodes/michael-ovitz-caa-frame-of-reference.html",
@@ -149,7 +143,8 @@
         "frame of reference",
         "organization building",
         "sales philosophy"
-      ]
+      ],
+      "external_url": "https://youtu.be/yhh-J0zVsik?si=nu1Qg1WdCz2dOm2h"
     },
     {
       "id": "https://lens.lumihelia.com/en/episodes/garry-tan-yc-personal-ai-revolution.html",
@@ -163,7 +158,8 @@
         "technology democratization",
         "builder ethos",
         "founder psychology"
-      ]
+      ],
+      "external_url": "https://youtu.be/bTxALvFKP8M?si=NluV8wvfo-MylOyk"
     },
     {
       "id": "https://lens.lumihelia.com/en/episodes/john-mackey-whole-foods-44-years.html",
@@ -177,7 +173,8 @@
         "capitalism",
         "founder psychology",
         "inner growth"
-      ]
+      ],
+      "external_url": "https://youtu.be/U8zqsiePKsg?si=tAe-6DiWmUOT_iCn"
     },
     {
       "id": "https://lens.lumihelia.com/en/episodes/james-dyson-5127-prototypes-invention.html",
@@ -191,7 +188,8 @@
         "failure and persistence",
         "manufacturing",
         "focus"
-      ]
+      ],
+      "external_url": "https://youtu.be/Se64B8TKfjA?si=7yTNRW0n8_3-H-Lv"
     },
     {
       "id": "https://lens.lumihelia.com/en/episodes/rick-rubin-creative-act-less-is-more.html",
@@ -205,7 +203,8 @@
         "deep listening",
         "intuition and persistence",
         "music production"
-      ]
+      ],
+      "external_url": "https://youtu.be/g6MEDOY7tHo?si=aZ4IIwsS_4AkE51D"
     },
     {
       "id": "https://lens.lumihelia.com/en/episodes/ivanka-trump-authenticity-reinvention.html",
@@ -219,7 +218,8 @@
         "mission-driven work",
         "reinvention",
         "authenticity"
-      ]
+      ],
+      "external_url": "https://youtu.be/VhsiMd9ZFNk?si=WaRGKH5RIBF3lq5J"
     },
     {
       "id": "https://lens.lumihelia.com/en/episodes/arthur-brooks-reinvention-religion-happiness.html",
@@ -233,7 +233,8 @@
         "religion and faith",
         "career reinvention",
         "cognitive science"
-      ]
+      ],
+      "external_url": "https://youtu.be/PIbk5AnJGqc?si=1JooTQb9D1a8bebZ"
     },
     {
       "id": "https://lens.lumihelia.com/en/episodes/brendan-foody-mercor-teaching-ai-knowledge-work.html",
@@ -247,7 +248,8 @@
         "evaluation systems",
         "labor markets",
         "reinforcement learning"
-      ]
+      ],
+      "external_url": "https://youtu.be/zld39xD4sus?si=WrrsvImuMSX5fv4G"
     },
     {
       "id": "https://lens.lumihelia.com/en/episodes/sarah-paine-continental-maritime-powers-geopolitics.html",
@@ -261,7 +263,8 @@
         "imperial history",
         "grand strategy",
         "international order"
-      ]
+      ],
+      "external_url": "https://youtu.be/OS1NZLgKM2c?si=3tPDMLU6aQFHX9R1"
     },
     {
       "id": "https://lens.lumihelia.com/en/episodes/alison-gopnik-childhood-learning-ai-cultural-technology.html",
@@ -275,7 +278,8 @@
         "AI as cultural technology",
         "explore vs exploit",
         "nature and nurture"
-      ]
+      ],
+      "external_url": "https://youtu.be/JIFdeXPB1Pg?si=N_faH9jRjDjsO-d9"
     },
     {
       "id": "https://lens.lumihelia.com/en/episodes/diarmaid-macculloch-christianity-sex-history.html",
@@ -289,7 +293,8 @@
         "sex and marriage",
         "historiography",
         "Reformation"
-      ]
+      ],
+      "external_url": "https://youtu.be/VeDKWf80Z3M?si=tgYchuRPSXpo_dEk"
     },
     {
       "id": "https://lens.lumihelia.com/en/episodes/alexei-efros-surface-data-deep-data.html",
@@ -303,7 +308,8 @@
         "deep data",
         "robotics",
         "world models"
-      ]
+      ],
+      "external_url": "https://www.youtube.com/live/vk6lgHjjGp8?si=5F0NXJlFZ_LtNfgm"
     },
     {
       "id": "https://lens.lumihelia.com/en/episodes/ms&e435-class3-economics-ai-supercycle.html",

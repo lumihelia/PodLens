@@ -5,7 +5,7 @@
       "title": "工作记忆的神经种群动力学：记忆不是存储，是变形",
       "date": "2026-06-14",
       "kind": "paper",
-      "summary": "工作记忆（working memory，WM）在人类大脑中是如何在时间上演化的？记忆内容在延迟期间的神经表征是稳定不变，还是动态变化的？不同脑区的记忆码是否有差异？",
+      "summary": "这是 Hsin-Hung Li 与 Clayton E. Curtis（纽约大学心理学系与神经科学中心）的一篇 bioRxiv 预印本，研究工作记忆（working memory）在人脑中如何随时间演化：记忆内容在延迟期间的神经表征，究竟是稳定不变的，还是动态变化的？不同脑区之间是否存在差异？论文用一个记忆引导扫视任务配合 fMRI 给出了答案——而答案因脑区而异，这个差异本身揭示了工作记忆的真正…",
       "source_url": "https://doi.org/10.1101/2022.09.23.509245",
       "tags": [
         "工作记忆不是存储而是计算",
@@ -32,7 +32,7 @@
           "that_point": "[Gopnik集核心论点] 前额叶皮层的成熟 = 执行控制能力增强 = 目标导向行为增强 = 探索性开放性下降。Gopnik认为前额叶是「开发」（exploitation）的神经基础，儿童前额叶欠发育是「探索」（exploration）优先的功能选择。她对前额叶的理解是「执行控制的中心」。Li和Curtis的发现暗示：即便在工作记忆这个前额叶的「传统领地」里，前额叶也可能是最薄弱的一环——它维持抽象信号，但空间计算和格式转换在视觉皮层。"
         },
         {
-          "slug": "alexei-efros-surface-deep-data-curious-robot",
+          "slug": "alexei-efros-surface-data-deep-data",
           "kind": "resonance",
           "relation": "同构",
           "why": "Efros区分「表面数据」（被动统计关联）和「深度数据」（主动探索、因果结构、感觉-运动反馈的同步）。他认为AI系统需要深度数据才能发展出真正的世界模型。Li和Curtis的发现提供了「深度数据产生什么样的内部表征」的神经科学案例：在工作记忆任务中，人类V1的神经代码不只是存储了「目标在哪里」的静态模式（这是表面数据能做到的），而是在12秒延迟中把感觉输入主动转换为扫视计划（感觉→运动的格式转换）——这需要大脑知道自己在视觉场中的位置（中央凹位置）、知道任务目标（眼跳到目标），然后计算两者的关系。这种「我的位置 + 目标位置 + 行动计划」的整合，正是Efros所说的主动具身探索（embodied active exploration）产生的深度计算。被动观看条件证明了这一点：相同的感觉输入，没有行动意图，V1就不执行这种转换——计算由任务驱动，而不是由感觉输入驱动。",
@@ -51,7 +51,7 @@
             "sensory-to-motor reformatting",
             "top-down feedback in early visual cortex"
           ],
-          "summary": "A bioRxiv preprint by Hsin-Hung Li and Clayton E. Curtis (Department of Psychology and Center for Neural Science, New York University), posted February 10, 2023. The paper uses fMRI during a memory-gu…",
+          "summary": "This is a bioRxiv preprint by Hsin-Hung Li and Clayton E. Curtis (Department of Psychology and Center for Neural Science, New York University), studying how working memory representations evolve over …",
           "editor_note": "",
           "connections": [
             {
@@ -73,7 +73,7 @@
               "that_point": ""
             },
             {
-              "slug": "alexei-efros-surface-deep-data-curious-robot",
+              "slug": "alexei-efros-surface-data-deep-data",
               "kind": "resonance",
               "conflict_type": "",
               "relation": "Efros argues that AI systems trained on passive surface data (statistical associations from text and images) cannot develop genuine world models — the missing ingredient is active, embodied, causally structured data. The V1 dynamics in this paper are a neural case study in what deep-data-derived computation looks like: during working memory, V1 does not merely store 'the target was there.' It transforms that record into a planned saccade trajectory — integrating current fixation position, remembered target location, and the action that will connect them. The passive viewing control confirms this is not a sensory effect but an action-driven computation. The same input, minus the task demand, produces none of the dynamics. This is exactly the distinction Efros draws: surface pattern recognition responds to the input; deep, action-oriented computation is driven by intention.",
@@ -90,7 +90,7 @@
       "title": "变换器注意力的执行控制缺陷：Stroop任务揭示LLM不能做什么",
       "date": "2026-06-14",
       "kind": "paper",
-      "summary": "大型语言模型（LLM）的自注意力机制（self-attention）在功能上等价于人类注意力的哪个层面？它是全部，还是只是一部分？",
+      "summary": "这是 Suketu Patel、Hongbin Wang 与 Jin Fan（昆士兰学院/CUNY + 德克萨斯A&M大学医学院）的一篇 bioRxiv 预印本。论文用心理学里最经典的冲突测试——Stroop任务——去拆解一个看似简单的问题：大型语言模型的自注意力机制，在功能上等价于人类注意力的哪个层面？是全部，还是只是其中一部分？答案是：LLM 表现出和人类几乎一样的 Stroop 效应（说明它…",
       "source_url": "https://doi.org/10.1101/2025.01.22.634394",
       "tags": [
         "执行控制缺陷",
@@ -117,7 +117,7 @@
           "that_point": "[Foody集核心论点] Mercor的使命是教AI做知识工作：通过人类反馈数据，AI可以学会编写代码、进行法律研究、分析财务报表。他认为这种「知识工作的自动化」会创造一个新的经济层级：人类指导AI，AI执行大多数实现。Foody看到的是AI的效率优势（更快、更廉价地完成知识工作）；Patel等人揭示的是AI的一个系统性弱点（在长序列冲突情境下无法维持目标导向行为）。这两个图景都是对的，但针对的是知识工作的不同维度：结构化信息检索与综合（AI优势），vs. 在噪声/冲突中维持判断（AI弱点）。"
         },
         {
-          "slug": "alexei-efros-surface-deep-data-curious-robot",
+          "slug": "alexei-efros-surface-data-deep-data",
           "kind": "resonance",
           "relation": "同构",
           "why": "Efros区分了「表面数据」（AI当前学习的那种，基于统计关联）和「深度数据」（因果结构化的、主动探索获得的数据）。他认为AI需要深度数据才能发展出真正的「世界模型」，而不只是模式匹配器。Patel等人的发现是这个区分的实证体现：Claude 3.5在没有prompt的情况下「识别」了Stroop范式（表面模式匹配的极致表现——它认出了任务），但还是给出了错误答案（没有「深度数据」支撑的世界模型，无法在运行中主动压制干扰）。「知道任务 ≠ 能执行任务」的解离就是Efros所说的「表面模式识别」和「真正的因果理解」之间差距的一个具体、可测量的表现。更具体地：执行控制需要的不只是「我知道颜色和词义之间的关系」，而是「我在当前情境中的目标是什么，以及我主动维持这个目标而不被干扰信息偏离的能力」——这正是Efros所说的「好奇心驱动的主动探索」（而不是被动的统计关联学习）所产生的能力。",
@@ -136,7 +136,7 @@
             "attention network theory",
             "hidden ceiling on context length"
           ],
-          "summary": "A bioRxiv preprint by Suketu Patel, Hongbin Wang, and Jin Fan (Queens College, CUNY and Texas A&M University College of Medicine), posted January 22, 2025. The paper uses the classic Stroop task to te…",
+          "summary": "This is a bioRxiv preprint by Suketu Patel, Hongbin Wang, and Jin Fan (Queens College, CUNY / Texas A&M University College of Medicine). The paper uses psychology's classic conflict test — the Stroop …",
           "editor_note": "",
           "connections": [
             {
@@ -158,7 +158,7 @@
               "that_point": ""
             },
             {
-              "slug": "alexei-efros-surface-deep-data-curious-robot",
+              "slug": "alexei-efros-surface-data-deep-data",
               "kind": "resonance",
               "conflict_type": "",
               "relation": "Efros distinguishes surface data (statistical associations learned from passive observation) from deep data (causally structured data gathered through active exploration). The paper's finding is a precise empirical version of this distinction: Claude 3.5 Sonnet recognizes the Stroop paradigm without a prompt — maximum surface-pattern matching — but still fails at the task. Knowing the pattern is not the same as having the underlying cognitive machinery. Executive control requires not just 'I know the relationship between word meaning and ink color' but 'I can actively maintain my current goal and suppress the dominant competing response.' That is not something statistical pattern learning over text produces. It is what Efros calls the gap between surface and deep data, measured now in percentage points.",
@@ -175,8 +175,8 @@
       "title": "自由高于金钱：Pavel Durov与Telegram的坚守",
       "date": "2026-06-14",
       "kind": "podcast",
-      "summary": "[00:00–00:18] 引言：自由哲学的起点——苏联出生，意大利童年，\"Svoboda vazhne deneg\"（自由比金钱重要）。\"没有自由你无法体验丰盈。\"",
-      "source_url": "",
+      "summary": "这是 Lex Fridman 对 Telegram 创始人 Pavel Durov 的访谈。Durov 出生于苏联，童年在意大利度过，他的核心哲学命题\"Svoboda vazhne deneg\"（自由比金钱重要）贯穿全场——但这次对话的特别之处在于：他几乎把每一个哲学命题都翻译成了一个具体的工程决策或身体习惯。访谈覆盖了 Telegram 的架构哲学（40人团队、完全自动化、\"人类是攻击向量\"）、…",
+      "source_url": "https://youtu.be/qjPH9njnaVU?si=x9ebCbdRcCod6zJx",
       "tags": [
         "自由高于金钱",
         "人类是攻击向量",
@@ -221,7 +221,7 @@
             "scarcity enables purpose",
             "the moral weight of craft"
           ],
-          "summary": "Pavel Durov is the founder and CEO of Telegram. He co-founded VKontakte (VK) — Russia's largest social network — in 2006, was forced out in 2014 after refusing to hand over user data to the Russian go…",
+          "summary": "This is Lex Fridman's interview with Telegram founder Pavel Durov. Durov was born in the Soviet Union and spent part of his childhood in Italy, and his core philosophical claim — \"Svoboda vazhne deneg…",
           "editor_note": "",
           "connections": [
             {
@@ -260,8 +260,8 @@
       "title": "集体农庄到WeWork：社区愿景的失控与重建 · Adam Neumann",
       "date": "2026-06-14",
       "kind": "podcast",
-      "summary": "[00:01–02:12] 早晨习惯介绍 — 单鼻孔呼吸冥想、蜡烛、祈祷，「我一直在说话，现在想开始听了」",
-      "source_url": "",
+      "summary": "这是 Rick Rubin 的播客 Tetragrammaton 对 WeWork 联合创始人、Flow 创始人 Adam Neumann 的访谈。Neumann 在以色列出生，童年搬家13次，其中包括在集体农庄（kibbutz）度过的几年——母亲作为单亲医生靠夜班换取住房，这段经历后来成为他所有创业项目共同的底层逻辑：把「被社区托住」的体验规模化地搬进商业地产。访谈沿着他的人生轨迹展开：从 Gr…",
+      "source_url": "https://youtu.be/RAHsF4A8GLM?si=yEde8Tld7lZRPiq1",
       "tags": [
         "集体农庄精神",
         "WeWork失控",
@@ -306,7 +306,7 @@
             "narrative surrender",
             "authenticity over wealth"
           ],
-          "summary": "Adam Neumann is the co-founder of WeWork and the founder of Flow. He grew up in Israel, moved thirteen times before finishing school, spent five years in a kibbutz where his mother worked as the overn…",
+          "summary": "This is an interview with WeWork co-founder and Flow founder Adam Neumann on Rick Rubin's podcast Tetragrammaton. Neumann was born in Israel and moved thirteen times as a child, including several year…",
           "editor_note": "",
           "connections": [
             {
@@ -346,7 +346,7 @@
       "date": "2026-06-14",
       "kind": "podcast",
       "summary": "Lewis是台湾出生、德国和广州成长的工程师，2003年毕业于斯坦福机械工程，在爱普生（Epson）做自动化生产，2008年牛津MBA毕业当天雷曼兄弟倒闭，此后做了几年供应链咨询和食品创业（2年开7家店），2012年被老朋友招募加入SpaceX。他在SpaceX待了7年，先做飞龙（Dragon）飞船内部设计，后升任猎鹰9号（Falcon 9）首席制造工程师，离职时管理7个部门、超过3000个火箭零…",
-      "source_url": "",
+      "source_url": "https://youtu.be/a93FT2340c0?si=VYbwPUuIeqiwX8vX",
       "tags": [
         "SpaceX口述史",
         "第一原理制造",
@@ -426,97 +426,12 @@
       }
     },
     {
-      "slug": "alexei-efros-surface-deep-data-curious-robot",
-      "title": "表面数据与深度数据：好奇心、体现与AI的下一个前沿 · Alexei Efros",
-      "date": "2026-06-14",
-      "kind": "podcast",
-      "summary": "Alexei Efros（阿廖沙·叶夫罗斯）是UC Berkeley计算机视觉领域的教授，Shiri Azaria的博士导师。这是他在一次AI/计算机视觉研讨会上的演讲，约34分钟加上15分钟的Q&A。他明确说这个演讲是「与Alison Gopnik之前演讲的呼应（a rhyme）」，两人从不同角度论证了同一个核心问题：当前AI的根本性局限，以及越过它需要什么。",
-      "source_url": "",
-      "tags": [
-        "深度数据",
-        "具身学习",
-        "好奇心驱动探索",
-        "苦涩教训批判",
-        "婴儿即科学家"
-      ],
-      "connections": [
-        {
-          "slug": "alison-gopnik-childhood-learning-ai-cultural-technology",
-          "kind": "resonance",
-          "relation": "同构",
-          "why": "Efros在演讲开头明确说：「这个演讲是Alison之前演讲的呼应（a rhyme）。」两人从不同学科——发展心理学和计算机视觉——独立到达了同一个核心结论：当前AI系统是「文化技术」（cultural technology），不是智能代理。Gopnik的框架：AI像印刷机和百科全书，它放大和传播人类已知的东西。Efros的表述：当前AI是对2000年人类书写知识的蒸馏，是插值机器，不是外推机器。「婴儿即科学家」（scientist in the crib）是Gopnik的框架，Efros直接借用并延伸为「婴儿床里的机器人科学家」——他的终极愿景。Gopnik还出现在Q&A中，与Efros讨论探索-利用的区别，进一步确认了两人框架的互补性：Gopnik从认知机制，Efros从工程实现。",
-          "this_point": "[00:37-01:09] Efros开场：「这个演讲是对Alison本周早些时候演讲的呼应，是我思考了一段时间的东西。」[16:18-16:37] Efros直接引用Gopnik的框架：「我真的很喜欢Alison对当前AI系统的描述方式——她说，这些AI不是智能代理，它们是文化技术。就像百科全书或印刷机。」[29:30-29:52] Efros借用Gopnik的「婴儿即科学家」来定义他的终极目标：「婴儿床里的机器人科学家——利用Alison的'婴儿是科学家'，用某种好奇心、内在动机，来挖掘深度数据。」[41:05-41:52] Gopnik在Q&A中出现并与Efros讨论：「RL在某种意义上也是在做深度数据，它也在行动，在做事……但只为目标服务的数据获取，和纯粹的认知好奇探索，是有区别的。」",
-          "that_point": "[大约45:00-60:00] Gopnik的核心论点：婴儿不是小型成人，而是进化设计的学习机器——他们的「软脑」、延长的童年、以及纯粹的探索行为，是人类进化出来专门用于学习的适应。AI当前作为「文化技术」的框架：AI就像印刷机——它放大和加速文化知识的传播和组合，但并不生产新知识。这与Efros「蒸馏」和「插值」的批判完全同构——都在说同一件事：当前AI最擅长的是重组和传播人类已知的东西，而不是真正超越。两人在同一个研讨会上，从不同角度论证了同一个论题。"
-        },
-        {
-          "slug": "james-dyson-5127-prototypes-invention",
-          "kind": "resonance",
-          "relation": "同构",
-          "why": "Dyson的5127个原型哲学在Efros的框架里就是「深度数据收集」的人类版本。核心对应：Dyson「你无法通过读书学会做吸尘器」=Efros「你无法通过爬取表面数据学会物理世界」。Dyson的每一个原型失败都是负反馈——Efros说这正是当前机器人训练方法最缺少的。Dyson的具身知识（必须亲手做才能理解材料、气流、结构）=Efros的深度数据（只有通过行动才能获取的关于世界的信息）。更深的共鸣：Dyson明确批评「先研究再做」的路线——这与Efros对「表面数据优先」的AI训练方法的批判是镜像。两人都相信某类知识只能通过主动行动来获取，而不能通过被动观察来传递。Dyson把这个信念用于产品开发，Efros把这个信念用于理解AI的根本局限。",
-          "this_point": "[19:35-24:29] Moravec悖论的引入：「国际象棋解决了30年了，但这个移棋子的家伙——还没有机器人能做到。」深度数据的三个具体例子：拿起刀才能知道它的重量；倒出液体才能看到粘度；试图打开Mac才能知道哪个方向；「环顾四周，想象你手机的味道——有点可怕，我们能做到。我们能做到是因为我们小时候把这个房间里的所有东西都放进嘴里了。」[26:33-29:04] 当前机器人训练方法的三个不足：遥操作（缺少负反馈，被动）、模拟器（缺乏真实感）、视频学习（「我试图通过看电视学萨尔萨舞——不可能，你真的需要进去做」）。",
-          "that_point": "[07:19-09:49, 30:31-33:00] Dyson的5127个原型哲学：「每个失败都让我更接近解决方案。失败比成功更有趣。」他的迭代方法：拿起来，问怎么改进，改进，放下，重复。Dyson明确批评「先研究再行动」：太多研究者读别人的研究多于做自己的实验。他的具身知识论：「对于循环吸尘器，你必须发明一个，因为没有其他方法能理解它为什么这样工作。」Dyson的5127次失败全都是物理反馈——材料如何响应，气流如何变化，结构如何崩溃。这正是Efros说机器人最缺少的：负反馈，真实的物理世界推回。"
-        },
-        {
-          "slug": "brendan-foody-mercor-teaching-ai-knowledge-work",
-          "kind": "resonance",
-          "relation": "张力",
-          "why": "Foody对当前AI能力持乐观态度，认为AI正在重构知识工作，Mercor正在训练AI做原本需要人类专业知识的任务（法律、财务分析等）。Efros则从计算机视觉研究者的角度提出了结构性批判：当前AI系统在本质上是高维度插值机器，依赖表面数据，无法真正外推，无法产生真正的新知识。两者的对比不是乐观vs悲观，而是时间尺度和应用场景的差异：Foody关注的是「今天的AI能做什么知识工作」，这些任务在Efros的框架里也许正好处于高维插值的能力圈内（结构化文档、先例检索、标准分析）。Efros关注的是更长期的问题：这个范式的边界在哪里，哪些任务永远不会在这个框架内解决（物理世界理解、真正的创造性外推）。这个张力也是一个互补：也许Foody的任务都是表面数据可以处理的，而真正的「深度数据」任务（机器人、物理科学发现）需要Efros的框架。",
-          "this_point": "[17:55-18:43] Efros对当前AI本质的批判：「我们在把2000年的人类书写知识蒸馏进这个模型。我们知道蒸馏模型不如真实的东西——它们不能外推，不能持续学习……有些东西在窃取知识和自己生成知识之间是劣质的。」「这种爬取的数据能给我们下一个博尔赫斯或下一个巴赫吗？我不这么认为。」[33:01-33:15] 总结：「我担心我们不会超越这种模仿和拼贴。要走得更远，我们需要深度数据。」",
-          "that_point": "[Foody集的主要论点] Foody的核心主张：当前AI系统（GPT-4级别）正在做的工作已经相当于顶尖人类专家——法律文件分析、财务建模、技术评估——而Mercor正在构建基础设施来训练AI系统做更多这类知识工作，并把这些能力部署给更广泛的人群。他的乐观来自具体的能力证明：AI在律师资格考试、医学执照考试等高门槛测试上的表现。Efros的框架提供了一种理解这个现象的方式：这些任务都高度结构化、有大量先例数据、答案都存在于2000年的书写知识里——正是高维插值最擅长的领域。两者并不矛盾，但边界在哪里，是开放问题。"
-        }
-      ],
-      "editor_note": "",
-      "i18n": {
-        "en": {
-          "title": "Surface Data, Deep Data, and the Curious Robot: What Current AI Is Missing · Alexei Efros",
-          "tags": [
-            "deep data",
-            "embodied learning",
-            "curiosity-driven exploration",
-            "bitter lesson critique",
-            "babies as scientists"
-          ],
-          "summary": "Alexei Efros — known to this audience, he notes, primarily as Shiri's PhD advisor — opens by saying that this talk is meant to be a rhyme to Alison Gopnik's earlier presentation at the same workshop. …",
-          "editor_note": "",
-          "connections": [
-            {
-              "slug": "alison-gopnik-childhood-learning-ai-cultural-technology",
-              "kind": "resonance",
-              "conflict_type": "",
-              "relation": "Efros opens by saying this talk is meant as 'a rhyme to Alison's earlier talk' at the same workshop. Both reach the same conclusion from different disciplines: current AI systems are cultural technologies — sophisticated amplifiers and recombinators of existing human knowledge, not genuine agents. Gopnik's 'scientist in the crib' is Efros's direct inspiration for his ultimate goal: the robot scientist in the crib, a system with no assigned task, whose only objective is to mine the world for deep data. In the Q&A, Gopnik appears and pushes on the distinction between goal-directed RL and pure epistemic curiosity — both agree that RL with fixed objectives is different from the kind of open-ended exploration that produces genuine understanding.",
-              "why": "",
-              "this_point": "",
-              "that_point": ""
-            },
-            {
-              "slug": "james-dyson-5127-prototypes-invention",
-              "kind": "resonance",
-              "conflict_type": "",
-              "relation": "Dyson's 5,127 prototypes are a human implementation of what Efros calls deep data collection. Both argue that certain kinds of knowledge can only be acquired through physical action — you cannot learn it by reading about it, watching it, or scraping it from the internet. Dyson's embodied knowledge (how a material responds under stress, how airflow behaves, how a structure fails) is exactly what Efros says is missing from all current AI training pipelines. Both explicitly critique the 'study first, act later' approach: Dyson says reading others' research is no substitute for your own experiments; Efros shows that learning salsa from videos doesn't work. The key difference is scale: Dyson applied this at the level of a product and a bench; Efros is arguing for it as the defining challenge of the next generation of AI.",
-              "why": "",
-              "this_point": "",
-              "that_point": ""
-            },
-            {
-              "slug": "brendan-foody-mercor-teaching-ai-knowledge-work",
-              "kind": "resonance",
-              "conflict_type": "",
-              "relation": "Foody is optimistic about deploying current AI capabilities in knowledge work — legal analysis, financial modeling, technical assessment — tasks where AI performance already matches or exceeds human experts. Efros is identifying a structural limitation in the same generation of systems: they are high-dimensional interpolators trained on surface data, incapable of genuine extrapolation, producing mimicry and pastiche rather than new knowledge. The tension resolves partially when you notice that the tasks Foody is optimistic about — structured documents, legal precedent, standardized tests — are exactly the kind of tasks that high-dimensional interpolation handles best. The tasks Efros says surface data cannot solve — physical world understanding, genuine creative invention — may simply not be in scope for Foody's use cases. Where the boundary falls is the open question.",
-              "why": "",
-              "this_point": "",
-              "that_point": ""
-            }
-          ]
-        }
-      }
-    },
-    {
       "slug": "tobi-lutke-companies-as-technology-shopify-os",
       "title": "公司即技术：差异化的义务与创始人的工艺 · Tobi Lütke",
       "date": "2026-06-14",
       "kind": "podcast",
-      "summary": "[00:02-03:41] 开场定位：David介绍Tobi是他采访的创始人中最常被其他创始人称为「singular」的人。Tobi的第一个命题：公司即社会技术。公司允许你合法地「全力追求一件事」而不被社会排斥——这本身是人类历史上极为罕见的制度发明。公司本质上是对你所见世界的反事实实验：「你试图建立你认为应该存在的东西，然后让市场检验它，如果市场同意，它会用金钱的形式把能量还给你，让你继续做这件…",
-      "source_url": "",
+      "summary": "这是 David Senra（《Founders》播客主持人）对 Shopify 联合创始人、运营公司21年的 CEO Tobi Lütke 的访谈。Tobi 被其他创始人提到的频率高到被称为「singular」（独一无二）。访谈从一个第一性原理问题开始——公司到底是什么——然后沿着他真正做的事情展开：把 COVID 当作清零重建公司的契机，用 Python 和 SAT 求解器把整个公司结构（职称…",
+      "source_url": "https://youtu.be/ZSM2uFnJ5bs?si=PmSUanLOTp2sgprn",
       "tags": [
         "公司即社会技术",
         "Shopify操作系统",
@@ -561,7 +476,7 @@
             "rivalry vs competition",
             "brain as narrative alignment mechanism"
           ],
-          "summary": "Tobi Lütke has been building Shopify for twenty-one years. David Senra has spent ten years reading biographies of history's greatest founders. He says Lütke's name comes up repeatedly when he asks the…",
+          "summary": "This is David Senra (host of the Founders podcast) interviewing Shopify co-founder and 21-year CEO Tobi Lütke. Other founders mention Tobi so often that David calls him \"singular.\" The conversation op…",
           "editor_note": "",
           "connections": [
             {
@@ -600,8 +515,8 @@
       "title": "世界比你想象的更可塑：零内省、创始人资本主义与马斯克方法 · Marc Andreessen",
       "date": "2026-06-14",
       "kind": "podcast",
-      "summary": "[00:00-08:00] 开场：David解释他做新节目的动机——和真正知道自己在说什么的人对话时，他要抵制不插嘴的冲动。Marc是他遇过最能说的人之一。Marc的第一个主题：零内省哲学。「前进。走。」弗洛伊德和1910-1920年代创造了「我们应该坐在那里分析自己」的文化——但在弗洛伊德之前，历史上伟大的人物根本不这样做。他见过硅谷创始人在压力下使用迷幻药，「平静地离开了」然后辞职搬去印度尼西…",
-      "source_url": "",
+      "summary": "这是 David Senra（《Founders》播客主持人）对 Marc Andreessen 的一场长篇对谈，过程中 Andrew Huberman 也短暂加入提问。内容覆盖了 Marc 几个最核心、最反直觉的命题：零内省作为一种刻意的精力分配策略，而不是无意识的缺失；「世界比你想象的更容易被重新校准」这个驱动他每天工作的基本信念；管理主义（专业经理人文化）与布尔乔亚资本主义（创始人亲自掌舵）…",
+      "source_url": "https://youtu.be/qBVe3M2g_SA?si=4nH-M9kcrb9AqiAB",
       "tags": [
         "零内省",
         "创始人资本主义",
@@ -646,7 +561,7 @@
             "moral panics",
             "Elon's management method"
           ],
-          "summary": "Marc Andreessen co-founded Netscape at twenty-two, was at the table for the first commercial web browser, the first internet advertising business, and the first e-commerce platform. He then co-founded…",
+          "summary": "This is a long-form conversation between David Senra (host of the Founders podcast) and Marc Andreessen, with Andrew Huberman briefly joining to ask a question. It covers several of Marc's most centra…",
           "editor_note": "",
           "connections": [
             {
@@ -686,7 +601,7 @@
       "date": "2026-06-14",
       "kind": "podcast",
       "summary": "Daniel Ek是Spotify的联合创始人兼CEO，从2006年建立Spotify至今将近二十年。这是David Senra的新节目「第一位嘉宾」——他选择Daniel，因为与Daniel的一次私下晚餐对话从根本上改变了他对工作和生活的理解。整集不是采访，更像是两个相互学习多年的朋友之间的对话：一个创始人和一个几乎读遍所有伟大创始人传记的人，在研究「那些传记里的人到底是什么样的人」这件事上相互…",
-      "source_url": "",
+      "source_url": "https://youtu.be/qiXH0y2V3_8?si=kNvfy4iW85RpmnUu",
       "tags": [
         "影响先于幸福",
         "自我精通",
@@ -771,7 +686,7 @@
       "date": "2026-06-14",
       "kind": "podcast",
       "summary": "Patrick O'Shaughnessy是「Invest Like The Best」播客主持人，以及Colossus和Positive Sum的创始人。这是他与Founders播客主持人David Senra之间一场罕见的双向对话——通常是Patrick采访他人，这次轮到他坐到另一侧。",
-      "source_url": "",
+      "source_url": "https://youtu.be/E8B-P1oGuz4?si=UnR_tDYITDaSYeVU",
       "tags": [
         "原则与目标",
         "生命之业",
@@ -856,7 +771,7 @@
       "date": "2026-06-14",
       "kind": "podcast",
       "summary": "这是《The Book of Elon: Elon Musk's Most Useful Ideas in His Own Words》的作者与Founders播客主持人David Senra的对谈。作者花了五年、数千小时研究Elon Musk，把他最重要的思维工具提炼进这本书。本集是两人翻阅书的亮点段落、互相补充上下文的对话。",
-      "source_url": "",
+      "source_url": "https://youtu.be/CdBcZSau5iA?si=6fvU6uMUB1u-vN60",
       "tags": [
         "五步算法",
         "物理律法",
@@ -941,7 +856,7 @@
       "date": "2026-06-14",
       "kind": "podcast",
       "summary": "Michael Ovitz，CAA（创意艺人经纪公司）的联合创始人，好莱坞历史上最强大的经纪人，在这次对话中和 David Senra 回顾了他如何从圣费尔南多谷的穷小子（父亲是一周挣不到300美元的酒水推销员）成长为代理了46位好莱坞票房前50名导演的掌权者，同时也是撮成索尼收购哥伦比亚影业、可口可乐广告重构、环球影业融资的幕后策略家。",
-      "source_url": "",
+      "source_url": "https://youtu.be/yhh-J0zVsik?si=nu1Qg1WdCz2dOm2h",
       "tags": [
         "好莱坞",
         "经纪人",
@@ -1026,7 +941,7 @@
       "date": "2026-06-14",
       "kind": "podcast",
       "summary": "Garry Tan，Y Combinator 现任 CEO、硅谷最重要的早期创业培养机构的掌舵人，在一次深度对话中讲述了三个彼此缠绕的故事：他从酗酒、暴力的家庭环境逃进计算机世界的童年；他如何在2022年被召回接管 YC 并将其从「Alphabet 时刻」拉回核心使命；以及他为什么相信我们正处在一场和 PC 革命规模相当的个人 AI 时代——而这次革命的核心不是能力，是民主化。",
-      "source_url": "",
+      "source_url": "https://youtu.be/bTxALvFKP8M?si=NluV8wvfo-MylOyk",
       "tags": [
         "YC创始文化",
         "个人AI",
@@ -1111,7 +1026,7 @@
       "date": "2026-06-14",
       "kind": "podcast",
       "summary": "John Mackey 是 Whole Foods Market 的联合创始人兼 CEO，从 1978 年一家叫 SaferWay 的小型天然食品店，用 44 年时间将其建造成美国最大的天然食品超市连锁（最终被亚马逊以 137 亿美元收购）。他在这次谈话中讨论他刚刚出版的回忆录，以及贯穿全书的主题：布道者型创始人与雇佣兵型创始人的区别、资本主义如何创造非零和价值、他与父亲的关系、母亲临终前的最后一…",
-      "source_url": "",
+      "source_url": "https://youtu.be/U8zqsiePKsg?si=tAe-6DiWmUOT_iCn",
       "tags": [
         "创业哲学",
         "使命驱动",
@@ -1179,7 +1094,7 @@
       "date": "2026-06-14",
       "kind": "podcast",
       "summary": "James Dyson 坐下来和 David Senra 谈论他的两本自传以及贯穿其中的发明哲学。Dyson 是英国最成功的私人制造商之一，以 5127 次原型迭代发明了无需更换集尘袋的气旋真空吸尘器，由此创办了年营收数十亿英镑的 Dyson 公司。他从未上市，至今拥有 100% 股权。",
-      "source_url": "",
+      "source_url": "https://youtu.be/Se64B8TKfjA?si=7yTNRW0n8_3-H-Lv",
       "tags": [
         "发明与创新",
         "工程哲学",
@@ -1247,7 +1162,7 @@
       "date": "2026-06-14",
       "kind": "podcast",
       "summary": "这是 David Senra 的 Founders 播客，嘉宾 Rick Rubin——半个世纪以来最有影响力的唱片制作人，合作者包括 LL Cool J、Johnny Cash、Red Hot Chili Peppers、Eminem、Jay-Z、Beastie Boys 等——谈论他对音乐、创作、减法美学、倾听和持续工作的理解。",
-      "source_url": "",
+      "source_url": "https://youtu.be/g6MEDOY7tHo?si=aZ4IIwsS_4AkE51D",
       "tags": [
         "创作过程",
         "减法美学",
@@ -1315,7 +1230,7 @@
       "date": "2026-06-14",
       "kind": "podcast",
       "summary": "这是 David Senra 的 Founders 播客，嘉宾 Ivanka Trump——早年职业法国号演奏家的比喻放在别处，而她的轨迹是：22岁创办第一家公司→在特朗普集团负责地产开发（老邮政局翻新、特朗普多拉）→同时运营时装品牌（年销售额8亿美元）→2017年随父进入白宫四年→2021年离开华府迁居迈阿密→重新开始，投身科技早期投资（AI、生物技术、机器人）、地产（阿尔巴尼亚岛 Seaiso…",
-      "source_url": "",
+      "source_url": "https://youtu.be/VhsiMd9ZFNk?si=WaRGKH5RIBF3lq5J",
       "tags": [
         "自我认知",
         "创业哲学",
@@ -1366,7 +1281,7 @@
       "date": "2026-06-14",
       "kind": "podcast",
       "summary": "这是 Tyler Cowen 的\"Conversations with Tyler\"播客，嘉宾 Arthur Brooks——哈佛肯尼迪学院教授，前美国企业研究所（AEI）所长（11年），曾是职业法国号演奏家、经济学家，正在进行人生第四次\"螺旋式转型\"——谈论他研究幸福的发现，以及如何在充满意义的宇宙中生活。",
-      "source_url": "",
+      "source_url": "https://youtu.be/PIbk5AnJGqc?si=1JooTQb9D1a8bebZ",
       "tags": [
         "幸福学",
         "人生意义",
@@ -1434,7 +1349,7 @@
       "date": "2026-06-14",
       "kind": "podcast",
       "summary": "这是 Tyler Cowen 的\"Conversations with Tyler\"播客，嘉宾 Brendan Foody 是 Mercor 的 CEO 和联合创始人（2023年初创立），当时22岁，据说是有史以来最年轻的独角兽创始人。Mercor 做的事是雇用专家来教 AI 模型：当 OpenAI 想让模型学习写诗，Mercor 找来最顶尖的诗人；想提升法律能力，找来 Cass Sunstein…",
-      "source_url": "",
+      "source_url": "https://youtu.be/zld39xD4sus?si=WrrsvImuMSX5fv4G",
       "tags": [
         "AI训练",
         "知识工作",
@@ -1502,7 +1417,7 @@
       "date": "2026-06-14",
       "kind": "podcast",
       "summary": "这是一场由 Sarah Paine 在海军战争学院（她在那里执教24年）给非专业听众所做的公开演讲。Paine 是俄罗斯、中国与日本大战略领域的历史学家，她的核心论点是：陆权大国（大象）和海权大国（鲸鱼）对世界的组织逻辑从根本上不同，而这一差异由地理决定——不是由意识形态、领导人性格或历史偶然性决定。普京和习近平并非异类，他们只是在运行各自地理环境决定的古老安全逻辑。",
-      "source_url": "",
+      "source_url": "https://youtu.be/OS1NZLgKM2c?si=3tPDMLU6aQFHX9R1",
       "tags": [
         "地缘政治",
         "海权与陆权",
@@ -1553,7 +1468,7 @@
       "date": "2026-06-14",
       "kind": "podcast",
       "summary": "这是 Tyler Cowen 的\"Conversations with Tyler\"播客，嘉宾 Alison Gopnik 是 UC Berkeley 心理学与哲学教授，全球最重要的儿童发展心理学家之一，著有《摇篮里的科学家》《园丁与木匠》等书。她长期研究儿童的因果推理、贝叶斯学习与心理理论（theory of mind）。对话覆盖：科学家和儿童如何同样做因果推理；儿童作为\"模拟退火\"高温搜索器；…",
-      "source_url": "",
+      "source_url": "https://youtu.be/JIFdeXPB1Pg?si=N_faH9jRjDjsO-d9",
       "tags": [
         "儿童学习",
         "认知科学",
@@ -1638,7 +1553,7 @@
       "date": "2026-06-14",
       "kind": "podcast",
       "summary": "这是 Tyler Cowen 的\"Conversations with Tyler\"播客的一期对话，嘉宾 Diarmaid MacCulloch 是牛津大学教会史荣退教授，也是当代最重要的宗教史学家之一，著有《基督教：一种全球历史》《克兰默传》等多部里程碑式作品。本期围绕他的新书《低于天使：性与基督教的历史》（Lower than the Angels）展开，以问答形式覆盖从早期基督教到现代英国国…",
-      "source_url": "",
+      "source_url": "https://youtu.be/VeDKWf80Z3M?si=tgYchuRPSXpo_dEk",
       "tags": [
         "宗教史",
         "基督教",
@@ -1689,7 +1604,7 @@
       "date": "2026-06-14",
       "kind": "podcast",
       "summary": "这是 UC Berkeley 计算机视觉教授 Alexei Efros（Alyosha）在一场学术研讨会上的演讲，他是 Shiri 的博士导师，与 Alison Gopnik、Jitendra Malik、Phil Isola 等人同处一个多日工作坊。演讲的核心问题非常直接：Rich Sutton 2019 年的\"苦涩的教训\"究竟苦在哪里？计算（Compute）真的能替代数据（Data）吗？Efr…",
-      "source_url": "",
+      "source_url": "https://www.youtube.com/live/vk6lgHjjGp8?si=5F0NXJlFZ_LtNfgm",
       "tags": [
         "具身智能",
         "好奇心驱动",
