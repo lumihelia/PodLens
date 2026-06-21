@@ -16,7 +16,7 @@
       "url": "https://lens.lumihelia.com/papers/li-curtis-working-memory-neural-dynamics.html",
       "title": "工作记忆的神经种群动力学：记忆不是存储，是变形",
       "date_published": "2026-06-14",
-      "summary": "工作记忆（working memory，WM）在人类大脑中是如何在时间上演化的？记忆内容在延迟期间的神经表征是稳定不变，还是动态变化的？不同脑区的记忆码是否有差异？",
+      "summary": "这是 Hsin-Hung Li 与 Clayton E. Curtis（纽约大学心理学系与神经科学中心）的一篇 bioRxiv 预印本，研究工作记忆（working memory）在人脑中如何随时间演化：记忆内容在延迟期间的神经表征，究竟是稳定不变的，还是动态变化的？不同脑区之间是否存在差异？论文用一个记忆引导扫视任务配合 fMRI 给出了答案——而答案因脑区而异，这个差异本身揭示了工作记忆的真正…",
       "tags": [
         "工作记忆不是存储而是计算",
         "视觉皮层的动态记忆码",
@@ -31,7 +31,7 @@
       "url": "https://lens.lumihelia.com/papers/patel-wang-fan-transformer-executive-control.html",
       "title": "变换器注意力的执行控制缺陷：Stroop任务揭示LLM不能做什么",
       "date_published": "2026-06-14",
-      "summary": "大型语言模型（LLM）的自注意力机制（self-attention）在功能上等价于人类注意力的哪个层面？它是全部，还是只是一部分？",
+      "summary": "这是 Suketu Patel、Hongbin Wang 与 Jin Fan（昆士兰学院/CUNY + 德克萨斯A&M大学医学院）的一篇 bioRxiv 预印本。论文用心理学里最经典的冲突测试——Stroop任务——去拆解一个看似简单的问题：大型语言模型的自注意力机制，在功能上等价于人类注意力的哪个层面？是全部，还是只是其中一部分？答案是：LLM 表现出和人类几乎一样的 Stroop 效应（说明它…",
       "tags": [
         "执行控制缺陷",
         "Stroop效应",

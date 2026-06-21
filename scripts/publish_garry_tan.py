@@ -13,7 +13,7 @@ PRIVATE_HEADINGS = ["证据锚定洞察", "个人映射", "值得收藏的概念
 ITEM = {
     "slug": "garry-tan-yc-personal-ai-revolution",
     "report": "reports/garry-tan-yc-personal-ai-revolution.md",
-    "url": "",
+    "url": "https://youtu.be/bTxALvFKP8M?si=NluV8wvfo-MylOyk",
     "kind": "podcast",
     "date": "2026-06-14",
     "title": "YC、个人AI与那间七岁的屋子 · Garry Tan",

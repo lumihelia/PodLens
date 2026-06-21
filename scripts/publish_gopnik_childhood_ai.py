@@ -13,7 +13,7 @@ PRIVATE_HEADINGS = ["证据锚定洞察", "个人映射", "值得收藏的概念
 ITEM = {
     "slug": "alison-gopnik-childhood-learning-ai-cultural-technology",
     "report": "reports/alison-gopnik-childhood-learning-ai-cultural-technology.md",
-    "url": "",
+    "url": "https://youtu.be/JIFdeXPB1Pg?si=N_faH9jRjDjsO-d9",
     "kind": "podcast",
     "date": "2026-06-14",
     "title": "儿童如何学习，AI 是什么文化技术 · Alison Gopnik",

@@ -13,7 +13,7 @@ PRIVATE_HEADINGS = ["证据锚定洞察", "个人映射", "值得收藏的概念
 ITEM = {
     "slug": "sarah-paine-continental-maritime-powers-geopolitics",
     "report": "reports/sarah-paine-continental-maritime-powers-geopolitics.md",
-    "url": "",
+    "url": "https://youtu.be/OS1NZLgKM2c?si=3tPDMLU6aQFHX9R1",
     "kind": "podcast",
     "date": "2026-06-14",
     "title": "为何普京和习近平无法逃脱地理的宿命 · Sarah Paine",

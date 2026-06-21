@@ -13,7 +13,7 @@ PRIVATE_HEADINGS = ["证据锚定洞察", "个人映射", "值得收藏的概念
 ITEM = {
     "slug": "lewis-spacex-7years-manufacturing-musk",
     "report": "reports/lewis-spacex-7years-manufacturing-musk.md",
-    "url": "",
+    "url": "https://youtu.be/a93FT2340c0?si=VYbwPUuIeqiwX8vX",
     "kind": "podcast",
     "date": "2026-06-14",
     "title": "SpaceX七年口述史：第一原理制造、火箭民主化与马斯克的管理幽灵 · Lewis",

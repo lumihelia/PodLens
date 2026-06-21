@@ -13,7 +13,7 @@ PRIVATE_HEADINGS = ["证据锚定洞察", "个人映射", "值得收藏的概念
 ITEM = {
     "slug": "marc-andreessen-malleable-world-founder-capitalism",
     "report": "reports/marc-andreessen-malleable-world-founder-capitalism.md",
-    "url": "",
+    "url": "https://youtu.be/qBVe3M2g_SA?si=4nH-M9kcrb9AqiAB",
     "kind": "podcast",
     "date": "2026-06-14",
     "title": "世界比你想象的更可塑：零内省、创始人资本主义与马斯克方法 · Marc Andreessen",

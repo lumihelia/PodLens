@@ -14,7 +14,7 @@
 <meta property="og:description" content="Lewis is a former SpaceX manufacturing engineer who spent seven years at the company, ending as the executive responsible for seven departments and more than three thousand rocket parts. He grew up in…">
 <meta property="og:url" content="https://lens.lumihelia.com/en/episodes/lewis-spacex-7years-manufacturing-musk.html">
 <link rel="alternate" type="application/rss+xml" title="PodLens" href="https://lens.lumihelia.com/en/feed.xml"><link rel="alternate" type="application/json" title="PodLens" href="https://lens.lumihelia.com/en/episodes.json">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "SpaceX Oral History: First-Principles Manufacturing, the Rocket Cost Revolution, and the Musk Management Ghost · Lewis", "datePublished": "2026-06-14", "inLanguage": "en", "url": "https://lens.lumihelia.com/en/episodes/lewis-spacex-7years-manufacturing-musk.html", "description": "Lewis is a former SpaceX manufacturing engineer who spent seven years at the company, ending as the executive responsible for seven departments and more than three thousand rocket parts. He grew up in…", "author": {"@type": "Person", "name": "lumihelia"}, "publisher": {"@type": "Person", "name": "lumihelia"}, "keywords": "SpaceX oral history, first-principles manufacturing, Coke can conversation, rocket cost revolution, SpaceX Mafia"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "SpaceX Oral History: First-Principles Manufacturing, the Rocket Cost Revolution, and the Musk Management Ghost · Lewis", "datePublished": "2026-06-14", "inLanguage": "en", "url": "https://lens.lumihelia.com/en/episodes/lewis-spacex-7years-manufacturing-musk.html", "description": "Lewis is a former SpaceX manufacturing engineer who spent seven years at the company, ending as the executive responsible for seven departments and more than three thousand rocket parts. He grew up in…", "author": {"@type": "Person", "name": "lumihelia"}, "publisher": {"@type": "Person", "name": "lumihelia"}, "keywords": "SpaceX oral history, first-principles manufacturing, Coke can conversation, rocket cost revolution, SpaceX Mafia", "isBasedOn": "https://youtu.be/a93FT2340c0?si=VYbwPUuIeqiwX8vX"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -91,8 +91,35 @@ a.ts:hover { border-bottom-style: solid; }
 <div class="topbar"><nav class="sectionnav"><a class="brand" href="https://lens.lumihelia.com/en/">PodLens</a><a class="sec active" href="https://lens.lumihelia.com/en/">episodes</a><a class="sec" href="https://lens.lumihelia.com/en/papers/">papers</a></nav><a class="langswitch" href="https://lens.lumihelia.com/episodes/lewis-spacex-7years-manufacturing-musk.html">中文</a></div>
 <h1>SpaceX Oral History: First-Principles Manufacturing, the Rocket Cost Revolution, and the Musk Management Ghost · Lewis</h1>
 <p class="meta">2026-06-14 · A faithful, transcript-grounded reading by PodLens</p>
-
-
+<p class="source">Original episode:<a href="https://youtu.be/a93FT2340c0?si=VYbwPUuIeqiwX8vX" target="_blank" rel="noopener">https://youtu.be/a93FT2340c0?si=VYbwPUuIeqiwX8vX</a>　·　Timestamps are clickable — they seek the player in place</p>
+<div class="player-wrap"><div class="player-box"><div id="ytplayer"></div></div></div>
+<script>
+var PL = (function() {
+  var player, ready = false, pending = null;
+  window.onYouTubeIframeAPIReady = function() {
+    player = new YT.Player('ytplayer', {
+      videoId: 'a93FT2340c0',
+      host: 'https://www.youtube-nocookie.com',
+      playerVars: {playsinline: 1, rel: 0},
+      events: {onReady: function() { ready = true; if (pending != null) { var p = pending; pending = null; seek(p); } }}
+    });
+  };
+  function seek(s) {
+    if (!ready) { pending = s; return false; }
+    player.seekTo(s, true); player.playVideo();
+    document.querySelector('.player-wrap').scrollIntoView({behavior: 'smooth', block: 'start'});
+    return false;
+  }
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+  document.addEventListener('DOMContentLoaded', function() {
+    var t = new URLSearchParams(location.search).get('t');
+    if (t) { seek(parseInt(t, 10)); }
+  });
+  return {seek: seek};
+})();
+</script>
 <div class="tags"><span>SpaceX oral history</span><span>first-principles manufacturing</span><span>Coke can conversation</span><span>rocket cost revolution</span><span>SpaceX Mafia</span></div>
 
 <p>Lewis is a former SpaceX manufacturing engineer who spent seven years at the company, ending as the executive responsible for seven departments and more than three thousand rocket parts. He grew up in Taiwan and Germany, graduated from Stanford with a mechanical engineering degree in 2003, spent time running a factory for Epson in Portland before getting an MBA from Oxford — graduating the day Lehman Brothers went bankrupt in 2008 — and eventually joined SpaceX in 2012 after a brief career building a food business in Asia. He now runs Aris Fund, an early-stage hard technology fund based in Los Angeles. This is his oral history of what he saw on the inside.</p>

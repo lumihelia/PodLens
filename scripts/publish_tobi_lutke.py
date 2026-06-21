@@ -13,7 +13,7 @@ PRIVATE_HEADINGS = ["证据锚定洞察", "个人映射", "值得收藏的概念
 ITEM = {
     "slug": "tobi-lutke-companies-as-technology-shopify-os",
     "report": "reports/tobi-lutke-companies-as-technology-shopify-os.md",
-    "url": "",
+    "url": "https://youtu.be/ZSM2uFnJ5bs?si=PmSUanLOTp2sgprn",
     "kind": "podcast",
     "date": "2026-06-14",
     "title": "公司即技术：差异化的义务与创始人的工艺 · Tobi Lütke",

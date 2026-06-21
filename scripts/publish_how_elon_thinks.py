@@ -13,7 +13,7 @@ PRIVATE_HEADINGS = ["证据锚定洞察", "个人映射", "值得收藏的概念
 ITEM = {
     "slug": "how-elon-thinks-algorithm-physics-makers",
     "report": "reports/how-elon-thinks-algorithm-physics-makers.md",
-    "url": "",
+    "url": "https://youtu.be/CdBcZSau5iA?si=6fvU6uMUB1u-vN60",
     "kind": "podcast",
     "date": "2026-06-14",
     "title": "五步算法、物理律法与造物者的使命 · Elon Musk思维解码",

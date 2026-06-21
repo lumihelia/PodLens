@@ -13,7 +13,7 @@ PRIVATE_HEADINGS = ["证据锚定洞察", "个人映射", "值得收藏的概念
 ITEM = {
     "slug": "rick-rubin-creative-act-less-is-more",
     "report": "reports/rick-rubin-creative-act-less-is-more.md",
-    "url": "",
+    "url": "https://youtu.be/g6MEDOY7tHo?si=aZ4IIwsS_4AkE51D",
     "kind": "podcast",
     "date": "2026-06-14",
     "title": "少即是多、听的艺术与创作的天启 · Rick Rubin",

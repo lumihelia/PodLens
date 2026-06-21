@@ -14,7 +14,7 @@
 <meta property="og:description" content="这是 UC Berkeley 计算机视觉教授 Alexei Efros（Alyosha）在一场学术研讨会上的演讲，他是 Shiri 的博士导师，与 Alison Gopnik、Jitendra Malik、Phil Isola 等人同处一个多日工作坊。演讲的核心问题非常直接：Rich Sutton 2019 年的&quot;苦涩的教训&quot;究竟苦在哪里？计算（Compute）真的能替代数据（Data）吗？Efr…">
 <meta property="og:url" content="https://lens.lumihelia.com/episodes/alexei-efros-surface-data-deep-data.html">
 <link rel="alternate" type="application/rss+xml" title="PodLens" href="https://lens.lumihelia.com/feed.xml"><link rel="alternate" type="application/json" title="PodLens" href="https://lens.lumihelia.com/episodes.json">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "表层数据与深层数据 · Alexei Efros", "datePublished": "2026-06-14", "inLanguage": "zh-Hans", "url": "https://lens.lumihelia.com/episodes/alexei-efros-surface-data-deep-data.html", "description": "这是 UC Berkeley 计算机视觉教授 Alexei Efros（Alyosha）在一场学术研讨会上的演讲，他是 Shiri 的博士导师，与 Alison Gopnik、Jitendra Malik、Phil Isola 等人同处一个多日工作坊。演讲的核心问题非常直接：Rich Sutton 2019 年的\"苦涩的教训\"究竟苦在哪里？计算（Compute）真的能替代数据（Data）吗？Efr…", "author": {"@type": "Person", "name": "lumihelia"}, "publisher": {"@type": "Person", "name": "lumihelia"}, "keywords": "具身智能, 好奇心驱动, 深层数据, 机器人, 世界模型"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "表层数据与深层数据 · Alexei Efros", "datePublished": "2026-06-14", "inLanguage": "zh-Hans", "url": "https://lens.lumihelia.com/episodes/alexei-efros-surface-data-deep-data.html", "description": "这是 UC Berkeley 计算机视觉教授 Alexei Efros（Alyosha）在一场学术研讨会上的演讲，他是 Shiri 的博士导师，与 Alison Gopnik、Jitendra Malik、Phil Isola 等人同处一个多日工作坊。演讲的核心问题非常直接：Rich Sutton 2019 年的\"苦涩的教训\"究竟苦在哪里？计算（Compute）真的能替代数据（Data）吗？Efr…", "author": {"@type": "Person", "name": "lumihelia"}, "publisher": {"@type": "Person", "name": "lumihelia"}, "keywords": "具身智能, 好奇心驱动, 深层数据, 机器人, 世界模型", "isBasedOn": "https://www.youtube.com/live/vk6lgHjjGp8?si=5F0NXJlFZ_LtNfgm"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -91,8 +91,35 @@ a.ts:hover { border-bottom-style: solid; }
 <div class="topbar"><nav class="sectionnav"><a class="brand" href="https://lens.lumihelia.com/">PodLens</a><a class="sec active" href="https://lens.lumihelia.com/">episodes</a><a class="sec" href="https://lens.lumihelia.com/papers/">papers</a></nav><a class="langswitch" href="https://lens.lumihelia.com/en/episodes/alexei-efros-surface-data-deep-data.html">English</a></div>
 <h1>表层数据与深层数据 · Alexei Efros</h1>
 <p class="meta">2026-06-14 · 由 PodLens 生成的忠实解读</p>
-
-
+<p class="source">原节目:<a href="https://www.youtube.com/live/vk6lgHjjGp8?si=5F0NXJlFZ_LtNfgm" target="_blank" rel="noopener">https://www.youtube.com/live/vk6lgHjjGp8?si=5F0NXJlFZ_LtNfgm</a>　·　时间戳可点击,就地跳转播放器</p>
+<div class="player-wrap"><div class="player-box"><div id="ytplayer"></div></div></div>
+<script>
+var PL = (function() {
+  var player, ready = false, pending = null;
+  window.onYouTubeIframeAPIReady = function() {
+    player = new YT.Player('ytplayer', {
+      videoId: 'vk6lgHjjGp8',
+      host: 'https://www.youtube-nocookie.com',
+      playerVars: {playsinline: 1, rel: 0},
+      events: {onReady: function() { ready = true; if (pending != null) { var p = pending; pending = null; seek(p); } }}
+    });
+  };
+  function seek(s) {
+    if (!ready) { pending = s; return false; }
+    player.seekTo(s, true); player.playVideo();
+    document.querySelector('.player-wrap').scrollIntoView({behavior: 'smooth', block: 'start'});
+    return false;
+  }
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+  document.addEventListener('DOMContentLoaded', function() {
+    var t = new URLSearchParams(location.search).get('t');
+    if (t) { seek(parseInt(t, 10)); }
+  });
+  return {seek: seek};
+})();
+</script>
 <div class="tags"><span>具身智能</span><span>好奇心驱动</span><span>深层数据</span><span>机器人</span><span>世界模型</span></div>
 
 <h2>这期讲了什么</h2>
@@ -102,66 +129,66 @@ a.ts:hover { border-bottom-style: solid; }
 <p>演讲的第三层是出路：<strong>好奇心驱动的具身探索</strong>。Efros 和 Deepak Pathak 在 2017 年做过一个无奖励学习 Mario 的工作，把好奇心定义为预测误差——预测不准的地方就是值得探索的地方。这产生了一个飞轮：数据→能力→更好的数据。他的愿景是"婴儿科学家机器人"（Robot Scientist in the Crib）：目标不是完成任何任务，而是专职挖掘深层数据。他认为这是走向真正 AI 的必经之路。</p>
 <h2>时间线主题地图</h2>
 <ul>
-<li>[00:00-01:04] 会议主持人介绍 Alexei Efros（Alyosha），他是 Shiri 的博士导师，提到这次演讲是对 Alison 早些时候演讲的"押韵"。</li>
-<li>[01:04-03:30] 重新审视"苦涩的教训"（Rich Sutton 2019）。Efros 认为这堂课根本不苦：Darwin 推翻 Linnaeus 的分类学、Newton 统一物理学——简洁性是科学的目标，不是损失。</li>
-<li>[03:30-05:10] 苦涩的教训真正指向的是人类自身的认知降级：我们其实比我们以为的更简单，99% 的时间只是"最近邻机器"（stochastic parrots），只有偶尔才有真正的创造性飞跃。</li>
-<li>[05:10-09:35] 核心论证：数据先于计算。Sutton 的宣言提到计算 21 次，数据只一次。Efros 批评了"数据与计算可以互换"的观点——这对建模"任意世界"可能成立，但对建模"我们的世界"根本不行。</li>
-<li>[09:35-10:52] 不可约熵（Irreducible Entropy）论证：恐龙灭绝、进化路径上每一次随机决策构成的向量，是我们世界的签名，无法从第一性原理推导，只能从数据中注入。</li>
-<li>[10:52-12:12] 计算是次要的，是"触碰所有数据所需的最小工具"——你至少需要 O(N) 的计算，但没有数据的计算完全无用。</li>
-<li>[12:12-14:57] 图像生成模型的数据归因实验：一张合成图像可以追溯到 LAION 训练集中 6 张最有影响力的真实图像；现代扩散模型本质上是高维空间中的纹理合成（texture synthesis）。</li>
-<li>[14:57-17:25] Neural Thickets 论文介绍：在一个充分预训练的大模型权重空间中随机漫步，可以采样到比原模型更擅长特定任务（数学、编程）的子模型——无需微调，无需新数据。这说明数据已经全部在预训练阶段注入。</li>
-<li>[17:25-19:00] 后训练（Post-training）的再诠释：知识已经全在模型里，后训练只是告诉它"这次考的是物理还是化学"——如同考前一夜派对，第一道题就能帮你回忆起这是哪门课。</li>
-<li>[19:00-21:05] 引入 Alison Gopnik 的"AI 作为文化技术"框架，以及 Phil Isola 的 Data++ 概念：生成模型不是在创造新东西，而是把数据和控制压缩在同一个模型里，本质上是极强的插值器。</li>
-<li>[21:05-23:05] "真正 AI 的两个必要成分"：(1) 数据焦点而非算法焦点；(2) 突现目标（Emergent Objective）——AI 是当计算机"想写诗"，而不只是"能写诗"的时候。</li>
-<li>[23:05-27:30] 表层数据 vs 深层数据的核心区分。表层数据：被动刮取的文本、像素、音频。深层数据：只有通过主动互动才能获得的——刀的重量、液体的粘稠度、Mac 的开盖方向。婴儿是深层数据矿工，把一切都放进嘴里。</li>
-<li>[27:30-29:10] 用 Moravec 悖论引入具身问题：棋类 AI 30 年前就解决了，但今天没有机器人能像人类那样移动棋子。判断初创公司成败的最简算法：看数据有多少——文本数据丰富，图像数据在追，视频数据稀疏，机器人数据"几乎为零"。</li>
-<li>[29:10-31:45] 机器人数据的双重问题：(1) 数量极少；(2) 质量错误——都是被动刮取，既无负样本，也无具身反馈。物理世界会"推回来"，语言可以是后现代主义，但机器人摔东西就是摔东西。</li>
-<li>[31:45-34:20] 好奇心驱动的探索框架（2017 年 Pathak 合作工作）：好奇心=预测误差；无奖励学习 Mario；这是"Yann 之前就存在的世界模型"——在特征空间中做预测，配合逆模型学习特征表示，即 pre-JEPA。</li>
-<li>[34:20-35:30] Mario 实验结果：无奖励的 Mario 学会了存活、杀敌、前进，因为这些是"有趣"的事；乒乓球实验中目标不是得分，而是保持回合——更有趣的事。</li>
-<li>[35:30-37:00] 好奇心应用于扩散模型和文本数据的网络探索；目前在真实机器人上仍未能稳定运行，但方向是对的。</li>
-<li>[37:00-38:30] 总结：表层数据足以实现一些魔法，但会止步于模仿与拼贴；深层数据飞轮是出路；好奇心/内在动机/赋能（empowerment）是获取深层数据的机制。宣言："不要问数据能为你的机器人做什么，要问你的机器人能为数据做什么。"</li>
-<li>[38:30-46:00] 问答环节：关于表层数据能否部分转化为深层数据（Socrates 的"知识幻觉"回应）；深层数据 plus plus（有感受的知识 vs 对知识的认知）；对"AI 无法创造"论断缺乏充分实证的批评；Jitendra Malik 关于 Gibsonian 主动感知的提问；Alison Gopnik 关于 RL 与深层数据关系的分析；关于具身化是否必要的最后问答。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=0s" target="_blank" rel="noopener" onclick="return PL.seek(0)">[00:00-01:04]</a> 会议主持人介绍 Alexei Efros（Alyosha），他是 Shiri 的博士导师，提到这次演讲是对 Alison 早些时候演讲的"押韵"。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=64s" target="_blank" rel="noopener" onclick="return PL.seek(64)">[01:04-03:30]</a> 重新审视"苦涩的教训"（Rich Sutton 2019）。Efros 认为这堂课根本不苦：Darwin 推翻 Linnaeus 的分类学、Newton 统一物理学——简洁性是科学的目标，不是损失。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=210s" target="_blank" rel="noopener" onclick="return PL.seek(210)">[03:30-05:10]</a> 苦涩的教训真正指向的是人类自身的认知降级：我们其实比我们以为的更简单，99% 的时间只是"最近邻机器"（stochastic parrots），只有偶尔才有真正的创造性飞跃。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=310s" target="_blank" rel="noopener" onclick="return PL.seek(310)">[05:10-09:35]</a> 核心论证：数据先于计算。Sutton 的宣言提到计算 21 次，数据只一次。Efros 批评了"数据与计算可以互换"的观点——这对建模"任意世界"可能成立，但对建模"我们的世界"根本不行。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=575s" target="_blank" rel="noopener" onclick="return PL.seek(575)">[09:35-10:52]</a> 不可约熵（Irreducible Entropy）论证：恐龙灭绝、进化路径上每一次随机决策构成的向量，是我们世界的签名，无法从第一性原理推导，只能从数据中注入。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=652s" target="_blank" rel="noopener" onclick="return PL.seek(652)">[10:52-12:12]</a> 计算是次要的，是"触碰所有数据所需的最小工具"——你至少需要 O(N) 的计算，但没有数据的计算完全无用。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=732s" target="_blank" rel="noopener" onclick="return PL.seek(732)">[12:12-14:57]</a> 图像生成模型的数据归因实验：一张合成图像可以追溯到 LAION 训练集中 6 张最有影响力的真实图像；现代扩散模型本质上是高维空间中的纹理合成（texture synthesis）。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=897s" target="_blank" rel="noopener" onclick="return PL.seek(897)">[14:57-17:25]</a> Neural Thickets 论文介绍：在一个充分预训练的大模型权重空间中随机漫步，可以采样到比原模型更擅长特定任务（数学、编程）的子模型——无需微调，无需新数据。这说明数据已经全部在预训练阶段注入。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=1045s" target="_blank" rel="noopener" onclick="return PL.seek(1045)">[17:25-19:00]</a> 后训练（Post-training）的再诠释：知识已经全在模型里，后训练只是告诉它"这次考的是物理还是化学"——如同考前一夜派对，第一道题就能帮你回忆起这是哪门课。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=1140s" target="_blank" rel="noopener" onclick="return PL.seek(1140)">[19:00-21:05]</a> 引入 Alison Gopnik 的"AI 作为文化技术"框架，以及 Phil Isola 的 Data++ 概念：生成模型不是在创造新东西，而是把数据和控制压缩在同一个模型里，本质上是极强的插值器。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=1265s" target="_blank" rel="noopener" onclick="return PL.seek(1265)">[21:05-23:05]</a> "真正 AI 的两个必要成分"：(1) 数据焦点而非算法焦点；(2) 突现目标（Emergent Objective）——AI 是当计算机"想写诗"，而不只是"能写诗"的时候。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=1385s" target="_blank" rel="noopener" onclick="return PL.seek(1385)">[23:05-27:30]</a> 表层数据 vs 深层数据的核心区分。表层数据：被动刮取的文本、像素、音频。深层数据：只有通过主动互动才能获得的——刀的重量、液体的粘稠度、Mac 的开盖方向。婴儿是深层数据矿工，把一切都放进嘴里。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=1650s" target="_blank" rel="noopener" onclick="return PL.seek(1650)">[27:30-29:10]</a> 用 Moravec 悖论引入具身问题：棋类 AI 30 年前就解决了，但今天没有机器人能像人类那样移动棋子。判断初创公司成败的最简算法：看数据有多少——文本数据丰富，图像数据在追，视频数据稀疏，机器人数据"几乎为零"。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=1750s" target="_blank" rel="noopener" onclick="return PL.seek(1750)">[29:10-31:45]</a> 机器人数据的双重问题：(1) 数量极少；(2) 质量错误——都是被动刮取，既无负样本，也无具身反馈。物理世界会"推回来"，语言可以是后现代主义，但机器人摔东西就是摔东西。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=1905s" target="_blank" rel="noopener" onclick="return PL.seek(1905)">[31:45-34:20]</a> 好奇心驱动的探索框架（2017 年 Pathak 合作工作）：好奇心=预测误差；无奖励学习 Mario；这是"Yann 之前就存在的世界模型"——在特征空间中做预测，配合逆模型学习特征表示，即 pre-JEPA。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=2060s" target="_blank" rel="noopener" onclick="return PL.seek(2060)">[34:20-35:30]</a> Mario 实验结果：无奖励的 Mario 学会了存活、杀敌、前进，因为这些是"有趣"的事；乒乓球实验中目标不是得分，而是保持回合——更有趣的事。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=2130s" target="_blank" rel="noopener" onclick="return PL.seek(2130)">[35:30-37:00]</a> 好奇心应用于扩散模型和文本数据的网络探索；目前在真实机器人上仍未能稳定运行，但方向是对的。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=2220s" target="_blank" rel="noopener" onclick="return PL.seek(2220)">[37:00-38:30]</a> 总结：表层数据足以实现一些魔法，但会止步于模仿与拼贴；深层数据飞轮是出路；好奇心/内在动机/赋能（empowerment）是获取深层数据的机制。宣言："不要问数据能为你的机器人做什么，要问你的机器人能为数据做什么。"</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=2310s" target="_blank" rel="noopener" onclick="return PL.seek(2310)">[38:30-46:00]</a> 问答环节：关于表层数据能否部分转化为深层数据（Socrates 的"知识幻觉"回应）；深层数据 plus plus（有感受的知识 vs 对知识的认知）；对"AI 无法创造"论断缺乏充分实证的批评；Jitendra Malik 关于 Gibsonian 主动感知的提问；Alison Gopnik 关于 RL 与深层数据关系的分析；关于具身化是否必要的最后问答。</li>
 </ul>
 <h2>核心观点清单</h2>
 <ol>
 <li>
-<p><strong>苦涩的教训并不苦——简洁性是科学的目标，达尔文和牛顿都是在"更简单"，不是在"失去"。</strong> [01:04-02:50] | 类型：观点 | 备注：Efros 认为真正苦涩的是对人类自身的重新定位：我们比我们以为的更简单，更像是随机拼贴机器。</p>
+<p><strong>苦涩的教训并不苦——简洁性是科学的目标，达尔文和牛顿都是在"更简单"，不是在"失去"。</strong> <a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=64s" target="_blank" rel="noopener" onclick="return PL.seek(64)">[01:04-02:50]</a> | 类型：观点 | 备注：Efros 认为真正苦涩的是对人类自身的重新定位：我们比我们以为的更简单，更像是随机拼贴机器。</p>
 </li>
 <li>
-<p><strong>不可约熵论证：我们的世界之所以是它自己，是因为一串无法从第一性原理推导的随机决策向量，这只能从数据中注入，无法用计算生成。</strong> [06:55-08:39] | 类型：论证 | 备注：这是对"数据与计算可互换"论点的哲学级别反驳；Efros 明确说计算机图形学 25 年前犯了同样的错误——以为知道了所有物理就能渲染一切，结果因为缺乏数据的熵注入而失败。</p>
+<p><strong>不可约熵论证：我们的世界之所以是它自己，是因为一串无法从第一性原理推导的随机决策向量，这只能从数据中注入，无法用计算生成。</strong> <a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=415s" target="_blank" rel="noopener" onclick="return PL.seek(415)">[06:55-08:39]</a> | 类型：论证 | 备注：这是对"数据与计算可互换"论点的哲学级别反驳；Efros 明确说计算机图形学 25 年前犯了同样的错误——以为知道了所有物理就能渲染一切，结果因为缺乏数据的熵注入而失败。</p>
 </li>
 <li>
-<p><strong>计算是次要资源：你需要 O(N) 计算来"触碰"所有数据，但没有数据的计算是完全无用的。</strong> [09:05-09:38] | 类型：观点 | 备注：这是数据优先论的操作性定义——计算是服务于数据的工具，不是可以替代数据的等价物。</p>
+<p><strong>计算是次要资源：你需要 O(N) 计算来"触碰"所有数据，但没有数据的计算是完全无用的。</strong> <a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=545s" target="_blank" rel="noopener" onclick="return PL.seek(545)">[09:05-09:38]</a> | 类型：观点 | 备注：这是数据优先论的操作性定义——计算是服务于数据的工具，不是可以替代数据的等价物。</p>
 </li>
 <li>
-<p><strong>现代扩散模型本质上是高维空间中的纹理合成，在像素 patch 层面做最近邻搜索并拼合，并非生成真正的新内容。</strong> [12:12-12:45] | 类型：事实 | 备注：引用了 Surya 的理论论文——扩散模型等同于纹理合成；Neural Thickets 进一步论证预训练阶段已注入全部知识，后训练只是"告诉模型考的是哪门课"。</p>
+<p><strong>现代扩散模型本质上是高维空间中的纹理合成，在像素 patch 层面做最近邻搜索并拼合，并非生成真正的新内容。</strong> <a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=732s" target="_blank" rel="noopener" onclick="return PL.seek(732)">[12:12-12:45]</a> | 类型：事实 | 备注：引用了 Surya 的理论论文——扩散模型等同于纹理合成；Neural Thickets 进一步论证预训练阶段已注入全部知识，后训练只是"告诉模型考的是哪门课"。</p>
 </li>
 <li>
-<p><strong>表层数据与深层数据的本质区分：表层数据是被动接收的信息（文本、像素、音频）；深层数据是需要主动挖掘、通过具身互动才能获得的信息（重量、粘稠度、触感、物理因果）。</strong> [22:01-25:10] | 类型：区分/框架 | 备注：婴儿通过把一切放进嘴里来采集味觉深层数据——"你小时候也把这房间里的所有东西放进嘴里过"；Socrates 对书本的批评与此同构："你为学生提供的是智慧的外表，而非实质。"</p>
+<p><strong>表层数据与深层数据的本质区分：表层数据是被动接收的信息（文本、像素、音频）；深层数据是需要主动挖掘、通过具身互动才能获得的信息（重量、粘稠度、触感、物理因果）。</strong> <a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=1321s" target="_blank" rel="noopener" onclick="return PL.seek(1321)">[22:01-25:10]</a> | 类型：区分/框架 | 备注：婴儿通过把一切放进嘴里来采集味觉深层数据——"你小时候也把这房间里的所有东西放进嘴里过"；Socrates 对书本的批评与此同构："你为学生提供的是智慧的外表，而非实质。"</p>
 </li>
 <li>
-<p><strong>机器人领域存在双重数据危机：数量为零，且现有数据种类错误（被动遥操作，无负样本，无具身推回）。</strong> [20:15-21:32] | 类型：事实 | 备注：与语言不同，物理世界会推回：语言的最坏情况是"听起来像詹姆斯·乔伊斯"；但机器人摔东西就是损失。</p>
+<p><strong>机器人领域存在双重数据危机：数量为零，且现有数据种类错误（被动遥操作，无负样本，无具身推回）。</strong> <a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=1215s" target="_blank" rel="noopener" onclick="return PL.seek(1215)">[20:15-21:32]</a> | 类型：事实 | 备注：与语言不同，物理世界会推回：语言的最坏情况是"听起来像詹姆斯·乔伊斯"；但机器人摔东西就是损失。</p>
 </li>
 <li>
-<p><strong>好奇心 = 预测误差：驱动具身探索的内在动机可以定义为"我无法预测的事物"，这产生自然课程（natural curriculum）和终身学习的飞轮。</strong> [30:54-31:06] | 类型：框架 | 备注：2017 年与 Pathak 的合作——无奖励 Mario 学习。Efros 明确说这是"Yann 之前就存在的世界模型（pre-JEPA）"，在特征空间中做预测并同时学习特征表示。</p>
+<p><strong>好奇心 = 预测误差：驱动具身探索的内在动机可以定义为"我无法预测的事物"，这产生自然课程（natural curriculum）和终身学习的飞轮。</strong> <a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=1854s" target="_blank" rel="noopener" onclick="return PL.seek(1854)">[30:54-31:06]</a> | 类型：框架 | 备注：2017 年与 Pathak 的合作——无奖励 Mario 学习。Efros 明确说这是"Yann 之前就存在的世界模型（pre-JEPA）"，在特征空间中做预测并同时学习特征表示。</p>
 </li>
 <li>
-<p><strong>深层数据飞轮：数据→能力→获取更好数据的能力→更好的数据，并具备自然难度递增的课程。</strong> [26:01-26:21] | 类型：框架 | 备注：现有机器人训练路径（遥操作、模拟、视频学习）都在飞轮之外——遥操作缺乏规模和负样本，模拟缺乏现实性且面临"同样的熵注入问题"，视频学习缺乏具身性。</p>
+<p><strong>深层数据飞轮：数据→能力→获取更好数据的能力→更好的数据，并具备自然难度递增的课程。</strong> <a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=1561s" target="_blank" rel="noopener" onclick="return PL.seek(1561)">[26:01-26:21]</a> | 类型：框架 | 备注：现有机器人训练路径（遥操作、模拟、视频学习）都在飞轮之外——遥操作缺乏规模和负样本，模拟缺乏现实性且面临"同样的熵注入问题"，视频学习缺乏具身性。</p>
 </li>
 <li>
-<p><strong>RL 处于深层数据挖掘的"一半"位置：它确实在挖掘深层数据（有环境互动和负样本），但使用固定目标，而真正的路径需要"演化的目标（evolving objective）"。</strong> [42:50-43:57] | 类型：观点 | 备注：Efros 认为 GAN 的判别器演化（对抗目标）有这种演化目标的味道；好奇心驱动的方法也是，但尚未完全成功；进化本身是这种"目标本身会演化"的最好例子。</p>
+<p><strong>RL 处于深层数据挖掘的"一半"位置：它确实在挖掘深层数据（有环境互动和负样本），但使用固定目标，而真正的路径需要"演化的目标（evolving objective）"。</strong> <a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=2570s" target="_blank" rel="noopener" onclick="return PL.seek(2570)">[42:50-43:57]</a> | 类型：观点 | 备注：Efros 认为 GAN 的判别器演化（对抗目标）有这种演化目标的味道；好奇心驱动的方法也是，但尚未完全成功；进化本身是这种"目标本身会演化"的最好例子。</p>
 </li>
 </ol>
 <h2>内部张力与自我修正</h2>
 <ul>
 <li>
-<p><strong>[33:01-33:07] vs [42:50-43:09]</strong>：Efros 在总结时说"表层数据已经足以实现一些魔法"，但后来在 Q&amp;A 中对"AI 是否能从根本上创造"的问题说"这些模型每五分钟就在变化，我不关心证伪这件事"。这暴露了一个方法论上的诚实承认：他无法量化"表层数据天花板"在哪里，整个论点属于对未来的猜测，而非已证命题。他自己的例子（一张合成图像追溯到 6 张训练图）证明力有限，他承认听众的批评是合理的。</p>
+<p><strong><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=1981s" target="_blank" rel="noopener" onclick="return PL.seek(1981)">[33:01-33:07]</a> vs <a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=2570s" target="_blank" rel="noopener" onclick="return PL.seek(2570)">[42:50-43:09]</a></strong>：Efros 在总结时说"表层数据已经足以实现一些魔法"，但后来在 Q&amp;A 中对"AI 是否能从根本上创造"的问题说"这些模型每五分钟就在变化，我不关心证伪这件事"。这暴露了一个方法论上的诚实承认：他无法量化"表层数据天花板"在哪里，整个论点属于对未来的猜测，而非已证命题。他自己的例子（一张合成图像追溯到 6 张训练图）证明力有限，他承认听众的批评是合理的。</p>
 </li>
 <li>
-<p><strong>[20:22-20:29] vs [43:04-43:20]</strong>：Efros 声称机器人领域"没有希望"，但随后在 Q&amp;A 中同意 Alison Gopnik 的观点——RL 在 Chess、Go 等"足够小且约束明确的环境"中确实成功地挖掘了深层数据。他没有明确说明为什么他认为这种成功不能扩展到物理机器人，而只是诉诸规模和现实世界复杂性。</p>
+<p><strong><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=1222s" target="_blank" rel="noopener" onclick="return PL.seek(1222)">[20:22-20:29]</a> vs <a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=2584s" target="_blank" rel="noopener" onclick="return PL.seek(2584)">[43:04-43:20]</a></strong>：Efros 声称机器人领域"没有希望"，但随后在 Q&amp;A 中同意 Alison Gopnik 的观点——RL 在 Chess、Go 等"足够小且约束明确的环境"中确实成功地挖掘了深层数据。他没有明确说明为什么他认为这种成功不能扩展到物理机器人，而只是诉诸规模和现实世界复杂性。</p>
 </li>
 <li>
-<p><strong>[38:45-39:00] vs [34:50-35:00]</strong>：Efros 批评遥操作"缺乏负样本、是被动数据"，但他的好奇心-Mario 实验本身就是在模拟器中进行的，他也承认"在真实机器人上从未成功过"。他提倡的"婴儿科学家机器人"作为愿景（vision）存在，但尚无在真实世界中运行的证据。</p>
+<p><strong><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=2325s" target="_blank" rel="noopener" onclick="return PL.seek(2325)">[38:45-39:00]</a> vs <a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=2090s" target="_blank" rel="noopener" onclick="return PL.seek(2090)">[34:50-35:00]</a></strong>：Efros 批评遥操作"缺乏负样本、是被动数据"，但他的好奇心-Mario 实验本身就是在模拟器中进行的，他也承认"在真实机器人上从未成功过"。他提倡的"婴儿科学家机器人"作为愿景（vision）存在，但尚无在真实世界中运行的证据。</p>
 </li>
 </ul>
 <h2>大白话重讲</h2>
@@ -176,22 +203,22 @@ a.ts:hover { border-bottom-style: solid; }
 <h2>值得精听的片段</h2>
 <ul>
 <li>
-<p><strong>[06:55-08:39]</strong> 不可约熵论证。Efros 用物理模拟的思想实验，论证为什么计算永远无法替代数据——因为我们要的不是"任意可能的世界"，而是"这个世界的签名"。逻辑极其紧密，一气呵成，是整场演讲最有哲学深度的一段。</p>
+<p><strong><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=415s" target="_blank" rel="noopener" onclick="return PL.seek(415)">[06:55-08:39]</a></strong> 不可约熵论证。Efros 用物理模拟的思想实验，论证为什么计算永远无法替代数据——因为我们要的不是"任意可能的世界"，而是"这个世界的签名"。逻辑极其紧密，一气呵成，是整场演讲最有哲学深度的一段。</p>
 </li>
 <li>
-<p><strong>[22:01-24:29]</strong> 表层数据与深层数据的定义与例子。Efros 用"刀的重量"、"液体的粘稠度"、"Mac 的开盖方向"，然后跳到"婴儿把一切放进嘴里"，最后用"你想象手机的味道"这个思想实验，把一个抽象区分变得非常具体而令人信服。</p>
+<p><strong><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=1321s" target="_blank" rel="noopener" onclick="return PL.seek(1321)">[22:01-24:29]</a></strong> 表层数据与深层数据的定义与例子。Efros 用"刀的重量"、"液体的粘稠度"、"Mac 的开盖方向"，然后跳到"婴儿把一切放进嘴里"，最后用"你想象手机的味道"这个思想实验，把一个抽象区分变得非常具体而令人信服。</p>
 </li>
 <li>
-<p><strong>[30:25-32:10]</strong> 好奇心 = 预测误差，以及 2017 年 Mario 实验。Efros 顺带披露他们的工作是"Yann 之前的世界模型（pre-JEPA）"，在特征空间做预测，有逆模型。这段非常紧凑，信息密度高。</p>
+<p><strong><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=1825s" target="_blank" rel="noopener" onclick="return PL.seek(1825)">[30:25-32:10]</a></strong> 好奇心 = 预测误差，以及 2017 年 Mario 实验。Efros 顺带披露他们的工作是"Yann 之前的世界模型（pre-JEPA）"，在特征空间做预测，有逆模型。这段非常紧凑，信息密度高。</p>
 </li>
 <li>
-<p><strong>[42:01-44:14]</strong> Q&amp;A：Alison Gopnik 关于 RL 与深层数据的关系分析。这段是整场最有密度的对话交锋——Gopnik 精确指出了"目标导向的 RL"和"探索性内在动机"的本质差异，以及后训练 RLHF 为什么只是"无聊的偏好反馈"。Efros 的回应和对 GAN 作为"演化目标"的怀念很有启发性。</p>
+<p><strong><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=2521s" target="_blank" rel="noopener" onclick="return PL.seek(2521)">[42:01-44:14]</a></strong> Q&amp;A：Alison Gopnik 关于 RL 与深层数据的关系分析。这段是整场最有密度的对话交锋——Gopnik 精确指出了"目标导向的 RL"和"探索性内在动机"的本质差异，以及后训练 RLHF 为什么只是"无聊的偏好反馈"。Efros 的回应和对 GAN 作为"演化目标"的怀念很有启发性。</p>
 </li>
 <li>
-<p><strong>[34:37-38:30]</strong> 两个小实验：无奖励学 Mario 和乒乓球"不是为了得分，而是为了保持对话"。这是好奇心驱动探索的最好的直觉演示，轻松但概念锋利。</p>
+<p><strong><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=2077s" target="_blank" rel="noopener" onclick="return PL.seek(2077)">[34:37-38:30]</a></strong> 两个小实验：无奖励学 Mario 和乒乓球"不是为了得分，而是为了保持对话"。这是好奇心驱动探索的最好的直觉演示，轻松但概念锋利。</p>
 </li>
 </ul>
-<h2>与往期的呼应</h2><ul class="connections"><li><span class="rel">同构</span>→ <a class="lk" href="https://lens.lumihelia.com/episodes/yann-lecun-world-models-next-ai-revolution.html">世界模型与真实世界智能 · Yann LeCun</a><div class="why">两者共享同一核心洞察：在表示/特征空间做预测比在像素/token层面更有效。Efros 的2017好奇心论文正是「Yann 称之为世界模型之前的世界模型」，JEPA 是其系统化与命名。</div><div class="pts"><div><b class="who">本期</b>[30:25-31:44] Efros 将2017年好奇心论文称为「pre-JEPA」——在特征空间做预测、同步训练逆模型学习特征表示，显式说这是「Yann 之前就存在的世界模型」。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/episodes/yann-lecun-world-models-next-ai-revolution.html?t=1416">[23:36-25:00]</a> Yann LeCun 提出 JEPA（联合嵌入预测架构）：不在像素空间而在表示空间做抽象预测，以过滤噪声并捕获物理规律——即 Efros 2017年工作的系统化后继。</div></div></li><li><span class="rel">印证</span>→ <a class="lk" href="https://lens.lumihelia.com/papers/the-era-of-experience.html">经验时代：超越人类数据的强化学习 · David Silver</a><div class="why">Silver &amp; Sutton 提出 AI 正从「人类数据时代」转向「经验时代」——智能体主动与环境交互产生经验来学习；这正是 Efros 的深层数据飞轮。Efros 在演讲末甚至直接说 Sutton 最新论文「提到数据18次，非常同意我们」。</div><div class="pts"><div><b class="who">本期</b>[37:00-37:28] Efros 说 Rich Sutton 最新论文「非常同意我们，提到了数据18次」，并提出飞轮宣言：「不要问数据能为你的机器人做什么，要问你的机器人能为数据做什么」。</div><div><b class="who">往期</b>[The Era of Experience · 核心论断] 论文主张 AI 正从「人类数据时代」转向「经验时代」——智能体将通过与环境主动交互产生的经验进行持续学习，突破监督学习的人类数据瓶颈。</div></div></li><li><span class="rel">补充</span>→ <a class="lk" href="https://lens.lumihelia.com/episodes/human-data-and-robotics-gpt-3-moment-danfei-xu.html">人类数据与机器人学的GPT-3时刻 · Danfei Xu</a><div class="why">Efros 诊断了机器人深层数据危机（数量为零、质量错误），但未给出采集路径；Danfei Xu 的 EgoMimic 工作正好填补这个缺口：以第一人称人类数据作为可规模化的具身深层数据来源。</div><div class="pts"><div><b class="who">本期</b>[20:15-21:00] Efros 指出机器人数据「几乎为零」且「种类错误」——遥操作缺乏规模和负样本，物理世界的「推回」无法从被动数据中获得。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/episodes/human-data-and-robotics-gpt-3-moment-danfei-xu.html?t=5033">[01:23:53]</a> Danfei Xu 指出第一人称人类视频（EgoMimic）在数据精确度与可规模化之间找到甜蜜点——让采集者佩戴 AR 眼镜主动生活即可采集具身交互数据，是机器人深层数据的当前最佳路径。</div></div></li><li><span class="rel">补充</span>← <a class="lk" href="https://lens.lumihelia.com/episodes/brendan-foody-mercor-teaching-ai-knowledge-work.html">教 AI 的人与知识工作的未来 · Brendan Foody</a><div class="why">Foody 区分「输出数据」（表层）和「评估数据」（深层）——后者让模型能反复尝试、打分、改进——这和 Efros 对「表层数据」（被动收集）vs「深层数据」（主动具身采集）的区分在结构上高度一致。两者都指向同一个结论：能衡量成功的反馈数据比纯内容数据更有价值。</div><div class="pts"><div><b class="who">本期</b>[20:15-21:00] Efros 说深层数据的关键是「物理世界的推回（pushback）」——当你对物体做错了，世界会告诉你；被动收集的表层数据缺乏这种反馈，因此无法训练真正的具身能力。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/episodes/brendan-foody-mercor-teaching-ai-knowledge-work.html?t=822">[13:42-15:13]</a> Foody 说评估数据（rubric、测试题、标准答案）远比输出数据（模型读的内容）宝贵，因为它让模型能「无限次尝试、不断打分、不断学习」——即形成真正的强化信号。</div></div></li><li><span class="rel">互引</span>← <a class="lk" href="https://lens.lumihelia.com/episodes/alison-gopnik-childhood-learning-ai-cultural-technology.html">儿童如何学习，AI 是什么文化技术 · Alison Gopnik</a><div class="why">Gopnik 的「文化技术」框架被 Efros 直接引用并作为其「表层数据 vs 深层数据」论点的核心参照——两者对当前 AI 的诊断高度一致（缺乏主动具身实验），且他们出席了同一个工作坊，Gopnik 在 Efros 讲座的 Q&amp;A 中直接发言。</div><div class="pts"><div><b class="who">本期</b>[24:09-24:29] Efros 在工作坊演讲中说「我非常喜欢 Alison 谈论当前 AI 的方式。她说，这些当前的 AI 不是智能体，它们是文化技术」——直接援引 Gopnik 的框架作为自己「表层数据」论点的哲学基础。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/episodes/alison-gopnik-childhood-learning-ai-cultural-technology.html?t=2705">[45:05-47:00]</a> Gopnik 阐述「文化技术」论：AI = 印刷术/图书馆/互联网搜索，是人类获取彼此知识的工具；它做不到两岁儿童能做的事——主动与物理世界互动、做实验、得到具身反馈。</div></div></li></ul>
+<h2>与往期的呼应</h2><ul class="connections"><li><span class="rel">同构</span>→ <a class="lk" href="https://lens.lumihelia.com/episodes/yann-lecun-world-models-next-ai-revolution.html">世界模型与真实世界智能 · Yann LeCun</a><div class="why">两者共享同一核心洞察：在表示/特征空间做预测比在像素/token层面更有效。Efros 的2017好奇心论文正是「Yann 称之为世界模型之前的世界模型」，JEPA 是其系统化与命名。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=1825s" target="_blank" rel="noopener" onclick="return PL.seek(1825)">[30:25-31:44]</a> Efros 将2017年好奇心论文称为「pre-JEPA」——在特征空间做预测、同步训练逆模型学习特征表示，显式说这是「Yann 之前就存在的世界模型」。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/episodes/yann-lecun-world-models-next-ai-revolution.html?t=1416">[23:36-25:00]</a> Yann LeCun 提出 JEPA（联合嵌入预测架构）：不在像素空间而在表示空间做抽象预测，以过滤噪声并捕获物理规律——即 Efros 2017年工作的系统化后继。</div></div></li><li><span class="rel">印证</span>→ <a class="lk" href="https://lens.lumihelia.com/papers/the-era-of-experience.html">经验时代：超越人类数据的强化学习 · David Silver</a><div class="why">Silver &amp; Sutton 提出 AI 正从「人类数据时代」转向「经验时代」——智能体主动与环境交互产生经验来学习；这正是 Efros 的深层数据飞轮。Efros 在演讲末甚至直接说 Sutton 最新论文「提到数据18次，非常同意我们」。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=2220s" target="_blank" rel="noopener" onclick="return PL.seek(2220)">[37:00-37:28]</a> Efros 说 Rich Sutton 最新论文「非常同意我们，提到了数据18次」，并提出飞轮宣言：「不要问数据能为你的机器人做什么，要问你的机器人能为数据做什么」。</div><div><b class="who">往期</b>[The Era of Experience · 核心论断] 论文主张 AI 正从「人类数据时代」转向「经验时代」——智能体将通过与环境主动交互产生的经验进行持续学习，突破监督学习的人类数据瓶颈。</div></div></li><li><span class="rel">补充</span>→ <a class="lk" href="https://lens.lumihelia.com/episodes/human-data-and-robotics-gpt-3-moment-danfei-xu.html">人类数据与机器人学的GPT-3时刻 · Danfei Xu</a><div class="why">Efros 诊断了机器人深层数据危机（数量为零、质量错误），但未给出采集路径；Danfei Xu 的 EgoMimic 工作正好填补这个缺口：以第一人称人类数据作为可规模化的具身深层数据来源。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=1215s" target="_blank" rel="noopener" onclick="return PL.seek(1215)">[20:15-21:00]</a> Efros 指出机器人数据「几乎为零」且「种类错误」——遥操作缺乏规模和负样本，物理世界的「推回」无法从被动数据中获得。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/episodes/human-data-and-robotics-gpt-3-moment-danfei-xu.html?t=5033">[01:23:53]</a> Danfei Xu 指出第一人称人类视频（EgoMimic）在数据精确度与可规模化之间找到甜蜜点——让采集者佩戴 AR 眼镜主动生活即可采集具身交互数据，是机器人深层数据的当前最佳路径。</div></div></li><li><span class="rel">同构</span>← <a class="lk" href="https://lens.lumihelia.com/papers/li-curtis-working-memory-neural-dynamics.html">工作记忆的神经种群动力学：记忆不是存储，是变形</a><div class="why">Efros区分「表面数据」（被动统计关联）和「深度数据」（主动探索、因果结构、感觉-运动反馈的同步）。他认为AI系统需要深度数据才能发展出真正的世界模型。Li和Curtis的发现提供了「深度数据产生什么样的内部表征」的神经科学案例：在工作记忆任务中，人类V1的神经代码不只是存储了「目标在哪里」的静态模式（这是表面数据能做到的），而是在12秒延迟中把感觉输入主动转换为扫视计划（感觉→运动的格式转换）——这需要大脑知道自己在视觉场中的位置（中央凹位置）、知道任务目标（眼跳到目标），然后计算两者的关系。这种「我的位置 + 目标位置 + 行动计划」的整合，正是Efros所说的主动具身探索（embodied active exploration）产生的深度计算。被动观看条件证明了这一点：相同的感觉输入，没有行动意图，V1就不执行这种转换——计算由任务驱动，而不是由感觉输入驱动。</div><div class="pts"><div><b class="who">本期</b>[Efros集核心论点] 「表面数据」是AI从互联网的被动观察中学到的统计关联——图像识别、语言理解。「深度数据」是机器人通过主动探索获得的感觉-运动关联数据：伸手触碰物体时，同时获得视觉（物体移动）、触觉（手的感觉）、运动（手的位置）的同步反馈。Efros认为这种主动具身数据是构建真正世界模型的必要条件。他的「好奇心驱动的机器人」正是在主动生成这种深度数据。Li和Curtis所描述的V1动态是人类大脑利用这种深度数据（通过漫长的发展历史，通过眼动经验和感觉-运动协调）建立起来的「扫视引导计算」能力的体现。</div><div><b class="who">往期</b>[论文对照实验，第9页] 「Notably, when visualizing the activation maps for V1 during the passive viewing experiment, we did not observe dynamics like those in the WM experiment. The response emerged at the target&#x27;s polar and eccentricity at the early time points, and diminished in the middle of the delay.」[论文讨论，第12页] 「The early visual cortex seems to concurrently reflect the immediate task demand that requires observers to concurrently hold fixation and the memorized target at far eccentricity, leading to an activity with a peak at more foveal locations with a tail pointing toward the target.」</div></div></li><li><span class="rel">同构</span>← <a class="lk" href="https://lens.lumihelia.com/papers/patel-wang-fan-transformer-executive-control.html">变换器注意力的执行控制缺陷：Stroop任务揭示LLM不能做什么</a><div class="why">Efros区分了「表面数据」（AI当前学习的那种，基于统计关联）和「深度数据」（因果结构化的、主动探索获得的数据）。他认为AI需要深度数据才能发展出真正的「世界模型」，而不只是模式匹配器。Patel等人的发现是这个区分的实证体现：Claude 3.5在没有prompt的情况下「识别」了Stroop范式（表面模式匹配的极致表现——它认出了任务），但还是给出了错误答案（没有「深度数据」支撑的世界模型，无法在运行中主动压制干扰）。「知道任务 ≠ 能执行任务」的解离就是Efros所说的「表面模式识别」和「真正的因果理解」之间差距的一个具体、可测量的表现。更具体地：执行控制需要的不只是「我知道颜色和词义之间的关系」，而是「我在当前情境中的目标是什么，以及我主动维持这个目标而不被干扰信息偏离的能力」——这正是Efros所说的「好奇心驱动的主动探索」（而不是被动的统计关联学习）所产生的能力。</div><div class="pts"><div><b class="who">本期</b>[Efros集核心论点] 「表面数据」：互联网上的文本/图像数据，AI从中学到了海量的统计关联。「深度数据」：需要主动与世界交互才能获得的因果数据——比如机器人伸手触碰物体时的触觉/视觉/运动反馈的同步。Efros说当前AI的「苦涩教训」（scaling laws, more data + more compute = better）正在逼近回报递减的上限，因为表面数据的量再多也补不了因果结构的缺口。这篇论文用Stroop任务量化了这个缺口的一个维度：给再多文本训练数据，也产生不了「在冲突中维持目标」的执行控制能力，因为这个能力来自神经网络里一个尚未实现的架构特性，不来自数据量。</div><div><b class="who">往期</b>[论文第18-19页] 「In our exploratory trials without explicit prompts, Claude 3.5 Sonnet demonstrated recognition of the Stroop paradigm but still produced incorrect responses despite output with word-color relationship mappings. This behavior demonstrates a dissociation between task understanding and execution capabilities. The models&#x27; effective context window for executive control is notably shorter than their general processing capacity.」[论文第16页] 「The inability to resolve cognitive conflicts in the color naming task due to limited executive control appears to be the primary hindering factor in model performance.」</div></div></li><li><span class="rel">补充</span>← <a class="lk" href="https://lens.lumihelia.com/episodes/brendan-foody-mercor-teaching-ai-knowledge-work.html">教 AI 的人与知识工作的未来 · Brendan Foody</a><div class="why">Foody 区分「输出数据」（表层）和「评估数据」（深层）——后者让模型能反复尝试、打分、改进——这和 Efros 对「表层数据」（被动收集）vs「深层数据」（主动具身采集）的区分在结构上高度一致。两者都指向同一个结论：能衡量成功的反馈数据比纯内容数据更有价值。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=1215s" target="_blank" rel="noopener" onclick="return PL.seek(1215)">[20:15-21:00]</a> Efros 说深层数据的关键是「物理世界的推回（pushback）」——当你对物体做错了，世界会告诉你；被动收集的表层数据缺乏这种反馈，因此无法训练真正的具身能力。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/episodes/brendan-foody-mercor-teaching-ai-knowledge-work.html?t=822">[13:42-15:13]</a> Foody 说评估数据（rubric、测试题、标准答案）远比输出数据（模型读的内容）宝贵，因为它让模型能「无限次尝试、不断打分、不断学习」——即形成真正的强化信号。</div></div></li><li><span class="rel">互引</span>← <a class="lk" href="https://lens.lumihelia.com/episodes/alison-gopnik-childhood-learning-ai-cultural-technology.html">儿童如何学习，AI 是什么文化技术 · Alison Gopnik</a><div class="why">Gopnik 的「文化技术」框架被 Efros 直接引用并作为其「表层数据 vs 深层数据」论点的核心参照——两者对当前 AI 的诊断高度一致（缺乏主动具身实验），且他们出席了同一个工作坊，Gopnik 在 Efros 讲座的 Q&amp;A 中直接发言。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=vk6lgHjjGp8&t=1449s" target="_blank" rel="noopener" onclick="return PL.seek(1449)">[24:09-24:29]</a> Efros 在工作坊演讲中说「我非常喜欢 Alison 谈论当前 AI 的方式。她说，这些当前的 AI 不是智能体，它们是文化技术」——直接援引 Gopnik 的框架作为自己「表层数据」论点的哲学基础。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/episodes/alison-gopnik-childhood-learning-ai-cultural-technology.html?t=2705">[45:05-47:00]</a> Gopnik 阐述「文化技术」论：AI = 印刷术/图书馆/互联网搜索，是人类获取彼此知识的工具；它做不到两岁儿童能做的事——主动与物理世界互动、做实验、得到具身反馈。</div></div></li></ul>
 <p class="foot">本页为对节目内容的忠实解读与大白话重述,由 <a href="https://github.com/lumihelia/PodLens">PodLens</a> 生成。</p>
 <p class="disclaimer">这是以原文为依据的一次解读,不能替代原文。每条要点都标注了出处,欢迎回到原文核对——也欢迎指出任何细微的偏差。</p>
 

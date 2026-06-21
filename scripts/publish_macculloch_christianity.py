@@ -13,7 +13,7 @@ PRIVATE_HEADINGS = ["证据锚定洞察", "个人映射", "值得收藏的概念
 ITEM = {
     "slug": "diarmaid-macculloch-christianity-sex-history",
     "report": "reports/diarmaid-macculloch-christianity-sex-history.md",
-    "url": "",
+    "url": "https://youtu.be/VeDKWf80Z3M?si=tgYchuRPSXpo_dEk",
     "kind": "podcast",
     "date": "2026-06-14",
     "title": "基督教、性与颠覆定论 · Diarmaid MacCulloch",

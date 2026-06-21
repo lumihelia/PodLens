@@ -13,7 +13,7 @@ PRIVATE_HEADINGS = ["证据锚定洞察", "个人映射", "值得收藏的概念
 ITEM = {
     "slug": "patrick-oshaughnessy-principle-life-work",
     "report": "reports/patrick-oshaughnessy-principle-life-work.md",
-    "url": "",
+    "url": "https://youtu.be/E8B-P1oGuz4?si=UnR_tDYITDaSYeVU",
     "kind": "podcast",
     "date": "2026-06-14",
     "title": "原则、生命之业与不竭之欢 · Patrick O'Shaughnessy",

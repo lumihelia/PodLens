@@ -13,7 +13,7 @@ PRIVATE_HEADINGS = ["证据锚定洞察", "个人映射", "值得收藏的概念
 ITEM = {
     "slug": "arthur-brooks-reinvention-religion-happiness",
     "report": "reports/arthur-brooks-reinvention-religion-happiness.md",
-    "url": "",
+    "url": "https://youtu.be/PIbk5AnJGqc?si=1JooTQb9D1a8bebZ",
     "kind": "podcast",
     "date": "2026-06-14",
     "title": "重塑人生、宗教与幸福科学 · Arthur Brooks",

@@ -13,7 +13,7 @@ PRIVATE_HEADINGS = ["证据锚定洞察", "个人映射", "值得收藏的概念
 ITEM = {
     "slug": "ivanka-trump-authenticity-reinvention",
     "report": "reports/ivanka-trump-authenticity-reinvention.md",
-    "url": "",
+    "url": "https://youtu.be/VhsiMd9ZFNk?si=WaRGKH5RIBF3lq5J",
     "kind": "podcast",
     "date": "2026-06-14",
     "title": "自我认知、本真性与人生重建 · Ivanka Trump",
