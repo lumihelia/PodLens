@@ -12,6 +12,54 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/en/episodes/cultural-translation-sneaker-economics-and-creator.html",
+      "url": "https://lens.lumihelia.com/en/episodes/cultural-translation-sneaker-economics-and-creator.html",
+      "title": "Cultural Translation, Sneaker Economics, and Creator Sovereignty · Steve Stoute",
+      "date_published": "2026-06-23",
+      "summary": "",
+      "tags": [
+        "Structural decline of the record industry",
+        "Cultural marketing",
+        "Creator copyright",
+        "Data power",
+        "Split between fame and talent",
+        "Independent music distribution"
+      ],
+      "external_url": "https://youtu.be/kpgn7DCiJPE?is=0kxhUzO2WRqrQQTz"
+    },
+    {
+      "id": "https://lens.lumihelia.com/en/episodes/bipedalism-the-agricultural-revolution-and-the-cost-of.html",
+      "url": "https://lens.lumihelia.com/en/episodes/bipedalism-the-agricultural-revolution-and-the-cost-of.html",
+      "title": "Bipedalism, the Agricultural Revolution, and the Cost of Evolution · Lam Weng Cheong",
+      "date_published": "2026-06-23",
+      "summary": "This is a long-form interview with Lam Weng Cheong, a professor of archaeology in the anthropology department at the Chinese University of Hong Kong, covering six core nodes in human evolutionary hist…",
+      "tags": [
+        "The cost of bipedalism",
+        "Persistence hunting",
+        "The cost of the agricultural revolution",
+        "Gobekli Tepe",
+        "Neanderthal DNA",
+        "Archaeological perspective in the AI era"
+      ],
+      "external_url": "https://youtu.be/tOVmn6eZJq4?is=T1YqCn0VH28rQHJP"
+    },
+    {
+      "id": "https://lens.lumihelia.com/en/episodes/many-worlds-interpretation-the-probability-problem-and.html",
+      "url": "https://lens.lumihelia.com/en/episodes/many-worlds-interpretation-the-probability-problem-and.html",
+      "title": "Many-Worlds Interpretation, the Probability Problem, and Constructive Theory · David Deutsch",
+      "date_published": "2026-06-23",
+      "summary": "This is a deep conversation between Brian Greene and David Deutsch from the World Science Festival. David Deutsch is a founder of quantum computing and a key proponent of the many-worlds interpretatio…",
+      "tags": [
+        "Many-Worlds Interpretation",
+        "Quantum Computing",
+        "Constructive Theory",
+        "Decision Theory and Probability",
+        "Free Will",
+        "q-numbers"
+      ],
+      "external_url": "https://youtu.be/Af5LICjFIBc?si=roy5YHxBuyR3z2AI"
+    },
+    {
       "id": "https://lens.lumihelia.com/en/episodes/tim-spector-gut-microbiome-mental-health.html",
       "url": "https://lens.lumihelia.com/en/episodes/tim-spector-gut-microbiome-mental-health.html",
       "title": "The Gut Microbiome, Neuroimmunity, and Dietary Polycentrism · Tim Spector",

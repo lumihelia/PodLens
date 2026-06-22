@@ -1,6 +1,420 @@
 {
   "items": [
     {
+      "slug": "cultural-translation-sneaker-economics-and-creator",
+      "title": "文化翻译、球鞋经济与创作者主权 · Steve Stoute",
+      "date": "2026-06-23",
+      "kind": "podcast",
+      "summary": "这是 Founders Podcast 对 Steve Stoute 的访谈。Steve Stoute 从唱片业高管出发，在 1999 年做出了一个在业内看来\"疯了\"的决定：放弃开唱片公司，进入广告和营销行业。他的职业轨迹跨越唱片、广告、球鞋文化、音乐发行，最后落脚在 United Masters——一家把版权留给艺人自己的独立音乐发行公司。",
+      "source_url": "https://youtu.be/kpgn7DCiJPE?is=0kxhUzO2WRqrQQTz",
+      "tags": [
+        "唱片业结构性衰退",
+        "文化营销",
+        "创作者版权",
+        "数据权力",
+        "名人效应与才华分裂",
+        "独立音乐发行"
+      ],
+      "connections": [
+        {
+          "slug": "bipedalism-the-agricultural-revolution-and-the-cost-of",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "同构",
+          "this_point": "[01:00] 当一个行业因商业模式本身而繁荣时，平庸会被奖励。Steve Stoute 在 CD 时代看到了这一点：$16.99 买一张只有一首好歌的专辑，这种结构不可能持续。",
+          "that_point": "[01:50:00] 林永昌认为：人类的每一次重大技术转变，都以某种代价作为前提。AI 时代亦然——智能的泛化会带来何种不可逆的代价，值得提前思考，而不是等转变完成后再回望。",
+          "why": "两者都指出，一种看似繁荣的结构（CD 商业模式/技术转变）内部隐藏着不可持续的代价（奖励平庸/不可逆的代价），且这种代价在结构持续时被掩盖，只有从外部或事后才能看清。"
+        },
+        {
+          "slug": "bipedalism-the-agricultural-revolution-and-the-cost-of",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "同构",
+          "this_point": "[03:40] \"当未知是比已知更好的选项时，跑向黑暗。\"这是 Steve Stoute 离开唱片业进入广告业的决策逻辑——不是因为知道广告业会怎样，而是因为看清了唱片业会往哪里去。",
+          "that_point": "[01:17:30] 农业的转变并非主动理性选择，而是在特定环境压力下\"无法返回\"的适应：一旦依赖农业，人类便失去了在野外独立生存的能力，成为与土地结构性绑定的物种。",
+          "why": "两者都描述了在特定结构压力下，主动选择\"跑向黑暗\"（进入未知领域）而非留在已知但不可持续的旧结构中，且这种选择一旦做出便不可逆。"
+        },
+        {
+          "slug": "tim-spector-gut-microbiome-mental-health",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "同构",
+          "this_point": "[06:10] 文化影响力可以直接转化为产品销量，但唱片公司没有机制捕捉这部分价值。Men in Black 帮 Ray-Ban 卖出了几百万副眼镜，音乐公司一分钱没拿到。",
+          "that_point": "[29:51] - [30:34] 基于热量、蛋白质和脂肪的简单营养统计法是一场科学灾难。食品工业将复杂的天然食物还原为四个枯燥的营养指标，借此用低廉的工业盈余（如大豆、玉米）掺杂化学添加剂炮制超加工食物，从而通过热量计算标签麻痹大众对食物质量的反思。",
+          "why": "两者都揭示了一种\"价值捕获机制缺失\"的结构性问题：唱片公司无法从文化影响力中获利，如同食品工业用简化的营养指标掩盖了真实食物质量的缺失——两者都因缺乏正确的度量/捕获机制而让真正有价值的东西被忽略。"
+        },
+        {
+          "slug": "simon-haines-fiona-mueller-education-activism",
+          "kind": "tension",
+          "conflict_type": "apparent",
+          "relation": "矛盾",
+          "this_point": "[15:44] 广告业按种族（黑白西裔）划分受众的框架是错的。音乐告诉了 Steve Stoute：DMX 在爱荷华卖；Eminem 在哈莱姆区卖。人们购买产品靠的是共同价值观，不是族裔认同。",
+          "that_point": "[33:37] - [34:22] \"批判教育学\"将师资培训退化为社会公正的\"宣誓活动家基地\"。以 Paulo Freire 的二元对立学说为核心的教育学研究，将大量课堂精力用于向学生灌输\"身份政治\"与负罪感，系统性瓦解了基础读写教学的专业技能建设。",
+          "why": "两者表面上冲突：Stoute 认为族裔分类是无效的，价值观才是核心；而 Haines 和 Mueller 批判的教育学正是以族裔/身份政治为核心。但实际不冲突：Stoute 批判的是商业营销中粗放的族裔分类，而 Haines 批判的是教育学中过度强调身份政治——两者都反对将族裔作为分析/教学的首要框架，只是反对的对象不同。"
+        },
+        {
+          "slug": "simon-haines-fiona-mueller-education-activism",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "印证",
+          "this_point": "[22:08] \"Everything is advertising.\"——所有的内容都是广告。音乐录影带是歌曲的广告，电视广告是可以娱乐化的内容，区别只是在哪个渠道播出。",
+          "that_point": "[42:28] - [42:37] 智能手机屏是现代版的\"柏拉图地穴\"幻象墙。现代学生整日被智能设备框定在算法推荐的社交泡沫中，将像素影子误认作世界真相，进而引发了空前的出勤拒斥与精神内耗。",
+          "why": "两者都指出内容/信息在当代社会中的\"工具化\"本质：Stoute 认为所有内容本质上都是广告（服务于商业目的），Haines 认为屏幕内容构成了遮蔽真实世界的幻象墙——两者都揭示了内容不再具有独立价值，而是被外部力量（商业/算法）所操控。"
+        },
+        {
+          "slug": "dave-eggers-storytelling-creative-writing",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "印证",
+          "this_point": "[25:53] Nike 在 Reebok 非运动员球鞋战略兴起时的盲点：他们只把球鞋当运动装备，没看到\"穿着 Jordan 打球的人里有多少人根本不打篮球\"这件事。",
+          "that_point": "[29:46] - [30:37] 图书纸质印刷的\"物理实体感\"是抵抗屏幕数字化消融的终极防线。通过竹质封面、布艺、磁铁连接、箔印和非常规开本，能将书籍转化为具有无法被数字屏幕所取代的触觉和艺术收藏价值的物理媒介，且这些工艺的边缘成本极低。",
+          "why": "两者都揭示了在特定领域内，从业者因固守\"功能主义\"视角而错失了产品的\"文化/体验\"维度：Nike 只看到球鞋的运动功能而忽略了其文化符号价值，出版业只看到书籍的信息功能而忽略了其物理触觉价值——两者都因过度聚焦于核心功能而忽略了产品作为文化载体的可能性。"
+        },
+        {
+          "slug": "robert-sapolsky-biology-best-worst",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "印证",
+          "this_point": "[30:14] LeBron James 拒绝 Reebok 一千万美元签约奖金：\"我在赌自己。\"Steve Stoute 说这件事告诉他，当一个处于贫困中的非裔年轻人知道自己的才能值得比那张支票更多，这个世界已经发生了结构性变化。",
+          "that_point": "[01:01:14] 决定论行为与极速重配置状态并存，自由意志是尚未发现生物学的代名词。即使人类的一切行为皆是因果闭环的必然结果，但敌友认知边界在环境文化符号改写下，可以在分钟级别被重新配置。",
+          "why": "两者都触及了\"在决定论框架下个体如何做出超越预期的选择\"这一命题：LeBron 的自我赌注看似是\"自由意志\"的体现，而 Sapolsky 认为自由意志只是尚未被发现的生物学——但两者都承认，个体在特定环境下可以做出超出既有模式预期的行为，只是 Sapolsky 将其归因于尚未理解的生物学机制，而 Stoute 将其视为结构性变化的信号。"
+        },
+        {
+          "slug": "how-do-computers-work-from-scratch",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "同构",
+          "this_point": "[36:34] 唱片公司在与 Spotify 谈判时本可以要求数据访问权，让艺人能够直接联系歌迷。他们没有要，因为一旦艺人拥有了数据，唱片公司就失去了不可替代性。",
+          "that_point": "[05:27:04] 总线通信的核心红线是防范电气层面的数据写入冲突。任意时刻只能有一个硬件组件被允许向总线写入电平，否则会造成直接的物理短路并损坏芯片。",
+          "why": "两者都描述了系统中\"控制权与数据流\"之间的结构性冲突：唱片公司通过垄断艺人数据（不让艺人直接联系歌迷）来维持自身不可替代性，如同计算机总线通过严格的写入权限控制来防止数据冲突——两者都揭示了\"谁控制数据/信号的流动，谁就拥有权力\"这一底层逻辑。"
+        },
+        {
+          "slug": "avi-wigderson-p-vs-np-zero-knowledge-proofs",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "同构",
+          "this_point": "[42:08] 向 Larry Page 解释唱片业现实：\"想象一下，如果每个风险投资人进来，拿走的不是股权，而是公司的知识产权本身。\"这就是艺人签约唱片公司的本质。",
+          "that_point": "[02:22] P vs NP 的本质是关于人类认知极限的问题。该问题探究我们是否能够高效地解出所有我们想要解出的难题，即高效地获取我们想要知道的一切真理。",
+          "why": "两者都触及了\"所有权与访问权\"之间的根本性不对称：在唱片业中，艺人让渡了知识产权（所有权）来换取曝光（访问权），如同在计算复杂性中，NP 问题允许高效验证（访问）却不保证高效求解（所有权）——两者都揭示了在特定系统中，\"拥有\"和\"能够使用/验证\"是两种截然不同的权力。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "Cultural Translation, Sneaker Economics, and Creator Sovereignty · Steve Stoute",
+          "tags": [
+            "Structural decline of the record industry",
+            "Cultural marketing",
+            "Creator copyright",
+            "Data power",
+            "Split between fame and talent",
+            "Independent music distribution"
+          ],
+          "summary": "",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "bipedalism-the-agricultural-revolution-and-the-cost-of",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Isomorphic",
+              "why": "Both point out that within a seemingly prosperous structure (CD business model/technological shift), there is a hidden unsustainable cost (rewarding mediocrity/irreversible cost), and this cost is masked while the structure persists, only becoming clear from the outside or in hindsight.",
+              "this_point": "[01:00] When an industry thrives because of its business model itself, mediocrity is rewarded. Steve Stoute saw this in the CD era: buying an album with only one good song for $16.99—this structure could not last.",
+              "that_point": "[01:50:00] Lam Weng Cheong believes: every major technological shift in human history comes with a certain cost as a prerequisite. The AI era is no different—what irreversible costs will the generalization of intelligence bring? It is worth thinking about in advance, rather than looking back after the shift is complete."
+            },
+            {
+              "slug": "bipedalism-the-agricultural-revolution-and-the-cost-of",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Isomorphic",
+              "why": "Both describe actively choosing to 'run toward the dark' (enter the unknown) under specific structural pressure, rather than staying in a known but unsustainable old structure, and this choice, once made, is irreversible.",
+              "this_point": "[03:40] \"When the unknown is a better option than the known, run toward the dark.\" This was the logic behind Steve Stoute's decision to leave the record industry for advertising—not because he knew what advertising would be like, but because he saw where the record industry was heading.",
+              "that_point": "[01:17:30] The shift to agriculture was not an active rational choice, but an adaptation under specific environmental pressure from which there was 'no return': once dependent on agriculture, humans lost the ability to survive independently in the wild, becoming a species structurally bound to the land."
+            },
+            {
+              "slug": "tim-spector-gut-microbiome-mental-health",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Isomorphic",
+              "why": "Both reveal a structural problem of a 'missing value capture mechanism': the record industry could not profit from cultural influence, just as the food industry uses simplified nutritional indicators to mask the absence of real food quality—both lack the correct measurement/capture mechanism, causing truly valuable things to be ignored.",
+              "this_point": "[06:10] Cultural influence can be directly converted into product sales, but record companies had no mechanism to capture this value. Men in Black helped Ray-Ban sell millions of sunglasses, and the music company didn't get a cent.",
+              "that_point": "[29:51] - [30:34] The simple nutritional statistics method based on calories, protein, and fat was a scientific disaster. The food industry reduced complex natural foods to four boring nutritional indicators, using cheap industrial surpluses (like soy, corn) mixed with chemical additives to concoct ultra-processed foods, thereby numbing the public's reflection on food quality through calorie calculation labels."
+            },
+            {
+              "slug": "simon-haines-fiona-mueller-education-activism",
+              "kind": "tension",
+              "conflict_type": "apparent",
+              "relation": "Contradiction",
+              "why": "The two appear to conflict on the surface: Stoute believes ethnic classification is ineffective and values are core; while Haines and Mueller critique a pedagogy centered on ethnicity/identity politics. But they do not actually conflict: Stoute criticizes the crude ethnic classification in commercial marketing, while Haines criticizes the overemphasis on identity politics in pedagogy—both oppose using ethnicity as the primary framework for analysis/teaching, just targeting different objects.",
+              "this_point": "[15:44] The advertising industry's framework of dividing audiences by race (Black, White, Hispanic) is wrong. Music taught Steve Stoute: DMX sells in Iowa; Eminem sells in Harlem. People buy products based on shared values, not ethnic identity.",
+              "that_point": "[33:37] - [34:22] 'Critical pedagogy' degrades teacher training into a 'sworn activist base' for social justice. Centered on Paulo Freire's binary opposition theory, educational research uses a large amount of class time to indoctrinate students with 'identity politics' and guilt, systematically dismantling the professional skill building of basic literacy teaching."
+            },
+            {
+              "slug": "simon-haines-fiona-mueller-education-activism",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Corroboration",
+              "why": "Both point out the 'instrumentalized' nature of content/information in contemporary society: Stoute believes all content is essentially advertising (serving commercial purposes), Haines believes screen content constitutes a wall of illusions obscuring the real world—both reveal that content no longer has independent value but is manipulated by external forces (commerce/algorithms).",
+              "this_point": "[22:08] \"Everything is advertising.\"—All content is advertising. A music video is an ad for a song, a TV commercial is content that can be entertaining, the only difference is the channel it airs on.",
+              "that_point": "[42:28] - [42:37] The smartphone screen is the modern version of Plato's cave wall of illusions. Modern students are framed all day by smart devices in algorithmically recommended social bubbles, mistaking pixel shadows for the truth of the world, leading to unprecedented attendance refusal and mental exhaustion."
+            },
+            {
+              "slug": "dave-eggers-storytelling-creative-writing",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Corroboration",
+              "why": "Both reveal that within a specific domain, practitioners, due to clinging to a 'functionalist' perspective, miss the 'cultural/experiential' dimension of the product: Nike only saw the athletic function of sneakers and ignored their cultural symbolic value; the publishing industry only saw the informational function of books and ignored their physical tactile value—both over-focused on core function and overlooked the product's potential as a cultural carrier.",
+              "this_point": "[25:53] Nike's blind spot when Reebok's non-athlete sneaker strategy emerged: they only saw sneakers as sports equipment, missing the fact that 'how many people wearing Jordans don't even play basketball.'",
+              "that_point": "[29:46] - [30:37] The 'physical entity feel' of printed books is the ultimate defense against the dissolution of digital screens. Through bamboo covers, fabric, magnetic connections, foil stamping, and unconventional formats, books can be transformed into physical media with tactile and artistic collectible value that cannot be replaced by digital screens, and the marginal cost of these techniques is extremely low."
+            },
+            {
+              "slug": "robert-sapolsky-biology-best-worst",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Corroboration",
+              "why": "Both touch upon the proposition of 'how an individual makes choices that exceed expectations within a deterministic framework': LeBron's self-bet appears to be an expression of 'free will', while Sapolsky believes free will is just biology not yet discovered—but both acknowledge that individuals in specific environments can make behaviors that exceed existing patterns, with Sapolsky attributing it to yet-ununderstood biological mechanisms and Stoute seeing it as a signal of structural change.",
+              "this_point": "[30:14] LeBron James turning down Reebok's ten million dollar signing bonus: 'I'm betting on myself.' Steve Stoute says this told him that when a young Black man in poverty knows his talent is worth more than that check, the world has undergone a structural change.",
+              "that_point": "[01:01:14] Deterministic behavior coexists with a state of rapid reconfiguration; free will is a placeholder for biology not yet discovered. Even if all human behavior is the inevitable result of a closed causal loop, the boundary between friend and foe can be reconfigured at the minute level under the rewriting of environmental cultural symbols."
+            },
+            {
+              "slug": "how-do-computers-work-from-scratch",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Isomorphic",
+              "why": "Both describe a structural conflict between 'control and data flow' within a system: record companies maintain their irreplaceability by monopolizing artist data (preventing artists from directly contacting fans), just as a computer bus uses strict write permission controls to prevent data conflicts—both reveal the underlying logic that 'whoever controls the flow of data/signals holds the power.'",
+              "this_point": "[36:34] When negotiating with Spotify, record companies could have demanded data access rights, allowing artists to directly contact fans. They didn't ask for it, because once artists have the data, record companies lose their irreplaceability.",
+              "that_point": "[05:27:04] The core red line of bus communication is preventing electrical-level data write conflicts. At any given moment, only one hardware component is allowed to write a voltage level to the bus, otherwise it will cause a direct physical short circuit and damage the chip."
+            },
+            {
+              "slug": "avi-wigderson-p-vs-np-zero-knowledge-proofs",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Isomorphic",
+              "why": "Both touch upon a fundamental asymmetry between 'ownership and access rights': in the record industry, artists cede intellectual property (ownership) in exchange for exposure (access), just as in computational complexity, NP problems allow efficient verification (access) but do not guarantee efficient solving (ownership)—both reveal that in specific systems, 'having' and 'being able to use/verify' are two distinct powers.",
+              "this_point": "[42:08] Explaining the reality of the record industry to Larry Page: 'Imagine if every venture capitalist who came in took not equity, but the company's intellectual property itself.' That is the essence of an artist signing with a record label.",
+              "that_point": "[02:22] The essence of P vs NP is a question about the limits of human cognition. This problem explores whether we can efficiently solve all the hard problems we want to solve, i.e., efficiently obtain all the truths we want to know."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "bipedalism-the-agricultural-revolution-and-the-cost-of",
+      "title": "直立行走、农业革命与演化的代价 · 林永昌",
+      "date": "2026-06-23",
+      "kind": "podcast",
+      "summary": "这是一场由中大人类学系考古学教授林永昌主讲的长访谈，涵盖了人类演化史中六个核心节点：直立行走的起源、石器制作、用火的证据、多人种共存、农业革命的代价，以及考古学在 AI 时代的意义。",
+      "source_url": "https://youtu.be/tOVmn6eZJq4?is=T1YqCn0VH28rQHJP",
+      "tags": [
+        "直立行走的代价",
+        "持久性狩猎",
+        "农业革命的代价",
+        "Gobekli Tepe",
+        "Neanderthal基因",
+        "AI时代的考古学视角"
+      ],
+      "connections": [
+        {
+          "slug": "tim-spector-gut-microbiome-mental-health",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "同构",
+          "this_point": "[01:21:06] 进入农业社会后，人类的整体健康水平下降：营养多样性减少，牙病增加（碳水化合物积累于牙齿），2型糖尿病相关风险上升，感染性疾病风险随人口密集而增大。",
+          "that_point": "[02:36] - [03:20] 植物的膳食多样性（每周 30 种以上）是确保肠道微观生态位丰度的唯一路径。肠道内数万亿种微小菌群并非全部竞争同种食物，而是各占高度专一的化学位能（例如部分菌株仅在摄入咖啡豆时分裂），因此只有多物种共生才能消除肠道垃圾，切断有害菌群的资源供给。",
+          "why": "两则观点在因果链上形成呼应：农业革命导致人类饮食多样性锐减，而肠道菌群恰恰依赖植物多样性来维持健康，两者共同指向“单一化饮食是健康恶化的结构性根源”。"
+        },
+        {
+          "slug": "tim-spector-gut-microbiome-mental-health",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "印证",
+          "this_point": "[01:21:06] 进入农业社会后，人类的整体健康水平下降：营养多样性减少，牙病增加（碳水化合物积累于牙齿），2型糖尿病相关风险上升，感染性疾病风险随人口密集而增大。",
+          "that_point": "[13:46] - [14:35] 抑郁、疲劳等精神症状本质上是脑部对肠道慢性炎症发出的“生病避役行为”的体现。长期劣质饮食或创伤压力破坏肠黏膜屏障，引发全身性慢性炎症，大脑在读取这一系统性危机信号后，会自发下调社交、活动意愿并产生持续疲劳，以迫使机体进入感染休眠状态。",
+          "why": "农业带来的单一碳水饮食会破坏肠黏膜屏障（Spector 所述），进而引发慢性炎症和精神症状；林永昌观察到农业后健康下降，而 Spector 揭示了其中一条具体病理通路——饮食单一化→肠漏→慢性炎症→身心疾病。"
+        },
+        {
+          "slug": "why-does-2-plus-2-equal-4-math-deep-reality",
+          "kind": "tension",
+          "conflict_type": "apparent",
+          "relation": "矛盾",
+          "this_point": "[01:50:00] 林永昌认为：人类的每一次重大技术转变，都以某种代价作为前提。AI 时代亦然——智能的泛化会带来何种不可逆的代价，值得提前思考，而不是等转变完成后再回望。",
+          "that_point": "[49:44] - [50:52] 科学发现中审美直觉（Beauty Principle）扮演了真理的启发式指南。从 Crick 认定 DNA 双螺旋结构'因其美丽而必然正确'，到 Maxwell 仅仅为了修补方程式在数学上的非对称性而预言电磁波，审美上的对称与和谐被证明是人类逼近物理客观真理的可靠罗盘。",
+          "why": "林永昌强调技术转变必然伴随不可逆代价，本质是悲观的功能主义视角；Berlinski 则认为审美直觉（对称、和谐）引导人类逼近真理，暗示技术进步有内在的积极方向性。两者对'转变的后果'有根本不同的价值判断——一个聚焦代价，一个聚焦发现。"
+        },
+        {
+          "slug": "simon-haines-fiona-mueller-education-activism",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "补充",
+          "this_point": "[01:09:30] 农业革命发生在约 1.2 万年前的西亚等地，最初的耕作行为（cultivation）早在 1.6-1.7 万年前可能已存在，但真正系统化的农业在 1 万年前才趋于确定。",
+          "that_point": "[07:33] - [07:49] 教育的本质是“Induction”（引入文明 conversation），而非“Educare”（由内接引出固有真理）。盲信学生中心的卢梭式理论认为所有智能已在儿童体内，教师只需“接生”而不主动灌输，这彻底抹杀了人类社会文明积累的必要灌输，沦为无源之水的“自我闭合”。",
+          "why": "两者都揭示了'文明积累需要外部传递'这一结构：农业知识不是人类个体自发产生的，而是经过数千年试错积累后通过文化传递；教育同样需要主动灌输文明积累，而非放任个体自发发现。两者共同反驳了'自发涌现'的浪漫主义叙事。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "Bipedalism, the Agricultural Revolution, and the Cost of Evolution · Lam Weng Cheong",
+          "tags": [
+            "The cost of bipedalism",
+            "Persistence hunting",
+            "The cost of the agricultural revolution",
+            "Gobekli Tepe",
+            "Neanderthal DNA",
+            "Archaeological perspective in the AI era"
+          ],
+          "summary": "This is a long-form interview with Lam Weng Cheong, a professor of archaeology in the anthropology department at the Chinese University of Hong Kong, covering six core nodes in human evolutionary hist…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "tim-spector-gut-microbiome-mental-health",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Isomorphic",
+              "why": "The two viewpoints echo each other in a causal chain: the Agricultural Revolution led to a sharp decline in human dietary diversity, while the gut microbiome precisely relies on plant diversity to maintain health; together they point to 'monotonous diet as a structural root of health deterioration.'",
+              "this_point": "[01:21:06] After entering agricultural society, overall human health declined: reduced nutritional diversity, increased dental disease (carbohydrate accumulation on teeth), increased risk of type 2 diabetes, and increased risk of infectious diseases with population density.",
+              "that_point": "[02:36] - [03:20] Plant dietary diversity (more than 30 types per week) is the only path to ensuring the abundance of intestinal micro-ecological niches. The trillions of tiny microbial species in the gut do not all compete for the same food, but each occupies a highly specific chemical niche (for example, some strains only divide when coffee beans are ingested), so only multi-species coexistence can eliminate intestinal waste and cut off the resource supply for harmful bacteria."
+            },
+            {
+              "slug": "tim-spector-gut-microbiome-mental-health",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Corroboration",
+              "why": "The monotonous carbohydrate diet brought by agriculture damages the intestinal mucosal barrier (as Spector describes), leading to chronic inflammation and mental symptoms; Lam Weng Cheong observes health decline after agriculture, while Spector reveals one specific pathological pathway—dietary simplification → leaky gut → chronic inflammation → physical and mental illness.",
+              "this_point": "[01:21:06] After entering agricultural society, overall human health declined: reduced nutritional diversity, increased dental disease (carbohydrate accumulation on teeth), increased risk of type 2 diabetes, and increased risk of infectious diseases with population density.",
+              "that_point": "[13:46] - [14:35] Mental symptoms such as depression and fatigue are essentially the brain's manifestation of 'sickness behavior' in response to chronic intestinal inflammation. Long-term poor diet or traumatic stress damages the intestinal mucosal barrier, triggering systemic chronic inflammation. After reading this systemic crisis signal, the brain spontaneously reduces social and activity willingness and produces persistent fatigue, forcing the body into a state of infectious dormancy."
+            },
+            {
+              "slug": "why-does-2-plus-2-equal-4-math-deep-reality",
+              "kind": "tension",
+              "conflict_type": "apparent",
+              "relation": "Contradiction",
+              "why": "Lam Weng Cheong emphasizes that technological transitions inevitably come with irreversible costs, essentially a pessimistic functionalist perspective; Berlinski, on the other hand, believes that aesthetic intuition (symmetry, harmony) guides humans toward truth, implying that technological progress has an inherent positive directionality. The two have fundamentally different value judgments about 'the consequences of transitions'—one focuses on cost, the other on discovery.",
+              "this_point": "[01:50:00] Lam Weng Cheong believes: every major technological transition in human history comes with some cost as a prerequisite. The same applies to the AI era—what irreversible costs will the generalization of intelligence bring? It is worth thinking about in advance, rather than looking back after the transition is complete.",
+              "that_point": "[49:44] - [50:52] Aesthetic intuition (the Beauty Principle) plays the role of a heuristic guide to truth in scientific discovery. From Crick's conviction that the DNA double helix structure 'must be correct because it is beautiful,' to Maxwell's prediction of electromagnetic waves merely to fix a mathematical asymmetry in his equations, aesthetic symmetry and harmony have proven to be a reliable compass for humans approaching physical objective truth."
+            },
+            {
+              "slug": "simon-haines-fiona-mueller-education-activism",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Complement",
+              "why": "Both reveal the structure that 'civilizational accumulation requires external transmission': agricultural knowledge was not spontaneously generated by individual humans but accumulated through thousands of years of trial and error and then transmitted culturally; education similarly requires active inculcation of civilizational accumulation, rather than allowing individuals to discover it spontaneously. Together, they refute the romantic narrative of 'spontaneous emergence.'",
+              "this_point": "[01:09:30] The Agricultural Revolution occurred around 12,000 years ago in West Asia and elsewhere; initial cultivation may have existed as early as 16,000-17,000 years ago, but truly systematic agriculture only became certain around 10,000 years ago.",
+              "that_point": "[07:33] - [07:49] The essence of education is 'Induction' (introducing the civilizational conversation), not 'Educare' (drawing out inherent truth from within). Blindly believing in student-centered Rousseauian theory, which holds that all intelligence is already within the child and the teacher only needs to 'midwife' without active inculcation, completely erases the necessary inculcation of accumulated human civilization, degenerating into a 'self-enclosed' state without a source."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "many-worlds-interpretation-the-probability-problem-and",
+      "title": "多世界诠释、概率难题与构造理论 · David Deutsch",
+      "date": "2026-06-23",
+      "kind": "podcast",
+      "summary": "这是 World Science Festival 中 Brian Greene 与 David Deutsch 的深度对话。David Deutsch 是量子计算的奠基人，也是多世界诠释（Everettian quantum theory）的核心推动者之一。全程围绕一个核心问题：量子力学到底在告诉我们什么关于现实的本质？",
+      "source_url": "https://youtu.be/Af5LICjFIBc?si=roy5YHxBuyR3z2AI",
+      "tags": [
+        "多世界诠释",
+        "量子计算",
+        "构造理论",
+        "决策论与概率",
+        "自由意志",
+        "q-numbers"
+      ],
+      "connections": [
+        {
+          "slug": "hakeem-oluseyi",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "补充",
+          "this_point": "[32:13] de Broglie-Bohm 导引波理论是真正的现实主义尝试，有别于各种'应对策略（copes）'。问题在于：一旦承认空轨道（empty grooves）对真实粒子有物理作用，就等于接受了波函数的全部成分都是真实的，结果自然回到 Everett。",
+          "that_point": "[53:35-55:09] 量子力学的'多世界诠释'提出，为解决测量问题，量子事件的每一个可能结果实际上都发生了，各自发生在其自己的分支宇宙中。",
+          "why": "Deutsch 从导引波理论的内在逻辑出发论证了波函数全部成分必须真实存在，从而必然走向 Everett 多世界；Oluseyi 则直接陈述了多世界诠释的核心主张——所有可能结果都实际发生。Deutsch 为 Oluseyi 描述的结论提供了理论推导路径。"
+        },
+        {
+          "slug": "joscha-bach-nature-of-reality-dreams-consciousness",
+          "kind": "tension",
+          "conflict_type": "apparent",
+          "relation": "矛盾",
+          "this_point": "[01:03:48] 自由意志的本质不在于逃脱因果律，而在于：人可以真正创造出宇宙中之前不存在的新知识。Einstein 的场方程在被他想出来之前，不在任何地方——既不在 Big Bang 里，也不在任何先前的物理学里。",
+          "that_point": "[00:33-03:08] 人生是黑猩猩大脑中运行的短暂软件：摆脱对个人悲欢和焦虑执念的解脱方法，是意识到'我'并非实体，而是一个为了注意力控制而暂时运行的控制模型软件。自我（Identity）是偶发的，一旦认识到这一代表性框架，痛苦的执念便会消失。",
+          "why": "Deutsch 认为自由意志体现为创造全新知识的能力，这预设了一个能够产生真正新颖内容的实体；Bach 则认为'自我'只是控制模型软件，是偶发的而非实体。两者对'人能否作为创造主体'的前提判断不同：Deutsch 肯定人的创造性主体地位，Bach 则消解了这种主体性。"
+        },
+        {
+          "slug": "robert-sapolsky-biology-best-worst",
+          "kind": "tension",
+          "conflict_type": "genuine",
+          "relation": "矛盾",
+          "this_point": "[01:03:48] 自由意志的本质不在于逃脱因果律，而在于：人可以真正创造出宇宙中之前不存在的新知识。Einstein 的场方程在被他想出来之前，不在任何地方——既不在 Big Bang 里，也不在任何先前的物理学里。",
+          "that_point": "[01:01:14] 决定论行为与极速重配置状态并存，自由意志是尚未发现生物学的代名词。",
+          "why": "Deutsch 断言自由意志是真实存在的，表现为创造全新知识的能力；Sapolsky 则断言自由意志只是尚未找到生物学解释的代名词，实际上不存在。两人对'自由意志是否为真实存在'给出了直接对立的答案。"
+        },
+        {
+          "slug": "avi-wigderson-p-vs-np-zero-knowledge-proofs",
+          "kind": "resonance",
+          "conflict_type": "",
+          "relation": "同构",
+          "this_point": "[01:12:15] 构造理论将物理学基础从'运动方程+初始条件'替换为'哪些转变可以被带来、哪些不可以'，期望将运动定律和初始条件都作为涌现性质推导出来，而非当作前提。",
+          "that_point": "[01:27:18] 零知识证明具有绝对的普遍性。任何拥有数学证明的命题都天然拥有一个零知识交互证明系统，可以在不泄露任何证明细节的前提下完成验证。",
+          "why": "Deutsch 的构造理论将物理学的基本问题从'事物如何运动'转变为'哪些转变是可能的'；Wigderson 的零知识证明则展示了数学中'可验证性'与'可证明性'之间的等价关系。两者都在各自领域中将基础问题从'如何做'转向'是否可能'，体现了相同的结构性思维转变。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "Many-Worlds Interpretation, the Probability Problem, and Constructive Theory · David Deutsch",
+          "tags": [
+            "Many-Worlds Interpretation",
+            "Quantum Computing",
+            "Constructive Theory",
+            "Decision Theory and Probability",
+            "Free Will",
+            "q-numbers"
+          ],
+          "summary": "This is a deep conversation between Brian Greene and David Deutsch from the World Science Festival. David Deutsch is a founder of quantum computing and a key proponent of the many-worlds interpretatio…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "hakeem-oluseyi",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Complementary",
+              "why": "Deutsch argues from the internal logic of pilot-wave theory that all components of the wavefunction must be real, thus inevitably leading to Everett's many-worlds; Oluseyi directly states the core claim of the many-worlds interpretation—that all possible outcomes actually occur. Deutsch provides the theoretical derivation path for the conclusion Oluseyi describes.",
+              "this_point": "[32:13] de Broglie-Bohm pilot-wave theory is a genuine realist attempt, distinct from various 'copes.' The problem is: once you admit that empty grooves have a physical effect on real particles, you have accepted that all components of the wavefunction are real, and the result naturally leads back to Everett.",
+              "that_point": "[53:35-55:09] The 'many-worlds interpretation' of quantum mechanics proposes that, to solve the measurement problem, every possible outcome of a quantum event actually occurs, each in its own branch universe."
+            },
+            {
+              "slug": "joscha-bach-nature-of-reality-dreams-consciousness",
+              "kind": "tension",
+              "conflict_type": "apparent",
+              "relation": "Contradictory",
+              "why": "Deutsch believes free will is manifested as the ability to create genuinely new knowledge, which presupposes an entity capable of producing truly novel content; Bach believes the 'self' is merely control model software, contingent rather than substantial. The two have different premises about whether 'humans can act as creative subjects': Deutsch affirms the creative subject status of humans, while Bach dissolves that subjectivity.",
+              "this_point": "[01:03:48] The essence of free will is not about escaping causality, but that humans can genuinely create new knowledge that did not previously exist in the universe. Einstein's field equations, before he thought of them, were nowhere—not in the Big Bang, not in any prior physics.",
+              "that_point": "[00:33-03:08] Life is transient software running in a chimpanzee brain: a way to escape attachment to personal sorrows and anxieties is to realize that the 'I' is not an entity, but a control model software temporarily running for attention control. Identity is contingent; once this representational framework is recognized, painful attachments disappear."
+            },
+            {
+              "slug": "robert-sapolsky-biology-best-worst",
+              "kind": "tension",
+              "conflict_type": "genuine",
+              "relation": "Contradictory",
+              "why": "Deutsch asserts that free will is real, manifested as the ability to create genuinely new knowledge; Sapolsky asserts that free will is merely a placeholder for what has not yet been biologically explained, and does not actually exist. The two give directly opposing answers to the question 'Is free will real?'",
+              "this_point": "[01:03:48] The essence of free will is not about escaping causality, but that humans can genuinely create new knowledge that did not previously exist in the universe. Einstein's field equations, before he thought of them, were nowhere—not in the Big Bang, not in any prior physics.",
+              "that_point": "[01:01:14] Deterministic behavior coexists with rapid reconfiguration states; free will is a placeholder for undiscovered biology."
+            },
+            {
+              "slug": "avi-wigderson-p-vs-np-zero-knowledge-proofs",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Isomorphic",
+              "why": "Deutsch's constructive theory shifts the fundamental question of physics from 'how do things move' to 'which transformations are possible'; Wigderson's zero-knowledge proofs demonstrate the equivalence between 'verifiability' and 'provability' in mathematics. Both shift the foundational question in their respective fields from 'how' to 'whether possible,' reflecting the same structural shift in thinking.",
+              "this_point": "[01:12:15] Constructive theory replaces the foundation of physics from 'equations of motion + initial conditions' to 'which transformations can be brought about and which cannot,' expecting to derive both the laws of motion and initial conditions as emergent properties, rather than taking them as premises.",
+              "that_point": "[01:27:18] Zero-knowledge proofs have absolute universality. Any proposition that has a mathematical proof inherently possesses a zero-knowledge interactive proof system, allowing verification without revealing any details of the proof."
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "tim-spector-gut-microbiome-mental-health",
       "title": "肠道微生态、神经免疫与膳食多中心主义 · Tim Spector",
       "date": "2026-06-21",

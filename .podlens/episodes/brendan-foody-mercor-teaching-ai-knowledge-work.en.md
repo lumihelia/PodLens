@@ -1,0 +1,75 @@
+## What This Episode Is About
+
+In this episode of Tyler Cowen's "Conversations with Tyler," Brendan Foody — CEO and co-founder of Mercor, reportedly the youngest unicorn founder ever at age 22, and the youngest Conversations with Tyler guest — discusses what his company does, what it reveals about AI capability, and what the future of knowledge work looks like.
+
+Mercor's business model is simple and unusual: **it hires experts to teach AI models**. When a frontier AI lab wants better poetry from its models, Mercor finds top poets and pays them $150/hour to build rubrics and examples. When measuring performance across professional domains, Mercor recruits Larry Summers for finance and economics, Cass Sunstein for law, and Eric Topol for medicine to design evaluation frameworks. The economic logic: a single expert's knowledge, once captured, reaches billions of users — making high per-hour rates rational.
+
+The conversation covers three interlocking themes. First: the actual state of AI capability. Mercor built APEX (AI Productivity Index), which measures model performance on economically valuable tasks rather than academic benchmarks. GPT-5 reaches 64% of human expert performance; improvement runs ~25-30% per year. Tyler and Foody disagree on how soon models will surpass a specific expert like Cass Sunstein (Tyler: six months; Foody: two to three years) and on what the binding constraints currently are (long-horizon tasks and multi-tool integration, both predicted to improve in six to twelve months).
+
+Second: the two types of training data and the structural transformation of knowledge work. Foody distinguishes "output data" (content models learn from) from "evaluation data" (rubrics, test questions, graded answers — the measurement of success). The latter is far more valuable because it lets models "attempt problems many times, score those responses, and learn." His core prediction: knowledge work will restructure from "doing the task" to "building the RL environment that teaches an agent to do the task." The investment banker won't keep reanalyzing data rooms — she'll teach an agent to do it once, then focus on catching the agent's mistakes.
+
+Third: the taste problem and the Kantian challenge. Tyler invokes Kant's third critique — taste is precisely that which cannot be captured in a rule or rubric. If Mercor's most valuable data is rubrics, and taste is by definition not rubricizable, is Foody chasing a logical circle? Foody's response is RLHF: instead of explicit rubrics, have people with taste repeatedly choose which of two outputs they prefer. But this doesn't fully resolve the tension — a research finding shows ordinary users prefer AI-generated poetry over human poetry, while top poets prefer human poetry. Whose preferences matter?
+
+## Timeline Theme Map
+
+- [00:00-01:35] Background: Mercor's founding (early 2023); Foody's records (youngest unicorn founder, fastest to $400M valuation); why Tyler is starting with a $150/hour poet.
+- [01:35-05:30] Mercor's business model: experts create rubrics and examples to teach AI models; "do it once, apply across billions of users" as the pricing rationale; Mercor uses AI models to detect whether human raters are being lazy or inconsistent.
+- [05:30-09:30] APEX methodology: survey experts on time allocation → have them write prompts and rubrics for each task → time = proxy for economic value → GPT-5 at 64%, ~25-30% improvement per year. Current key limitations: (1) long-horizon tasks (50-100 hours); (2) multi-tool integration. Both predicted to improve in 6-12 months.
+- [09:30-15:40] Tyler-Foody debate: when will AI render Cass Sunstein unable to find a mistake? Tyler: 6 months. Foody: 2-3 years (legal "taste" is hard to capture). What areas human experts still lead in (tacit, non-codified knowledge); Tyler asks whether top university seminar transcripts should be sent to AI labs.
+- [15:40-22:30] Two data types. The Kantian challenge: taste = what cannot be captured in a rubric; if you need rubrics, you're circular. Foody's response: RLHF. Research finding: ordinary users prefer AI poetry; top poets prefer human poetry. Whose taste defines the target?
+- [22:30-31:40] Society as an RL machine: investment bankers will build RL environments instead of doing analyses; 5 years out, most high-end knowledge workers will be model trainers. Price elasticity of demand framework: software (high elastic), accounting/customer support (low elastic), education (middle).
+- [31:40-38:30] Labor markets: how Mercor hired 300 people using its own technology; the biggest interview mistake (vibe-based conversations instead of skills assessment); AI interview tools — the right response is to allow and test tool use, not ban it.
+- [38:30-46:50] Labor market efficiency: LinkedIn has distribution but not matching; Thiel Fellowship scaling; AI interviews; second chances in an AI-run labor market.
+- [46:50-52:10] The donut dynasty: 8th-grade arbitrage (Safeway donuts at $5/dozen, sold at $2 each); expelled from campus, set up 50 feet off campus; hired mom's minivan at $20/week; launched a price war to eliminate a competitor before learning about antitrust laws.
+- [52:10-57:00] Extemporaneous speaking and dyslexia: Foody's co-founders were the winningest policy debate team in history; Foody has dyslexia, couldn't read evidence cards fast enough; the strong positive correlation between dyslexia and entrepreneurship; Tyler's hypothesis (early forced learning of delegation).
+- [57:00-01:01:16] San Francisco dating crisis; Beli app for restaurant recommendations; Mercor's Latin name; Jesuit school influence; next company goal (ultra-realistic long-horizon task evals).
+
+## Core Viewpoints List
+
+1. **Mercor's economic logic: expert knowledge done once, applied to billions of users.** This is why $150/hour for a poet is rational — the rubric that poet creates trains a model used by billions. The expert's time is multiplied by distribution scale. [01:35-02:45] | Type: Business logic
+
+2. **Two types of AI training data: output data (content) versus evaluation data (rubrics, test questions, graded answers).** Evaluation data is far more valuable because it enables models to "attempt problems many times, score those responses, and learn." Academic journal peer review, professional certification exams, and expert-written rubrics are high-value evaluation data largely unused in AI training. [13:42-15:13] | Type: Framework
+
+3. **APEX finding: ~25-30% annual improvement on economically valuable tasks; GPT-5 at 64% of human expert performance.** Current binding constraints: (1) long-horizon tasks (50-100 hours); (2) multi-tool integration. Both expected to resolve in 6-12 months. Models will reach ~75-85% before hitting a harder ceiling in the "last 25%" — highly tacit, non-codified knowledge. [05:41-09:25] | Type: Empirical data | Note: Tyler and Foody disagree on the timeline — Tyler is more optimistic, Foody is more conservative.
+
+4. **The Kantian taste problem (the core unresolved tension in Mercor's model)**: Kant in the third critique defined taste as what cannot be captured in a rule. Mercor's most valuable data is rubrics. If taste is genuinely un-rubricizable, Foody is chasing a logical circle. RLHF is his proposed escape: preference data instead of explicit rubrics. But this doesn't fully resolve it — someone has to decide whose preferences define "good." [17:58-18:40] | Type: Philosophical tension | Note: Tyler doesn't let this go; Foody's answer is interesting but incomplete.
+
+5. **Knowledge work will restructure into "building RL environments."** The investment banker stops reanalyzing data rooms and instead teaches an agent to do it once, then catches the agent's mistakes. Customer support stops answering tickets and instead finds where the agent goes wrong, turning each failure into a training signal. Within five years, most high-end knowledge workers will be model trainers. [23:04-30:39] | Type: Prediction
+
+6. **Price elasticity of demand determines AI's impact on employment by domain**: high elasticity (software engineering: 10x efficiency → 10x engineers) versus low elasticity (accounting, customer support: only so much needed regardless of supply). The right question about AI displacement is not "will this job disappear?" but "does demand for this capability increase when it gets cheaper?" [31:36-36:32] | Type: Analytical framework
+
+7. **The right response to AI cheating tools in assessment: allow tool use, test what people do with them.** Banning tools tests the wrong thing. "Giving them all the Codegen tools and recording their screen building something over an hour is a far better predictor of their ability to deliver impact." [44:08-44:34] | Type: Practical recommendation
+
+8. **Dyslexia is positively correlated with entrepreneurship, at a shockingly strong level.** Possible mechanisms: early forced learning of delegation (asking people to read things, asking for help); natural big-picture orientation; cognitive flexibility from adapting to multiple processing strategies. Tyler's hypothesis: the skill of delegation is the one that smart, capable people most often fail to develop unless forced to early. [54:13-56:14] | Type: Observation
+
+## Internal Tensions
+
+- **[17:58-19:35] The Kantian problem isn't really resolved.** Foody responds to Tyler's taste challenge with RLHF, but RLHF has the same problem at the meta level: ordinary users prefer AI poetry; top poets prefer human poetry. The decision about whose preferences to optimize is itself a taste judgment that exists outside any rubric or preference-comparison system. Foody's answer — "it depends what you're optimizing for" — is true but doesn't close the loop.
+
+- **[06:37-07:40] Is APEX measuring task performance or economic value?** Tyler pushes on the gap. Foody acknowledges "there's some complexity in mapping that to economic impact" but doesn't address the Goodhart risk: once AI labs start hill-climbing APEX scores directly, APEX may decouple from the economic value it was designed to proxy. This is the core structural vulnerability of Mercor's entire claim.
+
+- **[33:44-35:10] Education price elasticity is muddled.** Foody says education is less price elastic (only so many hours of Sal Khan per day), then says teachers will still be important for personal relationships and emotional development. These aren't competing claims, but Foody doesn't clearly distinguish between "AI as information delivery" (less elastic) and "AI as relationship substitute" (much less elastic). The two products are different, and conflating them obscures the analysis.
+
+## Plain English Retelling
+
+Brendan Foody runs a company that does something most people haven't thought about: he finds the best human experts in the world and pays them to teach AI models. When OpenAI wants better poetry from its models, Mercor finds top poets and has them build rubrics — detailed grading sheets specifying what makes a poem excellent. The model then practices thousands of times against that rubric and gets better at poetry. The same process runs for law, medicine, finance, and everything else.
+
+Why pay $150 an hour for a poet? Because that rubric gets used to train a model that billions of people use. You do it once, and the knowledge multiplies. That's the economics: the cost of the expert's time, divided by the number of users who benefit, becomes tiny. It only makes sense at scale, which is why you couldn't do this for a single student but you can do it for a frontier AI model.
+
+Mercor built something called APEX to actually measure whether models are getting economically valuable things right — not abstract reasoning tests but actual tasks that consultants, lawyers, and doctors do on the job. The finding: GPT-5 can do about 64% of what a senior professional can do, up from maybe 40% a year ago. That's 25-30% improvement per year, which is a fast curve. The current limitations are mostly about two things: tasks that take many hours or days (models currently fall apart on those) and tasks that need multiple tools working together. Foody says both of these will be mostly solved in six to twelve months.
+
+Tyler pushes hard on a philosophical question: Kant, in one of his major works, said that taste is precisely that which cannot be captured in a rule. The most important thing Mercor needs is rubrics — but if taste is by definition un-rubricizable, Foody is chasing something that doesn't exist. Foody's response is RLHF: instead of making someone write down what makes a poem good, you have them repeatedly choose between two poems, and the model learns from those preferences. But there's a real problem here: studies show ordinary users prefer AI-generated poetry over human poetry, while expert poets prefer human poetry. So you have to decide whose preferences count — and that decision is itself a taste judgment.
+
+Foody's biggest prediction is that the future of knowledge work is building "RL environments." Right now, an investment banker analyzes a new company's data room every few weeks for each client. In the near future, that banker will teach an agent once how to do that analysis — recording the workflow, catching mistakes, turning each error into training data — and then the agent will do it for every new client. The banker's job becomes "training the model" rather than "doing the analysis." Foody says most high-end knowledge workers will be doing this within five years. The analogy to software is useful: software gets written once and used many times; knowledge work, once captured in an RL environment, works the same way.
+
+## Recommended Segments for Close Listening
+
+- **[13:42-15:13]** The two-data-types distinction. Output data versus evaluation data — why rubrics and test questions are so much more valuable than content alone, and what this means for every institution that currently sits on large quantities of expert evaluation work.
+
+- **[17:58-18:40]** Tyler's Kantian question. A rare moment where a major philosophical tradition (Kant's aesthetic theory) is directly applied to a practical AI business question, and where the founder's answer is genuinely interesting but doesn't fully close the argument.
+
+- **[23:04-24:11]** The RL environmentification of knowledge work. Foody's cleanest statement of how he sees knowledge work transforming — not disappearing, but restructuring into a different function.
+
+- **[44:08-44:34]** The right response to AI cheating tools: allow and test, don't ban. A practical inversion of the usual instinct, with a clear rationale.
+
+- **[50:42-52:08]** The donut dynasty. Foody's 8th-grade arbitrage operation — Safeway to school to campus perimeter after getting expelled — is charming and also a real window into how a certain kind of founder mind works.
