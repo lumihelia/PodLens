@@ -12,6 +12,54 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/episodes/cultural-translation-sneaker-economics-and-creator.html",
+      "url": "https://lens.lumihelia.com/episodes/cultural-translation-sneaker-economics-and-creator.html",
+      "title": "文化翻译、球鞋经济与创作者主权 · Steve Stoute",
+      "date_published": "2026-06-23",
+      "summary": "这是 Founders Podcast 对 Steve Stoute 的访谈。Steve Stoute 从唱片业高管出发，在 1999 年做出了一个在业内看来\"疯了\"的决定：放弃开唱片公司，进入广告和营销行业。他的职业轨迹跨越唱片、广告、球鞋文化、音乐发行，最后落脚在 United Masters——一家把版权留给艺人自己的独立音乐发行公司。",
+      "tags": [
+        "唱片业结构性衰退",
+        "文化营销",
+        "创作者版权",
+        "数据权力",
+        "名人效应与才华分裂",
+        "独立音乐发行"
+      ],
+      "external_url": "https://youtu.be/kpgn7DCiJPE?is=0kxhUzO2WRqrQQTz"
+    },
+    {
+      "id": "https://lens.lumihelia.com/episodes/bipedalism-the-agricultural-revolution-and-the-cost-of.html",
+      "url": "https://lens.lumihelia.com/episodes/bipedalism-the-agricultural-revolution-and-the-cost-of.html",
+      "title": "直立行走、农业革命与演化的代价 · 林永昌",
+      "date_published": "2026-06-23",
+      "summary": "这是一场由中大人类学系考古学教授林永昌主讲的长访谈，涵盖了人类演化史中六个核心节点：直立行走的起源、石器制作、用火的证据、多人种共存、农业革命的代价，以及考古学在 AI 时代的意义。",
+      "tags": [
+        "直立行走的代价",
+        "持久性狩猎",
+        "农业革命的代价",
+        "Gobekli Tepe",
+        "Neanderthal基因",
+        "AI时代的考古学视角"
+      ],
+      "external_url": "https://youtu.be/tOVmn6eZJq4?is=T1YqCn0VH28rQHJP"
+    },
+    {
+      "id": "https://lens.lumihelia.com/episodes/many-worlds-interpretation-the-probability-problem-and.html",
+      "url": "https://lens.lumihelia.com/episodes/many-worlds-interpretation-the-probability-problem-and.html",
+      "title": "多世界诠释、概率难题与构造理论 · David Deutsch",
+      "date_published": "2026-06-23",
+      "summary": "这是 World Science Festival 中 Brian Greene 与 David Deutsch 的深度对话。David Deutsch 是量子计算的奠基人，也是多世界诠释（Everettian quantum theory）的核心推动者之一。全程围绕一个核心问题：量子力学到底在告诉我们什么关于现实的本质？",
+      "tags": [
+        "多世界诠释",
+        "量子计算",
+        "构造理论",
+        "决策论与概率",
+        "自由意志",
+        "q-numbers"
+      ],
+      "external_url": "https://youtu.be/Af5LICjFIBc?si=roy5YHxBuyR3z2AI"
+    },
+    {
       "id": "https://lens.lumihelia.com/episodes/tim-spector-gut-microbiome-mental-health.html",
       "url": "https://lens.lumihelia.com/episodes/tim-spector-gut-microbiome-mental-health.html",
       "title": "肠道微生态、神经免疫与膳食多中心主义 · Tim Spector",
