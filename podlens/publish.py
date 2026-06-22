@@ -1022,14 +1022,14 @@ def build_rss(items: list[dict], site: SiteConfig, lang: str = "zh",
         '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
         "<channel>",
         f"<title>{html.escape(site.title)}</title>",
-        f"<link>{feed_index}</link>",
+        f"<link>{html.escape(feed_index)}</link>",
         f"<description>{html.escape(desc)}</description>",
         f"<language>{_UI[lang]['html_lang']}</language>",
-        f'<atom:link href="{feed_index}feed.xml" rel="self" type="application/rss+xml" />',
+        f'<atom:link href="{html.escape(feed_index)}feed.xml" rel="self" type="application/rss+xml" />',
     ]
     for it in items:
         v = _episode_view(it, lang) or _episode_view(it, "zh")
-        url = _ep_url(site, it["slug"], lang, section=section)
+        url = html.escape(_ep_url(site, it["slug"], lang, section=section))
         parts += [
             "<item>",
             f"<title>{html.escape(v['title'])}</title>",
@@ -1056,7 +1056,7 @@ def build_sitemap(items: list[dict], site: SiteConfig, en_slugs: set) -> str:
     urls += [_ep_url(site, it["slug"], "zh", section=sec(it)) for it in items]
     urls += [_ep_url(site, it["slug"], "en", section=sec(it))
              for it in items if it["slug"] in en_slugs]
-    body = "\n".join(f"<url><loc>{u}</loc></url>" for u in urls)
+    body = "\n".join(f"<url><loc>{html.escape(u)}</loc></url>" for u in urls)
     return (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
