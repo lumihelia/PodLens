@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>多世界诠释、概率难题与构造理论 · David Deutsch · PodLens</title>
+<meta name="description" content="这是 World Science Festival 中 Brian Greene 与 David Deutsch 的深度对话。David Deutsch 是量子计算的奠基人，也是多世界诠释（Everettian quantum theory）的核心推动者之一。全程围绕一个核心问题：量子力学到底在告诉我们什么关于现实的本质？">
+<meta name="author" content="lumihelia">
+<meta name="keywords" content="多世界诠释, 量子计算, 构造理论, 决策论与概率, 自由意志, q-numbers">
+<link rel="canonical" href="https://lens.lumihelia.com/zh/episodes/many-worlds-interpretation-the-probability-problem-and.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://lens.lumihelia.com/zh/episodes/many-worlds-interpretation-the-probability-problem-and.html"><link rel="alternate" hreflang="en" href="https://lens.lumihelia.com/episodes/many-worlds-interpretation-the-probability-problem-and.html"><link rel="alternate" hreflang="x-default" href="https://lens.lumihelia.com/episodes/many-worlds-interpretation-the-probability-problem-and.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多世界诠释、概率难题与构造理论 · David Deutsch · PodLens">
+<meta property="og:description" content="这是 World Science Festival 中 Brian Greene 与 David Deutsch 的深度对话。David Deutsch 是量子计算的奠基人，也是多世界诠释（Everettian quantum theory）的核心推动者之一。全程围绕一个核心问题：量子力学到底在告诉我们什么关于现实的本质？">
+<meta property="og:url" content="https://lens.lumihelia.com/zh/episodes/many-worlds-interpretation-the-probability-problem-and.html">
+<link rel="alternate" type="application/rss+xml" title="PodLens" href="https://lens.lumihelia.com/zh/feed.xml"><link rel="alternate" type="application/json" title="PodLens" href="https://lens.lumihelia.com/zh/episodes.json">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "多世界诠释、概率难题与构造理论 · David Deutsch", "datePublished": "2026-06-23", "inLanguage": "zh-Hans", "url": "https://lens.lumihelia.com/zh/episodes/many-worlds-interpretation-the-probability-problem-and.html", "description": "这是 World Science Festival 中 Brian Greene 与 David Deutsch 的深度对话。David Deutsch 是量子计算的奠基人，也是多世界诠释（Everettian quantum theory）的核心推动者之一。全程围绕一个核心问题：量子力学到底在告诉我们什么关于现实的本质？", "author": {"@type": "Person", "name": "lumihelia"}, "publisher": {"@type": "Person", "name": "lumihelia"}, "keywords": "多世界诠释, 量子计算, 构造理论, 决策论与概率, 自由意志, q-numbers", "isBasedOn": "https://youtu.be/Af5LICjFIBc?si=roy5YHxBuyR3z2AI"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --text: #2C2C2C; --primary: #4C436F; --bg: #F4F3F7; --muted: #9A93B3;
+  --border: #D4D0E0; --white: #FFFFFF; --radius: 12px; --shadow: rgba(76,67,111,0.08);
+}
+* { box-sizing: border-box; }
+body {
+  font-family: 'Source Serif Pro', serif; color: var(--text);
+  background: var(--bg); line-height: 1.75; margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 96px 24px 128px; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text); line-height: 1.25; }
+h1 { font-size: 2.6rem; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.01em; }
+h2 { font-size: 1.5rem; font-weight: 600; margin: 64px 0 16px; }
+h3 { font-size: 1.15rem; font-weight: 600; margin: 32px 0 8px; }
+p { margin: 0 0 20px; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.meta { color: var(--muted); font-size: 0.95rem; margin: 0 0 64px; }
+.site-head { margin-bottom: 80px; }
+.site-head .tagline { color: var(--muted); font-size: 1.05rem; margin-top: 4px; }
+ul, ol { padding-left: 1.4em; }
+li { margin: 6px 0; }
+.episode-list { list-style: none; padding: 0; }
+.episode-list li { margin: 0 0 48px; }
+.episode-list .date { color: var(--muted); font-size: 0.9rem; }
+.episode-list .title { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 600; display: block; margin: 4px 0 8px; }
+.episode-list .summary { color: #5a5566; }
+.foot { margin-top: 96px; color: var(--muted); font-size: 0.85rem; }
+.disclaimer { margin-top: 16px; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.index-disclaimer { margin: 48px 0 0; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.topbar { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 48px; }
+.back { color: var(--muted); }
+.langswitch { color: var(--muted); font-size: 0.9rem; border: 1px solid var(--border); padding: 4px 12px; border-radius: 999px; }
+.langswitch:hover { color: var(--primary); border-color: var(--primary); text-decoration: none; }
+.sectionnav { display: flex; align-items: baseline; flex-wrap: wrap; gap: 20px; }
+.sectionnav .brand { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.05rem; color: var(--text); }
+.sectionnav .sec { color: var(--muted); font-size: 0.9rem; padding-bottom: 2px; }
+.sectionnav .sec.active { color: var(--text); border-bottom: 1px solid var(--text); }
+.sectionnav a:hover { color: var(--primary); text-decoration: none; }
+a.ts { color: var(--primary); font-variant-numeric: tabular-nums; white-space: nowrap; text-decoration: none; border-bottom: 1px dotted var(--border); }
+a.ts:hover { border-bottom-style: solid; }
+.source { color: var(--muted); font-size: 0.95rem; margin: 0 0 24px; }
+.player-wrap { position: sticky; top: 0; z-index: 10; background: var(--bg); padding: 12px 0 16px; margin: 0 0 32px; }
+.player-box { position: relative; width: 100%; max-width: 460px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 10px var(--shadow); }
+.player-box #ytplayer, .player-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 48px; }
+.tags span { font-size: 0.85rem; color: var(--primary); background: #EDEBF4; padding: 4px 12px; border-radius: 999px; }
+.connections { list-style: none; padding: 0; margin: 0; }
+.connections li { margin: 0 0 28px; padding-left: 16px; border-left: 2px solid var(--border); }
+.connections .rel { font-size: 0.8rem; color: var(--primary); background: #EDEBF4; padding: 2px 10px; border-radius: 999px; margin-right: 8px; }
+.connections .lk { font-family: 'Playfair Display', serif; font-weight: 600; }
+.connections .why { margin: 8px 0 6px; }
+.connections .pts { color: var(--muted); font-size: 0.92rem; }
+.connections .pts > div { margin-top: 4px; }
+.connections .who { color: var(--text); font-weight: 600; margin-right: 8px; }
+.connections.tensions li { border-left-color: var(--primary); }
+.ctype { font-size: 0.72rem; padding: 1px 9px; border-radius: 999px; margin-right: 8px; letter-spacing: 0.02em; }
+.ctype-genuine { color: #fff; background: var(--primary); }
+.ctype-apparent { color: var(--muted); background: #EDEBF4; }
+.editor-note { background: #EDEBF4; border-radius: 12px; padding: 24px 28px; margin: 0 0 48px; }
+.editor-note .en-label { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 10px; }
+.editor-note p { margin: 0 0 12px; }
+.editor-note p:last-child { margin-bottom: 0; }
+.claim-meta { display: block; margin-top: 2px; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+.claim-meta-first { margin-top: 8px; }
+.claim-meta a.ts { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="topbar"><nav class="sectionnav"><a class="brand" href="https://lens.lumihelia.com/zh/">PodLens</a><a class="sec active" href="https://lens.lumihelia.com/zh/">episodes</a><a class="sec" href="https://lens.lumihelia.com/zh/papers/">papers</a></nav><a class="langswitch" href="https://lens.lumihelia.com/episodes/many-worlds-interpretation-the-probability-problem-and.html">English</a></div>
+<h1>多世界诠释、概率难题与构造理论 · David Deutsch</h1>
+<p class="meta">2026-06-23 · 由 PodLens 生成的忠实解读</p>
+<p class="source">原节目:<a href="https://youtu.be/Af5LICjFIBc?si=roy5YHxBuyR3z2AI" target="_blank" rel="noopener">https://youtu.be/Af5LICjFIBc?si=roy5YHxBuyR3z2AI</a>　·　时间戳可点击,就地跳转播放器</p>
+<div class="player-wrap"><div class="player-box"><div id="ytplayer"></div></div></div>
+<script>
+var PL = (function() {
+  var player, ready = false, pending = null;
+  window.onYouTubeIframeAPIReady = function() {
+    player = new YT.Player('ytplayer', {
+      videoId: 'Af5LICjFIBc',
+      host: 'https://www.youtube-nocookie.com',
+      playerVars: {playsinline: 1, rel: 0},
+      events: {onReady: function() { ready = true; if (pending != null) { var p = pending; pending = null; seek(p); } }}
+    });
+  };
+  function seek(s) {
+    if (!ready) { pending = s; return false; }
+    player.seekTo(s, true); player.playVideo();
+    document.querySelector('.player-wrap').scrollIntoView({behavior: 'smooth', block: 'start'});
+    return false;
+  }
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+  document.addEventListener('DOMContentLoaded', function() {
+    var t = new URLSearchParams(location.search).get('t');
+    if (t) { seek(parseInt(t, 10)); }
+  });
+  return {seek: seek};
+})();
+</script>
+<div class="tags"><span>多世界诠释</span><span>量子计算</span><span>构造理论</span><span>决策论与概率</span><span>自由意志</span><span>q-numbers</span></div>
+
+<h2>这期讲了什么</h2>
+<p>这是 World Science Festival 中 Brian Greene 与 David Deutsch 的深度对话。David Deutsch 是量子计算的奠基人，也是多世界诠释（Everettian quantum theory）的核心推动者之一。全程围绕一个核心问题：量子力学到底在告诉我们什么关于现实的本质？</p>
+<p>对话从"诠释"这个词的误用谈起，经过 Heisenberg 图像与 Schrodinger 图像的比较，推进到多世界诠释的逻辑、概率问题的决策论解法、自由意志的新框架，最终触及 Deutsch 正在发展的"构造理论（constructive theory）"。这不是一场科普访谈，而是一场认真追问"物理理论意味着什么"的深度对话。</p>
+<hr />
+<h2>时间线主题地图</h2>
+<ul>
+<li><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=0s" target="_blank" rel="noopener" onclick="return PL.seek(0)">[00:00]</a> 开场：在多世界中概率意味着什么？Deutsch 的开场论断预告全期核心</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=61s" target="_blank" rel="noopener" onclick="return PL.seek(61)">[01:01]</a> "诠释"之名是个误称——竞争性的量子理论，不是同一理论的不同读法</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=404s" target="_blank" rel="noopener" onclick="return PL.seek(404)">[06:44]</a> Bohr 的历史角色：神秘主义传播的诊断，以及时代精神（Zeitgeist）的影响</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=793s" target="_blank" rel="noopener" onclick="return PL.seek(793)">[13:13]</a> 波函数的两种图像：Schrodinger 图像 vs Heisenberg 图像</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=1202s" target="_blank" rel="noopener" onclick="return PL.seek(1202)">[20:02]</a> GRW 坍缩理论：修改方程的尝试及其被量子计算摧毁的命运</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=1697s" target="_blank" rel="noopener" onclick="return PL.seek(1697)">[28:17]</a> de Broglie-Bohm 导引波理论：真正的现实主义尝试，以及它的"原罪"</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=1981s" target="_blank" rel="noopener" onclick="return PL.seek(1981)">[33:01]</a> Everett 的多世界：认真对待方程、不添加、不修改</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=2355s" target="_blank" rel="noopener" onclick="return PL.seek(2355)">[39:15]</a> 多世界的日常含义：自由意志、反事实、平行"自己"</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=2581s" target="_blank" rel="noopener" onclick="return PL.seek(2581)">[43:01]</a> 最大的开放问题：多元宇宙缺少完整的数学结构</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=2806s" target="_blank" rel="noopener" onclick="return PL.seek(2806)">[46:46]</a> 概率难题：如果一切都发生，概率意味着什么？</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=2821s" target="_blank" rel="noopener" onclick="return PL.seek(2821)">[47:01]</a> Deutsch 的解法：合并量子力学与决策论，移除概率公理</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=3465s" target="_blank" rel="noopener" onclick="return PL.seek(3465)">[57:45]</a> 多世界中坐等其他"我"去生活的谬误</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=3603s" target="_blank" rel="noopener" onclick="return PL.seek(3603)">[01:00:03]</a> 自由意志的新定义：创造真正的新知识</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=3962s" target="_blank" rel="noopener" onclick="return PL.seek(3962)">[01:06:02]</a> Einstein 外星人思想实验：不同解释层级之间的关系</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=4335s" target="_blank" rel="noopener" onclick="return PL.seek(4335)">[01:12:15]</a> 构造理论框架：以"可以与不可以被带来的事物"替代运动方程</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=4637s" target="_blank" rel="noopener" onclick="return PL.seek(4637)">[01:17:17]</a> 结语：接受 q-numbers 不比接受实数更激进</li>
+</ul>
+<hr />
+<h2>核心观点清单</h2>
+<ol>
+<li>
+<p><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=142s" target="_blank" rel="noopener" onclick="return PL.seek(142)">[02:22]</a> 量子力学的所谓"诠释"并非诠释，而是彼此竞争的不同理论，有些连完整理论的资格都不具备。用"诠释"这个词，是对物理学严肃性的放弃。</p>
+</li>
+<li>
+<p><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=421s" target="_blank" rel="noopener" onclick="return PL.seek(421)">[07:01]</a> Bohr 的错误有两层：第一，他在事实和逻辑上出了差错；第二，他的个人魅力和权威固化了一种"被训练不去提问"的文化，在物理学界延续了数十年。</p>
+</li>
+<li>
+<p><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=865s" target="_blank" rel="noopener" onclick="return PL.seek(865)">[14:25]</a> Deutsch 偏好 Heisenberg 图像，因为它以可观测量为核心，更清晰地揭示"结果如何产生"；Schrodinger 图像以概率波为基本实体，实际上遮蔽了理论的真实结构。</p>
+</li>
+<li>
+<p><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=1561s" target="_blank" rel="noopener" onclick="return PL.seek(1561)">[26:01]</a> GRW 坍缩理论被量子计算的可行性所摧毁：其坍缩速度参数无法同时满足"宏观世界不出现叠加"和"大规模量子计算机可以正常工作"这两个条件。</p>
+</li>
+<li>
+<p><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=1933s" target="_blank" rel="noopener" onclick="return PL.seek(1933)">[32:13]</a> de Broglie-Bohm 导引波理论是真正的现实主义尝试，有别于各种"应对策略（copes）"。问题在于：一旦承认空轨道（empty grooves）对真实粒子有物理作用，就等于接受了波函数的全部成分都是真实的，结果自然回到 Everett。</p>
+</li>
+<li>
+<p><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=2821s" target="_blank" rel="noopener" onclick="return PL.seek(2821)">[47:01]</a> 在 Everett 框架下，概率在基本层面并不存在。宇宙是完全确定性的。概率只在做决策时才需要，而且只需在做决策那一刻成立，不需要在任何其他时刻成立。</p>
+</li>
+<li>
+<p><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=3005s" target="_blank" rel="noopener" onclick="return PL.seek(3005)">[50:05]</a> Deutsch 将量子力学的 Born 规则与 von Neumann 决策论合并，分别移除各自的概率公理，结果仍得到正确的行为预测——说明概率是派生工具，不是宇宙的基础成分。</p>
+</li>
+<li>
+<p><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=3828s" target="_blank" rel="noopener" onclick="return PL.seek(3828)">[01:03:48]</a> 自由意志的本质不在于逃脱因果律，而在于：人可以真正创造出宇宙中之前不存在的新知识。Einstein 的场方程在被他想出来之前，不在任何地方——既不在 Big Bang 里，也不在任何先前的物理学里。</p>
+</li>
+<li>
+<p><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=4335s" target="_blank" rel="noopener" onclick="return PL.seek(4335)">[01:12:15]</a> 构造理论将物理学基础从"运动方程+初始条件"替换为"哪些转变可以被带来、哪些不可以"，期望将运动定律和初始条件都作为涌现性质推导出来，而非当作前提。</p>
+</li>
+<li>
+<p><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=4839s" target="_blank" rel="noopener" onclick="return PL.seek(4839)">[01:20:39]</a> 从实数到 q-numbers 的概念跨越，并不比古希腊人接受无理数更激进。接受新数学对象是物理学要求我们做的事，不是理论的缺陷。</p>
+</li>
+</ol>
+<hr />
+<h2>大白话重讲</h2>
+<p>量子力学这个领域有个怪现象：物理学家花了一百年把它算得极其精准，同时对"我们在计算什么"这个问题几乎保持沉默。Bohr 那代人遭遇了一种前所未有的理论怪异，他们当时的反应是：既然物理要求我们放弃某些哲学前提，那就放弃好了，包括放弃"我们可以追问现实到底是什么"这件事本身。这套态度被称为"闭嘴去算"，随后通过权威和教学体制传播了几十年。</p>
+<p>Deutsch 认为这整件事是物理学的一次重大失足。他的核心立场很简单：任何一个理论，你都要认真问它在说什么。波函数是真实存在的东西，还是只是描述我们知识的数学工具？这不是哲学问题，这是理论本身的问题。</p>
+<p>他偏好用 Heisenberg 的图像理解量子力学，原因不是它更容易计算，恰恰相反。而是因为它更诚实地说明了"结果是怎么来的"这件事。你问一个观测量是多少，答案是一个 q-number，一种同时含多个值的数学对象。这一步就已经把多世界的逻辑内嵌进去了，不需要额外添加任何东西。</p>
+<p>GRW 理论是一种修改方程的尝试，让波函数真的"坍缩"到一个结果。Deutsch 认为这条路会被大规模量子计算机扼杀。坍缩速度的参数，必须同时满足两件事：经典宏观世界不出现奇怪的叠加态，以及量子计算机可以正常工作。随着量子计算机规模增大，这两个要求会越来越无法调和。把参数调到哪里，都有一边出问题。</p>
+<p>de Broglie-Bohm 导引波理论是另一条路：粒子有确定的位置和速度，被一个真实的导引波推着走。Deutsch 对它的评价远比对 GRW 宽容，承认它是一个认真的现实主义理论。问题是：理论里有"空轨道"，就是波函数中粒子并不在的那些成分。这些成分可以对真实粒子产生物理作用。一旦接受这件事，就等于承认了波函数所有成分都是物理真实的，那直接保留整个波函数就好了，结果自然回到 Everett。</p>
+<p>Everett 的多世界说什么？认真对待量子力学的方程，不添加、不修改。方程说所有可能的结果都发生，那就是所有结果都发生。你测量电子，它同时到了 A，到了 B，到了 C，只是在不同的世界分支里。你个人的体验是某一个分支的，不是全部的。</p>
+<p>这里有一个经典反驳：如果一切都发生，概率还有什么意义？Deutsch 的回答是：概率在基本层面根本不存在。宇宙是确定性的，所有分支都发生了。概率是一个工具，只在你做决策时才需要，而且只需在做决策的那一刻成立，不需要在任何其他时刻成立。他把量子力学的 Born 规则和 von Neumann 的决策论合并，从各自移除概率公理，结果仍然得到了正确的行为指令。这说明概率是从决策结构里涌现出来的，而不是宇宙的基础成分。</p>
+<p>那么自由意志呢？Deutsch 现在的立场是：自由意志与多世界关系不大，它在确定性宇宙、不确定性宇宙或量子宇宙里都成立。当一个人做出真正的创造性决定，比如 Einstein 想出广义相对论，世界上出现了一个真正新的东西。这个想法之前不在宇宙里，不在 Big Bang 的初始条件里，也不在任何前人的思维里。知识是真正新颖的涌现层，不能被还原到粒子层级。这就是自由意志的机制：创造新知识的能力。</p>
+<p>构造理论是 Deutsch 正在推进的更深框架。他主张把物理学的基础换掉：不用"运动方程+初始条件"来表述物理学，而是用"哪些转变可以被带来、哪些不可以"。计算普遍性在这里变成一条定律，而不是运动方程的涌现属性。从这条定律可以排除绝大多数 Big Bang 初始条件，包括完全均匀的那个，因为如果宇宙一开始均匀，现在也仍然均匀，而现在并不均匀。</p>
+<p>最后 Deutsch 说：接受 q-numbers，并不比古希腊人接受无理数更激进。对古希腊人来说，实数是颠覆性的东西，花了两千多年才被真正吸收。从实数到 q-numbers，只是多了一个复数结构。我们的直觉需要更新，这是物理对我们提出的要求，而不是理论本身的缺陷。</p>
+<hr />
+<h2>值得精听的片段</h2>
+<ul>
+<li>
+<p><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=0s" target="_blank" rel="noopener" onclick="return PL.seek(0)">[00:00-00:52]</a> Deutsch 的开场独白：多世界中概率的意义——整期核心论点的精炼预告，值得反复听。</p>
+</li>
+<li>
+<p><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=1329s" target="_blank" rel="noopener" onclick="return PL.seek(1329)">[22:09-22:42]</a> 关于"被训练不去提问"对物理学文化的影响——对学科文化的诊断，精准而直接。</p>
+</li>
+<li>
+<p><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=2821s" target="_blank" rel="noopener" onclick="return PL.seek(2821)">[47:01-51:25]</a> Deutsch 解释"合并量子力学与决策论以解决概率问题"——全场最核心的技术论证，需要慢速反复听。</p>
+</li>
+<li>
+<p><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=3781s" target="_blank" rel="noopener" onclick="return PL.seek(3781)">[01:03:01-01:05:55]</a> 自由意志的重新定义：Einstein 的想法作为真正的新知识——哲学深度最高的一段。</p>
+</li>
+<li>
+<p><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=4335s" target="_blank" rel="noopener" onclick="return PL.seek(4335)">[01:12:15-01:16:11]</a> 构造理论基本框架的介绍——最前沿、目前最不完整、最值得长期追踪的方向。</p>
+</li>
+</ul>
+<hr />
+<h2>与往期的呼应</h2><ul class="connections"><li><span class="rel">补充</span>→ <a class="lk" href="https://lens.lumihelia.com/zh/episodes/hakeem-oluseyi.html">宇宙的三个领域 · Hakeem Oluseyi</a><div class="why">Deutsch 从导引波理论的内在逻辑出发论证了波函数全部成分必须真实存在，从而必然走向 Everett 多世界；Oluseyi 则直接陈述了多世界诠释的核心主张——所有可能结果都实际发生。Deutsch 为 Oluseyi 描述的结论提供了理论推导路径。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=1933s" target="_blank" rel="noopener" onclick="return PL.seek(1933)">[32:13]</a> de Broglie-Bohm 导引波理论是真正的现实主义尝试，有别于各种&#x27;应对策略（copes）&#x27;。问题在于：一旦承认空轨道（empty grooves）对真实粒子有物理作用，就等于接受了波函数的全部成分都是真实的，结果自然回到 Everett。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/hakeem-oluseyi.html?t=3215">[53:35-55:09]</a> 量子力学的&#x27;多世界诠释&#x27;提出，为解决测量问题，量子事件的每一个可能结果实际上都发生了，各自发生在其自己的分支宇宙中。</div></div></li><li><span class="rel">同构</span>→ <a class="lk" href="https://lens.lumihelia.com/zh/episodes/avi-wigderson-p-vs-np-zero-knowledge-proofs.html">P vs NP、零知识证明与计算的胚胎阶段 · Avi Wigderson</a><div class="why">Deutsch 的构造理论将物理学的基本问题从&#x27;事物如何运动&#x27;转变为&#x27;哪些转变是可能的&#x27;；Wigderson 的零知识证明则展示了数学中&#x27;可验证性&#x27;与&#x27;可证明性&#x27;之间的等价关系。两者都在各自领域中将基础问题从&#x27;如何做&#x27;转向&#x27;是否可能&#x27;，体现了相同的结构性思维转变。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=4335s" target="_blank" rel="noopener" onclick="return PL.seek(4335)">[01:12:15]</a> 构造理论将物理学基础从&#x27;运动方程+初始条件&#x27;替换为&#x27;哪些转变可以被带来、哪些不可以&#x27;，期望将运动定律和初始条件都作为涌现性质推导出来，而非当作前提。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/avi-wigderson-p-vs-np-zero-knowledge-proofs.html?t=5238">[01:27:18]</a> 零知识证明具有绝对的普遍性。任何拥有数学证明的命题都天然拥有一个零知识交互证明系统，可以在不泄露任何证明细节的前提下完成验证。</div></div></li></ul><h2>与往期的张力</h2><ul class="connections tensions"><li><span class="rel">矛盾</span><span class="ctype ctype-apparent">表面张力</span>→ <a class="lk" href="https://lens.lumihelia.com/zh/episodes/joscha-bach-nature-of-reality-dreams-consciousness.html">现实之网、梦境与意识的本质 · Joscha Bach</a><div class="why">Deutsch 认为自由意志体现为创造全新知识的能力，这预设了一个能够产生真正新颖内容的实体；Bach 则认为&#x27;自我&#x27;只是控制模型软件，是偶发的而非实体。两者对&#x27;人能否作为创造主体&#x27;的前提判断不同：Deutsch 肯定人的创造性主体地位，Bach 则消解了这种主体性。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=3828s" target="_blank" rel="noopener" onclick="return PL.seek(3828)">[01:03:48]</a> 自由意志的本质不在于逃脱因果律，而在于：人可以真正创造出宇宙中之前不存在的新知识。Einstein 的场方程在被他想出来之前，不在任何地方——既不在 Big Bang 里，也不在任何先前的物理学里。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/joscha-bach-nature-of-reality-dreams-consciousness.html?t=33">[00:33-03:08]</a> 人生是黑猩猩大脑中运行的短暂软件：摆脱对个人悲欢和焦虑执念的解脱方法，是意识到&#x27;我&#x27;并非实体，而是一个为了注意力控制而暂时运行的控制模型软件。自我（Identity）是偶发的，一旦认识到这一代表性框架，痛苦的执念便会消失。</div></div></li><li><span class="rel">矛盾</span><span class="ctype ctype-genuine">真冲突</span>→ <a class="lk" href="https://lens.lumihelia.com/zh/episodes/robert-sapolsky-biology-best-worst.html">人类最好与最坏行为的生物学 · Robert Sapolsky</a><div class="why">Deutsch 断言自由意志是真实存在的，表现为创造全新知识的能力；Sapolsky 则断言自由意志只是尚未找到生物学解释的代名词，实际上不存在。两人对&#x27;自由意志是否为真实存在&#x27;给出了直接对立的答案。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=Af5LICjFIBc&t=3828s" target="_blank" rel="noopener" onclick="return PL.seek(3828)">[01:03:48]</a> 自由意志的本质不在于逃脱因果律，而在于：人可以真正创造出宇宙中之前不存在的新知识。Einstein 的场方程在被他想出来之前，不在任何地方——既不在 Big Bang 里，也不在任何先前的物理学里。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/robert-sapolsky-biology-best-worst.html?t=3674">[01:01:14]</a> 决定论行为与极速重配置状态并存，自由意志是尚未发现生物学的代名词。</div></div></li></ul>
+<p class="foot">本页为对节目内容的忠实解读与大白话重述,由 <a href="https://github.com/lumihelia/PodLens">PodLens</a> 生成。</p>
+<p class="disclaimer">这是以原文为依据的一次解读,不能替代原文。每条要点都标注了出处,欢迎回到原文核对——也欢迎指出任何细微的偏差。</p>
+
+</div>
+</body>
+</html>

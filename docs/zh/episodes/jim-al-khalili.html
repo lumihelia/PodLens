@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>时间的四个问题 · Jim Al-Khalili · PodLens</title>
+<meta name="description" content="物理学家 Jim Al-Khalili 探讨了时间的物理学，概述了他所谓的四个不同的“时间问题”：时间是否流逝，如何调和量子场论与广义相对论，“现在”的特殊性，以及时间方向的起源 [00:18]。他区分了物理学所描述的“物理时间”和我们的主观感知“显在时间”。讲座追溯了时间概念从牛顿的绝对时间到爱因斯坦的相对时空的演变，通过狭义和广义相对论解释了时间膨胀。接着，讲座探讨了“块宇宙”模型、统一物理学…">
+<meta name="author" content="lumihelia">
+<meta name="keywords" content="时间膨胀, 块宇宙, 时间之箭, Wheeler-DeWitt 方程, 量子退相干, 祖父悖论">
+<link rel="canonical" href="https://lens.lumihelia.com/zh/episodes/jim-al-khalili.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://lens.lumihelia.com/zh/episodes/jim-al-khalili.html"><link rel="alternate" hreflang="en" href="https://lens.lumihelia.com/episodes/jim-al-khalili.html"><link rel="alternate" hreflang="x-default" href="https://lens.lumihelia.com/episodes/jim-al-khalili.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="时间的四个问题 · Jim Al-Khalili · PodLens">
+<meta property="og:description" content="物理学家 Jim Al-Khalili 探讨了时间的物理学，概述了他所谓的四个不同的“时间问题”：时间是否流逝，如何调和量子场论与广义相对论，“现在”的特殊性，以及时间方向的起源 [00:18]。他区分了物理学所描述的“物理时间”和我们的主观感知“显在时间”。讲座追溯了时间概念从牛顿的绝对时间到爱因斯坦的相对时空的演变，通过狭义和广义相对论解释了时间膨胀。接着，讲座探讨了“块宇宙”模型、统一物理学…">
+<meta property="og:url" content="https://lens.lumihelia.com/zh/episodes/jim-al-khalili.html">
+<link rel="alternate" type="application/rss+xml" title="PodLens" href="https://lens.lumihelia.com/zh/feed.xml"><link rel="alternate" type="application/json" title="PodLens" href="https://lens.lumihelia.com/zh/episodes.json">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "时间的四个问题 · Jim Al-Khalili", "datePublished": "2026-06-02", "inLanguage": "zh-Hans", "url": "https://lens.lumihelia.com/zh/episodes/jim-al-khalili.html", "description": "物理学家 Jim Al-Khalili 探讨了时间的物理学，概述了他所谓的四个不同的“时间问题”：时间是否流逝，如何调和量子场论与广义相对论，“现在”的特殊性，以及时间方向的起源 [00:18]。他区分了物理学所描述的“物理时间”和我们的主观感知“显在时间”。讲座追溯了时间概念从牛顿的绝对时间到爱因斯坦的相对时空的演变，通过狭义和广义相对论解释了时间膨胀。接着，讲座探讨了“块宇宙”模型、统一物理学…", "author": {"@type": "Person", "name": "lumihelia"}, "publisher": {"@type": "Person", "name": "lumihelia"}, "keywords": "时间膨胀, 块宇宙, 时间之箭, Wheeler-DeWitt 方程, 量子退相干, 祖父悖论", "isBasedOn": "https://youtu.be/8xp3Bs6nZ-Y"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --text: #2C2C2C; --primary: #4C436F; --bg: #F4F3F7; --muted: #9A93B3;
+  --border: #D4D0E0; --white: #FFFFFF; --radius: 12px; --shadow: rgba(76,67,111,0.08);
+}
+* { box-sizing: border-box; }
+body {
+  font-family: 'Source Serif Pro', serif; color: var(--text);
+  background: var(--bg); line-height: 1.75; margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 96px 24px 128px; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text); line-height: 1.25; }
+h1 { font-size: 2.6rem; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.01em; }
+h2 { font-size: 1.5rem; font-weight: 600; margin: 64px 0 16px; }
+h3 { font-size: 1.15rem; font-weight: 600; margin: 32px 0 8px; }
+p { margin: 0 0 20px; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.meta { color: var(--muted); font-size: 0.95rem; margin: 0 0 64px; }
+.site-head { margin-bottom: 80px; }
+.site-head .tagline { color: var(--muted); font-size: 1.05rem; margin-top: 4px; }
+ul, ol { padding-left: 1.4em; }
+li { margin: 6px 0; }
+.episode-list { list-style: none; padding: 0; }
+.episode-list li { margin: 0 0 48px; }
+.episode-list .date { color: var(--muted); font-size: 0.9rem; }
+.episode-list .title { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 600; display: block; margin: 4px 0 8px; }
+.episode-list .summary { color: #5a5566; }
+.foot { margin-top: 96px; color: var(--muted); font-size: 0.85rem; }
+.disclaimer { margin-top: 16px; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.index-disclaimer { margin: 48px 0 0; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.topbar { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 48px; }
+.back { color: var(--muted); }
+.langswitch { color: var(--muted); font-size: 0.9rem; border: 1px solid var(--border); padding: 4px 12px; border-radius: 999px; }
+.langswitch:hover { color: var(--primary); border-color: var(--primary); text-decoration: none; }
+.sectionnav { display: flex; align-items: baseline; flex-wrap: wrap; gap: 20px; }
+.sectionnav .brand { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.05rem; color: var(--text); }
+.sectionnav .sec { color: var(--muted); font-size: 0.9rem; padding-bottom: 2px; }
+.sectionnav .sec.active { color: var(--text); border-bottom: 1px solid var(--text); }
+.sectionnav a:hover { color: var(--primary); text-decoration: none; }
+a.ts { color: var(--primary); font-variant-numeric: tabular-nums; white-space: nowrap; text-decoration: none; border-bottom: 1px dotted var(--border); }
+a.ts:hover { border-bottom-style: solid; }
+.source { color: var(--muted); font-size: 0.95rem; margin: 0 0 24px; }
+.player-wrap { position: sticky; top: 0; z-index: 10; background: var(--bg); padding: 12px 0 16px; margin: 0 0 32px; }
+.player-box { position: relative; width: 100%; max-width: 460px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 10px var(--shadow); }
+.player-box #ytplayer, .player-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 48px; }
+.tags span { font-size: 0.85rem; color: var(--primary); background: #EDEBF4; padding: 4px 12px; border-radius: 999px; }
+.connections { list-style: none; padding: 0; margin: 0; }
+.connections li { margin: 0 0 28px; padding-left: 16px; border-left: 2px solid var(--border); }
+.connections .rel { font-size: 0.8rem; color: var(--primary); background: #EDEBF4; padding: 2px 10px; border-radius: 999px; margin-right: 8px; }
+.connections .lk { font-family: 'Playfair Display', serif; font-weight: 600; }
+.connections .why { margin: 8px 0 6px; }
+.connections .pts { color: var(--muted); font-size: 0.92rem; }
+.connections .pts > div { margin-top: 4px; }
+.connections .who { color: var(--text); font-weight: 600; margin-right: 8px; }
+.connections.tensions li { border-left-color: var(--primary); }
+.ctype { font-size: 0.72rem; padding: 1px 9px; border-radius: 999px; margin-right: 8px; letter-spacing: 0.02em; }
+.ctype-genuine { color: #fff; background: var(--primary); }
+.ctype-apparent { color: var(--muted); background: #EDEBF4; }
+.editor-note { background: #EDEBF4; border-radius: 12px; padding: 24px 28px; margin: 0 0 48px; }
+.editor-note .en-label { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 10px; }
+.editor-note p { margin: 0 0 12px; }
+.editor-note p:last-child { margin-bottom: 0; }
+.claim-meta { display: block; margin-top: 2px; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+.claim-meta-first { margin-top: 8px; }
+.claim-meta a.ts { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="topbar"><nav class="sectionnav"><a class="brand" href="https://lens.lumihelia.com/zh/">PodLens</a><a class="sec active" href="https://lens.lumihelia.com/zh/">episodes</a><a class="sec" href="https://lens.lumihelia.com/zh/papers/">papers</a></nav><a class="langswitch" href="https://lens.lumihelia.com/episodes/jim-al-khalili.html">English</a></div>
+<h1>时间的四个问题 · Jim Al-Khalili</h1>
+<p class="meta">2026-06-02 · 由 PodLens 生成的忠实解读</p>
+<p class="source">原节目:<a href="https://youtu.be/8xp3Bs6nZ-Y" target="_blank" rel="noopener">https://youtu.be/8xp3Bs6nZ-Y</a>　·　时间戳可点击,就地跳转播放器</p>
+<div class="player-wrap"><div class="player-box"><div id="ytplayer"></div></div></div>
+<script>
+var PL = (function() {
+  var player, ready = false, pending = null;
+  window.onYouTubeIframeAPIReady = function() {
+    player = new YT.Player('ytplayer', {
+      videoId: '8xp3Bs6nZ-Y',
+      host: 'https://www.youtube-nocookie.com',
+      playerVars: {playsinline: 1, rel: 0},
+      events: {onReady: function() { ready = true; if (pending != null) { var p = pending; pending = null; seek(p); } }}
+    });
+  };
+  function seek(s) {
+    if (!ready) { pending = s; return false; }
+    player.seekTo(s, true); player.playVideo();
+    document.querySelector('.player-wrap').scrollIntoView({behavior: 'smooth', block: 'start'});
+    return false;
+  }
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+  document.addEventListener('DOMContentLoaded', function() {
+    var t = new URLSearchParams(location.search).get('t');
+    if (t) { seek(parseInt(t, 10)); }
+  });
+  return {seek: seek};
+})();
+</script>
+<div class="tags"><span>时间膨胀</span><span>块宇宙</span><span>时间之箭</span><span>Wheeler-DeWitt 方程</span><span>量子退相干</span><span>祖父悖论</span></div>
+
+<h2>这期讲了什么</h2>
+<p>物理学家 Jim Al-Khalili 探讨了时间的物理学，概述了他所谓的四个不同的“时间问题”：时间是否流逝，如何调和量子场论与广义相对论，“现在”的特殊性，以及时间方向的起源 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=18s" target="_blank" rel="noopener" onclick="return PL.seek(18)">[00:18]</a>。他区分了物理学所描述的“物理时间”和我们的主观感知“显在时间”。讲座追溯了时间概念从牛顿的绝对时间到爱因斯坦的相对时空的演变，通过狭义和广义相对论解释了时间膨胀。接着，讲座探讨了“块宇宙”模型、统一物理学的挑战（Wheeler-DeWitt 方程）、时间之箭的热力学和量子起源，最后讨论了时间旅行的物理可能性和悖论。</p>
+<h2>时间线主题地图</h2>
+<ul>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=0s" target="_blank" rel="noopener" onclick="return PL.seek(0)">[00:00]</a> - <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=115s" target="_blank" rel="noopener" onclick="return PL.seek(115)">[01:55]</a></code> 介绍时间的四个问题，以及物理时间与显在（心理）时间的区别。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=115s" target="_blank" rel="noopener" onclick="return PL.seek(115)">[01:55]</a> - <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=334s" target="_blank" rel="noopener" onclick="return PL.seek(334)">[05:34]</a></code> 对时间流逝的主观体验、感觉时间随年龄增长而加速的现象，以及经典物理学中绝对时间的观点（牛顿）。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=334s" target="_blank" rel="noopener" onclick="return PL.seek(334)">[05:34]</a> - <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=528s" target="_blank" rel="noopener" onclick="return PL.seek(528)">[08:48]</a></code> 爱因斯坦的相对论如何推翻了绝对时间的概念，证明了时间的相对性。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=528s" target="_blank" rel="noopener" onclick="return PL.seek(528)">[08:48]</a> - <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=876s" target="_blank" rel="noopener" onclick="return PL.seek(876)">[14:36]</a></code> 狭义相对论：恒定的光速如何导致时间膨胀，并以大气层中的μ子为例。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=876s" target="_blank" rel="noopener" onclick="return PL.seek(876)">[14:36]</a> - <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1142s" target="_blank" rel="noopener" onclick="return PL.seek(1142)">[19:02]</a></code> 广义相对论：引力如何减慢时间，这是GPS技术正常运行所必需的真实效应。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1142s" target="_blank" rel="noopener" onclick="return PL.seek(1142)">[19:02]</a> - <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1311s" target="_blank" rel="noopener" onclick="return PL.seek(1311)">[21:51]</a></code> 将时间视为第四维度的概念，引出了“块宇宙”模型和“世界线”的观点。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1311s" target="_blank" rel="noopener" onclick="return PL.seek(1311)">[21:51]</a> - <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1590s" target="_blank" rel="noopener" onclick="return PL.seek(1590)">[26:30]</a></code> 统一量子力学和广义相对论的问题、不含时间的 Wheeler-DeWitt 方程，以及时间是一种涌现属性的观点。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1590s" target="_blank" rel="noopener" onclick="return PL.seek(1590)">[26:30]</a> - <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=2041s" target="_blank" rel="noopener" onclick="return PL.seek(2041)">[34:01]</a></code> 关于时间实在性的哲学观点：现在主义与永恒主义（块宇宙），及其对决定论和自由意志的影响。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=2041s" target="_blank" rel="noopener" onclick="return PL.seek(2041)">[34:01]</a> - <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=2435s" target="_blank" rel="noopener" onclick="return PL.seek(2435)">[40:35]</a></code> “现在”的问题：相对论表明不存在普适的当下时刻（同时的相对性），心理学表明我们的“现在”是一个延续的时间段。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=2435s" target="_blank" rel="noopener" onclick="return PL.seek(2435)">[40:35]</a> - <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=2978s" target="_blank" rel="noopener" onclick="return PL.seek(2978)">[49:38]</a></code> 第四个时间问题：时间方向的起源，即“时间之箭”，源于热力学第二定律和熵。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=2978s" target="_blank" rel="noopener" onclick="return PL.seek(2978)">[49:38]</a> - <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=3297s" target="_blank" rel="noopener" onclick="return PL.seek(3297)">[54:57]</a></code> 演讲者的观点：时间之箭是根本性的，由不可逆的量子退相干和纠缠融入现实，而不仅仅是一种涌现属性。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=3297s" target="_blank" rel="noopener" onclick="return PL.seek(3297)">[54:57]</a> - <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=3933s" target="_blank" rel="noopener" onclick="return PL.seek(3933)">[1:05:33]</a></code> 时间的开始与终结：讨论作为时间起点的宇宙大爆炸，并推测宇宙的最终命运（热寂、大挤压、大撕裂）。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=3933s" target="_blank" rel="noopener" onclick="return PL.seek(3933)">[1:05:33]</a> - <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=4279s" target="_blank" rel="noopener" onclick="return PL.seek(4279)">[1:11:19]</a></code> 时间旅行：通过时间膨胀，前往未来在物理上是可能的，而回到过去在理论上可行但会导致悖论（例如，祖父悖论）。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=4279s" target="_blank" rel="noopener" onclick="return PL.seek(4279)">[1:11:19]</a> - <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=4722s" target="_blank" rel="noopener" onclick="return PL.seek(4722)">[1:18:42]</a></code> 时间旅行悖论的可能解决方案，包括多世界诠释和 Novikov 自洽性原则，以及对当前知识局限性的总结思考。</li>
+</ul>
+<h2>核心观点清单</h2>
+<ol>
+<li>
+<p><strong>物理学中存在四个基本的“时间问题”。</strong> 它们是：1）时间是否真的在流逝；2）如何调和量子场论与广义相对论；3）当下的“现在”这一刻有何特殊之处；4）时间的方向从何而来。 *   事实
+   <span class="claim-meta claim-meta-first"><code>[00 18]</code></span></p>
+</li>
+<li>
+<p><strong>我们对时间的感知（“显在时间”）与物理学定律中的“物理时间”有显著不同。</strong> 我们感觉时间在流逝，并根据我们的经历改变速度（例如，随着年龄增长，时间似乎在加速），但在物理学方程中，时间只是一个坐标，一个参数“t”，没有内在的流动性。 *   观点
+   <span class="claim-meta claim-meta-first"><code>[01 34] - <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=131s" target="_blank" rel="noopener" onclick="return PL.seek(131)">[02:11]</a></code>, <code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=372s" target="_blank" rel="noopener" onclick="return PL.seek(372)">[06:12]</a></code></span></p>
+</li>
+<li>
+<p><strong>爱因斯坦的相对论从根本上改变了我们对时间的理解，证明了时间不是绝对的，而是相对的。</strong> 狭义相对论表明，对于高速运动的观察者来说，时间会变慢（时间膨胀）；广义相对论则表明，在更强的引力场中，时间同样会变慢。 *   事实
+   <span class="claim-meta claim-meta-first"><code>[05 34]</code>, <code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=513s" target="_blank" rel="noopener" onclick="return PL.seek(513)">[08:33]</a></code>, <code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1035s" target="_blank" rel="noopener" onclick="return PL.seek(1035)">[17:15]</a></code></span></p>
+</li>
+<li>
+<p><strong>相对论对时间的影响是真实存在的，并已通过实验验证。</strong> 在高层大气中产生的短寿命μ子能够到达地球表面，这一事实就是时间膨胀的证据 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=738s" target="_blank" rel="noopener" onclick="return PL.seek(738)">[12:18]</a>。GPS卫星的正常运行需要校正其时钟在轨道上较弱引力下运行更快的现象 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1061s" target="_blank" rel="noopener" onclick="return PL.seek(1061)">[17:41]</a>。 *   例子
+   <span class="claim-meta claim-meta-first"><code>[12 18]</code>, <code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1061s" target="_blank" rel="noopener" onclick="return PL.seek(1061)">[17:41]</a></code></span></p>
+</li>
+<li>
+<p><strong>将时间视为第四维度的概念引出了“块宇宙”模型，在该模型中，所有时刻——过去、现在和未来——都同等真实。</strong> 这种被称为“永恒主义”的观点认为，我们对流动的现在的体验，就像意识沿着一条预先存在的时间轴漂移。大多数物理学家都认同这一观点。 *   观点
+   <span class="claim-meta claim-meta-first"><code>[20 06]</code>, <code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1698s" target="_blank" rel="noopener" onclick="return PL.seek(1698)">[28:18]</a></code>, <code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1751s" target="_blank" rel="noopener" onclick="return PL.seek(1751)">[29:11]</a></code></span></p>
+</li>
+<li>
+<p><strong>统一量子力学和广义相对论的尝试表明，时间可能并非基本属性。</strong> 描述整个宇宙量子状态的 Wheeler-DeWitt 方程不包含时间变量。这引出了一个观点，即时间可能是一种“涌现属性”，源于一个更基本、无时间的实在。 *   猜想
+   <span class="claim-meta claim-meta-first"><code>[22 37]</code>, <code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1425s" target="_blank" rel="noopener" onclick="return PL.seek(1425)">[23:45]</a></code></span></p>
+</li>
+<li>
+<p><strong>“时间之箭”，即过去与未来的区别，主要由热力学第二定律解释。</strong> 该定律指出，在一个孤立系统中，熵（一种衡量无序程度的指标）总是增加的。这为时间提供了一个明确的方向性，而大多数其他基本物理方程都是时间对称的，不具备这一特性。 *   事实
+   <span class="claim-meta claim-meta-first"><code>[42 20]</code>, <code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=2739s" target="_blank" rel="noopener" onclick="return PL.seek(2739)">[45:39]</a></code></span></p>
+</li>
+<li>
+<p><strong>演讲者认为，时间之箭是实在的一个基本方面，而不仅仅是一种涌现现象。</strong> 他假设，量子退相干——即量子系统与其环境发生纠缠的过程——是一个真正不可逆的过程，并且在持续不断地发生，从而将一个根本性的方向性融入时间本身。 *   观点
+   <span class="claim-meta claim-meta-first"><code>[52 44]</code>, <code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=3196s" target="_blank" rel="noopener" onclick="return PL.seek(3196)">[53:16]</a></code></span></p>
+</li>
+<li>
+<p><strong>时间很可能始于宇宙大爆炸，但其最终的终点尚不确定。</strong> 尽管广义相对论假定宇宙大爆炸是时间的起点，但像多重宇宙或循环宇宙这样的推测性理论则认为时间可能是永恒的。宇宙的未来可能是“热寂”（永远膨胀）、“大挤压”（重新坍缩）或“大撕裂”（被暗能量撕裂）。 *   预测
+   <span class="claim-meta claim-meta-first"><code>[55 16]</code>, <code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=3623s" target="_blank" rel="noopener" onclick="return PL.seek(3623)">[1:00:23]</a></code></span></p>
+</li>
+<li>
+<p><strong>前往未来的时间旅行在物理上是可能的，但回到过去则充满了悖论。</strong> 一个人可以通过接近光速移动或进入强引力场来前往未来，从而比其他人衰老得更慢。虽然广义相对论不禁止回到过去，但这会导致逻辑矛盾，比如“祖父悖论”。 *   事实
+   <span class="claim-meta claim-meta-first"><code>[1 07:29]</code>, <code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=4181s" target="_blank" rel="noopener" onclick="return PL.seek(4181)">[1:09:41]</a></code>, <code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=4223s" target="_blank" rel="noopener" onclick="return PL.seek(4223)">[1:10:23]</a></code></span></p>
+</li>
+</ol>
+<h2>大白话重讲</h2>
+<p>物理学家 Jim Al-Khalili 首先承认，时间是一个非常棘手的研究课题，因为与其他任何事物都不同，我们无法置身事外来客观地审视它 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=80s" target="_blank" rel="noopener" onclick="return PL.seek(80)">[01:20]</a>。为了更好地理解它，他做出了一个关键区分：“物理时间”——即物理方程中出现的“t”——和“显在时间”，也就是我们对时间流逝的主观心理体验 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=94s" target="_blank" rel="noopener" onclick="return PL.seek(94)">[01:34]</a>。然后，他围绕物理学家们仍在努力解决的四个基本“时间问题”展开了整个讨论 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=18s" target="_blank" rel="noopener" onclick="return PL.seek(18)">[00:18]</a>。</p>
+<p>首先，他探讨了我们对时间的感知。我们都感觉时间在<em>流逝</em>，而且许多人觉得随着年龄增长，时间过得越来越快 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=148s" target="_blank" rel="noopener" onclick="return PL.seek(148)">[02:28]</a>。五岁时的一年感觉像永恒，而五十岁时的一年则如白驹过隙。他认为，这种感觉可能与我们在记忆中储存了多少新体验有关。然而，我们的感知又是矛盾的：在候诊室里无聊的半小时度日如年，而在派对上激动人心的半小时却转瞬即逝，尽管派对包含了更多的新体验 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=228s" target="_blank" rel="noopener" onclick="return PL.seek(228)">[03:48]</a>。</p>
+<p>这种主观的流动感与 Isaac Newton 建立的经典物理学观点截然不同。经典物理学认为时间是一个绝对的、普适的时钟，对每个人、在任何地方都以相同的速率滴答作响，无论他们在做什么 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=293s" target="_blank" rel="noopener" onclick="return PL.seek(293)">[04:53]</a>。这是我们的常识性观点，但它被 Albert Einstein 完全推翻了 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=334s" target="_blank" rel="noopener" onclick="return PL.seek(334)">[05:34]</a>。</p>
+<p>爱因斯坦证明了时间不是绝对的，而是相对的。他的第一个理论——狭义相对论——源于一个关于光的非常奇怪的事实：无论移动速度多快，每个人测得的光速都是相同的 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=627s" target="_blank" rel="noopener" onclick="return PL.seek(627)">[10:27]</a>。这似乎不可能。如果你坐在一艘追逐光束的火箭里，你可能会期望光对你来说看起来更慢，但事实并非如此。为了让这个事实成立，爱因斯坦意识到，必须有其他东西在改变：那就是空间和时间本身。其结果就是“时间膨胀”：你移动得越快，你的时钟相对于静止观察者走得就越慢 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=688s" target="_blank" rel="noopener" onclick="return PL.seek(688)">[11:28]</a>。这不仅仅是一个思想实验，它已经被证实了。例如，高层大气中会产生一种名为μ子的短寿命粒子。它们的寿命本不足以让它们到达地面，但因为它们以接近光速的速度行进，其内部时钟变得非常慢，以至于它们完成了这段旅程 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=738s" target="_blank" rel="noopener" onclick="return PL.seek(738)">[12:18]</a>。</p>
+<p>十年后，爱因斯坦的广义相对论将引力也纳入了考量。他证明了引力也会减慢时间 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1035s" target="_blank" rel="noopener" onclick="return PL.seek(1035)">[17:15]</a>。引力场越强，时间流逝得越慢。这种效应也是真实存在的，并且对现代科技至关重要。GPS卫星在地球上空的高轨道运行，那里的引力较弱，所以它们的时钟比我们在地面上的时钟走得稍快。工程师必须不断校正这种差异；如果没有这种校正，你手机的GPS定位会偏差数英里 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1061s" target="_blank" rel="noopener" onclick="return PL.seek(1061)">[17:41]</a>。所以，从一个非常真实的意义上说，你的头比你的脚衰老得要快一些 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1121s" target="_blank" rel="noopener" onclick="return PL.seek(1121)">[18:41]</a>。</p>
+<p>空间、时间和引力之间的这种联系，引出了一个强大而奇特的宇宙模型，称为“块宇宙” <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1206s" target="_blank" rel="noopener" onclick="return PL.seek(1206)">[20:06]</a>。在这种观点中，时间是第四个维度，与三个空间维度交织在一起，形成一个单一的“时空”结构。块宇宙模型认为，所有的时间——过去、现在和未来——都同时存在，就像一条面包，每一片都是一个完整的时间瞬间。我们对流动的现在的感觉，只是我们的意识沿着这条预先存在的时间线行进 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1736s" target="_blank" rel="noopener" onclick="return PL.seek(1736)">[28:56]</a>。根据 Al-Khalili 的说法，这种被称为“永恒主义”的观点是大多数物理学家所认同的 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1751s" target="_blank" rel="noopener" onclick="return PL.seek(1751)">[29:11]</a>。</p>
+<p>如果未来已经存在，这就引发了关于自由意志的深刻问题。但当物理学家试图将广义相对论与量子力学统一起来时，这个模型变得更加奇怪。一次早期的统一尝试产生了 Wheeler-DeWitt 方程，它描述了整个宇宙的量子状态，但奇怪的是，方程中不包含时间变量 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1373s" target="_blank" rel="noopener" onclick="return PL.seek(1373)">[22:53]</a>。这引出了一个激进的观点：时间可能根本不是基本属性。相反，它可能是一种“涌现属性” <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1433s" target="_blank" rel="noopener" onclick="return PL.seek(1433)">[23:53]</a>——就像水的“湿润”是从 H2O 分子的集体行为中涌现出来的，而单个 H2O 分子本身并不湿润 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1449s" target="_blank" rel="noopener" onclick="return PL.seek(1449)">[24:09]</a>。我们所知的时间，可能源于一个更深层、无时间的实在。</p>
+<p>这就引出了“现在”的问题。在块宇宙中，当下的时刻没有特殊的物理意义 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=2030s" target="_blank" rel="noopener" onclick="return PL.seek(2030)">[33:50]</a>。相对论也告诉我们，不存在一个单一的、普适的“现在”。我眼中同时发生的两件事，在高速经过我身边的人看来，可能是在不同时间发生的 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=2114s" target="_blank" rel="noopener" onclick="return PL.seek(2114)">[35:14]</a>。</p>
+<p>第四个主要问题是“时间之箭”：为什么时间会从过去走向未来？大多数基本物理定律都是时间对称的；它们正向和反向都同样适用 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=2608s" target="_blank" rel="noopener" onclick="return PL.seek(2608)">[43:28]</a>。对时间方向的标准解释来自热力学第二定律，该定律指出，在一个孤立系统中，熵——一种衡量无序程度的指标——总是增加的 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=2739s" target="_blank" rel="noopener" onclick="return PL.seek(2739)">[45:39]</a>。炒好的鸡蛋不会自己变回生鸡蛋。这提供了一个明确的方向性。</p>
+<p>然而，Al-Khalili 认为这并非全貌。他相信时间之箭更为根本，是在量子层面上融入现实的。他指出了一个称为量子退相干的过程，即量子系统与其环境发生纠缠 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=3131s" target="_blank" rel="noopener" onclick="return PL.seek(3131)">[52:11]</a>。他认为这个过程是真正不可逆的，并且在任何地方都在持续发生。他提出，这正是赋予时间根本方向性的原因 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=3196s" target="_blank" rel="noopener" onclick="return PL.seek(3196)">[53:16]</a>。</p>
+<p>那么，时间有起点吗？广义相对论认为有，就在宇宙大爆炸那一刻 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=3316s" target="_blank" rel="noopener" onclick="return PL.seek(3316)">[55:16]</a>。问“之前”发生了什么，就像问南极的南边是什么一样。但更多推测性的理论，如多重宇宙或循环宇宙，为时间是永恒的可能性留下了空间 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=3409s" target="_blank" rel="noopener" onclick="return PL.seek(3409)">[56:49]</a>。至于它的终点，宇宙的加速膨胀可能导致一个寒冷、空旷的“热寂”，或是在“大挤压”中重新坍缩，或是在“大撕裂”中连空间本身都被撕裂 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=3623s" target="_blank" rel="noopener" onclick="return PL.seek(3623)">[1:00:23]</a>。</p>
+<p>最后，他谈到了时间旅行。前往未来在物理上是可能的 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=4049s" target="_blank" rel="noopener" onclick="return PL.seek(4049)">[1:07:29]</a>。由于时间膨胀，你可以进行一次接近光速或靠近黑洞的旅行，当你回来时，对其他人来说已经过去了更长的时间。然而，回到过去则是一个逻辑雷区。虽然广义相对论不禁止这样做，但它会产生像“祖父悖论”这样的悖论：如果你回到过去阻止了你自己的出生，那么你一开始就不可能存在并回到过去 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=4236s" target="_blank" rel="noopener" onclick="return PL.seek(4236)">[1:10:36]</a>。</p>
+<p>有几种理论上的方法可以解决这个问题。“多世界”诠释认为，当你回到过去时，你进入了一个平行宇宙，所以你的行为不会改变你自己的过去 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=4366s" target="_blank" rel="noopener" onclick="return PL.seek(4366)">[1:12:46]</a>。另一个观点是“Novikov 自洽性原则”，它指出你可以回到过去，但物理定律会阻止你制造悖论；你的行为只会实现已经写好的历史 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=4420s" target="_blank" rel="noopener" onclick="return PL.seek(4420)">[1:13:40]</a>。Al-Khalili 以谦逊的态度总结道：我们永远不应假设自己拥有所有答案。今天看似科幻的东西，可能就是明天的科学 <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=4710s" target="_blank" rel="noopener" onclick="return PL.seek(4710)">[1:18:30]</a>。</p>
+<h2>值得精听的片段</h2>
+<ul>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=528s" target="_blank" rel="noopener" onclick="return PL.seek(528)">[08:48]</a> - <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=876s" target="_blank" rel="noopener" onclick="return PL.seek(876)">[14:36]</a></code> 关于狭义相对论中时间膨胀的解释。演讲者清晰地阐述了那个反直觉的前提——光速对所有观察者都是恒定的——并用大气层μ子这个真实世界的例子来证明这不仅是理论，更是可测量的现实。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1142s" target="_blank" rel="noopener" onclick="return PL.seek(1142)">[19:02]</a> - <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1311s" target="_blank" rel="noopener" onclick="return PL.seek(1311)">[21:51]</a></code> “块宇宙”模型的介绍。这是本期节目中一个核心的哲学和物理学概念。听演讲者用书页的比喻来描述它，有助于将这个关于时间本质的深刻而令人困惑的观点形象化。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=2435s" target="_blank" rel="noopener" onclick="return PL.seek(2435)">[40:35]</a> - <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=2739s" target="_blank" rel="noopener" onclick="return PL.seek(2739)">[45:39]</a></code> 关于“时间之箭”及其与熵的联系的讨论。这是对时间为何有方向的标准科学解释，阐述得异常清晰，解释了为什么鸡蛋可以被炒熟但不能复原。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=3079s" target="_blank" rel="noopener" onclick="return PL.seek(3079)">[51:19]</a> - <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=3245s" target="_blank" rel="noopener" onclick="return PL.seek(3245)">[54:05]</a></code> 演讲者关于时间之箭起源的个人假说，将其根植于退相干和纠缠的量子过程中。这是一个关键时刻，谈话从公认的共识转向更具推测性但更根本的论证，揭示了这场辩论的前沿。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=4223s" target="_blank" rel="noopener" onclick="return PL.seek(4223)">[1:10:23]</a> - <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=4578s" target="_blank" rel="noopener" onclick="return PL.seek(4578)">[1:16:18]</a></code> 对时间旅行悖论（如祖父悖论）及其潜在解决方案（多世界、自洽性）的剖析。这是一次引人入胜且通俗易懂的探索，探讨了当我们将时间物理学推向其最极端结论时出现的逻辑难题。</li>
+</ul>
+<h2>与往期的呼应</h2><ul class="connections"><li><span class="rel">同构</span>→ <a class="lk" href="https://lens.lumihelia.com/zh/episodes/hakeem-oluseyi.html">宇宙的三个领域 · Hakeem Oluseyi</a><div class="why">两段论述都用相同的基础模型解释了时间膨胀现象：即在空间维度中的运动与在时间维度中的运动之间存在一种权衡关系。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=334s" target="_blank" rel="noopener" onclick="return PL.seek(334)">[05:34]</a> 狭义相对论表明，对于高速运动的观察者来说，时间会变慢（时间膨胀）。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/hakeem-oluseyi.html?t=1669">[27:49-28:01]</a> 宇宙中的万物都在以光速穿行于四维时空；你在空间中移动得越快，在时间中移动得就越慢。</div></div></li><li><span class="rel">印证</span>→ <a class="lk" href="https://lens.lumihelia.com/zh/episodes/hakeem-oluseyi.html">宇宙的三个领域 · Hakeem Oluseyi</a><div class="why">不存在普适的“现在”（相对论的直接推论）这一结论，是直接支持“块宇宙”模型（所有时间同等存在）的核心前提。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1206s" target="_blank" rel="noopener" onclick="return PL.seek(1206)">[20:06]</a> 将时间视为第四维度的概念引出了“块宇宙”模型，在该模型中，所有时刻——过去、现在和未来——都同等真实。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/hakeem-oluseyi.html?t=2378">[39:38-40:48]</a> 由于引力和速度对时间流逝的影响，宇宙中不存在普适的“现在”或当下时刻。</div></div></li><li><span class="rel">补充</span>→ <a class="lk" href="https://lens.lumihelia.com/zh/episodes/hakeem-oluseyi.html">宇宙的三个领域 · Hakeem Oluseyi</a><div class="why">一个观点提到多重宇宙是永恒时间的一种推测性可能，而另一个观点则解释了产生这一著名多重宇宙情景的具体物理理论（永恒暴胀）。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=3316s" target="_blank" rel="noopener" onclick="return PL.seek(3316)">[55:16]</a> 像多重宇宙这样的推测性理论认为时间可能是永恒的，在大爆炸之前就已存在。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/hakeem-oluseyi.html?t=3814">[1:03:34-1:03:40]</a> 宇宙暴胀理论引出了一个“宇宙学多重宇宙”，其中我们的宇宙只是从一个更大的、永恒暴胀的空间中不断产生的众多“气泡宇宙”之一。</div></div></li><li><span class="rel">同构</span>→ <a class="lk" href="https://lens.lumihelia.com/zh/episodes/don-lincoln-lex-fridman-497.html">物理学的统一 · Don Lincoln</a><div class="why">两段论述都将统一广义相对论和量子力学确定为物理学中一个至关重要且尚未解决的问题，一个将其框定为“时间问题”，另一个则将其视为对“万有理论”的探索。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=18s" target="_blank" rel="noopener" onclick="return PL.seek(18)">[00:18]</a> 物理学中四个基本时间问题之一，就是如何调和量子场论与广义相对论。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/don-lincoln-lex-fridman-497.html?t=4538">[1:15:38 - 1:16:53]</a> 寻求“万有理论”是物理学的一个主要目标，该理论将统一包括引力（广义相对论）在内的所有基本力与量子世界，但一个可检验的理论可能还需要数百年时间。</div></div></li><li><span class="rel">印证</span>→ <a class="lk" href="https://lens.lumihelia.com/zh/episodes/don-lincoln-lex-fridman-497.html">物理学的统一 · Don Lincoln</a><div class="why">两期节目都陈述了狭义和广义相对论的相同基本推论：时间的流逝与观察者的运动和引力环境有关。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=334s" target="_blank" rel="noopener" onclick="return PL.seek(334)">[05:34]</a>, <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=513s" target="_blank" rel="noopener" onclick="return PL.seek(513)">[08:33]</a> 爱因斯坦的狭义和广义相对论表明，时间不是绝对的，对于高速运动和处于更强引力场中的观察者来说，时间会变慢。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/don-lincoln-lex-fridman-497.html?t=984">[16:24 - 17:26]</a>, <a class="ts" href="https://lens.lumihelia.com/zh/episodes/don-lincoln-lex-fridman-497.html?t=1601">[26:41 - 27:20]</a> 狭义相对论统一了空间和时间，使时间流逝与速度相关；而广义相对论将引力描述为时空的曲率，使时间流逝与引力场的强度相关。</div></div></li><li><span class="rel">补充</span>→ <a class="lk" href="https://lens.lumihelia.com/zh/episodes/don-lincoln-lex-fridman-497.html">物理学的统一 · Don Lincoln</a><div class="why">一个观点提到“大撕裂”是宇宙的一种可能命运，而另一个观点则定义了其驱动机制——暗能量，即导致宇宙加速膨胀的力量。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=3623s" target="_blank" rel="noopener" onclick="return PL.seek(3623)">[1:00:23]</a> 宇宙的未来可能是一场“大撕裂”，即被暗能量撕裂。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/don-lincoln-lex-fridman-497.html?t=7845">[2:10:45]</a> 暗能量是一种未知的力量，它正在导致宇宙加速膨胀。</div></div></li><li><span class="rel">延伸</span>← <a class="lk" href="https://lens.lumihelia.com/zh/episodes/don-lincoln-lex-fridman-497.html">物理学的统一 · Don Lincoln</a><div class="why">Lincoln 将时空解释为一个统一的实体，这为 Al-Khalili 讨论“块宇宙”模型提供了物理基础，该模型将时间视为一个类似空间性的维度。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1206s" target="_blank" rel="noopener" onclick="return PL.seek(1206)">[20:06]</a> 将时间视为第四维度的概念引出了“块宇宙”模型，在该模型中，所有时刻——过去、现在和未来——都同等真实。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/don-lincoln-lex-fridman-497.html?t=942">[15:42]</a> Einstein 的狭义相对论基于光速对所有观察者来说都是一个普适常数的前提，将空间和时间统一为一个单一的实体——时空。</div></div></li><li><span class="rel">补充</span>← <a class="lk" href="https://lens.lumihelia.com/zh/episodes/don-lincoln-lex-fridman-497.html">物理学的统一 · Don Lincoln</a><div class="why">Lincoln 将引力描述为时空曲率，这是解释 Al-Khalili 关于时间在引力场中变慢这一观点的根本机制；这种“变慢”是弯曲几何的一个特征。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1035s" target="_blank" rel="noopener" onclick="return PL.seek(1035)">[17:15]</a> 广义相对论表明，在更强的引力场中，时间也会变慢。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/don-lincoln-lex-fridman-497.html?t=1636">[27:16]</a> 广义相对论进一步将引力与时空统一起来，将引力描述为由质量和能量引起的时空曲率，而非一种力。</div></div></li><li><span class="rel">补充</span>← <a class="lk" href="https://lens.lumihelia.com/zh/episodes/don-lincoln-lex-fridman-497.html">物理学的统一 · Don Lincoln</a><div class="why">这两点都说明了统一物理学的巨大挑战：Lincoln 强调了实践上和实验上的障碍（能量标度），而 Al-Khalili 则强调了理论中出现的深刻概念悖论（时间的本质）。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1357s" target="_blank" rel="noopener" onclick="return PL.seek(1357)">[22:37]</a> 统一量子力学和广义相对论的尝试，如 Wheeler-DeWitt 方程，表明时间可能不是基本属性，而是一种涌现属性。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/don-lincoln-lex-fridman-497.html?t=4532">[1:15:32]</a> “万有理论”可能还需要数个世纪才能实现，因为它所预言的适用能量标度比目前可测试的要高出千万亿倍。</div></div></li><li><span class="rel">承接</span>← <a class="lk" href="https://lens.lumihelia.com/zh/episodes/don-lincoln-lex-fridman-497.html">物理学的统一 · Don Lincoln</a><div class="why">Lincoln 解释了当前观测到的由暗能量驱动的膨胀，而 Al-Khalili 则将这一现象外推到宇宙可能的最终命运之一——“大撕裂”。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=3623s" target="_blank" rel="noopener" onclick="return PL.seek(3623)">[1:00:23]</a> 宇宙的未来可能是“热寂”（永远膨胀）、“大挤压”（重新坍缩）或“大撕裂”（被暗能量撕裂）。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/don-lincoln-lex-fridman-497.html?t=7890">[2:11:30]</a> 宇宙的加速膨胀被归因于“暗能量”，但量子场论预测的数值比观测值大 10^120 倍。</div></div></li><li><span class="rel">扩展</span>← <a class="lk" href="https://lens.lumihelia.com/zh/episodes/hakeem-oluseyi.html">宇宙的三个领域 · Hakeem Oluseyi</a><div class="why">Oluseyi 提出的恒定四维速度概念，为 Al-Khalili 所述的作为相对论一个关键推论的时间膨胀现象，提供了一个更深层次的解释机制。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=334s" target="_blank" rel="noopener" onclick="return PL.seek(334)">[05:34]</a>, <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=513s" target="_blank" rel="noopener" onclick="return PL.seek(513)">[08:33]</a> 狭义相对论表明，对于高速运动的观察者来说，时间会变慢（时间膨胀）。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/hakeem-oluseyi.html?t=1762">[29:22-29:38]</a> 宇宙中的万物都在以光速穿行于四维时空。这个总速度被分配在空间运动和时间运动之间；在空间中移动得越快，就必然在时间中移动得越慢。</div></div></li><li><span class="rel">证实</span>← <a class="lk" href="https://lens.lumihelia.com/zh/episodes/hakeem-oluseyi.html">宇宙的三个领域 · Hakeem Oluseyi</a><div class="why">两种说法都指出，相对论废除了普适“现在”的概念，而 Al-Khalili 的“块宇宙”模型是这一物理事实的逻辑延伸。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1206s" target="_blank" rel="noopener" onclick="return PL.seek(1206)">[20:06]</a>, <a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1698s" target="_blank" rel="noopener" onclick="return PL.seek(1698)">[28:18]</a> 将时间视为第四维度的概念导出了“块宇宙”模型，在该模型中，所有时刻——过去、现在和未来——都同等真实。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/hakeem-oluseyi.html?t=2373">[39:33-40:38]</a> 不存在单一、普适的“现在”，因为时间的流逝是相对的，受局部引力和速度的影响。</div></div></li><li><span class="rel">互补</span>← <a class="lk" href="https://lens.lumihelia.com/zh/episodes/david-reich.html">青铜时代猖獗的自然选择 · David Reich</a><div class="why">Reich 从‘时空中的种群群岛’分析 DNA 的方法，将过去视为一个可触摸、可探索的维度，这在经验上补充了‘块宇宙’模型，在该模型中，过去被认为与现在一样具有物理真实性。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1206s" target="_blank" rel="noopener" onclick="return PL.seek(1206)">[20:06]</a> 将时间视为第四维度的概念引出了‘块宇宙’模型，在该模型中，所有时刻——过去、现在和未来——都同等真实。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/david-reich.html?t=651">[10:51]</a> 这种新方法通过寻找许多小型、暂时隔离的种群中等位基因频率的一致性、定向性变化来分离选择信号，这些种群被描述为‘时空中的小型种群群岛’。</div></div></li></ul><h2>与往期的张力</h2><ul class="connections tensions"><li><span class="rel">反驳</span><span class="ctype ctype-genuine">真冲突</span>← <a class="lk" href="https://lens.lumihelia.com/zh/episodes/hakeem-oluseyi.html">宇宙的三个领域 · Hakeem Oluseyi</a><div class="why">Oluseyi 认为时空必须是基本的存在，是物理现象发生的必要背景，而 Al-Khalili 则从量子引力的角度提出，时间很可能是一种从更基本、无时间的实在中涌现出的属性。</div><div class="pts"><div><b class="who">本期</b>[22:37, 23:45] 统一量子力学和广义相对论的尝试表明，时间可能不是基本的。描述整个宇宙量子状态的惠勒-德威特方程不包含时间变量。这引出了时间可能是一种“涌现属性”的观点。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/hakeem-oluseyi.html?t=953">[15:53-16:21]</a> 演讲者认为，时空是实在的一个基本方面，而不是一种涌现属性，因为像量子场和能量这样的概念需要一个预先存在的几何结构（空间）和事件序列（时间）才能存在。</div></div></li><li><span class="rel">对比</span><span class="ctype ctype-apparent">表面张力</span>← <a class="lk" href="https://lens.lumihelia.com/zh/episodes/david-reich.html">青铜时代猖獗的自然选择 · David Reich</a><div class="why">Reich 对‘猖獗’选择的描述强调了历史的动态、过程导向的本质，这与块宇宙对时空的静态、几何学观点形成了张力。当它们在不同层面上描述现实时，这种冲突就显而易见了：一个是从时间内部（作为一个过程）描述，另一个是从假设的时间‘外部’（作为一个完整的对象）描述。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=8xp3Bs6nZ-Y&t=1698s" target="_blank" rel="noopener" onclick="return PL.seek(1698)">[28:18]</a> 块宇宙观，也称为永恒主义，认为我们对移动的现在的体验就像一个意识沿着一条预先存在的时间轴漂移。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/david-reich.html?t=547">[09:07]</a> 与长期以来认为自然选择在近代人类历史中处于静止状态的观点相反，一项对古代 DNA 的新大规模研究表明，选择一直是‘猖獗的’，并且在基因组的数千个位置上都可以检测到。</div></div></li></ul>
+<p class="foot">本页为对节目内容的忠实解读与大白话重述,由 <a href="https://github.com/lumihelia/PodLens">PodLens</a> 生成。</p>
+<p class="disclaimer">这是以原文为依据的一次解读,不能替代原文。每条要点都标注了出处,欢迎回到原文核对——也欢迎指出任何细微的偏差。</p>
+
+</div>
+</body>
+</html>

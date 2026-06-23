@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>人工智能的演进：统计、经济学与规则推断 · Thomas Sargent · PodLens</title>
+<meta name="description" content="Thomas Sargent 在北京大学汇丰商学院的讲座中，从经济学家和统计学家的独特视角剖析了人工智能的本质与历史 [02:53]。他将人类智能定义为模式识别、泛化和决策三种核心活动 [05:48]，并指出人工智能本质上是人类为模拟这些活动而发明的机器。Sargent 借用 Steven Pinker 的认知科学观点，揭示了一个深刻的悖论：人类在进化中被硬编码了在统计、生物、经济和物理学上的认知…">
+<meta name="author" content="lumihelia">
+<meta name="keywords" content="结构模型, 规则推断, 认知局限, 科学革命, 信息论, 经济学思维">
+<link rel="canonical" href="https://lens.lumihelia.com/zh/episodes/thomas-sargent-ai-past-present-future.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://lens.lumihelia.com/zh/episodes/thomas-sargent-ai-past-present-future.html"><link rel="alternate" hreflang="en" href="https://lens.lumihelia.com/episodes/thomas-sargent-ai-past-present-future.html"><link rel="alternate" hreflang="x-default" href="https://lens.lumihelia.com/episodes/thomas-sargent-ai-past-present-future.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="人工智能的演进：统计、经济学与规则推断 · Thomas Sargent · PodLens">
+<meta property="og:description" content="Thomas Sargent 在北京大学汇丰商学院的讲座中，从经济学家和统计学家的独特视角剖析了人工智能的本质与历史 [02:53]。他将人类智能定义为模式识别、泛化和决策三种核心活动 [05:48]，并指出人工智能本质上是人类为模拟这些活动而发明的机器。Sargent 借用 Steven Pinker 的认知科学观点，揭示了一个深刻的悖论：人类在进化中被硬编码了在统计、生物、经济和物理学上的认知…">
+<meta property="og:url" content="https://lens.lumihelia.com/zh/episodes/thomas-sargent-ai-past-present-future.html">
+<link rel="alternate" type="application/rss+xml" title="PodLens" href="https://lens.lumihelia.com/zh/feed.xml"><link rel="alternate" type="application/json" title="PodLens" href="https://lens.lumihelia.com/zh/episodes.json">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "人工智能的演进：统计、经济学与规则推断 · Thomas Sargent", "datePublished": "2026-06-21", "inLanguage": "zh-Hans", "url": "https://lens.lumihelia.com/zh/episodes/thomas-sargent-ai-past-present-future.html", "description": "Thomas Sargent 在北京大学汇丰商学院的讲座中，从经济学家和统计学家的独特视角剖析了人工智能的本质与历史 [02:53]。他将人类智能定义为模式识别、泛化和决策三种核心活动 [05:48]，并指出人工智能本质上是人类为模拟这些活动而发明的机器。Sargent 借用 Steven Pinker 的认知科学观点，揭示了一个深刻的悖论：人类在进化中被硬编码了在统计、生物、经济和物理学上的认知…", "author": {"@type": "Person", "name": "lumihelia"}, "publisher": {"@type": "Person", "name": "lumihelia"}, "keywords": "结构模型, 规则推断, 认知局限, 科学革命, 信息论, 经济学思维", "isBasedOn": "https://youtu.be/B2m-T3QQiqQ?si=KQd2LE89eI5RbuMl"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --text: #2C2C2C; --primary: #4C436F; --bg: #F4F3F7; --muted: #9A93B3;
+  --border: #D4D0E0; --white: #FFFFFF; --radius: 12px; --shadow: rgba(76,67,111,0.08);
+}
+* { box-sizing: border-box; }
+body {
+  font-family: 'Source Serif Pro', serif; color: var(--text);
+  background: var(--bg); line-height: 1.75; margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 96px 24px 128px; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text); line-height: 1.25; }
+h1 { font-size: 2.6rem; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.01em; }
+h2 { font-size: 1.5rem; font-weight: 600; margin: 64px 0 16px; }
+h3 { font-size: 1.15rem; font-weight: 600; margin: 32px 0 8px; }
+p { margin: 0 0 20px; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.meta { color: var(--muted); font-size: 0.95rem; margin: 0 0 64px; }
+.site-head { margin-bottom: 80px; }
+.site-head .tagline { color: var(--muted); font-size: 1.05rem; margin-top: 4px; }
+ul, ol { padding-left: 1.4em; }
+li { margin: 6px 0; }
+.episode-list { list-style: none; padding: 0; }
+.episode-list li { margin: 0 0 48px; }
+.episode-list .date { color: var(--muted); font-size: 0.9rem; }
+.episode-list .title { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 600; display: block; margin: 4px 0 8px; }
+.episode-list .summary { color: #5a5566; }
+.foot { margin-top: 96px; color: var(--muted); font-size: 0.85rem; }
+.disclaimer { margin-top: 16px; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.index-disclaimer { margin: 48px 0 0; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.topbar { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 48px; }
+.back { color: var(--muted); }
+.langswitch { color: var(--muted); font-size: 0.9rem; border: 1px solid var(--border); padding: 4px 12px; border-radius: 999px; }
+.langswitch:hover { color: var(--primary); border-color: var(--primary); text-decoration: none; }
+.sectionnav { display: flex; align-items: baseline; flex-wrap: wrap; gap: 20px; }
+.sectionnav .brand { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.05rem; color: var(--text); }
+.sectionnav .sec { color: var(--muted); font-size: 0.9rem; padding-bottom: 2px; }
+.sectionnav .sec.active { color: var(--text); border-bottom: 1px solid var(--text); }
+.sectionnav a:hover { color: var(--primary); text-decoration: none; }
+a.ts { color: var(--primary); font-variant-numeric: tabular-nums; white-space: nowrap; text-decoration: none; border-bottom: 1px dotted var(--border); }
+a.ts:hover { border-bottom-style: solid; }
+.source { color: var(--muted); font-size: 0.95rem; margin: 0 0 24px; }
+.player-wrap { position: sticky; top: 0; z-index: 10; background: var(--bg); padding: 12px 0 16px; margin: 0 0 32px; }
+.player-box { position: relative; width: 100%; max-width: 460px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 10px var(--shadow); }
+.player-box #ytplayer, .player-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 48px; }
+.tags span { font-size: 0.85rem; color: var(--primary); background: #EDEBF4; padding: 4px 12px; border-radius: 999px; }
+.connections { list-style: none; padding: 0; margin: 0; }
+.connections li { margin: 0 0 28px; padding-left: 16px; border-left: 2px solid var(--border); }
+.connections .rel { font-size: 0.8rem; color: var(--primary); background: #EDEBF4; padding: 2px 10px; border-radius: 999px; margin-right: 8px; }
+.connections .lk { font-family: 'Playfair Display', serif; font-weight: 600; }
+.connections .why { margin: 8px 0 6px; }
+.connections .pts { color: var(--muted); font-size: 0.92rem; }
+.connections .pts > div { margin-top: 4px; }
+.connections .who { color: var(--text); font-weight: 600; margin-right: 8px; }
+.connections.tensions li { border-left-color: var(--primary); }
+.ctype { font-size: 0.72rem; padding: 1px 9px; border-radius: 999px; margin-right: 8px; letter-spacing: 0.02em; }
+.ctype-genuine { color: #fff; background: var(--primary); }
+.ctype-apparent { color: var(--muted); background: #EDEBF4; }
+.editor-note { background: #EDEBF4; border-radius: 12px; padding: 24px 28px; margin: 0 0 48px; }
+.editor-note .en-label { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 10px; }
+.editor-note p { margin: 0 0 12px; }
+.editor-note p:last-child { margin-bottom: 0; }
+.claim-meta { display: block; margin-top: 2px; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+.claim-meta-first { margin-top: 8px; }
+.claim-meta a.ts { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="topbar"><nav class="sectionnav"><a class="brand" href="https://lens.lumihelia.com/zh/">PodLens</a><a class="sec active" href="https://lens.lumihelia.com/zh/">episodes</a><a class="sec" href="https://lens.lumihelia.com/zh/papers/">papers</a></nav><a class="langswitch" href="https://lens.lumihelia.com/episodes/thomas-sargent-ai-past-present-future.html">English</a></div>
+<h1>人工智能的演进：统计、经济学与规则推断 · Thomas Sargent</h1>
+<p class="meta">2026-06-21 · 由 PodLens 生成的忠实解读</p>
+<p class="source">原节目:<a href="https://youtu.be/B2m-T3QQiqQ?si=KQd2LE89eI5RbuMl" target="_blank" rel="noopener">https://youtu.be/B2m-T3QQiqQ?si=KQd2LE89eI5RbuMl</a>　·　时间戳可点击,就地跳转播放器</p>
+<div class="player-wrap"><div class="player-box"><div id="ytplayer"></div></div></div>
+<script>
+var PL = (function() {
+  var player, ready = false, pending = null;
+  window.onYouTubeIframeAPIReady = function() {
+    player = new YT.Player('ytplayer', {
+      videoId: 'B2m-T3QQiqQ',
+      host: 'https://www.youtube-nocookie.com',
+      playerVars: {playsinline: 1, rel: 0},
+      events: {onReady: function() { ready = true; if (pending != null) { var p = pending; pending = null; seek(p); } }}
+    });
+  };
+  function seek(s) {
+    if (!ready) { pending = s; return false; }
+    player.seekTo(s, true); player.playVideo();
+    document.querySelector('.player-wrap').scrollIntoView({behavior: 'smooth', block: 'start'});
+    return false;
+  }
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+  document.addEventListener('DOMContentLoaded', function() {
+    var t = new URLSearchParams(location.search).get('t');
+    if (t) { seek(parseInt(t, 10)); }
+  });
+  return {seek: seek};
+})();
+</script>
+<div class="tags"><span>结构模型</span><span>规则推断</span><span>认知局限</span><span>科学革命</span><span>信息论</span><span>经济学思维</span></div>
+
+<h2>这期讲了什么</h2>
+<p>Thomas Sargent 在北京大学汇丰商学院的讲座中，从经济学家和统计学家的独特视角剖析了人工智能的本质与历史 <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=173s" target="_blank" rel="noopener" onclick="return PL.seek(173)">[02:53]</a>。他将人类智能定义为模式识别、泛化和决策三种核心活动 <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=348s" target="_blank" rel="noopener" onclick="return PL.seek(348)">[05:48]</a>，并指出人工智能本质上是人类为模拟这些活动而发明的机器。Sargent 借用 Steven Pinker 的认知科学观点，揭示了一个深刻的悖论：人类在进化中被硬编码了在统计、生物、经济和物理学上的认知障碍，而这些领域恰恰是构建 AI 底层算法的技术支柱 <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=699s" target="_blank" rel="noopener" onclick="return PL.seek(699)">[11:39]</a>。他详细还原了托勒密、哥白尼、开普勒、伽利略和达尔文利用“人工数据压缩”推动科学革命的历程，分析了 AlphaGo 和遗传算法如何融合经济学价格机制、博弈论和物理学蒙特卡洛模拟，并探讨了当代大语言模型在“描述规律”与“推断博弈规则”之间的鸿沟。</p>
+<h2>时间线主题地图</h2>
+<ul>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=0s" target="_blank" rel="noopener" onclick="return PL.seek(0)">[00:00]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=234s" target="_blank" rel="noopener" onclick="return PL.seek(234)">[03:54]</a></code> 讲座开场，主持人与北京大学海闻教授致辞，探讨 AI 对经济与社会的影响。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=234s" target="_blank" rel="noopener" onclick="return PL.seek(234)">[03:54]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=348s" target="_blank" rel="noopener" onclick="return PL.seek(348)">[05:48]</a></code> 引入主讲人 Thomas Sargent 教授，强调其在主体学习与不确定性决策模型上的奠基性贡献。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=348s" target="_blank" rel="noopener" onclick="return PL.seek(348)">[05:48]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=481s" target="_blank" rel="noopener" onclick="return PL.seek(481)">[08:01]</a></code> Sargent 定义人类智能的三大支柱：基于历史的模式识别、基于信念的泛化、以及基于预测的决策。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=481s" target="_blank" rel="noopener" onclick="return PL.seek(481)">[08:01]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=590s" target="_blank" rel="noopener" onclick="return PL.seek(590)">[09:50]</a></code> 将人工智能定义为执行上述三种人类智能活动的机器；引出“人机智能融合”的历史视角。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=590s" target="_blank" rel="noopener" onclick="return PL.seek(590)">[09:50]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=782s" target="_blank" rel="noopener" onclick="return PL.seek(782)">[13:02]</a></code> 引用 Steven Pinker 的观点，分析人类作为“狩猎采集者”进化出的认知优势与现代社会生存技能的脱节。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=782s" target="_blank" rel="noopener" onclick="return PL.seek(782)">[13:02]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=934s" target="_blank" rel="noopener" onclick="return PL.seek(934)">[15:34]</a></code> 剖析人类在统计学（不擅长小概率事件）和生物学上的天然直觉偏误。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=934s" target="_blank" rel="noopener" onclick="return PL.seek(934)">[15:34]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1079s" target="_blank" rel="noopener" onclick="return PL.seek(1079)">[17:59]</a></code> 探讨人类在经济学（仇视中间商、缺乏大尺度协作直觉）和物理学（缺乏相对论与量子直觉）上的认知缺陷。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1079s" target="_blank" rel="noopener" onclick="return PL.seek(1079)">[17:59]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1241s" target="_blank" rel="noopener" onclick="return PL.seek(1241)">[20:41]</a></code> 揭示核心讽刺：AI 的四大底层支柱（统计、生物、经济、物理）正是人类直觉最差的领域；教育的本质是克服这些缺陷的手段。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1241s" target="_blank" rel="noopener" onclick="return PL.seek(1241)">[20:41]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1413s" target="_blank" rel="noopener" onclick="return PL.seek(1413)">[23:33]</a></code> 回顾托勒密 2000 年前的地心说行星轨道模型，将其定性为人类历史上最长寿的“大数据压缩与曲线拟合”模型。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1413s" target="_blank" rel="noopener" onclick="return PL.seek(1413)">[23:33]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1551s" target="_blank" rel="noopener" onclick="return PL.seek(1551)">[25:51]</a></code> 阐述托勒密利用圆圈（均轮与本轮）和最小二乘法对行星位置进行参数化压缩（250个参数）的工程设计。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1551s" target="_blank" rel="noopener" onclick="return PL.seek(1551)">[25:51]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1725s" target="_blank" rel="noopener" onclick="return PL.seek(1725)">[28:45]</a></code> 引入托勒密模型中“解释与描述”的科学哲学之争，并简述 Tycho Brahe 的大数据收集工作。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1725s" target="_blank" rel="noopener" onclick="return PL.seek(1725)">[28:45]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1920s" target="_blank" rel="noopener" onclick="return PL.seek(1920)">[32:00]</a></code> 讲述哥白尼出于美学直觉（36个参数）挑战托勒密，以及开普勒用椭圆（3个参数）提炼三大规律的“数据挖掘”本质。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1920s" target="_blank" rel="noopener" onclick="return PL.seek(1920)">[32:00]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=2156s" target="_blank" rel="noopener" onclick="return PL.seek(2156)">[35:56]</a></code> 还原伽利略利用斜面实验产生人工数据，并使用二次拟合发现恒定加速度规律的 AI 实践。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=2156s" target="_blank" rel="noopener" onclick="return PL.seek(2156)">[35:56]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=2367s" target="_blank" rel="noopener" onclick="return PL.seek(2367)">[39:27]</a></code> 讲述达尔文通过文字数据挖掘（信鸽繁育），吸收亚当·斯密和马尔萨斯的经济学人口稳态模型，最终推导出演化论的历程。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=2367s" target="_blank" rel="noopener" onclick="return PL.seek(2367)">[39:27]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=2472s" target="_blank" rel="noopener" onclick="return PL.seek(2472)">[41:12]</a></code> 总结科学革命的本质就是没有计算机的“人工智能与数据挖掘”。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=2472s" target="_blank" rel="noopener" onclick="return PL.seek(2472)">[41:12]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=2660s" target="_blank" rel="noopener" onclick="return PL.seek(2660)">[44:20]</a></code> 解构 AlphaGo 底层算法：揭示价格机制、价值评估、博弈论（Alpha-Beta 剪枝）及物理学蒙特卡洛模拟的融合。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=2660s" target="_blank" rel="noopener" onclick="return PL.seek(2660)">[44:20]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=2825s" target="_blank" rel="noopener" onclick="return PL.seek(2825)">[47:05]</a></code> 介绍 John Holland 在 1970 年代发明的遗传算法与分类器系统，阐明其如何模拟生物 DNA 进行进化计算。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=2825s" target="_blank" rel="noopener" onclick="return PL.seek(2825)">[47:05]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=3114s" target="_blank" rel="noopener" onclick="return PL.seek(3114)">[51:54]</a></code> 详细解构 Holland 分类器系统的运作：用二进制编码 if-then 规则，引入随机拍卖（经济学）和交叉变异（生物学）机制。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=3114s" target="_blank" rel="noopener" onclick="return PL.seek(3114)">[51:54]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=3243s" target="_blank" rel="noopener" onclick="return PL.seek(3243)">[54:03]</a></code> 讲述遗传算法如何在 1990 年代帮助天文学家通过分析恒星光度闪烁发现外行星，从而获得 2019 年诺贝尔物理学奖。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=3243s" target="_blank" rel="noopener" onclick="return PL.seek(3243)">[54:03]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=3418s" target="_blank" rel="noopener" onclick="return PL.seek(3418)">[56:58]</a></code> 引入费曼的物理学隐喻：物理学研究就像通过观察一盘棋局的走法来推断整套国际象棋规则。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=3418s" target="_blank" rel="noopener" onclick="return PL.seek(3418)">[56:58]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=3652s" target="_blank" rel="noopener" onclick="return PL.seek(3652)">[01:00:52]</a></code> 阐释费曼隐喻与结构计量经济学的绝对同构：从零散的价格与数量数据中推断底层的博弈规则（Von Neumann 游戏定义）。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=3652s" target="_blank" rel="noopener" onclick="return PL.seek(3652)">[01:00:52]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=3734s" target="_blank" rel="noopener" onclick="return PL.seek(3734)">[01:02:14]</a></code> 对比 ChatGPT 等当代大语言模型在“组织描述模式”与“推断博弈规则（结构模型）”之间的能力鸿沟。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=3734s" target="_blank" rel="noopener" onclick="return PL.seek(3734)">[01:02:14]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=5313s" target="_blank" rel="noopener" onclick="return PL.seek(5313)">[01:28:33]</a></code> （此处为讲座现场技术细节与多主体宏观经济模型的交流讨论，已过滤）。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=5313s" target="_blank" rel="noopener" onclick="return PL.seek(5313)">[01:28:33]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=5526s" target="_blank" rel="noopener" onclick="return PL.seek(5526)">[01:32:06]</a></code> 提问环节：哲学家与法律学者提问；Sargent 引用 Poincaré 指出科学发现本质是无法预测的“惊奇（Surprise）”；讲述 1912 年 Norman Angell 预测战争终结的失败案例。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=5526s" target="_blank" rel="noopener" onclick="return PL.seek(5526)">[01:32:06]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=6012s" target="_blank" rel="noopener" onclick="return PL.seek(6012)">[01:40:12]</a></code> 观众提问 AI 是否能完全超越人类及中美 AI 竞争；Sargent 强调科学家之间的跨国协作，并断言 AI 永远无法复制人与人之间真实的温情与支持。</li>
+</ul>
+<h2>核心观点清单</h2>
+<ol>
+<li>
+<p><strong>人类智能的核心是由“模式识别”、“泛化”和“决策”构成的因果链。</strong> 模式识别是把过去的感官数据归类压缩；泛化是一种信念，假设过去的模式能延伸到未知的未来；决策则是基于泛化在多个选项中做出选择。 *   观点
+   <span class="claim-meta claim-meta-first"><code>[05 48] - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=519s" target="_blank" rel="noopener" onclick="return PL.seek(519)">[08:39]</a></code></span></p>
+</li>
+<li>
+<p><strong>人类进化出的自然直觉，在现代文明的核心科学领域全都是“残疾”的。</strong> 作为 hunter-gatherers 进化的产物，人类的硬编码直觉不擅长评估极低概率事件（统计残疾）、抗拒利息和中间商（经济残疾）、无法理解微观粒子与非绝对时空（物理残疾）。 *   观点
+   <span class="claim-meta claim-meta-first"><code>[10 53] - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=782s" target="_blank" rel="noopener" onclick="return PL.seek(782)">[13:02]</a></code>, <code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=872s" target="_blank" rel="noopener" onclick="return PL.seek(872)">[14:32]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=954s" target="_blank" rel="noopener" onclick="return PL.seek(954)">[15:54]</a></code></span></p>
+</li>
+<li>
+<p><strong>科学革命本质上是在没有电子计算机时代所开展的“人工智能”实践。</strong> 托勒密使用圆圈组合和最小二乘法将海量天体位置压缩为 250 个参数，伽利略用斜面产生数据并进行曲线拟合，开普勒进行数据挖掘，本质上都是在做数据压缩与规律泛化。 *   观点
+   <span class="claim-meta claim-meta-first"><code>[24 12] - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1484s" target="_blank" rel="noopener" onclick="return PL.seek(1484)">[24:44]</a></code>, <code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1940s" target="_blank" rel="noopener" onclick="return PL.seek(1940)">[32:20]</a></code>, <code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=2105s" target="_blank" rel="noopener" onclick="return PL.seek(2105)">[35:05]</a></code></span></p>
+</li>
+<li>
+<p><strong>科学理论的筛选往往由美学直觉决定，而非数据拟合度。</strong> 在哥白尼提出日心说时，他的 36 参数模型对行星轨道的实际预测精度，其实远低于托勒密复杂的 250 参数地心说模型；但科学家们因为哥白尼模型的简洁与优美，而选择相信它更接近真理。 *   事实
+   <span class="claim-meta claim-meta-first"><code>[26 15] - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1590s" target="_blank" rel="noopener" onclick="return PL.seek(1590)">[26:30]</a></code>, <code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1679s" target="_blank" rel="noopener" onclick="return PL.seek(1679)">[27:59]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1702s" target="_blank" rel="noopener" onclick="return PL.seek(1702)">[28:22]</a></code></span></p>
+</li>
+<li>
+<p><strong>结构计量经济学与费曼的物理学探索在逻辑上完全同构。</strong> 费曼将物理学描述为“通过看一盘棋局推断整套国际象棋规则” <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=3375s" target="_blank" rel="noopener" onclick="return PL.seek(3375)">[56:15]</a>；结构经济学同样是在只观测到零散的价格和交易量（棋子移动）的情况下，去逆向推断底层的博弈规则（Von Neumann 游戏定义：主体、选择、支付与信息集）。 *   观点
+   <span class="claim-meta claim-meta-first"><code>[57 59] - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=3516s" target="_blank" rel="noopener" onclick="return PL.seek(3516)">[58:36]</a></code>, <code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=3593s" target="_blank" rel="noopener" onclick="return PL.seek(3593)">[59:53]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=3635s" target="_blank" rel="noopener" onclick="return PL.seek(3635)">[01:00:35]</a></code></span></p>
+</li>
+<li>
+<p><strong>大语言模型在“描述模式”上极度优秀，但在“推断规则”上依然存在根本性缺陷。</strong> 类似 ChatGPT 或 Claude 的人工智能可以通过海量文本的模式识别提供极佳的描述性输出，但它们目前还无法像物理学家或计量经济学家那样，从现象中逆向提炼出底层的因果博弈结构（structural models）。 *   观点
+   <span class="claim-meta claim-meta-first"><code>[01 00:52] - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=3694s" target="_blank" rel="noopener" onclick="return PL.seek(3694)">[01:01:34]</a></code>, <code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=5344s" target="_blank" rel="noopener" onclick="return PL.seek(5344)">[01:29:04]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=5380s" target="_blank" rel="noopener" onclick="return PL.seek(5380)">[01:29:40]</a></code></span></p>
+</li>
+<li>
+<p><strong>科学发现的核心价值在于“无法被预测的惊奇（Surprise）”。</strong> 根据 Turing 和 Shannon 的信息论，信息就是数据中的“惊奇含量”。因为每一项真正的科学发现都是对既有轨迹的颠覆（惊奇），所以在逻辑上，我们永远无法预测未来的科学发现会是什么。 *   事实
+   <span class="claim-meta claim-meta-first"><code>[01 30:54] - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=5510s" target="_blank" rel="noopener" onclick="return PL.seek(5510)">[01:31:50]</a></code></span></p>
+</li>
+</ol>
+<h2>大白话重讲</h2>
+<p>在这个人人都为大模型感到兴奋或者恐慌的时代，诺贝尔经济学奖得主 Thomas Sargent 却用一种异常冷静和深邃的视角告诉我们：别被天花乱坠的宣传给骗了，人工智能绝不是什么新鲜事，它其实已经运行了上百年，本质就是统计学、经济学、生物学和物理学这四个经典学科的巧妙大融合 <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=321s" target="_blank" rel="noopener" onclick="return PL.seek(321)">[05:21]</a>, <code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1050s" target="_blank" rel="noopener" onclick="return PL.seek(1050)">[17:30]</a></code>。</p>
+<p>这里面有一个非常黑色幽默的悖论：人类在漫长的狩猎采集进化过程中，为了在森林里抓野兽、避危险，脑子被硬编码了一套非常实用的直觉。但这套直觉在现代社会里，一碰到高深科学就全是“脑残缺陷” <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=653s" target="_blank" rel="noopener" onclick="return PL.seek(653)">[10:53]</a>。比如，我们天生就不懂怎么评估万分之一概率的罕见灾难（统计残疾）；我们本能地讨厌倒买倒卖的中间商，觉得只有亲手种地才算生产（经济残疾）；我们无法理解为什么时间会变慢、微观粒子能同时存在于两处（物理残疾） <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=782s" target="_blank" rel="noopener" onclick="return PL.seek(782)">[13:02]</a>, <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=892s" target="_blank" rel="noopener" onclick="return PL.seek(892)">[14:52]</a>, <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=949s" target="_blank" rel="noopener" onclick="return PL.seek(949)">[15:49]</a>。而最讽刺的是，今天构成 AI 算法大厦的四根地基，偏偏就是统计学、经济学、物理学和生物学 <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1079s" target="_blank" rel="noopener" onclick="return PL.seek(1079)">[17:59]</a>！所以，Sargent 借用 Steven Pinker 的话说，现代教育的本质不是为了教你知识，而是为了发明一种对抗人类天然直觉缺陷的“矫正技术” <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1016s" target="_blank" rel="noopener" onclick="return PL.seek(1016)">[16:56]</a>。</p>
+<p>如果你把视野拉长到几百年前的科学革命，你会发现科学家们其实就是在没有电脑的时代做“机器学习”的鼻祖。比如 2000 年前的托勒密，为了描述夜空里五颗乱跑的行星，把几百年的观测记录做成了一张巨大的 Excel 电子表格，然后用圆圈叠加出了一套含有 250 个参数的数学模型，用原始的“最小二乘法”去拟合数据 <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1241s" target="_blank" rel="noopener" onclick="return PL.seek(1241)">[20:41]</a>, <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1452s" target="_blank" rel="noopener" onclick="return PL.seek(1452)">[24:12]</a>。虽然他是错的（他把地球放在中心），但这个数据压缩模型极其好用，竟然统治了人类 1500 年。后来，哥白尼跳出来说地心说太丑了，他用 36 个参数做出了日心说。虽然当时哥白尼的预测数据其实没有托勒密准，但科学家们就是喜欢“更少参数的优美”，所以日心说赢了 <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1679s" target="_blank" rel="noopener" onclick="return PL.seek(1679)">[27:59]</a>。这跟我们今天大模型里追求的“正则化”和“参数压缩”是一个道理。</p>
+<p>今天的 AlphaGo 或者是大语言模型，底下的算法其实都在借用这四个学科的古老工具。AlphaGo 在算每一步棋时，用的是经济学里的“价格与价值”来评估局势；用的是物理学在 40 年代为了造核武器发明的“蒙特卡洛模拟”来预测胜率；用的是演化生物学里的“探索与利用平衡”来决定要不要尝试新走法 <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=2472s" target="_blank" rel="noopener" onclick="return PL.seek(2472)">[41:12]</a>, <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=2580s" target="_blank" rel="noopener" onclick="return PL.seek(2580)">[43:00]</a>。</p>
+<p>但 Sargent 指出了当下 AI 最大的一个瓶颈。费曼曾说过，物理学就像看着两个人在下一盘你不知道规则的国际象棋，你的任务是通过观察棋子的移动，把底下的规则给推导出来 <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=3375s" target="_blank" rel="noopener" onclick="return PL.seek(3375)">[56:15]</a>。经济学家做结构计量也是这样，要从混乱的价格和数量背后，找出底下的游戏博弈规则 <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=3479s" target="_blank" rel="noopener" onclick="return PL.seek(3479)">[57:59]</a>。今天的 ChatGPT 们，在“模式识别”和“描述棋子怎么走”上做得堪称完美，但要让它们真正像科学家一样，推断出底下一整套看不见的博弈规则（结构模型），它们依然一头雾水 <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=3652s" target="_blank" rel="noopener" onclick="return PL.seek(3652)">[01:00:52]</a>。</p>
+<p>至于 AI 会不会彻底替代人类，Sargent 给出了一句非常温暖和私人的回答：AI 也许能做最复杂的计算，但它永远无法在我的生命里创造出一个像我妻子 Carolyn 那样的人——每天看到她就会让我微笑，在交流中永远能用尊重的方式指出我的错误，并给我真实的温情与依靠 <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=5927s" target="_blank" rel="noopener" onclick="return PL.seek(5927)">[01:38:47]</a>。</p>
+<h2>值得精听的片段</h2>
+<ul>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=653s" target="_blank" rel="noopener" onclick="return PL.seek(653)">[10:53]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=782s" target="_blank" rel="noopener" onclick="return PL.seek(782)">[13:02]</a></code> 阐述 Steven Pinker 关于“进化硬编码与现代科学残疾”的观点。Sargent 极其幽默地剖析了为什么人类的天然直觉无法适应现代生活，解释了科学教育作为“认知矫正器”的本质。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1575s" target="_blank" rel="noopener" onclick="return PL.seek(1575)">[26:15]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1702s" target="_blank" rel="noopener" onclick="return PL.seek(1702)">[28:22]</a></code> 哥白尼与托勒密模型的参数之争。这一段对于理解深度学习中的“奥卡姆剃刀”和“泛化误差”非常有启发，展示了科学史上美学直觉如何击败了过度拟合的旧数据。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=3375s" target="_blank" rel="noopener" onclick="return PL.seek(3375)">[56:15]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=3516s" target="_blank" rel="noopener" onclick="return PL.seek(3516)">[58:36]</a></code> 费曼的国际象棋隐喻与结构计量经济学的同构关系。Sargent 极其深刻地论述了描述性模型（AI 模式识别）与结构性因果模型（推断游戏规则）的本质区别。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=5454s" target="_blank" rel="noopener" onclick="return PL.seek(5454)">[01:30:54]</a> - <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=5510s" target="_blank" rel="noopener" onclick="return PL.seek(5510)">[01:31:50]</a></code> 信息论中“Surprise (惊奇)”作为信息的定义。Sargent 论证了为什么基于过去数据的预测永远无法预言真正的科学发现，对于理解创新和不确定性至关重要。</li>
+</ul>
+<h2>与往期的呼应</h2><ul class="connections"><li><span class="rel">同构</span>→ <a class="lk" href="https://lens.lumihelia.com/zh/papers/patel-wang-fan-transformer-executive-control.html">变换器注意力的执行控制缺陷：Stroop任务揭示LLM不能做什么</a><div class="why">两人从完全不同的学科——经济学哲学 vs. 认知神经科学实验——独立诊断出了同一个 AI 能力缺口。Sargent 用费曼「观察一盘棋推断整套规则」的隐喻指出：当代大语言模型在「描述模式」（观察棋子怎么走）上极度优秀，但在「推断博弈规则」（结构模型，看不见的因果机制）上依然一头雾水。Patel-Wang-Fan 用 Stroop 任务给出了这个诊断的精确神经科学版本：变换器自注意力机制只实现了人类注意力网络中的「定向网络」（描述、选择信息），完全没有实现「执行控制网络」（在冲突中维持目标、推断并执行规则）。一个是哲学层面的论断，一个是可复现的实验证据，指向同一个架构性缺口。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=3652s" target="_blank" rel="noopener" onclick="return PL.seek(3652)">[01:00:52]</a>-<a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=3694s" target="_blank" rel="noopener" onclick="return PL.seek(3694)">[01:01:34]</a> Sargent 说大语言模型在「描述模式」上极度优秀，但在「推断规则」上依然存在根本性缺陷——它们可以提供极佳的描述性输出，但无法像物理学家或计量经济学家那样从现象中逆向提炼出底层的因果博弈结构。</div><div><b class="who">往期</b>Patel-Wang-Fan Discussion: &quot;A transformer&#x27;s self-attention mechanism ≈ the orienting network (selecting relevant tokens from the input via weighting). But it does not implement executive control — the ability to actively suppress a dominant response amid competing information.&quot;</div></div></li><li><span class="rel">同构</span>→ <a class="lk" href="https://lens.lumihelia.com/zh/episodes/rick-rubin-creative-act-less-is-more.html">少即是多、听的艺术与创作的天启 · Rick Rubin</a><div class="why">两人都在论证同一件事：当两个理论或作品在「客观指标」上表现接近时，人类最终选择相信的那一个，往往是由美学直觉而非纯粹的数据拟合度决定的——而且做到「更少」往往需要更深的理解，不是偷懒。哥白尼提出日心说时，他 36 个参数的模型对行星轨道的预测精度其实低于托勒密 250 个参数的地心说模型，但科学家们因为日心说的简洁优美而选择相信它更接近真理。Rubin 用同样的逻辑解释为什么他在 LL Cool J 第一张专辑上不署名「制作人」而署名「减少者」：叠加的元素越多，每个元素的个性权重就越小；做到少需要先看清什么是核心、什么是噪音，然后有勇气只留下核心。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1575s" target="_blank" rel="noopener" onclick="return PL.seek(1575)">[26:15]</a>-<a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1590s" target="_blank" rel="noopener" onclick="return PL.seek(1590)">[26:30]</a>, <a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1679s" target="_blank" rel="noopener" onclick="return PL.seek(1679)">[27:59]</a>-<a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1702s" target="_blank" rel="noopener" onclick="return PL.seek(1702)">[28:22]</a> Sargent 说哥白尼 36 参数的日心说模型，预测精度其实远低于托勒密 250 参数的地心说模型；但科学家们因为日心说模型的简洁与优美，选择相信它更接近真理。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/rick-rubin-creative-act-less-is-more.html?t=20">[00:20]</a>-<a class="ts" href="https://lens.lumihelia.com/zh/episodes/rick-rubin-creative-act-less-is-more.html?t=90">[01:30]</a> Rubin 说少即是多，但做到少需要做更多：叠加的东西越多，每个元素的权重越小，个性就越弱；精简不是减法，是让必要之物的本质显现出来——这就是为什么做到「少」需要更多工作，你必须先理解什么是核心、什么是噪音，再有勇气只留下核心。</div></div></li><li><span class="rel">同构</span>← <a class="lk" href="https://lens.lumihelia.com/zh/episodes/how-do-computers-work-from-scratch.html">计算机自底向上构建指南 · Unnamed Speaker</a><div class="why">Sargent 用费曼的「观察一盘棋推断整套规则」来描述科学和结构计量经济学的核心任务：从零散的表面数据（价格、棋子移动）逆向推断出看不见的底层博弈规则。这期视频做的事情正好相反，却揭示了同一枚硬币的另一面——它从最底层的电信号阈值开始，一层一层透明地正向构建出那套「规则」本身：逻辑门、加法器、寄存器、指令集，直到一盏 LED 被点亮。把两者放在一起看：Sargent 让你看到为什么从外部推断规则是科学最难的部分，这期视频则让你亲手搭建一遍那套规则，看清楚一旦你站在内部、拥有全部细节，所谓「神秘的底层规则」其实就是几十层简单二元开关的诚实叠加。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=3418s" target="_blank" rel="noopener" onclick="return PL.seek(3418)">[56:58]</a>-<a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=3652s" target="_blank" rel="noopener" onclick="return PL.seek(3652)">[01:00:52]</a> Sargent 阐释费曼隐喻与结构计量经济学的同构关系：从零散的价格与数量数据中逆向推断底层的博弈规则（Von Neumann 游戏定义）——这是同一种「规则」从外部、用数据反推的版本。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/how-do-computers-work-from-scratch.html?t=19624">[05:27:04]</a> 总线通信的核心红线是防范电气层面的数据写入冲突：任意时刻只能有一个硬件组件被允许向总线写入电平，否则会造成直接的物理短路并损坏芯片——这是这台计算机「博弈规则」里最基础的一条物理法则，正向、透明地被构建出来。</div></div></li><li><span class="rel">同构</span>← <a class="lk" href="https://lens.lumihelia.com/zh/episodes/why-does-2-plus-2-equal-4-math-deep-reality.html">数学实在、物理规律与唯物主义之死 · David Berlinski</a><div class="why">两期节目独立引用了同一个历史案例（哥白尼日心说战胜托勒密地心说），却用它论证了完全相同的「审美原理」：当两个理论在数据拟合度上接近甚至处于劣势时，人类最终选择相信的那一个，是由数学之美而不是纯粹的预测精度决定的。Sargent 从科学史和经济学方法论的角度论证这一点；Berlinski、Klainerman 和 Meyer 则引用 Crick「它太美了，所以一定是对的」和 Dirac「理论优美比与数据一致更重要」，把同一个观察上升为一个形而上学命题：宇宙底层运行在某种数学的理性与和谐之上，这种理性无法被纯粹的唯物主义还原。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1575s" target="_blank" rel="noopener" onclick="return PL.seek(1575)">[26:15]</a>-<a class="ts" href="https://www.youtube.com/watch?v=B2m-T3QQiqQ&t=1702s" target="_blank" rel="noopener" onclick="return PL.seek(1702)">[28:22]</a> Sargent 说哥白尼 36 参数的日心说模型，预测精度其实远低于托勒密 250 参数的地心说模型；但科学家们因为日心说模型的简洁与优美，选择相信它更接近真理——这跟今天大模型追求的「正则化」和「参数压缩」是同一个道理。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/why-does-2-plus-2-equal-4-math-deep-reality.html?t=2984">[49:44]</a>-<a class="ts" href="https://lens.lumihelia.com/zh/episodes/why-does-2-plus-2-equal-4-math-deep-reality.html?t=3052">[50:52]</a> Berlinski、Klainerman 和 Meyer 引用 Crick 评价 DNA 双螺旋「它如此美丽，所以一定是对的」，以及 Dirac「理论优美比与数据一致更重要」——审美上的对称与和谐被证明是人类逼近物理客观真理的可靠罗盘。</div></div></li></ul>
+<p class="foot">本页为对节目内容的忠实解读与大白话重述,由 <a href="https://github.com/lumihelia/PodLens">PodLens</a> 生成。</p>
+<p class="disclaimer">这是以原文为依据的一次解读,不能替代原文。每条要点都标注了出处,欢迎回到原文核对——也欢迎指出任何细微的偏差。</p>
+
+</div>
+</body>
+</html>

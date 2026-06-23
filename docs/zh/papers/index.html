@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PodLens</title>
+<meta name="description" content="解读有据,出处可查。">
+<meta name="author" content="lumihelia">
+
+<link rel="canonical" href="https://lens.lumihelia.com/zh/papers/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="PodLens">
+<meta property="og:description" content="解读有据,出处可查。">
+<meta property="og:url" content="https://lens.lumihelia.com/zh/papers/">
+<link rel="alternate" type="application/rss+xml" title="PodLens" href="https://lens.lumihelia.com/zh/feed.xml"><link rel="alternate" type="application/json" title="PodLens" href="https://lens.lumihelia.com/zh/episodes.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --text: #2C2C2C; --primary: #4C436F; --bg: #F4F3F7; --muted: #9A93B3;
+  --border: #D4D0E0; --white: #FFFFFF; --radius: 12px; --shadow: rgba(76,67,111,0.08);
+}
+* { box-sizing: border-box; }
+body {
+  font-family: 'Source Serif Pro', serif; color: var(--text);
+  background: var(--bg); line-height: 1.75; margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 96px 24px 128px; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text); line-height: 1.25; }
+h1 { font-size: 2.6rem; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.01em; }
+h2 { font-size: 1.5rem; font-weight: 600; margin: 64px 0 16px; }
+h3 { font-size: 1.15rem; font-weight: 600; margin: 32px 0 8px; }
+p { margin: 0 0 20px; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.meta { color: var(--muted); font-size: 0.95rem; margin: 0 0 64px; }
+.site-head { margin-bottom: 80px; }
+.site-head .tagline { color: var(--muted); font-size: 1.05rem; margin-top: 4px; }
+ul, ol { padding-left: 1.4em; }
+li { margin: 6px 0; }
+.episode-list { list-style: none; padding: 0; }
+.episode-list li { margin: 0 0 48px; }
+.episode-list .date { color: var(--muted); font-size: 0.9rem; }
+.episode-list .title { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 600; display: block; margin: 4px 0 8px; }
+.episode-list .summary { color: #5a5566; }
+.foot { margin-top: 96px; color: var(--muted); font-size: 0.85rem; }
+.disclaimer { margin-top: 16px; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.index-disclaimer { margin: 48px 0 0; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.topbar { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 48px; }
+.back { color: var(--muted); }
+.langswitch { color: var(--muted); font-size: 0.9rem; border: 1px solid var(--border); padding: 4px 12px; border-radius: 999px; }
+.langswitch:hover { color: var(--primary); border-color: var(--primary); text-decoration: none; }
+.sectionnav { display: flex; align-items: baseline; flex-wrap: wrap; gap: 20px; }
+.sectionnav .brand { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.05rem; color: var(--text); }
+.sectionnav .sec { color: var(--muted); font-size: 0.9rem; padding-bottom: 2px; }
+.sectionnav .sec.active { color: var(--text); border-bottom: 1px solid var(--text); }
+.sectionnav a:hover { color: var(--primary); text-decoration: none; }
+a.ts { color: var(--primary); font-variant-numeric: tabular-nums; white-space: nowrap; text-decoration: none; border-bottom: 1px dotted var(--border); }
+a.ts:hover { border-bottom-style: solid; }
+.source { color: var(--muted); font-size: 0.95rem; margin: 0 0 24px; }
+.player-wrap { position: sticky; top: 0; z-index: 10; background: var(--bg); padding: 12px 0 16px; margin: 0 0 32px; }
+.player-box { position: relative; width: 100%; max-width: 460px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 10px var(--shadow); }
+.player-box #ytplayer, .player-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 48px; }
+.tags span { font-size: 0.85rem; color: var(--primary); background: #EDEBF4; padding: 4px 12px; border-radius: 999px; }
+.connections { list-style: none; padding: 0; margin: 0; }
+.connections li { margin: 0 0 28px; padding-left: 16px; border-left: 2px solid var(--border); }
+.connections .rel { font-size: 0.8rem; color: var(--primary); background: #EDEBF4; padding: 2px 10px; border-radius: 999px; margin-right: 8px; }
+.connections .lk { font-family: 'Playfair Display', serif; font-weight: 600; }
+.connections .why { margin: 8px 0 6px; }
+.connections .pts { color: var(--muted); font-size: 0.92rem; }
+.connections .pts > div { margin-top: 4px; }
+.connections .who { color: var(--text); font-weight: 600; margin-right: 8px; }
+.connections.tensions li { border-left-color: var(--primary); }
+.ctype { font-size: 0.72rem; padding: 1px 9px; border-radius: 999px; margin-right: 8px; letter-spacing: 0.02em; }
+.ctype-genuine { color: #fff; background: var(--primary); }
+.ctype-apparent { color: var(--muted); background: #EDEBF4; }
+.editor-note { background: #EDEBF4; border-radius: 12px; padding: 24px 28px; margin: 0 0 48px; }
+.editor-note .en-label { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 10px; }
+.editor-note p { margin: 0 0 12px; }
+.editor-note p:last-child { margin-bottom: 0; }
+.claim-meta { display: block; margin-top: 2px; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+.claim-meta-first { margin-top: 8px; }
+.claim-meta a.ts { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="topbar"><nav class="sectionnav"><a class="brand" href="https://lens.lumihelia.com/zh/">PodLens</a><a class="sec" href="https://lens.lumihelia.com/zh/">episodes</a><a class="sec active" href="https://lens.lumihelia.com/zh/papers/">papers</a></nav><a class="langswitch" href="https://lens.lumihelia.com/papers/">English</a></div>
+<div class="site-head">
+<h1>PodLens</h1>
+<p class="tagline">解读有据,出处可查。</p>
+</div>
+<ul class="episode-list">
+<li><span class="date">2026-06-21</span><a class="title" href="https://lens.lumihelia.com/zh/papers/skillcomposer-learning-to-evolve-agent-skills.html">SkillComposer：大语言模型推理期 Agent 技能自适应演化 · Qi Zhang</a><span class="summary">这篇论文探讨了如何让大语言模型（LLM）驱动的智能体在推理期自主构建、优化和提炼可重用的“Agent 技能 (Agent Skills)” [Abstract]。传统的技能抽取方法通常采用“单次抽取 (one-shot extraction)”，这带来了一个根本性的张力：如果技能写得太具体，就很难迁移到其他任务上；如果技能写得太抽象，又无法对具体任务提供足够的指导 [§1]。</span></li>
+<li><span class="date">2026-06-21</span><a class="title" href="https://lens.lumihelia.com/zh/papers/g-memory-hierarchical-memory-multi-agent-systems.html">G-Memory：多智能体系统的层级记忆追踪 · Guibin Zhang</a><span class="summary">这篇论文针对大语言模型驱动的多智能体系统（MAS）在自适应和自演化能力上的缺失，指出其根本瓶颈在于缺乏专为多智能体协同设计的记忆机制 [Abstract]。现有方案要么仅使用单次会话内的局部记忆，要么直接照搬单智能体记忆，导致面对长达 10 倍于单智能体任务的对话轨迹时，因信息过载或角色特异性丢失而失效 [Introduction]。</span></li>
+<li><span class="date">2026-06-14</span><a class="title" href="https://lens.lumihelia.com/zh/papers/li-curtis-working-memory-neural-dynamics.html">工作记忆的神经种群动力学：记忆不是存储，是变形</a><span class="summary">这是 Hsin-Hung Li 与 Clayton E. Curtis（纽约大学心理学系与神经科学中心）的一篇 bioRxiv 预印本，研究工作记忆（working memory）在人脑中如何随时间演化：记忆内容在延迟期间的神经表征，究竟是稳定不变的，还是动态变化的？不同脑区之间是否存在差异？论文用一个记忆引导扫视任务配合 fMRI 给出了答案——而答案因脑区而异，这个差异本身揭示了工作记忆的真正…</span></li>
+<li><span class="date">2026-06-14</span><a class="title" href="https://lens.lumihelia.com/zh/papers/patel-wang-fan-transformer-executive-control.html">变换器注意力的执行控制缺陷：Stroop任务揭示LLM不能做什么</a><span class="summary">这是 Suketu Patel、Hongbin Wang 与 Jin Fan（昆士兰学院/CUNY + 德克萨斯A&amp;M大学医学院）的一篇 bioRxiv 预印本。论文用心理学里最经典的冲突测试——Stroop任务——去拆解一个看似简单的问题：大型语言模型的自注意力机制，在功能上等价于人类注意力的哪个层面？是全部，还是只是其中一部分？答案是：LLM 表现出和人类几乎一样的 Stroop 效应（说明它…</span></li>
+<li><span class="date">2026-06-10</span><a class="title" href="https://lens.lumihelia.com/zh/papers/microglia-function-cns-development-plasticity.html">中枢神经系统发育与可塑性中的小胶质细胞功能 · Dorothy P. Schafer</a><span class="summary">Dorothy P. Schafer 与 Beth Stevens 在这篇综述中系统整理了小胶质细胞（microglia）在中枢神经系统（central nervous system, CNS）发育与可塑性（plasticity）中的生理功能。长期以来，小胶质细胞被误认为仅在病理状态下起免疫反应。然而，近期的体内成像与遗传学操控研究表明，小胶质细胞作为脑中常驻的髓系免疫细胞（myeloid-der…</span></li>
+<li><span class="date">2026-06-09</span><a class="title" href="https://lens.lumihelia.com/zh/papers/microglia-synaptic-pruning.html">突触修剪新视角 · Soyon Hong</a><span class="summary">本文深入探讨了小胶质细胞（microglia）在生理与病理状态下介导突触修剪（synaptic pruning）的作用及机制。作者 Soyon Hong、Lasse Dissing-Olesen 和 Beth Stevens 提出，在阿尔茨海默病（Alzheimer&#x27;s disease, AD）等神经退行性疾病早期（淀粉样蛋白斑块形成前），发育时期的经典补体级联反应（classical compl…</span></li>
+<li><span class="date">2026-06-09</span><a class="title" href="https://lens.lumihelia.com/zh/papers/active-forgetting.html">主动遗忘与神经精神疾病 · Jacob A. Berry</a><span class="summary">Jacob A. Berry, Dana C. Guhle 和 Ronald L. Davis 在这篇 Expert Review 中全面阐述了“主动遗忘 (active forgetting)”的神经生物学机制及其与神经精神疾病之间的关系。作者主张，遗忘并不是记忆巩固失败的被动结果，而是一个由特定细胞和分子信号通路控制的主动过程。文章系统回顾了在 Drosophila 和哺乳动物中发现的遗忘通路…</span></li>
+<li><span class="date">2026-06-06</span><a class="title" href="https://lens.lumihelia.com/zh/papers/humans-almanac.html">智能体协作的行动级心智模型数据集 · Jiaju Chen</a><span class="summary">本文介绍了 ALMANAC，这是第一个针对人机协作(human-agent collaboration)的行动级心智模型标注(Action-Level Mental Model Annotations)数据集。虽然大语言模型(LLM)智能体具备多步推理和规划能力，但它们大多被优化用于独立完成任务，缺乏协作所需的共享心智模型对齐能力。为了填补这一空白，作者设计了一个理论指导的双步标注框架，基于经典社…</span></li>
+<li><span class="date">2026-06-06</span><a class="title" href="https://lens.lumihelia.com/zh/papers/agent-memory.html">智能体记忆：长周期工作负载的系统特征与启示 · Yasmine Omri</a><span class="summary">本文是针对大语言模型(LLM)智能体记忆系统(Agent Memory Systems)的第一份系统级表征(systems characterization)研究。随着大语言模型智能体被越来越多地应用于需要长期持续推理的长周期任务(long-horizon tasks)中，智能体需要在多个会话中持久化存储、检索和更新其自身的记忆。尽管目前存在多种智能体记忆系统设计，但它们的系统级行为和计算开销一直…</span></li>
+<li><span class="date">2026-06-06</span><a class="title" href="https://lens.lumihelia.com/zh/papers/the-era-of-experience.html">经验时代：超越人类数据的强化学习 · David Silver</a><span class="summary">本篇论文由 David Silver 和 Richard S. Sutton 撰写（该文为即将由 MIT Press 出版的书籍《Designing an Intelligence》中的一个章节预印本）。论文探讨了人工智能（AI）正处于从“人类数据时代”向“经验时代”转变的临界点。作者指出，尽管当前的 AI（如大型语言模型，即 LLMs）通过在海量人类生成的数据上进行训练取得了巨大成功，但这种依赖…</span></li>
+</ul>
+<p class="index-disclaimer">这是以原文为依据的一次解读,不能替代原文。每条要点都标注了出处,欢迎回到原文核对——也欢迎指出任何细微的偏差。</p>
+<p class="foot">订阅:<a href="https://lens.lumihelia.com/zh/papers/feed.xml">RSS</a> · <a href="https://lens.lumihelia.com/zh/papers/papers.json">JSON Feed</a></p>
+
+</div>
+</body>
+</html>

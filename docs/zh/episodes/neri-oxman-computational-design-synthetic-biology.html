@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>计算设计与合成生物学 · Neri Oxman · PodLens</title>
+<meta name="description" content="本期节目中，Lex Fridman 与科学家、设计师兼建筑师 Neri Oxman 展开了一场关于计算设计、合成生物学与自然智慧的深度对话。Neri Oxman 阐述了其创立的物质生态学（Material Ecology）理念，并分享了她从 MIT 介质物质小组（Mediated Matter Group）到新公司 Oxman 的演进历程。讨论围绕人造物（Anthropomass）与生物量（Bio…">
+<meta name="author" content="lumihelia">
+<meta name="keywords" content="计算设计, 合成生物学, 物质生态学, 混杂活性材料, 生物共制, 信息与熵">
+<link rel="canonical" href="https://lens.lumihelia.com/zh/episodes/neri-oxman-computational-design-synthetic-biology.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://lens.lumihelia.com/zh/episodes/neri-oxman-computational-design-synthetic-biology.html"><link rel="alternate" hreflang="en" href="https://lens.lumihelia.com/episodes/neri-oxman-computational-design-synthetic-biology.html"><link rel="alternate" hreflang="x-default" href="https://lens.lumihelia.com/episodes/neri-oxman-computational-design-synthetic-biology.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算设计与合成生物学 · Neri Oxman · PodLens">
+<meta property="og:description" content="本期节目中，Lex Fridman 与科学家、设计师兼建筑师 Neri Oxman 展开了一场关于计算设计、合成生物学与自然智慧的深度对话。Neri Oxman 阐述了其创立的物质生态学（Material Ecology）理念，并分享了她从 MIT 介质物质小组（Mediated Matter Group）到新公司 Oxman 的演进历程。讨论围绕人造物（Anthropomass）与生物量（Bio…">
+<meta property="og:url" content="https://lens.lumihelia.com/zh/episodes/neri-oxman-computational-design-synthetic-biology.html">
+<link rel="alternate" type="application/rss+xml" title="PodLens" href="https://lens.lumihelia.com/zh/feed.xml"><link rel="alternate" type="application/json" title="PodLens" href="https://lens.lumihelia.com/zh/episodes.json">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "计算设计与合成生物学 · Neri Oxman", "datePublished": "2026-06-09", "inLanguage": "zh-Hans", "url": "https://lens.lumihelia.com/zh/episodes/neri-oxman-computational-design-synthetic-biology.html", "description": "本期节目中，Lex Fridman 与科学家、设计师兼建筑师 Neri Oxman 展开了一场关于计算设计、合成生物学与自然智慧的深度对话。Neri Oxman 阐述了其创立的物质生态学（Material Ecology）理念，并分享了她从 MIT 介质物质小组（Mediated Matter Group）到新公司 Oxman 的演进历程。讨论围绕人造物（Anthropomass）与生物量（Bio…", "author": {"@type": "Person", "name": "lumihelia"}, "publisher": {"@type": "Person", "name": "lumihelia"}, "keywords": "计算设计, 合成生物学, 物质生态学, 混杂活性材料, 生物共制, 信息与熵", "isBasedOn": "https://youtu.be/XbPHojL_61U?si=COR1mWnlB547HuR7"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --text: #2C2C2C; --primary: #4C436F; --bg: #F4F3F7; --muted: #9A93B3;
+  --border: #D4D0E0; --white: #FFFFFF; --radius: 12px; --shadow: rgba(76,67,111,0.08);
+}
+* { box-sizing: border-box; }
+body {
+  font-family: 'Source Serif Pro', serif; color: var(--text);
+  background: var(--bg); line-height: 1.75; margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 96px 24px 128px; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text); line-height: 1.25; }
+h1 { font-size: 2.6rem; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.01em; }
+h2 { font-size: 1.5rem; font-weight: 600; margin: 64px 0 16px; }
+h3 { font-size: 1.15rem; font-weight: 600; margin: 32px 0 8px; }
+p { margin: 0 0 20px; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.meta { color: var(--muted); font-size: 0.95rem; margin: 0 0 64px; }
+.site-head { margin-bottom: 80px; }
+.site-head .tagline { color: var(--muted); font-size: 1.05rem; margin-top: 4px; }
+ul, ol { padding-left: 1.4em; }
+li { margin: 6px 0; }
+.episode-list { list-style: none; padding: 0; }
+.episode-list li { margin: 0 0 48px; }
+.episode-list .date { color: var(--muted); font-size: 0.9rem; }
+.episode-list .title { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 600; display: block; margin: 4px 0 8px; }
+.episode-list .summary { color: #5a5566; }
+.foot { margin-top: 96px; color: var(--muted); font-size: 0.85rem; }
+.disclaimer { margin-top: 16px; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.index-disclaimer { margin: 48px 0 0; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.topbar { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 48px; }
+.back { color: var(--muted); }
+.langswitch { color: var(--muted); font-size: 0.9rem; border: 1px solid var(--border); padding: 4px 12px; border-radius: 999px; }
+.langswitch:hover { color: var(--primary); border-color: var(--primary); text-decoration: none; }
+.sectionnav { display: flex; align-items: baseline; flex-wrap: wrap; gap: 20px; }
+.sectionnav .brand { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.05rem; color: var(--text); }
+.sectionnav .sec { color: var(--muted); font-size: 0.9rem; padding-bottom: 2px; }
+.sectionnav .sec.active { color: var(--text); border-bottom: 1px solid var(--text); }
+.sectionnav a:hover { color: var(--primary); text-decoration: none; }
+a.ts { color: var(--primary); font-variant-numeric: tabular-nums; white-space: nowrap; text-decoration: none; border-bottom: 1px dotted var(--border); }
+a.ts:hover { border-bottom-style: solid; }
+.source { color: var(--muted); font-size: 0.95rem; margin: 0 0 24px; }
+.player-wrap { position: sticky; top: 0; z-index: 10; background: var(--bg); padding: 12px 0 16px; margin: 0 0 32px; }
+.player-box { position: relative; width: 100%; max-width: 460px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 10px var(--shadow); }
+.player-box #ytplayer, .player-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 48px; }
+.tags span { font-size: 0.85rem; color: var(--primary); background: #EDEBF4; padding: 4px 12px; border-radius: 999px; }
+.connections { list-style: none; padding: 0; margin: 0; }
+.connections li { margin: 0 0 28px; padding-left: 16px; border-left: 2px solid var(--border); }
+.connections .rel { font-size: 0.8rem; color: var(--primary); background: #EDEBF4; padding: 2px 10px; border-radius: 999px; margin-right: 8px; }
+.connections .lk { font-family: 'Playfair Display', serif; font-weight: 600; }
+.connections .why { margin: 8px 0 6px; }
+.connections .pts { color: var(--muted); font-size: 0.92rem; }
+.connections .pts > div { margin-top: 4px; }
+.connections .who { color: var(--text); font-weight: 600; margin-right: 8px; }
+.connections.tensions li { border-left-color: var(--primary); }
+.ctype { font-size: 0.72rem; padding: 1px 9px; border-radius: 999px; margin-right: 8px; letter-spacing: 0.02em; }
+.ctype-genuine { color: #fff; background: var(--primary); }
+.ctype-apparent { color: var(--muted); background: #EDEBF4; }
+.editor-note { background: #EDEBF4; border-radius: 12px; padding: 24px 28px; margin: 0 0 48px; }
+.editor-note .en-label { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 10px; }
+.editor-note p { margin: 0 0 12px; }
+.editor-note p:last-child { margin-bottom: 0; }
+.claim-meta { display: block; margin-top: 2px; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+.claim-meta-first { margin-top: 8px; }
+.claim-meta a.ts { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="topbar"><nav class="sectionnav"><a class="brand" href="https://lens.lumihelia.com/zh/">PodLens</a><a class="sec active" href="https://lens.lumihelia.com/zh/">episodes</a><a class="sec" href="https://lens.lumihelia.com/zh/papers/">papers</a></nav><a class="langswitch" href="https://lens.lumihelia.com/episodes/neri-oxman-computational-design-synthetic-biology.html">English</a></div>
+<h1>计算设计与合成生物学 · Neri Oxman</h1>
+<p class="meta">2026-06-09 · 由 PodLens 生成的忠实解读</p>
+<p class="source">原节目:<a href="https://youtu.be/XbPHojL_61U?si=COR1mWnlB547HuR7" target="_blank" rel="noopener">https://youtu.be/XbPHojL_61U?si=COR1mWnlB547HuR7</a>　·　时间戳可点击,就地跳转播放器</p>
+<div class="player-wrap"><div class="player-box"><div id="ytplayer"></div></div></div>
+<script>
+var PL = (function() {
+  var player, ready = false, pending = null;
+  window.onYouTubeIframeAPIReady = function() {
+    player = new YT.Player('ytplayer', {
+      videoId: 'XbPHojL_61U',
+      host: 'https://www.youtube-nocookie.com',
+      playerVars: {playsinline: 1, rel: 0},
+      events: {onReady: function() { ready = true; if (pending != null) { var p = pending; pending = null; seek(p); } }}
+    });
+  };
+  function seek(s) {
+    if (!ready) { pending = s; return false; }
+    player.seekTo(s, true); player.playVideo();
+    document.querySelector('.player-wrap').scrollIntoView({behavior: 'smooth', block: 'start'});
+    return false;
+  }
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+  document.addEventListener('DOMContentLoaded', function() {
+    var t = new URLSearchParams(location.search).get('t');
+    if (t) { seek(parseInt(t, 10)); }
+  });
+  return {seek: seek};
+})();
+</script>
+<div class="tags"><span>计算设计</span><span>合成生物学</span><span>物质生态学</span><span>混杂活性材料</span><span>生物共制</span><span>信息与熵</span></div>
+
+<h2>这期讲了什么</h2>
+<p>本期节目中，Lex Fridman 与科学家、设计师兼建筑师 Neri Oxman 展开了一场关于计算设计、合成生物学与自然智慧的深度对话。Neri Oxman 阐述了其创立的物质生态学（Material Ecology）理念，并分享了她从 MIT 介质物质小组（Mediated Matter Group）到新公司 Oxman 的演进历程。讨论围绕人造物（Anthropomass）与生物量（Biomass）失衡的时代背景展开，详细探讨了丝绸展亭（Silk Pavilion）、合成养蜂场（Synthetic Apiary）、水之叶展亭（Aguahoja）和晚祷死亡面具（Vespers）等代表性项目背后的计算模板（computational templating）与生物共制（co-fabrication）技术。此外，对话还深入探讨了增能（empowerment）与涌现（emergence）的数学定义、美与代理权（agency）的关系、人机协作（AGI）与自然网络（Neuralink for nature）的融合，以及面对孤独、命运与爱时的个人认知轨迹与生命选择。</p>
+<h2>时间线主题地图</h2>
+<ul>
+<li><a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=0s" target="_blank" rel="noopener" onclick="return PL.seek(0)">[00:00-06:30]</a> 人造物与生物量的历史性越轨：探讨 crossover year 2020 与物质生态学的创立初衷。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=391s" target="_blank" rel="noopener" onclick="return PL.seek(391)">[06:31-15:52]</a> 物质生态学的多尺度架构：从大分子模型、大自然界面（Neuralink for nature）到从二氧化碳到水果（CO2 to fruit）循环产品的研发。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=953s" target="_blank" rel="noopener" onclick="return PL.seek(953)">[15:53-28:20]</a> 丝绸展亭与生物共制：利用 17,532 只蚕在机器人环境模板下的非群居昆虫协同涌现。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=1701s" target="_blank" rel="noopener" onclick="return PL.seek(1701)">[28:21-36:20]</a> 合成养蜂场与太空实验：通过 Blue Origin 任务验证蜜蜂的生命支持系统与蜡循环的纳米级科学发现。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=2181s" target="_blank" rel="noopener" onclick="return PL.seek(2181)">[36:21-43:50]</a> 晚祷死亡面具与混杂活性材料（HLM）：利用 E. coli 与 3D 打印树脂的化学信号交互，开辟活性材料设计边界。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=2631s" target="_blank" rel="noopener" onclick="return PL.seek(2631)">[43:51-46:50]</a> 蚕的基因编辑伦理：探讨反对转基因蚕与尊重物种 agency 的伦理红线。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=2811s" target="_blank" rel="noopener" onclick="return PL.seek(2811)">[46:51-54:00]</a> 实验室环境舱与微缩生态：阐述通过温度、湿度与光的数字控制模拟过去与未来生态的可能性。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=3241s" target="_blank" rel="noopener" onclick="return PL.seek(3241)">[54:01-1:02:00]</a> 跨物种沟通的分子语言模型：以割草释放的绿叶挥发物（GLVs）为例，探讨通过分子解码实现与植物对话。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=3721s" target="_blank" rel="noopener" onclick="return PL.seek(3721)">[1:02:01-1:12:30]</a> 爱、重力与 Einstein 的信件：探讨 Einstein 写给女儿的宇宙力信件，将爱视为形塑宇宙的终极吸引力。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=4351s" target="_blank" rel="noopener" onclick="return PL.seek(4351)">[1:12:31-1:20:00]</a> 美与增能的定义：探讨 Bucky Fuller 关于美的真理判定，以及增能与涌现的数学控制二重性。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=4801s" target="_blank" rel="noopener" onclick="return PL.seek(4801)">[1:20:01-1:32:00]</a> 命运的比例与创作隐喻：探讨 Hadassah 医学院到建筑学的跃迁，悬置怀疑，以及 Viktor Frankl 意义探索。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=5521s" target="_blank" rel="noopener" onclick="return PL.seek(5521)">[1:32:01-1:41:00]</a> 孤独、火与光的精神维度：探讨孤独与群体在创造力中的辩证统一，以及艺术与科学的不可分割。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=6061s" target="_blank" rel="noopener" onclick="return PL.seek(6061)">[1:41:01-1:47:00]</a> 跨学科团队的主动 manifestation：挑选“对现实上瘾的梦想家”，在学科裂隙中寻找钻石。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=6421s" target="_blank" rel="noopener" onclick="return PL.seek(6421)">[1:47:01-1:51:28]</a> 生死演化与多尺度生命观：以奥陶纪大灭绝的孢子植物为例，探讨死亡作为生命循环底座的宏观时间尺度。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=6689s" target="_blank" rel="noopener" onclick="return PL.seek(6689)">[1:51:29-2:08:14]</a> AGI、Eliezer Yudkowsky 与大自然的未来代理权：探讨当 AGI 吸收人类全部文明后，将其作为代理权赋予大自然，开启“长期分子问答”的设想。</li>
+<li><a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=7695s" target="_blank" rel="noopener" onclick="return PL.seek(7695)">[2:08:15-2:18:11]</a> 祖母的毯子与生命的召唤（calling）：探讨重度在场与感恩的童年根基，拒绝 career 而选择 calling 的职业建议。</li>
+</ul>
+<h2>核心观点清单</h2>
+<ol>
+<li><strong>人造物与生物量的倒置状态</strong>：2020 年标志着人造物（Anthropomass）总量在地球历史上首次超过了生物量（Biomass），标志着人类世（Anthropocene）生态失衡进入临界点。<a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=240s" target="_blank" rel="noopener" onclick="return PL.seek(240)">[04:00-04:40]</a> · 事实</li>
+<li><strong>物质生态学的设计哲学</strong>：不应将人造物与生物隔离，而应通过计算设计将技术圈（technosphere）与生物圈（biosphere）融合，使设计与制造的产品表现为如同自然生长的一体化结构。<a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=306s" target="_blank" rel="noopener" onclick="return PL.seek(306)">[05:06-05:54]</a> · 观点</li>
+<li><strong>针对大自然的接口构建（Neuralink for nature）</strong>：通过建立大分子模型（large molecule models），利用人类在计算带宽和存储上的 quintillion 级累积，为非人类生物（如植物、动物）建立获取云端信息的物理与分子界面。<a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=438s" target="_blank" rel="noopener" onclick="return PL.seek(438)">[07:18-08:44]</a> · 猜想</li>
+<li><strong>通过计算模板实现非群居生物的协作涌现</strong>：通过机器人对温度、光照等外部参数的差异化控制，可以诱导非群居生物（如蚕）打破其个体孤立习性，合作编织出具有空间渐变密度的宏观复杂三维结构。<a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=1578s" target="_blank" rel="noopener" onclick="return PL.seek(1578)">[26:18-27:56]</a> · 例子</li>
+<li><strong>增能（Empowerment）的数学定义</strong>：一个主体的增能状态可以通过其可能状态分布的高熵值来定义，但在特定动作和选择发生时，其单一具体状态的熵值必须极低。即具备在无限选择中做出确定选择并控制系统轨迹的能力。<a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=1766s" target="_blank" rel="noopener" onclick="return PL.seek(1766)">[29:26-30:24]</a> · 观点</li>
+<li><strong>美是代理权（Agency）的显现</strong>：美并不是孤立的视觉装点，而是主体设计或系统在其特定目标函数下完美展现其代理权的物理体现。如 Bucky Fuller 所言，非美的解通常预示着底层逻辑的错误。<a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=4386s" target="_blank" rel="noopener" onclick="return PL.seek(4386)">[1:13:06-1:13:55]</a> · 观点</li>
+<li><strong>基因编辑蚕的伦理红线</strong>：反对为了人类单向的消费性需求（如夜光丝绸衣服）而对蚕进行跨物种基因编辑（如引入蜘蛛基因），设计应在促进有机体本身繁衍与福祉的前提下与其进行协作。<a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=961s" target="_blank" rel="noopener" onclick="return PL.seek(961)">[16:01-16:44]</a> · 观点</li>
+<li><strong>跨物种的分子语言沟通</strong>：植物通过释放绿叶挥发物（GLVs）等分子模型在极慢的时间尺度上与生态系统对话，一旦人类解析出这些分子足迹，便能彻底重构精准农业与生态预测。<a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=3378s" target="_blank" rel="noopener" onclick="return PL.seek(3378)">[56:18-57:35]</a> · 预测</li>
+<li><strong>AGI 对大自然代理权的赋予</strong>：AGI 的危险在于削弱人类的代理权；但当 AGI 吸收人类所有意识与语言后，可以作为桥梁赋予大自然，使垂柳等植物获取此前无法接触的意识世界模型。<a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=6909s" target="_blank" rel="noopener" onclick="return PL.seek(6909)">[1:55:09-1:56:02]</a> · 猜想</li>
+<li><strong>职业规划中的 Calling 对抗 Career</strong>：Career 是自上而下的外在社会结构施加给个体的社会轨道，而 Calling 是自下而上的内在价值与心流方向，只有将生命与召唤绑定，才能在不断重启中维持创造的敏感性。<a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=2907s" target="_blank" rel="noopener" onclick="return PL.seek(2907)">[48:27-48:59]</a> · 观点</li>
+</ol>
+<h2>内部张力与自我修正</h2>
+<ul>
+<li><a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=961s" target="_blank" rel="noopener" onclick="return PL.seek(961)">[16:01-16:44]</a> vs <a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=1026s" target="_blank" rel="noopener" onclick="return PL.seek(1026)">[17:06-17:20]</a>: Neri Oxman 拒绝了对蚕进行跨物种基因编辑（转基因丝绸）的提议，主张人类不能为了自身利益而剥夺多细胞复杂有机体的代理权；但紧接着她承认，自己对于细菌（E. coli）的研究并没有秉持同等高度的伦理界限，细菌在定向进化中可以被高度工具化和算法控制。</li>
+</ul>
+<h2>大白话重讲</h2>
+<p>那我们来聊聊这一期的主要内容。Neri Oxman 想做的事情听起来很科幻，但逻辑很直白：人类现在造出了太多垃圾（比如塑料、水泥和各种消费品），这些人造物的总重量甚至已经超过了地球上所有活着的生物。这说明人类的工业模式完全是“反自然”的——我们用强力开采、拼装，最后遗弃。而自然界是怎么做的？自然界从来不靠胶水和螺丝钉，它只靠阳光、水和极其精妙的分子配方，把一粒种子在原地“生”成一棵大树。</p>
+<p>所以，Neri Oxman 提出了“物质生态学”。她的终极目标是：如果我们可以不靠机械制造，而是直接把日常用品“种”出来呢？比如，利用空气中的二氧化碳或者废水作为营养，让细菌去生长出一只鞋，而这只鞋被穿坏后扔进土里，不仅能彻底溶解，甚至还能长出一棵果树。为了做到这一点，新公司 Oxman 正在开发“大分子模型”（Neuralink for nature），目标是让计算机技术和自然界建立一层直接交互的接口，让植物和动物能够接入云端，并利用极高带宽的信息来应对灾害或改变自身生长。</p>
+<p>在过去的探索中，她带领 MIT 的团队证明了这种可能性：
+- 比如，他们没有自己动手建亭子，而是用 3D 打印和机器人控制了温度和光照，然后把 17,532 只蚕放上去。这些原本只顾自己结茧的蚕，在温度的引导下，合作织出了一个巨大的丝绸 pavilion。这就是所谓的“生物共制”——人类设计环境，自然界负责执行。
+- 他们还把蜜蜂送上了太空，并通过给它们喂食纳米金银颗粒，科学地证明了蜜蜂可以回收蜂蜡。
+- 在晚祷面具中，他们利用 3D 打印树脂中的化学信号，精准控制了 E. coli 细菌的分布，从而让细菌在面具内部形成渐变且能自己生长的颜色通道。这就是“混杂活性材料”（Hybrid Living Materials），面具本身是有生命的。</p>
+<p>在哲学的层面上，Neri Oxman 也挑战了我们对控制的理解。她认为，好的设计反而是能“放手”的设计：我们先做极度精确的系统，然后再把控制权转让给有机体，让它展现自己的“涌现”。而这就是真正的“美”，即代理权的充分展现。对年轻人，她的忠告是，不要理会社会给你包装的“职业（career）”，去找到你灵魂深处的“召唤（calling）”——生命和工作原本就该融为一体。</p>
+<h2>值得精听的片段</h2>
+<ul>
+<li><strong><a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=1578s" target="_blank" rel="noopener" onclick="return PL.seek(1578)">[26:18-27:40]</a> 关于蚕的“协作涌现”描述</strong>：精听这段，可以听到 Neri Oxman 在描述非群居生物在外部计算模板下，如何跳脱出进化所赋予的孤立习性、行为相互交织时，其语调中充满的孩童般的兴奋和科学的崇敬。</li>
+<li><strong><a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=1766s" target="_blank" rel="noopener" onclick="return PL.seek(1766)">[29:26-30:24]</a> 增能（Empowerment）的数学表达</strong>：这段讨论极具信息密度，Neri Oxman 详细复述了 Christoph 给出的增能公式，完美展现了物理世界选择的熵与动作确定性之间的数学之美，必须反复琢磨。</li>
+<li><strong><a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=4386s" target="_blank" rel="noopener" onclick="return PL.seek(4386)">[1:13:06-1:13:55]</a> Buckminster Fuller 的美的判定</strong>：精听此处，Neri Oxman 用极具节奏感的低吟复述了 Bucky 关于“非美即错”的名言，将代理权的表现直接等同于设计真理的底层逻辑。</li>
+<li><strong><a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=6909s" target="_blank" rel="noopener" onclick="return PL.seek(6909)">[1:55:09-1:56:18]</a> AGI 赋予自然代理权的狂想</strong>：这段极具张力，当讨论到 AGI 是否会毁灭人类时，Neri Oxman 突然转换视角，勾勒出 AGI 作为人类意识代理人、将文明反哺给一颗垂柳的画面，令人深思。</li>
+</ul>
+<h2>与往期的呼应</h2><ul class="connections"><li><span class="rel">同构</span>→ <a class="lk" href="https://lens.lumihelia.com/zh/episodes/cs153-09-garry-tan-diana-hu-ai-native-company.html">AI 原生公司与个人软件工厂的崛起 · Garry Tan &amp; Diana Hu</a><div class="why">两者在对“美”与“品味”的本质认知上高度同构。Oxman 认为美是系统设计底层逻辑正确性的物理显现（不美的解预示着底层逻辑错误）；而 Garry Tan 强调的“人类品味”本质上正是对这种底层逻辑对错与系统设计优劣的敏锐甄别力。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=4386s" target="_blank" rel="noopener" onclick="return PL.seek(4386)">[1:13:06-1:13:55]</a> 美是代理权（Agency）的显现：美并不是孤立的视觉装点，而是主体设计或系统在其特定目标函数下完美展现其代理权的物理体现。如 Bucky Fuller 所言，非美的解通常预示着底层逻辑的错误。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/cs153-09-garry-tan-diana-hu-ai-native-company.html?t=2238">[37:18-38:29]</a> 当编写和实施代码的成本归零时，人类唯一无法被委托 and 替代的资产是“味觉/品味（Taste）”。人类的 Taste（对细微产品体验的把握和对对错的甄别力）是决定商业价值捕获的终极防线...</div></div></li><li><span class="rel">补充</span>→ <a class="lk" href="https://lens.lumihelia.com/zh/episodes/cs153-08-jensen-huang-nvidia-compute.html">算力底座与智能的连续运行 · Jensen Huang</a><div class="why">两者共同探讨了如何应对职业生涯中的低谷与重置。黄仁勋强调通过承受失败和在黑暗中摸索来锻造抗挫折的韧性；而 Oxman 则指出，只有将生命绑定于自下而上的“天职召唤”而非外在的“职业轨道”，才能在不断的重启中维持创造力与敏感性。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=2907s" target="_blank" rel="noopener" onclick="return PL.seek(2907)">[48:27-48:59]</a> Career 是自上而下的外在社会结构施加给个体的社会轨道，而 Calling 是自下而上的内在价值与心流方向，只有将生命与召唤绑定，才能在不断重启中维持创造的敏感性。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/cs153-08-jensen-huang-nvidia-compute.html?t=2520">[42:00-45:04]</a> 抗挫折的韧性（resilience）是无法在温室中被习得的，它必须通过承受失败和面对绝境来进行肌肉层面的锻造。真正的职业生涯有 90% 都是关于苦痛、挑战与在黑暗中摸索，成功的关键不是追求无休止的快乐，而是学会在低谷中保持动作不形变...</div></div></li><li><span class="rel">同构</span>← <a class="lk" href="https://lens.lumihelia.com/zh/episodes/hu-yuan-ming-meshy-graphics-simulation.html">心智重组与物理仿真的商业边界 · Yuanming Hu</a><div class="why">两者对人生发展阶段的跃迁有着相同的底层逻辑：从顺应外部既定规则、追求效率与职场的“阶段一”或“职业生涯”（Career），跨越到必须由内在心智和勇气定义核心价值、直面不确定性的“阶段二”或“天职”（Calling）。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=2907s" target="_blank" rel="noopener" onclick="return PL.seek(2907)">[48:27-48:59]</a> Career 是自上而下的外在社会结构施加给个体的社会轨道，而 Calling 是自下而上的内在价值与心流方向，只有将生命与召唤绑定，才能在不断重启中维持创造的敏感性。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/hu-yuan-ming-meshy-graphics-simulation.html?t=9758">[02:42:38]</a> 人生的“阶段一”依赖于在给定的目标下提高执行力和效率；而进入“阶段二”，面临的是无规则、无保障的深渊，必须依靠自己的心智和勇气来给人生 and 事业定义“Why”。</div></div></li></ul><h2>与往期的张力</h2><ul class="connections tensions"><li><span class="rel">张力</span><span class="ctype ctype-apparent">表面张力</span>→ <a class="lk" href="https://lens.lumihelia.com/zh/episodes/openai-post-training-rl-infra.html">大模型后训练强化学习基建的探索与反思 · Weng Jiayi</a><div class="why">前者通过高低熵转换的数学模型论证了主体具备在无限选择中做出确定选择、控制系统轨迹的“增能”与代理权；而后者从物理确定论出发，认为不存在自由意志，所有的选择和轨迹早已被宇宙底层规律完全决定。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=XbPHojL_61U&t=1766s" target="_blank" rel="noopener" onclick="return PL.seek(1766)">[29:26-30:24]</a> 一个主体的增能状态可以通过其可能状态分布的高熵值来定义，但在特定动作和选择发生时，其单一具体状态的熵值必须极低。即具备在无限选择中做出确定选择并控制系统轨迹的能力。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/openai-post-training-rl-infra.html?t=6820">[01:53:40 - 01:54:08]</a> 宇宙底层是一个确定性系统（determinism），并不存在自由意志；每个人的思维、决策和未来的世界轨迹在宇宙大爆炸那一刻就已被决定。</div></div></li></ul>
+<p class="foot">本页为对节目内容的忠实解读与大白话重述,由 <a href="https://github.com/lumihelia/PodLens">PodLens</a> 生成。</p>
+<p class="disclaimer">这是以原文为依据的一次解读,不能替代原文。每条要点都标注了出处,欢迎回到原文核对——也欢迎指出任何细微的偏差。</p>
+
+</div>
+</body>
+</html>
