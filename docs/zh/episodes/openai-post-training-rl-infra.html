@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>大模型后训练强化学习基建的探索与反思 · Weng Jiayi · PodLens</title>
+<meta name="description" content="本期播客对话了 OpenAI 后训练（post-training）强化学习（RL）基础设施的核心贡献者 Weng Jiayi。访谈追溯了他在清华大学和 Carnegie Mellon University（CMU）的学术历程，分享了他开发开源项目天授（Tianshou）和退学网（tuixue.online）的幕后故事，并深入探讨了他在 OpenAI 搭建大模型强化学习后训练基建（RLHF）的工程实…">
+<meta name="author" content="lumihelia">
+<meta name="keywords" content="强化学习, 后训练, 基础设施, 天授, 确定论">
+<link rel="canonical" href="https://lens.lumihelia.com/zh/episodes/openai-post-training-rl-infra.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://lens.lumihelia.com/zh/episodes/openai-post-training-rl-infra.html"><link rel="alternate" hreflang="en" href="https://lens.lumihelia.com/episodes/openai-post-training-rl-infra.html"><link rel="alternate" hreflang="x-default" href="https://lens.lumihelia.com/episodes/openai-post-training-rl-infra.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大模型后训练强化学习基建的探索与反思 · Weng Jiayi · PodLens">
+<meta property="og:description" content="本期播客对话了 OpenAI 后训练（post-training）强化学习（RL）基础设施的核心贡献者 Weng Jiayi。访谈追溯了他在清华大学和 Carnegie Mellon University（CMU）的学术历程，分享了他开发开源项目天授（Tianshou）和退学网（tuixue.online）的幕后故事，并深入探讨了他在 OpenAI 搭建大模型强化学习后训练基建（RLHF）的工程实…">
+<meta property="og:url" content="https://lens.lumihelia.com/zh/episodes/openai-post-training-rl-infra.html">
+<link rel="alternate" type="application/rss+xml" title="PodLens" href="https://lens.lumihelia.com/zh/feed.xml"><link rel="alternate" type="application/json" title="PodLens" href="https://lens.lumihelia.com/zh/episodes.json">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "大模型后训练强化学习基建的探索与反思 · Weng Jiayi", "datePublished": "2026-06-09", "inLanguage": "zh-Hans", "url": "https://lens.lumihelia.com/zh/episodes/openai-post-training-rl-infra.html", "description": "本期播客对话了 OpenAI 后训练（post-training）强化学习（RL）基础设施的核心贡献者 Weng Jiayi。访谈追溯了他在清华大学和 Carnegie Mellon University（CMU）的学术历程，分享了他开发开源项目天授（Tianshou）和退学网（tuixue.online）的幕后故事，并深入探讨了他在 OpenAI 搭建大模型强化学习后训练基建（RLHF）的工程实…", "author": {"@type": "Person", "name": "lumihelia"}, "publisher": {"@type": "Person", "name": "lumihelia"}, "keywords": "强化学习, 后训练, 基础设施, 天授, 确定论", "isBasedOn": "https://youtu.be/I0DrcsDf3Os?si=RbqE6pkIgHFJh5mq"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --text: #2C2C2C; --primary: #4C436F; --bg: #F4F3F7; --muted: #9A93B3;
+  --border: #D4D0E0; --white: #FFFFFF; --radius: 12px; --shadow: rgba(76,67,111,0.08);
+}
+* { box-sizing: border-box; }
+body {
+  font-family: 'Source Serif Pro', serif; color: var(--text);
+  background: var(--bg); line-height: 1.75; margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 96px 24px 128px; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text); line-height: 1.25; }
+h1 { font-size: 2.6rem; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.01em; }
+h2 { font-size: 1.5rem; font-weight: 600; margin: 64px 0 16px; }
+h3 { font-size: 1.15rem; font-weight: 600; margin: 32px 0 8px; }
+p { margin: 0 0 20px; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.meta { color: var(--muted); font-size: 0.95rem; margin: 0 0 64px; }
+.site-head { margin-bottom: 80px; }
+.site-head .tagline { color: var(--muted); font-size: 1.05rem; margin-top: 4px; }
+ul, ol { padding-left: 1.4em; }
+li { margin: 6px 0; }
+.episode-list { list-style: none; padding: 0; }
+.episode-list li { margin: 0 0 48px; }
+.episode-list .date { color: var(--muted); font-size: 0.9rem; }
+.episode-list .title { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 600; display: block; margin: 4px 0 8px; }
+.episode-list .summary { color: #5a5566; }
+.foot { margin-top: 96px; color: var(--muted); font-size: 0.85rem; }
+.disclaimer { margin-top: 16px; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.index-disclaimer { margin: 48px 0 0; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.topbar { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 48px; }
+.back { color: var(--muted); }
+.langswitch { color: var(--muted); font-size: 0.9rem; border: 1px solid var(--border); padding: 4px 12px; border-radius: 999px; }
+.langswitch:hover { color: var(--primary); border-color: var(--primary); text-decoration: none; }
+.sectionnav { display: flex; align-items: baseline; flex-wrap: wrap; gap: 20px; }
+.sectionnav .brand { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.05rem; color: var(--text); }
+.sectionnav .sec { color: var(--muted); font-size: 0.9rem; padding-bottom: 2px; }
+.sectionnav .sec.active { color: var(--text); border-bottom: 1px solid var(--text); }
+.sectionnav a:hover { color: var(--primary); text-decoration: none; }
+a.ts { color: var(--primary); font-variant-numeric: tabular-nums; white-space: nowrap; text-decoration: none; border-bottom: 1px dotted var(--border); }
+a.ts:hover { border-bottom-style: solid; }
+.source { color: var(--muted); font-size: 0.95rem; margin: 0 0 24px; }
+.player-wrap { position: sticky; top: 0; z-index: 10; background: var(--bg); padding: 12px 0 16px; margin: 0 0 32px; }
+.player-box { position: relative; width: 100%; max-width: 460px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 10px var(--shadow); }
+.player-box #ytplayer, .player-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 48px; }
+.tags span { font-size: 0.85rem; color: var(--primary); background: #EDEBF4; padding: 4px 12px; border-radius: 999px; }
+.connections { list-style: none; padding: 0; margin: 0; }
+.connections li { margin: 0 0 28px; padding-left: 16px; border-left: 2px solid var(--border); }
+.connections .rel { font-size: 0.8rem; color: var(--primary); background: #EDEBF4; padding: 2px 10px; border-radius: 999px; margin-right: 8px; }
+.connections .lk { font-family: 'Playfair Display', serif; font-weight: 600; }
+.connections .why { margin: 8px 0 6px; }
+.connections .pts { color: var(--muted); font-size: 0.92rem; }
+.connections .pts > div { margin-top: 4px; }
+.connections .who { color: var(--text); font-weight: 600; margin-right: 8px; }
+.connections.tensions li { border-left-color: var(--primary); }
+.ctype { font-size: 0.72rem; padding: 1px 9px; border-radius: 999px; margin-right: 8px; letter-spacing: 0.02em; }
+.ctype-genuine { color: #fff; background: var(--primary); }
+.ctype-apparent { color: var(--muted); background: #EDEBF4; }
+.editor-note { background: #EDEBF4; border-radius: 12px; padding: 24px 28px; margin: 0 0 48px; }
+.editor-note .en-label { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 10px; }
+.editor-note p { margin: 0 0 12px; }
+.editor-note p:last-child { margin-bottom: 0; }
+.claim-meta { display: block; margin-top: 2px; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+.claim-meta-first { margin-top: 8px; }
+.claim-meta a.ts { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="topbar"><nav class="sectionnav"><a class="brand" href="https://lens.lumihelia.com/zh/">PodLens</a><a class="sec active" href="https://lens.lumihelia.com/zh/">episodes</a><a class="sec" href="https://lens.lumihelia.com/zh/papers/">papers</a></nav><a class="langswitch" href="https://lens.lumihelia.com/episodes/openai-post-training-rl-infra.html">English</a></div>
+<h1>大模型后训练强化学习基建的探索与反思 · Weng Jiayi</h1>
+<p class="meta">2026-06-09 · 由 PodLens 生成的忠实解读</p>
+<p class="source">原节目:<a href="https://youtu.be/I0DrcsDf3Os?si=RbqE6pkIgHFJh5mq" target="_blank" rel="noopener">https://youtu.be/I0DrcsDf3Os?si=RbqE6pkIgHFJh5mq</a>　·　时间戳可点击,就地跳转播放器</p>
+<div class="player-wrap"><div class="player-box"><div id="ytplayer"></div></div></div>
+<script>
+var PL = (function() {
+  var player, ready = false, pending = null;
+  window.onYouTubeIframeAPIReady = function() {
+    player = new YT.Player('ytplayer', {
+      videoId: 'I0DrcsDf3Os',
+      host: 'https://www.youtube-nocookie.com',
+      playerVars: {playsinline: 1, rel: 0},
+      events: {onReady: function() { ready = true; if (pending != null) { var p = pending; pending = null; seek(p); } }}
+    });
+  };
+  function seek(s) {
+    if (!ready) { pending = s; return false; }
+    player.seekTo(s, true); player.playVideo();
+    document.querySelector('.player-wrap').scrollIntoView({behavior: 'smooth', block: 'start'});
+    return false;
+  }
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+  document.addEventListener('DOMContentLoaded', function() {
+    var t = new URLSearchParams(location.search).get('t');
+    if (t) { seek(parseInt(t, 10)); }
+  });
+  return {seek: seek};
+})();
+</script>
+<div class="tags"><span>强化学习</span><span>后训练</span><span>基础设施</span><span>天授</span><span>确定论</span></div>
+
+<h2>这期讲了什么</h2>
+<p>本期播客对话了 OpenAI 后训练（post-training）强化学习（RL）基础设施的核心贡献者 Weng Jiayi。访谈追溯了他在清华大学和 Carnegie Mellon University（CMU）的学术历程，分享了他开发开源项目天授（Tianshou）和退学网（tuixue.online）的幕后故事，并深入探讨了他在 OpenAI 搭建大模型强化学习后训练基建（RLHF）的工程实践。他指出，大模型研发的竞争壁垒在于基础设施的正确性与单位时间内的迭代速度，而非单纯的算法想法（idea）。此外，他还分享了对人工通用智能（AGI）的定义、团队人才密度、组织架构信息流流通性以及关于宿命论和预测未来的哲学思考。</p>
+<h2>时间线主题地图</h2>
+<ul>
+<li><strong><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=0s" target="_blank" rel="noopener" onclick="return PL.seek(0)">[00:00 - 20:39]</a></strong> 嘉宾背景与成长经历：Weng Jiayi 介绍自己大二进入朱军老师实验室，并误打误撞选择了强化学习（RL）作为研究方向。</li>
+<li><strong><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=1240s" target="_blank" rel="noopener" onclick="return PL.seek(1240)">[20:40 - 27:56]</a></strong> 学术早期的 hack 经历与科研挣扎：讲述他在清华期间通过发现系统漏洞优化校园网以及做游戏 AI（VizDoom）冠军的经历，同时物理解读了当时 RL 科研过度拟合（overfit）和全靠启发式调参（heuristic）的弊端。</li>
+<li><strong><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=1677s" target="_blank" rel="noopener" onclick="return PL.seek(1677)">[27:57 - 41:15]</a></strong> 暑研挫折与评价体系的反思：在 Mila 师从 Yoshua Bengio 进行混合专家模型（MoE）暑研未能取得理想成果，回到清华后面临申请博士（PhD）失败的压力，并开始反思并尝试挣脱高校单一的绩点（GPA）评价体系。</li>
+<li><strong><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=2476s" target="_blank" rel="noopener" onclick="return PL.seek(2476)">[41:16 - 48:10]</a></strong> 开源项目天授（Tianshou）的诞生与设计哲学：因为不满意已有的 RLlib 库过度抽象而手撸开发天授，强调代码一致性（consistency）和极简抽象对研究人员的易用性。</li>
+<li><strong><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=2891s" target="_blank" rel="noopener" onclick="return PL.seek(2891)">[48:11 - 56:25]</a></strong> 退学网（tuixue.online）的公益性质与个人影响力度量：开发签证日期查询系统退学网的起因与成效，阐述自己以“死后记得自己名字的人数”作为衡量个人影响力的内在指标，并追求非盈利慈善项目带来的正反馈。</li>
+<li><strong><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=3386s" target="_blank" rel="noopener" onclick="return PL.seek(3386)">[56:26 - 1:04:10]</a></strong> 工业界与学术界的取舍：在 CMU 读硕士（Master）期间决定以工业界为目标，对比分析了博士与硕士在 AI 时代的价值，指出工程能力在当前阶段是第一位的。</li>
+<li><strong><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=3851s" target="_blank" rel="noopener" onclick="return PL.seek(3851)">[1:04:11 - 1:08:44]</a></strong> 工程能力与基础设施的核心价值：提出“教研究人员做工程比教工程师做研究更难”的观点，揭示当前大模型竞争本质上拼的是基础设施（infra）的正确性以及排除缺陷（bug）的能力。</li>
+<li><strong><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=4125s" target="_blank" rel="noopener" onclick="return PL.seek(4125)">[1:08:45 - 1:14:12]</a></strong> 加入 OpenAI 的契机与 John Schulman 组面试：分享 John Schulman 招募他的过程以及两小时独立手写端到端代码完成最后一轮面试的经历，明确自己更倾向于“卖铲子”（做基建）而非直接做科研调参。</li>
+<li><strong><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=4453s" target="_blank" rel="noopener" onclick="return PL.seek(4453)">[1:14:13 - 1:23:39]</a></strong> OpenAI 内部开发 ChatGPT 与 RLHF 基建：揭示 ChatGPT 发布前的团队规模与研发氛围，阐述早期 RLHF 中 PPO 算法管道的难用性，以及如何衡量强化学习性能并防止奖励黑客行为（reward hacking）。</li>
+<li><strong><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=5020s" target="_blank" rel="noopener" onclick="return PL.seek(5020)">[1:23:40 - 1:32:00]</a></strong> 大模型 RLHF 与传统强化学习的区别：分析传统玩具任务与大模型强化学习在模型规模、采样吞吐量以及计算效率上的根本差异，并分享高强度加班进急诊室（ER）的经历。</li>
+<li><strong><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=5521s" target="_blank" rel="noopener" onclick="return PL.seek(5521)">[1:32:01 - 1:39:47]</a></strong> 重构下一代 OpenAI 基础设施：解释重构运行了三年的旧基建的必要性，强调要清理技术债（technical debt）并提升研究人员的实验迭代速度。</li>
+<li><strong><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=5988s" target="_blank" rel="noopener" onclick="return PL.seek(5988)">[1:39:48 - 1:44:16]</a></strong> 闭源的商业逻辑与 AGI 使命：分析 OpenAI 闭源是处于商业生存和融资的博弈论（game theory）考量，并探讨如何将“造福全人类”拆解为让普通人免费低成本地获取技术产品。</li>
+<li><strong><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=6257s" target="_blank" rel="noopener" onclick="return PL.seek(6257)">[1:44:17 - 1:47:33]</a></strong> 董事会内讧与 John Schulman 等人才离职：从内部视角解释 Sam Altman 被免职事件的真相（因信任危机而非发现危险技术），并讨论组织“造血能力”与人员替代性。</li>
+<li><strong><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=6454s" target="_blank" rel="noopener" onclick="return PL.seek(6454)">[1:47:34 - 1:52:53]</a></strong> 组织规模化带来的沟通成本与 DeepSeek 带来的警觉：分析组织变大后导致代码和结构臃肿、上下文分享（context sharing）丢失的问题，提到内部对 DeepSeek 极快迭代速度的警惕。</li>
+<li><strong><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=6774s" target="_blank" rel="noopener" onclick="return PL.seek(6774)">[1:52:54 - 2:02:42]</a></strong> 确定论世界观与对未来的预测：讨论宇宙的宿命论（determinism）、人是否存在自由意志、量子力学世界线的修改，以及如何以西西弗斯式的幸福感度过当下和投资未来。</li>
+</ul>
+<h2>核心观点清单</h2>
+<ol>
+<li>
+<p><strong>核心观点</strong>: 大模型和人工智能前沿探索的竞争，本质上拼的是基础设施（infrastructure）的正确性和单位时间内的迭代速度。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=3889s" target="_blank" rel="noopener" onclick="return PL.seek(3889)">[01:04:49 - 01:05:19]</a></span>
+   <span class="claim-meta">类型 观点</span></p>
+</li>
+<li>
+<p><strong>核心观点</strong>: 让一个研究人员（researcher）学会做工程（engineering），要比让一个工程师（engineer）学会做研究（research）来得更加困难。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=3866s" target="_blank" rel="noopener" onclick="return PL.seek(3866)">[01:04:26 - 01:04:48]</a></span>
+   <span class="claim-meta">类型 观点</span></p>
+</li>
+<li>
+<p><strong>核心观点</strong>: 代码库和项目的腐化大多源于多名开发者贡献代码时导致的不一致性（inconsistency）和假设传递失效；保持项目从头到尾的一致性是高质量代码的关键。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=3881s" target="_blank" rel="noopener" onclick="return PL.seek(3881)">[01:04:41 - 01:05:23]</a></span>
+   <span class="claim-meta">类型 观点</span></p>
+</li>
+<li>
+<p><strong>核心观点</strong>: 传统的强化学习（RL）研究过度依赖于玩具任务（Atari、MuJoCo 等）的过拟合与启发式调参，而工业界真正关心的则是利用 RL 解决真实的复杂环境问题。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=4311s" target="_blank" rel="noopener" onclick="return PL.seek(4311)">[01:11:51 - 01:12:31]</a></span>
+   <span class="claim-meta">类型 事实</span></p>
+</li>
+<li>
+<p><strong>核心观点</strong>: 衡量强化学习模型性能的痛点在于难以区分 checkpoint 的真实好坏，因为单一的奖励值容易发生奖励黑客行为（reward hacking），导致评估方差和噪音过大，最终仍需依赖人工评估（Human Feedback）。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=5131s" target="_blank" rel="noopener" onclick="return PL.seek(5131)">[01:25:31 - 01:26:58]</a></span>
+   <span class="claim-meta">类型 事实</span></p>
+</li>
+<li>
+<p><strong>核心观点</strong>: AGI 研发团队需要维持极高的人才密度，高人才密度的核心价值在于能够自发涌现创新，同时通过扁平化和简化组织架构，确保管理层与底层执行者之间的信息能够无损传递。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=4871s" target="_blank" rel="noopener" onclick="return PL.seek(4871)">[01:21:11 - 01:22:49]</a></span>
+   <span class="claim-meta">类型 观点</span></p>
+</li>
+<li>
+<p><strong>核心观点</strong>: OpenAI 的闭源策略是基于博弈论的现实考量：如果开源最先进的模型权重，会导致其他商业竞争对手迅速复制并实行闭源，从而使首创者失去持续融资与维持生存的资本。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=6121s" target="_blank" rel="noopener" onclick="return PL.seek(6121)">[01:42:01 - 01:42:56]</a></span>
+   <span class="claim-meta">类型 预测</span></p>
+</li>
+<li>
+<p><strong>核心观点</strong>: 组织规模扩大后不可避免地会导致迭代速度变慢，其根本原因在于人类大脑存储的上下文（context）是有限的，难以在庞大组织中实现完整且一致的上下文分享（context sharing）。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=6721s" target="_blank" rel="noopener" onclick="return PL.seek(6721)">[01:52:01 - 01:52:48]</a></span>
+   <span class="claim-meta">类型 观点</span></p>
+</li>
+<li>
+<p><strong>核心观点</strong>: 宇宙底层是一个确定性系统（determinism），并不存在自由意志；每个人的思维、决策和未来的世界轨迹在宇宙大爆炸那一刻就已被决定。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=6820s" target="_blank" rel="noopener" onclick="return PL.seek(6820)">[01:53:40 - 01:54:08]</a></span>
+   <span class="claim-meta">类型 猜想</span></p>
+</li>
+</ol>
+<h2>内部张力与自我修正</h2>
+<ul>
+<li><strong><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=5731s" target="_blank" rel="noopener" onclick="return PL.seek(5731)">[01:35:31]</a> vs <a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=6658s" target="_blank" rel="noopener" onclick="return PL.seek(6658)">[01:50:58]</a></strong>: Weng Jiayi 极力主张挣脱高校 GPA 和既定评价体系的束缚，但他为自己设立的终极成就度量标准（“死后记得自己名字的人数”）本质上仍然是外界的社会认同（如 GitHub 标星数、退学网点击量等），这构成了抗拒外部评价与依赖外部认同之间的内部张力。</li>
+<li><strong><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=6820s" target="_blank" rel="noopener" onclick="return PL.seek(6820)">[01:53:40]</a> vs <a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=7233s" target="_blank" rel="noopener" onclick="return PL.seek(7233)">[02:00:33]</a></strong>: 他坚信物理世界是彻底的确定论，人类没有自由意志，但同时他又强调要在当下通过努力“投资未来”来获取选择的权利，在被主持人指出这与确定论相悖后，他只能将“投资未来这一行为本身”也归因为预先确定的结果。</li>
+</ul>
+<h2>大白话重讲</h2>
+<p>大模型研究的核心竞争力究竟是什么？在 Weng Jiayi 看来，答案绝非学术界热衷的精妙算法或论文点子，而是极其朴素的工程实践——基础设施的正确性以及单位时间内的迭代速度。他引用同事的观点指出，教一个研究人员如何做好工程，远比教一个工程师如何做好研究要困难得多。在当前大模型前沿探索中，想法是非常便宜的，真正拉开差距的是谁能更安全、更快速地验证这些想法。每一家研究实验室的模型架构都存在不同程度的缺陷，谁能修好更多的缺陷，谁的模型就训得更好。</p>
+<p>这种对“工程一致性”和“做基建工具（卖铲子）”的极度偏爱，贯穿了 Weng Jiayi 的学术与职业生涯。大四那年，因为不满意主流强化学习库 RLlib 过于臃肿和复杂的抽象，他花了两个手撸出第一版天授（Tianshou）。他认为项目的生命力在于 consistency（一致性），多人无序地塞入代码只会加速项目的腐化。而退学网（tuixue.online）的诞生同样出于他个人的签证查询痛点，这个完全不盈利的慈善项目通过数百万的点击量，带给他超出金钱的满足感——他以“死后记得自己名字的人数”作为人生结算的指标，相比官方评价体系，他更渴望获得来自外界发自内心的赞同。</p>
+<p>进入 OpenAI 后，Weng Jiayi 负责搭建了后训练阶段的整个强化学习基础设施。他指出，大模型的强化学习与传统的玩具基准测试（如打游戏或物理仿真）有本质不同：玩具测试的瓶颈在环境，而模型本身很小；大模型则是环境极简（输入提示词），但模型参数极其庞大，这使得如何提高采样的吞吐量和训练的分布式效率成为了核心问题。在开发 ChatGPT 的过程中，团队经历了巨大的不确定性：发布 ChatGPT 最初只是为了收集真实世界的用户数据，甚至做好了五天后冷场就关闭的准备，谁也没想到用户曲线会呈指数级爆发。此外，他指出评估强化学习模型时最头疼的问题是 reward hacking（奖励黑客）——模型的奖励分数看似完美饱和，但实际表现却因过度拟合而下滑，最后只能退回用人工评估来筛选模型检查点。</p>
+<p>针对 OpenAI 内部的组织变迁，Weng Jiayi 提供了独特的内部视角。2023 年年底的 CEO 罢免风波并非外界谣传的“科学家看到了某种毁灭性的技术突破”，而纯粹是董事会对 Sam Altman 的信任危机。在公司从两百多人急剧扩张到三千多人的过程中，沟通成本成倍增长，人脑有限的 context（上下文）导致了严重的 context sharing（上下文分享）缺失。这也解释了为什么 DeepSeek 在推特上声称的超快迭代速度会让 OpenAI 内部感到警觉——当组织庞大到一定程度后，重构运行了三年的技术负债，找回小团队时期的迭代斜率，成为了关乎生死的课题。</p>
+<p>在对话的尾声，Weng Jiayi 展现了其宿命论（determinism）的世界观：宏观宇宙是一个确定性的马尔可夫过程，人类并没有真正的自由意志，你下一秒会说什么、做什么，在宇宙大爆炸的瞬间就已经被写死。他曾试图证伪这一观点，却以失败告终。但他认为，面对这种冷酷的宿命，人最理性的做法是忘掉这一切，去体验当下的生活，就像坚信西西弗斯推石头是幸福的一样，在无尽的确定性轨迹中寻找内心的平静。</p>
+<h2>值得精听的片段</h2>
+<ol>
+<li><strong><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=2476s" target="_blank" rel="noopener" onclick="return PL.seek(2476)">[41:16 - 45:00]</a> 天授诞生的两周开发故事</strong>。Weng Jiayi 讲述他如何因为嫌弃 RLlib 臃肿而决定推倒重来，阐述了“项目一致性是抵御代码腐化的唯一良药”的设计哲学。这段对话极具工程审美，是每个系统架构师都应体会的原则。</li>
+<li><strong><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=3866s" target="_blank" rel="noopener" onclick="return PL.seek(3866)">[01:04:26 - 01:06:00]</a> 工程与研究能力的难易度倒置</strong>。他分享同事关于“教研究员做工程更难”的论点，直接解构了学术界和工业界在前沿大模型研发上的生态定位。对于迷茫于“读博还是就业”的听众，这是极有分量的冷思考。</li>
+<li><strong><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=5131s" target="_blank" rel="noopener" onclick="return PL.seek(5131)">[01:25:31 - 01:27:00]</a> 奖励黑客与检查点评估的玄学</strong>。听他讲述在大模型 RLHF 训练中，如何面对方差极大的评估噪音以及饱和的奖励曲线进行检查点（checkpoint）的盲测。这段内容还原了顶级实验室在解决实际工程问题时的真实挣扎。</li>
+<li><strong><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=6820s" target="_blank" rel="noopener" onclick="return PL.seek(6820)">[01:53:40 - 01:56:00]</a> 确定论与宇宙大爆炸写死的剧本</strong>。Weng Jiayi 极其平静且笃定地论证人类没有自由意志、命运早已注定的瞬间。这种极客式的哲学冷酷与播客整体轻松的技术叙事形成强烈的戏剧张力，十分瞬间。</li>
+</ol>
+<h2>与往期的呼应</h2><ul class="connections"><li><span class="rel">同构</span>→ <a class="lk" href="https://lens.lumihelia.com/zh/episodes/cs153-09-garry-tan-diana-hu-ai-native-company.html">AI 原生公司与个人软件工厂的崛起 · Garry Tan &amp; Diana Hu</a><div class="why">两者在组织架构设计上达成了高度共识，均指出中间管理层会导致信息传递的损耗，因此必须通过极度扁平化的架构来实现信息的无损传递与高效决策。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=4871s" target="_blank" rel="noopener" onclick="return PL.seek(4871)">[01:21:11 - 01:22:49]</a> AGI 研发团队需要维持极高的人才密度，高人才密度的核心价值在于能够自发涌现创新，同时通过扁平化和简化组织架构，确保管理层与底层执行者之间的信息能够无损传递。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/cs153-09-garry-tan-diana-hu-ai-native-company.html?t=2103">[35:03-36:32]</a> 在 AI 原生组织中，传统的层层汇报与信息中继将被抹平，只剩下三种核心角色。中间管理层是 lossy 路由的产物。在 AI 原生组织里，人员将被极度压缩并扁平化为：Builder（构建者）、DRI（直接责任人）以及亲自在第一线探索工具的 AI 创始人（AI Founder）。</div></div></li><li><span class="rel">印证</span>→ <a class="lk" href="https://lens.lumihelia.com/zh/episodes/cs153-09-garry-tan-diana-hu-ai-native-company.html">AI 原生公司与个人软件工厂的崛起 · Garry Tan &amp; Diana Hu</a><div class="why">两者均指出了定量指标或通用基准在评估 AI 模型性能时的局限性，强调在面对复杂的评估噪音和奖励黑客行为时，最终必须引入人类的主观评判（人工反馈或人类的“品味”）作为最终的甄别标准。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=5131s" target="_blank" rel="noopener" onclick="return PL.seek(5131)">[01:25:31 - 01:26:58]</a> 衡量强化学习模型性能的痛点在于难以区分 checkpoint 的真实好坏，因为单一的奖励值容易发生奖励黑客行为（reward hacking），导致评估方差和噪音过大，最终仍需依赖人工评估（Human Feedback）。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/cs153-09-garry-tan-diana-hu-ai-native-company.html?t=2238">[37:18-38:29]</a> 当编写和实施代码的成本归零时，人类唯一无法被委托和替代的资产是“味觉/品味（Taste）”。通用的 benchmarks 无法判定一个特定垂直领域的 AI 是否好用。人类的 Taste（对细微产品体验的把握和对对错的甄别力）是决定商业价值捕获的终极防线，这需要通过构建特有的 evals 将 Taste 嵌入系统。</div></div></li><li><span class="rel">补充</span>→ <a class="lk" href="https://lens.lumihelia.com/zh/episodes/cs153-09-garry-tan-diana-hu-ai-native-company.html">AI 原生公司与个人软件工厂的崛起 · Garry Tan &amp; Diana Hu</a><div class="why">两者均指出了传统组织规模扩大时的核心痛点：信息（上下文）仅存储在员工个人大脑中，难以在组织内实现高效、一致的分享，从而导致决策和迭代效率下降。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=6721s" target="_blank" rel="noopener" onclick="return PL.seek(6721)">[01:52:01 - 01:52:48]</a> 组织规模扩大后不可避免地会导致迭代速度变慢，其根本原因在于人类大脑存储的上下文（context）是有限的，难以在庞大组织中实现完整且一致的上下文分享（context sharing）。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/cs153-09-garry-tan-diana-hu-ai-native-company.html?t=1899">[31:39-33:32]</a> 传统的公司组织运行方式是高度“开环（open loop）”且充满信息损耗的，而 AI 能够使其转变为“闭环控制系统（closed loop）”。Diana Hu 认为，传统公司将信息存在员工脑中，通过无序的 Slack DMs 和会议进行路由，效率极低。引入嵌入式 agent 实时读取所有公司工件，可以构建自愈的、类似 PID 控制器的闭环信息与决策回路。</div></div></li><li><span class="rel">印证</span>→ <a class="lk" href="https://lens.lumihelia.com/zh/episodes/cs153-05-nikhyl-singhal-ai-product-management.html">AI时代的产品构建与职业进化 · Nikhyl Singhal</a><div class="why">两者共同强调了“迭代速度”在竞争中的决定性作用，将这一产品层面的黄金法则延伸到了大模型前沿探索的基础设施建设中。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=3889s" target="_blank" rel="noopener" onclick="return PL.seek(3889)">[01:04:49 - 01:05:19]</a> 大模型和人工智能前沿探索的竞争，本质上拼的是基础设施（infrastructure）的正确性和单位时间内的迭代速度。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/cs153-05-nikhyl-singhal-ai-product-management.html?t=834">[13:54]</a> 产品迭代速度（Iteration Speed）比初始状态更能决定产品的成败，这构成了初创公司对抗大公司的核心优势。</div></div></li></ul><h2>与往期的张力</h2><ul class="connections tensions"><li><span class="rel">矛盾</span><span class="ctype ctype-genuine">真冲突</span>← <a class="lk" href="https://lens.lumihelia.com/zh/episodes/how-to-make-better-decisions-george-mack.html">思维模型与决策体系 · George Mack</a><div class="why">如果宇宙是完全确定的且不存在自由意志，那么所谓的“高主动性”和“内部控制点”在根本上就是不存在的，人的所有“拒绝规则”或“卓越决策”都只是早已被决定的物理轨迹，而非自主选择。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=6820s" target="_blank" rel="noopener" onclick="return PL.seek(6820)">[01:53:40 - 01:54:08]</a> 宇宙底层是一个确定性系统（determinism），并不存在自由意志；每个人的思维、决策和未来的世界轨迹在宇宙大爆炸那一刻就已被决定。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/how-to-make-better-decisions-george-mack.html?t=2603">[43:23]</a> 高主动性（high agency）是区分卓越与平庸的决定性因素，表现为拒绝接受他人编造的叙事或规则约束，拥有极高的内部控制点（locus of control）。</div></div></li><li><span class="rel">张力</span><span class="ctype ctype-apparent">表面张力</span>← <a class="lk" href="https://lens.lumihelia.com/zh/episodes/neri-oxman-computational-design-synthetic-biology.html">计算设计与合成生物学 · Neri Oxman</a><div class="why">前者通过高低熵转换的数学模型论证了主体具备在无限选择中做出确定选择、控制系统轨迹的“增能”与代理权；而后者从物理确定论出发，认为不存在自由意志，所有的选择和轨迹早已被宇宙底层规律完全决定。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=I0DrcsDf3Os&t=6820s" target="_blank" rel="noopener" onclick="return PL.seek(6820)">[01:53:40 - 01:54:08]</a> 宇宙底层是一个确定性系统（determinism），并不存在自由意志；每个人的思维、决策和未来的世界轨迹在宇宙大爆炸那一刻就已被决定。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/neri-oxman-computational-design-synthetic-biology.html?t=1766">[29:26-30:24]</a> 一个主体的增能状态可以通过其可能状态分布的高熵值来定义，但在特定动作和选择发生时，其单一具体状态的熵值必须极低。即具备在无限选择中做出确定选择并控制系统轨迹的能力。</div></div></li></ul>
+<p class="foot">本页为对节目内容的忠实解读与大白话重述,由 <a href="https://github.com/lumihelia/PodLens">PodLens</a> 生成。</p>
+<p class="disclaimer">这是以原文为依据的一次解读,不能替代原文。每条要点都标注了出处,欢迎回到原文核对——也欢迎指出任何细微的偏差。</p>
+
+</div>
+</body>
+</html>

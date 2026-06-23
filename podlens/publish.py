@@ -4,11 +4,12 @@ This turns PodLens output into a machine-readable, you-owned publishing surface
 (per-episode HTML pages + RSS + JSON Feed + sitemap) suitable for GitHub Pages
 and discovery/citation by search engines and agents.
 
-Bilingual: the site is rendered in TWO language trees -- Chinese at the root
-(/episodes/<slug>.html) and English under /en/ (/en/episodes/<slug>.html) --
-linked by a visible switch and hreflang. Each episode is interpreted in its own
-source language first (most faithful) and translated to the other; both bodies
-are stored, and pages are re-rendered from those stored sources on every build.
+Bilingual: the site is rendered in TWO language trees -- English at the root
+(/episodes/<slug>.html, international-first) and Chinese under /zh/
+(/zh/episodes/<slug>.html) -- linked by a visible switch and hreflang. Each
+episode is interpreted in its own source language first (most faithful) and
+translated to the other; both bodies are stored, and pages are re-rendered
+from those stored sources on every build.
 
 PRIVACY: only the PUBLIC layers are ever published. Everything from the
 PODLENS_PRIVATE_CUTOFF heading onward (the evidence-grounded insights and
@@ -42,9 +43,14 @@ _TS_RE = re.compile(
 )
 
 # Site output dir (GitHub Pages can serve from /docs on the main branch).
+# English is the root/primary tree (international-first, 2026-06-23); Chinese
+# lives under /zh/.
 SITE_DIR = Path("docs")
 EPISODES_DIR = SITE_DIR / "episodes"
 PAPERS_DIR = SITE_DIR / "papers"
+ZH_DIR = SITE_DIR / "zh"
+ZH_EPISODES_DIR = ZH_DIR / "episodes"
+ZH_PAPERS_DIR = ZH_DIR / "papers"
 EN_DIR = SITE_DIR / "en"
 EN_EPISODES_DIR = EN_DIR / "episodes"
 EN_PAPERS_DIR = EN_DIR / "papers"
@@ -738,22 +744,22 @@ def _page(title: str, body: str, site: SiteConfig, *, description: str,
 
 
 def _index_url(site: SiteConfig, lang: str) -> str:
-    return site.clean_base + ("/en/" if lang == "en" else "/")
+    return site.clean_base + ("/zh/" if lang == "zh" else "/")
 
 
 def _ep_url(site: SiteConfig, slug: str, lang: str = "zh",
             en_slugs: set | None = None, section: str = "episodes") -> str:
     """Item page URL in `lang`, routed to its `section` (episodes/papers). For
     en, fall back to the zh page when the target has no English version (so
-    cross-links never 404)."""
+    cross-links never 404). English is the root tree; Chinese lives under /zh/."""
     use_en = lang == "en" and (en_slugs is None or slug in en_slugs)
-    prefix = "/en" if use_en else ""
+    prefix = "" if use_en else "/zh"
     return site.clean_base + f"{prefix}/{section}/{slug}.html"
 
 
 def _section_index_url(site: SiteConfig, section: str, lang: str) -> str:
     """The listing-page URL for a section. episodes == the site home."""
-    prefix = "/en" if lang == "en" else ""
+    prefix = "" if lang == "en" else "/zh"
     if section == "episodes":
         return site.clean_base + (prefix + "/" if prefix else "/")
     return site.clean_base + f"{prefix}/{section}/"
@@ -777,7 +783,7 @@ def _hreflang_links(zh_url: str, en_url: str) -> str:
     return (
         f'<link rel="alternate" hreflang="zh-Hans" href="{zh_url}">'
         f'<link rel="alternate" hreflang="en" href="{en_url}">'
-        f'<link rel="alternate" hreflang="x-default" href="{zh_url}">'
+        f'<link rel="alternate" hreflang="x-default" href="{en_url}">'
     )
 
 
@@ -1046,11 +1052,11 @@ def build_rss(items: list[dict], site: SiteConfig, lang: str = "zh",
 
 def build_sitemap(items: list[dict], site: SiteConfig, en_slugs: set) -> str:
     sec = lambda it: _section(it.get("kind", "podcast"))
-    urls = [site.clean_base + "/"]
+    urls = [site.clean_base + "/zh/"]
     if any(sec(it) == "papers" for it in items):
         urls.append(_section_index_url(site, "papers", "zh"))
     if en_slugs:
-        urls.append(site.clean_base + "/en/")
+        urls.append(site.clean_base + "/")
         if any(it["slug"] in en_slugs and sec(it) == "papers" for it in items):
             urls.append(_section_index_url(site, "papers", "en"))
     urls += [_ep_url(site, it["slug"], "zh", section=sec(it)) for it in items]
@@ -1137,9 +1143,9 @@ def publish_report(
 
 
 def _section_dir(section: str, lang: str) -> Path:
-    if lang == "zh":
+    if lang == "en":
         return EPISODES_DIR if section == "episodes" else PAPERS_DIR
-    return EN_EPISODES_DIR if section == "episodes" else EN_PAPERS_DIR
+    return ZH_EPISODES_DIR if section == "episodes" else ZH_PAPERS_DIR
 
 
 def _rebuild_site(items: list[dict], site: SiteConfig) -> None:
@@ -1207,9 +1213,9 @@ def _rebuild_site(items: list[dict], site: SiteConfig) -> None:
         eps = [it for it in rendered if _section(it.get("kind", "podcast")) == "episodes"]
         paps = [it for it in rendered if _section(it.get("kind", "podcast")) == "papers"]
 
-        if lang == "en":
-            EN_DIR.mkdir(parents=True, exist_ok=True)
-        root = SITE_DIR if lang == "zh" else EN_DIR
+        if lang == "zh":
+            ZH_DIR.mkdir(parents=True, exist_ok=True)
+        root = SITE_DIR if lang == "en" else ZH_DIR
         # episodes is the home section (root index + root feeds).
         (root / "index.html").write_text(render_index(eps, site, lang, "episodes"), encoding="utf-8")
         (root / "feed.xml").write_text(build_rss(eps, site, lang, "episodes"), encoding="utf-8")

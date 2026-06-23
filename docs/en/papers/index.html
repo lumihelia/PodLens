@@ -2,112 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PodLens</title>
-<meta name="description" content="Grounded readings, every point traceable to the source.">
-<meta name="author" content="lumihelia">
-
-<link rel="canonical" href="https://lens.lumihelia.com/en/papers/">
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="PodLens">
-<meta property="og:description" content="Grounded readings, every point traceable to the source.">
-<meta property="og:url" content="https://lens.lumihelia.com/en/papers/">
-<link rel="alternate" type="application/rss+xml" title="PodLens" href="https://lens.lumihelia.com/en/feed.xml"><link rel="alternate" type="application/json" title="PodLens" href="https://lens.lumihelia.com/en/episodes.json">
-
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-:root {
-  --text: #2C2C2C; --primary: #4C436F; --bg: #F4F3F7; --muted: #9A93B3;
-  --border: #D4D0E0; --white: #FFFFFF; --radius: 12px; --shadow: rgba(76,67,111,0.08);
-}
-* { box-sizing: border-box; }
-body {
-  font-family: 'Source Serif Pro', serif; color: var(--text);
-  background: var(--bg); line-height: 1.75; margin: 0;
-  -webkit-font-smoothing: antialiased;
-}
-.wrap { max-width: 720px; margin: 0 auto; padding: 96px 24px 128px; }
-h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text); line-height: 1.25; }
-h1 { font-size: 2.6rem; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.01em; }
-h2 { font-size: 1.5rem; font-weight: 600; margin: 64px 0 16px; }
-h3 { font-size: 1.15rem; font-weight: 600; margin: 32px 0 8px; }
-p { margin: 0 0 20px; }
-a { color: var(--primary); text-decoration: none; }
-a:hover { text-decoration: underline; }
-.meta { color: var(--muted); font-size: 0.95rem; margin: 0 0 64px; }
-.site-head { margin-bottom: 80px; }
-.site-head .tagline { color: var(--muted); font-size: 1.05rem; margin-top: 4px; }
-ul, ol { padding-left: 1.4em; }
-li { margin: 6px 0; }
-.episode-list { list-style: none; padding: 0; }
-.episode-list li { margin: 0 0 48px; }
-.episode-list .date { color: var(--muted); font-size: 0.9rem; }
-.episode-list .title { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 600; display: block; margin: 4px 0 8px; }
-.episode-list .summary { color: #5a5566; }
-.foot { margin-top: 96px; color: var(--muted); font-size: 0.85rem; }
-.disclaimer { margin-top: 16px; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
-.index-disclaimer { margin: 48px 0 0; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
-.topbar { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 48px; }
-.back { color: var(--muted); }
-.langswitch { color: var(--muted); font-size: 0.9rem; border: 1px solid var(--border); padding: 4px 12px; border-radius: 999px; }
-.langswitch:hover { color: var(--primary); border-color: var(--primary); text-decoration: none; }
-.sectionnav { display: flex; align-items: baseline; flex-wrap: wrap; gap: 20px; }
-.sectionnav .brand { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.05rem; color: var(--text); }
-.sectionnav .sec { color: var(--muted); font-size: 0.9rem; padding-bottom: 2px; }
-.sectionnav .sec.active { color: var(--text); border-bottom: 1px solid var(--text); }
-.sectionnav a:hover { color: var(--primary); text-decoration: none; }
-a.ts { color: var(--primary); font-variant-numeric: tabular-nums; white-space: nowrap; text-decoration: none; border-bottom: 1px dotted var(--border); }
-a.ts:hover { border-bottom-style: solid; }
-.source { color: var(--muted); font-size: 0.95rem; margin: 0 0 24px; }
-.player-wrap { position: sticky; top: 0; z-index: 10; background: var(--bg); padding: 12px 0 16px; margin: 0 0 32px; }
-.player-box { position: relative; width: 100%; max-width: 460px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 10px var(--shadow); }
-.player-box #ytplayer, .player-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 48px; }
-.tags span { font-size: 0.85rem; color: var(--primary); background: #EDEBF4; padding: 4px 12px; border-radius: 999px; }
-.connections { list-style: none; padding: 0; margin: 0; }
-.connections li { margin: 0 0 28px; padding-left: 16px; border-left: 2px solid var(--border); }
-.connections .rel { font-size: 0.8rem; color: var(--primary); background: #EDEBF4; padding: 2px 10px; border-radius: 999px; margin-right: 8px; }
-.connections .lk { font-family: 'Playfair Display', serif; font-weight: 600; }
-.connections .why { margin: 8px 0 6px; }
-.connections .pts { color: var(--muted); font-size: 0.92rem; }
-.connections .pts > div { margin-top: 4px; }
-.connections .who { color: var(--text); font-weight: 600; margin-right: 8px; }
-.connections.tensions li { border-left-color: var(--primary); }
-.ctype { font-size: 0.72rem; padding: 1px 9px; border-radius: 999px; margin-right: 8px; letter-spacing: 0.02em; }
-.ctype-genuine { color: #fff; background: var(--primary); }
-.ctype-apparent { color: var(--muted); background: #EDEBF4; }
-.editor-note { background: #EDEBF4; border-radius: 12px; padding: 24px 28px; margin: 0 0 48px; }
-.editor-note .en-label { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 10px; }
-.editor-note p { margin: 0 0 12px; }
-.editor-note p:last-child { margin-bottom: 0; }
-.claim-meta { display: block; margin-top: 2px; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
-.claim-meta-first { margin-top: 8px; }
-.claim-meta a.ts { color: var(--muted); }
-</style>
+<meta http-equiv="refresh" content="0; url=https://lens.lumihelia.com/papers/">
+<link rel="canonical" href="https://lens.lumihelia.com/papers/">
+<title>Moved</title>
 </head>
 <body>
-<div class="wrap">
-<div class="topbar"><nav class="sectionnav"><a class="brand" href="https://lens.lumihelia.com/en/">PodLens</a><a class="sec" href="https://lens.lumihelia.com/en/">episodes</a><a class="sec active" href="https://lens.lumihelia.com/en/papers/">papers</a></nav><a class="langswitch" href="https://lens.lumihelia.com/papers/">中文</a></div>
-<div class="site-head">
-<h1>PodLens</h1>
-<p class="tagline">Grounded readings, every point traceable to the source.</p>
-</div>
-<ul class="episode-list">
-<li><span class="date">2026-06-21</span><a class="title" href="https://lens.lumihelia.com/en/papers/skillcomposer-learning-to-evolve-agent-skills.html">SkillComposer: Inference-Time Adaptive Evolution of Agent Skills for LLMs · Qi Zhang</a><span class="summary">This paper explores how an LLM-driven agent can autonomously construct, optimize, and distill reusable &quot;Agent Skills&quot; at inference time [Abstract]. Traditional skill-extraction methods typically rely …</span></li>
-<li><span class="date">2026-06-21</span><a class="title" href="https://lens.lumihelia.com/en/papers/g-memory-hierarchical-memory-multi-agent-systems.html">G-Memory: Tracing Hierarchical Memory for Multi-Agent Systems · Guibin Zhang</a><span class="summary">This paper targets the missing self-adaptive and self-evolving capacity in LLM-driven multi-agent systems (MAS), arguing that the root bottleneck is the lack of a memory mechanism designed specificall…</span></li>
-<li><span class="date">2026-06-14</span><a class="title" href="https://lens.lumihelia.com/en/papers/li-curtis-working-memory-neural-dynamics.html">Neural Population Dynamics of Human Working Memory: Memory Is Not Storage, It Is Transformation</a><span class="summary">This is a bioRxiv preprint by Hsin-Hung Li and Clayton E. Curtis (Department of Psychology and Center for Neural Science, New York University), studying how working memory representations evolve over …</span></li>
-<li><span class="date">2026-06-14</span><a class="title" href="https://lens.lumihelia.com/en/papers/patel-wang-fan-transformer-executive-control.html">Deficient Executive Control in Transformer Attention: The Stroop Test Reveals What LLMs Cannot Do</a><span class="summary">This is a bioRxiv preprint by Suketu Patel, Hongbin Wang, and Jin Fan (Queens College, CUNY / Texas A&amp;M University College of Medicine). The paper uses psychology&#x27;s classic conflict test — the Stroop …</span></li>
-<li><span class="date">2026-06-10</span><a class="title" href="https://lens.lumihelia.com/en/papers/microglia-function-cns-development-plasticity.html">Microglia Function in Central Nervous System Development and Plasticity · Dorothy P. Schafer</a><span class="summary">Dorothy P. Schafer and Beth Stevens systematically synthesize the physiological functions of microglia in CNS development and plasticity. Long misunderstood as mere responders in pathological states, …</span></li>
-<li><span class="date">2026-06-09</span><a class="title" href="https://lens.lumihelia.com/en/papers/microglia-synaptic-pruning.html">A New Perspective on Synaptic Pruning · Soyon Hong</a><span class="summary">This paper delves into the role and mechanisms of microglia-mediated synaptic pruning under physiological and pathological conditions. The authors Soyon Hong, Lasse Dissing-Olesen, and Beth Stevens pr…</span></li>
-<li><span class="date">2026-06-09</span><a class="title" href="https://lens.lumihelia.com/en/papers/active-forgetting.html">Active Forgetting and Neuropsychiatric Diseases · Jacob A. Berry</a><span class="summary">In this Expert Review, Jacob A. Berry, Dana C. Guhle, and Ronald L. Davis comprehensively elucidate the neurobiological mechanisms of &quot;active forgetting&quot; and their relationship with neuropsychiatric d…</span></li>
-<li><span class="date">2026-06-06</span><a class="title" href="https://lens.lumihelia.com/en/papers/humans-almanac.html">Action-Level Mental Model Dataset for Agent Collaboration · Jiaju Chen</a><span class="summary">This paper introduces ALMANAC, the first dataset of Action-Level Mental Model Annotations for human-agent collaboration. Although Large Language Model (LLM) agents possess multi-step reasoning and pla…</span></li>
-<li><span class="date">2026-06-06</span><a class="title" href="https://lens.lumihelia.com/en/papers/agent-memory.html">Agent Memory: System Characterization and Implications for Long-Horizon Workloads · Yasmine Omri</a><span class="summary">This paper presents the first system-level characterization of Agent Memory Systems for Large Language Models (LLMs). As LLM agents are increasingly deployed in long-horizon tasks requiring continuous…</span></li>
-<li><span class="date">2026-06-06</span><a class="title" href="https://lens.lumihelia.com/en/papers/the-era-of-experience.html">The Era of Experience: Reinforcement Learning Beyond Human Data · David Silver</a><span class="summary">This paper is written by David Silver and Richard S. Sutton (the text is a preprint of a chapter in the forthcoming book Designing an Intelligence to be published by MIT Press). The paper explores how…</span></li>
-</ul>
-<p class="index-disclaimer">This is one source-grounded reading, not a replacement for the original. Every point is anchored to its source, so you can check it yourself — and corrections are welcome.</p>
-<p class="foot">Subscribe:<a href="https://lens.lumihelia.com/en/papers/feed.xml">RSS</a> · <a href="https://lens.lumihelia.com/en/papers/papers.json">JSON Feed</a></p>
-
-</div>
+<p>This page has moved to <a href="https://lens.lumihelia.com/papers/">https://lens.lumihelia.com/papers/</a>.</p>
 </body>
 </html>

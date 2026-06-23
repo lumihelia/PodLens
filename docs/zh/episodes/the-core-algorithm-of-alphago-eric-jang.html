@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AlphaGo 的核心算法 · Eric Jang · PodLens</title>
+<meta name="description" content="嘉宾 Eric Jang 是一名研究员，他最近重建了一个围棋 AI。在本期节目中，他解释了 AlphaGo 的核心原理。本期节目介绍了围棋的规则、其博弈树对于经典搜索算法的棘手之处，以及 AlphaGo 如何结合蒙特卡洛树搜索（MCTS）和两个神经网络（一个策略网络和一个价值网络）来解决这个问题。讨论的核心机制是自我对弈强化学习循环，其中 MCTS 过程充当“策略改进算子”，生成更优的落子分布，然…">
+<meta name="author" content="lumihelia">
+<meta name="keywords" content="蒙特卡洛树搜索, 策略和价值网络, 自我对弈强化学习, 分摊式搜索, 策略改进算子">
+<link rel="canonical" href="https://lens.lumihelia.com/zh/episodes/the-core-algorithm-of-alphago-eric-jang.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://lens.lumihelia.com/zh/episodes/the-core-algorithm-of-alphago-eric-jang.html"><link rel="alternate" hreflang="en" href="https://lens.lumihelia.com/episodes/the-core-algorithm-of-alphago-eric-jang.html"><link rel="alternate" hreflang="x-default" href="https://lens.lumihelia.com/episodes/the-core-algorithm-of-alphago-eric-jang.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AlphaGo 的核心算法 · Eric Jang · PodLens">
+<meta property="og:description" content="嘉宾 Eric Jang 是一名研究员，他最近重建了一个围棋 AI。在本期节目中，他解释了 AlphaGo 的核心原理。本期节目介绍了围棋的规则、其博弈树对于经典搜索算法的棘手之处，以及 AlphaGo 如何结合蒙特卡洛树搜索（MCTS）和两个神经网络（一个策略网络和一个价值网络）来解决这个问题。讨论的核心机制是自我对弈强化学习循环，其中 MCTS 过程充当“策略改进算子”，生成更优的落子分布，然…">
+<meta property="og:url" content="https://lens.lumihelia.com/zh/episodes/the-core-algorithm-of-alphago-eric-jang.html">
+<link rel="alternate" type="application/rss+xml" title="PodLens" href="https://lens.lumihelia.com/zh/feed.xml"><link rel="alternate" type="application/json" title="PodLens" href="https://lens.lumihelia.com/zh/episodes.json">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "AlphaGo 的核心算法 · Eric Jang", "datePublished": "2026-06-04", "inLanguage": "zh-Hans", "url": "https://lens.lumihelia.com/zh/episodes/the-core-algorithm-of-alphago-eric-jang.html", "description": "嘉宾 Eric Jang 是一名研究员，他最近重建了一个围棋 AI。在本期节目中，他解释了 AlphaGo 的核心原理。本期节目介绍了围棋的规则、其博弈树对于经典搜索算法的棘手之处，以及 AlphaGo 如何结合蒙特卡洛树搜索（MCTS）和两个神经网络（一个策略网络和一个价值网络）来解决这个问题。讨论的核心机制是自我对弈强化学习循环，其中 MCTS 过程充当“策略改进算子”，生成更优的落子分布，然…", "author": {"@type": "Person", "name": "lumihelia"}, "publisher": {"@type": "Person", "name": "lumihelia"}, "keywords": "蒙特卡洛树搜索, 策略和价值网络, 自我对弈强化学习, 分摊式搜索, 策略改进算子", "isBasedOn": "https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=1082s"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --text: #2C2C2C; --primary: #4C436F; --bg: #F4F3F7; --muted: #9A93B3;
+  --border: #D4D0E0; --white: #FFFFFF; --radius: 12px; --shadow: rgba(76,67,111,0.08);
+}
+* { box-sizing: border-box; }
+body {
+  font-family: 'Source Serif Pro', serif; color: var(--text);
+  background: var(--bg); line-height: 1.75; margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 96px 24px 128px; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text); line-height: 1.25; }
+h1 { font-size: 2.6rem; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.01em; }
+h2 { font-size: 1.5rem; font-weight: 600; margin: 64px 0 16px; }
+h3 { font-size: 1.15rem; font-weight: 600; margin: 32px 0 8px; }
+p { margin: 0 0 20px; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.meta { color: var(--muted); font-size: 0.95rem; margin: 0 0 64px; }
+.site-head { margin-bottom: 80px; }
+.site-head .tagline { color: var(--muted); font-size: 1.05rem; margin-top: 4px; }
+ul, ol { padding-left: 1.4em; }
+li { margin: 6px 0; }
+.episode-list { list-style: none; padding: 0; }
+.episode-list li { margin: 0 0 48px; }
+.episode-list .date { color: var(--muted); font-size: 0.9rem; }
+.episode-list .title { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 600; display: block; margin: 4px 0 8px; }
+.episode-list .summary { color: #5a5566; }
+.foot { margin-top: 96px; color: var(--muted); font-size: 0.85rem; }
+.disclaimer { margin-top: 16px; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.index-disclaimer { margin: 48px 0 0; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.topbar { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 48px; }
+.back { color: var(--muted); }
+.langswitch { color: var(--muted); font-size: 0.9rem; border: 1px solid var(--border); padding: 4px 12px; border-radius: 999px; }
+.langswitch:hover { color: var(--primary); border-color: var(--primary); text-decoration: none; }
+.sectionnav { display: flex; align-items: baseline; flex-wrap: wrap; gap: 20px; }
+.sectionnav .brand { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.05rem; color: var(--text); }
+.sectionnav .sec { color: var(--muted); font-size: 0.9rem; padding-bottom: 2px; }
+.sectionnav .sec.active { color: var(--text); border-bottom: 1px solid var(--text); }
+.sectionnav a:hover { color: var(--primary); text-decoration: none; }
+a.ts { color: var(--primary); font-variant-numeric: tabular-nums; white-space: nowrap; text-decoration: none; border-bottom: 1px dotted var(--border); }
+a.ts:hover { border-bottom-style: solid; }
+.source { color: var(--muted); font-size: 0.95rem; margin: 0 0 24px; }
+.player-wrap { position: sticky; top: 0; z-index: 10; background: var(--bg); padding: 12px 0 16px; margin: 0 0 32px; }
+.player-box { position: relative; width: 100%; max-width: 460px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 10px var(--shadow); }
+.player-box #ytplayer, .player-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 48px; }
+.tags span { font-size: 0.85rem; color: var(--primary); background: #EDEBF4; padding: 4px 12px; border-radius: 999px; }
+.connections { list-style: none; padding: 0; margin: 0; }
+.connections li { margin: 0 0 28px; padding-left: 16px; border-left: 2px solid var(--border); }
+.connections .rel { font-size: 0.8rem; color: var(--primary); background: #EDEBF4; padding: 2px 10px; border-radius: 999px; margin-right: 8px; }
+.connections .lk { font-family: 'Playfair Display', serif; font-weight: 600; }
+.connections .why { margin: 8px 0 6px; }
+.connections .pts { color: var(--muted); font-size: 0.92rem; }
+.connections .pts > div { margin-top: 4px; }
+.connections .who { color: var(--text); font-weight: 600; margin-right: 8px; }
+.connections.tensions li { border-left-color: var(--primary); }
+.ctype { font-size: 0.72rem; padding: 1px 9px; border-radius: 999px; margin-right: 8px; letter-spacing: 0.02em; }
+.ctype-genuine { color: #fff; background: var(--primary); }
+.ctype-apparent { color: var(--muted); background: #EDEBF4; }
+.editor-note { background: #EDEBF4; border-radius: 12px; padding: 24px 28px; margin: 0 0 48px; }
+.editor-note .en-label { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 10px; }
+.editor-note p { margin: 0 0 12px; }
+.editor-note p:last-child { margin-bottom: 0; }
+.claim-meta { display: block; margin-top: 2px; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+.claim-meta-first { margin-top: 8px; }
+.claim-meta a.ts { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="topbar"><nav class="sectionnav"><a class="brand" href="https://lens.lumihelia.com/zh/">PodLens</a><a class="sec active" href="https://lens.lumihelia.com/zh/">episodes</a><a class="sec" href="https://lens.lumihelia.com/zh/papers/">papers</a></nav><a class="langswitch" href="https://lens.lumihelia.com/episodes/the-core-algorithm-of-alphago-eric-jang.html">English</a></div>
+<h1>AlphaGo 的核心算法 · Eric Jang</h1>
+<p class="meta">2026-06-04 · 由 PodLens 生成的忠实解读</p>
+<p class="source">原节目:<a href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&amp;t=1082s" target="_blank" rel="noopener">https://www.youtube.com/watch?v=X_ZVSPcZhtw&amp;t=1082s</a>　·　时间戳可点击,就地跳转播放器</p>
+<div class="player-wrap"><div class="player-box"><div id="ytplayer"></div></div></div>
+<script>
+var PL = (function() {
+  var player, ready = false, pending = null;
+  window.onYouTubeIframeAPIReady = function() {
+    player = new YT.Player('ytplayer', {
+      videoId: 'X_ZVSPcZhtw',
+      host: 'https://www.youtube-nocookie.com',
+      playerVars: {playsinline: 1, rel: 0},
+      events: {onReady: function() { ready = true; if (pending != null) { var p = pending; pending = null; seek(p); } }}
+    });
+  };
+  function seek(s) {
+    if (!ready) { pending = s; return false; }
+    player.seekTo(s, true); player.playVideo();
+    document.querySelector('.player-wrap').scrollIntoView({behavior: 'smooth', block: 'start'});
+    return false;
+  }
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+  document.addEventListener('DOMContentLoaded', function() {
+    var t = new URLSearchParams(location.search).get('t');
+    if (t) { seek(parseInt(t, 10)); }
+  });
+  return {seek: seek};
+})();
+</script>
+<div class="tags"><span>蒙特卡洛树搜索</span><span>策略和价值网络</span><span>自我对弈强化学习</span><span>分摊式搜索</span><span>策略改进算子</span></div>
+
+<h2>这期讲了什么</h2>
+<p>嘉宾 Eric Jang 是一名研究员，他最近重建了一个围棋 AI。在本期节目中，他解释了 AlphaGo 的核心原理。本期节目介绍了围棋的规则、其博弈树对于经典搜索算法的棘手之处，以及 AlphaGo 如何结合蒙特卡洛树搜索（MCTS）和两个神经网络（一个策略网络和一个价值网络）来解决这个问题。讨论的核心机制是自我对弈强化学习循环，其中 MCTS 过程充当“策略改进算子”，生成更优的落子分布，然后用作训练目标，将搜索的能力提炼到神经网络中。本期节目将这种样本高效的方法与用于大语言模型（LLM）的高方差方法进行了对比，并探讨了其对人工智能研究的更广泛影响，包括计算复杂性的本质和自动化科学的潜力。</p>
+<h2>时间线主题地图</h2>
+<ul>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=0s" target="_blank" rel="noopener" onclick="return PL.seek(0)">[00:00:00 - 00:02:13]</a></code> 介绍嘉宾 Eric Jang 及其在休假期间重建和改进 AlphaGo 的项目。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=134s" target="_blank" rel="noopener" onclick="return PL.seek(134)">[00:02:14 - 00:08:03]</a></code> 解释围棋游戏，包括其规则、目标以及对计算机友好的 Tromp-Taylor 计分系统。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=484s" target="_blank" rel="noopener" onclick="return PL.seek(484)">[00:08:04 - 00:12:22]</a></code> 围棋庞大博弈树的棘手之处，以及为什么它长期以来被认为是计算机无法解决的问题。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=743s" target="_blank" rel="noopener" onclick="return PL.seek(743)">[00:12:23 - 00:24:23]</a></code> 详解核心搜索算法——蒙特卡洛树搜索（MCTS），包括用于平衡探索与利用的 UCB1 和 PUCT 动作选择标准。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=1464s" target="_blank" rel="noopener" onclick="return PL.seek(1464)">[00:24:24 - 00:31:53]</a></code> 神经网络在使搜索变得可行方面的作用：价值网络用于估计胜率（剪枝深度），策略网络用于建议好的落子（剪枝广度）。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=1914s" target="_blank" rel="noopener" onclick="return PL.seek(1914)">[00:31:54 - 00:43:09]</a></code> 神经网络架构的细节（ResNets 与 Transformers），以及使用专家数据进行初始化以启动学习过程的重要性。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=2590s" target="_blank" rel="noopener" onclick="return PL.seek(2590)">[00:43:10 - 00:58:51]</a></code> AlphaGo 中实现的 MCTS 四步流程（选择、扩展、评估、反向传播），并集成了神经网络。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=3623s" target="_blank" rel="noopener" onclick="return PL.seek(3623)">[01:00:23 - 01:07:29]</a></code> 强化学习（RL）自我对弈循环：MCTS 如何用于生成改进的策略目标，然后网络学习预测这些目标，从而有效地将搜索分摊到单次前向传播中。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=4050s" target="_blank" rel="noopener" onclick="return PL.seek(4050)">[01:07:30 - 01:14:46]</a></code> 实际训练中的考量，例如 MCTS 要想有效，必须有一个准确的价值函数，以及良好初始化的策略。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=4487s" target="_blank" rel="noopener" onclick="return PL.seek(4487)">[01:14:47 - 01:24:24]</a></code> AlphaGo 的哲学意义：一个浅层神经网络如何能够近似一个棘手的搜索问题，并触及 P vs. NP 和混沌系统等问题。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=5065s" target="_blank" rel="noopener" onclick="return PL.seek(5065)">[01:24:25 - 01:37:19]</a></code> AlphaGo 的强化学习方法与用于大语言模型的策略梯度方法的比较，突显了前者的低方差和高样本效率。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=5840s" target="_blank" rel="noopener" onclick="return PL.seek(5840)">[01:37:20 - 01:51:02]</a></code> 讨论在 MCTS 不可行时的替代强化学习方法，如神经虚拟自我对弈，以及 MCTS 与 Q-learning 之间的关系。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=6663s" target="_blank" rel="noopener" onclick="return PL.seek(6663)">[01:51:03 - 02:00:07]</a></code> 对重建 AlphaGo 的反思，包括计算成本随时间的急剧下降以及“惨痛教训”的适用性。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=7208s" target="_blank" rel="noopener" onclick="return PL.seek(7208)">[02:00:08 - 02:22:01]</a></code> 对 AlphaGo 重放缓冲区中离策略学习的分析，并总结了其强化学习算法为何如此优雅和高效。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=8522s" target="_blank" rel="noopener" onclick="return PL.seek(8522)">[02:22:02 - 02:35:58]</a></code> 以该项目为案例研究自动化人工智能研究，详细说明大语言模型助手目前擅长的方面（如超参数调整）和不足之处（如高层策略）。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=9359s" target="_blank" rel="noopener" onclick="return PL.seek(9359)">[02:35:59 - 02:37:12]</a></code> 结论以及 Eric Jang 的项目仓库和相关博客文章的链接。</li>
+</ul>
+<h2>核心观点清单</h2>
+<ol>
+<li>
+<p>长期以来，围棋因其巨大的搜索空间（约 361³⁰⁰ 种可能的棋局）被认为对人工智能来说是棘手的，但通过使用深度学习智能地修剪搜索树而非穷尽地探索，这个问题得到了解决。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=3538s" target="_blank" rel="noopener" onclick="return PL.seek(3538)">[00:58:58 - 01:00:06]</a></span>
+   <span class="claim-meta">类型 事实</span></p>
+</li>
+<li>
+<p>AlphaGo 的核心是由两个神经网络指导的蒙特卡洛树搜索（MCTS）算法。一个<em>价值网络</em>用于估计在给定棋盘状态下的获胜概率，这使得搜索可以提前终止。一个<em>策略网络</em>用于建议有希望的落子，将搜索广度从所有合法落子缩小到少数几个好的落子。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=1650s" target="_blank" rel="noopener" onclick="return PL.seek(1650)">[00:27:30 - 00:28:15]</a></span>
+   <span class="claim-meta">类型 事实</span></p>
+</li>
+<li>
+<p>该系统通过自我对弈强化学习循环进行改进，其中 MCTS 充当“策略改进算子”。对于任何给定的棋盘状态，MCTS 执行深度搜索，以生成比策略网络初始猜测更好、更自信的落子分布。然后训练策略网络直接预测这种改进后的分布。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=3766s" target="_blank" rel="noopener" onclick="return PL.seek(3766)">[01:02:46 - 01:03:17]</a></span>
+   <span class="claim-meta">类型 事实</span></p>
+</li>
+<li>
+<p>这种强化学习训练过程非常稳定且样本高效，因为它为每场对局中的每一步都生成了低方差的监督信号，而与最终结果无关。它用来自搜索的“更好”的行动分布重新标记行动，这个过程类似于机器人学中的 DAgger 算法。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=3949s" target="_blank" rel="noopener" onclick="return PL.seek(3949)">[01:05:49 - 01:07:18]</a></span>
+   <span class="claim-meta">类型 观点</span></p>
+</li>
+<li>
+<p>这种方法与常用于大语言模型的策略梯度强化学习形成鲜明对比，后者存在高方差问题。大语言模型的强化学习通常依赖于长轨迹末端的单一、稀疏的奖励信号（例如，赢/输），这使得功劳分配和高效学习变得困难，这个问题被描述为“通过吸管吸取监督信号”。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=5309s" target="_blank" rel="noopener" onclick="return PL.seek(5309)">[01:28:29 - 01:28:50]</a></span>
+   <span class="claim-meta">类型 观点</span></p>
+</li>
+<li>
+<p>AlphaGo 带来的一个深刻见解是，一个浅层神经网络可以学会“分摊”一个巨大、几乎棘手的搜索的计算量。这种将复杂、顺序的推理过程压缩为单次、并行的前向传播的能力，挑战了我们对于在最坏情况下是 NP-hard 问题实际难度的直觉。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=4651s" target="_blank" rel="noopener" onclick="return PL.seek(4651)">[01:17:31 - 01:18:46]</a></span>
+   <span class="claim-meta">类型 观点</span></p>
+</li>
+<li>
+<p>构建世界级围棋 AI 所需的计算量已大幅下降。最初需要 DeepMind 的庞大团队和海量计算资源才能完成的工作，现在由于算法的改进（例如 KataGo）和硬件的提升，个人只需花费数千美元即可复制。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=109s" target="_blank" rel="noopener" onclick="return PL.seek(109)">[00:01:49 - 00:02:13]</a></span>
+   <span class="claim-meta">类型 事实</span></p>
+</li>
+<li>
+<p>成功的自我对弈训练严重依赖于一个准确的价值函数。如果价值网络在搜索树的叶子节点上给出的胜率估计很差，整个 MCTS 过程可能会被破坏，导致推荐的策略比初始策略还要糟糕。这使得良好的初始化（例如，使用专家数据）至关重要。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=4134s" target="_blank" rel="noopener" onclick="return PL.seek(4134)">[01:08:54 - 01:09:19]</a></span>
+   <span class="claim-meta">类型 观点</span></p>
+</li>
+<li>
+<p>尽管 MCTS 在围棋上很强大，但将其直接应用于像大语言模型推理这样的开放式领域是困难的。语言的行动空间在组合上更大且不那么离散，使得像 PUCT 这样的探索启发式方法无效，而且定义一个可靠的、用于截断搜索的中间价值函数也困难得多。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=6465s" target="_blank" rel="noopener" onclick="return PL.seek(6465)">[01:47:45 - 01:50:32]</a></span>
+   <span class="claim-meta">类型 观点</span></p>
+</li>
+<li>
+<p>在这个项目中使用大语言模型进行自动化研究表明，它们擅长定义明确的局部优化任务，如超参数调整和执行已描述的实验。然而，它们目前缺乏识别有缺陷的研究方向、调试复杂系统或提出根本性新方法所需的高层战略和横向思维能力。
+   <span class="claim-meta claim-meta-first">证据 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=8593s" target="_blank" rel="noopener" onclick="return PL.seek(8593)">[02:23:13 - 02:25:40]</a></span>
+   <span class="claim-meta">类型 例子</span></p>
+</li>
+</ol>
+<h2>大白话重讲</h2>
+<p>本期节目深入探讨了掌握围棋的 AI——AlphaGo 的实际工作原理。嘉宾 Eric Jang 最近亲自承担了重建它的项目，他将从头开始为我们讲解核心概念。</p>
+<p>首先，简单介绍一下围棋。这是一种棋盘游戏，黑白两方在棋盘上放置棋子，以包围和占领地盘。规则简单，但策略极其深奥。对计算机来说，主要挑战在于可能的游戏数量极其庞大。在标准的 19x19 棋盘上，所有可能落子序列组成的“博弈树”大到天文数字——大约是 361 的 300 次方，这个数字远超宇宙中的原子数量 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=648s" target="_blank" rel="noopener" onclick="return PL.seek(648)">[10:48]</a>。这就是为什么几十年来，专家们都认为计算机永远无法击败顶尖的人类棋手；简单的暴力搜索是行不通的。</p>
+<p>AlphaGo 的解决方案不是搜索整个树，而是<em>更聪明地</em>搜索。它使用的核心算法叫做蒙特卡洛树搜索（MCTS）。AI 不会构建出完整的树，而是在每一步棋时，运行数千次小型模拟，探索游戏未来的不同路径。这个过程中的一个关键挑战是平衡“利用”（沿着在过去模拟中看起来有希望的路径）和“探索”（尝试新的、较少走过的、可能出奇制胜的路径）。一个名为 PUCT 的公式帮助 AI 在搜索的每一步做出这种权衡 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=955s" target="_blank" rel="noopener" onclick="return PL.seek(955)">[15:55]</a>。</p>
+<p>但即使是 MCTS 本身，对于如此复杂的游戏来说也太慢了。这就是深度学习突破的用武之地。AlphaGo 使用两个神经网络来模仿人类的直觉，并极大地加速搜索过程：</p>
+<ol>
+<li><strong>价值网络：</strong> 这个网络观察任何给定的棋盘局面，并估计从该状态获胜的概率 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=1516s" target="_blank" rel="noopener" onclick="return PL.seek(1516)">[25:16]</a>。这是一个巨大的捷径。AI 不必将一局棋模拟到最后看谁赢，只需向价值网络询问一个快速的猜测。这有效地“修剪了搜索的深度”，使其能够提前停止。</li>
+<li><strong>策略网络：</strong> 这个网络观察棋盘，并建议少数几个最有希望的落子 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=1937s" target="_blank" rel="noopener" onclick="return PL.seek(1937)">[32:17]</a>。搜索不必考虑所有 300 多个合法落子，而是可以专注于策略网络“直觉”认为好的那几个。这“修剪了搜索的广度”。</li>
+</ol>
+<p>因此，对于它要走的每一步棋，AI 都会执行这个 MCTS 过程，这是一个重复数千次的四步循环 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=2713s" target="_blank" rel="noopener" onclick="return PL.seek(2713)">[45:13]</a>：
+1.  <strong>选择：</strong> 它从当前棋盘开始，沿着已经探索过的落子树向下行进，使用 PUCT 公式来引导其路径。
+2.  <strong>扩展：</strong> 当它在搜索中到达一个前所未见的状态时，它会通过考虑可能的下一步落子来“扩展”树。
+3.  <strong>评估：</strong> 它使用价值网络为这个新的、未探索的状态快速打分。
+4.  <strong>反向传播：</strong> 它将该分数沿来路一直传播回去，更新该路径上所有落子的平均胜率。</p>
+<p>经过数千次这样的模拟后，AI 对哪一步开局最好有了非常清晰的认识，然后它就下出那步棋。接着，在下一回合，它会丢弃整个搜索树，从新的棋盘状态重新开始整个过程 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=1757s" target="_blank" rel="noopener" onclick="return PL.seek(1757)">[29:17]</a>。</p>
+<p>接下来是最优雅的部分：系统如何通过自我对弈来学习和提高。这就是强化学习（RL）循环。对于任何给定的棋盘状态，策略网络会做出一个初始的、“本能的”关于最佳落子的猜测。但随后，MCTS 过程会运行其深度搜索，并得出一个<em>更好</em>、更自信的优质落子分布 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=3643s" target="_blank" rel="noopener" onclick="return PL.seek(3643)">[01:00:43]</a>。AlphaGo 的关键洞见在于，将这个经过搜索改进的结果作为新的“正确答案”。然后，策略网络被训练来直接预测这个更精炼的结果 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=3773s" target="_blank" rel="noopener" onclick="return PL.seek(3773)">[01:02:53]</a>。</p>
+<p>本质上，搜索的缓慢、计算成本高昂的工作被“提炼”或“分摊”到神经网络快速、单次通过的直觉中。网络学会了拥有搜索所提供的智慧。这个过程效率极高。与常用于大语言模型（LLM）的强化学习方法不同——后者可能在很长一系列动作后只得到一个“你赢了”或“你输了”的信号，这个问题被描述为“通过吸管吸取监督信号”<a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=5316s" target="_blank" rel="noopener" onclick="return PL.seek(5316)">[01:28:36]</a>——AlphaGo 的方法为每场对局中的<em>每一步棋</em>都生成了高质量的训练信号，无论输赢 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=3949s" target="_blank" rel="noopener" onclick="return PL.seek(3949)">[01:05:49]</a>。这使得学习过程极其稳定。</p>
+<p>从 AlphaGo 中可以得出的最深刻的哲学启示是，一个相对简单、浅层的神经网络可以学会近似一个极其庞大搜索的结果 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=4651s" target="_blank" rel="noopener" onclick="return PL.seek(4651)">[01:17:31]</a>。这挑战了我们关于什么使问题在计算上“困难”的观念。它表明，许多在最坏情况下技术上棘手的问题，如围棋或蛋白质折叠，可能具有足够的底层结构，以至于神经网络可以迅速找到出色的解决方案。</p>
+<p>最后，Eric Jang 反思了在这个研究项目中使用大语言模型助手的情况。他发现它们在定义明确的局部任务上表现出色，比如调整超参数或运行一个描述清晰的实验 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=8593s" target="_blank" rel="noopener" onclick="return PL.seek(8593)">[02:23:13]</a>。然而，它们目前缺乏高层次的战略能力，无法意识到整个研究方向是死胡同、调试复杂的系统性问题，或提出根本性的新方法 <a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=8722s" target="_blank" rel="noopener" onclick="return PL.seek(8722)">[02:25:22]</a>。</p>
+<h2>值得精听的片段</h2>
+<ul>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=3766s" target="_blank" rel="noopener" onclick="return PL.seek(3766)">[01:02:46 - 01:04:25]</a></code> <strong>自我对弈学习循环。</strong> 这是 AlphaGo 如何改进的绝对核心。Eric Jang 清晰地解释了缓慢、审慎的 MCTS 搜索如何生成一组“更好”的落子概率，这组概率随后成为快速、直觉的策略网络的训练目标。听懂这一点是理解搜索如何被“分摊”到网络中的关键。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=4651s" target="_blank" rel="noopener" onclick="return PL.seek(4651)">[01:17:31 - 01:18:46]</a></code> <strong>哲学洞见。</strong> 在这里，对话的视角扩展到 AlphaGo 更广泛的意义。Eric 解释了为什么一个浅层神经网络能够近似一个几乎棘手的搜索问题是如此深刻，并将其与计算机科学中的基本问题（如 P vs. NP）联系起来。这一刻将讨论从技术细节提升到了深层含义的层面。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=5309s" target="_blank" rel="noopener" onclick="return PL.seek(5309)">[01:28:29 - 01:28:50]</a></code> <strong>与大语言模型强化学习的对比。</strong> 这一片段清晰直观地对比了 AlphaGo 的高效学习方法与大语言模型训练中常见的高方差、“通过吸管吸取监督信号”的方法。它清楚地阐明了为什么 AlphaGo 的强化学习算法如此优雅和稳定。</li>
+<li><code><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=8700s" target="_blank" rel="noopener" onclick="return PL.seek(8700)">[02:25:00 - 02:25:40]</a></code> <strong>人工智能在自动化研究中的局限性。</strong> Eric 以自己的项目为案例，对大语言模型助手擅长的方面（局部的、定义明确的任务）和目前不足之处（高层策略、横向思维和复杂调试）给出了一个接地气且细致入微的看法。这是关于自动化科学现状的一个宝贵的、来自真实世界的视角。</li>
+</ul>
+<h2>与往期的呼应</h2><ul class="connections"><li><span class="rel">平行</span>→ <a class="lk" href="https://lens.lumihelia.com/zh/episodes/don-lincoln-lex-fridman-497.html">物理学的统一 · Don Lincoln</a><div class="why">两个论点都强调了一个问题领域（Go，基础物理学），其状态空间过于庞大，无法进行穷举探索（棋步的组合爆炸，与 Planck scale 的巨大能量差距），因此需要替代性的、非暴力破解的方法。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=3538s" target="_blank" rel="noopener" onclick="return PL.seek(3538)">[00:58:58 - 01:00:06]</a> 长期以来，围棋（Go）游戏因其庞大的搜索空间（约有 361³⁰⁰ 种可能的棋局）而被认为人工智能难以解决，但通过使用深度学习智能地修剪搜索树，而非穷举探索，这个问题得到了解决。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/don-lincoln-lex-fridman-497.html?t=4532">[1:15:32]</a>, <a class="ts" href="https://lens.lumihelia.com/zh/episodes/don-lincoln-lex-fridman-497.html?t=5151">[1:25:51]</a> “万有理论”可能还需要数个世纪才能实现，因为它所预测适用的能量尺度比目前可测试的要高出千万亿倍，并且，假设在那巨大的差距中不会发现新的、意想不到的物理学是傲慢的。</div></div></li><li><span class="rel">平行</span>→ <a class="lk" href="https://lens.lumihelia.com/zh/episodes/hakeem-oluseyi.html">宇宙的三个领域 · Hakeem Oluseyi</a><div class="why">两者都描述了一种紧凑、非直观的数学抽象（神经网络的前向传播，波函数），它成功地预测了一个远为复杂的底层过程的结果（一个棘手的博弈树搜索，一个量子实体的行为）。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=4651s" target="_blank" rel="noopener" onclick="return PL.seek(4651)">[01:17:31 - 01:18:46]</a> AlphaGo 带来的一个深刻见解是，一个浅层神经网络可以学会“摊销”一个巨大且几乎棘手的搜索计算。这种将复杂的顺序推理过程压缩为单次并行化前向传播的能力，挑战了人们对于在最坏情况下是 NP-hard 的问题的实际难度的直觉。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/hakeem-oluseyi.html?t=390">[06:30-07:47]</a> 量子实体的真实物理性质是未知的；物理学家根据计算需要使用不同的模型（粒子、波等）。波函数是一种数学抽象，尽管缺乏直接的物理直觉，但它能以惊人的精度预测测量结果。</div></div></li><li><span class="rel">延伸</span>← <a class="lk" href="https://lens.lumihelia.com/zh/papers/the-era-of-experience.html">经验时代：超越人类数据的强化学习 · David Silver</a><div class="why">前者指出了在离散且组合空间巨大的语言空间中进行搜索和推理的局限性，而后者提出智能体可以使用非人类语言（如连续或分布式计算）来发现更高效的思考机制，这为克服语言空间的搜索瓶颈提供了潜在的解决路径。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=6465s" target="_blank" rel="noopener" onclick="return PL.seek(6465)">[01:47:45 - 01:50:32]</a> 尽管 MCTS 在围棋上很强大，但将其直接应用于像大语言模型推理这样的开放式领域是困难的。语言的行动空间在组合上更大且不那么离散，使得像 PUCT 这样的探索启发式方法无效，而且定义一个可靠的、用于截断搜索的中间价值函数也困难得多。</div><div><b class="who">往期</b>Planning and Reasoning · &quot;discover or improve such approaches by learning how to&quot; 智能体可以利用非人类语言（如符号、分布式或连续计算）发现或改进更高效的思考机制，而无需局限于模仿人类的思维链。</div></div></li><li><span class="rel">印证</span>← <a class="lk" href="https://lens.lumihelia.com/zh/papers/the-era-of-experience.html">经验时代：超越人类数据的强化学习 · David Silver</a><div class="why">前者强调摆脱人类预判、依赖环境具地反馈的重要性，而后者阐述的 AlphaGo 自我对弈机制正是通过游戏规则给出的确定性输赢反馈（接地奖励），在没有人类引导的情况下探索出超越人类的围棋策略。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=3766s" target="_blank" rel="noopener" onclick="return PL.seek(3766)">[01:02:46 - 01:03:17]</a> 该系统通过自我对弈强化学习循环进行改进，其中 MCTS 充当“策略改进算子”。对于任何给定的棋盘状态，MCTS 执行深度搜索，以生成比策略网络初始猜测更好、更自信的落子分布。然后训练策略网络直接预测这种改进后的分布。</div><div><b class="who">往期</b>Rewards · &quot;Relying on human prejudgement in this manner usually leads&quot; 依赖人类预判的奖励会给智能体性能设定无法逾越的上限，而来自环境的具地/接地奖励（grounded rewards）能让智能体发现超越人类现有知识的新策略。</div></div></li><li><span class="rel">证实</span>← <a class="lk" href="https://lens.lumihelia.com/zh/episodes/representation-learning-and-predictive-world-models-saining.html">表征学习与预测世界模型 · Saining Xie</a><div class="why">Jang 的技术观察——语言不适合作为结构化搜索 and 推理的媒介，证实了 Xie 更广泛的哲学主张，即语言仅仅是一种压缩的沟通工具，而不是思维的直接映射。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=6465s" target="_blank" rel="noopener" onclick="return PL.seek(6465)">[01:47:45 - 01:50:32]</a> 直接将 MCTS 应用于 LLM 推理是困难的，因为语言的动作空间在组合上要大得多且不够离散，这使得很难为搜索定义一个可靠的中间价值函数。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/representation-learning-and-predictive-world-models-saining.html?t=14037">[03:53:57 - 04:10:06]</a> 语言是人类开发的一种高度压缩的沟通工具，而不是思维或决策的直接映射；因此，仅仅依赖语言模型会制造一个“拐杖”，限制真实智能的发展。</div></div></li><li><span class="rel">补充</span>← <a class="lk" href="https://lens.lumihelia.com/zh/episodes/the-reality-of-frontier-ai-and-the-end-of-individual-heroism.html">前沿 AI 的现实与个人英雄主义的终结 · Yao Shunyu</a><div class="why">Yao 对为什么编程是发展最快的 AI 场景的解释补充了 Jang 的观点，展示了定义明确的编译和测试反馈如何直接解决 LLM 强化学习中稀疏、高方差奖励信号的核心瓶颈。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=5309s" target="_blank" rel="noopener" onclick="return PL.seek(5309)">[01:28:29]</a> LLMs 的强化学习通常面临高方差和稀疏奖励信号（‘用吸管吸取监督信号’）的问题，使得信用分配和高效学习变得困难。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/the-reality-of-frontier-ai-and-the-end-of-individual-heroism.html?t=2154">[00:35:54]</a> 编程是发展最快的 AI 场景，因为它具有高度明确的反馈信号，并且在 GitHub 中拥有庞大且高质量的数据基础。</div></div></li><li><span class="rel">扩展</span>← <a class="lk" href="https://lens.lumihelia.com/zh/episodes/how-an-ai-chip-works-from-the-bottom-up-reiner-pope.html">AI 芯片如何从底层运作 · Reiner Pope</a><div class="why">本期节目解释了一个具体机制——低精度算术带来的超线性性能增益——这个机制是支撑 AI 计算成本下降的关键原因之一，即硬件的普遍改进。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=109s" target="_blank" rel="noopener" onclick="return PL.seek(109)">[00:01:49 - 00:02:13]</a> 构建世界级围棋 AI 所需的计算能力已大幅下降，部分原因在于硬件的显著改进。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/how-an-ai-chip-works-from-the-bottom-up-reiner-pope.html?t=894">[00:14:54 - 00:15:41]</a> 电路面积随位宽的二次方扩展是低精度算术对 AI 如此有效的主要原因，因为将精度减半可以使性能翻倍以上。</div></div></li><li><span class="rel">补充</span>← <a class="lk" href="https://lens.lumihelia.com/zh/episodes/how-an-ai-chip-works-from-the-bottom-up-reiner-pope.html">AI 芯片如何从底层运作 · Reiner Pope</a><div class="why">TPU 的硬件架构拥有大型专用单元，是将在 AlphaGo 节目中描述的“将搜索分摊到单个大规模并行计算中”这一算法原则的理想物理实现。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=4651s" target="_blank" rel="noopener" onclick="return PL.seek(4651)">[01:17:31 - 01:18:46]</a> AlphaGo 的一个深刻见解是，神经网络可以通过将顺序推理过程压缩为单次并行的前向传播，来“分摊”大规模搜索的计算量。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/how-an-ai-chip-works-from-the-bottom-up-reiner-pope.html?t=4563">[01:16:03 - 01:18:20]</a> TPU 由少数大型、粗粒度的单元组成，这种设计通过分摊控制逻辑的成本，对于大型、结构化的计算非常高效。</div></div></li></ul><h2>与往期的张力</h2><ul class="connections tensions"><li><span class="rel">对比</span><span class="ctype ctype-apparent">表面张力</span>← <a class="lk" href="https://lens.lumihelia.com/zh/episodes/representation-learning-and-predictive-world-models-saining.html">表征学习与预测世界模型 · Saining Xie</a><div class="why">Jang 强调了 AlphaGo 如何成功地将序列化推理（System 2 搜索）压缩为单个反应式前向传播（System 1 摊销），而 Xie 则认为真正的世界模型必须显式地保留预测性规划（System 2）来指导行动，而不是依赖反应式策略。</div><div class="pts"><div><b class="who">本期</b><a class="ts" href="https://www.youtube.com/watch?v=X_ZVSPcZhtw&t=4651s" target="_blank" rel="noopener" onclick="return PL.seek(4651)">[01:17:31 - 01:18:46]</a> 一个浅层神经网络可以学会“摊销”巨大的搜索，将复杂的序列化推理压缩为单个并行的前向传播。</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/representation-learning-and-predictive-world-models-saining.html?t=15444">[04:17:24 - 04:17:41]</a> 世界模型的本质是如何刻画一个系统和环境，以便你能做出预测……而这种预测可以指导你的行动序列，从而实现规划和推理（System 2 思维），而不仅仅是反应式策略（System 1）。</div></div></li></ul>
+<p class="foot">本页为对节目内容的忠实解读与大白话重述,由 <a href="https://github.com/lumihelia/PodLens">PodLens</a> 生成。</p>
+<p class="disclaimer">这是以原文为依据的一次解读,不能替代原文。每条要点都标注了出处,欢迎回到原文核对——也欢迎指出任何细微的偏差。</p>
+
+</div>
+</body>
+</html>
