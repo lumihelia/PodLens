@@ -7,6 +7,78 @@
 <language>en</language>
 <atom:link href="https://lens.lumihelia.com/papers/feed.xml" rel="self" type="application/rss+xml" />
 <item>
+<title>The Two Arrows of Pain: Mechanisms of Pain Related to Meditation and Mental States of Aversion and Identification · Valentina Nicolardi et al.</title>
+<link>https://lens.lumihelia.com/papers/two-arrows-of-pain-meditation-aversion-identification.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/papers/two-arrows-of-pain-meditation-aversion-identification.html</guid>
+<pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+<description>Buddhist psychology has a metaphor known as the &quot;two arrows&quot;: the first arrow is physical pain itself, the second arrow is one&#x27;s mental reaction to that pain (resisting it, identifying with it, feelin…</description>
+<category>two arrows</category>
+<category>Buddhist psychology</category>
+<category>Granger causality</category>
+<category>meditation</category>
+<category>pain identification</category>
+</item>
+<item>
+<title>Pain Catastrophizing: A Critical Review · Phillip Quartana et al.</title>
+<link>https://lens.lumihelia.com/papers/pain-catastrophizing-critical-review.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/papers/pain-catastrophizing-critical-review.html</guid>
+<pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+<description>When someone facing pain begins to ruminate on it, feels it&#x27;s unbearable, and feels completely helpless — this isn&#x27;t just &quot;weakness of character.&quot; It&#x27;s a cognitive process with a clear structure, that…</description>
+<category>pain catastrophizing</category>
+<category>cognitive behavioral</category>
+<category>chronic pain</category>
+<category>attention bias</category>
+<category>communal coping model</category>
+</item>
+<item>
+<title>The n-of-1 Clinical Trial: The Ultimate Strategy for Individualizing Medicine? · Elizabeth Lillie et al.</title>
+<link>https://lens.lumihelia.com/papers/n-of-1-clinical-trial-individualizing-medicine.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/papers/n-of-1-clinical-trial-individualizing-medicine.html</guid>
+<pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+<description>The gold standard of medical clinical trials is to recruit hundreds or thousands of people, run a randomized controlled trial, and arrive at a conclusion about &quot;what works for most people.&quot; But &quot;works…</description>
+<category>n-of-1 trials</category>
+<category>individualized medicine</category>
+<category>clinical equipoise</category>
+<category>self-experimentation</category>
+<category>precision medicine</category>
+</item>
+<item>
+<title>Letting Go of the &quot;Unwell Self&quot; in Chronic and Life-Challenging Conditions · Chloe Wells et al.</title>
+<link>https://lens.lumihelia.com/papers/letting-go-unwell-self-chronic-conditions.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/papers/letting-go-unwell-self-chronic-conditions.html</guid>
+<pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+<description>When a person is diagnosed with a chronic illness, their identity often reorganizes around it — &quot;patient&quot; becomes a central label, while dimensions like &quot;friend,&quot; &quot;parent,&quot; or &quot;someone with interests&quot;…</description>
+<category>non-self</category>
+<category>Buddhist psychology</category>
+<category>chronic illness</category>
+<category>identity</category>
+<category>mindfulness</category>
+</item>
+<item>
+<title>If LLMs Have Human-Like Attributes, Then So Does Age of Empires II · Adrian de Wynter</title>
+<link>https://lens.lumihelia.com/papers/if-llms-have-human-like-attributes-age-of-empires.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/papers/if-llms-have-human-like-attributes-age-of-empires.html</guid>
+<pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+<description>If a large language model (LLM) is considered to have &quot;human-like attributes&quot; — emotion, self-awareness, moral judgment — then, in principle, any sufficiently powerful &quot;substrate&quot; could exhibit the sa…</description>
+<category>anthropomorphism</category>
+<category>substrate non-uniqueness</category>
+<category>Turing-completeness</category>
+<category>computational theory of mind</category>
+<category>philosophy of science</category>
+</item>
+<item>
+<title>The Effects of AI Anthropomorphism on Trust and Responsibility · Victoria Oldemburgo de Mello et al.</title>
+<link>https://lens.lumihelia.com/papers/ai-anthropomorphism-trust-responsibility.html</link>
+<guid isPermaLink="true">https://lens.lumihelia.com/papers/ai-anthropomorphism-trust-responsibility.html</guid>
+<pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+<description>When an AI assistant introduces itself by name, expresses concern, and remembers what you said earlier, you trust it more — that&#x27;s the intuition. This paper quantifies that effect across two studies, …</description>
+<category>AI anthropomorphism</category>
+<category>trust game</category>
+<category>blame displacement</category>
+<category>emotional attunement</category>
+<category>AI governance</category>
+</item>
+<item>
 <title>SkillComposer: Inference-Time Adaptive Evolution of Agent Skills for LLMs · Qi Zhang</title>
 <link>https://lens.lumihelia.com/papers/skillcomposer-learning-to-evolve-agent-skills.html</link>
 <guid isPermaLink="true">https://lens.lumihelia.com/papers/skillcomposer-learning-to-evolve-agent-skills.html</guid>

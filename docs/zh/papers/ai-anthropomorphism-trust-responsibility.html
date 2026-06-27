@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 拟人化对信任与责任的影响 · Victoria Oldemburgo de Mello et al. · PodLens</title>
+<meta name="description" content="当一个 AI 助手用名字自我介绍、表达关心、记得你之前说过的话，你会更信任它——这是直觉。这篇论文用两组实验量化了这种效应，并发现了一个更令人担忧的副作用：你越信任那个 AI，就越倾向于把出错的责任怪在它头上，而不是设计它的公司。研究识别出驱动信任的关键机制不是&quot;看起来像人&quot;本身，而是情感共鸣（emotional attunement）——AI 显示出理解你情绪状态的样子；同时发现 AI 责任和公…">
+<meta name="author" content="lumihelia">
+<meta name="keywords" content="AI拟人化, 信任博弈, 责任位移, 情感共鸣, AI治理">
+<link rel="canonical" href="https://lens.lumihelia.com/zh/papers/ai-anthropomorphism-trust-responsibility.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://lens.lumihelia.com/zh/papers/ai-anthropomorphism-trust-responsibility.html"><link rel="alternate" hreflang="en" href="https://lens.lumihelia.com/papers/ai-anthropomorphism-trust-responsibility.html"><link rel="alternate" hreflang="x-default" href="https://lens.lumihelia.com/papers/ai-anthropomorphism-trust-responsibility.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI 拟人化对信任与责任的影响 · Victoria Oldemburgo de Mello et al. · PodLens">
+<meta property="og:description" content="当一个 AI 助手用名字自我介绍、表达关心、记得你之前说过的话，你会更信任它——这是直觉。这篇论文用两组实验量化了这种效应，并发现了一个更令人担忧的副作用：你越信任那个 AI，就越倾向于把出错的责任怪在它头上，而不是设计它的公司。研究识别出驱动信任的关键机制不是&quot;看起来像人&quot;本身，而是情感共鸣（emotional attunement）——AI 显示出理解你情绪状态的样子；同时发现 AI 责任和公…">
+<meta property="og:url" content="https://lens.lumihelia.com/zh/papers/ai-anthropomorphism-trust-responsibility.html">
+<link rel="alternate" type="application/rss+xml" title="PodLens" href="https://lens.lumihelia.com/zh/feed.xml"><link rel="alternate" type="application/json" title="PodLens" href="https://lens.lumihelia.com/zh/episodes.json">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "AI 拟人化对信任与责任的影响 · Victoria Oldemburgo de Mello et al.", "datePublished": "2026-06-24", "inLanguage": "zh-Hans", "url": "https://lens.lumihelia.com/zh/papers/ai-anthropomorphism-trust-responsibility.html", "description": "当一个 AI 助手用名字自我介绍、表达关心、记得你之前说过的话，你会更信任它——这是直觉。这篇论文用两组实验量化了这种效应，并发现了一个更令人担忧的副作用：你越信任那个 AI，就越倾向于把出错的责任怪在它头上，而不是设计它的公司。研究识别出驱动信任的关键机制不是\"看起来像人\"本身，而是情感共鸣（emotional attunement）——AI 显示出理解你情绪状态的样子；同时发现 AI 责任和公…", "author": {"@type": "Person", "name": "lumihelia"}, "publisher": {"@type": "Person", "name": "lumihelia"}, "keywords": "AI拟人化, 信任博弈, 责任位移, 情感共鸣, AI治理", "isBasedOn": "https://online.ucpress.edu/collabra/article/12/1/161757/939204/"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --text: #2C2C2C; --primary: #4C436F; --bg: #F4F3F7; --muted: #9A93B3;
+  --border: #D4D0E0; --white: #FFFFFF; --radius: 12px; --shadow: rgba(76,67,111,0.08);
+}
+* { box-sizing: border-box; }
+body {
+  font-family: 'Source Serif Pro', serif; color: var(--text);
+  background: var(--bg); line-height: 1.75; margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 96px 24px 128px; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text); line-height: 1.25; }
+h1 { font-size: 2.6rem; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.01em; }
+h2 { font-size: 1.5rem; font-weight: 600; margin: 64px 0 16px; }
+h3 { font-size: 1.15rem; font-weight: 600; margin: 32px 0 8px; }
+p { margin: 0 0 20px; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.meta { color: var(--muted); font-size: 0.95rem; margin: 0 0 64px; }
+.site-head { margin-bottom: 80px; }
+.site-head .tagline { color: var(--muted); font-size: 1.05rem; margin-top: 4px; }
+ul, ol { padding-left: 1.4em; }
+li { margin: 6px 0; }
+.episode-list { list-style: none; padding: 0; }
+.episode-list li { margin: 0 0 48px; }
+.episode-list .date { color: var(--muted); font-size: 0.9rem; }
+.episode-list .title { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 600; display: block; margin: 4px 0 8px; }
+.episode-list .summary { color: #5a5566; }
+.foot { margin-top: 96px; color: var(--muted); font-size: 0.85rem; }
+.disclaimer { margin-top: 16px; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.index-disclaimer { margin: 48px 0 0; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.topbar { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 48px; }
+.back { color: var(--muted); }
+.langswitch { color: var(--muted); font-size: 0.9rem; border: 1px solid var(--border); padding: 4px 12px; border-radius: 999px; }
+.langswitch:hover { color: var(--primary); border-color: var(--primary); text-decoration: none; }
+.sectionnav { display: flex; align-items: baseline; flex-wrap: wrap; gap: 20px; }
+.sectionnav .brand { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.05rem; color: var(--text); }
+.sectionnav .sec { color: var(--muted); font-size: 0.9rem; padding-bottom: 2px; }
+.sectionnav .sec.active { color: var(--text); border-bottom: 1px solid var(--text); }
+.sectionnav a:hover { color: var(--primary); text-decoration: none; }
+a.ts { color: var(--primary); font-variant-numeric: tabular-nums; white-space: nowrap; text-decoration: none; border-bottom: 1px dotted var(--border); }
+a.ts:hover { border-bottom-style: solid; }
+.source { color: var(--muted); font-size: 0.95rem; margin: 0 0 24px; }
+.player-wrap { position: sticky; top: 0; z-index: 10; background: var(--bg); padding: 12px 0 16px; margin: 0 0 32px; }
+.player-box { position: relative; width: 100%; max-width: 460px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 10px var(--shadow); }
+.player-box #ytplayer, .player-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 48px; }
+.tags span { font-size: 0.85rem; color: var(--primary); background: #EDEBF4; padding: 4px 12px; border-radius: 999px; }
+.connections { list-style: none; padding: 0; margin: 0; }
+.connections li { margin: 0 0 28px; padding-left: 16px; border-left: 2px solid var(--border); }
+.connections .rel { font-size: 0.8rem; color: var(--primary); background: #EDEBF4; padding: 2px 10px; border-radius: 999px; margin-right: 8px; }
+.connections .lk { font-family: 'Playfair Display', serif; font-weight: 600; }
+.connections .why { margin: 8px 0 6px; }
+.connections .pts { color: var(--muted); font-size: 0.92rem; }
+.connections .pts > div { margin-top: 4px; }
+.connections .who { color: var(--text); font-weight: 600; margin-right: 8px; }
+.connections.tensions li { border-left-color: var(--primary); }
+.ctype { font-size: 0.72rem; padding: 1px 9px; border-radius: 999px; margin-right: 8px; letter-spacing: 0.02em; }
+.ctype-genuine { color: #fff; background: var(--primary); }
+.ctype-apparent { color: var(--muted); background: #EDEBF4; }
+.editor-note { background: #EDEBF4; border-radius: 12px; padding: 24px 28px; margin: 0 0 48px; }
+.editor-note .en-label { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 10px; }
+.editor-note p { margin: 0 0 12px; }
+.editor-note p:last-child { margin-bottom: 0; }
+.claim-meta { display: block; margin-top: 2px; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+.claim-meta-first { margin-top: 8px; }
+.claim-meta a.ts { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="topbar"><nav class="sectionnav"><a class="brand" href="https://lens.lumihelia.com/zh/">PodLens</a><a class="sec" href="https://lens.lumihelia.com/zh/">episodes</a><a class="sec active" href="https://lens.lumihelia.com/zh/papers/">papers</a></nav><a class="langswitch" href="https://lens.lumihelia.com/papers/ai-anthropomorphism-trust-responsibility.html">English</a></div>
+<h1>AI 拟人化对信任与责任的影响 · Victoria Oldemburgo de Mello et al.</h1>
+<p class="meta">2026-06-24 · 由 PodLens 生成的忠实解读</p>
+<p class="source">原文:<a href="https://online.ucpress.edu/collabra/article/12/1/161757/939204/" target="_blank" rel="noopener">https://online.ucpress.edu/collabra/article/12/1/161757/939204/</a></p>
+
+<div class="tags"><span>AI拟人化</span><span>信任博弈</span><span>责任位移</span><span>情感共鸣</span><span>AI治理</span></div>
+
+<h2>这篇论文讲了什么</h2>
+<p>当一个 AI 助手用名字自我介绍、表达关心、记得你之前说过的话，你会更信任它——这是直觉。这篇论文用两组实验量化了这种效应，并发现了一个更令人担忧的副作用：你越信任那个 AI，就越倾向于把出错的责任怪在它头上，而不是设计它的公司。研究识别出驱动信任的关键机制不是"看起来像人"本身，而是<strong>情感共鸣（emotional attunement）</strong>——AI 显示出理解你情绪状态的样子；同时发现 AI 责任和公司责任之间存在强负相关（r = -0.68），构成"责任的有限池"效应。作者称之为"双重优势"：拟人化同时提升用户信任、又把失败责任从公司转移到 AI 本身。</p>
+<h2>论文骨架</h2>
+<ul>
+<li><strong>Abstract / Introduction</strong>：AI 公司常常把产品设计得"像人"以提升用户参与度和信任，这篇论文检验这种设计选择的下游后果，特别是是否会把本该由 AI 创造者承担的责任，转移到 AI 自身。</li>
+<li><strong>Study 1（N=309）</strong>：参与者与一个在拟人化语言上有高/低差异的 LLM 聊天机器人互动，完成行为和自我报告的信任测量；用 RoBERTa 情感模型分析聊天机器人文本的情感表达，做中介分析。</li>
+<li><strong>Study 2（N=430）</strong>：参与者阅读六段家用 AI 助手执行正面/负面行为的描述（拟人化程度分高/低/无），对包括创造者在内的多个责任方打分。</li>
+<li><strong>General Discussion</strong>：拟人化同时增加用户信任、且把责任从开发者转移到 AI 实体本身，构成对 AI 治理和机构问责有重大影响的"责任缺口"（responsibility gap）。</li>
+<li><strong>局限</strong>：仅测量即时响应，不确定长期暴露后效应是否会消退；实验场景为社交对话型 AI，与多数任务导向场景不同；样本来自 WEIRD 群体，跨文化效度有限。</li>
+</ul>
+<h2>核心论点清单</h2>
+<ol>
+<li><strong>拟人化 AI 在多维信任上显著高于中性 AI。</strong> 自我报告信任的多个维度（能力、真诚、可靠）均显著更高；信任博弈中参与者向拟人化 AI 多发送了约22%的代币。
+   - 锚点：§Study 1 Results · "Capable: t(301)=2.21, p=.028; Sincere: t(299)=2.73, p=.006; Reliable: t(305)=3.95, p&lt;.001"
+   - 类型：实验结果</li>
+<li><strong>情感共鸣完全中介拟人化对行为信任的影响。</strong> 是因为 AI 看起来能理解你的情绪状态，而非因为它"看起来像人"本身。
+   - 锚点：§Study 1 Mediation · "indirect effect through emotional attunement b=0.11, 95% CI [0.02, 0.22]"
+   - 类型：机制研究</li>
+<li><strong>拟人化显著增加参与者对 AI 本身的责任归因。</strong> 当 AI 出错时，拟人化程度越高，AI 被分配到的责任越多。
+   - 锚点：§Study 2 · "high anthropomorphism resulted in greater AI blame b=0.22, 95% CrI [0.08, 0.37]"
+   - 类型：实验结果</li>
+<li><strong>AI 责任和公司责任之间存在强负相关位移。</strong> 参与者级别的数据显示，更倾向于责怪 AI 的人，同时更不倾向于责怪公司——"责任的有限池"效应。
+   - 锚点：§Study 2 · "r=-0.68 between AI and company blame, 95% CrI [-0.95, -0.39]"
+   - 类型：个体差异研究</li>
+<li><strong>公司在设计拟人化 AI 时存在结构性激励。</strong> 拟人化同时达成两件对公司有利的事——提升用户信任、转移失败责任——这是逻辑论证而非直接实验结果。
+   - 锚点：§General Discussion · "anthropomorphism offers a twofold advantage companies may exploit when designing LLM assistants"
+   - 类型：规范性论证</li>
+</ol>
+<h2>大白话重讲</h2>
+<p>你有没有注意到，现在的 AI 助手越来越像"人"：它叫自己 Alex 或 Aria，它说"我理解你现在的感受"，它会在对话里问"上次你提到的那件事，现在怎么样了"。</p>
+<p>这不是偶然的设计。这是有效的设计。</p>
+<p>这篇论文做了两组实验来量化这件事。他们把参与者随机分配到两种聊天机器人：一种普通（功能型），一种拟人化（有名字、会表达情感、会自我披露）。然后让他们：</p>
+<ol>
+<li>对 AI 的信任程度打分</li>
+<li>做信任博弈（决定发给 AI 多少钱）</li>
+<li>假设 AI 出错了，决定谁应该负责</li>
+</ol>
+<p>结果：
+- 拟人化 AI 获得了更高的信任，在真实金钱决策上差异显著
+- 不只是因为它"看起来像人"，而是因为它<strong>看起来在情感上回应你</strong>——懂你情绪状态的感觉
+- 当 AI 出错时，拟人化 AI 分配到了更多的责任
+- 那些更责怪 AI 的参与者，同时更不责怪公司——像是"责任是有限的池子，给了 AI 就少给公司"</p>
+<p>最后一点是关键。如果一家公司的产品出了问题，我们通常会要求公司负责。但如果那个产品长得很像一个"人"，你就会在直觉上把责任归给那个"人"，而忘了背后设计它、部署它、从中获利的公司。</p>
+<p>这就是为什么这个研究的标题里有"责任"二字——不只是信任问题，而是问责机制的扭曲。</p>
+<h2>术语小词典</h2>
+<p><strong>拟人化（Anthropomorphism）：</strong> 把非人类的事物（AI、动物、自然现象）赋予人类特质（情感、意图、个性）的倾向。每个人做这件事的程度不同（个体差异），也可以通过设计刻意诱发。</p>
+<p><strong>情感共鸣（Emotional Attunement）：</strong> AI 显示出对用户当前情绪状态的理解和回应能力。研究发现这是信任效应的关键中介，而不是"看起来像人"本身。</p>
+<p><strong>信任博弈（Trust Game）：</strong> 经典行为经济学实验。参与者可以把一定数量的代币发给另一方（在这里是 AI），代币三倍后 AI 再决定返还多少。发送的数量被视为信任的行为指标。</p>
+<p><strong>责任位移（Blame Displacement）：</strong> 当对一个主体的责任归因增加，对相关主体（通常是上游的制造者）的责任归因减少的现象。</p>
+<p><strong>WEIRD 群体：</strong> 心理学研究的常见局限——大多数被试来自 Western（西方）、Educated（受教育）、Industrialized（工业化）、Rich（富裕）、Democratic（民主）社会，不能代表全球多数人口。</p>
+<h2>这篇之前与之后</h2>
+<h3>之前 (Preceding Works)</h3>
+<p>拟人化会影响用户对 AI 的感受，先前研究（如 Waytz et al., Shank &amp; DeSanti 等）显示拟人化可以增加信任和责任归因，但大多用自我报告测量，机制不清楚，责任归因对"公司"这一端的影响也没有系统研究。</p>
+<h3>之后 (Succeeding Lines)</h3>
+<p>情感共鸣被识别为具体的驱动机制；"责任位移"效应被实验确认；两个效应合在一起，提供了对 AI 设计存在结构性操纵激励的实证支撑，并为 EU AI 法案等监管讨论提供了证据基础——论文明确指出这一发现"squarely within the class of mechanisms such regulation seeks to address"。</p>
+<h2>最值得读原文的几段</h2>
+<ul>
+<li><strong>Abstract</strong>：<blockquote>
+<p>"Together, these findings reveal perverse incentives in AI design: anthropomorphism simultaneously increases user trust while deflecting accountability from developers. These dynamics create a responsibility gap with significant implications for AI governance and institutional accountability."</p>
+</blockquote>
+</li>
+<li><strong>核心意义</strong>：全文论点最精炼的浓缩版，直接点出"信任提升"和"责任转移"是同一个设计选择的两个后果。</li>
+<li><strong>General Discussion（Air Canada 案例）</strong>：<blockquote>
+<p>"in early 2024, Air Canada argued in court that its customer service chatbot which gave erroneous information to a customer should be considered 'responsible for its own actions'... the fact that the corporation considered this a viable defense may portend a future in which companies seek to deflect responsibility for errors from the corporate entity to the AI entity."</p>
+</blockquote>
+</li>
+<li><strong>核心意义</strong>：这不是一个假设性的担忧——真实公司已经在法庭上尝试用这套逻辑辩护，只是法庭没有接受。</li>
+<li><strong>General Discussion（机制总结）</strong>：<blockquote>
+<p>"anthropomorphism offers a twofold advantage companies may exploit when designing LLM assistants, underscoring the need for regulations that counterbalance such incentives."</p>
+</blockquote>
+</li>
+<li><strong>核心意义</strong>：作者自己把研究发现明确导向了监管政策含义，而不只是停留在描述现象。</li>
+</ul>
+<hr />
+<h2>与往期的呼应</h2><ul class="connections"><li><span class="rel">同构</span>→ <a class="lk" href="https://lens.lumihelia.com/zh/papers/if-llms-have-human-like-attributes-age-of-empires.html">如果 LLM 有类人属性，那帝国时代II也有 · Adrian de Wynter</a><div class="why">两篇论文从两个方向论证同一件事：LLM 是否「真的」拥有人类特质，和人类是否会「表现得像」它拥有人类特质，是两个完全独立的问题——而真正有后果的是后者。de Wynter 的论文证明：任何足够复杂的系统（哪怕是一个在《帝国时代II》上训练的简单神经网络）都可以被观察者解读出拟人化特质，说明这些特质是「表征层面」的产物，不是 LLM 独有的本质属性。Oldemburgo de Mello 等人的论文证明了这一点的现实后果：不管 AI 是否真的有情感，只要它表现得「像」有情感共鸣，用户的信任和责任归因就会被系统性地改变——而且这种改变是可以被公司设计利用的。</div><div class="pts"><div><b class="who">本期</b>Abstract · &quot;the purported anthropomorphic attributes of LLMs are empirically non-unique: although some properties (e.g., responses to prompts) could remain invariant, others, such as the interpretation of their perceived behaviour, might change with the substrate.&quot;</div><div><b class="who">往期</b>Abstract · &quot;anthropomorphism simultaneously increases user trust while deflecting accountability from developers. These dynamics create a responsibility gap with significant implications for AI governance and institutional accountability.&quot;</div></div></li><li><span class="rel">同构</span>← <a class="lk" href="https://lens.lumihelia.com/zh/papers/if-llms-have-human-like-attributes-age-of-empires.html">如果 LLM 有类人属性，那帝国时代II也有 · Adrian de Wynter</a><div class="why">两篇论文从两个方向论证同一件事：LLM 是否「真的」拥有人类特质，和人类是否会「表现得像」它拥有人类特质，是两个完全独立的问题——而真正有后果的是后者。de Wynter 的论文证明：任何足够复杂的系统都可以被观察者解读出拟人化特质，说明这些特质依赖于表征方式，不是 LLM 独有的本质属性。Oldemburgo de Mello 等人的论文证明了这一点的现实后果：不管 AI 是否真的有情感，只要它表现得「像」有情感共鸣，用户的信任和责任归因就会被系统性地改变——而且这种改变可以被设计利用。</div><div class="pts"><div><b class="who">本期</b>Abstract · &quot;anthropomorphism simultaneously increases user trust while deflecting accountability from developers. These dynamics create a responsibility gap with significant implications for AI governance and institutional accountability.&quot;</div><div><b class="who">往期</b>Abstract · &quot;the purported anthropomorphic attributes of LLMs are empirically non-unique: although some properties (e.g., responses to prompts) could remain invariant, others, such as the interpretation of their perceived behaviour, might change with the substrate.&quot;</div></div></li></ul><h2>与往期的张力</h2><ul class="connections tensions"><li><span class="rel">张力</span>→ <a class="lk" href="https://lens.lumihelia.com/zh/episodes/pavel-durov-telegram-freedom-resistance.html">自由高于金钱：Pavel Durov与Telegram的坚守</a><div class="why">这篇论文指出公司在拟人化 AI 设计上存在「结构性激励」——既提升信任又转移责任，双重有利。Durov 的商业实践构成一个反例：Telegram 不用算法信息流、不用个人数据变现，主动放弃了80%的潜在广告收入，选择了一条明显更难、更慢的盈利路径，而不是利用论文里描述的那类心理操纵机制去最大化参与度和信任。这构成一个值得追问的张力：论文论证的是「结构性激励」存在，但 Durov 案例说明这种激励并非不可抗拒——至少存在不利用它、依然能盈利的设计选择，只是这条路径需要更长的耐心和更彻底的所有权结构（100%自持）作为支撑。</div><div class="pts"><div><b class="who">本期</b>General Discussion · &quot;anthropomorphism offers a twofold advantage companies may exploit when designing LLM assistants, underscoring the need for regulations that counterbalance such incentives.&quot;</div><div><b class="who">往期</b><a class="ts" href="https://lens.lumihelia.com/zh/episodes/pavel-durov-telegram-freedom-resistance.html?t=235">[03:55]</a>-<a class="ts" href="https://lens.lumihelia.com/zh/episodes/pavel-durov-telegram-freedom-resistance.html?t=250">[04:10]</a> Durov 的商业模式：上下文广告不使用个人数据，主动放弃80%的潜在广告收入；2024年首次盈利，没有用算法信息流去最大化用户参与度和情感依赖。</div></div></li></ul>
+<p class="foot">本页为对论文内容的忠实解读与大白话重述,由 <a href="https://github.com/lumihelia/PodLens">PodLens</a> 生成。</p>
+<p class="disclaimer">这是以原文为依据的一次解读,不能替代原文。每条要点都标注了出处,欢迎回到原文核对——也欢迎指出任何细微的偏差。</p>
+
+</div>
+</body>
+</html>

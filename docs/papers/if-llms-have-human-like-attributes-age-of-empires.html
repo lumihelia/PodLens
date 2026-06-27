@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>If LLMs Have Human-Like Attributes, Then So Does Age of Empires II · Adrian de Wynter · PodLens</title>
+<meta name="description" content="If a large language model (LLM) is considered to have &quot;human-like attributes&quot; — emotion, self-awareness, moral judgment — then, in principle, any sufficiently powerful &quot;substrate&quot; could exhibit the sa…">
+<meta name="author" content="lumihelia">
+<meta name="keywords" content="anthropomorphism, substrate non-uniqueness, Turing-completeness, computational theory of mind, philosophy of science">
+<link rel="canonical" href="https://lens.lumihelia.com/papers/if-llms-have-human-like-attributes-age-of-empires.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://lens.lumihelia.com/zh/papers/if-llms-have-human-like-attributes-age-of-empires.html"><link rel="alternate" hreflang="en" href="https://lens.lumihelia.com/papers/if-llms-have-human-like-attributes-age-of-empires.html"><link rel="alternate" hreflang="x-default" href="https://lens.lumihelia.com/papers/if-llms-have-human-like-attributes-age-of-empires.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="If LLMs Have Human-Like Attributes, Then So Does Age of Empires II · Adrian de Wynter · PodLens">
+<meta property="og:description" content="If a large language model (LLM) is considered to have &quot;human-like attributes&quot; — emotion, self-awareness, moral judgment — then, in principle, any sufficiently powerful &quot;substrate&quot; could exhibit the sa…">
+<meta property="og:url" content="https://lens.lumihelia.com/papers/if-llms-have-human-like-attributes-age-of-empires.html">
+<link rel="alternate" type="application/rss+xml" title="PodLens" href="https://lens.lumihelia.com/feed.xml"><link rel="alternate" type="application/json" title="PodLens" href="https://lens.lumihelia.com/episodes.json">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "If LLMs Have Human-Like Attributes, Then So Does Age of Empires II · Adrian de Wynter", "datePublished": "2026-06-24", "inLanguage": "en", "url": "https://lens.lumihelia.com/papers/if-llms-have-human-like-attributes-age-of-empires.html", "description": "If a large language model (LLM) is considered to have \"human-like attributes\" — emotion, self-awareness, moral judgment — then, in principle, any sufficiently powerful \"substrate\" could exhibit the sa…", "author": {"@type": "Person", "name": "lumihelia"}, "publisher": {"@type": "Person", "name": "lumihelia"}, "keywords": "anthropomorphism, substrate non-uniqueness, Turing-completeness, computational theory of mind, philosophy of science", "isBasedOn": "https://arxiv.org/pdf/2605.31514"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --text: #2C2C2C; --primary: #4C436F; --bg: #F4F3F7; --muted: #9A93B3;
+  --border: #D4D0E0; --white: #FFFFFF; --radius: 12px; --shadow: rgba(76,67,111,0.08);
+}
+* { box-sizing: border-box; }
+body {
+  font-family: 'Source Serif Pro', serif; color: var(--text);
+  background: var(--bg); line-height: 1.75; margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 96px 24px 128px; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text); line-height: 1.25; }
+h1 { font-size: 2.6rem; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.01em; }
+h2 { font-size: 1.5rem; font-weight: 600; margin: 64px 0 16px; }
+h3 { font-size: 1.15rem; font-weight: 600; margin: 32px 0 8px; }
+p { margin: 0 0 20px; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.meta { color: var(--muted); font-size: 0.95rem; margin: 0 0 64px; }
+.site-head { margin-bottom: 80px; }
+.site-head .tagline { color: var(--muted); font-size: 1.05rem; margin-top: 4px; }
+ul, ol { padding-left: 1.4em; }
+li { margin: 6px 0; }
+.episode-list { list-style: none; padding: 0; }
+.episode-list li { margin: 0 0 48px; }
+.episode-list .date { color: var(--muted); font-size: 0.9rem; }
+.episode-list .title { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 600; display: block; margin: 4px 0 8px; }
+.episode-list .summary { color: #5a5566; }
+.foot { margin-top: 96px; color: var(--muted); font-size: 0.85rem; }
+.disclaimer { margin-top: 16px; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.index-disclaimer { margin: 48px 0 0; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.topbar { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 48px; }
+.back { color: var(--muted); }
+.langswitch { color: var(--muted); font-size: 0.9rem; border: 1px solid var(--border); padding: 4px 12px; border-radius: 999px; }
+.langswitch:hover { color: var(--primary); border-color: var(--primary); text-decoration: none; }
+.sectionnav { display: flex; align-items: baseline; flex-wrap: wrap; gap: 20px; }
+.sectionnav .brand { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.05rem; color: var(--text); }
+.sectionnav .sec { color: var(--muted); font-size: 0.9rem; padding-bottom: 2px; }
+.sectionnav .sec.active { color: var(--text); border-bottom: 1px solid var(--text); }
+.sectionnav a:hover { color: var(--primary); text-decoration: none; }
+a.ts { color: var(--primary); font-variant-numeric: tabular-nums; white-space: nowrap; text-decoration: none; border-bottom: 1px dotted var(--border); }
+a.ts:hover { border-bottom-style: solid; }
+.source { color: var(--muted); font-size: 0.95rem; margin: 0 0 24px; }
+.player-wrap { position: sticky; top: 0; z-index: 10; background: var(--bg); padding: 12px 0 16px; margin: 0 0 32px; }
+.player-box { position: relative; width: 100%; max-width: 460px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 10px var(--shadow); }
+.player-box #ytplayer, .player-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 48px; }
+.tags span { font-size: 0.85rem; color: var(--primary); background: #EDEBF4; padding: 4px 12px; border-radius: 999px; }
+.connections { list-style: none; padding: 0; margin: 0; }
+.connections li { margin: 0 0 28px; padding-left: 16px; border-left: 2px solid var(--border); }
+.connections .rel { font-size: 0.8rem; color: var(--primary); background: #EDEBF4; padding: 2px 10px; border-radius: 999px; margin-right: 8px; }
+.connections .lk { font-family: 'Playfair Display', serif; font-weight: 600; }
+.connections .why { margin: 8px 0 6px; }
+.connections .pts { color: var(--muted); font-size: 0.92rem; }
+.connections .pts > div { margin-top: 4px; }
+.connections .who { color: var(--text); font-weight: 600; margin-right: 8px; }
+.connections.tensions li { border-left-color: var(--primary); }
+.ctype { font-size: 0.72rem; padding: 1px 9px; border-radius: 999px; margin-right: 8px; letter-spacing: 0.02em; }
+.ctype-genuine { color: #fff; background: var(--primary); }
+.ctype-apparent { color: var(--muted); background: #EDEBF4; }
+.editor-note { background: #EDEBF4; border-radius: 12px; padding: 24px 28px; margin: 0 0 48px; }
+.editor-note .en-label { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 10px; }
+.editor-note p { margin: 0 0 12px; }
+.editor-note p:last-child { margin-bottom: 0; }
+.claim-meta { display: block; margin-top: 2px; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+.claim-meta-first { margin-top: 8px; }
+.claim-meta a.ts { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="topbar"><nav class="sectionnav"><a class="brand" href="https://lens.lumihelia.com/">PodLens</a><a class="sec" href="https://lens.lumihelia.com/">episodes</a><a class="sec active" href="https://lens.lumihelia.com/papers/">papers</a></nav><a class="langswitch" href="https://lens.lumihelia.com/zh/papers/if-llms-have-human-like-attributes-age-of-empires.html">中文</a></div>
+<h1>If LLMs Have Human-Like Attributes, Then So Does Age of Empires II · Adrian de Wynter</h1>
+<p class="meta">2026-06-24 · A faithful, transcript-grounded reading by PodLens</p>
+<p class="source">Source paper:<a href="https://arxiv.org/pdf/2605.31514" target="_blank" rel="noopener">https://arxiv.org/pdf/2605.31514</a></p>
+
+<div class="tags"><span>anthropomorphism</span><span>substrate non-uniqueness</span><span>Turing-completeness</span><span>computational theory of mind</span><span>philosophy of science</span></div>
+
+<h2>What This Paper Is About</h2>
+<p>If a large language model (LLM) is considered to have "human-like attributes" — emotion, self-awareness, moral judgment — then, in principle, any sufficiently powerful "substrate" could exhibit the same attributes, including Age of Empires II, a 1999 real-time strategy game. This paper doesn't argue about whether LLMs "really" have these attributes. Instead, it shows that the experimental designs currently used to argue "LLMs do/don't have human-like attributes" are logically unsound regardless of their conclusion — experiments that conclude "yes" are circular, and experiments that conclude "no" are uninformative. The author supports this claim in three steps: (1) actually building and training a neural network perceptron inside the Age of Empires II game engine, and proving the game is functionally and Turing-complete; (2) using formal logic to prove that, under either "accepting" or "rejecting" a given theory of mind (such as the computational theory of mind), the resulting conclusion necessarily falls into one of two failure modes — circularity or uninformativeness; (3) proposing a "null assumption" methodology — making no prior assumption about whether the system has anthropomorphic attributes, and measuring only observable behavior itself.</p>
+<h2>Paper Skeleton</h2>
+<ul>
+<li><strong>Abstract / Introduction</strong>: A great deal of LLM research claims, defaults to, or assumes that LLMs possess generalized anthropomorphic attributes (such as morality or natural-language understanding). The author's goal is not to argue for or against the existence of these attributes, but to point out that the way these conclusions are reached may itself be flawed.</li>
+<li><strong>Background (§2)</strong>: Surveys the current state of anthropomorphism research (including users forming attachments to LLMs, overtrusting them, and AI being designed to say things like "I believe..." or "I feel..."); introduces relevant philosophy of mind (the computational theory of mind, connectionism, functionalism, extended mind, embodied cognition); introduces relevant philosophy of science (Hempel's account of scientific explanation, Popper's falsificationism, the Duhem-Quine thesis); introduces the rules of Age of Empires II (villagers, resources, the market, a 9,999-gold price cap).</li>
+<li><strong>Training a Perceptron in AoEII (§3)</strong>: First proves that the game's scenario editor can build a NAND gate (Lemma 1), from which it follows that the game is functionally complete (Theorem 1) and Turing-complete (Corollary 1); then actually builds and trains a 1-bit perceptron inside the game to learn the AND function.</li>
+<li><strong>Anthropomorphic Attributes Cannot Be Measured (§4)</strong>: Argues that under either "accepting" or "rejecting" the CTM, experimental conclusions are either circular (the conclusion was already baked into the assumption) or uninformative (you cannot tell whether the assumption or the experimental design was wrong); proposes the "null assumption" — stop making any prior judgment about whether anthropomorphic attributes exist, and measure only "implementation-defined behavior" itself.</li>
+<li><strong>Objections and Responses (§5)</strong>: Responds one by one to objections such as "couldn't psychometrics sidestep this problem," "isn't this the same as a regular LLM with extra steps," and "isn't this argument itself trivial" — including a "Greater Boston Area" thought experiment (if 660,000+ Bostonians were mobilized to simulate the compute nodes of an LLM, exchanging inputs and outputs via text message, would the entire Greater Boston Area become "anxious"?).</li>
+<li><strong>Conclusion (§6)</strong>: Research, claims, and policy should all carefully examine the assumptions underlying their experiments and the scope of their conclusions; the perceived degree of anthropomorphism depends heavily on interface presentation (a low-latency, highly coherent chat window vs. slow-moving sheep in a game), not on the underlying system behavior itself; cites and adapts Morgan's Canon (a principle of parsimony from animal cognition research): a machine's behavior should never be interpreted in terms of a higher cognitive process if a lower one would suffice.</li>
+</ul>
+<h2>Core Arguments List</h2>
+<ol>
+<li><strong>The anthropomorphic attributes LLMs display are not unique to LLMs, because a sufficiently powerful "substrate" can itself carry those attributes.</strong> Changing the implementation substrate preserves some of an LLM's properties (such as its prompt-to-output mapping), but not its "deanthropomorphizing" quality — meaning the perception of anthropomorphic traits depends on the mode of representation, not on some essential property unique to the substrate.
+   - Anchor: Abstract · "the purported anthropomorphic attributes of LLMs are empirically non-unique"
+   - Type: Theoretical argument</li>
+<li><strong>Age of Empires II is mathematically proven to be functionally complete and Turing-complete, meaning any neural network could in principle be built inside it.</strong> The author proves the game's scenario editor can build a NAND gate using just one player and two units, and actually builds and trains a 1-bit perceptron inside the game to learn the AND function.
+   - Anchor: §3.1 Theorem 1 / Corollary 1 · "AoEII is Functionally Complete" / "AoEII is Turing-Complete"
+   - Type: Mathematical proof</li>
+<li><strong>Regardless of whether a scientist a priori "accepts" or "rejects" a given theory of mind, experimental conclusions about whether LLMs have anthropomorphic attributes fall into one of two failure modes.</strong> If the assumption and the conclusion are, at bottom, the same claim, a positive result is merely circular; a negative result cannot distinguish whether the assumption was wrong or the experiment itself was flawed — and this ambiguity persists even across multiple hypothesis-experiment pairs.
+   - Anchor: §4.2 · "positive outcomes... provide evidence that the hypothesis is true, and concluded that the assumptions were true. This is a circular argument" / "a negative experiment... [is] an uninformative/ambiguous outcome where it is not possible to distinguish which failure mode led to the conclusion"
+   - Type: Logical argument</li>
+<li><strong>A literature review of 315 papers published between mid-2024 and mid-2026 shows the methodological problem is widespread.</strong> 57% of these papers started from the assumption that LLMs have anthropomorphic attributes, and 36% of those concluded so; among the 47 papers (15%) where an LLM's anthropomorphic attributes were the central subject of study, 77% reached an affirmative conclusion.
+   - Anchor: §2.1 · "57% of these began with the assumption that LLMs have anthropomorphic attributes, and out of these, 36% conclude so... the conclusions were often on the side of anthropomorphism (36, or 77%)"
+   - Type: Literature review data</li>
+<li><strong>The author proposes a "null assumption" method: make no prior judgment about whether the system has anthropomorphic attributes, measure only observable behavior, and separate "observing a pattern" from "ascribing meaning to that pattern."</strong> For example, that an LLM can generate a natural-language explanation is an observable fact; whether that constitutes "understanding" of an internal state is a separate anthropomorphic ascription, and the two should not be conflated.
+   - Anchor: §4.3 · "one must distinguish between an observation of a pattern, and its ascription"
+   - Type: Methodological proposal</li>
+<li><strong>The perceived degree of anthropomorphism depends heavily on interface presentation, not on the underlying system's behavior itself.</strong> The same input-output behavior looks far more "human" wrapped in a low-latency, highly coherent chat window than it does wrapped in slowly moving sheep in Age of Empires II — much of what gets measured as "AI anthropomorphism" is actually a measurement of presentation, not of the system's actual behavior.
+   - Anchor: §6 Conclusion · "many anthropomorphic measurements in AI are measurements of presentation, rather than of an actual system's behaviour"
+   - Type: Concluding argument</li>
+</ol>
+<h2>Plain English Explanation</h2>
+<p>Imagine this absurd scenario: you take the core computation of a large language model and transplant it, verbatim, into Age of Empires II — using the game's sheep, villagers, and resource markets to implement the exact same input-output mapping. You say to this "AoEII-LLM," "I feel lonely," and it replies, through some agreed-upon in-game representation: "I feel bad for you. Maybe catch up with a friend? Closeness always helps in these situations."</p>
+<p>That reply makes it genuinely hard to say: does this system, made of sheep and resource prices, actually "know" anything about what helps with loneliness? Does it "really" have empathy? Or is its output convincing only because you happen to be able to read the representation?</p>
+<p>This is exactly where the paper's core argument starts. The author argues that the reason this question is so awkward is precisely because anthropomorphic traits are, at bottom, dependent on the mode of representation, not on what the system is computing underneath. The exact same logical operation looks "human" wrapped in a low-latency chat box that speaks natural language; it looks nothing like a human wrapped in a herd of virtual sheep wandering back and forth on grass — even though the underlying computation could be identical. This means the anthropomorphic attributes an LLM displays are, empirically, not "unique" to LLMs at all: any sufficiently powerful substrate could carry the same computation, and only the mode of representation changes how a human interprets it.</p>
+<p>To keep this from being just a thought experiment, the author actually did something concrete: inside Age of Empires II's scenario editor, using the game's own units and terrain rules, he built a NAND logic gate — the "universal" basic building block of digital circuits; in principle, given enough NAND gates, you can assemble any computational circuit. Based on this NAND gate, the author proves Age of Empires II is "functionally complete" and "Turing-complete" — meaning that, in principle, you could build inside this game anything any computer can compute, including a neural network. The author actually trained a simplified perceptron (the most basic neural-network unit) inside the game, and it successfully learned the logical AND operation. This isn't a metaphor — it's a working, reproducible construction.</p>
+<p>What follows is the sharpest part of the paper. Suppose a scientist wants to figure out: "do LLMs actually have genuine anthropomorphic attributes?" She first has to pick a stance: either assume that "the mind is a kind of information-processing system" (the computational theory of mind, CTM) is true, or reject it. Whichever she picks, the author proves with formal logic that the experimental result has only two possible outcomes, and neither is useful. If she "accepts CTM," then "anthropomorphic attributes exist" and "the experiment got a positive result" are, in essence, the same claim restated — this is circular reasoning, proving nothing independently. If the experiment gets a negative result, there's no way to tell whether "the assumption was wrong" or "the experiment itself was flawed" — this is an uninformative result. Extending this logic across many papers and many sets of hypotheses, the conclusion still holds: as long as the starting point of the argument already contains what you're trying to prove, no amount of experimentation escapes the loop.</p>
+<p>So what's the solution? The author proposes something called the "null assumption": completely abandon the question of "whether this system genuinely has anthropomorphic attributes," and measure only what it "does" under specific conditions, without interpreting whether that behavior reflects "real" understanding or "real" emotion underneath. For instance, an LLM generating text that explains its own behavior is an observable, reproducible fact; but whether that text represents "understanding" of its own internal state is an additional interpretation that shouldn't be assumed by default. Separating "the pattern observed" from "the ascription made about that pattern" produces weaker conclusions (you can't say "the LLM has self-awareness") but much sounder ones (you can say "under this specific task, the LLM displays a consistent behavioral pattern").</p>
+<p>The author designs a darkly funny thought experiment to reinforce this point: suppose you mobilize all 660,000+ residents of the Greater Boston Area, with each person representing a node in an LLM's neural network, exchanging the inputs and outputs of the computation via text message. Would this giant human-powered computing network end up "feeling anxious"? Or does the anxiety exist only in the content of one specific text message? Or in the people walking into a particular address (say, the block corresponding to the "output layer")? The author's answer: the question itself is malformed — you cannot ask "does this system have anthropomorphic attributes" without making any assumptions at all, because the answer to that question depends entirely on which theory-of-mind stance you've already silently accepted at the start.</p>
+<p>The paper closes by citing and adapting a classic principle from animal-cognition research (Morgan's Canon): never explain a behavior in terms of a higher cognitive process if a lower one will fairly explain it. The author's final position is restrained: he doesn't claim LLMs definitely lack emotion or consciousness — he says that, absent a clearly stated measurement standard, the sentence "the LLM displayed a human-like trait" proves no more than the sentence "the sheep in Age of Empires II displayed a human-like trait."</p>
+<h2>Glossary</h2>
+<p><strong>Anthropomorphism / Anthropomorphic Ascription</strong>: the tendency to attribute human mental traits (emotion, intent, understanding) to a non-human entity. The paper distinguishes between "a system displays a behavioral pattern" (an observable fact) and "this pattern represents some internal mental attribute" (an interpretation/ascription).</p>
+<p><strong>Substrate Non-Uniqueness</strong>: the paper's core claim — the anthropomorphic traits an LLM displays are not, empirically, unique to LLMs, because the same input-output behavior can be reproduced on a different "substrate" (a different hardware/implementation), with only the mode of representation changing how an observer interprets it.</p>
+<p><strong>Computational Theory of Mind (CTM)</strong>: a position in the philosophy of mind holding that the mind is, at bottom, a kind of information-processing/computational system. The paper uses "accepting CTM" or "rejecting CTM" as the example of the stance a scientist must pre-select before designing an experiment about anthropomorphic attributes (any analogous framework would apply just as well).</p>
+<p><strong>Functionally Complete / Turing-Complete</strong>: functional completeness means a set of logical operations (like NAND) can compose any Boolean function; Turing-completeness means a system can, in principle, simulate any Turing machine and execute any computable operation. The paper proves Age of Empires II satisfies both properties.</p>
+<p><strong>Circular vs. Uninformative</strong>: the two experimental failure modes the paper characterizes with formal logic — circular means the experiment's "evidence" and the "hypothesis" it's meant to prove are, at bottom, the same claim; uninformative means the result cannot distinguish whether the original assumption was wrong or the experimental design itself was flawed.</p>
+<p><strong>Null Assumption</strong>: the methodology this paper proposes — distinct from the statistical "null hypothesis" — meaning that when measuring anthropomorphic attributes, the researcher makes no prior judgment about their existence or non-existence, and measures only "observable, implementation-defined behavior" itself.</p>
+<h2>Before and After This Paper</h2>
+<h3>Preceding Works</h3>
+<p>A large body of LLM research (the paper surveys 315 related works published between mid-2024 and mid-2026) defaults to or explicitly assumes LLMs possess anthropomorphic attributes — cooperation, empathy, psychological principles and values, introspection and self-awareness, natural-language understanding, anxiety, even deceptive capability. Some of this research explicitly labels these traits "emergent behaviors" rather than a product of training. AI companies are also actively reinforcing this perception by design, having chatbots say things like "I'm confident," "I can understand and respond to your emotions," or "I believe..." — partly for commercial reasons related to improving user experience, but this has also produced documented harms: user attachment, overreliance, and reinforced delusion.</p>
+<h3>Succeeding Lines</h3>
+<p>The paper's core implicit demand is that any research, claim, or policy discussion concerning whether LLMs have generalized anthropomorphic attributes must explicitly state the scope of its experimental assumptions and the boundary of its conclusions' applicability, rather than jumping directly from an implicit or explicit "accept/reject" stance to a generalized "this attribute exists/doesn't exist" conclusion. This also implies that future evaluation should explicitly separate "what an AI can objectively do" (a testable capability) from "what the experimenter believes it should be" (an anthropomorphic ascription).</p>
+<h2>Sections Most Worth Reading in the Original</h2>
+<ul>
+<li><strong>Abstract</strong>:<blockquote>
+<p>"For this we build and train a simple neural network on the video game Age of Empires II, and note that any entity in a sufficiently-powerful substrate, such as LEGO or the Greater Boston Area, could also present such attributes."</p>
+</blockquote>
+</li>
+<li><strong>Why it matters</strong>: One sentence that captures the paper's most central, most counterintuitive argumentative strategy — using a constructed but rigorous counterexample to expose the substrate-dependence hidden inside "LLM anthropomorphism" arguments.</li>
+<li><strong>§5.2 (the "Greater Boston Area" thought experiment)</strong>:<blockquote>
+<p>"we also construct a physical system, in, say, the Greater Boston Area, which has 667,137 inhabitants... Would the Greater Boston Area present human-like attributes (excluding these in the 'neurones') through autoregression? ... we do note that one cannot begin an evaluation of such a system by assuming that it has them intrinsically."</p>
+</blockquote>
+</li>
+<li><strong>Why it matters</strong>: An almost comically exaggerated setup that turns the abstract philosophical argument about substrate-independence into a picture you can intuitively grasp.</li>
+<li><strong>§6 Conclusion (adapting Morgan's Canon)</strong>:<blockquote>
+<p>"Paraphrasing and adapting Morgan (1903)'s canon from animal cognition into AI, we argue that in no case is a machine's activity to be interpreted in terms of higher cognitive processes, if it can be fairly interpreted in terms of processes which stand lower in the scale of cognitive evolution and development."</p>
+</blockquote>
+</li>
+<li><strong>Why it matters</strong>: Grounds the entire technical, logic-driven argument in a single, concise, actionable research-ethics principle — a principle originally meant to keep researchers from over-interpreting animal behavior, now extended to AI.</li>
+</ul>
+<h2>Resonances with past episodes</h2><ul class="connections"><li><span class="rel">The two papers argue the same point from two directions: whether an LLM &#x27;genuinely&#x27; possesses human-like attributes, and whether humans will &#x27;behave as if&#x27; it does, are two completely separate questions — and it&#x27;s the second one that actually has consequences. de Wynter&#x27;s paper proves that any sufficiently complex system can be read by an observer as having anthropomorphic attributes, showing these attributes depend on representation, not an essential property unique to LLMs. Oldemburgo de Mello et al.&#x27;s paper proves the real-world consequence of exactly this: regardless of whether an AI genuinely has emotions, the moment it merely appears to show emotional attunement, users&#x27; trust and blame attribution shift systematically — and that shift can be exploited by design.</span>→ <a class="lk" href="https://lens.lumihelia.com/papers/ai-anthropomorphism-trust-responsibility.html">The Effects of AI Anthropomorphism on Trust and Responsibility · Victoria Oldemburgo de Mello et al.</a><div class="why"></div><div class="pts"><div><b class="who">This</b></div><div><b class="who">Related</b></div></div></li><li><span class="rel">Both papers use rigorous formal logic to draw the line between what can be proven and what is, by its very structure, incapable of proving anything at all. de Wynter proves that under an &#x27;accept/reject&#x27; framework for some theory of mind, experimental conclusions about whether LLMs have anthropomorphic attributes — positive or negative — can never escape two failure modes: circularity or uninformativeness. That is itself a result about provability. The core of Wigderson&#x27;s entire interview is the same kind of question: which mathematical/computational claims can, in principle, be proven or verified (the universality of zero-knowledge proofs, P vs. NP), and which remain stuck at &#x27;we simply don&#x27;t know&#x27; no matter how much effort is spent (whether multiplication is genuinely harder than addition). Both are saying: figuring out whether a question *can be answered at all* within a given framework is work just as important as trying to answer it.</span>→ <a class="lk" href="https://lens.lumihelia.com/episodes/avi-wigderson-p-vs-np-zero-knowledge-proofs.html">P vs. NP, Zero-Knowledge Proofs, and the Embryonic Stage of Computation · Avi Wigderson</a><div class="why"></div><div class="pts"><div><b class="who">This</b></div><div><b class="who">Related</b></div></div></li><li><span class="rel">The two papers argue the same point from two directions: whether an LLM &#x27;genuinely&#x27; possesses human-like attributes, and whether humans will &#x27;behave as if&#x27; it does, are two completely separate questions — and it&#x27;s the second one that actually has consequences. de Wynter&#x27;s paper proves that any sufficiently complex system (even a simple neural network trained on Age of Empires II) can be read by an observer as having anthropomorphic attributes, showing these attributes are a product of representation, not an essential property unique to LLMs. Oldemburgo de Mello et al.&#x27;s paper proves the real-world consequence of exactly this: regardless of whether an AI genuinely has emotions, the moment it merely appears to show emotional attunement, users&#x27; trust and blame attribution shift systematically — and that shift can be exploited by deliberate design.</span>← <a class="lk" href="https://lens.lumihelia.com/papers/ai-anthropomorphism-trust-responsibility.html">The Effects of AI Anthropomorphism on Trust and Responsibility · Victoria Oldemburgo de Mello et al.</a><div class="why"></div><div class="pts"><div><b class="who">This</b></div><div><b class="who">Related</b></div></div></li></ul>
+<p class="foot">A faithful reading and plain-language retelling of the paper, generated by <a href="https://github.com/lumihelia/PodLens">PodLens</a>.</p>
+<p class="disclaimer">This is one source-grounded reading, not a replacement for the original. Every point is anchored to its source, so you can check it yourself — and corrections are welcome.</p>
+
+</div>
+</body>
+</html>

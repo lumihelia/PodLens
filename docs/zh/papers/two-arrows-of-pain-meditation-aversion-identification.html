@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>疼痛的两支箭：冥想、排斥与认同的疼痛机制 · Valentina Nicolardi et al. · PodLens</title>
+<meta name="description" content="佛教心理学有一个&quot;两支箭&quot;的比喻：第一支箭是身体的疼痛，第二支箭是你对疼痛的心理反应（抗拒它、认同它、觉得&quot;这是我的痛&quot;）。这篇论文第一次用实验数据来验证这个古老的框架——排斥感（aversion）和认同感（identification）这两个心理状态，是否真的是独立于疼痛本身、能预测疼痛体验的变量？研究者招募了长期 Theravada 佛教冥想僧侣和短期冥想者，在专注冥想（FAM）、开放监控冥想…">
+<meta name="author" content="lumihelia">
+<meta name="keywords" content="两支箭, 佛教心理学, Granger因果分析, 冥想, 疼痛认同">
+<link rel="canonical" href="https://lens.lumihelia.com/zh/papers/two-arrows-of-pain-meditation-aversion-identification.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://lens.lumihelia.com/zh/papers/two-arrows-of-pain-meditation-aversion-identification.html"><link rel="alternate" hreflang="en" href="https://lens.lumihelia.com/papers/two-arrows-of-pain-meditation-aversion-identification.html"><link rel="alternate" hreflang="x-default" href="https://lens.lumihelia.com/papers/two-arrows-of-pain-meditation-aversion-identification.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="疼痛的两支箭：冥想、排斥与认同的疼痛机制 · Valentina Nicolardi et al. · PodLens">
+<meta property="og:description" content="佛教心理学有一个&quot;两支箭&quot;的比喻：第一支箭是身体的疼痛，第二支箭是你对疼痛的心理反应（抗拒它、认同它、觉得&quot;这是我的痛&quot;）。这篇论文第一次用实验数据来验证这个古老的框架——排斥感（aversion）和认同感（identification）这两个心理状态，是否真的是独立于疼痛本身、能预测疼痛体验的变量？研究者招募了长期 Theravada 佛教冥想僧侣和短期冥想者，在专注冥想（FAM）、开放监控冥想…">
+<meta property="og:url" content="https://lens.lumihelia.com/zh/papers/two-arrows-of-pain-meditation-aversion-identification.html">
+<link rel="alternate" type="application/rss+xml" title="PodLens" href="https://lens.lumihelia.com/zh/feed.xml"><link rel="alternate" type="application/json" title="PodLens" href="https://lens.lumihelia.com/zh/episodes.json">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "疼痛的两支箭：冥想、排斥与认同的疼痛机制 · Valentina Nicolardi et al.", "datePublished": "2026-06-24", "inLanguage": "zh-Hans", "url": "https://lens.lumihelia.com/zh/papers/two-arrows-of-pain-meditation-aversion-identification.html", "description": "佛教心理学有一个\"两支箭\"的比喻：第一支箭是身体的疼痛，第二支箭是你对疼痛的心理反应（抗拒它、认同它、觉得\"这是我的痛\"）。这篇论文第一次用实验数据来验证这个古老的框架——排斥感（aversion）和认同感（identification）这两个心理状态，是否真的是独立于疼痛本身、能预测疼痛体验的变量？研究者招募了长期 Theravada 佛教冥想僧侣和短期冥想者，在专注冥想（FAM）、开放监控冥想…", "author": {"@type": "Person", "name": "lumihelia"}, "publisher": {"@type": "Person", "name": "lumihelia"}, "keywords": "两支箭, 佛教心理学, Granger因果分析, 冥想, 疼痛认同", "isBasedOn": "https://doi.org/10.1007/s12671-021-01797-0"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --text: #2C2C2C; --primary: #4C436F; --bg: #F4F3F7; --muted: #9A93B3;
+  --border: #D4D0E0; --white: #FFFFFF; --radius: 12px; --shadow: rgba(76,67,111,0.08);
+}
+* { box-sizing: border-box; }
+body {
+  font-family: 'Source Serif Pro', serif; color: var(--text);
+  background: var(--bg); line-height: 1.75; margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 96px 24px 128px; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text); line-height: 1.25; }
+h1 { font-size: 2.6rem; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.01em; }
+h2 { font-size: 1.5rem; font-weight: 600; margin: 64px 0 16px; }
+h3 { font-size: 1.15rem; font-weight: 600; margin: 32px 0 8px; }
+p { margin: 0 0 20px; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.meta { color: var(--muted); font-size: 0.95rem; margin: 0 0 64px; }
+.site-head { margin-bottom: 80px; }
+.site-head .tagline { color: var(--muted); font-size: 1.05rem; margin-top: 4px; }
+ul, ol { padding-left: 1.4em; }
+li { margin: 6px 0; }
+.episode-list { list-style: none; padding: 0; }
+.episode-list li { margin: 0 0 48px; }
+.episode-list .date { color: var(--muted); font-size: 0.9rem; }
+.episode-list .title { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 600; display: block; margin: 4px 0 8px; }
+.episode-list .summary { color: #5a5566; }
+.foot { margin-top: 96px; color: var(--muted); font-size: 0.85rem; }
+.disclaimer { margin-top: 16px; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.index-disclaimer { margin: 48px 0 0; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.topbar { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 48px; }
+.back { color: var(--muted); }
+.langswitch { color: var(--muted); font-size: 0.9rem; border: 1px solid var(--border); padding: 4px 12px; border-radius: 999px; }
+.langswitch:hover { color: var(--primary); border-color: var(--primary); text-decoration: none; }
+.sectionnav { display: flex; align-items: baseline; flex-wrap: wrap; gap: 20px; }
+.sectionnav .brand { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.05rem; color: var(--text); }
+.sectionnav .sec { color: var(--muted); font-size: 0.9rem; padding-bottom: 2px; }
+.sectionnav .sec.active { color: var(--text); border-bottom: 1px solid var(--text); }
+.sectionnav a:hover { color: var(--primary); text-decoration: none; }
+a.ts { color: var(--primary); font-variant-numeric: tabular-nums; white-space: nowrap; text-decoration: none; border-bottom: 1px dotted var(--border); }
+a.ts:hover { border-bottom-style: solid; }
+.source { color: var(--muted); font-size: 0.95rem; margin: 0 0 24px; }
+.player-wrap { position: sticky; top: 0; z-index: 10; background: var(--bg); padding: 12px 0 16px; margin: 0 0 32px; }
+.player-box { position: relative; width: 100%; max-width: 460px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 10px var(--shadow); }
+.player-box #ytplayer, .player-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 48px; }
+.tags span { font-size: 0.85rem; color: var(--primary); background: #EDEBF4; padding: 4px 12px; border-radius: 999px; }
+.connections { list-style: none; padding: 0; margin: 0; }
+.connections li { margin: 0 0 28px; padding-left: 16px; border-left: 2px solid var(--border); }
+.connections .rel { font-size: 0.8rem; color: var(--primary); background: #EDEBF4; padding: 2px 10px; border-radius: 999px; margin-right: 8px; }
+.connections .lk { font-family: 'Playfair Display', serif; font-weight: 600; }
+.connections .why { margin: 8px 0 6px; }
+.connections .pts { color: var(--muted); font-size: 0.92rem; }
+.connections .pts > div { margin-top: 4px; }
+.connections .who { color: var(--text); font-weight: 600; margin-right: 8px; }
+.connections.tensions li { border-left-color: var(--primary); }
+.ctype { font-size: 0.72rem; padding: 1px 9px; border-radius: 999px; margin-right: 8px; letter-spacing: 0.02em; }
+.ctype-genuine { color: #fff; background: var(--primary); }
+.ctype-apparent { color: var(--muted); background: #EDEBF4; }
+.editor-note { background: #EDEBF4; border-radius: 12px; padding: 24px 28px; margin: 0 0 48px; }
+.editor-note .en-label { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 10px; }
+.editor-note p { margin: 0 0 12px; }
+.editor-note p:last-child { margin-bottom: 0; }
+.claim-meta { display: block; margin-top: 2px; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+.claim-meta-first { margin-top: 8px; }
+.claim-meta a.ts { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="topbar"><nav class="sectionnav"><a class="brand" href="https://lens.lumihelia.com/zh/">PodLens</a><a class="sec" href="https://lens.lumihelia.com/zh/">episodes</a><a class="sec active" href="https://lens.lumihelia.com/zh/papers/">papers</a></nav><a class="langswitch" href="https://lens.lumihelia.com/papers/two-arrows-of-pain-meditation-aversion-identification.html">English</a></div>
+<h1>疼痛的两支箭：冥想、排斥与认同的疼痛机制 · Valentina Nicolardi et al.</h1>
+<p class="meta">2026-06-24 · 由 PodLens 生成的忠实解读</p>
+<p class="source">原文:<a href="https://doi.org/10.1007/s12671-021-01797-0" target="_blank" rel="noopener">https://doi.org/10.1007/s12671-021-01797-0</a></p>
+
+<div class="tags"><span>两支箭</span><span>佛教心理学</span><span>Granger因果分析</span><span>冥想</span><span>疼痛认同</span></div>
+
+<h2>这篇论文讲了什么</h2>
+<p>佛教心理学有一个"两支箭"的比喻：第一支箭是身体的疼痛，第二支箭是你对疼痛的心理反应（抗拒它、认同它、觉得"这是我的痛"）。这篇论文第一次用实验数据来验证这个古老的框架——排斥感（aversion）和认同感（identification）这两个心理状态，是否真的是独立于疼痛本身、能预测疼痛体验的变量？研究者招募了长期 Theravada 佛教冥想僧侣和短期冥想者，在专注冥想（FAM）、开放监控冥想（OMM）、慈悲冥想（LKM）及普通休息状态下给予可控电流痛觉刺激，用 Granger 因果分析检验这两个心理变量与疼痛之间的时序因果关系。</p>
+<h2>论文骨架</h2>
+<ul>
+<li><strong>Introduction</strong>：引用《杂阿含经·箭经》（Sallatha Sutta）"两支箭"的原始譬喻——未受训练的人被疼痛之箭射中后，又被自己的心理反应这第二支箭射中；受过训练的人只承受第一支箭。综述正念冥想与疼痛神经关联（脑岛、前扣带回）研究背景。</li>
+<li><strong>Methods</strong>：被试为长期 Theravada 佛教冥想者（僧侣，每天约2小时正式冥想，至少有过3个月闭关经历）与匹配的短期冥想者对照组；在 FAM、OMM、LKM 三种冥想状态及非冥想休息状态下接受痛觉伤害性电刺激；每次试验后受试者分别对疼痛、排斥感、认同感打分。</li>
+<li><strong>Results — 描述性结果</strong>：长期冥想者的疼痛阈值显著高于短期冥想者；短期冥想者在 FAM 和 OMM 状态下疼痛显著低于休息状态，且所有冥想状态下排斥感和认同感都降低；长期冥想者仅在 LKM 状态下疼痛显著降低，认同感在三种冥想形式下均降低，但排斥感不受冥想调节。</li>
+<li><strong>Results — Granger 因果分析</strong>：检验疼痛、排斥感、认同感三者之间两两的时序因果关系，发现长期冥想者中"认同感"单向 Granger-导致"疼痛"（反向不显著），而"排斥感"与"疼痛"、"排斥感"与"认同感"均表现出双向因果关系。</li>
+<li><strong>Relationships with the Models / Discussion</strong>：将实验结果与"两支箭"和"缘起"（co-dependent origination）佛教心理学模型对接，论证疼痛感受是感觉因素和心理因素"共同生产"（co-production）的结果，而不是疼痛先发生、心理反应后跟随的简单链条。</li>
+</ul>
+<h2>核心论点清单</h2>
+<ol>
+<li><strong>长期冥想者的疼痛阈值显著高于短期冥想者，但冥想年数（专业程度）本身反而预测更高的疼痛评分。</strong> 这个看似矛盾的结果，论文解释为：专业冥想者不是"感觉钝化"，而是更精细的内省能力让他们能更清晰地报告疼痛感受，同时不被第二支箭放大。
+   - 锚点：Results · "Pain thresholds were higher in long-term meditators than in short-term meditators" / Expertise 部分 · "Pain significantly increased with Expertise"
+   - 类型：实验结果（部分反直觉）</li>
+<li><strong>排斥感和认同感在统计上都能正向预测疼痛体验，且这种预测力独立于疼痛刺激本身。</strong> 越排斥、越认同，疼痛感越强——这两个心理状态不是疼痛的副产品，而是参与构成疼痛体验的变量。
+   - 锚点：Aversion / Identification 回归结果 · "Aversion positively predicting Pain" / "Identification positively predicting Pain"
+   - 类型：回归分析结果</li>
+<li><strong>Granger 因果分析显示，在长期冥想者中，认同感单向地在时间上先于疼痛加剧出现——疼痛不能反向预测认同感。</strong> 这是全文最关键的发现：它把"认同感"定位为疼痛体验的上游因素，而不只是疼痛引发的伴随感受。
+   - 锚点：Granger Causality Analysis · "identification Granger-caused pain, i.e., the identification state in the previous trial predicted the pain experience at the next trial... [but] the reverse test, i.e., Pain caused Identification, was not significant"
+   - 类型：因果分析</li>
+<li><strong>排斥感与疼痛、排斥感与认同感之间表现出双向因果关系，与认同感对疼痛的单向因果关系形成结构性对比。</strong> 这说明"两支箭"模型中不同的心理成分，可能在因果结构上扮演不同的角色，而非笼统地都是"放大器"。
+   - 锚点：Granger Causality Analysis · "aversion showed mutual influence with both pain and identification, whereas identification Granger-caused pain"
+   - 类型：因果分析</li>
+<li><strong>不同冥想类型在长期和短期冥想者身上产生不同的疼痛调节效果模式——短期冥想者依赖专注/开放监控类冥想（FAM、OMM）降低疼痛，长期冥想者唯独在慈悲冥想（LKM）状态下显示疼痛降低。</strong> 这暗示冥想训练的成熟阶段可能伴随疼痛调节机制本身的转变，而不只是同一机制的强化。
+   - 锚点：Results · "In the short-term meditators, as compared to rest, pain was reduced in FAM and OMM... In the long-term meditators, pain was reduced only in LKM"
+   - 类型：实验结果</li>
+</ol>
+<h2>大白话重讲</h2>
+<p>有一段非常古老的佛教经文说：如果你被箭射中，那是第一支箭——身体的疼痛。但如果你开始想"为什么是我""这太不公平了""我受不了了"，那是你自己射向自己的第二支箭，而且往往比第一支箭更痛。</p>
+<p>这篇研究的科学家把这个比喻拿去实验室里测了。</p>
+<p>他们招募了两组人：一组是每天冥想2小时、每年至少有3个月闭关的佛教僧侣；另一组是普通人，有一些冥想经验。给他们手上加中度电刺激，在不同冥想状态下，让他们同时给三件事打分：
+1. 疼痛有多强烈？
+2. 想逃开的冲动有多强？（排斥感）
+3. 觉得这是"我的痛"的程度？（认同感）</p>
+<p>结果很清晰：不管是哪组人，<strong>越排斥、越认同，疼痛感就越强</strong>。这两个心理状态不是疼痛的副产品，而是放大疼痛的燃料。</p>
+<p>更关键的是一个时序分析：在长期冥想者那里，上一次实验里的"认同感"，能预测这一次的"疼痛感"——反过来却不成立，疼痛不预测认同感。这意味着"认同感"在时间上先于疼痛加剧，支持了它是疼痛放大的上游因素这一论点。而"排斥感"则呈现出不同的模式——它和疼痛、和认同感之间都是双向影响，没有那么干净的单向箭头。</p>
+<p>还有一个令人意外的发现：冥想年数越多，疼痛感评分反而越高。研究者的解释是：长期冥想者不是"不感受"，而是能更精细地感受——但他们不会被第二支箭放大。</p>
+<p>短期和长期冥想者在"哪种冥想能降疼痛"这件事上也不一样：短期冥想者靠专注冥想（FAM）和开放监控冥想（OMM）就能降低疼痛；长期冥想者只有在做慈悲冥想（LKM）时才显示出疼痛降低——这暗示随着练习的深入，起作用的机制本身可能发生了转变，而不只是同一套机制变得更强。</p>
+<h2>术语小词典</h2>
+<p><strong>两支箭模型（Two Arrows）：</strong> 源自巴利文《杂阿含经·箭经》（Sallatha Sutta）。第一支箭是物理疼痛，第二支箭是对疼痛的心理反应（排斥、恐惧、自我认同为受苦者）。受过训练的人只承受第一支箭。</p>
+<p><strong>专注冥想（FAM, Focused Attention Meditation）：</strong> 聚焦于单一对象（通常是呼吸）的冥想方式。目标是维持注意的稳定。</p>
+<p><strong>开放监控冥想（OMM, Open Monitoring Meditation）：</strong> 以开放、不判断的觉察观察所有当下的经验内容（思想、感受、感觉）。不抓取，不排斥。</p>
+<p><strong>慈悲冥想（LKM, Loving Kindness Meditation）：</strong> 培育对自己和他人的善意、接纳、友爱。</p>
+<p><strong>Granger 因果分析：</strong> 时间序列统计方法（Granger, 1969）。检验"变量 x 在过去的值是否能预测变量 y 的未来值（在控制 y 自身历史的情况下）"。用于推断时序上的因果关系，而非生理机制因果。</p>
+<h2>这篇之前与之后</h2>
+<h3>之前 (Preceding Works)</h3>
+<p>冥想减轻疼痛的研究大多测量"冥想 vs 不冥想"的总体疼痛分数差异，机制解释停留在"分散注意力"或"降低焦虑"；佛教心理学的"两支箭"和"缘起"框架是文学性、教义性的描述，从未被实验操作化为可测量的独立变量。脑岛、前扣带回等与正念和疼痛情绪调节相关的神经研究已经积累，但缺少把"排斥""认同"作为独立报告维度的实验设计。</p>
+<h3>之后 (Succeeding Lines)</h3>
+<p>"排斥感"和"认同感"作为可测量的、独立于疼痛刺激本身的心理变量被实验确认，并且通过 Granger 因果分析揭示出二者与疼痛之间不同的因果结构（认同感单向影响疼痛，排斥感与疼痛/认同感互为因果）。这为后续研究提供了更精细的机制靶点，也为冥想在疼痛干预中的理论框架提供了实证支撑——论文提出疼痛感受是感觉因素与心理因素"共同生产"（co-production）的结果，而非感觉因素单独决定、心理因素附加其上的简单链条。</p>
+<h2>最值得读原文的几段</h2>
+<ul>
+<li><strong>Introduction（箭经原文译文）</strong>：<blockquote>
+<p>"When an untaught worldling is touched by a painful (bodily) feeling, he worries and grieves, he laments, beats his breast, weeps and is distraught. He thus experiences two kinds of feelings, a bodily and a mental feeling. It is as if a man were pierced by a dart and, following the first piercing, he is hit by a second dart."</p>
+</blockquote>
+</li>
+<li><strong>核心意义</strong>：这是全文论证的源头譬喻，2600年前的文本用一个极其具体的身体意象（被两支箭连续射中），精确地预演了这篇论文用现代统计方法证明的因果结构。</li>
+<li><strong>Discussion（共同生产机制）</strong>：<blockquote>
+<p>"thus highlighting the relevance of the second arrow of pain and providing a clarification of the epistemological gap between sensory causation and mental state causation of pain, in terms of a co-production mechanism with multiple stages."</p>
+</blockquote>
+</li>
+<li><strong>核心意义</strong>：这句话点出了论文真正的理论贡献——不是简单证明"心理因素也影响疼痛"，而是给出了一个"多阶段共同生产"的具体机制框架，填补了感觉因果和心理因果之间长期存在的认识论空白。</li>
+<li><strong>Granger Causality Analysis（核心发现）</strong>：<blockquote>
+<p>"identification Granger-caused pain, i.e., the identification state in the previous trial predicted the pain experience at the next trial... the reverse test, i.e., Pain caused Identification, was not significant."</p>
+</blockquote>
+</li>
+<li><strong>核心意义</strong>：这是全篇最具体、最可被引用的统计学发现——它把一个原本只能用譬喻表达的佛教教义，转化成了一个有方向性、可证伪的时序因果命题。</li>
+</ul>
+<hr />
+<h2>与往期的呼应</h2><ul class="connections"><li><span class="rel">同构</span>← <a class="lk" href="https://lens.lumihelia.com/zh/papers/pain-catastrophizing-critical-review.html">疼痛灾难化：一篇批判性综述 · Phillip Quartana et al.</a><div class="why">两篇论文从认知行为科学和佛教心理学两个完全不同的传统，描述了同一个机制的两种语言版本。Pain Catastrophizing 综述里的「反刍」和「无助」，与 Two Arrows of Pain 里佛教「两支箭」框架中的「第二支箭」（对疼痛的厌恶性心理反应）指向的是同一种心理过程——疼痛本身（第一支箭/生理损伤）相对固定，而由心理反应叠加上去的额外痛苦才是真正可以被干预、被测量、被改变的部分。一篇用 fMRI 和 PCS 量表给出神经科学和心理测量证据；一篇用 Granger 因果分析证明冥想如何作用于这同一过程的因果链上游。</div><div class="pts"><div><b class="who">本期</b>§The Two Arrows · the Buddhist framework distinguishing the first arrow (unavoidable physical pain) from the second arrow (the additional suffering created by aversion and resistance to that pain).</div><div><b class="who">往期</b>CNS Mechanisms · &quot;catastrophizing associated with diminished endogenous pain inhibition&quot;</div></div></li><li><span class="rel">同构</span>← <a class="lk" href="https://lens.lumihelia.com/zh/papers/letting-go-unwell-self-chronic-conditions.html">放下「病患自我」：慢性病中的无我觉察 · Chloe Wells et al.</a><div class="why">两篇论文都建立在佛教「两支箭」框架上，描述的是同一个机制在不同时间尺度上的版本。Two Arrows of Pain 用 Granger 因果分析证明，「认同感」（这是我的痛）在时间上先于疼痛加剧出现——认同是疼痛的上游变量，不是结果。Letting Go of the Unwell Self 描述的是同一个认同过程被拉长到数月、数年后的样子：当「这是我的痛」反复发生，逐渐固化成「我是一个病人」的身份叙事，这种身份融合本身又会反过来加重疼痛灾难化和功能损害。一篇是实验室里测出的瞬时因果链，一篇是临床观察到的长期身份结果，描述的是同一条因果线的两端。</div><div class="pts"><div><b class="who">本期</b>§Relationships with the Models · &quot;The identification state in the previous trial predicted the pain experience at the next trial, in terms of causal influence.&quot;</div><div><b class="who">往期</b>Attachment to Identity · &quot;higher levels of intertwinement are associated with greater levels of disruption to daily life due to pain catastrophising and the impact of symptoms, both physical and emotional (Paschali et al., 2021)&quot;</div></div></li></ul>
+<p class="foot">本页为对论文内容的忠实解读与大白话重述,由 <a href="https://github.com/lumihelia/PodLens">PodLens</a> 生成。</p>
+<p class="disclaimer">这是以原文为依据的一次解读,不能替代原文。每条要点都标注了出处,欢迎回到原文核对——也欢迎指出任何细微的偏差。</p>
+
+</div>
+</body>
+</html>

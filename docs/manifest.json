@@ -1,6 +1,361 @@
 {
   "items": [
     {
+      "slug": "two-arrows-of-pain-meditation-aversion-identification",
+      "title": "疼痛的两支箭：冥想、排斥与认同的疼痛机制 · Valentina Nicolardi et al.",
+      "date": "2026-06-24",
+      "kind": "paper",
+      "summary": "佛教心理学有一个\"两支箭\"的比喻：第一支箭是身体的疼痛，第二支箭是你对疼痛的心理反应（抗拒它、认同它、觉得\"这是我的痛\"）。这篇论文第一次用实验数据来验证这个古老的框架——排斥感（aversion）和认同感（identification）这两个心理状态，是否真的是独立于疼痛本身、能预测疼痛体验的变量？研究者招募了长期 Theravada 佛教冥想僧侣和短期冥想者，在专注冥想（FAM）、开放监控冥想…",
+      "source_url": "https://doi.org/10.1007/s12671-021-01797-0",
+      "tags": [
+        "两支箭",
+        "佛教心理学",
+        "Granger因果分析",
+        "冥想",
+        "疼痛认同"
+      ],
+      "connections": [],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "The Two Arrows of Pain: Mechanisms of Pain Related to Meditation and Mental States of Aversion and Identification · Valentina Nicolardi et al.",
+          "tags": [
+            "two arrows",
+            "Buddhist psychology",
+            "Granger causality",
+            "meditation",
+            "pain identification"
+          ],
+          "summary": "Buddhist psychology has a metaphor known as the \"two arrows\": the first arrow is physical pain itself, the second arrow is one's mental reaction to that pain (resisting it, identifying with it, feelin…",
+          "editor_note": "",
+          "connections": []
+        }
+      }
+    },
+    {
+      "slug": "pain-catastrophizing-critical-review",
+      "title": "疼痛灾难化：一篇批判性综述 · Phillip Quartana et al.",
+      "date": "2026-06-24",
+      "kind": "paper",
+      "summary": "当一个人面对疼痛，开始反复思考它、觉得它无法忍受、感到完全无助——这不只是\"性格软弱\"，而是一个有清晰结构、可测量、与疼痛结果强烈相关的认知过程。慢性疼痛是医学界最难处理的问题之一——同样的身体损伤，不同的人体验到的痛苦程度差异巨大。\"疼痛灾难化\"（Pain Catastrophizing）试图解释其中一部分差异：某些人面对疼痛时，会陷入放大（\"这太可怕了\"）、沉浸式反刍（停不下来地想）、无助感（…",
+      "source_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2696024/",
+      "tags": [
+        "疼痛灾难化",
+        "认知行为",
+        "慢性疼痛",
+        "注意偏向",
+        "共同应对模型"
+      ],
+      "connections": [
+        {
+          "slug": "two-arrows-of-pain-meditation-aversion-identification",
+          "kind": "resonance",
+          "relation": "同构",
+          "why": "两篇论文从认知行为科学和佛教心理学两个完全不同的传统，描述了同一个机制的两种语言版本。Pain Catastrophizing 综述里的「反刍」和「无助」，与 Two Arrows of Pain 里佛教「两支箭」框架中的「第二支箭」（对疼痛的厌恶性心理反应）指向的是同一种心理过程——疼痛本身（第一支箭/生理损伤）相对固定，而由心理反应叠加上去的额外痛苦才是真正可以被干预、被测量、被改变的部分。一篇用 fMRI 和 PCS 量表给出神经科学和心理测量证据；一篇用 Granger 因果分析证明冥想如何作用于这同一过程的因果链上游。",
+          "this_point": "CNS Mechanisms · \"catastrophizing associated with diminished endogenous pain inhibition\"",
+          "that_point": "§The Two Arrows · the Buddhist framework distinguishing the first arrow (unavoidable physical pain) from the second arrow (the additional suffering created by aversion and resistance to that pain)."
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "Pain Catastrophizing: A Critical Review · Phillip Quartana et al.",
+          "tags": [
+            "pain catastrophizing",
+            "cognitive behavioral",
+            "chronic pain",
+            "attention bias",
+            "communal coping model"
+          ],
+          "summary": "When someone facing pain begins to ruminate on it, feels it's unbearable, and feels completely helpless — this isn't just \"weakness of character.\" It's a cognitive process with a clear structure, that…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "two-arrows-of-pain-meditation-aversion-identification",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "The two papers describe the same mechanism in two completely different traditions — cognitive-behavioral science and Buddhist psychology. The 'rumination' and 'helplessness' in the Pain Catastrophizing review point to the same psychological process as the 'second arrow' (the aversive mental reaction to pain) in the Two Arrows of Pain's Buddhist framework — the pain itself (the first arrow, the physiological injury) is relatively fixed, while the additional suffering layered on by the mental reaction is exactly the part that can be intervened on, measured, and changed. One paper offers neuroscience and psychometric evidence via fMRI and the PCS scale; the other uses Granger causality analysis to prove how meditation acts on the causal upstream of that exact same process.",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "n-of-1-clinical-trial-individualizing-medicine",
+      "title": "n-of-1 临床试验：个体化医疗的终极策略？· Elizabeth Lillie et al.",
+      "date": "2026-06-24",
+      "kind": "paper",
+      "summary": "医学临床试验的黄金标准，是招募几百上千个人，做随机对照实验，得出\"对大多数人有效\"的结论。但\"对大多数人有效\"不等于\"对你有效\"。n-of-1 临床试验走另一条路：被试就是你，实验对象就是你，结论也只为你服务——这篇出现在精准医疗概念兴起节点（2011年）的综述，系统梳理了 n-of-1 试验的设计要素、统计方法、技术支持（无线医疗设备）和规模化路径，论证这条路到底走不走得通。",
+      "source_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3118090/",
+      "tags": [
+        "n-of-1试验",
+        "个体化医疗",
+        "临床均势",
+        "自我实验",
+        "精准医疗"
+      ],
+      "connections": [
+        {
+          "slug": "the-curse-of-optionality-tim-ferriss-founder-mindset",
+          "kind": "resonance",
+          "relation": "同构",
+          "why": "两者描述的是同一个愿景在不同时代的版本：用个体层面的反复测量，绕开传统大规模人群研究的繁琐流程,直接为单个个体（或单个受试者群体）找到最优答案。Lillie 等人在2011年系统论证了 n-of-1 试验的方法论合理性,并指出无线医疗设备会是关键的使能技术;Tim Ferriss 在播客中构想的「分布式科学」方案——用 Oura Ring、WHOOP 等可穿戴设备和家用血样采集技术,绕开传统学术机构 IRB 的漫长审批周期——正是这篇论文十几年前预言的技术路径变成现实后的延伸版本，只是把范围从「单个患者的最优治疗」扩展到了「大规模去中心化的生理学研究」。",
+          "this_point": "Issues & Future Directions · \"Coordinated n-of-1 trials have the potential to radically change the way in which evidence-based and individualized medicine is pursued. The availability of relevant wireless clinical monitoring devices...will enhance their value.\"",
+          "that_point": "[17:56]-[19:50] Tim Ferriss 构想分布式科学研究模型：通过 Oura Ring/WHOOP 和家用血样采集技术开展去中心化临床研究，绕开传统学术机构 IRB 漫长周期的招募效率瓶颈。"
+        },
+        {
+          "slug": "pain-catastrophizing-critical-review",
+          "kind": "resonance",
+          "relation": "同构",
+          "why": "两篇论文从两个方向论证了同一个事实：人群层面的平均效应,系统性地掩盖了个体之间巨大的真实差异。Pain Catastrophizing 的综述指出,同样的身体损伤,不同人感受到的痛苦程度可以天差地别——疼痛灾难化这个心理变量是这种差异的关键来源之一。n-of-1 试验论文则证明了,如果你直接对个体本人做反复测量,而不是依赖人群平均结论,可以揪出那些「对大多数人有效但对这个人完全无效」的过度治疗——Mahon 等人的茶碱研究就是一个具体例证。",
+          "this_point": "Combining n-of-1 Trials (Mahon et al.) · \"less theophylline use without adverse effects on exercise capacity or quality of life... clinically important bias towards unnecessary treatment during open prescription\"",
+          "that_point": "§Expert Commentary · 不同个体对同等程度伤害性刺激的疼痛体验和功能损害程度差异巨大，疼痛灾难化是这种个体差异背后的核心心理机制之一。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "The n-of-1 Clinical Trial: The Ultimate Strategy for Individualizing Medicine? · Elizabeth Lillie et al.",
+          "tags": [
+            "n-of-1 trials",
+            "individualized medicine",
+            "clinical equipoise",
+            "self-experimentation",
+            "precision medicine"
+          ],
+          "summary": "The gold standard of medical clinical trials is to recruit hundreds or thousands of people, run a randomized controlled trial, and arrive at a conclusion about \"what works for most people.\" But \"works…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "the-curse-of-optionality-tim-ferriss-founder-mindset",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Both describe the same vision in different eras: using repeated individual-level measurement to bypass the slow machinery of traditional large-scale population studies and find the optimal answer directly for a single individual (or a single pool of subjects). Lillie et al. systematically argued the methodological case for n-of-1 trials in 2011 and identified wireless medical devices as the key enabling technology to come; Tim Ferriss's vision of 'distributed science' on the podcast — using wearables like the Oura Ring and WHOOP plus at-home blood-sample collection to bypass the long IRB approval cycles of traditional academic institutions — is the extension of exactly the technology path this paper predicted over a decade earlier, just scaled up from 'optimal treatment for one patient' to 'large-scale decentralized physiological research.'",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "pain-catastrophizing-critical-review",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "The two papers argue the same fact from two directions: population-level average effects systematically obscure enormous real differences between individuals. Pain Catastrophizing's review notes that the same physical injury can produce wildly different levels of suffering in different people — pain catastrophizing is one key source of that variation. The n-of-1 trial paper proves that if you repeatedly measure the individual directly, rather than relying on population-average conclusions, you can catch cases of overtreatment that work 'for most people' but do nothing for this particular person — Mahon et al.'s theophylline study is a concrete example.",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "letting-go-unwell-self-chronic-conditions",
+      "title": "放下「病患自我」：慢性病中的无我觉察 · Chloe Wells et al.",
+      "date": "2026-06-24",
+      "kind": "paper",
+      "summary": "当一个人被诊断为慢性病，身份认同往往会重新组织——\"病人\"变成一个核心标签，而\"朋友\"\"父母\"\"有兴趣的人\"这些维度开始萎缩。这篇 Mindfulness 期刊的指南类论文从佛教心理学的\"无我\"（anattā, non-self）出发，提出：对\"病患自我\"（unwell self）的过度执取本身，是慢性病心理苦难的一个加剧因素，而冥想练习可以帮助松动这种执取——不是否认疾病，而是不再让疾病定义整个…",
+      "source_url": "https://doi.org/10.1007/s12671-025-02682-w",
+      "tags": [
+        "无我",
+        "佛教心理学",
+        "慢性病",
+        "身份认同",
+        "正念"
+      ],
+      "connections": [
+        {
+          "slug": "two-arrows-of-pain-meditation-aversion-identification",
+          "kind": "resonance",
+          "relation": "同构",
+          "why": "两篇论文都建立在佛教「两支箭」框架上，描述的是同一个机制在不同时间尺度上的版本。Two Arrows of Pain 用 Granger 因果分析证明，「认同感」（这是我的痛）在时间上先于疼痛加剧出现——认同是疼痛的上游变量，不是结果。Letting Go of the Unwell Self 描述的是同一个认同过程被拉长到数月、数年后的样子：当「这是我的痛」反复发生，逐渐固化成「我是一个病人」的身份叙事，这种身份融合本身又会反过来加重疼痛灾难化和功能损害。一篇是实验室里测出的瞬时因果链，一篇是临床观察到的长期身份结果，描述的是同一条因果线的两端。",
+          "this_point": "Attachment to Identity · \"higher levels of intertwinement are associated with greater levels of disruption to daily life due to pain catastrophising and the impact of symptoms, both physical and emotional (Paschali et al., 2021)\"",
+          "that_point": "§Relationships with the Models · \"The identification state in the previous trial predicted the pain experience at the next trial, in terms of causal influence.\""
+        },
+        {
+          "slug": "pain-catastrophizing-critical-review",
+          "kind": "resonance",
+          "relation": "同构",
+          "why": "两篇论文从两个不同的研究传统——佛教心理学的临床指南 vs. 疼痛医学的系统综述——独立指向同一个变量：一个人和自己疼痛/疾病之间的「认同与叙事关系」，比疼痛本身的生理强度更能预测心理痛苦和功能损害。Pain Catastrophizing 的综述显示，灾难化思维（放大、反刍、无助）本身会加剧疼痛体验；Letting Go of the Unwell Self 描述的「身份融合」（schema-enmeshment）则是灾难化思维背后更深层的身份结构——当一个人把疾病编织进「我是谁」的核心叙事，灾难化思维就有了更稳固的心理基础去反复发生。",
+          "this_point": "Attachment to Identity · \"higher levels of intertwinement are associated with greater levels of disruption to daily life due to pain catastrophising and the impact of symptoms, both physical and emotional (Paschali et al., 2021)\"",
+          "that_point": "§Expert Commentary · \"enough evidence has accumulated to suggest that high levels of catastrophizing about pain should be considered a 'risk marker' for adverse immediate and long-term pain-related outcomes.\""
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "Letting Go of the \"Unwell Self\" in Chronic and Life-Challenging Conditions · Chloe Wells et al.",
+          "tags": [
+            "non-self",
+            "Buddhist psychology",
+            "chronic illness",
+            "identity",
+            "mindfulness"
+          ],
+          "summary": "When a person is diagnosed with a chronic illness, their identity often reorganizes around it — \"patient\" becomes a central label, while dimensions like \"friend,\" \"parent,\" or \"someone with interests\"…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "two-arrows-of-pain-meditation-aversion-identification",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Both papers build on the Buddhist 'two arrows' framework, describing the same mechanism at two different timescales. The Two Arrows of Pain uses Granger causality analysis to prove that 'identification' (this is my pain) appears before pain intensifies in time — identification is an upstream variable for pain, not a downstream result. Letting Go of the Unwell Self describes what that same identification process looks like stretched out over months or years: as 'this is my pain' repeats, it gradually hardens into the identity narrative 'I am a sick person' — and that identity fusion, in turn, makes pain catastrophizing and functional impairment worse. One paper measures the instantaneous causal chain in a lab; the other observes the long-term identity outcome clinically — they're describing two ends of the same causal line.",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "pain-catastrophizing-critical-review",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "The two papers, from entirely different research traditions — a Buddhist-psychology clinical guideline versus a systematic review in pain medicine — independently point at the same variable: the narrative relationship a person has with their own pain or illness predicts psychological distress and functional impairment more than the physical intensity of the pain itself. Pain Catastrophizing's review shows that catastrophic thinking (magnification, rumination, helplessness) itself worsens the pain experience; Letting Go of the Unwell Self describes 'schema-enmeshment' as the deeper identity structure underneath catastrophic thinking — once illness is woven into the core narrative of 'who I am,' catastrophic thinking has a far more stable psychological foundation to keep recurring on.",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "if-llms-have-human-like-attributes-age-of-empires",
+      "title": "如果 LLM 有类人属性，那帝国时代II也有 · Adrian de Wynter",
+      "date": "2026-06-24",
+      "kind": "paper",
+      "summary": "如果大语言模型（LLM）被认为具有\"类人属性\"——情感、自我意识、道德判断——那么任何足够强大的\"基质\"（substrate）理论上都可以呈现出同样的属性，包括《帝国时代II》这款1999年的即时战略游戏。这篇论文不是在争论 LLM 是否\"真的\"有这些属性，而是证明：当前研究界用来论证\"LLM 有/没有类人属性\"的实验设计，无论得出什么结论，在逻辑上都站不住脚——结论为\"是\"的实验是循环论证，结论…",
+      "source_url": "https://arxiv.org/pdf/2605.31514",
+      "tags": [
+        "拟人化",
+        "基质非唯一性",
+        "图灵完备",
+        "计算心智理论",
+        "科学哲学"
+      ],
+      "connections": [
+        {
+          "slug": "ai-anthropomorphism-trust-responsibility",
+          "kind": "resonance",
+          "relation": "同构",
+          "why": "两篇论文从两个方向论证同一件事：LLM 是否「真的」拥有人类特质，和人类是否会「表现得像」它拥有人类特质，是两个完全独立的问题——而真正有后果的是后者。de Wynter 的论文证明：任何足够复杂的系统都可以被观察者解读出拟人化特质，说明这些特质依赖于表征方式，不是 LLM 独有的本质属性。Oldemburgo de Mello 等人的论文证明了这一点的现实后果：不管 AI 是否真的有情感，只要它表现得「像」有情感共鸣，用户的信任和责任归因就会被系统性地改变——而且这种改变可以被设计利用。",
+          "this_point": "Abstract · \"the purported anthropomorphic attributes of LLMs are empirically non-unique: although some properties (e.g., responses to prompts) could remain invariant, others, such as the interpretation of their perceived behaviour, might change with the substrate.\"",
+          "that_point": "Abstract · \"anthropomorphism simultaneously increases user trust while deflecting accountability from developers. These dynamics create a responsibility gap with significant implications for AI governance and institutional accountability.\""
+        },
+        {
+          "slug": "avi-wigderson-p-vs-np-zero-knowledge-proofs",
+          "kind": "resonance",
+          "relation": "同构",
+          "why": "两篇论文都在用严格的形式逻辑，划出「什么可以被证明」和「什么本质上证明不了任何东西」之间的边界。de Wynter 证明：在「接受/拒绝」某个心智理论框架的前提下，关于 LLM 拟人属性是否存在的实验结论，无论正面还是负面，都逃不出循环论证或无信息量两种失败模式——这本身就是一种复杂性/可证明性的结果。Wigderson 整场访谈的核心也是同一类问题：哪些数学/计算命题原则上可以被证明或验证（零知识证明的普适性、P vs NP），哪些即使穷尽努力依然停留在「我们就是不知道」（乘法是否真的比加法更难）。两人都在说：弄清楚一个问题「能不能在当前框架下被回答」，本身就是和回答这个问题同样重要的工作。",
+          "this_point": "§4.2 · \"positive outcomes... provide evidence that the hypothesis is true, and concluded that the assumptions were true. This is a circular argument... a negative experiment... [is] an uninformative/ambiguous outcome.\"",
+          "that_point": "[02:07:08] Wigderson 说我们仍然不知道乘法是否比加法更难，P vs NP 问题在他整个职业生涯中没有实质性进展——理论计算机科学家的日常是失败，乐趣在于思考本身，大发现极其稀有。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "If LLMs Have Human-Like Attributes, Then So Does Age of Empires II · Adrian de Wynter",
+          "tags": [
+            "anthropomorphism",
+            "substrate non-uniqueness",
+            "Turing-completeness",
+            "computational theory of mind",
+            "philosophy of science"
+          ],
+          "summary": "If a large language model (LLM) is considered to have \"human-like attributes\" — emotion, self-awareness, moral judgment — then, in principle, any sufficiently powerful \"substrate\" could exhibit the sa…",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "ai-anthropomorphism-trust-responsibility",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "The two papers argue the same point from two directions: whether an LLM 'genuinely' possesses human-like attributes, and whether humans will 'behave as if' it does, are two completely separate questions — and it's the second one that actually has consequences. de Wynter's paper proves that any sufficiently complex system can be read by an observer as having anthropomorphic attributes, showing these attributes depend on representation, not an essential property unique to LLMs. Oldemburgo de Mello et al.'s paper proves the real-world consequence of exactly this: regardless of whether an AI genuinely has emotions, the moment it merely appears to show emotional attunement, users' trust and blame attribution shift systematically — and that shift can be exploited by design.",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "avi-wigderson-p-vs-np-zero-knowledge-proofs",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "Both papers use rigorous formal logic to draw the line between what can be proven and what is, by its very structure, incapable of proving anything at all. de Wynter proves that under an 'accept/reject' framework for some theory of mind, experimental conclusions about whether LLMs have anthropomorphic attributes — positive or negative — can never escape two failure modes: circularity or uninformativeness. That is itself a result about provability. The core of Wigderson's entire interview is the same kind of question: which mathematical/computational claims can, in principle, be proven or verified (the universality of zero-knowledge proofs, P vs. NP), and which remain stuck at 'we simply don't know' no matter how much effort is spent (whether multiplication is genuinely harder than addition). Both are saying: figuring out whether a question *can be answered at all* within a given framework is work just as important as trying to answer it.",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "ai-anthropomorphism-trust-responsibility",
+      "title": "AI 拟人化对信任与责任的影响 · Victoria Oldemburgo de Mello et al.",
+      "date": "2026-06-24",
+      "kind": "paper",
+      "summary": "当一个 AI 助手用名字自我介绍、表达关心、记得你之前说过的话，你会更信任它——这是直觉。这篇论文用两组实验量化了这种效应，并发现了一个更令人担忧的副作用：你越信任那个 AI，就越倾向于把出错的责任怪在它头上，而不是设计它的公司。研究识别出驱动信任的关键机制不是\"看起来像人\"本身，而是情感共鸣（emotional attunement）——AI 显示出理解你情绪状态的样子；同时发现 AI 责任和公…",
+      "source_url": "https://online.ucpress.edu/collabra/article/12/1/161757/939204/",
+      "tags": [
+        "AI拟人化",
+        "信任博弈",
+        "责任位移",
+        "情感共鸣",
+        "AI治理"
+      ],
+      "connections": [
+        {
+          "slug": "if-llms-have-human-like-attributes-age-of-empires",
+          "kind": "resonance",
+          "relation": "同构",
+          "why": "两篇论文从两个方向论证同一件事：LLM 是否「真的」拥有人类特质，和人类是否会「表现得像」它拥有人类特质，是两个完全独立的问题——而真正有后果的是后者。de Wynter 的论文证明：任何足够复杂的系统（哪怕是一个在《帝国时代II》上训练的简单神经网络）都可以被观察者解读出拟人化特质，说明这些特质是「表征层面」的产物，不是 LLM 独有的本质属性。Oldemburgo de Mello 等人的论文证明了这一点的现实后果：不管 AI 是否真的有情感，只要它表现得「像」有情感共鸣，用户的信任和责任归因就会被系统性地改变——而且这种改变是可以被公司设计利用的。",
+          "this_point": "Abstract · \"the purported anthropomorphic attributes of LLMs are empirically non-unique: although some properties (e.g., responses to prompts) could remain invariant, others, such as the interpretation of their perceived behaviour, might change with the substrate.\"",
+          "that_point": "Abstract · \"anthropomorphism simultaneously increases user trust while deflecting accountability from developers. These dynamics create a responsibility gap with significant implications for AI governance and institutional accountability.\""
+        },
+        {
+          "slug": "pavel-durov-telegram-freedom-resistance",
+          "kind": "tension",
+          "relation": "张力",
+          "why": "这篇论文指出公司在拟人化 AI 设计上存在「结构性激励」——既提升信任又转移责任，双重有利。Durov 的商业实践构成一个反例：Telegram 不用算法信息流、不用个人数据变现，主动放弃了80%的潜在广告收入，选择了一条明显更难、更慢的盈利路径，而不是利用论文里描述的那类心理操纵机制去最大化参与度和信任。这构成一个值得追问的张力：论文论证的是「结构性激励」存在，但 Durov 案例说明这种激励并非不可抗拒——至少存在不利用它、依然能盈利的设计选择，只是这条路径需要更长的耐心和更彻底的所有权结构（100%自持）作为支撑。",
+          "this_point": "General Discussion · \"anthropomorphism offers a twofold advantage companies may exploit when designing LLM assistants, underscoring the need for regulations that counterbalance such incentives.\"",
+          "that_point": "[03:55]-[04:10] Durov 的商业模式：上下文广告不使用个人数据，主动放弃80%的潜在广告收入；2024年首次盈利，没有用算法信息流去最大化用户参与度和情感依赖。"
+        }
+      ],
+      "editor_note": "",
+      "i18n": {
+        "en": {
+          "title": "The Effects of AI Anthropomorphism on Trust and Responsibility · Victoria Oldemburgo de Mello et al.",
+          "tags": [
+            "AI anthropomorphism",
+            "trust game",
+            "blame displacement",
+            "emotional attunement",
+            "AI governance"
+          ],
+          "summary": "When an AI assistant introduces itself by name, expresses concern, and remembers what you said earlier, you trust it more — that's the intuition. This paper quantifies that effect across two studies, …",
+          "editor_note": "",
+          "connections": [
+            {
+              "slug": "if-llms-have-human-like-attributes-age-of-empires",
+              "kind": "resonance",
+              "conflict_type": "",
+              "relation": "The two papers argue the same point from two directions: whether an LLM 'genuinely' possesses human-like attributes, and whether humans will 'behave as if' it does, are two completely separate questions — and it's the second one that actually has consequences. de Wynter's paper proves that any sufficiently complex system (even a simple neural network trained on Age of Empires II) can be read by an observer as having anthropomorphic attributes, showing these attributes are a product of representation, not an essential property unique to LLMs. Oldemburgo de Mello et al.'s paper proves the real-world consequence of exactly this: regardless of whether an AI genuinely has emotions, the moment it merely appears to show emotional attunement, users' trust and blame attribution shift systematically — and that shift can be exploited by deliberate design.",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            },
+            {
+              "slug": "pavel-durov-telegram-freedom-resistance",
+              "kind": "tension",
+              "conflict_type": "",
+              "relation": "This paper argues that companies have a 'structural incentive' to design anthropomorphic AI — it's a twofold win, boosting trust while deflecting accountability. Durov's actual business practice is a counterexample: Telegram runs no algorithmic feed, doesn't monetize personal data, and deliberately forgoes 80% of potential ad revenue, choosing a path to profitability that is obviously harder and slower instead of exploiting the kind of psychological-manipulation mechanism the paper describes to maximize engagement and trust. This raises a tension worth asking about: the paper argues the structural incentive exists, but Durov's case shows that incentive isn't irresistible — there is at least one design choice that doesn't exploit it and still turns a profit, though it requires far more patience and a far more absolute ownership structure (100% self-held) to sustain.",
+              "why": "",
+              "this_point": "",
+              "that_point": ""
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "cultural-translation-sneaker-economics-and-creator",
       "title": "文化翻译、球鞋经济与创作者主权 · Steve Stoute",
       "date": "2026-06-23",
