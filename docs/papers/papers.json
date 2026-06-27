@@ -12,6 +12,96 @@
   ],
   "items": [
     {
+      "id": "https://lens.lumihelia.com/papers/two-arrows-of-pain-meditation-aversion-identification.html",
+      "url": "https://lens.lumihelia.com/papers/two-arrows-of-pain-meditation-aversion-identification.html",
+      "title": "The Two Arrows of Pain: Mechanisms of Pain Related to Meditation and Mental States of Aversion and Identification · Valentina Nicolardi et al.",
+      "date_published": "2026-06-24",
+      "summary": "Buddhist psychology has a metaphor known as the \"two arrows\": the first arrow is physical pain itself, the second arrow is one's mental reaction to that pain (resisting it, identifying with it, feelin…",
+      "tags": [
+        "two arrows",
+        "Buddhist psychology",
+        "Granger causality",
+        "meditation",
+        "pain identification"
+      ],
+      "external_url": "https://doi.org/10.1007/s12671-021-01797-0"
+    },
+    {
+      "id": "https://lens.lumihelia.com/papers/pain-catastrophizing-critical-review.html",
+      "url": "https://lens.lumihelia.com/papers/pain-catastrophizing-critical-review.html",
+      "title": "Pain Catastrophizing: A Critical Review · Phillip Quartana et al.",
+      "date_published": "2026-06-24",
+      "summary": "When someone facing pain begins to ruminate on it, feels it's unbearable, and feels completely helpless — this isn't just \"weakness of character.\" It's a cognitive process with a clear structure, that…",
+      "tags": [
+        "pain catastrophizing",
+        "cognitive behavioral",
+        "chronic pain",
+        "attention bias",
+        "communal coping model"
+      ],
+      "external_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2696024/"
+    },
+    {
+      "id": "https://lens.lumihelia.com/papers/n-of-1-clinical-trial-individualizing-medicine.html",
+      "url": "https://lens.lumihelia.com/papers/n-of-1-clinical-trial-individualizing-medicine.html",
+      "title": "The n-of-1 Clinical Trial: The Ultimate Strategy for Individualizing Medicine? · Elizabeth Lillie et al.",
+      "date_published": "2026-06-24",
+      "summary": "The gold standard of medical clinical trials is to recruit hundreds or thousands of people, run a randomized controlled trial, and arrive at a conclusion about \"what works for most people.\" But \"works…",
+      "tags": [
+        "n-of-1 trials",
+        "individualized medicine",
+        "clinical equipoise",
+        "self-experimentation",
+        "precision medicine"
+      ],
+      "external_url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3118090/"
+    },
+    {
+      "id": "https://lens.lumihelia.com/papers/letting-go-unwell-self-chronic-conditions.html",
+      "url": "https://lens.lumihelia.com/papers/letting-go-unwell-self-chronic-conditions.html",
+      "title": "Letting Go of the \"Unwell Self\" in Chronic and Life-Challenging Conditions · Chloe Wells et al.",
+      "date_published": "2026-06-24",
+      "summary": "When a person is diagnosed with a chronic illness, their identity often reorganizes around it — \"patient\" becomes a central label, while dimensions like \"friend,\" \"parent,\" or \"someone with interests\"…",
+      "tags": [
+        "non-self",
+        "Buddhist psychology",
+        "chronic illness",
+        "identity",
+        "mindfulness"
+      ],
+      "external_url": "https://doi.org/10.1007/s12671-025-02682-w"
+    },
+    {
+      "id": "https://lens.lumihelia.com/papers/if-llms-have-human-like-attributes-age-of-empires.html",
+      "url": "https://lens.lumihelia.com/papers/if-llms-have-human-like-attributes-age-of-empires.html",
+      "title": "If LLMs Have Human-Like Attributes, Then So Does Age of Empires II · Adrian de Wynter",
+      "date_published": "2026-06-24",
+      "summary": "If a large language model (LLM) is considered to have \"human-like attributes\" — emotion, self-awareness, moral judgment — then, in principle, any sufficiently powerful \"substrate\" could exhibit the sa…",
+      "tags": [
+        "anthropomorphism",
+        "substrate non-uniqueness",
+        "Turing-completeness",
+        "computational theory of mind",
+        "philosophy of science"
+      ],
+      "external_url": "https://arxiv.org/pdf/2605.31514"
+    },
+    {
+      "id": "https://lens.lumihelia.com/papers/ai-anthropomorphism-trust-responsibility.html",
+      "url": "https://lens.lumihelia.com/papers/ai-anthropomorphism-trust-responsibility.html",
+      "title": "The Effects of AI Anthropomorphism on Trust and Responsibility · Victoria Oldemburgo de Mello et al.",
+      "date_published": "2026-06-24",
+      "summary": "When an AI assistant introduces itself by name, expresses concern, and remembers what you said earlier, you trust it more — that's the intuition. This paper quantifies that effect across two studies, …",
+      "tags": [
+        "AI anthropomorphism",
+        "trust game",
+        "blame displacement",
+        "emotional attunement",
+        "AI governance"
+      ],
+      "external_url": "https://online.ucpress.edu/collabra/article/12/1/161757/939204/"
+    },
+    {
       "id": "https://lens.lumihelia.com/papers/skillcomposer-learning-to-evolve-agent-skills.html",
       "url": "https://lens.lumihelia.com/papers/skillcomposer-learning-to-evolve-agent-skills.html",
       "title": "SkillComposer: Inference-Time Adaptive Evolution of Agent Skills for LLMs · Qi Zhang",

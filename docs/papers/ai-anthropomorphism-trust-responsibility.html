@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Effects of AI Anthropomorphism on Trust and Responsibility · Victoria Oldemburgo de Mello et al. · PodLens</title>
+<meta name="description" content="When an AI assistant introduces itself by name, expresses concern, and remembers what you said earlier, you trust it more — that&#x27;s the intuition. This paper quantifies that effect across two studies, …">
+<meta name="author" content="lumihelia">
+<meta name="keywords" content="AI anthropomorphism, trust game, blame displacement, emotional attunement, AI governance">
+<link rel="canonical" href="https://lens.lumihelia.com/papers/ai-anthropomorphism-trust-responsibility.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://lens.lumihelia.com/zh/papers/ai-anthropomorphism-trust-responsibility.html"><link rel="alternate" hreflang="en" href="https://lens.lumihelia.com/papers/ai-anthropomorphism-trust-responsibility.html"><link rel="alternate" hreflang="x-default" href="https://lens.lumihelia.com/papers/ai-anthropomorphism-trust-responsibility.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Effects of AI Anthropomorphism on Trust and Responsibility · Victoria Oldemburgo de Mello et al. · PodLens">
+<meta property="og:description" content="When an AI assistant introduces itself by name, expresses concern, and remembers what you said earlier, you trust it more — that&#x27;s the intuition. This paper quantifies that effect across two studies, …">
+<meta property="og:url" content="https://lens.lumihelia.com/papers/ai-anthropomorphism-trust-responsibility.html">
+<link rel="alternate" type="application/rss+xml" title="PodLens" href="https://lens.lumihelia.com/feed.xml"><link rel="alternate" type="application/json" title="PodLens" href="https://lens.lumihelia.com/episodes.json">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "The Effects of AI Anthropomorphism on Trust and Responsibility · Victoria Oldemburgo de Mello et al.", "datePublished": "2026-06-24", "inLanguage": "en", "url": "https://lens.lumihelia.com/papers/ai-anthropomorphism-trust-responsibility.html", "description": "When an AI assistant introduces itself by name, expresses concern, and remembers what you said earlier, you trust it more — that's the intuition. This paper quantifies that effect across two studies, …", "author": {"@type": "Person", "name": "lumihelia"}, "publisher": {"@type": "Person", "name": "lumihelia"}, "keywords": "AI anthropomorphism, trust game, blame displacement, emotional attunement, AI governance", "isBasedOn": "https://online.ucpress.edu/collabra/article/12/1/161757/939204/"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --text: #2C2C2C; --primary: #4C436F; --bg: #F4F3F7; --muted: #9A93B3;
+  --border: #D4D0E0; --white: #FFFFFF; --radius: 12px; --shadow: rgba(76,67,111,0.08);
+}
+* { box-sizing: border-box; }
+body {
+  font-family: 'Source Serif Pro', serif; color: var(--text);
+  background: var(--bg); line-height: 1.75; margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 96px 24px 128px; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text); line-height: 1.25; }
+h1 { font-size: 2.6rem; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.01em; }
+h2 { font-size: 1.5rem; font-weight: 600; margin: 64px 0 16px; }
+h3 { font-size: 1.15rem; font-weight: 600; margin: 32px 0 8px; }
+p { margin: 0 0 20px; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.meta { color: var(--muted); font-size: 0.95rem; margin: 0 0 64px; }
+.site-head { margin-bottom: 80px; }
+.site-head .tagline { color: var(--muted); font-size: 1.05rem; margin-top: 4px; }
+ul, ol { padding-left: 1.4em; }
+li { margin: 6px 0; }
+.episode-list { list-style: none; padding: 0; }
+.episode-list li { margin: 0 0 48px; }
+.episode-list .date { color: var(--muted); font-size: 0.9rem; }
+.episode-list .title { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 600; display: block; margin: 4px 0 8px; }
+.episode-list .summary { color: #5a5566; }
+.foot { margin-top: 96px; color: var(--muted); font-size: 0.85rem; }
+.disclaimer { margin-top: 16px; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.index-disclaimer { margin: 48px 0 0; color: var(--muted); font-size: 0.82rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.topbar { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 48px; }
+.back { color: var(--muted); }
+.langswitch { color: var(--muted); font-size: 0.9rem; border: 1px solid var(--border); padding: 4px 12px; border-radius: 999px; }
+.langswitch:hover { color: var(--primary); border-color: var(--primary); text-decoration: none; }
+.sectionnav { display: flex; align-items: baseline; flex-wrap: wrap; gap: 20px; }
+.sectionnav .brand { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.05rem; color: var(--text); }
+.sectionnav .sec { color: var(--muted); font-size: 0.9rem; padding-bottom: 2px; }
+.sectionnav .sec.active { color: var(--text); border-bottom: 1px solid var(--text); }
+.sectionnav a:hover { color: var(--primary); text-decoration: none; }
+a.ts { color: var(--primary); font-variant-numeric: tabular-nums; white-space: nowrap; text-decoration: none; border-bottom: 1px dotted var(--border); }
+a.ts:hover { border-bottom-style: solid; }
+.source { color: var(--muted); font-size: 0.95rem; margin: 0 0 24px; }
+.player-wrap { position: sticky; top: 0; z-index: 10; background: var(--bg); padding: 12px 0 16px; margin: 0 0 32px; }
+.player-box { position: relative; width: 100%; max-width: 460px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 10px var(--shadow); }
+.player-box #ytplayer, .player-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 48px; }
+.tags span { font-size: 0.85rem; color: var(--primary); background: #EDEBF4; padding: 4px 12px; border-radius: 999px; }
+.connections { list-style: none; padding: 0; margin: 0; }
+.connections li { margin: 0 0 28px; padding-left: 16px; border-left: 2px solid var(--border); }
+.connections .rel { font-size: 0.8rem; color: var(--primary); background: #EDEBF4; padding: 2px 10px; border-radius: 999px; margin-right: 8px; }
+.connections .lk { font-family: 'Playfair Display', serif; font-weight: 600; }
+.connections .why { margin: 8px 0 6px; }
+.connections .pts { color: var(--muted); font-size: 0.92rem; }
+.connections .pts > div { margin-top: 4px; }
+.connections .who { color: var(--text); font-weight: 600; margin-right: 8px; }
+.connections.tensions li { border-left-color: var(--primary); }
+.ctype { font-size: 0.72rem; padding: 1px 9px; border-radius: 999px; margin-right: 8px; letter-spacing: 0.02em; }
+.ctype-genuine { color: #fff; background: var(--primary); }
+.ctype-apparent { color: var(--muted); background: #EDEBF4; }
+.editor-note { background: #EDEBF4; border-radius: 12px; padding: 24px 28px; margin: 0 0 48px; }
+.editor-note .en-label { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 10px; }
+.editor-note p { margin: 0 0 12px; }
+.editor-note p:last-child { margin-bottom: 0; }
+.claim-meta { display: block; margin-top: 2px; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+.claim-meta-first { margin-top: 8px; }
+.claim-meta a.ts { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="topbar"><nav class="sectionnav"><a class="brand" href="https://lens.lumihelia.com/">PodLens</a><a class="sec" href="https://lens.lumihelia.com/">episodes</a><a class="sec active" href="https://lens.lumihelia.com/papers/">papers</a></nav><a class="langswitch" href="https://lens.lumihelia.com/zh/papers/ai-anthropomorphism-trust-responsibility.html">中文</a></div>
+<h1>The Effects of AI Anthropomorphism on Trust and Responsibility · Victoria Oldemburgo de Mello et al.</h1>
+<p class="meta">2026-06-24 · A faithful, transcript-grounded reading by PodLens</p>
+<p class="source">Source paper:<a href="https://online.ucpress.edu/collabra/article/12/1/161757/939204/" target="_blank" rel="noopener">https://online.ucpress.edu/collabra/article/12/1/161757/939204/</a></p>
+
+<div class="tags"><span>AI anthropomorphism</span><span>trust game</span><span>blame displacement</span><span>emotional attunement</span><span>AI governance</span></div>
+
+<h2>What This Paper Is About</h2>
+<p>When an AI assistant introduces itself by name, expresses concern, and remembers what you said earlier, you trust it more — that's the intuition. This paper quantifies that effect across two studies, and finds a more troubling side effect: the more you trust that AI, the more you tend to blame it, rather than the company that built it, when something goes wrong. The research identifies the key driver of trust not as "looking human" itself, but as <strong>emotional attunement</strong> — the AI appearing to understand your emotional state; it also finds a strong negative correlation between blame attributed to the AI and blame attributed to the company (r = -0.68), constituting a "limited pool of blame" effect. The authors call this a "twofold advantage": anthropomorphism simultaneously raises user trust and shifts the responsibility for failure away from the company and onto the AI itself.</p>
+<h2>Paper Skeleton</h2>
+<ul>
+<li><strong>Abstract / Introduction</strong>: AI companies often design their products to seem "human" in order to boost user engagement and trust. This paper tests the downstream consequences of that design choice, specifically whether it shifts responsibility that should belong to the AI's creators onto the AI itself.</li>
+<li><strong>Study 1 (N=309)</strong>: Participants interacted with an LLM chatbot that varied in anthropomorphic language (high vs. low), completing behavioral and self-reported measures of trust; a RoBERTa sentiment model analyzed the chatbot's actual text output for emotional expression, used in a mediation analysis.</li>
+<li><strong>Study 2 (N=430)</strong>: Participants read six descriptions of a home AI assistant performing positive/negative actions (varying in anthropomorphism: high, low, or none), and rated responsibility across multiple parties, including the creator.</li>
+<li><strong>General Discussion</strong>: Anthropomorphism simultaneously increases user trust and shifts responsibility from the developer to the AI entity itself, constituting a "responsibility gap" with major implications for AI governance and institutional accountability.</li>
+<li><strong>Limitations</strong>: Only immediate responses were measured, so it's unclear whether the effect fades with long-term exposure; the experimental scenario was a social-conversation AI, different from most task-oriented use cases; the sample was drawn from a WEIRD population, limiting cross-cultural validity.</li>
+</ul>
+<h2>Core Arguments List</h2>
+<ol>
+<li><strong>Anthropomorphic AI scores significantly higher on multidimensional trust than neutral AI.</strong> Multiple dimensions of self-reported trust (competence, sincerity, reliability) were all significantly higher; in the trust game, participants sent roughly 22% more tokens to the anthropomorphic AI.
+   - Anchor: §Study 1 Results · "Capable: t(301)=2.21, p=.028; Sincere: t(299)=2.73, p=.006; Reliable: t(305)=3.95, p&lt;.001"
+   - Type: Experimental result</li>
+<li><strong>Emotional attunement fully mediates the effect of anthropomorphism on behavioral trust.</strong> It's because the AI appears to understand your emotional state, not because it merely "looks human."
+   - Anchor: §Study 1 Mediation · "indirect effect through emotional attunement b=0.11, 95% CI [0.02, 0.22]"
+   - Type: Mechanism research</li>
+<li><strong>Anthropomorphism significantly increases participants' attribution of responsibility to the AI itself.</strong> When an AI errs, the higher its degree of anthropomorphism, the more blame it's assigned.
+   - Anchor: §Study 2 · "high anthropomorphism resulted in greater AI blame b=0.22, 95% CrI [0.08, 0.37]"
+   - Type: Experimental result</li>
+<li><strong>There is a strong negative correlational shift between blame attributed to the AI and blame attributed to the company.</strong> Participant-level data show that people who tend to blame the AI more also tend to blame the company less — a "limited pool of blame" effect.
+   - Anchor: §Study 2 · "r=-0.68 between AI and company blame, 95% CrI [-0.95, -0.39]"
+   - Type: Individual-differences research</li>
+<li><strong>Companies have a structural incentive to design anthropomorphic AI.</strong> Anthropomorphism accomplishes two things favorable to a company at once — raising trust, shifting blame — this is a logical argument rather than a direct experimental result.
+   - Anchor: §General Discussion · "anthropomorphism offers a twofold advantage companies may exploit when designing LLM assistants"
+   - Type: Normative argument</li>
+</ol>
+<h2>Plain English Explanation</h2>
+<p>Have you noticed that AI assistants are getting more and more "human"? It calls itself Alex or Aria, it says "I understand how you're feeling," it asks in conversation, "how did that thing you mentioned last time turn out?"</p>
+<p>This isn't accidental design. It's effective design.</p>
+<p>This paper ran two sets of experiments to quantify exactly this. They randomly assigned participants to one of two chatbots: an ordinary, functional one, or an anthropomorphic one (with a name, expressing emotion, self-disclosing). Then they had participants:</p>
+<ol>
+<li>Rate their level of trust in the AI</li>
+<li>Play a trust game (deciding how much money to send the AI)</li>
+<li>Decide who should be held responsible, assuming the AI made an error</li>
+</ol>
+<p>The results:
+- The anthropomorphic AI earned significantly higher trust, with a clear difference even in real monetary decisions
+- Not just because it "looked human," but because it <strong>appeared to respond to you emotionally</strong> — the sense that it understood your emotional state
+- When the AI erred, the anthropomorphic version was assigned more of the blame
+- Participants who blamed the AI more also blamed the company less — as if blame were a limited pool, and giving more to the AI meant giving less to the company</p>
+<p>That last point is the crux. If a company's product malfunctions, we'd normally hold the company responsible. But if that product looks a lot like a "person," your intuition shifts the blame onto that "person," forgetting the humans behind it who designed, deployed, and profit from it.</p>
+<p>That's why the word "responsibility" is in the title of this study — it's not just a question of trust, it's a distortion of the accountability mechanism itself.</p>
+<h2>Glossary</h2>
+<p><strong>Anthropomorphism</strong>: the tendency to attribute human traits (emotion, intent, personality) to non-human things (AI, animals, natural phenomena). People vary in how much they do this (an individual difference), and it can also be deliberately induced through design.</p>
+<p><strong>Emotional Attunement</strong>: the appearance that an AI understands and responds to a user's current emotional state. The research finds this is the key mediator of the trust effect, not "looking human" itself.</p>
+<p><strong>Trust Game</strong>: a classic behavioral-economics experiment. Participants can send a certain number of tokens to another party (here, the AI), the tokens triple, and the other party then decides how much to return. The amount sent is treated as a behavioral measure of trust.</p>
+<p><strong>Blame Displacement</strong>: the phenomenon in which an increase in blame attributed to one entity corresponds to a decrease in blame attributed to a related entity (typically the upstream manufacturer).</p>
+<p><strong>WEIRD population</strong>: a common limitation in psychology research — most subjects come from Western, Educated, Industrialized, Rich, Democratic societies, which aren't representative of the global majority.</p>
+<h2>Before and After This Paper</h2>
+<h3>Preceding Works</h3>
+<p>Prior research (such as Waytz et al., Shank &amp; DeSanti) had shown that anthropomorphism affects how users feel about AI and can increase trust and blame attribution, but mostly relied on self-report measures, the mechanism was unclear, and the effect on blame attributed to the "company" side specifically had not been systematically studied.</p>
+<h3>Succeeding Lines</h3>
+<p>Emotional attunement is identified as a specific driving mechanism; the "blame displacement" effect is experimentally confirmed; together, the two findings provide empirical support for the claim that AI design carries a structural incentive toward manipulation, and lay an evidentiary foundation for regulatory discussions like the EU AI Act — the paper explicitly states this finding falls "squarely within the class of mechanisms such regulation seeks to address."</p>
+<h2>Sections Most Worth Reading in the Original</h2>
+<ul>
+<li><strong>Abstract</strong>:<blockquote>
+<p>"Together, these findings reveal perverse incentives in AI design: anthropomorphism simultaneously increases user trust while deflecting accountability from developers. These dynamics create a responsibility gap with significant implications for AI governance and institutional accountability."</p>
+</blockquote>
+</li>
+<li><strong>Why it matters</strong>: The most distilled version of the paper's entire argument — it directly names "raising trust" and "shifting blame" as two consequences of the same design choice.</li>
+<li><strong>General Discussion (the Air Canada case)</strong>:<blockquote>
+<p>"in early 2024, Air Canada argued in court that its customer service chatbot which gave erroneous information to a customer should be considered 'responsible for its own actions'... the fact that the corporation considered this a viable defense may portend a future in which companies seek to deflect responsibility for errors from the corporate entity to the AI entity."</p>
+</blockquote>
+</li>
+<li><strong>Why it matters</strong>: This isn't a hypothetical worry — a real company has already tried this exact logic in court, even though the court didn't accept it.</li>
+<li><strong>General Discussion (mechanism summary)</strong>:<blockquote>
+<p>"anthropomorphism offers a twofold advantage companies may exploit when designing LLM assistants, underscoring the need for regulations that counterbalance such incentives."</p>
+</blockquote>
+</li>
+<li><strong>Why it matters</strong>: The authors themselves explicitly point the finding toward policy implications, rather than stopping at describing the phenomenon.</li>
+</ul>
+<h2>Resonances with past episodes</h2><ul class="connections"><li><span class="rel">The two papers argue the same point from two directions: whether an LLM &#x27;genuinely&#x27; possesses human-like attributes, and whether humans will &#x27;behave as if&#x27; it does, are two completely separate questions — and it&#x27;s the second one that actually has consequences. de Wynter&#x27;s paper proves that any sufficiently complex system (even a simple neural network trained on Age of Empires II) can be read by an observer as having anthropomorphic attributes, showing these attributes are a product of representation, not an essential property unique to LLMs. Oldemburgo de Mello et al.&#x27;s paper proves the real-world consequence of exactly this: regardless of whether an AI genuinely has emotions, the moment it merely appears to show emotional attunement, users&#x27; trust and blame attribution shift systematically — and that shift can be exploited by deliberate design.</span>→ <a class="lk" href="https://lens.lumihelia.com/papers/if-llms-have-human-like-attributes-age-of-empires.html">If LLMs Have Human-Like Attributes, Then So Does Age of Empires II · Adrian de Wynter</a><div class="why"></div><div class="pts"><div><b class="who">This</b></div><div><b class="who">Related</b></div></div></li><li><span class="rel">The two papers argue the same point from two directions: whether an LLM &#x27;genuinely&#x27; possesses human-like attributes, and whether humans will &#x27;behave as if&#x27; it does, are two completely separate questions — and it&#x27;s the second one that actually has consequences. de Wynter&#x27;s paper proves that any sufficiently complex system can be read by an observer as having anthropomorphic attributes, showing these attributes depend on representation, not an essential property unique to LLMs. Oldemburgo de Mello et al.&#x27;s paper proves the real-world consequence of exactly this: regardless of whether an AI genuinely has emotions, the moment it merely appears to show emotional attunement, users&#x27; trust and blame attribution shift systematically — and that shift can be exploited by design.</span>← <a class="lk" href="https://lens.lumihelia.com/papers/if-llms-have-human-like-attributes-age-of-empires.html">If LLMs Have Human-Like Attributes, Then So Does Age of Empires II · Adrian de Wynter</a><div class="why"></div><div class="pts"><div><b class="who">This</b></div><div><b class="who">Related</b></div></div></li></ul><h2>Tensions with past episodes</h2><ul class="connections tensions"><li><span class="rel">This paper argues that companies have a &#x27;structural incentive&#x27; to design anthropomorphic AI — it&#x27;s a twofold win, boosting trust while deflecting accountability. Durov&#x27;s actual business practice is a counterexample: Telegram runs no algorithmic feed, doesn&#x27;t monetize personal data, and deliberately forgoes 80% of potential ad revenue, choosing a path to profitability that is obviously harder and slower instead of exploiting the kind of psychological-manipulation mechanism the paper describes to maximize engagement and trust. This raises a tension worth asking about: the paper argues the structural incentive exists, but Durov&#x27;s case shows that incentive isn&#x27;t irresistible — there is at least one design choice that doesn&#x27;t exploit it and still turns a profit, though it requires far more patience and a far more absolute ownership structure (100% self-held) to sustain.</span>→ <a class="lk" href="https://lens.lumihelia.com/episodes/pavel-durov-telegram-freedom-resistance.html">Freedom Over Money: Pavel Durov and Telegram&#x27;s Line in the Sand</a><div class="why"></div><div class="pts"><div><b class="who">This</b></div><div><b class="who">Related</b></div></div></li></ul>
+<p class="foot">A faithful reading and plain-language retelling of the paper, generated by <a href="https://github.com/lumihelia/PodLens">PodLens</a>.</p>
+<p class="disclaimer">This is one source-grounded reading, not a replacement for the original. Every point is anchored to its source, so you can check it yourself — and corrections are welcome.</p>
+
+</div>
+</body>
+</html>
