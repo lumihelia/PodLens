@@ -241,7 +241,6 @@ deployment still require explicit live verification.
 - `docs/`: generated GitHub Pages site
 - `scripts/`: one-off publishing and maintenance tools
 - `tests/`: offline regression tests
-- `.context/`: durable project context for future development sessions
 
 ## License
 

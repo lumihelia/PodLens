@@ -36,32 +36,33 @@ from podlens.publish import (
 )
 from podlens.transcript import detect_language, load_transcript
 
-# slug -> (subtitle_file_path, date, source_url). Process in date order so
-# cross-episode connections build on the already-rebuilt corpus.
+# Fill each local subtitle path before running. Keep machine-specific paths out
+# of version control. Process in date order so cross-episode connections build
+# on the already-rebuilt corpus.
 EPISODES = [
     {
         "slug": "jim-al-khalili",
         "date": "2026-06-02",
         "source_url": "https://youtu.be/8xp3Bs6nZ-Y",
-        "subtitle": "/Users/USER/Downloads/字幕/01 Quantum entanglement and the illusion of time, in 79 minutes  Jim Al-Khalili Full Interview.vtt",
+        "subtitle": "",
     },
     {
         "slug": "david-reich",
         "date": "2026-06-03",
         "source_url": "https://www.youtube.com/watch?v=sRKBGVFVYAw",
-        "subtitle": "/Users/USER/Downloads/字幕/04 David Reich – Bronze Age shock, the Neanderthal puzzle, & the sudden spread of farming.vtt",
+        "subtitle": "",
     },
     {
         "slug": "hakeem-oluseyi",
         "date": "2026-06-03",
         "source_url": "https://youtu.be/pyhB7B3JWts",
-        "subtitle": "/Users/USER/Downloads/字幕/03 The quantum realm, the cosmological realm, and the multiverse, in 69 minutes  Hakeem Oluseyi.vtt",
+        "subtitle": "",
     },
     {
         "slug": "don-lincoln-lex-fridman-497",
         "date": "2026-06-03",
         "source_url": "https://youtu.be/1M3Vdl6DRkU",
-        "subtitle": "/Users/USER/Downloads/字幕/02 Biggest Mysteries in Physics Antimatter, Dark Energy & ToE - Don Lincoln  Lex Fridman Podcast #497.vtt",
+        "subtitle": "",
     },
 ]
 

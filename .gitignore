@@ -6,6 +6,11 @@ profile.md
 *.out.md
 .DS_Store
 
+# Private project collaboration context — keep local, never publish
+/.context/
+/memory.md
+/memory.legacy.md
+
 # Personal interpretation outputs — keep your own reports private
 time_report*.md
 *.report.md
