@@ -129,7 +129,7 @@ def backfill_one(ep: dict, config, site) -> None:
 def main(argv: list[str]) -> int:
     config = load_config()
     if not config.has_api_key:
-        raise SystemExit("GEMINI_API_KEY not set (check .env).")
+        raise SystemExit(config.missing_key_message)
     site = load_site_config()
 
     only = set(argv)

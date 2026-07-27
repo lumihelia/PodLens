@@ -1,11 +1,12 @@
 """Core interpretation pipeline.
 
 This module is deliberately decoupled from the CLI: it takes plain inputs and
-returns a structured result, so a future web app or API can call `interpret()`
-directly without touching any terminal code.
+returns a structured result, so the local workbench or another API can call
+`interpret()` directly without touching any terminal code.
 
-The pipeline runs three Gemini calls in order. Each later call is grounded in
-the verified output of the earlier ones -- this is how PodLens enforces
+The pipeline runs three LLM calls in order (provider selected by
+`PODLENS_PROVIDER`: Gemini or DeepSeek). Each later call is grounded in the
+verified output of the earlier ones -- this is how PodLens enforces
 "faithfulness before insight" at the architecture level, not just in prompt text.
 """
 
@@ -17,7 +18,9 @@ from typing import Callable
 
 from google import genai
 from google.genai import types
+from openai import OpenAI
 
+from .chunking import estimate_tokens, split_transcript
 from .config import Config
 from .prompts import (
     build_connections_prompt,
@@ -27,8 +30,12 @@ from .prompts import (
     build_paper_metadata_prompt,
     build_paper_plain_language_prompt,
     build_paper_reconstruction_prompt,
+    build_plain_language_chunk_prompt,
     build_plain_language_prompt,
+    build_plain_language_synthesis_prompt,
+    build_reconstruction_chunk_prompt,
     build_reconstruction_prompt,
+    build_reconstruction_synthesis_prompt,
     build_translation_prompt,
 )
 from .transcript import detect_language, has_timestamps
@@ -69,13 +76,52 @@ class InterpretationResult:
         )
 
 
-def _make_client(config: Config) -> genai.Client:
+class _LLMClient:
+    """Thin provider-agnostic wrapper around the Gemini and DeepSeek SDKs.
+
+    This is the ONLY place that touches a provider SDK directly. Everything
+    else in this module calls `.generate(model, prompt, temperature)`.
+    """
+
+    def __init__(self, config: Config):
+        self.provider = config.provider
+        if self.provider == "deepseek":
+            self._client = OpenAI(api_key=config.api_key, base_url="https://api.deepseek.com")
+        else:
+            self._client = genai.Client(api_key=config.api_key)
+
+    def generate(self, model: str, prompt: str, temperature: float) -> str:
+        if self.provider == "deepseek":
+            response = self._client.chat.completions.create(
+                model=model,
+                messages=[{"role": "user", "content": prompt}],
+                temperature=temperature,
+                max_tokens=8192,
+            )
+            return (response.choices[0].message.content or "").strip()
+        response = self._client.models.generate_content(
+            model=model,
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                temperature=temperature,
+                max_output_tokens=65536,
+            ),
+        )
+        return (response.text or "").strip()
+
+
+def _make_client(config: Config) -> _LLMClient:
     if not config.has_api_key:
+        if config.provider == "deepseek":
+            raise RuntimeError(
+                "DEEPSEEK_API_KEY is not set. Copy .env.example to .env and add "
+                "your key, get one at https://platform.deepseek.com/api_keys"
+            )
         raise RuntimeError(
             "GEMINI_API_KEY is not set. Copy .env.example to .env and add your "
             "key, or get one free at https://aistudio.google.com/apikey"
         )
-    return genai.Client(api_key=config.api_key)
+    return _LLMClient(config)
 
 
 def _parse_json_list(text: str) -> list[str]:
@@ -222,21 +268,13 @@ def _strip_preamble(text: str) -> str:
     return text[idx:].strip()
 
 
-def _generate_raw(client: genai.Client, model: str, prompt: str, temperature: float) -> str:
+def _generate_raw(client: _LLMClient, model: str, prompt: str, temperature: float) -> str:
     """Call the model and return its raw text (no preamble stripping).
 
     Used for JSON responses, whose bodies may contain '## ' headings that the
     preamble stripper would otherwise truncate.
     """
-    response = client.models.generate_content(
-        model=model,
-        contents=prompt,
-        config=types.GenerateContentConfig(
-            temperature=temperature,
-            max_output_tokens=65536,
-        ),
-    )
-    text = (response.text or "").strip()
+    text = client.generate(model, prompt, temperature)
     if not text:
         raise RuntimeError(
             f"Model {model} returned an empty response. The transcript may be "
@@ -245,9 +283,77 @@ def _generate_raw(client: genai.Client, model: str, prompt: str, temperature: fl
     return text
 
 
-def _generate(client: genai.Client, model: str, prompt: str, temperature: float) -> str:
+def _generate(client: _LLMClient, model: str, prompt: str, temperature: float) -> str:
     """Generate a Markdown stage, dropping any conversational preamble."""
     return _strip_preamble(_generate_raw(client, model, prompt, temperature))
+
+
+def _reconstruct(
+    client: _LLMClient, model: str, transcript: str, public_lang: str,
+    provider: str, note: Callable[[str], None],
+) -> str:
+    """Stage 1: faithful reconstruction.
+
+    Transparently chunks the transcript when it would not fit in one call for
+    `provider` (see chunking.py): each chunk is reconstructed independently,
+    then one synthesis call merges them into the single coherent document
+    `build_reconstruction_prompt` would have produced directly. On Gemini (or
+    any short transcript) this is exactly one call, unchanged.
+    """
+    chunks = split_transcript(transcript, provider)
+    if len(chunks) == 1:
+        return _generate(
+            client, model,
+            build_reconstruction_prompt(transcript, public_lang),
+            _TEMP_RECONSTRUCTION,
+        )
+    partials = []
+    for i, chunk in enumerate(chunks):
+        note(f"第 1/3 步:忠实还原 transcript(第 {i + 1}/{len(chunks)} 段)")
+        partials.append(_generate(
+            client, model,
+            build_reconstruction_chunk_prompt(chunk, i + 1, len(chunks), public_lang),
+            _TEMP_RECONSTRUCTION,
+        ))
+    note("第 1/3 步:合并各段还原结果")
+    return _generate(
+        client, model,
+        build_reconstruction_synthesis_prompt(partials, public_lang),
+        _TEMP_RECONSTRUCTION,
+    )
+
+
+def _retell_plain_language(
+    client: _LLMClient, model: str, transcript: str, reconstruction: str,
+    public_lang: str, provider: str, note: Callable[[str], None],
+) -> str:
+    """Stage 2: plain-language re-telling.
+
+    Same chunking strategy as `_reconstruct`, but the per-chunk budget also
+    has to make room for the (already merged, much smaller) reconstruction,
+    which every chunk call carries as context.
+    """
+    chunks = split_transcript(transcript, provider, extra_tokens=estimate_tokens(reconstruction))
+    if len(chunks) == 1:
+        return _generate(
+            client, model,
+            build_plain_language_prompt(transcript, reconstruction, public_lang),
+            _TEMP_PLAIN_LANGUAGE,
+        )
+    partials = []
+    for i, chunk in enumerate(chunks):
+        note(f"第 2/3 步:大白话重讲(第 {i + 1}/{len(chunks)} 段)")
+        partials.append(_generate(
+            client, model,
+            build_plain_language_chunk_prompt(chunk, reconstruction, i + 1, len(chunks), public_lang),
+            _TEMP_PLAIN_LANGUAGE,
+        ))
+    note("第 2/3 步:合并各段大白话重讲")
+    return _generate(
+        client, model,
+        build_plain_language_synthesis_prompt(partials, public_lang),
+        _TEMP_PLAIN_LANGUAGE,
+    )
 
 
 _TEMP_TRANSLATION = 0.2
@@ -364,19 +470,14 @@ def interpret(
             on_stage(stage)
 
     note("第 1/3 步:忠实还原 transcript")
-    reconstruction = _generate(
-        client,
-        config.model,
-        build_reconstruction_prompt(transcript, public_lang),
-        _TEMP_RECONSTRUCTION,
+    reconstruction = _reconstruct(
+        client, config.model, transcript, public_lang, config.provider, note,
     )
 
     note("第 2/3 步:大白话重讲")
-    plain_language = _generate(
-        client,
-        config.model,
-        build_plain_language_prompt(transcript, reconstruction, public_lang),
-        _TEMP_PLAIN_LANGUAGE,
+    plain_language = _retell_plain_language(
+        client, config.model, transcript, reconstruction, public_lang,
+        config.provider, note,
     )
 
     note("第 3/3 步:证据锚定洞察与个人映射")

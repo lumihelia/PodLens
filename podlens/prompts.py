@@ -153,6 +153,109 @@ TRANSCRIPT:
 """
 
 
+# --- Stage 1b: Chunked reconstruction (long transcripts, small-context providers) --
+
+def build_reconstruction_chunk_prompt(
+    chunk: str, chunk_index: int, total_chunks: int, output_lang: str
+) -> str:
+    """Reconstruction prompt for ONE chunk of a transcript too long for one call.
+
+    Produces the SAME 3 sections as build_reconstruction_prompt, but scoped
+    ONLY to this chunk's content -- a later synthesis call
+    (build_reconstruction_synthesis_prompt) merges all chunks into one
+    coherent document. Used when the provider's context window cannot hold
+    the full transcript in one call (see chunking.py).
+    """
+    return f"""\
+You are a meticulous listener producing a faithful reconstruction of a podcast
+or talk. The full transcript is too long for one pass, so it has been split
+into {total_chunks} consecutive segments in order; you are working on SEGMENT
+{chunk_index} of {total_chunks}. This is the fidelity layer: low interpretation,
+high faithfulness. Do not yet explain in plain language and do not yet draw
+personal connections.
+
+{_FIDELITY_RULES}
+
+IMPORTANT (segment mode):
+- Describe ONLY what happens in THIS segment. Do not guess, summarize, or
+  refer to content from other segments -- you do not have them.
+- Another pass will merge all segments into one document later, so it is fine
+  if this segment's overview/claims feel partial; just be accurate about what
+  IS in front of you.
+
+{_lang(output_lang)}
+
+Produce Markdown with EXACTLY these sections and headers, in this order:
+
+## 这期讲了什么
+A few faithful sentences on what THIS SEGMENT covers (not the whole episode).
+
+## 时间线主题地图
+A chronological map of THIS SEGMENT broken into smaller stretches. For each,
+give a timestamp range (or verbatim anchor phrase) and one line on what it
+covers.
+
+## 核心观点清单
+A numbered list of the KEY claims made IN THIS SEGMENT (merge closely related
+statements into one; never split a single idea across entries). For EACH:
+- the claim, stated faithfully
+- its evidence anchor (timestamp or short verbatim quote)
+- a type tag, one of: 事实 / 观点 / 例子 / 预测 / 猜想 / 主持人追问
+- if relevant, a one-line note on uncertainty or hedging
+
+## 内部张力与自我修正
+ONLY include this section if genuine internal tension exists WITHIN THIS
+SEGMENT (the speaker contradicts or walks back something they just said at a
+different moment in this same segment). If none, omit the section entirely.
+
+SEGMENT {chunk_index}/{total_chunks}:
+\"\"\"
+{chunk}
+\"\"\"
+"""
+
+
+def build_reconstruction_synthesis_prompt(partials: list[str], output_lang: str) -> str:
+    """Merge per-segment reconstructions (from build_reconstruction_chunk_prompt)
+    into ONE coherent document, in the exact shape of build_reconstruction_prompt.
+    """
+    blocks = "\n\n".join(
+        f"--- SEGMENT {i + 1} ---\n{p}" for i, p in enumerate(partials)
+    )
+    return f"""\
+Below are faithful reconstructions of {len(partials)} consecutive segments of
+ONE longer transcript, produced independently and in order. Merge them into a
+SINGLE coherent reconstruction of the whole episode.
+
+{_FIDELITY_RULES}
+
+MERGE RULES (critical):
+- Do NOT invent anything new. Every claim and anchor in your output must come
+  from the segments below, copied exactly (timestamps and quotes unchanged).
+- Combine the segments' overviews into ONE overview of the whole episode.
+- Concatenate the segments' timeline entries IN ORDER into one continuous
+  timeline; merge adjacent near-duplicate entries, but never reorder segments.
+- Merge the segments' claim lists into ONE renumbered list; drop exact
+  duplicates, but keep every distinct claim and its original anchor.
+- If multiple segments have a "内部张力" section, merge them into one; if none
+  do, omit the section entirely.
+
+{_lang(output_lang)}
+
+Produce Markdown with EXACTLY these sections and headers, in this order:
+
+## 这期讲了什么
+## 时间线主题地图
+## 核心观点清单
+## 内部张力与自我修正 (only if genuine tension exists in the segments below)
+
+SEGMENT RECONSTRUCTIONS (in order):
+\"\"\"
+{blocks}
+\"\"\"
+"""
+
+
 # --- Stage 2: Plain-language re-telling --------------------------------------
 
 def build_plain_language_prompt(
@@ -201,6 +304,96 @@ FAITHFUL RECONSTRUCTION:
 ORIGINAL TRANSCRIPT (for verification and quoting):
 \"\"\"
 {transcript}
+\"\"\"
+"""
+
+
+# --- Stage 2b: Chunked plain-language (long transcripts, small-context providers) --
+
+def build_plain_language_chunk_prompt(
+    chunk: str, reconstruction: str, chunk_index: int, total_chunks: int,
+    output_lang: str,
+) -> str:
+    """Plain-language prompt for ONE chunk of a transcript too long for one
+    call. Gets the FULL episode reconstruction (small, already merged) as
+    context, but only the matching segment of the original transcript -- a
+    later synthesis call (build_plain_language_synthesis_prompt) stitches all
+    segments into one flowing re-telling.
+    """
+    return f"""\
+You have the faithful reconstruction of an ENTIRE episode (below, covers all
+segments), plus ONE segment of its original transcript -- segment
+{chunk_index} of {total_chunks}. The transcript was split because it is too
+long for one call. Your job is the plain-language layer for THIS SEGMENT
+ONLY: re-explain what happens in this segment's portion of the story, as a
+smart, honest friend would, using the full reconstruction as your map of the
+whole episode for context and continuity -- but only WRITE ABOUT what this
+segment covers.
+
+{_FIDELITY_RULES}
+
+Additional rules for this layer:
+- Translate jargon into everyday language and use concrete metaphors where they
+  genuinely help.
+- Compress complex reasoning into clear cause-and-effect chains.
+- Where a claim is counterintuitive, say plainly WHY it is counterintuitive.
+- Preserve the original argument structure -- do not reorder the logic.
+- Do NOT greet or address the reader, and do not open with a salutation.
+- Do NOT re-summarize the whole episode or segments other than this one -- a
+  later pass stitches all segments together; just write this segment's part.
+
+{_lang(output_lang)}
+
+Produce Markdown with EXACTLY these sections and headers, in this order:
+
+## 大白话重讲
+The plain-language re-telling of THIS SEGMENT's content. Prose, vivid but grounded.
+
+## 值得精听的片段
+Moments worth going back to hear, FROM THIS SEGMENT ONLY. For each: the
+timestamp (or anchor phrase) and why it is worth it.
+
+FULL EPISODE RECONSTRUCTION (context, covers the whole episode):
+\"\"\"
+{reconstruction}
+\"\"\"
+
+THIS SEGMENT'S TRANSCRIPT ({chunk_index}/{total_chunks}):
+\"\"\"
+{chunk}
+\"\"\"
+"""
+
+
+def build_plain_language_synthesis_prompt(partials: list[str], output_lang: str) -> str:
+    """Merge per-segment plain-language re-tellings into ONE flowing piece."""
+    blocks = "\n\n".join(
+        f"--- SEGMENT {i + 1} ---\n{p}" for i, p in enumerate(partials)
+    )
+    return f"""\
+Below are plain-language re-tellings of {len(partials)} consecutive segments of
+ONE episode, written independently and in order. Merge them into ONE flowing
+re-telling of the whole episode.
+
+{_FIDELITY_RULES}
+
+MERGE RULES (critical):
+- Do not invent new content; only smooth the transitions between segments so
+  the result reads as one continuous piece, not {len(partials)} stitched blocks.
+- Preserve the order and substance of each segment.
+- Merge the "值得精听的片段" lists into one list, in chronological order,
+  dropping exact duplicates.
+
+{_lang(output_lang)}
+
+Produce Markdown with EXACTLY these sections and headers, in this order:
+
+## 大白话重讲
+## 值得精听的片段
+
+SEGMENT RE-TELLINGS (in order):
+\"\"\"
+{blocks}
 \"\"\"
 """
 

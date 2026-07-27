@@ -12,13 +12,24 @@ from dotenv import load_dotenv
 # at its default. An explicit path is robust everywhere (CLI, WebUI, scripts).
 load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
-DEFAULT_MODEL = "gemini-2.5-pro"
+DEFAULT_PROVIDER = "gemini"
+DEFAULT_MODELS = {
+    "gemini": "gemini-2.5-pro",
+    "deepseek": "deepseek-chat",
+}
 DEFAULT_OUTPUT_LANG = "zh"
 DEFAULT_PROFILE = "profile.md"
+
+# Which env var holds the API key for each provider.
+_API_KEY_ENV = {
+    "gemini": "GEMINI_API_KEY",
+    "deepseek": "DEEPSEEK_API_KEY",
+}
 
 
 @dataclass
 class Config:
+    provider: str
     api_key: str
     model: str
     output_lang: str
@@ -28,12 +39,22 @@ class Config:
     def has_api_key(self) -> bool:
         return bool(self.api_key and self.api_key != "your_key_here")
 
+    @property
+    def missing_key_message(self) -> str:
+        return f"未配置 {_API_KEY_ENV[self.provider]}(检查 .env)。"
+
 
 def load_config() -> Config:
     """Read configuration from environment variables (.env supported)."""
+    provider = os.getenv("PODLENS_PROVIDER", DEFAULT_PROVIDER).strip().lower()
+    if provider not in DEFAULT_MODELS:
+        provider = DEFAULT_PROVIDER
+    api_key_env = _API_KEY_ENV[provider]
+    model = os.getenv("PODLENS_MODEL", "").strip() or DEFAULT_MODELS[provider]
     return Config(
-        api_key=os.getenv("GEMINI_API_KEY", "").strip(),
-        model=os.getenv("PODLENS_MODEL", DEFAULT_MODEL).strip(),
+        provider=provider,
+        api_key=os.getenv(api_key_env, "").strip(),
+        model=model,
         output_lang=os.getenv("PODLENS_OUTPUT_LANG", DEFAULT_OUTPUT_LANG).strip(),
         profile_path=os.getenv("PODLENS_PROFILE", DEFAULT_PROFILE).strip(),
     )

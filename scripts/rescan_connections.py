@@ -58,7 +58,7 @@ def _en_candidates(this_tags: list[str], priors: list[dict]) -> list[dict]:
 def main() -> int:
     config = load_config()
     if not config.has_api_key:
-        raise SystemExit("GEMINI_API_KEY not set (check .env).")
+        raise SystemExit(config.missing_key_message)
     site = load_site_config()
 
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))

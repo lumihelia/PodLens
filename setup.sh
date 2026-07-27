@@ -27,7 +27,7 @@ python -m pip install --quiet -r requirements.txt
 # 3. Config files
 if [ ! -f ".env" ]; then
   cp .env.example .env
-  echo "Created .env  -> open it and paste your GEMINI_API_KEY"
+  echo "Created .env  -> set PODLENS_PROVIDER and paste your GEMINI_API_KEY or DEEPSEEK_API_KEY"
 fi
 
 if [ ! -f "profile.md" ]; then
@@ -39,7 +39,9 @@ echo ""
 echo "Setup complete."
 echo ""
 echo "Next steps:"
-echo "  1. Edit .env and add your GEMINI_API_KEY (free: https://aistudio.google.com/apikey)"
+echo "  1. Edit .env: set PODLENS_PROVIDER (gemini or deepseek) and add the matching API key"
+echo "     Gemini (free): https://aistudio.google.com/apikey"
+echo "     DeepSeek:      https://platform.deepseek.com/api_keys"
 echo "  2. (Optional) Edit profile.md with your interests"
 echo "  3. Activate the env:   source .venv/bin/activate"
 echo "  4. Try it:             python -m podlens examples/sample_transcript.txt"

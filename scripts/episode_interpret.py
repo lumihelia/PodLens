@@ -38,7 +38,7 @@ def main() -> int:
 
     config = load_config()
     if not config.has_api_key:
-        print("未配置 GEMINI_API_KEY。"); return 1
+        print(config.missing_key_message); return 1
 
     transcript = src.read_text(encoding="utf-8")
     profile = load_profile(config.profile_path)

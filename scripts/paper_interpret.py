@@ -155,7 +155,7 @@ def main() -> int:
     src = sys.argv[1] if len(sys.argv) > 1 else "论文/The Era of Experience Paper.pdf"
     config = load_config()
     if not config.has_api_key:
-        print("未配置 GEMINI_API_KEY。"); return 1
+        print(config.missing_key_message); return 1
 
     print(f"[1/5] 读取并清洗论文: {src}")
     paper = load_paper(src)
