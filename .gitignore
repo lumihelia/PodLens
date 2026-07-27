@@ -25,3 +25,8 @@ scripts/run_*.py
 
 # Internal planning docs — local working notes, not for the public repo
 PAPERS_PLAN.md
+
+# Local extraction experiments and generated review artifacts
+/scratch/
+/tmp/
+/test/

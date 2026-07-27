@@ -109,7 +109,7 @@ async def do_interpret(
 
     config = load_config()
     if not config.has_api_key:
-        raise HTTPException(400, "未配置 GEMINI_API_KEY(检查 .env)。")
+        raise HTTPException(400, config.missing_key_message)
     profile = load_profile(config.profile_path) if use_profile else None
     site = load_site_config()
 
@@ -220,7 +220,7 @@ def do_publish(
 
     try:
         # Native interpretation -> translate the public layer to the other
-        # language, so both /episodes and /en/episodes get a faithful page.
+        # language, so the English root and Chinese /zh/ trees stay paired.
         _, zh_b, en_b = build_bilingual(
             native_public, title.strip(), tag_list, conn_list, config
         )
@@ -317,8 +317,8 @@ def do_update(
 ) -> JSONResponse:
     """Save edits to an already-published episode, then rebuild + push live.
 
-    You edit the Chinese (primary) body and the From-Helia note; the English
-    mirror is re-translated from your edits so both languages stay in sync.
+    You edit the Chinese source body and the From-Helia note; the English root
+    version is re-translated from those edits so both languages stay in sync.
     """
     config = load_config()
     site = load_site_config()
@@ -371,11 +371,16 @@ def _git(*args: str) -> subprocess.CompletedProcess:
 
 def _git_publish(title: str) -> tuple[bool, str]:
     """Commit docs/ + .podlens/ and push. Returns (pushed, message)."""
-    _git("add", "docs", ".podlens")
-    status = _git("status", "--porcelain", "docs", ".podlens")
-    if not status.stdout.strip():
+    publish_paths = ("docs", ".podlens", ":(exclude)**/.DS_Store")
+    added = _git("add", "-A", "--", *publish_paths)
+    if added.returncode != 0:
+        return False, f"git add 失败:{added.stderr.strip()[:200]}"
+    staged = _git("diff", "--cached", "--quiet", "--", *publish_paths)
+    if staged.returncode == 0:
         return False, "没有新内容需要提交(可能这一期已发布过)。"
-    commit = _git("commit", "-m", f"Publish: {title}")
+    if staged.returncode != 1:
+        return False, f"git diff 失败:{staged.stderr.strip()[:200]}"
+    commit = _git("commit", "-m", f"Publish: {title}", "--", *publish_paths)
     if commit.returncode != 0:
         return False, f"git commit 失败:{commit.stderr.strip()[:200]}"
     push = _git("push", "origin", "main")

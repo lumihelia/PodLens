@@ -1,31 +1,79 @@
 # PodLens
 
-A transcript-grounded podcast interpretation tool.
+A transcript-grounded interpretation and publishing workspace for podcasts,
+videos, and papers.
 
-**Live site:** https://lens.lumihelia.com · **Feed:** [RSS](https://lens.lumihelia.com/feed.xml) · [JSON Feed](https://lens.lumihelia.com/episodes.json)
+**Live site:** [lens.lumihelia.com](https://lens.lumihelia.com) ·
+**RSS:** [English](https://lens.lumihelia.com/feed.xml) /
+[中文](https://lens.lumihelia.com/zh/feed.xml) ·
+**JSON Feed:** [episodes.json](https://lens.lumihelia.com/episodes.json)
 
-Most "podcast summarizers" jump straight to clever-sounding insights, and you
-never know which sentence came from the episode and which the AI made up.
-PodLens refuses to work that way. It follows one hard rule:
+PodLens follows one hard rule:
 
-> **Faithful reconstruction first. Then plain language. Personal mapping last.
-> Every insight points back to a timestamp in the transcript.**
+> Faithful reconstruction first. Plain language second. Personal mapping last.
+> Every insight must remain traceable to the source.
 
-## How it works
+It is both a command-line interpretation pipeline and a local editorial
+workbench. The workbench is the main publishing surface: review the full
+interpretation, edit the public layer, inspect suggested connections, and only
+then publish the bilingual static pages.
 
-PodLens runs three Gemini calls in order. Each stage is grounded in the verified
-output of the previous one, so a later layer can never run ahead of an earlier
-one — the product's core principle is enforced by the architecture, not just
-asked for in a prompt.
+## What It Does
 
-1. **忠实还原** — what the episode actually says: topic, central question, a
-   chronological topic map with timestamps, and a list of key claims each tagged
-   as fact / claim / example / prediction / speculation / host-prompt.
-2. **大白话重讲** — the same content re-explained as a smart friend would, with
-   metaphors and cause-and-effect chains, plus which moments are worth re-listening.
-3. **证据锚定洞察 + 个人映射** — insights with confidence levels and evidence
-   anchors, then connections to *your* interests (from `profile.md`), every one
-   tied back to a timestamp. Concepts to save and open questions to track.
+PodLens runs three grounded interpretation stages:
+
+1. **Faithful reconstruction**: topic, central question, chronological map,
+   source-anchored claims, and clear claim types.
+2. **Plain-language retelling**: cause-and-effect explanations, useful
+   metaphors, and moments worth revisiting.
+3. **Evidence-grounded insight and personal mapping**: confidence-marked
+   insights connected to the local `profile.md`.
+
+The public site receives only the first two layers. The personal mapping layer
+and complete reports stay local under the ignored `reports/` directory.
+
+Supported inputs:
+
+- YouTube URLs, using subtitle tracks rather than video downloads
+- `.srt`, `.vtt`, `.txt`, and `.md` transcripts
+- Research papers as `.pdf`, `.txt`, or `.md`
+- Piped standard input for CLI use
+
+## Local Workbench
+
+The local workbench supports the full editorial handoff:
+
+- Switch between podcast/video and paper interpretation
+- Upload source files or provide a YouTube/source link
+- Review the complete private report and the proposed public layer separately
+- Edit title, tags, source link, and public Markdown before publishing
+- Review evidence-grounded connections to earlier episodes and papers
+- Remove suggested connections before publication
+- Manage already-published content and add a signed `From Helia` note
+- Edit the local personal background used by the mapping stage
+- Generate the English and Chinese publication trees
+- Commit the generated public files and push them to GitHub Pages
+
+Start it by double-clicking `start_ui.command`, or from Terminal:
+
+```bash
+./start_ui.command
+```
+
+The launcher installs current requirements, starts the server on
+`http://127.0.0.1:8765`, and opens the browser. Keep its Terminal window open;
+press `Ctrl-C` to stop it.
+
+Publishing from the workbench is a real Git operation. After confirmation it:
+
+1. Writes the public static output under `docs/`.
+2. Updates the editable publication sources under `.podlens/`.
+3. Commits only those two paths, excluding `.DS_Store`.
+4. Pushes the commit directly to `origin/main`.
+
+Other staged paths are not included in the publication commit. The current
+workflow is intended for a single-owner repository whose `main` branch deploys
+`docs/` through GitHub Pages.
 
 ## Setup
 
@@ -33,134 +81,168 @@ asked for in a prompt.
 bash setup.sh
 ```
 
-This creates a virtual environment, installs dependencies, and copies
-`.env.example` → `.env` and `profile.example.md` → `profile.md`.
+This creates `.venv`, installs dependencies, and creates `.env` and
+`profile.md` from their examples when those files do not already exist.
 
-Then:
+Configure one provider in `.env`:
 
-1. Open `.env` and paste your `GEMINI_API_KEY`
-   (free key: https://aistudio.google.com/apikey).
-2. (Optional) Edit `profile.md` with your own long-term interests and projects —
-   this powers the personal-mapping layer.
+```env
+# gemini or deepseek
+PODLENS_PROVIDER=gemini
 
-## Usage
+GEMINI_API_KEY=your_key_here
+DEEPSEEK_API_KEY=your_key_here
+
+# Optional. Leave blank for the selected provider's default model.
+PODLENS_MODEL=
+```
+
+Provider defaults:
+
+- Gemini: `gemini-2.5-pro`
+- DeepSeek: `deepseek-chat`
+
+Only the key for the selected provider is used. `profile.md`, `.env`, complete
+reports, transcripts, and source papers are ignored by Git.
+
+## CLI
+
+Activate the environment:
 
 ```bash
 source .venv/bin/activate
+```
 
-# Interpret a YouTube video by URL (captions fetched automatically)
+Common commands:
+
+```bash
+# Interpret a YouTube video
 python -m podlens "https://youtu.be/VIDEO_ID"
 
-# Interpret a transcript file, print to terminal
+# Interpret a local transcript
 python -m podlens examples/sample_transcript.txt
 
-# Save the report to a file
-python -m podlens my_transcript.txt -o report.md
+# Save a report
+python -m podlens my_transcript.srt -o report.md
 
-# Pipe a transcript in
+# Pipe text from the clipboard
 pbpaste | python -m podlens -
 
-# Skip personal mapping (reconstruction + plain language only)
+# Skip personal mapping
 python -m podlens my_transcript.txt --no-profile
 
-# Output in English instead of Chinese
+# Produce English interpretation output
 python -m podlens my_transcript.txt --lang en
-```
 
-### Inputs
-
-PodLens accepts a **YouTube URL**, a **subtitle file** (`.srt` / `.vtt`), a
-**transcript file** (`.txt` / `.md`, plain or with `[mm:ss]` timestamps), piped
-**stdin** (`-`), or raw transcript **text**. Subtitle files are the most reliable input with timestamps — and
-sidestep YouTube's bot-blocking entirely. Timestamps (`[12:34]`, `1:23:45`, or
-SRT/VTT cue times) are preserved and used as evidence anchors; if a pasted plain
-transcript has none, PodLens falls back to short verbatim quotes as anchors.
-
-```bash
-# A downloaded subtitle file (e.g. exported from YouTube) — recommended
-python -m podlens "My Episode.srt" -o report.md
-```
-
-YouTube captions are fetched with [yt-dlp](https://github.com/yt-dlp/yt-dlp)
-(only the subtitle track is downloaded, never the video).
-
-**If YouTube blocks you** (HTTP 429 / "Sign in to confirm you're not a bot"),
-that is an IP/bot check, not a bug. The fix is to let yt-dlp use your browser
-login — set in `.env`:
-
-```env
-PODLENS_COOKIES_FROM_BROWSER=chrome   # or safari / firefox / edge
-```
-
-For non-English videos, set `PODLENS_SUB_LANGS` (e.g. `zh.*,en.*,.*`).
-
-> Audio-file transcription and podcast RSS are still intentionally left out of
-> this version. They are plumbing that can be added later without changing the
-> core — the valuable part is the interpretation, not the intake.
-
-## How do I know it works?
-
-Without an API key, inspect the full prompt pipeline:
-
-```bash
+# Inspect the full prompt pipeline without an API call
 python -m podlens examples/sample_transcript.txt --dry-run
 ```
 
-With a key set in `.env`, run the real thing:
+Subtitle files are the most reliable podcast input because they preserve
+timestamps and avoid YouTube bot checks. If YouTube blocks caption fetching,
+you can let `yt-dlp` use an existing browser session:
 
-```bash
-python -m podlens examples/sample_transcript.txt
+```env
+PODLENS_COOKIES_FROM_BROWSER=chrome
+PODLENS_SUB_LANGS=zh.*,en.*,.*
 ```
 
-You should get a Markdown report with all the layers, in order.
+## Providers And Long Inputs
 
-## Where it can break
+Gemini and DeepSeek share the same internal provider boundary in
+`podlens/interpreter.py`.
 
-- **No API key / wrong key** → you'll get a clear error pointing at `.env`.
-  Use `--dry-run` to verify everything else first.
-- **Very long transcripts** → Gemini's context window is large (1M+ tokens), so
-  typical episodes fit without chunking. Multi-hour transcripts could eventually
-  exceed it; chunking is a future improvement.
-- **No timestamps in the transcript** → evidence anchors degrade to short
-  verbatim quotes instead of timestamps. PodLens notes this at the top of the report.
-- **Rate limits on the free tier** → three calls per run; heavy use may hit
-  limits. Switch `PODLENS_MODEL` to `gemini-2.5-flash` for lighter, faster runs.
+For long podcast transcripts, DeepSeek uses `podlens/chunking.py` to split
+Stages 1 and 2 on transcript-line boundaries, interpret each segment, and merge
+the partial results. Stage 3 and paper interpretation use the already-condensed
+intermediate output and are not chunked. Gemini keeps the single-call path.
 
-## Roadmap (next logical improvements)
+Chunking increases the number of calls and may lose some cross-segment nuance.
+DeepSeek output, especially names, institutions, translations, and suggested
+connections, should be read end-to-end before publication.
 
-- Audio-file transcription and podcast RSS as input adapters.
-- A thin web UI that calls the same `interpret()` core.
-- Append accepted concepts to a growing personal knowledge file.
+## Bilingual Publishing
 
-## Publishing a public feed (optional)
+The public site is English-primary:
 
-PodLens can publish the **public layers** of your interpretations as a static
-site with an RSS feed, JSON Feed, and sitemap — a you-owned, machine-readable
-surface that search engines and agents can discover and cite.
+- English: `/`, `/episodes/`, `/papers/`, `/feed.xml`
+- Chinese: `/zh/`, `/zh/episodes/`, `/zh/papers/`, `/zh/feed.xml`
 
-**Privacy is enforced:** only the public layers (what the episode is about, the
-topic map, core ideas, the plain-language re-telling, moments worth hearing) are
-published. Everything from `PODLENS_PRIVATE_CUTOFF` onward — your evidence-grounded
-insights and personal mapping — is stripped and **never written to the site**.
+The two language versions are connected with a visible language switch and
+`hreflang`. Legacy `/en/...` HTML pages redirect to the English root paths.
+
+CLI publishing commands:
 
 ```bash
-# Interpret and publish in one go (personal layers stay local)
+# Interpret and publish
 python -m podlens "Episode.srt" --title "My Episode" --publish
 
-# Publish an already-saved report without re-spending an API call
+# Publish an existing report without another interpretation call
 python -m podlens --publish-existing report.md --title "My Episode"
 
-# Rebuild index/feeds/sitemap from the manifest (no new episode)
+# Rebuild indexes, feeds, and sitemap from the manifest
 python -m podlens --rebuild-site
 ```
 
-Output goes to `docs/`, which GitHub Pages can serve directly. Configure the
-site in `.env` (`PODLENS_SITE_URL`, `PODLENS_SITE_TITLE`, `PODLENS_CUSTOM_DOMAIN`,
-etc.). To serve it: enable GitHub Pages on the `main` branch `/docs` folder, and
-point a subdomain at it with a CNAME DNS record (your DNS host stays wherever it
-is — only the CNAME needs to point to `<user>.github.io`).
+`PODLENS_PRIVATE_CUTOFF` defines where private report layers begin. Everything
+from that heading onward is removed before static files are written.
+
+## GitHub Pages Deployment
+
+The repository is configured for GitHub Pages from `main` and `/docs`, with
+`docs/CNAME` pointing to `lens.lumihelia.com`.
+
+Deployment flow:
+
+```text
+review in local workbench
+    -> generate docs/ and .podlens/
+    -> scoped Git commit
+    -> push origin/main
+    -> GitHub Pages build
+    -> lens.lumihelia.com
+```
+
+The workbench reports Git commit and push failures separately. A successful
+push does not mean the Pages build has finished; allow a few minutes, then
+verify the public page and feed.
+
+## Verification
+
+Run the offline verification suite:
+
+```bash
+python3 -m unittest discover -s tests -v
+python3 -m compileall -q podlens webui
+python3 -m podlens examples/sample_transcript.txt --dry-run
+git diff --check
+```
+
+The tests cover provider defaults, transcript chunking, publication commit
+scope, XML parsing, bilingual route inventory, source URLs, and public-layer
+privacy headings. Real model calls, translations, Git pushes, and Pages
+deployment still require explicit live verification.
+
+## Known Limits
+
+- Audio-file transcription and podcast RSS ingestion are not implemented.
+- YouTube caption fetching can be blocked by bot checks or rate limits.
+- PDF extraction quality depends on the paper layout; `.txt` or `.md` is the
+  fallback for difficult PDFs.
+- DeepSeek chunking reduces context pressure but does not remove the need for
+  editorial review.
+- The workbench is a local single-user tool, not a hosted multi-user CMS.
+
+## Repository Map
+
+- `podlens/`: interpretation, provider, publishing, and source-processing logic
+- `webui/`: local editorial workbench
+- `.podlens/episodes/`: editable bilingual publication sources
+- `docs/`: generated GitHub Pages site
+- `scripts/`: one-off publishing and maintenance tools
+- `tests/`: offline regression tests
+- `.context/`: durable project context for future development sessions
 
 ## License
 
-[MIT](LICENSE) — free to use, modify, and distribute.
-```
+[MIT](LICENSE)
