@@ -40,6 +40,18 @@ class StaticSiteTests(unittest.TestCase):
             for heading in PRIVATE_HEADINGS:
                 self.assertNotIn(heading, text, f"{heading} leaked into {path}")
 
+    def test_merged_episode_keeps_legacy_redirects(self) -> None:
+        old_slug = "alexei-efros-surface-deep-data-curious-robot"
+        target = "https://lens.lumihelia.com/episodes/alexei-efros-surface-data-deep-data.html"
+        for path in (
+            DOCS / "episodes" / f"{old_slug}.html",
+            DOCS / "en" / "episodes" / f"{old_slug}.html",
+        ):
+            with self.subTest(path=path):
+                page = path.read_text(encoding="utf-8")
+                self.assertIn(f'<meta http-equiv="refresh" content="0; url={target}">', page)
+                self.assertIn(f'<link rel="canonical" href="{target}">', page)
+
 
 if __name__ == "__main__":
     unittest.main()

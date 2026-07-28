@@ -55,6 +55,14 @@ EN_DIR = SITE_DIR / "en"
 EN_EPISODES_DIR = EN_DIR / "episodes"
 EN_PAPERS_DIR = EN_DIR / "papers"
 
+# Historical slugs that were merged or renamed after publication. Keep these
+# as crawlable compatibility pages so external links converge on one canonical
+# interpretation instead of becoming permanent 404s.
+LEGACY_EPISODE_REDIRECTS = {
+    "alexei-efros-surface-deep-data-curious-robot":
+        "alexei-efros-surface-data-deep-data",
+}
+
 # Sections: each kind maps to a URL section + output dir. "episodes" is the
 # home/primary section (covers audio AND video); "papers" is its own section.
 # Adding a future section is one row here + one nav label — nothing else.
@@ -1070,6 +1078,31 @@ def build_sitemap(items: list[dict], site: SiteConfig, en_slugs: set) -> str:
     )
 
 
+def _render_legacy_redirect(site: SiteConfig, target_slug: str) -> str:
+    target = _ep_url(site, target_slug, "en", section="episodes")
+    return f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="refresh" content="0; url={html.escape(target, quote=True)}">
+<link rel="canonical" href="{html.escape(target, quote=True)}">
+<title>Moved</title>
+</head>
+<body>
+<p>This page has moved to <a href="{html.escape(target, quote=True)}">{html.escape(target)}</a>.</p>
+</body>
+</html>
+'''
+
+
+def _write_legacy_redirects(site: SiteConfig) -> None:
+    EN_EPISODES_DIR.mkdir(parents=True, exist_ok=True)
+    for old_slug, target_slug in LEGACY_EPISODE_REDIRECTS.items():
+        page = _render_legacy_redirect(site, target_slug)
+        (EPISODES_DIR / f"{old_slug}.html").write_text(page, encoding="utf-8")
+        (EN_EPISODES_DIR / f"{old_slug}.html").write_text(page, encoding="utf-8")
+
+
 # --- Orchestration ------------------------------------------------------------
 
 def publish_report(
@@ -1229,6 +1262,7 @@ def _rebuild_site(items: list[dict], site: SiteConfig) -> None:
             _write_jsonfeed(paps, site, lang, pdir / "papers.json", "papers")
 
     _write_manifest(items)
+    _write_legacy_redirects(site)
     (SITE_DIR / "sitemap.xml").write_text(build_sitemap(items, site, en_slugs), encoding="utf-8")
     (SITE_DIR / "robots.txt").write_text(
         f"User-agent: *\nAllow: /\nSitemap: {site.clean_base}/sitemap.xml\n",
